@@ -9,6 +9,7 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
+      - PUBHBIO7225_L01_vocab.qmd
 
 format:
   html:
