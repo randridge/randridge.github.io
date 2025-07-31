@@ -3,13 +3,14 @@ project:
   output-dir: docs
 
 website:
-  title: "randridge.github.io??"
+  title: "randridge.github.io"
   navbar:
     left:
       - href: index.qmd
-        text: Home?
+        text: Home
       - about.qmd
-      - PUBHBIO7225_L01_vocab.qmd
+      - text: 7225 Lectures
+        href: 7225notes.qmd
 
 format:
   html:
