@@ -1,5 +1,5 @@
 ---
-title: "PUBHBIO 7225 Lecture Notes"
+title: "PUBHBIO 7225 Lecture Slides"
 ---
 
 ## Lecture Slides for PUBHBIO 7225, Autumn 2025

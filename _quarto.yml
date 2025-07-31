@@ -9,7 +9,7 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
-      - text: 7225 Lectures
+      - text: 7225 Lecture Slides
         href: 7225notes.qmd
 
 format:

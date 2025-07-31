@@ -1,19 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "randridge.github.io",
-    "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
-  },
-  {
     "objectID": "PUBHBIO7225_L01_vocab.html#outline",
     "href": "PUBHBIO7225_L01_vocab.html#outline",
     "title": "Course Intro: Vocabulary of Sampling",
@@ -126,17 +112,31 @@
     "text": "Activity 1.1 (Part 2)\nVocabulary of Survey Sampling (Part 2)"
   },
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "randridge.github.io",
+    "section": "",
+    "text": "This is a work in progress."
+  },
+  {
     "objectID": "7225notes.html",
     "href": "7225notes.html",
-    "title": "PUBHBIO 7225 Lecture Notes",
+    "title": "PUBHBIO 7225 Lecture Slides",
     "section": "",
     "text": "Lecture 1: Course Intro: Vocabulary of Sampling"
   },
   {
     "objectID": "7225notes.html#lecture-slides-for-pubhbio-7225-autumn-2025",
     "href": "7225notes.html#lecture-slides-for-pubhbio-7225-autumn-2025",
-    "title": "PUBHBIO 7225 Lecture Notes",
+    "title": "PUBHBIO 7225 Lecture Slides",
     "section": "",
     "text": "Lecture 1: Course Intro: Vocabulary of Sampling"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
   }
 ]
