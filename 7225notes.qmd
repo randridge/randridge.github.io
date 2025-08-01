@@ -5,3 +5,5 @@ title: "PUBHBIO 7225 Lecture Slides"
 ## Lecture Slides for PUBHBIO 7225, Autumn 2025
 
 [Lecture 1: Course Intro: Vocabulary of Sampling](./PUBHBIO7225_L01_vocab.qmd)
+
+[Lecture 2: Survey Modes and the Total Survey Error Framework](./PUBHBIO7225_L02_modesTSE.qmd)

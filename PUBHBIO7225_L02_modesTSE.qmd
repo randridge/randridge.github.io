@@ -1,0 +1,188 @@
+---
+subtitle: "PUBHBIO 7225 Lecture 2"
+title: "Survey Modes and the Total Survey Error Framework"
+format:
+  revealjs: 
+    slide-number: true
+    smaller: true
+    footer: "PUBHBIO 7225"
+---
+
+## Outline
+
+::::: columns
+::: {.column width="50%"}
+Topics
+
+-   Designing Survey Questions
+-   Survey Modes
+-   Total Survey Error (TSE) framework
+:::
+
+::: {.column width="50%"}
+Activities
+
+-   2.1 Survey Questions
+-   2.2 OPAS Sources of Error
+:::
+:::::
+
+Readings
+
+-   Dillman DA and Christian LM (2005). Survey Mode as a Source of Instability in Responses across Surveys. *Field Methods*, 17(1), 30-52. (PDF on Carmen)
+
+Assignments
+
+-   Problem Set \# due Thursday x/xx/xx 11:59pm via Carmen
+-   Quiz \# due Thursday x/xx/xx 11:59pm via Carmen
+-   Peer Evaluation of Problem Set \# due Tuesday x/x/xx 11:59pm via Carmen
+
+## Designing Survey Questions
+
+::: {r-fit-text}
+Assuming the observation unit is a **person**, questions should be ...
+
+-   Simple and clear
+    -   Beware words that might be interpreted differently by different people, or might not be understood by some people
+-   Specific, not general
+    -   "Have you ever been attacked?" OR
+    -   "Has anyone ever attacked you in any of these ways: (a) With any weapon, for example, a gun or knife, (b) With anything like a baseball bat, frying pan, scissors..."
+-   Related to the concept of interest
+    -   Reusing questions from previous surveys allows for historical comparison -- if appropriate for the audience/topic
+-   Carefully ordered
+    -   Responses to a question may be unduly influenced by question(s) that preceded it
+    -   Usually best to ask more general question first, followed by specific question(s)
+:::
+
+------------------------------------------------------------------------
+
+**Questions should be (cont.):**
+
+-   Not leading or “loaded” questions
+
+    -   Questions can be written to lead the respondent to the answer the survey writer wants to hear — don't do this!
+
+-   Not written as double-negatives
+
+    -   “Do you favor or oppose not allowing drivers to use cell phones while driving?” OR
+
+    -   “Do you agree with laws banning cell phone use while driving?”
+
+-   Not double-barreled
+
+    -   Be sure to ask only one concept per question
+
+-   If closed-ended, all response options are available
+
+    -   Make sure all respondents would be able to endorse *at least one* answer
+
+-   If multiple-choice/forced-choice, response options are mutually exclusive and exhaustive
+
+    -   Make sure all respondents would be able to select *just one* answer
+
+## Activity 2.1: (Part 1)
+
+Survey Questions (Part 1)
+
+## Survey Modes
+
+Four ways we could get information from a sampled person, called the **survey mode**:
+
+1.  Face-to-Face
+2.  Mail
+3.  Phone
+4.  Internet
+
+High-level differences include:
+
+::::: columns
+::: {.column width="50%"}
+-   Cost
+
+-   Use or non-use of an interviewer
+
+-   Presence of visual aids
+
+-   Enforcement of “skip patterns”
+
+-   Issues with the frame
+
+-   What types of biases likely to be present
+:::
+
+::: {.column width="50%"}
+-   Availability of (and types of) paradata
+
+    -   Paradata = data collected about the survey process
+
+        (e.g., how long the interview took, how many attempts to reach person, interviewer observations)
+:::
+:::::
+
+## Mode: Face-to-Face
+
+Survey completed in-person via an interviewer, traditionally via door-to-door canvassing (considered “gold standard”)
+
+[**Pros:**]{.absolute top="180"}
+
+[**Cons:**]{.absolute top="380"}
+
+[**Frame Considerations:**]{.absolute top="600"}
+
+## Mode: Mail/Written
+
+Survey completed by respondent with paper and pencil (“PAPI”), usually sent via mail
+
+[**Pros:**]{.absolute top="180"}
+
+[**Cons:**]{.absolute top="380"}
+
+[**Frame Considerations:**]{.absolute top="600"}
+
+## Mode: Phone
+
+Survey completed over the phone – in practice, usually “CATI” (Computer Aided Telephone Interview) where computer is used by interviewer (not by respondent)
+
+[**Pros:**]{.absolute top="180"}
+
+[**Cons:**]{.absolute top="380"}
+
+[**Frame Considerations:**]{.absolute top="600"}
+
+## Mode: Internet
+
+Survey completed online, often called “CAWI” (Computer Aided Web Interview)
+
+[**Pros:**]{.absolute top="180"}
+
+[**Cons:**]{.absolute top="380"}
+
+[**Frame Considerations:**]{.absolute top="600"}
+
+## Activity 2.1 (Part 2)
+
+Survey Questions (Part 2)
+
+## Survey Errors
+
+Historically, survey methodologists described errors as "Sampling Errors" and "Non-Sampling Errors"
+
+More modern approach is the **Total Survey Error approach**
+
+**Total Survey Error** = difference between population parameter (the truth) and the estimate of that parameter based on a sample survey
+
+[**Two types of survey error:**]{style="color:#cc0000"}
+
+1.  Random error -- random fluctuation from sample to sample
+    -   Should "cancel out" in terms of bias of the sample estimate but will increase variance (reduce precision)
+2.  Systematic error -- e.g., underreporting of sensitive behaviors
+    -   Biases the sample estimate systematically away from the true value
+
+## Sources of Errors: Two Categories
+
+1.  **Representation** -- how well the (weighted) sample represents the target population
+    -   Errors that would not occur if we had a census (measured entire population)
+2.  **Measurement** -- how well the (edited) survey responses obtained from a respondent reflect the underlying construct being measured
+    -   Errors that could occur even with a census
+
+![Adapted from Groves et al. (2009), Survey Methodology, 2nd Edition](figures/TSEdiagram.png){fig-alt="A flowchart diagram of the Total Survey Error (TSE) framework. The diagram is split into two main vertical columns, \"Measurement\" on the left and \"Representation\" on the right. In the Measurement column, the flow goes from \"Construct\" to \"Measurement\" to \"Response\" to \"Edited Data.\" Red arrows pointing to the right of each step label the sources of error: \"Specification Error (Validity)\" for the first step, \"Measurement Error\" for the second, and \"Processing Error\" for the third. The Representation column flows from \"Target Population\" to \"Sampling Frame\" to \"Sample\" to \"Respondents\" to \"Postsurvey Adjustments.\" Similarly, red arrows label the errors at each step: \"Coverage Error,\" \"Sampling Error,\" \"Nonresponse Error,\" and \"Adjustment Error.\" Both columns converge at the bottom, with arrows from \"Edited Data\" and \"Postsurvey Adjustments\" pointing to a final box labeled \"Survey Statistic.\""}

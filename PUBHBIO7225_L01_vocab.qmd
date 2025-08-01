@@ -153,9 +153,9 @@ Predominant concern with non-probability samples
 
 In general when survey samplers say "SRS" we mean SRSWOR
 
-::: {r-fit-text}
 ## Stratified Random Sample {#slide-strat}
 
+::: {r-fit-text}
 **Stratified Random Sample** – divide population into $H$ distinct subgroups called strata, and take SRS from each stratum, with each SRS taken independently
 
 -   Strata must be mutually exclusive (each unit only belongs to 1 stratum)

@@ -67,7 +67,7 @@
     "href": "PUBHBIO7225_L01_vocab.html#slide-strat",
     "title": "Course Intro: Vocabulary of Sampling",
     "section": "Stratified Random Sample",
-    "text": "Stratified Random Sample\nStratified Random Sample – divide population into \\(H\\) distinct subgroups called strata, and take SRS from each stratum, with each SRS taken independently\n\nStrata must be mutually exclusive (each unit only belongs to 1 stratum)\nStrata must be exhaustive (all units belong to a stratum)\nStrata are often subgroups of interest\n\nPros/Cons:\n\nEnsures (at least some) elements are selected from each stratum (subgroups)\nCan reduce variance in overall estimates (increase precision) relative to an SRS\n\nIf differences among strata explain a significant proportion of the variability in the attribute of interest, gain in precision can be large\n\n\nAllocation Method - how much of the sample comes from each stratum"
+    "text": "Stratified Random Sample\n\nStratified Random Sample – divide population into \\(H\\) distinct subgroups called strata, and take SRS from each stratum, with each SRS taken independently\n\nStrata must be mutually exclusive (each unit only belongs to 1 stratum)\nStrata must be exhaustive (all units belong to a stratum)\nStrata are often subgroups of interest\n\nPros/Cons:\n\nEnsures (at least some) elements are selected from each stratum (subgroups)\nCan reduce variance in overall estimates (increase precision) relative to an SRS\n\nIf differences among strata explain a significant proportion of the variability in the attribute of interest, gain in precision can be large\n\n\nAllocation Method - how much of the sample comes from each stratum"
   },
   {
     "objectID": "PUBHBIO7225_L01_vocab.html#slide-clus",
@@ -123,14 +123,14 @@
     "href": "7225notes.html",
     "title": "PUBHBIO 7225 Lecture Slides",
     "section": "",
-    "text": "Lecture 1: Course Intro: Vocabulary of Sampling"
+    "text": "Lecture 1: Course Intro: Vocabulary of Sampling\nLecture 2: Survey Modes and the Total Survey Error Framework"
   },
   {
     "objectID": "7225notes.html#lecture-slides-for-pubhbio-7225-autumn-2025",
     "href": "7225notes.html#lecture-slides-for-pubhbio-7225-autumn-2025",
     "title": "PUBHBIO 7225 Lecture Slides",
     "section": "",
-    "text": "Lecture 1: Course Intro: Vocabulary of Sampling"
+    "text": "Lecture 1: Course Intro: Vocabulary of Sampling\nLecture 2: Survey Modes and the Total Survey Error Framework"
   },
   {
     "objectID": "about.html",
@@ -138,5 +138,152 @@
     "title": "About",
     "section": "",
     "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "PUBHBIO7225_LXX_template.html#outline",
+    "href": "PUBHBIO7225_LXX_template.html#outline",
+    "title": "Lecture Title",
+    "section": "Outline",
+    "text": "Outline\n\n\nTopics\n\ntopic 1\ntopic 2\n\n\nActivities\n\n#.# activity\n\n\nAssignments\n\nProblem Set # due Thursday x/xx/xx 11:59pm via Carmen\nQuiz # due Thursday x/xx/xx 11:59pm via Carmen\nPeer Evaluation of Problem Set # due Tuesday x/x/xx 11:59pm via Carmen"
+  },
+  {
+    "objectID": "PUBHBIO7225_LXX_template.html#why-do-we-sample",
+    "href": "PUBHBIO7225_LXX_template.html#why-do-we-sample",
+    "title": "Lecture Title",
+    "section": "Why do we sample?",
+    "text": "Why do we sample?\nslide text"
+  },
+  {
+    "objectID": "PUBHBIO7225_LXX_template.html#long-text-slide",
+    "href": "PUBHBIO7225_LXX_template.html#long-text-slide",
+    "title": "Lecture Title",
+    "section": "Long text slide",
+    "text": "Long text slide\n\nTo make sure text fits, use this environment"
+  },
+  {
+    "objectID": "PUBHBIO7225_LXX_template.html#slide-title",
+    "href": "PUBHBIO7225_LXX_template.html#slide-title",
+    "title": "Lecture Title",
+    "section": "Slide title",
+    "text": "Slide title\nslide text"
+  },
+  {
+    "objectID": "PUBHBIO7225_L02_modesTSE.html#outline",
+    "href": "PUBHBIO7225_L02_modesTSE.html#outline",
+    "title": "Survey Modes and the Total Survey Error Framework",
+    "section": "Outline",
+    "text": "Outline\n\n\nTopics\n\nDesigning Survey Questions\nSurvey Modes\nTotal Survey Error (TSE) framework\n\n\nActivities\n\n2.1 Survey Questions\n2.2 OPAS Sources of Error\n\n\nReadings\n\nDillman DA and Christian LM (2005). Survey Mode as a Source of Instability in Responses across Surveys. Field Methods, 17(1), 30-52. (PDF on Carmen)\n\nAssignments\n\nProblem Set # due Thursday x/xx/xx 11:59pm via Carmen\nQuiz # due Thursday x/xx/xx 11:59pm via Carmen\nPeer Evaluation of Problem Set # due Tuesday x/x/xx 11:59pm via Carmen"
+  },
+  {
+    "objectID": "PUBHBIO7225_L02_modesTSE.html#slide-title",
+    "href": "PUBHBIO7225_L02_modesTSE.html#slide-title",
+    "title": "Lecture Title",
+    "section": "Slide title",
+    "text": "Slide title\nslide text"
+  },
+  {
+    "objectID": "PUBHBIO7225_L02_modesTSE.html#long-text-slide",
+    "href": "PUBHBIO7225_L02_modesTSE.html#long-text-slide",
+    "title": "Survey Modes and the Total Survey Error Framework",
+    "section": "Long text slide",
+    "text": "Long text slide\n\nTo make sure text fits, use this environment"
+  },
+  {
+    "objectID": "L2.html",
+    "href": "L2.html",
+    "title": "randridge.github.io",
+    "section": "",
+    "text": "Topics\n\nDesigning Survey Questions\nSurvey Modes\nTotal Survey Error (TSE) framework\n\n\n\n\n\nActivities\n\n2.1 Survey Questions\n2.2 OPAS Sources of Error\n\n\n\n\nReadings\n\nDillman DA and Christian LM (2005). Survey Mode as a Source of Instability in Responses across Surveys. Field Methods, 17(1), 30-52. (PDF on Carmen)\n\n\n\n\nAssignments\n\nProblem Set 1 due Tuesday 8/29/23 11:59pm via Carmen\n\n\nTopic could take up a whole class – just an intro of some things to think about\nAssuming the observation unit is a person\nQuestions should be …\n\nSimple and clear\n\nBeware words that might be interpreted differently by different people, or might not be understood by some people\n\nSpecific, not general\n\n“Have you ever been attacked?” OR\n“Has anyone ever attacked you in any of these ways: (a) With any weapon, for example, a gun or knife, (b) With anything like a baseball bat, frying pan, scissors…”\n\nRelated to the concept of interest\n\nReusing questions from previous surveys allows for historical comparison – but make sure they are appropriate for the audience/topic\n\nCarefully ordered\n\nResponses to a question may be unduly influenced by question(s) that preceded it\nUsually best to ask more general question first, followed by specific question(s)\n\n\nQuestions should be …(con’t)\n\nNot leading or “loaded” questions\n\nQuestions can be written to as to lead the respondent to the answer the survey writer wants to hear – don’t do this!\n\nNot written as double-negatives\n\n“Do you favor or oppose not allowing drivers to use cell phones while driving?” OR\n“Do you agree with laws banning cell phone use while driving?”\n\nNot double-barreled\n\nBe sure to ask only one concept per question\n\nIf closed-ended, all response options are available\n\nMake sure all respondents would be able to endorse at least one answer\n\nIf multiple-choice/forced-choice, response options are mutually exclusive and exhaustive\n\nMake sure all respondents would be able to select just one answer\n\n\n\nACTIVITY: Survey Questions (Part 1)\n\nAssume the observation unit is a person\nFour ways we could get information from the person, called the survey mode:\n\nFace-to-Face\nMail\nPhone\nInternet\n\nHigh-level differences including:\n\nCost\nUse or non-use of an interviewer\nPresence of visual aids\nEnforcement of “skip patterns”\nIssues with the frame\nWhat types of biases more/less likely to be present\nAvailability of (and types of) paradata\n\nParadata = data collected about the survey process (e.g., how long the interview took, how many attempts to reach person), can also be interviewer observations\n\n\n– survey completed in-person via an interviewer, traditionally via door-to-door canvassing (considered “gold standard”)\nPros:\nCons:\nFrame Considerations:\n\n– survey completed by respondent with paper and pencil (“PAPI”), usually sent via mail\nPros:\nCons:\nFrame Considerations:\n\n– survey completed over the phone – in practice, usually “CATI” (Computer Aided Telephone Interview) where computer is used by interviewer (not by respondent)\nPros:\nCons:\nFrame Considerations:\n\n– survey completed online, often called “CAWI” (Computer Aided Web Interview)\nPros:\nCons:\nFrame Considerations:\n\n\nACTIVITY: Survey Questions (Part 2)\n\nHistorically, survey methodologists described errors as “Sampling Errors” and “Non-Sampling Errors”\nMore modern approach is the approach\n= difference between population parameter (the truth) and the estimate of that parameter based on a sample survey\n\nRandom error – random fluctuation from sample to sample\n\nShould “cancel out” in terms of bias of the sample estimate but will increase variance (reduce precision)\n\nSystematic error – e.g., underreporting of sensitive behaviors\n\nBiases the sample estimate systematically away from the true value\n\n\n\n\nRepresentation – how well the (weighted) sample represents the target population\n\nErrors that would not occur if we had a census (measured entire population)\n\nMeasurement – how well the (edited) survey responses obtained from a respondent reflect the underlying construct being measured\n\nErrors that could occur even with a census\n\n\n\nAdapted from Groves et al. (2009), Survey Methodology, 2nd Edition\n\n\n– mismatch between target population and sampling frame\n\nUndercoverage – some members of the target population are not in sampled population\nOvercoverage – sampling frame contains units that are not in the target population\n\n– error that results from taking a sample rather than evaluating the whole population (variability inherent in using a random subset of the population for estimation)\n– not all sampled units respond/provide complete data, and responses from the units who do participate may be different from the responses from units who do not participate (if they had been observed)\n\nUnit nonresponse – a sampled unit provides no data at all\nItem nonresponse – a sampled unit provides some data, but some items have missing values\n\n– error arising when the sample is adjusted for design effects (i.e., the “complex design”) via weighting or other techniques (poststratification, calibration), possibly including adjustments for nonresponse\n\nAll these representation-related errors can lead to\nSelection Bias…\n\narises when some part of the target population is not in the sampled population\noccurs when the actual probabilities with which units are sampled differ from the specified selection probabilities\nis most obviously a problem for non-probability samples, but can also arise with probability samples\n\n\n\nhttps://xkcd.com/2618/\n\n\n– error arising when the construct being measured is operationalized (turned into survey questions) in an invalid way, i.e., the questions do not properly measure the underlying construct\n– the measured response differs from the true value (many possible reasons), which is especially problematic when asking people questions\n\nSome sources of measurement error:\n\n\nlying\nforgetting/recall bias\ninterviewer effects\nsocial desirability\nquestion order\nquestion wording\n\n\n\n\nnot understanding or misinterpreting the question\ndifferent responses in different survey modes\ndifferent responses to different interviewers\nsatisficing (choosing “easy” answers to\nreduce response burden)\n\n\n\n– data entry errors and coding errors, for example, from coding open-ended responses or classifying occupations\n\n\nACTIVITY: OPAS Sources of Error"
+  },
+  {
+    "objectID": "PUBHBIO7225_L02_modesTSE.html#designing-survey-questions",
+    "href": "PUBHBIO7225_L02_modesTSE.html#designing-survey-questions",
+    "title": "Survey Modes and the Total Survey Error Framework",
+    "section": "Designing Survey Questions",
+    "text": "Designing Survey Questions\n\nAssuming the observation unit is a person, questions should be …\n\nSimple and clear\n\nBeware words that might be interpreted differently by different people, or might not be understood by some people\n\nSpecific, not general\n\n“Have you ever been attacked?” OR\n“Has anyone ever attacked you in any of these ways: (a) With any weapon, for example, a gun or knife, (b) With anything like a baseball bat, frying pan, scissors…”\n\nRelated to the concept of interest\n\nReusing questions from previous surveys allows for historical comparison – if appropriate for the audience/topic\n\nCarefully ordered\n\nResponses to a question may be unduly influenced by question(s) that preceded it\nUsually best to ask more general question first, followed by specific question(s)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L02_modesTSE.html#activity-2.1-part-1",
+    "href": "PUBHBIO7225_L02_modesTSE.html#activity-2.1-part-1",
+    "title": "Survey Modes and the Total Survey Error Framework",
+    "section": "Activity 2.1: (Part 1)",
+    "text": "Activity 2.1: (Part 1)\nSurvey Questions (Part 1)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L02_modesTSE.html#survey-modes-how-do-we-collect-the-data",
+    "href": "PUBHBIO7225_L02_modesTSE.html#survey-modes-how-do-we-collect-the-data",
+    "title": "Survey Modes and the Total Survey Error Framework",
+    "section": "Survey Modes (How do we collect the data?)",
+    "text": "Survey Modes (How do we collect the data?)\nAssume the observation unit is a person\nFour ways we could get information from the person, called the survey mode:\n\nFace-to-Face\nMail\nPhone\nInternet\n\nHigh-level differences include:\n\nCost Use or non-use of an interviewer\nPresence of visual aids\nEnforcement of “skip patterns”\nIssues with the frame\nWhat types of biases more/less likely to be present\nAvailability of (and types of) paradata\n\nParadata = data collected about the survey process (e.g., how long the interview took, how many attempts to reach person), can also be interviewer observations"
+  },
+  {
+    "objectID": "PUBHBIO7225_L02_modesTSE.html#survey-modes",
+    "href": "PUBHBIO7225_L02_modesTSE.html#survey-modes",
+    "title": "Survey Modes and the Total Survey Error Framework",
+    "section": "Survey Modes",
+    "text": "Survey Modes\nFour ways we could get information from a sampled person, called the survey mode:\n\nFace-to-Face\nMail\nPhone\nInternet\n\nHigh-level differences include:\n\n\n\nCost\nUse or non-use of an interviewer\nPresence of visual aids\nEnforcement of “skip patterns”\nIssues with the frame\nWhat types of biases likely to be present\n\n\n\nAvailability of (and types of) paradata\n\nParadata = data collected about the survey process\n(e.g., how long the interview took, how many attempts to reach person, interviewer observations)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L02_modesTSE.html#mode-face-to-face",
+    "href": "PUBHBIO7225_L02_modesTSE.html#mode-face-to-face",
+    "title": "Survey Modes and the Total Survey Error Framework",
+    "section": "Mode: Face-to-Face",
+    "text": "Mode: Face-to-Face\nSurvey completed in-person via an interviewer, traditionally via door-to-door canvassing (considered “gold standard”)\nPros:\nCons:\nFrame Considerations:"
+  },
+  {
+    "objectID": "PUBHBIO7225_L02_modesTSE.html#mode-face-to-face-1",
+    "href": "PUBHBIO7225_L02_modesTSE.html#mode-face-to-face-1",
+    "title": "Survey Modes and the Total Survey Error Framework",
+    "section": "Mode: Face-to-Face",
+    "text": "Mode: Face-to-Face\nFace-to-Face — survey completed in-person via an interviewer, traditionally via door-to-door canvassing (considered “gold standard”)\n\n\nPros:\n\nInterviewer has more control/can see visual cues of respondent\nVisual aids can be used\nInterviewers can motivate and establish rapport\nInterviewer observations = “paradata”\n\n\nCons:\n\nInterviewer effects\nVery expensive\nVery time-consuming\nDifficult to reach a large geographic region\nRespondent may not feel anonymous\n\n\nFrame Considerations:\n\nDepends on source"
+  },
+  {
+    "objectID": "PUBHBIO7225_L02_modesTSE.html#mode",
+    "href": "PUBHBIO7225_L02_modesTSE.html#mode",
+    "title": "Survey Modes and the Total Survey Error Framework",
+    "section": "Mode:",
+    "text": "Mode:"
+  },
+  {
+    "objectID": "PUBHBIO7225_L02_modesTSE.html#mode-mailwritten",
+    "href": "PUBHBIO7225_L02_modesTSE.html#mode-mailwritten",
+    "title": "Survey Modes and the Total Survey Error Framework",
+    "section": "Mode: Mail/Written",
+    "text": "Mode: Mail/Written\nSurvey completed by respondent with paper and pencil (“PAPI”), usually sent via mail\nPros:\nCons:\nFrame Considerations:"
+  },
+  {
+    "objectID": "PUBHBIO7225_L02_modesTSE.html#mode-phone",
+    "href": "PUBHBIO7225_L02_modesTSE.html#mode-phone",
+    "title": "Survey Modes and the Total Survey Error Framework",
+    "section": "Mode: Phone",
+    "text": "Mode: Phone\nSurvey completed over the phone – in practice, usually “CATI” (Computer Aided Telephone Interview) where computer is used by interviewer (not by respondent)\nPros:\nCons:\nFrame Considerations:"
+  },
+  {
+    "objectID": "PUBHBIO7225_L02_modesTSE.html#mode-internet",
+    "href": "PUBHBIO7225_L02_modesTSE.html#mode-internet",
+    "title": "Survey Modes and the Total Survey Error Framework",
+    "section": "Mode: Internet",
+    "text": "Mode: Internet\nSurvey completed online, often called “CAWI” (Computer Aided Web Interview)\nPros:\nCons:\nFrame Considerations:"
+  },
+  {
+    "objectID": "PUBHBIO7225_L02_modesTSE.html#activity-2.1-part-2",
+    "href": "PUBHBIO7225_L02_modesTSE.html#activity-2.1-part-2",
+    "title": "Survey Modes and the Total Survey Error Framework",
+    "section": "Activity 2.1 (Part 2)",
+    "text": "Activity 2.1 (Part 2)\nSurvey Questions (Part 2)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L02_modesTSE.html#survey-errors",
+    "href": "PUBHBIO7225_L02_modesTSE.html#survey-errors",
+    "title": "Survey Modes and the Total Survey Error Framework",
+    "section": "Survey Errors",
+    "text": "Survey Errors\nHistorically, survey methodologists described errors as “Sampling Errors” and “Non-Sampling Errors”\nMore modern approach is the Total Survey Error approach\nTotal Survey Error = difference between population parameter (the truth) and the estimate of that parameter based on a sample survey\nTwo types of survey error:\n\nRandom error – random fluctuation from sample to sample\n\nShould “cancel out” in terms of bias of the sample estimate but will increase variance (reduce precision)\n\nSystematic error – e.g., underreporting of sensitive behaviors\n\nBiases the sample estimate systematically away from the true value"
+  },
+  {
+    "objectID": "PUBHBIO7225_L02_modesTSE.html#sources-of-errors-two-categories",
+    "href": "PUBHBIO7225_L02_modesTSE.html#sources-of-errors-two-categories",
+    "title": "Survey Modes and the Total Survey Error Framework",
+    "section": "Sources of Errors: Two Categories",
+    "text": "Sources of Errors: Two Categories\n\nRepresentation – how well the (weighted) sample represents the target population\n\nErrors that would not occur if we had a census (measured entire population)\n\nMeasurement – how well the (edited) survey responses obtained from a respondent reflect the underlying construct being measured\n\nErrors that could occur even with a census\n\n\n\n\n\nAdapted from Groves et al. (2009), Survey Methodology, 2nd Edition"
   }
 ]
