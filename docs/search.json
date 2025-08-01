@@ -2,112 +2,112 @@
   {
     "objectID": "PUBHBIO7225_L01_vocab.html#outline",
     "href": "PUBHBIO7225_L01_vocab.html#outline",
-    "title": "Course Intro: Vocabulary of Sampling",
+    "title": "",
     "section": "Outline",
-    "text": "Outline\n\n\nTopics\n\nOverview of the class (syllabus)\nWhy sample?\nVocabulary of sampling\nProbability vs Non-probability samples\nTypes of probability surveys\n\n\nActivities\n\n1.1 Vocabulary of Surveys\n1.2 Sampling CPH Faculty\n\n\nAssignments\n\n“About Me” questionnaire due Thursday 8/24/2023 11:59pm via Carmen\nProblem Set 1 due Tuesday 8/29/23 11:59pm via Carmen"
+    "text": "Outline\n\n\nTopics\n\nOverview of the class (syllabus)\nWhy sample?\nVocabulary of sampling\nProbability vs Non-probability samples\nTypes of probability surveys\n\n\nActivities\n\n1.1 Vocabulary of Surveys\n1.2 Sampling CPH Faculty\n\n\n\nAssignments\n\n“About Me” questionnaire due Thursday 8/28/2025 11:59pm via Carmen\nProblem Set 1 due Thursday 9/4/245 11:59pm via Carmen"
   },
   {
     "objectID": "PUBHBIO7225_L01_vocab.html#why-do-we-sample",
     "href": "PUBHBIO7225_L01_vocab.html#why-do-we-sample",
-    "title": "Course Intro: Vocabulary of Sampling",
+    "title": "",
     "section": "Why do we sample?",
-    "text": "Why do we sample?\nCensus – measurement taken on all units in the population\nSample – measurements taken on a subset of units in the population\nReasons we might want to sample:"
+    "text": "Why do we sample?\nCensus – measurement taken on all units in the population\nSample – measurements taken on a subset of units in the population\n\nReasons we might want to sample:"
   },
   {
     "objectID": "PUBHBIO7225_L01_vocab.html#vocabulary-of-survey-sampling",
     "href": "PUBHBIO7225_L01_vocab.html#vocabulary-of-survey-sampling",
-    "title": "Course Intro: Vocabulary of Sampling",
+    "title": "",
     "section": "Vocabulary of Survey Sampling",
-    "text": "Vocabulary of Survey Sampling\nObservation Unit (or Element) - One (non-overlapping) unit on which a measurement is taken\nTarget Population - Complete collection of observation units that we want to study\nSample - A subset of a population (that will be/has been measured)\nSampled Population - All observation units that could possibly be in the sample (the population from which the sample was actually taken)\nSampling Unit - A unit that can be selected for a sample (might be an observation unit, or might be a collection of observation units, e.g., a household)\nSampling Frame - A list of all sampling units (for some sampling designs this might not actually be available)"
+    "text": "Vocabulary of Survey Sampling\n\nObservation Unit (or Element) - One (non-overlapping) unit on which a measurement is taken\nTarget Population - Complete collection of observation units that we want to study\nSample - A subset of a population (that will be/has been measured)\nSampled Population - All observation units that could possibly be in the sample\n\nThe population from which the sample was actually taken\n\nSampling Unit - A unit that can be selected for a sample\n\nMight be an observation unit, or might be a collection of observation units, e.g., a household\n\nSampling Frame - A list of all sampling units (for some sampling designs this might not actually be available)"
   },
   {
     "objectID": "PUBHBIO7225_L01_vocab.html#activity-1.1-part-1",
     "href": "PUBHBIO7225_L01_vocab.html#activity-1.1-part-1",
-    "title": "Course Intro: Vocabulary of Sampling",
+    "title": "",
     "section": "Activity 1.1 (Part 1)",
     "text": "Activity 1.1 (Part 1)\nVocabulary of Survey Sampling (Part 1)"
   },
   {
     "objectID": "PUBHBIO7225_L01_vocab.html#probability-vs-non-probability-samples",
     "href": "PUBHBIO7225_L01_vocab.html#probability-vs-non-probability-samples",
-    "title": "Course Intro: Vocabulary of Sampling",
+    "title": "",
     "section": "Probability vs Non-Probability Samples",
-    "text": "Probability vs Non-Probability Samples\n\nProbability Sample – each unit in the population has a known, positive probability of selection, and randomness is involved in the selection of which units are actually included in the sample\nNon-Probability Sample – the probability a unit is included in the sample cannot be calculated\n\nTypes of Non-Probability Samples\n\n\n\nConvenience sampling – units are selected into the sample simply because they are easy to select\nVoluntary/Self-selection sampling – units self-select into the sample\nQuota sampling – pre-specify the number of units you want to end up with in each subgroup, and select them via convenience or other non-probability method\n\nMost famous example: pre-election polls for 1948 election (Dewey vs Truman)\n\nPurposive/Judgement sampling – researcher selects units into the sample based on his/her own judgement\nSnowball/Respondent-Driven sampling – start by including one or more units in the (usually hard-to-reach) population, then use these units to identify further units"
+    "text": "Probability vs Non-Probability Samples\nProbability Sample – each unit in the population has a known, positive probability of selection, and randomness is involved in the selection of which units are actually included in the sample\nNon-Probability Sample – the probability a unit is included in the sample cannot be calculated\n\n\nTypes of Non-Probability Samples\n\n\n\nConvenience sampling – units are selected into the sample simply because they are easy to select\nVoluntary/Self-selection sampling – units self-select into the sample\nQuota sampling – pre-specify the number of units you want to end up with in each subgroup, and select them via convenience or other non-probability method\n\nMost famous example: pre-election polls for 1948 election (Dewey vs Truman)\n\nPurposive/Judgement sampling – researcher selects units into the sample based on their own judgement\nSnowball/Respondent-Driven sampling – start by including one or more units in the (usually “hard-to-reach”) population, then use these units to identify further units"
   },
   {
     "objectID": "PUBHBIO7225_L01_vocab.html#example",
     "href": "PUBHBIO7225_L01_vocab.html#example",
-    "title": "Course Intro: Vocabulary of Sampling",
+    "title": "",
     "section": "Example",
     "text": "Example\nSampling OSU students with various non-probability schemes\n\n\nConvenience sampling – Recruit OSU students to take your survey by standing outside the library and asking students if they will participate\nVoluntary/Self-selection sampling – Put up a flyer with a URL for your survey, and interested students can go to the website and take the survey\nQuota sampling – Pre-specify that you’ll get 100 students from Ohio and 100 students from outside Ohio to take your survey, and stand outside the library to find these students\nPurposive/Judgement sampling – You pick students with specific characteristics that you are most interested in having in your sample\nSnowball/Respondent-Driven sampling – You identify a few students who are in your target population (e.g., use illicit drugs), and then have them pass along your survey information to other students they know who are in the population (e.g., other drug users)"
   },
   {
     "objectID": "PUBHBIO7225_L01_vocab.html#big-problem-selection-bias",
     "href": "PUBHBIO7225_L01_vocab.html#big-problem-selection-bias",
-    "title": "Course Intro: Vocabulary of Sampling",
+    "title": "",
     "section": "(Big) Problem: Selection Bias",
-    "text": "(Big) Problem: Selection Bias\n\nSelection bias = bias that arises when part of the target population is not in the sampled population, or, more generally, when some population units are sampled at a different rate than intended by the investigator\nPredominant concern with non-probability samples\n\nUnits (people) in the sample might be really different from non-sampled units – but we don’t know how they are different\nEven if, say, the distribution of state of residence (Ohio, Not Ohio) is the same in your non-probability sample as in the target population, there is no guarantee that the students are “representative” of the target population\n\ne.g., Ohioans who self-select into your sample might be different than Ohioans who do not\n\nSelection bias an also be a problem for probability samples when there is nonresponse\n\nThis course will focus exclusively on probability samples. If you are interested in learning more about how non-probability samples can be combined with probability samples to improve inference, let me know."
+    "text": "(Big) Problem: Selection Bias\nSelection bias = bias that arises when part of the target population is not in the sampled population, or, more generally, when some population units are sampled at a different rate than intended by the investigator\nPredominant concern with non-probability samples\n\nUnits (people) in the sample might be really different from non-sampled units – but we don’t know how they are different\nEven if, say, the distribution of state of residence (Ohio, Not Ohio) is the same in your non-probability sample as in the target population, there is no guarantee that the students are “representative” of the target population\n\ne.g., Ohioans who self-select into your sample might be different than Ohioans who do not\n\nSelection bias an also be a problem for probability samples when there is nonresponse\n\nThis course will focus exclusively on probability samples.\nIf you are interested in learning more about how non-probability samples can be combined with probability samples to improve inference, let me know."
   },
   {
     "objectID": "PUBHBIO7225_L01_vocab.html#main-types-of-probability-samples",
     "href": "PUBHBIO7225_L01_vocab.html#main-types-of-probability-samples",
-    "title": "Course Intro: Vocabulary of Sampling",
+    "title": "",
     "section": "Main Types of Probability Samples",
     "text": "Main Types of Probability Samples\n\nSimple Random Sample (SRS)\n\nSRSWR = Simple random sample with replacement\nSRS(WOR) = Simple random sample without replacement\n\nStratified random sample\nCluster sample\nSystematic sample\nProbability Proportional to Size (PPS)"
   },
   {
     "objectID": "PUBHBIO7225_L01_vocab.html#slide-srs",
     "href": "PUBHBIO7225_L01_vocab.html#slide-srs",
-    "title": "Course Intro: Vocabulary of Sampling",
+    "title": "",
     "section": "Simple Random Sample (SRS)",
     "text": "Simple Random Sample (SRS)\nSRS – every possible subset of \\(n\\) units in the population has the same chance of being in the sample\n\nNote: every unit has equal probability of selection is a necessary but not sufficient condition for an SRS\n\nSubtypes:\n\nSimple random sample with replacement (SRSWR) – a unit could be selected into the sample more than once\n\nPick a unit each with equal probability, put it back, pick another unit\nSometimes called unrestricted random sampling (URS)\n\nSimple random sample without replacement (SRSWOR or just SRS) – a unit can only be selected into the sample once\n\nOnce a unit is selected into the sample, it cannot be selected again\n\n\nIn general when survey samplers say “SRS” we mean SRSWOR"
   },
   {
     "objectID": "PUBHBIO7225_L01_vocab.html#slide-strat",
     "href": "PUBHBIO7225_L01_vocab.html#slide-strat",
-    "title": "Course Intro: Vocabulary of Sampling",
+    "title": "",
     "section": "Stratified Random Sample",
     "text": "Stratified Random Sample\n\nStratified Random Sample – divide population into \\(H\\) distinct subgroups called strata, and take SRS from each stratum, with each SRS taken independently\n\nStrata must be mutually exclusive (each unit only belongs to 1 stratum)\nStrata must be exhaustive (all units belong to a stratum)\nStrata are often subgroups of interest\n\nPros/Cons:\n\nEnsures (at least some) elements are selected from each stratum (subgroups)\nCan reduce variance in overall estimates (increase precision) relative to an SRS\n\nIf differences among strata explain a significant proportion of the variability in the attribute of interest, gain in precision can be large\n\n\nAllocation Method - how much of the sample comes from each stratum"
   },
   {
     "objectID": "PUBHBIO7225_L01_vocab.html#slide-clus",
     "href": "PUBHBIO7225_L01_vocab.html#slide-clus",
-    "title": "Course Intro: Vocabulary of Sampling",
+    "title": "",
     "section": "Cluster Sample",
     "text": "Cluster Sample\n\nCluster Sample – individual units in the population are aggregated into larger sampling units called clusters, and a sample of clusters is selected\n\nOften used when you do not have a full list of individual units in the population, but you do have a list of all clusters in the population\n\nExample: Have list of all residences but not names of all residents\n\n\nPros/Cons:\n\nCan be less expensive to field compared to other designs (e.g., SRS)\nCan cause a decrease in precision relative to SRS, because individual units within a cluster tend to be similar\n\nSubtypes:\n\nOne-stage cluster sample – select all units from the selected clusters into the sample\nTwo-stage cluster sample – only select some units from the selected clusters into the sample"
   },
   {
     "objectID": "PUBHBIO7225_L01_vocab.html#slide-sys",
     "href": "PUBHBIO7225_L01_vocab.html#slide-sys",
-    "title": "Course Intro: Vocabulary of Sampling",
+    "title": "",
     "section": "Systematic Sample",
-    "text": "Systematic Sample\n\nSystematic Sample – a starting point is chosen from a list of population units, and that unit and each \\(k\\)th unit after that one on the list is chosen.\nPros/Cons:\n\nEasy to implement\nIf the list is randomly ordered, systematic sample will behave like an SRS and you can use analysis methods appropriate for an SRS\nBut, it is not an SRS, because all possible subsets of nunits do not have the same probability of being sampled\n\nFor example, if the 100th unit is chosen, the 101st unit cannot be chosen – so the probability of a sample that contains both of these units is 0 (but the probability of other samples is &gt;0)\n\nSystematic sampling is technically a form of cluster sampling\n\nExample paper: https://www.tandfonline.com/doi/full/10.1080/10410236.2019.1616442"
+    "text": "Systematic Sample\n\nSystematic Sample – a starting point is chosen from a list of population units, and that unit and each \\(k\\)th unit after that one on the list is chosen.\nPros/Cons:\n\nEasy to implement\nIf the list is randomly ordered, systematic sample will behave like an SRS and you can use analysis methods appropriate for an SRS\nBut, it is not an SRS, because all possible subsets of nunits do not have the same probability of being sampled\n\nFor example, if the 100th unit is chosen, the 101st unit cannot be chosen – so the probability of a sample that contains both of these units is 0 (but the probability of other samples is &gt;0)\n\nSystematic sampling is technically a form of cluster sampling\n\nExample paper: Pinterest Homemade Sunscreens: A Recipe for Sunburn (Merten et al., 2010)"
   },
   {
     "objectID": "PUBHBIO7225_L01_vocab.html#slide-pps",
     "href": "PUBHBIO7225_L01_vocab.html#slide-pps",
-    "title": "Course Intro: Vocabulary of Sampling",
+    "title": "",
     "section": "Probability Proportional to Size (PPS)",
     "text": "Probability Proportional to Size (PPS)\nProbability Proportional to Size - the probability a unit is selected into the sample is directly proportional to a size measure that is known for all units before sampling\nPros/Cons:\n\nCan reduce variance when units vary substantially in size\nMust know the “size” of all units before sampling\n\nE.g., sampling counties in the U.S. using number of people who live there as the “size”\n\nOften used as part of a complex design, not as the only design feature"
   },
   {
     "objectID": "PUBHBIO7225_L01_vocab.html#visualization",
     "href": "PUBHBIO7225_L01_vocab.html#visualization",
-    "title": "Course Intro: Vocabulary of Sampling",
+    "title": "",
     "section": "Visualization",
     "text": "Visualization\n\nPopulation of \\(N = 100\\) individual units, want sample of \\(n = 20\\)\nStrata: 4, each with 25 units\nClusters: 20, each with 5 units"
   },
   {
     "objectID": "PUBHBIO7225_L01_vocab.html#combining-design-features",
     "href": "PUBHBIO7225_L01_vocab.html#combining-design-features",
-    "title": "Course Intro: Vocabulary of Sampling",
+    "title": "",
     "section": "Combining Design Features",
     "text": "Combining Design Features\nComplex Samples - surveys with more than one of these elements, e.g., stratified cluster sample, two-stage cluster sample\n\nOne specific feature you may encounter:\nEPSEM sampling - Equal Probability of Selection Method\n\nNot a specific sampling method, instead this refers to using a sampling technique that results in each population unit having the same probability of selection\nAlso called a self-weighting sample\nBy definition SRS and Systematic sampling are EPSEM; other designs can be as well (stratified, cluster, multistage)\nHistorically EPSEM samples were preferred due to computing limitations; now not so important (and often we want to oversample certain subgroups)"
   },
   {
     "objectID": "PUBHBIO7225_L01_vocab.html#activity-1.1-part-2",
     "href": "PUBHBIO7225_L01_vocab.html#activity-1.1-part-2",
-    "title": "Course Intro: Vocabulary of Sampling",
+    "title": "",
     "section": "Activity 1.1 (Part 2)",
     "text": "Activity 1.1 (Part 2)\nVocabulary of Survey Sampling (Part 2)"
   },
@@ -137,14 +137,14 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "This is a work in progress."
   },
   {
     "objectID": "PUBHBIO7225_LXX_template.html#outline",
     "href": "PUBHBIO7225_LXX_template.html#outline",
-    "title": "Lecture Title",
+    "title": "",
     "section": "Outline",
-    "text": "Outline\n\n\nTopics\n\ntopic 1\ntopic 2\n\n\nActivities\n\n#.# activity\n\n\nAssignments\n\nProblem Set # due Thursday x/xx/xx 11:59pm via Carmen\nQuiz # due Thursday x/xx/xx 11:59pm via Carmen\nPeer Evaluation of Problem Set # due Tuesday x/x/xx 11:59pm via Carmen"
+    "text": "Outline\n\n\nTopics\n\ntopic 1\ntopic 2\n\n\nActivities\n\n#.# activity\n\n\n\nAssignments\n\nProblem Set # due Thursday x/xx/xx 11:59pm via Carmen\nQuiz # due Thursday x/xx/xx 11:59pm via Carmen\nPeer Evaluation of Problem Set # due Tuesday x/x/xx 11:59pm via Carmen"
   },
   {
     "objectID": "PUBHBIO7225_LXX_template.html#why-do-we-sample",
@@ -156,23 +156,23 @@
   {
     "objectID": "PUBHBIO7225_LXX_template.html#long-text-slide",
     "href": "PUBHBIO7225_LXX_template.html#long-text-slide",
-    "title": "Lecture Title",
+    "title": "",
     "section": "Long text slide",
     "text": "Long text slide\n\nTo make sure text fits, use this environment"
   },
   {
     "objectID": "PUBHBIO7225_LXX_template.html#slide-title",
     "href": "PUBHBIO7225_LXX_template.html#slide-title",
-    "title": "Lecture Title",
+    "title": "",
     "section": "Slide title",
     "text": "Slide title\nslide text"
   },
   {
     "objectID": "PUBHBIO7225_L02_modesTSE.html#outline",
     "href": "PUBHBIO7225_L02_modesTSE.html#outline",
-    "title": "Survey Modes and the Total Survey Error Framework",
+    "title": "",
     "section": "Outline",
-    "text": "Outline\n\n\nTopics\n\nDesigning Survey Questions\nSurvey Modes\nTotal Survey Error (TSE) framework\n\n\nActivities\n\n2.1 Survey Questions\n2.2 OPAS Sources of Error\n\n\nReadings\n\nDillman DA and Christian LM (2005). Survey Mode as a Source of Instability in Responses across Surveys. Field Methods, 17(1), 30-52. (PDF on Carmen)\n\nAssignments\n\nProblem Set # due Thursday x/xx/xx 11:59pm via Carmen\nQuiz # due Thursday x/xx/xx 11:59pm via Carmen\nPeer Evaluation of Problem Set # due Tuesday x/x/xx 11:59pm via Carmen"
+    "text": "Outline\n\n\nTopics\n\nDesigning Survey Questions\nSurvey Modes\nTotal Survey Error (TSE) framework\n\n\nActivities\n\n2.1 Survey Questions\n2.2 OPAS Sources of Error\n\n\nReadings\n\nDillman DA and Christian LM (2005). Survey Mode as a Source of Instability in Responses across Surveys. Field Methods, 17(1), 30-52. (PDF on Carmen)\n\nAssignments\n\nProblem Set 1 due Thursday 9/4/25 11:59pm via Carmen\nPeer Evaluation of Problem Set 1 due Tuesday 9/9/25 11:59pm via Carmen\nQuiz 1 due Thursday 9/11/25 11:59pm via Carmen"
   },
   {
     "objectID": "PUBHBIO7225_L02_modesTSE.html#slide-title",
@@ -198,14 +198,14 @@
   {
     "objectID": "PUBHBIO7225_L02_modesTSE.html#designing-survey-questions",
     "href": "PUBHBIO7225_L02_modesTSE.html#designing-survey-questions",
-    "title": "Survey Modes and the Total Survey Error Framework",
+    "title": "",
     "section": "Designing Survey Questions",
-    "text": "Designing Survey Questions\n\nAssuming the observation unit is a person, questions should be …\n\nSimple and clear\n\nBeware words that might be interpreted differently by different people, or might not be understood by some people\n\nSpecific, not general\n\n“Have you ever been attacked?” OR\n“Has anyone ever attacked you in any of these ways: (a) With any weapon, for example, a gun or knife, (b) With anything like a baseball bat, frying pan, scissors…”\n\nRelated to the concept of interest\n\nReusing questions from previous surveys allows for historical comparison – if appropriate for the audience/topic\n\nCarefully ordered\n\nResponses to a question may be unduly influenced by question(s) that preceded it\nUsually best to ask more general question first, followed by specific question(s)"
+    "text": "Designing Survey Questions\n\nAssuming the observation unit is a person, questions should be …\n\n\nSimple and clear\n\nBeware words that might be interpreted differently by different people, or might not be understood by some people\n\nSpecific, not general\n\n(not good) “Have you ever been attacked?”\n(better) “Has anyone ever attacked you in any of these ways: (a) With any weapon, for example, a gun or knife, (b) With anything like a baseball bat, frying pan, scissors…”\n\nRelated to the concept of interest\n\nReusing questions from previous surveys allows for historical comparison – if appropriate for the audience/topic\n\nCarefully ordered\n\nResponses to a question may be unduly influenced by question(s) that preceded it\nUsually best to ask more general question first, followed by specific question(s)"
   },
   {
     "objectID": "PUBHBIO7225_L02_modesTSE.html#activity-2.1-part-1",
     "href": "PUBHBIO7225_L02_modesTSE.html#activity-2.1-part-1",
-    "title": "Survey Modes and the Total Survey Error Framework",
+    "title": "",
     "section": "Activity 2.1: (Part 1)",
     "text": "Activity 2.1: (Part 1)\nSurvey Questions (Part 1)"
   },
@@ -219,14 +219,14 @@
   {
     "objectID": "PUBHBIO7225_L02_modesTSE.html#survey-modes",
     "href": "PUBHBIO7225_L02_modesTSE.html#survey-modes",
-    "title": "Survey Modes and the Total Survey Error Framework",
+    "title": "",
     "section": "Survey Modes",
-    "text": "Survey Modes\nFour ways we could get information from a sampled person, called the survey mode:\n\nFace-to-Face\nMail\nPhone\nInternet\n\nHigh-level differences include:\n\n\n\nCost\nUse or non-use of an interviewer\nPresence of visual aids\nEnforcement of “skip patterns”\nIssues with the frame\nWhat types of biases likely to be present\n\n\n\nAvailability of (and types of) paradata\n\nParadata = data collected about the survey process\n(e.g., how long the interview took, how many attempts to reach person, interviewer observations)"
+    "text": "Survey Modes\nFour ways we could get information from a sampled person, called the survey mode:\n\n\n\n\n\n\n\n\n\nFace-to-Face\n\n\n\n\n\n\n\nMail\n\n\n\n\n\n\n\nPhone\n\n\n\n\n\n\n\nInternet\n\n\n\n\n\nHigh-level differences include:\n\n\n\nCost\nUse or non-use of an interviewer\nAvailability of visual aids\nEnforcement of “skip patterns”\n\n\n\nIssues with the frame\nTypes of biases likely to be present\nAvailability of (and types of) paradata\n\nParadata = data collected about the survey process (e.g., how long the interview took)"
   },
   {
     "objectID": "PUBHBIO7225_L02_modesTSE.html#mode-face-to-face",
     "href": "PUBHBIO7225_L02_modesTSE.html#mode-face-to-face",
-    "title": "Survey Modes and the Total Survey Error Framework",
+    "title": "",
     "section": "Mode: Face-to-Face",
     "text": "Mode: Face-to-Face\nSurvey completed in-person via an interviewer, traditionally via door-to-door canvassing (considered “gold standard”)\nPros:\nCons:\nFrame Considerations:"
   },
@@ -247,43 +247,99 @@
   {
     "objectID": "PUBHBIO7225_L02_modesTSE.html#mode-mailwritten",
     "href": "PUBHBIO7225_L02_modesTSE.html#mode-mailwritten",
-    "title": "Survey Modes and the Total Survey Error Framework",
+    "title": "",
     "section": "Mode: Mail/Written",
     "text": "Mode: Mail/Written\nSurvey completed by respondent with paper and pencil (“PAPI”), usually sent via mail\nPros:\nCons:\nFrame Considerations:"
   },
   {
     "objectID": "PUBHBIO7225_L02_modesTSE.html#mode-phone",
     "href": "PUBHBIO7225_L02_modesTSE.html#mode-phone",
-    "title": "Survey Modes and the Total Survey Error Framework",
+    "title": "",
     "section": "Mode: Phone",
     "text": "Mode: Phone\nSurvey completed over the phone – in practice, usually “CATI” (Computer Aided Telephone Interview) where computer is used by interviewer (not by respondent)\nPros:\nCons:\nFrame Considerations:"
   },
   {
     "objectID": "PUBHBIO7225_L02_modesTSE.html#mode-internet",
     "href": "PUBHBIO7225_L02_modesTSE.html#mode-internet",
-    "title": "Survey Modes and the Total Survey Error Framework",
+    "title": "",
     "section": "Mode: Internet",
     "text": "Mode: Internet\nSurvey completed online, often called “CAWI” (Computer Aided Web Interview)\nPros:\nCons:\nFrame Considerations:"
   },
   {
     "objectID": "PUBHBIO7225_L02_modesTSE.html#activity-2.1-part-2",
     "href": "PUBHBIO7225_L02_modesTSE.html#activity-2.1-part-2",
-    "title": "Survey Modes and the Total Survey Error Framework",
+    "title": "",
     "section": "Activity 2.1 (Part 2)",
     "text": "Activity 2.1 (Part 2)\nSurvey Questions (Part 2)"
   },
   {
     "objectID": "PUBHBIO7225_L02_modesTSE.html#survey-errors",
     "href": "PUBHBIO7225_L02_modesTSE.html#survey-errors",
-    "title": "Survey Modes and the Total Survey Error Framework",
+    "title": "",
     "section": "Survey Errors",
-    "text": "Survey Errors\nHistorically, survey methodologists described errors as “Sampling Errors” and “Non-Sampling Errors”\nMore modern approach is the Total Survey Error approach\nTotal Survey Error = difference between population parameter (the truth) and the estimate of that parameter based on a sample survey\nTwo types of survey error:\n\nRandom error – random fluctuation from sample to sample\n\nShould “cancel out” in terms of bias of the sample estimate but will increase variance (reduce precision)\n\nSystematic error – e.g., underreporting of sensitive behaviors\n\nBiases the sample estimate systematically away from the true value"
+    "text": "Survey Errors\nHistorically, survey methodologists described errors as “Sampling Errors” and “Non-Sampling Errors”\nMore modern approach is the Total Survey Error approach\n\nTotal Survey Error = difference between population parameter (the truth) and the estimate of that parameter based on a sample survey\n\nTwo types of survey error:\n\nRandom error – random fluctuation from sample to sample\n\nShould “cancel out” in terms of bias of the sample estimate but will increase variance (reduce precision)\n\nSystematic error – e.g., underreporting of sensitive behaviors\n\nBiases the sample estimate systematically away from the true value"
   },
   {
     "objectID": "PUBHBIO7225_L02_modesTSE.html#sources-of-errors-two-categories",
     "href": "PUBHBIO7225_L02_modesTSE.html#sources-of-errors-two-categories",
-    "title": "Survey Modes and the Total Survey Error Framework",
+    "title": "",
     "section": "Sources of Errors: Two Categories",
-    "text": "Sources of Errors: Two Categories\n\nRepresentation – how well the (weighted) sample represents the target population\n\nErrors that would not occur if we had a census (measured entire population)\n\nMeasurement – how well the (edited) survey responses obtained from a respondent reflect the underlying construct being measured\n\nErrors that could occur even with a census\n\n\n\n\n\nAdapted from Groves et al. (2009), Survey Methodology, 2nd Edition"
+    "text": "Sources of Errors: Two Categories\n\nMeasurement Errors – how well the (edited) survey responses obtained from a respondent reflect the underlying construct being measured\n\nErrors that could occur even with a census\n\nRepresentation Errors – how well the (weighted) sample represents the target population\n\nErrors that would not occur if we had a census (measured entire population)\n\n\n\nAdapted from Groves et al. (2009), Survey Methodology, 2nd Edition"
+  },
+  {
+    "objectID": "PUBHBIO7225_L02_modesTSE.html#tse-components-aﬀecting-representation",
+    "href": "PUBHBIO7225_L02_modesTSE.html#tse-components-aﬀecting-representation",
+    "title": "",
+    "section": "TSE Components Aﬀecting Representation",
+    "text": "TSE Components Aﬀecting Representation\n\n\nCoverage Error – mismatch between target population and sampling frame\n\nUndercoverage – some members of the target population are not in sampled population\nOvercoverage – sampling frame contains units that are not in the target population\n\nSampling Error – error that results from taking a sample rather than evaluating the whole population (variability inherent in using a random subset of the population for estimation)\nNonresponse Error – not all sampled units respond/provide complete data, and responses from the units who do participate may be diﬀerent from the responses from units who do not participate (if they had been observed)\n\nUnit nonresponse – a sampled unit provides no data at all\nItem nonresponse – a sampled unit provides some data, but some items have missing values\n\nAdjustment Error – error arising when the sample is adjusted for design eﬀects (i.e., the “complex design”) via weighting or other techniques (poststratification, calibration), possibly including adjustments for nonresponse"
+  },
+  {
+    "objectID": "PUBHBIO7225_L02_modesTSE.html#selection-bias",
+    "href": "PUBHBIO7225_L02_modesTSE.html#selection-bias",
+    "title": "",
+    "section": "Selection Bias",
+    "text": "Selection Bias\nAll these representation-related errors can lead to Selection Bias\n\nArises when some part of the target population is not in the sampled population\nOccurs when the actual probabilities with which units are sampled diﬀer from the specified selection probabilities\nIs most obviously a problem for non-probability samples, but can also arise with probability samples\n\n\n\n\nhttps://xkcd.com/2618/"
+  },
+  {
+    "objectID": "PUBHBIO7225_L02_modesTSE.html#tse-components-aﬀecting-measurement",
+    "href": "PUBHBIO7225_L02_modesTSE.html#tse-components-aﬀecting-measurement",
+    "title": "",
+    "section": "TSE Components Aﬀecting Measurement",
+    "text": "TSE Components Aﬀecting Measurement\n\n\nSpecification Error (Validity) – error arising when the construct being measured is operationalized (turned into survey questions) in an invalid way, i.e., the questions do not properly measure the underlying construct\nMeasurement Error – the measured response diﬀers from the true value (many possible reasons), which is especially problematic when asking people questions\n\nSome sources of measurement error:\n\n\n\nlying\nnot understanding or misinterpreting the question\nforgetting/recall bias\ndiﬀerent responses in diﬀerent survey modes\ninterviewer eﬀects\n\n\n\ndiﬀerent responses to diﬀerent interviewers\nsocial desirability\nsatisficing (choosing “easy” answers to reduce response burden)\nquestion order\nquestion wording\n\n\n\nProcessing Error – data entry errors and coding errors, for example, from coding open-ended responses or classifying occupations"
+  },
+  {
+    "objectID": "PUBHBIO7225_L02_modesTSE.html#activity-2.2",
+    "href": "PUBHBIO7225_L02_modesTSE.html#activity-2.2",
+    "title": "",
+    "section": "Activity 2.2",
+    "text": "Activity 2.2\nOPAS Sources of Error"
+  },
+  {
+    "objectID": "PUBHBIO7225_L02_modesTSE.html#designing-survey-questions-1",
+    "href": "PUBHBIO7225_L02_modesTSE.html#designing-survey-questions-1",
+    "title": "",
+    "section": "Designing Survey Questions",
+    "text": "Designing Survey Questions\nQuestions should be (cont.)…\n\n\nNot leading or “loaded” questions\n\nQuestions can be written to lead the respondent to the answer you want to hear — don’t do this!\n\nNot written as double-negatives\n\n(not good) “Do you favor or oppose not allowing drivers to use cell phones while driving?”\n(better) “Do you agree with laws banning cell phone use while driving?”\n\nNot double-barreled\n\nBe sure to ask only one concept per question\n\nIf closed-ended, all response options are available\n\nMake sure all respondents would be able to endorse at least one answer\n\nIf multiple-choice/forced-choice, response options are mutually exclusive and exhaustive\n\nMake sure all respondents would be able to select just one answer"
+  },
+  {
+    "objectID": "PUBHBIO7225_L02_modesTSE.html#generative-ai-acknowledgment",
+    "href": "PUBHBIO7225_L02_modesTSE.html#generative-ai-acknowledgment",
+    "title": "",
+    "section": "Generative AI Acknowledgment",
+    "text": "Generative AI Acknowledgment\nGenerative AI (Microsoft Copilot) was used for the following components of these slides:\n\nGenerating alt text for images\nGenerating the icons for the four survey modes"
+  },
+  {
+    "objectID": "PUBHBIO7225_L02_modesTSE.html#survey-modes-1",
+    "href": "PUBHBIO7225_L02_modesTSE.html#survey-modes-1",
+    "title": "Survey Modes and the Total Survey Error Framework",
+    "section": "Survey Modes",
+    "text": "Survey Modes\nFour ways we could get information from a sampled person, called the survey mode:\n\n\n\n\n\n\n\n\n\nFace-to-Face\n\n\n\n\n\n\n\nMail\n\n\n\n\n\n\n\nPhone\n\n\n\n\n\n\n\nInternet\n\n\n\n\n\nHigh-level differences include:\n\n\n\nCost\nUse or non-use of an interviewer\nAvailability of visual aids\nEnforcement of “skip patterns”\n\n\n\nIssues with the frame\nTypes of biases likely to be present\nAvailability of (and types of) paradata\n\nParadata = data collected about the survey process (e.g., how long the interview took)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L01_vocab.html#generative-ai-acknowledgment",
+    "href": "PUBHBIO7225_L01_vocab.html#generative-ai-acknowledgment",
+    "title": "",
+    "section": "Generative AI Acknowledgment",
+    "text": "Generative AI Acknowledgment\nGenerative AI (Microsoft Copilot) was used for the following components of these slides:\n\nGenerating alt text for images"
   }
 ]
