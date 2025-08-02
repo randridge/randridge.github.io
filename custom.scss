@@ -1,0 +1,63 @@
+
+/*-- scss:defaults --*/
+
+// headings
+$presentation-h1-font-size: 2em !default;
+$presentation-h2-font-size: 1.3em !default;
+
+// custom colors
+$red: #BA0C2F;
+$blue: #0000cc;
+$grey: #A2AAAD;
+
+/*-- scss:rules --*/
+
+// tables
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 6px;
+  text-align: center;
+}
+
+// font sizes
+
+.reveal h1 {
+  font-size: 1.5em; /* Adjust as needed, e.g., 1.5em, 1.8em */
+}
+
+.reveal h2 {
+  font-size: 0.8em; /* Adjust as needed */
+}
+
+.reveal h3 {
+  font-size: 0.5em; /* Adjust as needed */
+}
+
+
+// alert color
+
+.alert {
+  color: $red;
+}
+
+.alert2 {
+  color: $blue;
+}
+
+// title slide text
+
+.author,
+  .quarto-title-author-name {
+    color: $grey;
+  }
+  
+// block quote font
+ .reveal .slide blockquote {
+      color: #000000; /* Replace with your desired color */
+}
+
+.callout-body {
+      font-size: 1.2em; /* Adjust the value as needed */
+    }

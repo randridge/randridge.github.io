@@ -1,10 +1,7 @@
 ---
-title: |
-  <h1>Survey Modes and the Total Survey Error Framework</h1>
-  <p>PUBHBIO 7225 Lecture 2</p>
-subtitle: |
-  <br>
-  <p style="font-size: 0.8em; color: gray;">Generative AI acknowledgment: MS Copilot was used to generate alt text for images and to generate survey mode icons</p>
+title: Survey Modes and the Total Survey Error Framework
+subtitle: PUBHBIO 7225 Lecture 2
+author: "Generative AI acknowledgment: MS Copilot was used to generate alt text for images and to create icons for survey modes"
 format:
   revealjs: 
     slide-number: true
@@ -12,7 +9,8 @@ format:
     footer: "PUBHBIO 7225"
     width: 1280
     height: 720
-    # height: 960
+    theme: custom.scss
+    html-math-method: mathjax
 ---
 
 ## Outline
@@ -42,7 +40,6 @@ format:
 
 -   Problem Set 1 due Thursday 9/4/25 11:59pm via Carmen
 -   Peer Evaluation of Problem Set 1 due Tuesday 9/9/25 11:59pm via Carmen
--   Quiz 1 due Thursday 9/11/25 11:59pm via Carmen
 
 ## Designing Survey Questions
 
@@ -272,9 +269,8 @@ All these representation-related errors can lead to **Selection Bias**
 
 -   Is most obviously a problem for non-probability samples, but can also arise with probability samples
 
-[![https://xkcd.com/2618/](figures/xkcd_selection_bias.png){fig-alt="\"Comic strip titled 'Statistics Conference ~2022~'. A speaker stands at a podium on stage and says, 'Raise your hand if you're familiar with selection bias.' All audience members raise their hands. The speaker then comments, 'As you can see, it's a term most people know.' The comic humorously illustrates selection bias by showing that only those familiar with the term are present and responding.\"" width="300"}](https://xkcd.com/2618/)
+[![https://xkcd.com/2618/](figures/xkcd_selection_bias.png "Comic strip titled 'Statistics Conference ~2022~'. A speaker stands at a podium on stage and says, 'Raise your hand if you're familiar with selection bias.' All audience members raise their hands. The speaker then comments, 'As you can see, it's a term most people know.' The comic humorously illustrates selection bias by showing that only those familiar with the term are present and responding."){fig-alt="Comic strip titled 'Statistics Conference ~2022~'. A speaker stands at a podium on stage and says, 'Raise your hand if you're familiar with selection bias.' All audience members raise their hands. The speaker then comments, 'As you can see, it's a term most people know.' The comic humorously illustrates selection bias by showing that only those familiar with the term are present and responding." width="300"}](https://xkcd.com/2618/)
 
 ## Activity 2.2
 
 OPAS Sources of Error
-

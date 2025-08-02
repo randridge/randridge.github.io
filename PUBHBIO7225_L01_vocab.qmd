@@ -1,10 +1,7 @@
 ---
-title: |
-  <h1>Course Intro:<p>Vocabulary of Sampling</h1>
-  <p>PUBHBIO 7225 Lecture 1</p>
-subtitle: |
-  <br>
-  <p style="font-size: 0.8em; color: gray;">Generative AI acknowledgment: MS Copilot was used to generate alt text for images</p>
+title: "Course Intro: Vocabulary of Sampling"
+subtitle: "PUBHBIO 7225 Lecture 1"
+author: "Generative AI acknowledgment: MS Copilot was used to generate alt text for images"
 format:
   revealjs: 
     slide-number: true
@@ -12,6 +9,8 @@ format:
     footer: "PUBHBIO 7225"
     width: 1280
     height: 720
+    theme: custom.scss
+    html-math-method: mathjax
 ---
 
 ## Outline
@@ -24,14 +23,13 @@ format:
 -   Why sample?
 -   Vocabulary of sampling
 -   Probability vs Non-probability samples
--   Types of probability surveys
+-   Types of probability samples
 :::
 
 ::: {.column width="50%"}
 **Activities**
 
 -   1.1 Vocabulary of Surveys
--   1.2 Sampling CPH Faculty
 :::
 :::::
 
@@ -44,9 +42,9 @@ format:
 
 ## Why do we sample?
 
-**Census** – measurement taken on **all** units in the population
+> **Census** – measurement taken on **all** units in the population
 
-**Sample** – measurements taken on a **subset** of units in the population
+> **Sample** – measurements taken on a **subset** of units in the population
 
 <br>
 
@@ -54,23 +52,19 @@ Reasons we might want to sample:
 
 ## Vocabulary of Survey Sampling
 
--   **Observation Unit (or Element)** - One (non-overlapping) unit on which a measurement is taken
+> **Observation Unit (or Element)** - One (non-overlapping) unit on which a measurement is taken
 
--   **Target Population** - Complete collection of observation units that we want to study
+> **Target Population** - Complete collection of observation units that we want to study
 
--   **Sample** - A subset of a population (that will be/has been measured)
+> **Sample** - A subset of a population (that will be/has been measured)
 
--   **Sampled Population** - All observation units that could possibly be in the sample
+> **Sampled Population** - All observation units that could possibly be in the sample (the population from which the sample was actually taken)
 
-    -   The population from which the sample was actually taken
+> **Sampling Unit** - A unit that can be selected for a sample (Might be an observation unit, or might be a collection of observation units, e.g., a household)
 
--   **Sampling Unit** - A unit that can be selected for a sample
+> **Sampling Frame** - A list of all sampling units (for some sampling designs this might not actually be available)
 
-    -   Might be an observation unit, or might be a collection of observation units, e.g., a household
-
--   **Sampling Frame** - A list of all sampling units (for some sampling designs this might not actually be available)
-
-------------------------------------------------------------------------
+## Example
 
 Imagine a telephone survey of likely voters
 
@@ -89,14 +83,12 @@ Vocabulary of Survey Sampling (Part 1)
 
 ## Probability vs Non-Probability Samples
 
-[**Probability Sample**]{style="color:#cc0000"} – each unit in the population has a known, positive probability of selection, and randomness is involved in the selection of which units are actually included in the sample
+> [**Probability Sample**]{.alert} – each unit in the population has a known, positive probability of selection, and randomness is involved in the selection of which units are actually included in the sample
 
-[**Non-Probability Sample**]{style="color:#0000cc"} – the probability a unit is included in the sample cannot be calculated
-
-<br>
+> [**Non-Probability Sample**]{.alert2} – the probability a unit is included in the sample cannot be calculated
 
 ::: fragment
-[**Types of Non-Probability Samples**]{style="color:#0000cc"}
+[**Types of Non-Probability Samples**]{.alert2}
 :::
 
 ::: incremental
@@ -122,12 +114,12 @@ Sampling OSU students with various non-probability schemes
 
 ## (Big) Problem: Selection Bias
 
-[**Selection bias**]{style="color:#0000cc"} = bias that arises when part of the target population is not in the sampled population, or, more generally, when some population units are sampled at a different rate than intended by the investigator
+> [**Selection bias**]{.alert} = bias that arises when part of the target population is not in the sampled population, or, more generally, when some population units are sampled at a different rate than intended by the investigator
 
 Predominant concern with non-probability samples
 
--   Units (people) in the sample might be really different from non-sampled units – but we don’t know how they are different
--   Even if, say, the distribution of state of residence (Ohio, Not Ohio) is the same in your non-probability sample as in the target population, there is no guarantee that the students are "representative" of the target population
+-   Units (people) in the sample might be really different from non-sampled units – but we don’t know how
+-   Even if, say, the distribution of state of residence (Ohio, Not Ohio) is the same in your non-probability sample as in the target population, there is no guarantee that the students are "representative" of the target population with respect to survey outcomes/measures
     -   e.g., Ohioans who self-select into your sample might be different than Ohioans who do not
 -   Selection bias an also be a problem for probability samples when there is [nonresponse]{style="color:#43a047"}
 
@@ -153,83 +145,81 @@ If you are interested in learning more about how non-probability samples can be 
 
 ## Simple Random Sample (SRS) {#slide-srs}
 
-**SRS** – every possible subset of $n$ units in the population has the same chance of being in the sample
+> [**SRS**]{.alert} – every possible subset of $n$ units in the population has the same chance of being in the sample
 
--   Note: every unit has equal probability of selection is a *necessary but not sufficient* condition for an SRS
+-   Note: a *necessary but not sufficient* condition for an SRS is that every unit has equal probability of selection
 
 **Subtypes:**
 
--   **Simple random sample with replacement (SRSWR)** – a unit could be selected into the sample more than once
-    -   Pick a unit each with equal probability, put it back, pick another unit
-    -   Sometimes called **unrestricted random sampling (URS)**
--   **Simple random sample without replacement (SRSWOR or just SRS)** – a unit can only be selected into the sample once
-    -   Once a unit is selected into the sample, it cannot be selected again
+> [**Simple random sample with replacement (SRSWR)**]{.alert} – a unit could be selected into the sample more than once
 
-In general when survey samplers say "SRS" we mean SRSWOR
+-   Pick a unit each with equal probability, put it back, pick another unit
+-   Sometimes called **unrestricted random sampling (URS)**
+
+> [**Simple random sample without replacement (SRSWOR or just SRS)**]{.alert} – a unit can only be selected into the sample once
+
+-   In general when survey samplers say "SRS" we mean SRSWOR
 
 ## Stratified Random Sample {#slide-strat}
 
-::: {r-fit-text}
-**Stratified Random Sample** – divide population into $H$ distinct subgroups called strata, and take SRS from each stratum, with each SRS taken independently
+> [**Stratified Random Sample**]{.alert} – divide population into $H$ distinct subgroups called strata, and take SRS from each stratum, with each SRS taken independently
 
 -   Strata must be mutually exclusive (each unit only belongs to 1 stratum)
 -   Strata must be exhaustive (all units belong to a stratum)
 -   Strata are often subgroups of interest
 
-Pros/Cons:
+**Pros/Cons:**
 
 -   Ensures (at least some) elements are selected from each stratum (subgroups)
 -   Can **reduce variance** in overall estimates (increase precision) relative to an SRS
     -   If differences among strata explain a significant proportion of the variability in the attribute of interest, gain in precision can be large
 
-**Allocation Method** - how much of the sample comes from each stratum
-:::
+**Allocation Method** - how much of the sample comes from each stratum (we will talk about this in depth later in the course)
 
 ## Cluster Sample {#slide-clus}
 
-::: {r-fit-text}
-**Cluster Sample** – individual units in the population are aggregated into larger sampling units called [clusters]{style="color:#0000cc"}, and a sample of clusters is selected
+> [**Cluster Sample**]{.alert} – individual units in the population are aggregated into larger sampling units called [clusters]{.alert}, and a sample of clusters is selected
 
--   Often used when you do not have a full list of individual units in the population, but you do have a list of all clusters in the population
-    -   Example: Have list of all residences but not names of all residents
-
-Pros/Cons:
-
--   Can be less expensive to field compared to other designs (e.g., SRS)
--   Can cause a decrease in precision relative to SRS, because individual units within a cluster tend to be similar
+-   Often used when you do not have a full list of individual units in the population, but you do have a list of all clusters in the population (e.g., list of all residences but not names of all residents)
 
 **Subtypes:**
 
--   One-stage cluster sample – select all units from the selected clusters into the sample
--   Two-stage cluster sample – only select some units from the selected clusters into the sample
-:::
+> [**One-stage cluster sample**]{.alert} – select **all** units from the selected clusters into the sample
+
+> [**Two-stage cluster sample**]{.alert} – only select **some** units from the selected clusters into the sample
+
+**Pros/Cons:**
+
+-   Can be less expensive to field compared to other designs (e.g., SRS)
+-   Can cause a decrease in precision relative to SRS, because units within a cluster tend to be similar
 
 ## Systematic Sample {#slide-sys}
 
-::: {r-fit-text}
-**Systematic Sample** – a starting point is chosen from a list of population units, and that unit and each $k$th unit after that one on the list is chosen.
+> [**Systematic Sample**]{.alert} – a starting point is chosen from a list of all population units, and that unit and each $k$th unit after that one on the list is chosen.
 
-Pros/Cons:
+**Pros/Cons:**
 
 -   Easy to implement
+
 -   If the list is randomly ordered, systematic sample will behave like an SRS and you can use analysis methods appropriate for an SRS
--   But, it is **not an SRS**, because all possible subsets of nunits do not have the same probability of being sampled
-    -   For example, if the 100th unit is chosen, the 101st unit cannot be chosen – so the probability of a sample that contains both of these units is 0 (but the probability of other samples is \>0)
+
+    -   A systematic sample is **not an SRS**, because all possible subsets of $n$ units do not have the same probability of being sampled
+        -   For example, if the 100th unit is chosen, the 101st unit cannot be chosen – so the probability of a sample that contains both of these units is 0 (but the probability of other samples is \>0)
+
 -   Systematic sampling is technically a form of cluster sampling
 
 Example paper: [Pinterest Homemade Sunscreens: A Recipe for Sunburn (Merten et al., 2010)](https://www.tandfonline.com/doi/full/10.1080/10410236.2019.1616442){.uri}
-:::
 
 ## Probability Proportional to Size (PPS) {#slide-pps}
 
-**Probability Proportional to Size** - the probability a unit is selected into the sample is directly proportional to a size measure that is known for all units before sampling
+> [**Probability Proportional to Size**]{.alert} - the probability a unit is selected into the sample is directly proportional to a size measure that is known for all units before sampling
 
-Pros/Cons:
+**Pros/Cons:**
 
 -   Can **reduce variance** when units vary substantially in size
 -   Must know the "size" of all units before sampling
     -   E.g., sampling counties in the U.S. using number of people who live there as the "size"
--   Often used as part of a complex design, not as the only design feature
+-   Often used as *part* of a complex design, not as the only design feature
 
 ## Visualization
 
@@ -241,13 +231,13 @@ Pros/Cons:
 
 ## Combining Design Features
 
-[**Complex Samples**]{style="color:#ff8c00"} - surveys with [more than one of these elements]{style="color:#ff8c00"}, e.g., stratified cluster sample, two-stage cluster sample
+> [**Complex Samples**]{.alert} - surveys with [more than one of these elements]{.alert2}, e.g., stratified cluster sample, two-stage cluster sample
 
 <br>
 
 One specific feature you may encounter:
 
-[**EPSEM sampling**]{style="color:#dd00ff"} - Equal Probability of Selection Method
+[**EPSEM sampling**]{.alert} - Equal Probability of Selection Method
 
 -   **Not** a specific sampling method, instead this refers to using a sampling technique that results in each population unit having the same probability of selection
 
