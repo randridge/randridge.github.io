@@ -52,8 +52,6 @@ format:
 
     -   Sampling distribution = described by a **probability mass function (PMF)**
 
-    -   From previous courses, remember that PMFs are for discrete random variables and PDFs are for continuous random variables
-
 -   In your previous statistics classes, you usually assumed a sample of size $n$ from an *infinite* population -- hence sampling distributions such as $\bar{x}\sim N(\mu, \sigma^2/n)$
 
 -   With a **finite** population, the sampling distribution takes a different form
@@ -92,9 +90,7 @@ The **population** of clinics is:
 
 ## Example (con't)
 
-There are lots of ways we could select $n=2$ clinics from the population of $N=5$.
-
-Consider these two possibilities:
+There are lots of ways we could select $n=2$ clinics from the population of $N=5$. Consider two options:
 
 ::::: columns
 ::: {.column width="30%"}
@@ -258,6 +254,12 @@ Population values:
 |---------------------------:|:---:|:---:|:---:|:---:|:---:|
 |                    Clinic: |  1  |  2  |  3  |  4  |  5  |
 | \# Patients per day ($y$): | 10  | 20  | 50  | 60  | 150 |
+
+<br>
+
+<br>
+
+This is the [**sampling distribution**]{.alert} of $\hat{\theta}$ (i.e., $\bar{y}$)! &rarr;
 :::
 ::::
 
@@ -280,8 +282,6 @@ Average for each sample:
 :::
 ::::
 :::::::
-
-This is the [**sampling distribution**]{.alert} of $\hat{\theta}$ (i.e., $\bar{y}$)!
 
 ## Sampling Distribution for the Clinics SRS
 
@@ -339,8 +339,7 @@ E(\bar{y}) &= \sum_k k P(\bar{y}=k) \\
 
 $$\begin{aligned}
 V(\bar{y}) &= \sum_k (k-E(\bar{y}))^2 P(\bar{y}=k) \\
-& = (15-58)^2 \times 0.1 + (30-58)^2 \times 0.1 + \cdots + (105-58)^2 \times 0.1 = 921\\
-& = \mathbf{921}
+& = (15-58)^2 \times 0.1 + (30-58)^2 \times 0.1 + \cdots + (105-58)^2 \times 0.1 = \mathbf{921}
 \end{aligned}$$
 
 -   Note that we **did not make any assumption about the distribution of the** $\mathbf{y}$ **values** -- the "randomness" is from the sampling scheme, the fact that a different sample will produce a different value of $\bar{y}$.
@@ -396,7 +395,7 @@ Whichever clinic is sampled (in addition to clinic 5) "represents" all 4 other u
 
 -   $V(\hat{\theta}) = \sum_k (k-E(\hat{\theta}))^2 P(\hat{\theta}=k) = (38-58)^2 \times 0.25 + \cdots + (78-58)^2 \times 0.25 = \mathbf{272}$
 
-    -   a whole lot smaller than under SRS (variance was 921)! (about 3.4 times smaller)
+    -   a whole lot smaller than under SRS (variance for SRS was 921)!
 
 ## Why is Variance Reduced?
 
@@ -421,9 +420,7 @@ tibble(doctors = c(2,3,4,5,10),
 
 ## MSE -- Combining Bias and Variance
 
--   We had **unbiased estimators** for both sampling schemes for the clinics (SRS; Alternative Design)
-
--   Sometimes, however, we might prefer to allow a little bias in trade-off for much reduced variance
+-   Sometimes, we might prefer to allow a little bias in trade-off for much reduced variance
 
 -   Thus we often use another measure of the "accuracy" of an estimator:
 
@@ -439,7 +436,7 @@ tibble(doctors = c(2,3,4,5,10),
 
 -   An estimator can be biased and precise -- but then its not accurate
 
--   Key difference between **MSE** and **Variance**: MSE measures how close an estimate is to the truth, while variance measures how close estimates are across different samples
+-   **MSE** vs **Variance**: MSE measures how close an estimate is to the truth, while variance measures how close estimates are across different samples
 
 ## Activity 1.1 (Part 2)
 

@@ -176,8 +176,7 @@ Generative AI acknowledgment: MS Copilot was used to generate alt text for image
 <li><p>A sampling distribution is a <strong>discrete probability distribution</strong></p></li>
 <li><p>For a given sampling design, each statistic (mean, total, proportion, etc.) has a sampling distribution</p>
 <ul>
-<li><p>Sampling distribution = described by a <strong>probability mass function (PMF)</strong></p></li>
-<li><p>From previous courses, remember that PMFs are for discrete random variables and PDFs are for continuous random variables</p></li>
+<li>Sampling distribution = described by a <strong>probability mass function (PMF)</strong></li>
 </ul></li>
 <li><p>In your previous statistics classes, you usually assumed a sample of size <span class="math inline">\(n\)</span> from an <em>infinite</em> population – hence sampling distributions such as <span class="math inline">\(\bar{x}\sim N(\mu, \sigma^2/n)\)</span></p></li>
 <li><p>With a <strong>finite</strong> population, the sampling distribution takes a different form</p></li>
@@ -233,8 +232,7 @@ Generative AI acknowledgment: MS Copilot was used to generate alt text for image
 </section>
 <section id="example-cont" class="slide level2">
 <h2>Example (con’t)</h2>
-<p>There are lots of ways we could select <span class="math inline">\(n=2\)</span> clinics from the population of <span class="math inline">\(N=5\)</span>.</p>
-<p>Consider these two possibilities:</p>
+<p>There are lots of ways we could select <span class="math inline">\(n=2\)</span> clinics from the population of <span class="math inline">\(N=5\)</span>. Consider two options:</p>
 <div class="columns">
 <div class="column" style="width:30%;">
 <table class="caption-top">
@@ -515,6 +513,9 @@ P(\text{Unit 1 in sample}) &amp;{}= P(\text{selected on 1st draw OR selected on 
 </tr>
 </tbody>
 </table>
+<p><br></p>
+<p><br></p>
+<p>This is the <span class="alert"><strong>sampling distribution</strong></span> of <span class="math inline">\(\hat{\theta}\)</span> (i.e., <span class="math inline">\(\bar{y}\)</span>)! →</p>
 </div>
 </div><div class="column" style="width:50%;">
 <p>Average for each sample:</p>
@@ -593,7 +594,6 @@ P(\text{Unit 1 in sample}) &amp;{}= P(\text{selected on 1st draw OR selected on 
 </table>
 </div>
 </div></div>
-<p>This is the <span class="alert"><strong>sampling distribution</strong></span> of <span class="math inline">\(\hat{\theta}\)</span> (i.e., <span class="math inline">\(\bar{y}\)</span>)!</p>
 </section>
 <section id="sampling-distribution-for-the-clinics-srs-1" class="slide level2">
 <h2>Sampling Distribution for the Clinics SRS</h2>
@@ -677,8 +677,7 @@ E(\bar{y}) &amp;= \sum_k k P(\bar{y}=k) \\
 </ul>
 <p><span class="math display">\[\begin{aligned}
 V(\bar{y}) &amp;= \sum_k (k-E(\bar{y}))^2 P(\bar{y}=k) \\
-&amp; = (15-58)^2 \times 0.1 + (30-58)^2 \times 0.1 + \cdots + (105-58)^2 \times 0.1 = 921\\
-&amp; = \mathbf{921}
+&amp; = (15-58)^2 \times 0.1 + (30-58)^2 \times 0.1 + \cdots + (105-58)^2 \times 0.1 = \mathbf{921}
 \end{aligned}\]</span></p>
 <ul>
 <li><p>Note that we <strong>did not make any assumption about the distribution of the</strong> <span class="math inline">\(\mathbf{y}\)</span> <strong>values</strong> – the “randomness” is from the sampling scheme, the fact that a different sample will produce a different value of <span class="math inline">\(\bar{y}\)</span>.</p></li>
@@ -777,7 +776,7 @@ V(\bar{y}) &amp;= \sum_k (k-E(\bar{y}))^2 P(\bar{y}=k) \\
 </ul></li>
 <li><p><span class="math inline">\(V(\hat{\theta}) = \sum_k (k-E(\hat{\theta}))^2 P(\hat{\theta}=k) = (38-58)^2 \times 0.25 + \cdots + (78-58)^2 \times 0.25 = \mathbf{272}\)</span></p>
 <ul>
-<li>a whole lot smaller than under SRS (variance was 921)! (about 3.4 times smaller)</li>
+<li>a whole lot smaller than under SRS (variance for SRS was 921)!</li>
 </ul></li>
 </ul>
 </section>
@@ -795,8 +794,7 @@ V(\bar{y}) &amp;= \sum_k (k-E(\bar{y}))^2 P(\bar{y}=k) \\
 <section id="mse-combining-bias-and-variance" class="slide level2">
 <h2>MSE – Combining Bias and Variance</h2>
 <ul>
-<li><p>We had <strong>unbiased estimators</strong> for both sampling schemes for the clinics (SRS; Alternative Design)</p></li>
-<li><p>Sometimes, however, we might prefer to allow a little bias in trade-off for much reduced variance</p></li>
+<li><p>Sometimes, we might prefer to allow a little bias in trade-off for much reduced variance</p></li>
 <li><p>Thus we often use another measure of the “accuracy” of an estimator:</p></li>
 </ul>
 <blockquote>
@@ -810,7 +808,7 @@ V(\bar{y}) &amp;= \sum_k (k-E(\bar{y}))^2 P(\bar{y}=k) \\
 <li><p><span class="alert"><strong>Accurate</strong></span> if <span class="math inline">\(MSE\)</span> is small</p></li>
 </ul></li>
 <li><p>An estimator can be biased and precise – but then its not accurate</p></li>
-<li><p>Key difference between <strong>MSE</strong> and <strong>Variance</strong>: MSE measures how close an estimate is to the truth, while variance measures how close estimates are across different samples</p></li>
+<li><p><strong>MSE</strong> vs <strong>Variance</strong>: MSE measures how close an estimate is to the truth, while variance measures how close estimates are across different samples</p></li>
 </ul>
 </section>
 <section id="activity-1.1-part-2" class="slide level2">
