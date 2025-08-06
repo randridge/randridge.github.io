@@ -1,0 +1,100 @@
+---
+title: "Stratified Sampling: Software (Stata, R)"
+subtitle: "PUBHBIO 7225 Lecture 8"
+# author: "Generative AI acknowledgment: MS Copilot was used to generate alt text for images"
+format:
+  revealjs: 
+    slide-number: true
+    smaller: true
+    footer: "PUBHBIO 7225"
+    width: 1280
+    height: 720
+    theme: custom.scss
+    html-math-method: mathjax
+    eval: false
+    echo: true
+    # code-line-numbers: false
+    highlight-style: arrow #default
+---
+
+## Outline
+
+::::: columns
+::: {.column width="50%"}
+**Topics**
+
+-   Stata for SRS
+-   R for SRS
+
+:::
+
+::: {.column width="50%"}
+**Activities**
+
+-   8.1 Stata/R for SRS
+:::
+:::::
+
+<br>
+
+**Assignments**
+
+-   Peer Evaluation of Problem Set 2 due Tuesday 9/23/25 11:59pm via Carmen
+-   Quiz 2 due Thursday 9/25/2025 11:59pm via Carmen
+-   Group Progress Report due Thursday 9/25/2025 11:59pm via Carmen (only one group member needs to upload this)
+
+## Stata Commands for Stratified Samples
+
+Select a stratified random sample of $n_h=50$ in each stratum:
+
+```{r}
+sort STRATVAR IDVAR     # STRATVAR = variable defining strata, IDVAR = record ID
+set seed 217 
+by STRATVAR: sample 50, count
+```
+
+Select a stratified random sample by taking 50% of each stratum:\
+
+```{r}
+sort STRATVAR IDVAR 
+set seed 531 
+by STRATVAR: sample 50 
+```
+
+Tell Stata about the sample design for a stratified sample:\
+
+```{r}
+svyset [pweight=WEIGHTVAR], fpc(N_h) strata(STRATVAR) 
+# WEIGHTVAR = variable containing sampling weights
+# N_h = variable that contains finite population sizes in each stratum
+```
+
+With the survey design set, for estimation use same commands as for SRS (e.g., `svy:`)
+
+## R Commands for Stratified Samples
+
+Select a stratified random sample of $n_h=50$ in each stratum:
+
+```{r}
+set.seed(217)
+DF <- POPDATA %>% group_by(STRATVAR) %>% slice_sample(n = 50)
+# STRATVAR = variable defining strata
+```
+
+Select a stratified random sample by taking 50% of each stratum:
+
+```{r}
+set.seed(217)
+DF <- POPDATA %>% group_by(STRATVAR) %>% slice_sample(prop = 0.5)
+```
+
+Tell R about the sample design for a stratified sample:
+
+```{r}
+DESIGN.OBJECT <- svydesign(id = ~1, weights = ~WEIGHTVAR, fpc = ~N_h, 
+                           strata = ~STRATVAR, data=DF)
+# WEIGHTVAR = variable containing sampling weights
+# N_h = variable that contains finite population sizes in each stratum
+```
+
+With the survey design object created, for estimation use same commands as for SRS (e.g., `svymean()`)

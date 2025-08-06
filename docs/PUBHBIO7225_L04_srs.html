@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/tabby.min.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.42">
+
+  <title>randridge.github.io – Simple Random Sampling</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-184f816acf7be5be5db6eb7f3d13671f.css">
+  <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Simple Random Sampling</h1>
+  <p class="subtitle">PUBHBIO 7225 Lecture 4</p>
+
+<div class="quarto-title-authors">
+</div>
+
+</section>
+<section id="outline" class="slide level2">
+<h2>Outline</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Topics</strong></p>
+<ul>
+<li>Conditions for an SRS</li>
+<li>Design-based Theory for SRS</li>
+<li>CIs for SRS</li>
+<li>Finite Population Correction</li>
+<li>Sampling Weights</li>
+<li>Horvitz-Thompson Estimator</li>
+<li>Sample Size for SRS</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Activities</strong></p>
+<ul>
+<li>4.1 The Effect of the FPC</li>
+</ul>
+</div></div>
+<p><br></p>
+<p><strong>Assignments</strong></p>
+<ul>
+<li>Peer Evaluation of Problem Set 1 due Tuesday 9/9/25 11:59pm via Carmen</li>
+<li>Quiz 1 due Thursday 9/11/2025 11:59pm via Carmen</li>
+</ul>
+</section>
+<section id="srs-versus-srswr" class="slide level2">
+<h2>SRS versus SRSWR</h2>
+<p><span class="alert"><strong>Simple random sample without replacement (SRSWOR or just SRS)</strong></span></p>
+<ul>
+<li>A unit can only be selected into the sample <strong>once</strong></li>
+<li>Once a unit is selected into the sample, it cannot be selected again
+<ul>
+<li>Total number of SRS(WOR) samples of size <span class="math inline">\(n\)</span> from population of size <span class="math inline">\(N = {N \choose n}\)</span></li>
+<li>Each of the <span class="math inline">\({N \choose n}\)</span> samples is selected with equal probability, i.e., <span class="math inline">\(1/{N \choose n}\)</span></li>
+</ul></li>
+</ul>
+<p><span class="alert"><strong>Simple random sample with replacement (SRSWR)</strong></span></p>
+<ul>
+<li>A unit could be selected into the sample <strong>more than once</strong></li>
+<li>Sometimes called <strong>unrestricted random sampling (URS)</strong></li>
+<li>Pick a unit each with probability <span class="math inline">\(1/N\)</span>, put it back, pick another unit</li>
+<li>Total number of SRSWR samples of size <span class="math inline">\(n\)</span> from population of size <span class="math inline">\(N = N^n\)</span>
+<ul>
+<li><span class="math inline">\(N\)</span> choices for 1st unit selected <span class="math inline">\(\times\)</span> <span class="math inline">\(N\)</span> choices for 2nd unit selected <span class="math inline">\(\times \dots = N^n\)</span></li>
+<li>Each of the <span class="math inline">\(N^n\)</span> samples is selected with equal probability, i.e., <span class="math inline">\(1/N^n\)</span></li>
+</ul></li>
+</ul>
+<!-- As we saw in the Sampling Cats activity, SRS produces estimates with lower variance than SRSWR (theoretical details coming!) -->
+</section>
+<section id="conditions-for-an-srs" class="slide level2">
+<h2>Conditions for an SRS</h2>
+<p>By definition, SRS (and SRSWR) are <strong>EPSEM</strong> sampling designs</p>
+<blockquote>
+<p><strong>EPSEM</strong> = Equal Probability of SElection Method = every unit has equal probability of selection</p>
+</blockquote>
+<p>But this isn’t the whole story; other sampling designs can have this property</p>
+<p>In order for a sampling scheme to be SRS, the following conditions are necessary:</p>
+<ol type="1">
+<li>Sample size <span class="math inline">\(n\)</span> is fixed (there are sampling schemes that do not have fixed sample sizes)</li>
+<li>No unit can be selected more than once (if it can, then it’s SRSWR)</li>
+<li>EPSEM</li>
+<li>Joint probability of selection is equal for all pairs, triplets, …, <span class="math inline">\(n\)</span>-size groups of units in the population
+<ul>
+<li><span class="math inline">\(\pi_{ij} = P(\)</span>unit <span class="math inline">\(i\)</span> selected AND unit <span class="math inline">\(j\)</span> selected<span class="math inline">\()\)</span></li>
+<li><span class="math inline">\(\pi_{ijk} = P(\)</span>unit <span class="math inline">\(i\)</span> selected AND unit <span class="math inline">\(j\)</span> AND unit <span class="math inline">\(k\)</span> selected<span class="math inline">\()\)</span></li>
+<li>etc.</li>
+</ul></li>
+</ol>
+<!-- ## A Sampling Challenge -->
+<!-- **Goal:** Take an SRS of $n=30$ students in one elementary school -->
+<!-- -   School has 20 classrooms -->
+<!-- -   Each class has between 20 and 40 students -->
+<!-- Option 1: -->
+<!-- -   Select a classroom with equal probability -->
+<!-- -   Select one student in chosen classroom with equal probability -->
+<!-- -   Repeat until 30 students chosen -->
+<!-- Option 2: -->
+<!-- -   Select a classroom with equal probability (1/20) -->
+<!-- -   Select all students in chosen classroom -->
+<!-- -   Repeat until 30 students chosen -->
+<!-- Are these SRS? -->
+</section>
+<section id="design-based-randomization-theory-notation" class="slide level2">
+<h2>Design-based Randomization Theory – Notation</h2>
+<ul>
+<li><p><span class="math inline">\(U\)</span> = the finite population (i.e., the collection of all sampling units in the population)</p></li>
+<li><p><span class="math inline">\(N\)</span> = size of the population (number of units)</p></li>
+<li><p><span class="math inline">\(\mathcal{S}\)</span> = a particular sample</p></li>
+<li><p><span class="math inline">\(n\)</span> = size of the sample</p></li>
+<li><p><span class="math inline">\(y_i\)</span> = characteristic of interest for the <span class="math inline">\(i\)</span>th unit (outcome you’re interested in)</p></li>
+<li><p><span class="math inline">\(Z_i\)</span> = selection indicator, <span class="math inline">\(Z_i = \begin{cases}
+                            1, &amp; \text{if unit $i$ is in the sample}\\
+                            0, &amp; \text{otherwise}
+                            \end{cases}\)</span></p></li>
+<li><p><span class="math inline">\(\pi_i\)</span> = probability of selection/inclusion probability for population unit <span class="math inline">\(i\)</span></p>
+<ul>
+<li><span class="math inline">\(\pi_i\)</span> = <span class="math inline">\(P(\)</span>unit <span class="math inline">\(i\)</span> is included in the sample<span class="math inline">\() &gt; 0\)</span> for all units in the population</li>
+</ul></li>
+<li><p><span class="math inline">\(w_i\)</span> = sampling weight for unit <span class="math inline">\(i\)</span></p>
+<ul>
+<li><span class="math inline">\(w_i=0\)</span> for non-selected units; <span class="math inline">\(w_i&gt;0\)</span> for selected units</li>
+</ul></li>
+</ul>
+</section>
+<section id="design-based-randomization-theory" class="slide level2">
+<h2>Design-based Randomization Theory</h2>
+<ul>
+<li><p>In design-based theory for sampling, we <strong>do not</strong> assign a distribution to the outcome being measured</p></li>
+<li><p>Instead, the <span class="math inline">\(\mathbf{y_i}\)</span>’s are considered fixed (but unknown) – hence lower case</p></li>
+<li><p>Randomness instead comes from the <strong>selection indicators,</strong> <span class="math inline">\(\mathbf{Z_i}\)</span></p></li>
+</ul>
+</section>
+<section id="selectioninclusion-probabilities-for-an-srs" class="slide level2">
+<h2>Selection/Inclusion Probabilities for an SRS</h2>
+<p><span class="alert">Selection indicator:</span> <span class="math inline">\(Z_i \sim \text{Bernoulli}(\pi_i)\)</span></p>
+<p><span class="math inline">\(\pi_i = P(Z_i=1) = P(\)</span>select unit <span class="math inline">\(i\)</span> into the sample<span class="math inline">\(\displaystyle ) = \frac{n}{N}\)</span></p>
+<p>This probability comes from the definition of an SRS(WOR):</p>
+<ul>
+<li><p>There are <span class="math inline">\({N \choose n}\)</span> possible SRS(WOR) samples</p></li>
+<li><p>Assume unit <span class="math inline">\(i\)</span> is in the sample of size <span class="math inline">\(n\)</span></p></li>
+<li><p>The other <span class="math inline">\((n-1)\)</span> units in the sample must come from the remaining <span class="math inline">\(N-1\)</span> population units</p></li>
+<li><p>Number of possible samples of size <span class="math inline">\((n-1)\)</span> that can come from the remaining <span class="math inline">\((N-1)\)</span> units is <span class="math inline">\({N-1 \choose n-1}\)</span></p></li>
+<li><p>Therefore,</p>
+<p><span class="math inline">\(\pi_i = P(Z_i=1) =\)</span></p></li>
+</ul>
+</section>
+<section id="example" class="slide level2">
+<h2>Example</h2>
+<p>In Activity 3.1, we were choosing <span class="math inline">\(n=2\)</span> cats out of <span class="math inline">\(N=3\)</span></p>
+<ul>
+<li><p>We calculated: <span class="math inline">\(P(\)</span>Leo in the sample<span class="math inline">\() = 2/3 = 0.667\)</span></p></li>
+<li><p>Intuitively, this would be the same for all cats (chosen with equal probability)</p></li>
+<li><p>Thus, <span class="math inline">\(\pi_i = 2/3, i \in 1, 2, 3\)</span> (for all cats)</p></li>
+<li><p>This matches the formula:</p>
+<ul>
+<li>Choosing <span class="math inline">\(n=2\)</span> out of <span class="math inline">\(N=3\)</span></li>
+<li><span class="math inline">\(\displaystyle \rightarrow \pi_i = \frac{n}{N}=\frac{2}{3}\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="things-we-want-to-estimate-and-their-estimators" class="slide level2">
+<h2>Things We Want to Estimate, and Their Estimators</h2>
+<p>Basic quantities we want to estimate:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Quantity</strong></th>
+<th style="text-align: left;"><strong>Estimand (Truth)</strong></th>
+<th style="text-align: left;"><strong>Estimate</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Mean</td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle \bar{y}_U=\frac{1}{N} \sum_{i=1}^N y_i\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle \bar{y}= \frac{1}{n} \sum_{i\in \mathcal{S}} y_i\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Total</td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle t = \sum_{i=1}^N y_i\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\hat{t}= N \bar{y}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Variance (of <span class="math inline">\(y\)</span>)</td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle S^2=\frac{1}{N-1} \sum_{i=1}^N (y_i - \bar{y}_U)^2\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle s^2=\frac{1}{n-1} \sum_{i\in \mathcal{S}} (y_i - \bar{y})^2\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle S^2=\frac{1}{N-1} \left(\sum_{i=1}^N y_i^2 - N \bar{y}_U^2 \right)\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle s^2=\frac{1}{n-1} \left(\sum_{i\in \mathcal{S}} y_i^2 - n\bar{y}^2 \right)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Formulas apply <span class="alert2"><strong>regardless of distribution of</strong> <span class="math inline">\(y\)</span></span></p>
+<p><span class="math inline">\(y\)</span> is not a random variable!</p>
+</section>
+<section id="example-binary-y" class="slide level2">
+<h2>Example: Binary Y</h2>
+<ul>
+<li><p>For binary <span class="math inline">\(y\)</span>, the mean of <span class="math inline">\(y\)</span> is a proportion: <span class="math inline">\(\bar{y}_U = p\)</span></p></li>
+<li><p>This is estimated with the sample proportion, <span class="math inline">\(\hat{p}\)</span></p>
+<ul>
+<li>Note: <span class="math inline">\(\hat{p} = \bar{y}\)</span>if <span class="math inline">\(y\)</span> is recorded as 0/1 (indicator variable)</li>
+</ul></li>
+<li><p>The variance of <span class="math inline">\(y\)</span> can be rewritten in terms of <span class="math inline">\(\hat{p}\)</span>: <span class="math display">\[\begin{flalign*}
+\text{Binary }y: \quad S^2 &amp;= \frac{1}{N-1} \sum_{i=1}^N (y_i-\bar{y}_U)^2 = \frac{1}{N-1} \sum_{i=1}^N (y_i-p)^2 &amp;\\
+&amp;= %\frac{1}{N-1} \left( \sum_{i=1}^N y_i^2 - 2p\sum_{i=1}^N y_i + Np^2 \right)\\
+%&amp;= \frac{Np - 2Np^2 + Np^2}{N-1} \qquad \text{b/c } \sum_{i=1}^N y_i^2 = \sum_{i=1}^N y_i = Np\\
+%&amp;=\frac{Np - Np^2}{N-1} = \frac{Np(1-p)}{N-1}= \frac{N}{N-1}p(1-p)
+\end{flalign*}\]</span></p></li>
+</ul>
+</section>
+<section id="things-we-want-to-estimate-and-their-estimators-1" class="slide level2">
+<h2>Things We Want to Estimate, and Their Estimators</h2>
+<p>Basic quantities we want to estimate:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Quantity</strong></th>
+<th style="text-align: left;"><strong>Estimand (Truth)</strong></th>
+<th style="text-align: left;"><strong>Estimate</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Mean</td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle \bar{y}_U=\frac{1}{N} \sum_{i=1}^N y_i\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle \bar{y}= \frac{1}{n} \sum_{i\in \mathcal{S}} y_i\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Total</td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle t = \sum_{i=1}^N y_i\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\hat{t}= N \bar{y}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Variance (of <span class="math inline">\(y\)</span>)</td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle S^2=\frac{1}{N-1} \sum_{i=1}^N (y_i - \bar{y}_U)^2\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle s^2=\frac{1}{n-1} \sum_{i\in \mathcal{S}} (y_i - \bar{y})^2\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mean, binary <span class="math inline">\(y\)</span> (proportion)</td>
+<td style="text-align: left;"><span class="math inline">\(p\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle \hat{p}= \frac{1}{n} \sum_{i\in \mathcal{S}} y_i\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Variance, binary <span class="math inline">\(y\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle S^2 = \frac{N}{N-1} p(1-p)\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle s^2 = \frac{n}{n-1} \hat{p}(1-\hat{p})\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Remember: <span class="math inline">\(y\)</span> is not a random variable!</p>
+</section>
+<section id="estimators-are-random-variables" class="slide level2">
+<h2>Estimators Are Random Variables</h2>
+<p>Random selection of units into the sample implies that <span class="alert"><span class="math inline">\((\bar{y}, \hat{t}, \hat{p})\)</span> are random variables</span></p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Estimate</strong></th>
+<th style="text-align: left;"><strong>Expected Value</strong></th>
+<th style="text-align: left;"><strong>Variance</strong></th>
+<th style="text-align: left;"><strong>Variance Estimate</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Mean <span class="math inline">\((\bar{y})\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(E(\bar{y})= \bar{y}_U\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle V(\bar{y})= \left(1-\frac{n}{N}\right)\frac{S^2}{n}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle \widehat{V}(\bar{y})= \left(1-\frac{n}{N}\right)\frac{s^2}{n}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Total <span class="math inline">\((\hat{t})\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(E(\hat{t})=t\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle V(\hat{t})=N^2 \left(1-\frac{n}{N}\right)\frac{S^2}{n}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle \widehat{V}(\hat{t})=N^2 \left(1-\frac{n}{N}\right)\frac{s^2}{n}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Proportion <span class="math inline">\((\hat{p})\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(E(\hat{p})=p\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle V(\hat{p})= \left(\frac{N-n}{N-1}\right) \frac{p(1-p)}{n}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle \widehat{V}(\hat{p}) = \left(1-\frac{n}{N}\right)\frac{\hat{p}(1-\hat{p})}{n-1}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Variance <span class="math inline">\((s^2)\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(E(s^2)=S^2\)</span></td>
+<td style="text-align: left;">(we will not cover this)</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>These expectations and variances come from the <span class="math inline">\(Z_i\)</span></p></li>
+<li><p><span class="math inline">\(y_i\)</span> is considered fixed</p></li>
+</ul>
+</section>
+<section id="finite-population-correction" class="slide level2">
+<h2>Finite Population Correction</h2>
+<ul>
+<li><p>In your <span style="color: myGreen">previous</span> statistics classes: <span class="math inline">\(\displaystyle V(\bar{y}) = \frac{S^2}{n}\)</span></p></li>
+<li><p>In <span class="alert">this</span> class: <span class="math inline">\(\displaystyle V(\bar{y})= \textcolor{blue}{\left(1-\frac{n}{N}\right)} \frac{S^2}{n}\)</span></p>
+<ul>
+<li><span class="alert">The variance of <span class="math inline">\(\bar{y}\)</span> is not <span class="math inline">\(S^2/n\)</span>!</span></li>
+</ul></li>
+<li><p>Extra piece: <span class="alert2"><span class="math inline">\(\displaystyle \left(1-\frac{n}{N}\right)\)</span></span> = <span class="alert2"><strong>finite population correction (fpc)</strong></span></p></li>
+<li><p>When you sample a <span class="alert">large proportion of the population <strong>without replacement</strong></span>, you get a <span class="alert"><strong>reduction</strong></span> in variance</p>
+<ul>
+<li><p>If you sample <strong>all</strong> of the population (i.e., <span class="math inline">\(n = N\)</span>), your information is “perfect”</p></li>
+<li><p>In that case, <span class="math inline">\(V(\bar{y}) = 0\)</span>, since every “sample” of size <span class="math inline">\(n=N\)</span> produces the same <span class="math inline">\(\bar{y}\)</span>!</p></li>
+</ul></li>
+<li><p>For samples that are small relative to the population size <span class="math inline">\((n \ll N)\)</span>, fpc <span class="math inline">\(\approx\)</span> 1 (and can be ignored)</p>
+<ul>
+<li>That’s why in the “infinite population” world (your previous stat classes) there was no <span class="math inline">\(\left(1-\frac{n}{N}\right)\)</span> part</li>
+</ul></li>
+</ul>
+</section>
+<section id="example-of-when-we-can-ignore-the-fpc" class="slide level2">
+<h2>Example of When We Can Ignore the FPC</h2>
+<ul>
+<li><p>Many surveys have target populations that are very large</p></li>
+<li><p>Even the U.S. government doesn’t have the resources to sample a large fraction of many populations of interest!</p></li>
+<li><p><strong>Example:</strong> National surveys conducted by U.S. Government (e.g., NHANES, BRFSS)</p>
+<ul>
+<li><p>Target population = all U.S. residents (sometimes exclude small subsets, e.g., incarcerated people)</p></li>
+<li><p>US adult population <span class="math inline">\(\approx\)</span> 250,000,000</p></li>
+<li><p>Even if sample 100,000 people, that’s only 0.04% of the population!</p></li>
+<li><p>fpc = <span class="math inline">\(1-\frac{100,000}{250,000,000} = 1 - 0.0004 = 0.9996 \approx 1\)</span></p></li>
+<li><p><span class="math inline">\(V(\bar{y})=\left(1-\frac{n}{N}\right)\frac{S^2}{n} \approx \frac{S^2}{n}\)</span></p></li>
+<li><p>Not going to get much variance reduction due to fpc!</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="activity-4.1" class="slide level2">
+<h2>Activity 4.1</h2>
+<p>The Eﬀect of the FPC</p>
+</section>
+<section id="expectation-of-the-sample-mean" class="slide level2">
+<h2>Expectation of the Sample Mean</h2>
+<p>Re-write <span class="math inline">\(\bar{y}\)</span> in terms of <span class="math inline">\(Z_i\)</span> (and over the whole population): <span class="math display">\[\begin{align}
+\bar{y}= \sum_{i \in \mathcal{S}} \frac{y_i}{n} &amp;= \sum_{i \in \mathcal{S}} \left(1 \times \frac{y_i}{n}\right) + \sum_{i \notin \mathcal{S}} \left(0 \times \frac{y_i}{n}\right) = \sum_{i=1}^N Z_i \frac{y_i}{n}\\
+&amp; \\
+\end{align}\]</span> Since <span class="math inline">\(Z_i \sim Bernoulli(\pi_i=\frac{n}{N})\)</span>, we have <span class="math inline">\(E(Z_i) =\pi_i = \frac{n}{N}\)</span></p>
+<p>So we can find the expected value and variance of the sample mean <span class="math inline">\(\bar{y}\)</span> as:</p>
+<p><span class="math inline">\(\displaystyle E(\bar{y}) = E\left(\sum_{i=1}^N Z_i \frac{y_i}{n}\right) =\)</span></p>
+</section>
+<section id="variance-of-the-sample-mean" class="slide level2">
+<h2>Variance of the Sample Mean</h2>
+<p>To find <span class="math inline">\(V(\bar{y})\)</span> we will need both <span class="math inline">\(V(Z_i)\)</span> and <span class="math inline">\(\text{Cov}(Z_i,Z_j)\)</span></p>
+<p>Since <span class="math inline">\(Z_i^2=Z_i\)</span> (why?), we have that: <span class="math inline">\(\displaystyle E(Z_i^2)=E(Z_i) = \frac{n}{N}\)</span><br>
+Thus, <span class="math display">\[\begin{aligned}
+V(Z_i) &amp;= E(Z_i^2) - [E(Z_i)]^2 = \frac{n}{N} - \left(\frac{n}{N}\right)^2 = \frac{n}{N} \left(1-\frac{n}{N}\right)= \pi_i(1-\pi_i) &amp;
+\end{aligned}\]</span> (which is just the usual Bernoulli variance)</p>
+<p>Since <span class="math inline">\(\text{Cov}(Z_i,Z_j) = E(Z_iZ_j) - E(Z_i)E(Z_j)\)</span> we just need to find <span class="math inline">\(E(Z_iZ_j)\)</span>:</p>
+<p>Note that <span class="math inline">\(Z_i\)</span> and <span class="math inline">\(Z_j\)</span> are <strong>not</strong> independent – if we know that unit <span class="math inline">\(j\)</span> is in the sample, we know something about whether unit <span class="math inline">\(i\)</span> is in the sample</p>
+<p><span class="math inline">\(\displaystyle E(Z_iZ_j) =\)</span></p>
+</section>
+<section id="variance-of-the-sample-mean-cont" class="slide level2">
+<h2>Variance of the Sample Mean (con’t)</h2>
+<!-- Thus we can find the covariance of $Z_i$ and $Z_j$ as: -->
+<p><span class="math display">\[\begin{flalign}
+\text{Cov}(Z_i,Z_j) &amp;= E(Z_iZ_j) - E(Z_i)E(Z_j) =\frac{n-1}{N-1}\frac{n}{N} - \frac{n}{N} \frac{n}{N} = \dots \text{painful algebra} \dots&amp; \\
+%&amp;=\frac{n}{N} \left[\frac{n-1}{N-1}-\frac{n}{N} \right] =\frac{n}{N} \left[\frac{(n-1)N-n(N-1)}{N(N-1)} \right] = \frac{n}{N} \left[\frac{nN-N-nN+n}{N(N-1)} \right]\\
+%&amp;=\frac{n}{N} \left[\frac{n-N}{N(N-1)} \right] = \frac{n}{N} \left[\frac{-(N-n)}{N(N-1)} \right] = \frac{n}{N} \left(\frac{1}{N-1}\right) \left[\frac{-(N-n)}{N} \right]\\
+%&amp;= -\frac{n}{N} \left(\frac{1}{N-1}\right) \left(\frac{N-n}{N} \right) \\
+&amp;= -\frac{n}{N} \left(\frac{1}{N-1}\right) \left(1-\frac{n}{N}\right)
+\end{flalign}\]</span></p>
+<p>This <strong>negative covariance</strong> between <span class="math inline">\(Z_i\)</span> and <span class="math inline">\(Z_j\)</span> is <span class="alert">source of the finite population correction</span></p>
+<p><span class="math display">\[\begin{flalign}
+V(\bar{y}) &amp;= V \left( \sum_{i=1}^N Z_i \frac{y_i}{n} \right) =  \frac{1}{n^2} V \left( \sum_{i=1}^N Z_i y_i \right)=\frac{1}{n^2} \text{Cov}\left(\sum_{i=1}^N Z_i y_i, \sum_{j=1}^N Z_j y_j \right) \\
+&amp;=\frac{1}{n^2} \sum_{i=1}^N \sum_{j=1}^N y_i y_j \text{Cov}(Z_i,Z_j) = \frac{1}{n^2} \left[\sum_{i=1}^N y_i^2 V(Z_i) + \sum_{i=1}^N \sum_{j \ne i}^N y_i y_j \text{Cov}(Z_i,Z_j) \right] \\
+&amp;= \frac{1}{n^2} \left[\frac{n}{N} \left(1-\frac{n}{N}\right)\sum_{i=1}^N y_i^2 + \left[-\frac{n}{N} \left(\frac{1}{N-1}\right) \left(1-\frac{n}{N}\right)\right] \sum_{i=1}^N \sum_{j \ne i}^N y_i y_j \right] \\
+%&amp;= \frac{1}{n^2} \frac{n}{N} \fpcpar \left[ \sum_{i=1}^N y_i^2 - \frac{1}{N-1} \sum_{i=1}^N \sum_{j \ne i}^N y_i y_j \right] \\
+%&amp;= \frac{1}{n}\frac{1}{N} \fpcpar \frac{1}{N-1} \left[ (N-1) \sum_{i=1}^N y_i^2 - \sum_{i=1}^N \sum_{j \ne i}^N y_i y_j \right]\\
+%&amp;= \frac{1}{n}\frac{1}{N} \fpcpar \frac{1}{N-1} \left[ (N-1) \sum_{i=1}^N y_i^2 - \left[ \left(\sum_{i=1}^N y_i\right)^2 - \sum_{i=1}^N y_i^2 \right]\right] \\
+%&amp;= \frac{1}{n}\frac{1}{N} \fpcpar \frac{1}{N-1} \left[N\sum_{i=1}^N y_i^2 - \left(\sum_{i=1}^N y_i\right)^2 \right] \\
+%&amp;= \frac{1}{n}\frac{1}{N} \fpcpar \frac{1}{N-1} \left[N\sum_{i=1}^N y_i^2 - \left(N \ybar_U \right)^2 \right] \\
+%&amp;= \frac{1}{n}\fpcpar \frac{1}{N-1} \left[\sum_{i=1}^N y_i^2 - N \ybar_U^2 \right] \\
+%&amp;= \frac{1}{n}\fpcpar S^2 \\
+&amp;= \dots \text{painful algebra and some tricks} \dots = \left(1-\frac{n}{N}\right)\frac{S^2}{n}
+\end{flalign}\]</span></p>
+</section>
+<section id="confidence-intervals-for-srs" class="slide level2">
+<h2>Confidence Intervals for SRS</h2>
+<ul>
+<li><p>If <span class="math inline">\(n\)</span>, <span class="math inline">\(N\)</span>, and <span class="math inline">\((N - n)\)</span> are “sufficiently large”, then for an unbiased estimator <span class="math inline">\(\hat{\theta}\)</span>, an approximately <span class="math inline">\(\alpha\)</span>-level confidence interval for the true value <span class="math inline">\(\theta\)</span> is given by: <span class="math display">\[\left(
+\hat{\theta} - z_{\alpha/2} \sqrt{\hat{V}(\hat{\theta})}, \quad \hat{\theta} + z_{\alpha/2} \sqrt{\hat{V}(\hat{\theta})}
+\right)\]</span> where <span class="math inline">\(z_{\alpha/2}\)</span> is the <span class="math inline">\((1-\alpha/2)\)</span>th percentile of the standard normal distribution</p></li>
+<li><p>For estimating the mean: <span class="math display">\[\left(
+\bar{y}- z_{\alpha/2} \sqrt{\left(1-\frac{n}{N}\right)\frac{s^2}{n}}, \quad \bar{y}+ z_{\alpha/2} \sqrt{\left(1-\frac{n}{N}\right)\frac{s^2}{n}}
+\right)\]</span></p></li>
+<li><p>In practice, often use <span style="color: blue"><span class="math inline">\(t_{\alpha/2,n-1}\)</span></span>, the <span class="math inline">\((1-\alpha/2)\)</span>th percentile of a <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(n-1\)</span> degrees of freedom, for <span class="math inline">\(z_{\alpha/2}\)</span> (<span class="math inline">\(t\)</span> sometimes has better properties than <span class="math inline">\(z\)</span>)</p></li>
+<li><p>For large samples, <span class="math inline">\(t_{\alpha/2,n-1} \approx z_{\alpha/2}\)</span></p></li>
+<li><p>In smaller samples, using <span class="math inline">\(t_{\alpha/2,n-1}\)</span> produces a <strong>wider</strong> CI</p></li>
+</ul>
+</section>
+<section id="sampling-weights-and-the-horvitz-thompson-estimator" class="slide level2">
+<h2>Sampling Weights and the Horvitz-Thompson Estimator</h2>
+<p>For any sampling design, define:</p>
+<blockquote>
+<p>Sampling weight = <span class="math inline">\(\displaystyle w_i = \frac{1}{w_i}\)</span> = inverse probability of selection</p>
+</blockquote>
+<ul>
+<li>Each unit <span class="math inline">\(i\)</span> in the sample “represents” <span class="math inline">\(w_i\)</span> units in the population</li>
+</ul>
+<blockquote>
+<p><strong>Horvitz-Thompson (HT) estimator (of the total):</strong> <span class="math display">\[\hat{t}_{HT} = \sum_{i\in \mathcal{S}} \frac{y_i}{\pi_i} = \sum_{i\in \mathcal{S}} w_i y_i\]</span></p>
+</blockquote>
+<ul>
+<li>For <strong>any probability sampling design</strong> (with <span class="math inline">\(\pi_i &gt; 0\)</span> for all <span class="math inline">\(i\)</span> in the population), the Horvitz-Thompson estimator for the total is unbiased: <span class="math display">\[E[\hat{t}_{HT}] = t\]</span></li>
+</ul>
+</section>
+<section id="horvitz-thompson-estimator-for-an-srs" class="slide level2">
+<h2>Horvitz-Thompson Estimator for an SRS</h2>
+<!-- In fact, our estimator of the total for SRS, $\hat{t}= N \bar{y}$, **is** the HT estimator! -->
+<ul>
+<li><p>Inclusion probability <span class="math inline">\(\displaystyle \pi_i = \frac{n}{N}\)</span> for all <span class="math inline">\(i\)</span></p></li>
+<li><p>Sampling weight = <span class="math inline">\(\displaystyle w_i = \frac{1}{\pi_i} = \frac{N}{n}\)</span></p></li>
+<li><p>Estimator for the <strong>total</strong> of <span class="math inline">\(y\)</span>: <span class="math display">\[\hat{t}_{HT} = \sum_{i\in \mathcal{S}} \textcolor{red}{w_i} y_i = \sum_{i\in \mathcal{S}} \textcolor{red}{\frac{1}{\pi_i}} y_i = \sum_{i\in \mathcal{S}} \textcolor{red}{\frac{N}{n}} y_i = N \frac{1}{n} \sum_{i\in \mathcal{S}} y_i = N \bar{y}
+\]</span></p></li>
+<li><p>Note that the sum of weights equals the population size: <span class="math inline">\(\displaystyle \sum_{i \in \mathcal{S}} w_i = \sum_{i \in \mathcal{S}} \frac{N}{n} = n \frac{N}{n} = N\)</span></p></li>
+<li><p>Our estimator for the <strong>mean</strong> of <span class="math inline">\(y\)</span> can also be written as a function of the weights: <span class="math display">\[\bar{y}= \frac{1}{n} \sum_{i\in \mathcal{S}} y_i = \frac{1}{N} \sum_{i\in \mathcal{S}} \frac{N}{n} y_i = \frac{\sum_{i\in \mathcal{S}} \frac{N}{n} y_i}{N} = \frac{\sum_{i\in \mathcal{S}} w_i y_i}{\sum_{i \in \mathcal{S}} w_i}\]</span> <!-- But since SRS is self-weighting (EPSEM), for means/proportion point estimates we don't need to explicitly use the sampling weights in the calculation --></p></li>
+</ul>
+</section>
+<section id="sample-size-estimation-for-an-srs" class="slide level2">
+<h2>Sample Size Estimation for an SRS</h2>
+<ul>
+<li><p>For most surveys, sample size is based on being able to estimate a population parameter (mean, proportion, total) with a <span class="alert2">specified precision</span></p></li>
+<li><p>This is in contrast to, say, a clinical trial, where we want to detect a certain <span class="alert">effect size</span></p></li>
+<li><p>Precision is specified via the Margin of Error (MOE):</p></li>
+</ul>
+<blockquote>
+<p><strong>Margin of error (MOE)</strong> = <span class="math inline">\(e\)</span> = half the width of a CI<br>
+<span class="math inline">\(P(|\bar{y}-\bar{y}_U| \leq e) = 1 - \alpha\)</span></p>
+</blockquote>
+<ul>
+<li><p>From the CI formula we have: <span class="math inline">\(\displaystyle e = z_{\alpha/2} \sqrt{\left(1-\frac{n}{N}\right)\frac{S^2}{n}}\)</span></p></li>
+<li><p>Solving for <span class="math inline">\(n\)</span> we get: <span class="math inline">\(\displaystyle n = \frac{z_{\alpha/2}^2 S^2}{e^2 + \dfrac{z_{\alpha/2}^2 S^2}{N}}\)</span></p></li>
+</ul>
+<!-- $$%       e^2 = z_{\alpha/2}^2 \fpcpar \frac{S^2}{n} -->
+<!-- %       e^2 = z_{\alpha/2}^2 \frac{S^2}{n} - z_{\alpha/2}^2 \frac{S^2}{N} -->
+<!-- %       e^2 + z_{\alpha/2}^2 \frac{S^2}{N} = z_{\alpha/2}^2 \frac{S^2}{n}  -->
+<!-- n = \frac{z_{\alpha/2}^2 S^2}{e^2 + \dfrac{z_{\alpha/2}^2 S^2}{N}}$$ -->
+<p>If <span class="math inline">\(N\)</span> is very large, reduces to formula for an SRSWR (typical, infinite population calculation)</p>
+</section>
+<section id="example-public-opinion-polling" class="slide level2">
+<h2>Example: Public Opinion Polling</h2>
+<p>Typical application of the sample size formula</p>
+<ul>
+<li><p>Estimating a proportion</p></li>
+<li><p>Assume true proportion is the one that yields the largest variance, which is <span class="math inline">\(p=\)</span></p></li>
+<li><p>Assume MOE of <span class="math inline">\(e=0.03\)</span></p></li>
+<li><p>Assume very large population (so can ignore the FPC)</p></li>
+<li><p>Resulting calculation yields:</p></li>
+</ul>
+<p><span class="math inline">\(\displaystyle n = \frac{z_{\alpha/2}^2 S^2}{e^2 + \dfrac{z_{\alpha/2}^2 S^2}{N}} =\)</span></p>
+</section>
+<section id="great-quote-about-sample-size-estimation-for-surveys" class="slide level2">
+<h2>Great Quote About Sample Size Estimation for Surveys</h2>
+<blockquote>
+<p><em>Choosing a sample size is somewhat like deciding how much food to take on a picnic. You have a rough idea of how many people will attend, but do not know how much food you should have brought until after the picnic is over. You also need to bring extra food to allow for unexpected happenings, such as 2-year-old Freddie feeding a bowl of potato salad to the ducks or cousin Ted bringing along some extra guests. But you do not want to bring too much extra food, or it will spoil and you will have wasted money. Of course, the more picnics you have organized, and the better acquainted you are with the picnic guests, the better you become at bringing the right amount of food. It is comforting to know that the same is true of determining sample sizes — experience and knowledge about the population make you much better at designing surveys.</em></p>
+</blockquote>
+<p>Quote from p.50 of <em>Sampling: Design and Analysis, 2nd Edition</em> by Sharon Lohr</p>
+
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p>PUBHBIO 7225</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': true,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+
+        height: 720,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

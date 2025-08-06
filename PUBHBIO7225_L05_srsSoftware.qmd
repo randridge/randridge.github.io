@@ -1,0 +1,180 @@
+---
+title: "Simple Random Sampling: Software (Stata, R)"
+subtitle: "PUBHBIO 7225 Lecture 5"
+# author: "Generative AI acknowledgment: MS Copilot was used to generate alt text for images"
+format:
+  revealjs: 
+    slide-number: true
+    smaller: true
+    footer: "PUBHBIO 7225"
+    width: 1280
+    height: 720
+    theme: custom.scss
+    html-math-method: mathjax
+    eval: false
+    echo: true
+    # code-line-numbers: false
+    highlight-style: arrow #default
+---
+
+## Outline
+
+::::: columns
+::: {.column width="50%"}
+**Topics**
+
+-   Stata for SRS
+-   R for SRS
+
+:::
+
+::: {.column width="50%"}
+**Activities**
+
+-   5.1 Stata/R for SRS
+:::
+:::::
+
+<br>
+
+**Assignments**
+
+-   Quiz 1 due Thursday 9/11/2025 11:59pm via Carmen
+-   Problem Set 2 due Thursday 9/18/2025 11:59pm via Carmen
+
+## Stata Commands for SRS
+
+Select an SRS of size 100:
+
+```{r}
+set seed 72947
+sample 100, count
+```
+
+Select an SRS that is 15% of the population:
+
+```{r}
+set seed 72947
+sample 15
+```
+
+Create a new variable called `N` that contains the value 10,000 for all
+records:
+
+```{r}
+generate N = 10000
+# can abbreviate with:
+gen N = 10000
+```
+
+Tell Stata about the sample design for an SRS:
+
+```{r}
+svyset [pweight=WEIGHTVAR], fpc(N)
+# WEIGHTVAR = variable containing sampling weights
+# N = variable that contains finite population size
+```
+
+## (Some) Stata Commands for Survey Estimation
+
+Must first run `svyset` command. Variables are `y`, `x1`, `x2`.
+
+Estimate a mean:
+
+```{r}
+svy: mean y
+```
+
+Estimate a proportion:
+
+```{r}
+svy: proportion x1
+# can abbreviate with:
+svy: prop x1
+```
+
+Estimate a total:
+
+```{r}
+svy: total y
+```
+
+Linear and logistic regression:
+
+```{r}
+# linear regression (y on x1 and x2)
+svy: regress y x1 x2
+# logistic regression (x1 on x2)
+svy: logistic x1 x2
+```
+
+
+## R Commands for SRS
+
+Select an SRS of size 100 (from a dataset called `POPDATA`):\
+
+```{r}
+set.seed(72947)
+DF <- POPDATA
+# DF = resulting dataset with 100 observations
+```
+
+Select an SRS that is 15% of the population (from a dataset called
+`POPDATA`):
+
+```{r}
+set.seed(72947)
+DF <- POPDATA %>% slice_sample(prop = 0.15)
+```
+
+Create a new variable called `N` that contains the value 10,000 for all
+records:
+
+```{r}
+DF$N <- 10000
+# or, tidyverse-style:
+DF <- DF %>% mutate(N = 10000)
+```
+
+Tell R about the sample design for an SRS:
+
+```{r}
+DESIGN.OBJECT <- svydesign(id = ~1, weights = ~WEIGHTVAR, fpc = ~N, data=DF)
+# WEIGHTVAR = variable containing sampling weights
+# N = variable that contains finite population size
+```
+
+## (Some) R Commands for Survey Estimation
+
+Must first use `svydesign()` to make survey design object. Variables are `y`, `x1`, `x2`.
+
+Estimate a mean:
+
+```{r}
+svymean(~y, design=DESIGN.OBJECT) # DESIGN.OBJECT = design object from svydesign()
+```
+
+Estimate a proportion:
+
+```{r}
+# proportions at each level of the factor
+svymean(~factor(x1), design=DESIGN.OBJECT)
+# if variable is 1/0 or TRUE/FALSE can use svymean() to get proportion
+svymean(~x1, design=DESIGN.OBJECT)
+```
+
+Estimate a total:
+
+```{r}
+svytotal(~x1, design=DESIGN.OBJECT)
+```
+
+Linear and logistic regression:
+
+```{r}
+# linear regression (y on x1 and x2)
+svyglm(y ~ x1 + x2, design=DESIGN.OBJECT)
+# logistic regression (x1 on x2)
+svyglm(x1 ~ x2, family=binomial(link="logit"), design=DESIGN.OBJECT)
+```
+

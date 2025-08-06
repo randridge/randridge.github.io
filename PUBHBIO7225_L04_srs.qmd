@@ -1,0 +1,422 @@
+---
+title: "Simple Random Sampling"
+subtitle: "PUBHBIO 7225 Lecture 4"
+# author: "Generative AI acknowledgment: MS Copilot was used to generate alt text for images"
+format:
+  revealjs: 
+    slide-number: true
+    smaller: true
+    footer: "PUBHBIO 7225"
+    width: 1280
+    height: 720
+    theme: custom.scss
+    html-math-method: mathjax
+---
+
+## Outline
+
+::::: columns
+::: {.column width="50%"}
+**Topics**
+
+-   Conditions for an SRS
+-   Design-based Theory for SRS
+-   CIs for SRS
+-   Finite Population Correction
+-   Sampling Weights
+-   Horvitz-Thompson Estimator
+-   Sample Size for SRS
+:::
+
+::: {.column width="50%"}
+**Activities**
+
+-   4.1 The Effect of the FPC
+:::
+:::::
+
+<br>
+
+**Assignments**
+
+-   Peer Evaluation of Problem Set 1 due Tuesday 9/9/25 11:59pm via Carmen
+-   Quiz 1 due Thursday 9/11/2025 11:59pm via Carmen
+
+## SRS versus SRSWR
+
+[**Simple random sample without replacement (SRSWOR or just SRS)**]{.alert}
+
+-   A unit can only be selected into the sample **once**
+-   Once a unit is selected into the sample, it cannot be selected again
+    -   Total number of SRS(WOR) samples of size $n$ from population of size $N = {N \choose n}$
+    -   Each of the ${N \choose n}$ samples is selected with equal probability, i.e., $1/{N \choose n}$
+
+[**Simple random sample with replacement (SRSWR)**]{.alert}
+
+-   A unit could be selected into the sample **more than once**
+-   Sometimes called **unrestricted random sampling (URS)**
+-   Pick a unit each with probability $1/N$, put it back, pick another unit
+-   Total number of SRSWR samples of size $n$ from population of size $N = N^n$
+    -   $N$ choices for 1st unit selected $\times$ $N$ choices for 2nd unit selected $\times \dots = N^n$
+    -   Each of the $N^n$ samples is selected with equal probability, i.e., $1/N^n$
+
+<!-- As we saw in the Sampling Cats activity, SRS produces estimates with lower variance than SRSWR (theoretical details coming!) -->
+
+## Conditions for an SRS
+
+By definition, SRS (and SRSWR) are **EPSEM** sampling designs
+
+> **EPSEM** = Equal Probability of SElection Method = every unit has equal probability of selection
+
+But this isn't the whole story; other sampling designs can have this property
+
+In order for a sampling scheme to be SRS, the following conditions are necessary:
+
+1.  Sample size $n$ is fixed (there are sampling schemes that do not have fixed sample sizes)
+2.  No unit can be selected more than once (if it can, then it's SRSWR)
+3.  EPSEM
+4.  Joint probability of selection is equal for all pairs, triplets, ..., $n$-size groups of units in the population
+    -   $\pi_{ij} = P($unit $i$ selected AND unit $j$ selected$)$
+    -   $\pi_{ijk} = P($unit $i$ selected AND unit $j$ AND unit $k$ selected$)$
+    -   etc.
+
+<!-- ## A Sampling Challenge -->
+
+<!-- **Goal:** Take an SRS of $n=30$ students in one elementary school -->
+
+<!-- -   School has 20 classrooms -->
+
+<!-- -   Each class has between 20 and 40 students -->
+
+<!-- Option 1: -->
+
+<!-- -   Select a classroom with equal probability -->
+
+<!-- -   Select one student in chosen classroom with equal probability -->
+
+<!-- -   Repeat until 30 students chosen -->
+
+<!-- Option 2: -->
+
+<!-- -   Select a classroom with equal probability (1/20) -->
+
+<!-- -   Select all students in chosen classroom -->
+
+<!-- -   Repeat until 30 students chosen -->
+
+<!-- Are these SRS? -->
+
+## Design-based Randomization Theory – Notation
+
+-   $U$ = the finite population (i.e., the collection of all sampling units in the population)
+
+-   $N$ = size of the population (number of units)
+
+-   $\mathcal{S}$ = a particular sample
+
+-   $n$ = size of the sample
+
+-   $y_i$ = characteristic of interest for the $i$th unit (outcome you're interested in)
+
+-   $Z_i$ = selection indicator, $Z_i = \begin{cases}
+                                1, & \text{if unit $i$ is in the sample}\\
+                                0, & \text{otherwise}
+                                \end{cases}$
+
+-   $\pi_i$ = probability of selection/inclusion probability for population unit $i$
+
+    -   $\pi_i$ = $P($unit $i$ is included in the sample$) > 0$ for all units in the population
+
+-   $w_i$ = sampling weight for unit $i$
+
+    -   $w_i=0$ for non-selected units; $w_i>0$ for selected units
+
+## Design-based Randomization Theory
+
+-   In design-based theory for sampling, we **do not** assign a distribution to the outcome being measured
+
+-   Instead, the $\mathbf{y_i}$'s are considered fixed (but unknown) -- hence lower case
+
+-   Randomness instead comes from the **selection indicators,** $\mathbf{Z_i}$
+
+## Selection/Inclusion Probabilities for an SRS
+
+[Selection indicator:]{.alert} $Z_i \sim \text{Bernoulli}(\pi_i)$
+
+$\pi_i = P(Z_i=1) = P($select unit $i$ into the sample$\displaystyle ) = \frac{n}{N}$
+
+This probability comes from the definition of an SRS(WOR):
+
+-   There are ${N \choose n}$ possible SRS(WOR) samples
+
+-   Assume unit $i$ is in the sample of size $n$
+
+-   The other $(n-1)$ units in the sample must come from the remaining $N-1$ population units
+
+-   Number of possible samples of size $(n-1)$ that can come from the remaining $(N-1)$ units is ${N-1 \choose n-1}$
+
+-   Therefore,
+
+    $\pi_i = P(Z_i=1) =$
+
+## Example
+
+In Activity 3.1, we were choosing $n=2$ cats out of $N=3$
+
+-   We calculated: $P($Leo in the sample$) = 2/3 = 0.667$
+
+-   Intuitively, this would be the same for all cats (chosen with equal probability)
+
+-   Thus, $\pi_i = 2/3, i \in 1, 2, 3$ (for all cats)
+
+-   This matches the formula:
+
+    -   Choosing $n=2$ out of $N=3$
+    -   $\displaystyle \rightarrow \pi_i = \frac{n}{N}=\frac{2}{3}$
+
+## Things We Want to Estimate, and Their Estimators
+
+Basic quantities we want to estimate:
+
+| **Quantity** | **Estimand (Truth)** | **Estimate** |
+|:-----------------------|:-----------------------|:-----------------------|
+| Mean | $\displaystyle \bar{y}_U=\frac{1}{N} \sum_{i=1}^N y_i$ | $\displaystyle \bar{y}= \frac{1}{n} \sum_{i\in \mathcal{S}} y_i$ |
+| Total | $\displaystyle t = \sum_{i=1}^N y_i$ | $\hat{t}= N \bar{y}$ |
+| Variance (of $y$) | $\displaystyle S^2=\frac{1}{N-1} \sum_{i=1}^N (y_i - \bar{y}_U)^2$ | $\displaystyle s^2=\frac{1}{n-1} \sum_{i\in \mathcal{S}} (y_i - \bar{y})^2$ |
+|  | $\displaystyle S^2=\frac{1}{N-1} \left(\sum_{i=1}^N y_i^2 - N \bar{y}_U^2 \right)$ | $\displaystyle s^2=\frac{1}{n-1} \left(\sum_{i\in \mathcal{S}} y_i^2 - n\bar{y}^2 \right)$ |
+
+Formulas apply [**regardless of distribution of** $y$]{.alert2}
+
+$y$ is not a random variable!
+
+## Example: Binary Y
+
+-   For binary $y$, the mean of $y$ is a proportion: $\bar{y}_U = p$
+
+-   This is estimated with the sample proportion, $\hat{p}$
+
+    -   Note: $\hat{p} = \bar{y}$if $y$ is recorded as 0/1 (indicator variable)
+
+-   The variance of $y$ can be rewritten in terms of $\hat{p}$: $$\begin{flalign*}
+    \text{Binary }y: \quad S^2 &= \frac{1}{N-1} \sum_{i=1}^N (y_i-\bar{y}_U)^2 = \frac{1}{N-1} \sum_{i=1}^N (y_i-p)^2 &\\
+    &= %\frac{1}{N-1} \left( \sum_{i=1}^N y_i^2 - 2p\sum_{i=1}^N y_i + Np^2 \right)\\
+    %&= \frac{Np - 2Np^2 + Np^2}{N-1} \qquad \text{b/c } \sum_{i=1}^N y_i^2 = \sum_{i=1}^N y_i = Np\\
+    %&=\frac{Np - Np^2}{N-1} = \frac{Np(1-p)}{N-1}= \frac{N}{N-1}p(1-p)
+    \end{flalign*}$$
+
+## Things We Want to Estimate, and Their Estimators
+
+Basic quantities we want to estimate:
+
+| **Quantity** | **Estimand (Truth)** | **Estimate** |
+|:-----------------------|:-----------------------|:-----------------------|
+| Mean | $\displaystyle \bar{y}_U=\frac{1}{N} \sum_{i=1}^N y_i$ | $\displaystyle \bar{y}= \frac{1}{n} \sum_{i\in \mathcal{S}} y_i$ |
+| Total | $\displaystyle t = \sum_{i=1}^N y_i$ | $\hat{t}= N \bar{y}$ |
+| Variance (of $y$) | $\displaystyle S^2=\frac{1}{N-1} \sum_{i=1}^N (y_i - \bar{y}_U)^2$ | $\displaystyle s^2=\frac{1}{n-1} \sum_{i\in \mathcal{S}} (y_i - \bar{y})^2$ |
+| Mean, binary $y$ (proportion) | $p$ | $\displaystyle \hat{p}= \frac{1}{n} \sum_{i\in \mathcal{S}} y_i$ |
+| Variance, binary $y$ | $\displaystyle S^2 = \frac{N}{N-1} p(1-p)$ | $\displaystyle s^2 = \frac{n}{n-1} \hat{p}(1-\hat{p})$ |
+
+Remember: $y$ is not a random variable!
+
+## Estimators Are Random Variables
+
+Random selection of units into the sample implies that [$(\bar{y}, \hat{t}, \hat{p})$ are random variables]{.alert}
+
+| **Estimate** | **Expected Value** | **Variance** | **Variance Estimate** |
+|:-----------------|:-----------------|:-----------------|:-----------------|
+| Mean $(\bar{y})$ | $E(\bar{y})= \bar{y}_U$ | $\displaystyle V(\bar{y})= \left(1-\frac{n}{N}\right)\frac{S^2}{n}$ | $\displaystyle \widehat{V}(\bar{y})= \left(1-\frac{n}{N}\right)\frac{s^2}{n}$ |
+| Total $(\hat{t})$ | $E(\hat{t})=t$ | $\displaystyle V(\hat{t})=N^2 \left(1-\frac{n}{N}\right)\frac{S^2}{n}$ | $\displaystyle \widehat{V}(\hat{t})=N^2 \left(1-\frac{n}{N}\right)\frac{s^2}{n}$ |
+| Proportion $(\hat{p})$ | $E(\hat{p})=p$ | $\displaystyle V(\hat{p})= \left(\frac{N-n}{N-1}\right) \frac{p(1-p)}{n}$ | $\displaystyle \widehat{V}(\hat{p}) = \left(1-\frac{n}{N}\right)\frac{\hat{p}(1-\hat{p})}{n-1}$ |
+| Variance $(s^2)$ | $E(s^2)=S^2$ | (we will not cover this) |  |
+
+-   These expectations and variances come from the $Z_i$
+
+-   $y_i$ is considered fixed
+
+## Finite Population Correction
+
+-   In your [previous]{style="color: myGreen"} statistics classes: $\displaystyle V(\bar{y}) = \frac{S^2}{n}$
+
+-   In [this]{.alert} class: $\displaystyle V(\bar{y})= \textcolor{blue}{\left(1-\frac{n}{N}\right)} \frac{S^2}{n}$
+
+    -   [The variance of $\bar{y}$ is not $S^2/n$!]{.alert}
+
+-   Extra piece: [$\displaystyle \left(1-\frac{n}{N}\right)$]{.alert2} = [**finite population correction (fpc)**]{.alert2}
+
+-   When you sample a [large proportion of the population **without replacement**]{.alert}, you get a [**reduction**]{.alert} in variance
+
+    -   If you sample **all** of the population (i.e., $n = N$), your information is "perfect"
+
+    -   In that case, $V(\bar{y}) = 0$, since every "sample" of size $n=N$ produces the same $\bar{y}$!
+
+-   For samples that are small relative to the population size $(n \ll N)$, fpc $\approx$ 1 (and can be ignored)
+
+    -   That's why in the "infinite population" world (your previous stat classes) there was no $\left(1-\frac{n}{N}\right)$ part
+
+## Example of When We Can Ignore the FPC
+
+-   Many surveys have target populations that are very large
+
+-   Even the U.S. government doesn't have the resources to sample a large fraction of many populations of interest!
+
+-   **Example:** National surveys conducted by U.S. Government (e.g., NHANES, BRFSS)
+
+    -   Target population = all U.S. residents (sometimes exclude small subsets, e.g., incarcerated people)
+
+    -   US adult population $\approx$ 250,000,000
+
+    -   Even if sample 100,000 people, that's only 0.04% of the population!
+
+    -   fpc = $1-\frac{100,000}{250,000,000} = 1 - 0.0004 = 0.9996 \approx 1$
+
+    -   $V(\bar{y})=\left(1-\frac{n}{N}\right)\frac{S^2}{n} \approx \frac{S^2}{n}$
+
+    -   Not going to get much variance reduction due to fpc!
+
+## Activity 4.1
+
+The Eﬀect of the FPC
+
+## Expectation of the Sample Mean
+
+Re-write $\bar{y}$ in terms of $Z_i$ (and over the whole population): $$\begin{align}
+\bar{y}= \sum_{i \in \mathcal{S}} \frac{y_i}{n} &= \sum_{i \in \mathcal{S}} \left(1 \times \frac{y_i}{n}\right) + \sum_{i \notin \mathcal{S}} \left(0 \times \frac{y_i}{n}\right) = \sum_{i=1}^N Z_i \frac{y_i}{n}\\
+& \\
+\end{align}$$ Since $Z_i \sim Bernoulli(\pi_i=\frac{n}{N})$, we have $E(Z_i) =\pi_i = \frac{n}{N}$
+
+So we can find the expected value and variance of the sample mean $\bar{y}$ as:
+
+$\displaystyle E(\bar{y}) = E\left(\sum_{i=1}^N Z_i \frac{y_i}{n}\right) =$
+
+## Variance of the Sample Mean
+
+To find $V(\bar{y})$ we will need both $V(Z_i)$ and $\text{Cov}(Z_i,Z_j)$
+
+Since $Z_i^2=Z_i$ (why?), we have that: $\displaystyle E(Z_i^2)=E(Z_i) = \frac{n}{N}$\
+Thus, $$\begin{aligned}
+V(Z_i) &= E(Z_i^2) - [E(Z_i)]^2 = \frac{n}{N} - \left(\frac{n}{N}\right)^2 = \frac{n}{N} \left(1-\frac{n}{N}\right)= \pi_i(1-\pi_i) &
+\end{aligned}$$ (which is just the usual Bernoulli variance)
+
+Since $\text{Cov}(Z_i,Z_j) = E(Z_iZ_j) - E(Z_i)E(Z_j)$ we just need to find $E(Z_iZ_j)$:
+
+Note that $Z_i$ and $Z_j$ are **not** independent -- if we know that unit $j$ is in the sample, we know something about whether unit $i$ is in the sample
+
+$\displaystyle E(Z_iZ_j) =$
+
+## Variance of the Sample Mean (con't)
+
+<!-- Thus we can find the covariance of $Z_i$ and $Z_j$ as: -->
+
+$$\begin{flalign}
+\text{Cov}(Z_i,Z_j) &= E(Z_iZ_j) - E(Z_i)E(Z_j) =\frac{n-1}{N-1}\frac{n}{N} - \frac{n}{N} \frac{n}{N} = \dots \text{painful algebra} \dots& \\
+%&=\frac{n}{N} \left[\frac{n-1}{N-1}-\frac{n}{N} \right] =\frac{n}{N} \left[\frac{(n-1)N-n(N-1)}{N(N-1)} \right] = \frac{n}{N} \left[\frac{nN-N-nN+n}{N(N-1)} \right]\\
+%&=\frac{n}{N} \left[\frac{n-N}{N(N-1)} \right] = \frac{n}{N} \left[\frac{-(N-n)}{N(N-1)} \right] = \frac{n}{N} \left(\frac{1}{N-1}\right) \left[\frac{-(N-n)}{N} \right]\\
+%&= -\frac{n}{N} \left(\frac{1}{N-1}\right) \left(\frac{N-n}{N} \right) \\
+&= -\frac{n}{N} \left(\frac{1}{N-1}\right) \left(1-\frac{n}{N}\right)
+\end{flalign}$$
+
+This **negative covariance** between $Z_i$ and $Z_j$ is [source of the finite population correction]{.alert}
+
+$$\begin{flalign}
+V(\bar{y}) &= V \left( \sum_{i=1}^N Z_i \frac{y_i}{n} \right) =  \frac{1}{n^2} V \left( \sum_{i=1}^N Z_i y_i \right)=\frac{1}{n^2} \text{Cov}\left(\sum_{i=1}^N Z_i y_i, \sum_{j=1}^N Z_j y_j \right) \\
+&=\frac{1}{n^2} \sum_{i=1}^N \sum_{j=1}^N y_i y_j \text{Cov}(Z_i,Z_j) = \frac{1}{n^2} \left[\sum_{i=1}^N y_i^2 V(Z_i) + \sum_{i=1}^N \sum_{j \ne i}^N y_i y_j \text{Cov}(Z_i,Z_j) \right] \\
+&= \frac{1}{n^2} \left[\frac{n}{N} \left(1-\frac{n}{N}\right)\sum_{i=1}^N y_i^2 + \left[-\frac{n}{N} \left(\frac{1}{N-1}\right) \left(1-\frac{n}{N}\right)\right] \sum_{i=1}^N \sum_{j \ne i}^N y_i y_j \right] \\
+%&= \frac{1}{n^2} \frac{n}{N} \fpcpar \left[ \sum_{i=1}^N y_i^2 - \frac{1}{N-1} \sum_{i=1}^N \sum_{j \ne i}^N y_i y_j \right] \\
+%&= \frac{1}{n}\frac{1}{N} \fpcpar \frac{1}{N-1} \left[ (N-1) \sum_{i=1}^N y_i^2 - \sum_{i=1}^N \sum_{j \ne i}^N y_i y_j \right]\\
+%&= \frac{1}{n}\frac{1}{N} \fpcpar \frac{1}{N-1} \left[ (N-1) \sum_{i=1}^N y_i^2 - \left[ \left(\sum_{i=1}^N y_i\right)^2 - \sum_{i=1}^N y_i^2 \right]\right] \\
+%&= \frac{1}{n}\frac{1}{N} \fpcpar \frac{1}{N-1} \left[N\sum_{i=1}^N y_i^2 - \left(\sum_{i=1}^N y_i\right)^2 \right] \\
+%&= \frac{1}{n}\frac{1}{N} \fpcpar \frac{1}{N-1} \left[N\sum_{i=1}^N y_i^2 - \left(N \ybar_U \right)^2 \right] \\
+%&= \frac{1}{n}\fpcpar \frac{1}{N-1} \left[\sum_{i=1}^N y_i^2 - N \ybar_U^2 \right] \\
+%&= \frac{1}{n}\fpcpar S^2 \\
+&= \dots \text{painful algebra and some tricks} \dots = \left(1-\frac{n}{N}\right)\frac{S^2}{n}
+\end{flalign}$$
+
+## Confidence Intervals for SRS
+
+-   If $n$, $N$, and $(N - n)$ are "sufficiently large", then for an unbiased estimator $\hat{\theta}$, an approximately $\alpha$-level confidence interval for the true value $\theta$ is given by: $$\left(
+    \hat{\theta} - z_{\alpha/2} \sqrt{\hat{V}(\hat{\theta})}, \quad \hat{\theta} + z_{\alpha/2} \sqrt{\hat{V}(\hat{\theta})}
+    \right)$$ where $z_{\alpha/2}$ is the $(1-\alpha/2)$th percentile of the standard normal distribution
+
+-   For estimating the mean: $$\left(
+    \bar{y}- z_{\alpha/2} \sqrt{\left(1-\frac{n}{N}\right)\frac{s^2}{n}}, \quad \bar{y}+ z_{\alpha/2} \sqrt{\left(1-\frac{n}{N}\right)\frac{s^2}{n}}
+    \right)$$
+
+-   In practice, often use [$t_{\alpha/2,n-1}$]{style="color: blue"}, the $(1-\alpha/2)$th percentile of a $t$ distribution with $n-1$ degrees of freedom, for $z_{\alpha/2}$ ($t$ sometimes has better properties than $z$)
+
+-   For large samples, $t_{\alpha/2,n-1} \approx z_{\alpha/2}$
+
+-   In smaller samples, using $t_{\alpha/2,n-1}$ produces a **wider** CI
+
+## Sampling Weights and the Horvitz-Thompson Estimator
+
+For any sampling design, define:
+
+> Sampling weight = $\displaystyle w_i = \frac{1}{w_i}$ = inverse probability of selection
+
+-   Each unit $i$ in the sample "represents" $w_i$ units in the population
+
+> **Horvitz-Thompson (HT) estimator (of the total):** $$\hat{t}_{HT} = \sum_{i\in \mathcal{S}} \frac{y_i}{\pi_i} = \sum_{i\in \mathcal{S}} w_i y_i$$
+
+-   For **any probability sampling design** (with $\pi_i > 0$ for all $i$ in the population), the Horvitz-Thompson estimator for the total is unbiased: $$E[\hat{t}_{HT}] = t$$
+
+## Horvitz-Thompson Estimator for an SRS
+
+<!-- In fact, our estimator of the total for SRS, $\hat{t}= N \bar{y}$, **is** the HT estimator! -->
+
+-   Inclusion probability $\displaystyle \pi_i = \frac{n}{N}$ for all $i$
+
+-   Sampling weight = $\displaystyle w_i = \frac{1}{\pi_i} = \frac{N}{n}$
+
+-   Estimator for the **total** of $y$: $$\hat{t}_{HT} = \sum_{i\in \mathcal{S}} \textcolor{red}{w_i} y_i = \sum_{i\in \mathcal{S}} \textcolor{red}{\frac{1}{\pi_i}} y_i = \sum_{i\in \mathcal{S}} \textcolor{red}{\frac{N}{n}} y_i = N \frac{1}{n} \sum_{i\in \mathcal{S}} y_i = N \bar{y}
+    $$
+
+-   Note that the sum of weights equals the population size: $\displaystyle \sum_{i \in \mathcal{S}} w_i = \sum_{i \in \mathcal{S}} \frac{N}{n} = n \frac{N}{n} = N$
+
+-   Our estimator for the **mean** of $y$ can also be written as a function of the weights: $$\bar{y}= \frac{1}{n} \sum_{i\in \mathcal{S}} y_i = \frac{1}{N} \sum_{i\in \mathcal{S}} \frac{N}{n} y_i = \frac{\sum_{i\in \mathcal{S}} \frac{N}{n} y_i}{N} = \frac{\sum_{i\in \mathcal{S}} w_i y_i}{\sum_{i \in \mathcal{S}} w_i}$$ <!-- But since SRS is self-weighting (EPSEM), for means/proportion point estimates we don't need to explicitly use the sampling weights in the calculation -->
+
+## Sample Size Estimation for an SRS
+
+-   For most surveys, sample size is based on being able to estimate a population parameter (mean, proportion, total) with a [specified precision]{.alert2}
+
+-   This is in contrast to, say, a clinical trial, where we want to detect a certain [effect size]{.alert}
+
+-   Precision is specified via the Margin of Error (MOE):
+
+> **Margin of error (MOE)** = $e$ = half the width of a CI\
+> $P(|\bar{y}-\bar{y}_U| \leq e) = 1 - \alpha$
+
+-   From the CI formula we have: $\displaystyle e = z_{\alpha/2} \sqrt{\left(1-\frac{n}{N}\right)\frac{S^2}{n}}$
+
+-   Solving for $n$ we get: $\displaystyle n = \frac{z_{\alpha/2}^2 S^2}{e^2 + \dfrac{z_{\alpha/2}^2 S^2}{N}}$
+
+<!-- $$%       e^2 = z_{\alpha/2}^2 \fpcpar \frac{S^2}{n} -->
+
+<!-- %       e^2 = z_{\alpha/2}^2 \frac{S^2}{n} - z_{\alpha/2}^2 \frac{S^2}{N} -->
+
+<!-- %       e^2 + z_{\alpha/2}^2 \frac{S^2}{N} = z_{\alpha/2}^2 \frac{S^2}{n}  -->
+
+<!-- n = \frac{z_{\alpha/2}^2 S^2}{e^2 + \dfrac{z_{\alpha/2}^2 S^2}{N}}$$ -->
+
+If $N$ is very large, reduces to formula for an SRSWR (typical, infinite population calculation)
+
+## Example: Public Opinion Polling
+
+Typical application of the sample size formula
+
+-   Estimating a proportion
+
+-   Assume true proportion is the one that yields the largest variance, which is $p=$
+
+-   Assume MOE of $e=0.03$
+
+-   Assume very large population (so can ignore the FPC)
+
+-   Resulting calculation yields:
+
+$\displaystyle n = \frac{z_{\alpha/2}^2 S^2}{e^2 + \dfrac{z_{\alpha/2}^2 S^2}{N}} =$
+
+## Great Quote About Sample Size Estimation for Surveys
+
+> *Choosing a sample size is somewhat like deciding how much food to take on a picnic. You have a rough idea of how many people will attend, but do not know how much food you should have brought until after the picnic is over. You also need to bring extra food to allow for unexpected happenings, such as 2-year-old Freddie feeding a bowl of potato salad to the ducks or cousin Ted bringing along some extra guests. But you do not want to bring too much extra food, or it will spoil and you will have wasted money. Of course, the more picnics you have organized, and the better acquainted you are with the picnic guests, the better you become at bringing the right amount of food. It is comforting to know that the same is true of determining sample sizes --- experience and knowledge about the population make you much better at designing surveys.*
+
+Quote from p.50 of *Sampling: Design and Analysis, 2nd Edition* by Sharon Lohr

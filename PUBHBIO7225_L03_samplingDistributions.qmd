@@ -259,7 +259,7 @@ Population values:
 
 <br>
 
-This is the [**sampling distribution**]{.alert} of $\hat{\theta}$ (i.e., $\bar{y}$)! &rarr;
+This is the [**sampling distribution**]{.alert} of $\hat{\theta}$ (i.e., $\bar{y}$)! →
 :::
 ::::
 

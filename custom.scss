@@ -61,3 +61,21 @@ table, th, td {
 .callout-body {
       font-size: 1.2em; /* Adjust the value as needed */
     }
+    
+// box to display Stata code
+
+.stata-box {
+  font-family: "Courier New"; /* Replace with your desired font */
+  border: 1px solid #ccc; /* Adds a 1px solid light gray border */
+  padding: 2px;           /* Adds padding around the text */
+  display: inline-block;  /* Ensures the border wraps tightly around the text */
+  border-radius: 2px;     /* Rounds the corners of the border */
+}
+
+.reveal pre {
+  font-size: 1.8rem !important;
+}
+
+.reveal code {
+  font-size: 0.85em !important;
+}
