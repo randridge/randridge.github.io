@@ -796,5 +796,12 @@
     "title": "Simple Random Sampling",
     "section": "Horvitz-Thompson Estimator for an SRS",
     "text": "Horvitz-Thompson Estimator for an SRS\n\n\nInclusion probability \\(\\displaystyle \\pi_i = \\frac{n}{N}\\) for all \\(i\\)\nSampling weight = \\(\\displaystyle w_i = \\frac{1}{\\pi_i} = \\frac{N}{n}\\)\nEstimator for the total of \\(y\\): \\[\\hat{t}_{HT} = \\sum_{i\\in \\mathcal{S}} \\textcolor{red}{w_i} y_i = \\sum_{i\\in \\mathcal{S}} \\textcolor{red}{\\frac{1}{\\pi_i}} y_i = \\sum_{i\\in \\mathcal{S}} \\textcolor{red}{\\frac{N}{n}} y_i = N \\frac{1}{n} \\sum_{i\\in \\mathcal{S}} y_i = N \\bar{y}\n\\]\nNote that the sum of weights equals the population size: \\(\\displaystyle \\sum_{i \\in \\mathcal{S}} w_i = \\sum_{i \\in \\mathcal{S}} \\frac{N}{n} = n \\frac{N}{n} = N\\)\nOur estimator for the mean of \\(y\\) can also be written as a function of the weights: \\[\\bar{y}= \\frac{1}{n} \\sum_{i\\in \\mathcal{S}} y_i = \\frac{1}{N} \\sum_{i\\in \\mathcal{S}} \\frac{N}{n} y_i = \\frac{\\sum_{i\\in \\mathcal{S}} \\frac{N}{n} y_i}{N} = \\frac{\\sum_{i\\in \\mathcal{S}} w_i y_i}{\\sum_{i \\in \\mathcal{S}} w_i}\\]"
+  },
+  {
+    "objectID": "PUBHBIO7225_L05_srsSoftware.html#activity-5.1",
+    "href": "PUBHBIO7225_L05_srsSoftware.html#activity-5.1",
+    "title": "Simple Random Sampling: Software (Stata, R)",
+    "section": "Activity 5.1",
+    "text": "Activity 5.1\nStata/R for SRS"
   }
 ]

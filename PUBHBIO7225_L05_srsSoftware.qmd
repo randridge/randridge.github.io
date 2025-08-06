@@ -178,3 +178,6 @@ svyglm(y ~ x1 + x2, design=DESIGN.OBJECT)
 svyglm(x1 ~ x2, family=binomial(link="logit"), design=DESIGN.OBJECT)
 ```
 
+## Activity 5.1
+
+Stata/R for SRS
