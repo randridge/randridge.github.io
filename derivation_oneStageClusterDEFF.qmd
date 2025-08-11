@@ -1,0 +1,67 @@
+---
+title: "Derivation of DEFF for One-Stage Cluster Sampling"
+subtitle: "PUBHBIO 7225"
+format:
+  html:
+    theme: custom.scss
+    html-math-method: mathjax
+---
+
+Assume:
+
+-   Sample $n$ of $N$ PSUs
+
+-   Equal size clusters, i.e., \# SSUs per cluster = $M_i = M$
+
+-   One-stage cluster sampling, so if PSU selected, all $M$ SSUs sampled
+
+-   Total \# of SSUs in population = $M_0=NM$
+
+-   $S_t^2$ = variability of PSU totals $t_i$ about the mean PSU total $(\bar{t}_U)$
+
+-   $S^2$ = variability of SSUs $y_{ij}$ about the overall mean $\bar{y}_U$
+
+Goal is to estimate:
+
+$\displaystyle \text{\textbf{Design Effect}} = \frac{\text{variance of statistic under 1-stage cluster sampling}}{\text{variance of statistic under SRS of same \# SSUs}}$
+
+Variance of the estimated mean from a [**cluster sample**]{.alert} of $n$ PSUs: $$\begin{aligned}
+V_{clus}(\hat{\bar{y}}_{clus}) &{}= \frac{N^2}{M_0^2} \left(1-\frac{n}{N}\right)\frac{S_t^2}{n} &{} \text{(Lecture 11 slide 12)} \\
+&{}=\frac{N^2}{(NM)^2} \left(1-\frac{n}{N}\right)\frac{S_t^2}{n} &{} \text{(Substitute $M_0=NM$)}\\
+&{}= \frac{1}{M^2} \left(1-\frac{n}{N}\right)\frac{S_t^2}{n} &{} \text{(Cancelling terms)}
+\end{aligned}$$ We can write $S_t$ in terms of sums of squares as: $$\begin{aligned}
+S_t^2 &{}= \frac{1}{N-1} \sum_{i=1}^N (t_i - \bar{t}_U)^2 = \frac{1}{N-1} \sum_{i=1}^N (M \bar{y}_{iU} - M \bar{y}_U)^2  = \frac{1}{N-1} M^2 \sum_{i=1}^N (\bar{y}_{iU} - \bar{y}_U)^2 = M \frac{SSB}{N-1} %= M \times MSB
+\end{aligned}$$ Plus this in to the variance of the estimated mean: $$\begin{aligned}
+V_{clus}(\hat{\bar{y}}_{clus}) &{}= \frac{1}{M^2} \left(1-\frac{n}{N}\right)\frac{S_t^2}{n} \\
+&{}=\frac{1}{nM^2} \left(1-\frac{n}{N}\right)S_t^2 &{} \text{(Rearrange terms)}\\
+&{}=\frac{1}{nM^2} \left(1-\frac{n}{N}\right)M \frac{SSB}{N-1} &{} \text{(Substitute in $S_t^2 = M \frac{SSB}{N-1}$)}\\
+&{}=\frac{1}{nM} \left(1-\frac{n}{N}\right)\frac{SSB}{N-1} &{} \text{(Cancelling terms)}
+\end{aligned}$$
+
+The cluster sample has $n$ PSUs, each with $M$ SSUs $\rightarrow$ nM total SSUs
+
+Variance of the estimated mean from an [**SRS**]{.alert2} of $nM$ SSUs (out of population of $NM$ SSUs): $$\begin{aligned}
+V_{srs}(\bar{y}) &{}= \left(1 - \frac{nM}{NM}\right) \frac{S^2}{nM} &{} \text{(standard SRS formula sampling $nM$ from $NM$)}\\
+&{}= \frac{1}{nM} \left(1-\frac{n}{N}\right)S^2 &{} \text{(Cancelling terms/rearranging)}\\
+&{}= \frac{1}{nM} \left(1-\frac{n}{N}\right)\frac{SST}{NM-1} &{} \text{(Substitute in $S^2 = \frac{SST}{NM-1}$)}\\
+\end{aligned}$$
+
+And finally, we are going to need the following rearranging of $ICC$ in terms of $SSB$ and $SST$: $$\begin{aligned}
+ICC &{}= 1 - \frac{M}{M-1} \frac{SSW}{SST}\\
+(M-1) ICC &{}= (M-1) - M \frac{SSW}{SST}\\
+(M-1) ICC &{}= M-1 - M \left(1-\frac{SSB}{SST}\right)\\
+(M-1) ICC &{}= M-1 - M +M \frac{SSB}{SST}\\
+(M-1) ICC &{}= M \frac{SSB}{SST}-1\\
+1+(M-1) ICC  &{}= M \frac{SSB}{SST}\\
+\frac{1}{M} [1+(M-1) ICC] &{}= \frac{SSB}{SST}
+\end{aligned}$$
+
+Thus, the design effect (DEFF) for the estimated overall mean from a one-stage cluster sample is: $$\begin{aligned}
+\textcolor{red}{\text{deff}(\hat{\bar{y}}_{clus})} &{}= \frac{V_{clus}(\hat{\bar{y}}_{clus})}{V_{srs}(\bar{y})} \\
+&{}= \frac{\frac{1}{nM} \left(1-\frac{n}{N}\right)\frac{1}{N-1} \times SSB}{\frac{1}{nM} \left(1-\frac{n}{N}\right)\frac{SST}{NM-1} } &{} \text{(Plug in expressions above)}\\ 
+&{}= \frac{ \frac{1}{N-1} \times SSB}{ \frac{SST}{NM-1} } &{} \text{(Cancelling terms)}\\
+&{}= \frac{NM-1}{N-1} \frac{SSB}{SST} &{} \text{(Rearranging)}\\
+&{}=\frac{NM-1}{N-1} \frac{1}{M} \left[1+(M-1) ICC \right] &{} \text{(Plugging in for $\frac{SSB}{SST}$)}\\
+&{}=\frac{NM-1}{NM-M}[\textcolor{red}{1+(M-1)ICC}] &{} \text{(Rearranging)}\\
+&{}\approx \textcolor{red}{1+(M-1)ICC} \quad \text{[if $N$ is large so }NM-1 \approx NM-M]
+\end{aligned}$$

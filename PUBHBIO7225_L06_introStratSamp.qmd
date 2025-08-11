@@ -1,0 +1,569 @@
+---
+title: "Stratified Sampling"
+subtitle: "PUBHBIO 7225 Lecture 6"
+# author: "Generative AI acknowledgment: MS Copilot was used to generate alt text for images"
+format:
+  revealjs: 
+    slide-number: true
+    smaller: true
+    footer: "PUBHBIO 7225"
+    width: 1280
+    height: 720
+    theme: custom.scss
+    html-math-method: mathjax
+---
+
+## Outline
+
+::::: columns
+::: {.column width="50%"}
+**Topics**
+
+-   Stratified Sampling
+-   Design-based Theory for Stratified Samples
+-   Sampling Weights
+:::
+
+::: {.column width="50%"}
+**Activities**
+
+-   6.1 Construct a Stratified Sample Estimator
+:::
+:::::
+
+<br>
+
+**Assignments**
+
+-   Problem Set 2 due Thursday 9/18/2025 11:59pm via Carmen
+
+## What is Stratified Sampling?
+
+The process:
+
+**STEP 1:** Divide the population into $H$ subpopulations, called
+[**strata**]{.alert}
+
+-   Strata do not overlap (disjoint/mutually exclusive)
+-   Each sampling unit belongs to exactly one stratum (mutually
+    exhaustive)
+-   Strata are identified **before** sampling (i.e., available on the
+    frame)
+
+**STEP 2:** Draw an independent probability sample from each stratum
+(could be an SRS, or other design), then pool the information to obtain
+overall population estimates
+
+-   Observations [within]{.alert2} strata tend to be [more
+    homogeneous]{.alert2} than observations in the population as a whole
+
+-   [Reduced variance within strata]{.alert2} often leads to a reduced
+    variance for the population-level estimate
+
+-   Thus we want the stratification variable(s) to be related to the $y$
+    variable(s) of interest -- want to get different means of $y$ across
+    strata
+
+Throughout this lecture we will **assume an SRS is taken in each
+stratum**
+
+## Why Stratify?
+
+Reasons to stratify include:
+
+-   Protect against (small) chance of getting a really bad sample
+
+    -   Example: sampling $n=200$ OSU undergraduates
+    -   If taking an SRS, you might (by chance) get 0 students from
+        outside Ohio
+    -   Stratifying by in-state/out-of-state guarantees this doesn't
+        happen
+
+-   Want to ensure specific precision for certain subgroups
+
+    -   Example: want to make sure precision is similar for in-state and
+        out-of-state students, even though number in the population
+        differs
+
+-   May be a cost benefit (easier to administer survey in some strata)
+
+-   Lower variance for overall estimates (e.g, estimates for
+    $\bar{y}_U$)
+
+    -   Variance of $y$ within each stratum is often lower than the
+        variance of $y$ in the whole population
+    -   Can lead to cost savings because you can take a smaller sample
+
+<!-- If $y$ has different mean values in different subpopulations, taking a **[stratified sample]{.alert}** can increase precision for estimating population quantities (like $\bar{y}_U$) -->
+
+## Activity 6.1 (Part 1)
+
+Construct a Stratified Sample Estimator (Part 1)
+
+## Constructing an Estimator from a Stratified Sample
+
+-   You took a sample of size $n=15$ from a population of size $N=35$
+
+-   But each of the 15 sampled units **doesn't "represent" the same
+    number of population units**
+
+|  |  |  |  |
+|------------------|:----------------:|:----------------:|:----------------:|
+| **Stratum** | [**Units in Population**]{.alert} | [**Units in Sample**]{.alert2} | **Each Sampled Unit "Represents":** |
+| Stratum A | 15 | 5 | 15/5 = 3 |
+| Stratum B | 11 | 5 | 11/5 = 2.2 |
+| Stratum C | 9 | 5 | 9/5 = 1.8 |
+
+-   This sample **is not EPSEM** -- simple unweighted average of the
+    sampled $y$ will be **biased**
+
+-   Larger strata are "under-represented" in the sample
+
+    -   43% of the [population]{.alert} comes from Stratum A (15/35),
+        but
+
+    -   33% of the [sample]{.alert2} comes from Stratum A (5/15)!
+
+-   We need to "upweight" the units that "represent" more units
+
+## Notation for Stratified Sampling
+
+-   $U$ = the finite population
+-   $N$ = size of the population
+-   $H$ = number of strata
+-   $N_h$ = number of units in stratum $h$ in the population, with
+    $\displaystyle \sum_{h=1}^H N_h = N$
+-   $\mathcal{S}_h$ = a particular sample in stratum $h$, with
+    $\displaystyle \bigcup_{h=1}^H \mathcal{S}_h = \mathcal{S}$
+-   $n_h$ = size of the sample in stratum $h$, with
+    $\displaystyle \sum_{h=1}^H n_h = n$
+-   $y_{hj}$ = characteristic of interest for the $j$th unit in the
+    $h$th stratum
+
+## Example (from Activity)
+
+-   $U$ = population (collection of all the units)
+-   $N=35$ (total number of units in the population)
+-   $H=3$ strata (A, B, C)
+
+| Stratum | [Population]{.alert} Size | [Sample]{.alert2} Size |
+|:--------|:-------------------------:|:----------------------:|
+| A       |        $N_1 = 15$         |        $n_1=5$         |
+| B       |        $N_2 = 11$         |        $n_2=5$         |
+| C       |         $N_3 = 9$         |        $n_3=5$         |
+| Total   |    $N=N_1+N_2+N_3=35$     |   $n=n_1+n_2+n_3=15$   |
+
+-   Examples of $y_{hj}$:
+    -   value of $y$ for unit $j=2$ in stratum $h=1$ (stratum A) →
+        $y_{12} = 9$
+    -   value of $y$ for unit $j=6$ in stratum $h=2$ (stratum B) →
+        $y_{26} = 6$
+    -   value of $y$ for unit $j=1$ in stratum $h=3$ (stratum C) →
+        $y_{31} = 11$
+
+## Estimates (Step 1): Stratum-Specific Estimates
+
+| **Quantity** | **Estimand (Truth)** | **Estimate** |
+|:-----------------------|:-----------------------|:-----------------------|
+| Stratum Mean | $\displaystyle \bar{y}_{hU}=\frac{1}{N_h} \sum_{j=1}^{N_h} y_{hj}$ | $\displaystyle \bar{y}_h = \frac{1}{n_h} \sum_{j\in \mathcal{S}_h} y_{hj}$ |
+| Stratum Total | $\displaystyle t_h = \sum_{j=1}^{N_h} y_{hj}= N_h \bar{y}_{hU}$ | $\displaystyle \hat{t}_h = N_h \bar{y}_h = \frac{N_h}{n_h} \sum_{j\in \mathcal{S}_h} y_{hj}$ |
+| Stratum Variance (of $y$) | $\displaystyle S_h^2=\frac{1}{N_h-1} \sum_{j=1}^{N_h} (y_{hj}- \bar{y}_{hU})^2$ | $\displaystyle s_h^2=\frac{1}{n_h-1} \sum_{j\in \mathcal{S}_h} (y_{hj}- \bar{y}_h)^2$ |
+| Stratum Proportion | $\displaystyle p_{hU}=\bar{y}_{hU}=\frac{1}{N_h} \sum_{j=1}^{N_h} y_{hj}$ | $\displaystyle \hat{p}_h = \frac{1}{n_h} \sum_{j\in \mathcal{S}_h} y_{hj}$ |
+| Stratum Variance (of binary $y$) | $\displaystyle S_h^2 = \frac{N_h}{N_h-1} p_{hU}(1-p_{hU})$ | $\displaystyle s_h^2 = \frac{n_h}{n_h-1} \hat{p}_{h}(1-\hat{p}_{h})$ |
+
+-   [These are just the SRS formulae]{.alert}, with extra $h$ subscript
+    (and $j$ instead of $i$ for unit)\]
+
+## Example (from Activity)
+
+::::: columns
+::: {.column width="35%"}
+Suppose my activity sample was:
+
+![](./figures/activity6_1sample){width="80%"
+fig-alt="A table with data from three strata (A, B, and C). Rows with yellow highlighting indicate a stratified random sample. Stratum A has a sample of 5 rows, Stratum B has a sample of 5, and Stratum C has a sample of 5."}
+:::
+
+::: {.column width="65%"}
+We can then calculate/estimate:
+
+[**Stratum A** $(h=1)$:]{.alert} $N_1 = 15, n_1=5$\
+Stratum A [**population**]{.alert} mean: $$\begin{aligned}
+%\bar{y}_{hU} & =\frac{1}{N_h} \sum_{j=1}^{N_h} y_{hj}\\
+\bar{y}_{1U} &=\frac{1}{N_1} \sum_{j=1}^{N_1} y_{1j} = \frac{1}{15} \left(6+9+3+9+\cdots+5\right) = \textcolor{red}{\bf 4.4}
+\end{aligned}$$
+
+Stratum A [**sample**]{.alert2} mean: $$\begin{aligned}
+%\bar{y}_h &= \frac{1}{n_h} \sum_{j\in \mathcal{S}_h} y_{hj}\\
+\bar{y}_1 &= \frac{1}{n_1} \sum_{j\in \mathcal{S}_1} y_{1j} = \frac{1}{5} \left(9+10+1+3+5\right) = \textcolor{blue}{\bf 5.6}
+\end{aligned}$$
+:::
+:::::
+
+My [estimate]{.alert2} of the mean from my sample is [5.6]{.alert2};
+close to the [true]{.alert} mean of [4.4]{.alert}
+
+Not new formula -- just the SRS formulae
+
+## Example (from Activity)
+
+<!-- We can also calculate/estimate the variance of $y$ in a stratum: -->
+
+::: {.column width="50%"}
+Stratum A [**population**]{.alert} variance of $y$:
+
+$$\begin{aligned}
+S_h^2&=\frac{1}{N_h-1} \sum_{j=1}^{N_h} (y_{hj}- \bar{y}_{hU})^2 \\
+S_1^2&=\frac{1}{N_1-1} \sum_{j=1}^{N_1} (y_{1j} - \bar{y}_{1U})^2 \\
+&= \frac{1}{15-1} \sum_{j=1}^{15} (y_{1j} - 4.4)^2 \\
+& = \frac{1}{15-1} \left[ (6-4.4)^2 + \cdots + (5-4.4)^2 \right] \\
+&= \textcolor{red}{\bf 10.83}
+\end{aligned}$$
+:::
+
+::: {.column width="50%"}
+Stratum A [**sample**]{.alert2} variance of $y$:
+
+$$\begin{aligned}
+s_h^2&=\frac{1}{n_h-1} \sum_{j\in \mathcal{S}_h} (y_{hj}- \bar{y}_h)^2 \\
+s_1^2&=\frac{1}{n_1-1} \sum_{j\in \mathcal{S}_h} (y_{1j} - \bar{y}_1)^2 \\
+&= \frac{1}{5-1} \sum_{j\in \mathcal{S}_h} (y_{1j} - 5.6)^2 \\
+&=  \frac{1}{5-1}\left[ (9-5.6)^2 + \cdots + (5-5.6)^2 \right] \\
+&= \textcolor{blue}{\bf 14.8}
+\end{aligned}$$
+:::
+
+My [estimate]{.alert2} of $V(y)$ from my sample is [14.8]{.alert2};
+close-ish to the [true]{.alert} variance of [10.8]{.alert}
+
+Again, not new formula -- just the SRS formulae
+
+## Example (from Activity)
+
+Similar calculations for the other 2 strata yield:
+
+**Means:**
+
+|                       | [Population]{.alert}   | [My Sample]{.alert2} |
+|-----------------------|:-----------------------|:---------------------|
+| **Stratum A** $(h=1)$ | $\bar{y}_{1U} = 4.4$   | $\bar{y}_1 =  5.6$   |
+| **Stratum B** $(h=2)$ | $\bar{y}_{2U} = 8.36$  | $\bar{y}_2 = 7.8$    |
+| **Stratum C** $(h=3)$ | $\bar{y}_{3U} = 11.22$ | $\bar{y}_3 = 11.8$   |
+
+**Variances:** *(variance of* $y$, not of the mean of $y$)
+
+|                       | [Population]{.alert} | [My Sample]{.alert2} |
+|-----------------------|:---------------------|:---------------------|
+| **Stratum A** $(h=1)$ | $S_1^2 = 10.83$      | $s_1^2 = 14.8$       |
+| **Stratum B** $(h=2)$ | $S_2^2 = 6.45$       | $s_2^2 = 6.7$        |
+| **Stratum C** $(h=3)$ | $S_3^2 = 7.44$       | $s_3^2 = 6.7$        |
+
+Next step will be to combine the stratum estimates to get overall
+estimate (of the mean)
+
+## Activity 6.1 (Part 2)
+
+Construct a Stratified Sample Estimator (Part 2)
+
+## Estimates (Step 2): Combining Stratum Estimates
+
+Then combine **stratum-specific** estimates to get **overall
+estimates**:
+
+| **Quantity** | **Estimand (Truth)** | **Estimate** |
+|:-----------------------|:-----------------------|:-----------------------|
+| Overall Total | $\displaystyle t = \sum_{h=1}^H \sum_{j=1}^{N_h} y_{hj}=  \sum_{h=1}^H t_h = \sum_{h=1}^H N_h \bar{y}_{hU}$ | $\displaystyle \hat{t}_{str}= \sum_{h=1}^H \hat{t}_h= \sum_{h=1}^H N_h \bar{y}_h$ |
+| Overall Mean | $\displaystyle \bar{y}_U = \frac{t}{N} = \frac{1}{N} \sum_{h=1}^H N_h \bar{y}_{hU} = \sum_{h=1}^H \frac{N_h}{N} \bar{y}_{hU}$ | $\displaystyle \bar{y}_{str}= \sum_{h=1}^H \frac{N_h}{N} \bar{y}_h$ |
+| Overall Proportion | $\displaystyle p = \bar{y}_U = \sum_{h=1}^H \frac{N_h}{N} p_{hU}$ | $\displaystyle \hat{p}_{str}= \sum_{h=1}^H \frac{N_h}{N} \hat{p}_h$ |
+
+**Intuition:**
+
+-   [Total:]{.alert} sum up the stratum totals
+-   [Means/Proportions:]{.alert} weighted average of stratum quantities,
+    weighting by the proportion of the population in each stratum
+
+<!-- The [estimates]{.alert} (right-most column) are [**random variables**]{.alert} due to random sampling -->
+
+## Example (from Activity)
+
+|   |   |   | [Population]{.alert} |   | [My Sample]{.alert2} |   |
+|-----------|-----------|-----------|:----------|-----------|:----------|-----------|
+|  |  |  | Mean | Variance | Mean | Variance |
+| Stratum A | $N_1=15$ | $n_1=5$ | $\bar{y}_{1U} = 4.4$ | $S_1^2 = 10.83$ | $\bar{y}_1 = 5.6$ | $s_1^2 = 14.8$ |
+| Stratum B | $N_2=11$ | $n_2=5$ | $\bar{y}_{2U} = 8.36$ | $S_2^2 = 6.45$ | $\bar{y}_2 = 7.8$ | $s_2^2 = 6.7$ |
+| Stratum C | $N_3=9$ | $n_3=5$ | $\bar{y}_{3U} = 11.22$ | $S_3^2 = 7.44$ | $\bar{y}_3 = 11.8$ | $s_3^2 = 6.7$ |
+
+Overall [**population**]{.alert} mean: $$\bar{y}_U = \sum_{h=1}^H \frac{N_h}{N} \bar{y}_{hU} = \frac{N_1}{N} \bar{y}_{1U} +  \frac{N_2}{N} \bar{y}_{2U} +  \frac{N_3}{N} \bar{y}_{3U} = \frac{15}{35} (4.4) +  \frac{11}{35} (8.36) + \frac{9}{35} (11.22) = \textcolor{red}{\bf 7.4}$$
+
+<!-- *Note: if you simply averaged the 35 population values (*$y_i$), you'd get the same answer (7.4) -->
+
+My sample [**estimate**]{.alert2} of overall mean: $$\begin{aligned}
+\bar{y}_{str}= \sum_{h=1}^H \frac{N_h}{N} \bar{y}_h &= \frac{N_1}{N} \bar{y}_1 +  \frac{N_2}{N} \bar{y}_2 +  \frac{N_3}{N} \bar{y}_3 =  \frac{15}{35} (5.6) +  \frac{11}{35} (7.8) + \frac{9}{35} (11.8) = \textcolor{blue}{\bf 7.89} \\
+\end{aligned}$$ 
+
+<!-- *Note: simply averaging the 15 sample values will NOT give you the same answer!* -->
+
+## Expectation and Variance of the Estimated Mean
+
+-   Since we are taking an SRS within each stratum, [stratum-specific estimates are unbiased]{.alert}:
+$$E(\bar{y}_h) = \bar{y}_{hU} \quad\quad\quad E(\hat{t}_h) = t_{hU} \quad\quad\quad E(\hat{p}_h) = p_{hU}$$
+
+-   This implies that: $$\begin{flalign}
+E(\bar{y}_{str}) &= E\left(\sum_{h=1}^H \frac{N_h}{N} \bar{y}_h \right) = &% \sum_{h=1}^H \frac{N_h}{N} E(\ybar_h) = \sum_{h=1}^H \frac{N_h}{N} \ybar_{hU}  = \ybar_U
+\end{flalign}$$
+
+-   Samples are taken **independently** in each stratum.
+
+-   Remember that if $X$ and $Y$ are **independent**, $V(X+Y) = V(X)+V(Y)$. Thus: $$\begin{flalign}
+V(\bar{y}_{str}) &= V\left(\sum_{h=1}^H \frac{N_h}{N} \bar{y}_h \right) =&% = \sum_{h=1}^H V \left( \frac{N_h}{N} \ybar_h \right) = \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2 V(\ybar_h) = \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2 \fpchpar \frac{S_h^2}{n_h}
+\end{flalign}$$
+
+## Estimators are Random Variables
+
+<!-- Random selection of units into $\mathcal{S}$ implies that $(\hat{t}_{str}, \bar{y}_{str}, \hat{p}_{str})$ are random variables -->
+
+|  |  |  |  |
+|------------------|:-----------------|------------------|------------------|
+| **Estimate** | **Expected Value** | **Variance** |  |
+| Mean: $\bar{y}_{str}$ | $E(\bar{y}_{str})= \bar{y}_U$ | Truth: | $\displaystyle V(\bar{y}_{str})= \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(1-\frac{n_h}{N_h}\right)\frac{S_h^2}{n_h}$ |
+| |  | Estimate: | $\displaystyle \widehat{V}(\bar{y}_{str})= \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(1-\frac{n_h}{N_h}\right)\frac{s_h^2}{n_h}$ |
+| Total: $\hat{t}_{str}$ | $E(\hat{t}_{str})=t$ | Truth: | $\displaystyle V(\hat{t}_{str})=\sum_{h=1}^H N_h^2 \left(1-\frac{n_h}{N_h}\right)\frac{S_h^2}{n_h}$ |
+| |  | Estimate: | $\displaystyle \widehat{V}(\hat{t}_{str})=\sum_{h=1}^H N_h^2 \left(1-\frac{n_h}{N_h}\right)\frac{s_h^2}{n_h}$ |
+| Proportion: $\hat{p}_{str}$ | $E(\hat{p}_{str})=p$ | Truth: | $\displaystyle V(\hat{p}_{str})= \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2 \left(\frac{N_h-n_h}{N_h-1}\right) \frac{p_{hU}(1-p_{hU})}{n_h}$ |
+| |  | Estimate: | $\displaystyle \widehat{V}(\hat{p}_{str}) = \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2 \left(1-\frac{n_h}{N_h}\right)\frac{\hat{p}_h(1-\hat{p}_h)}{n_h-1}$ |
+
+<!-- These expectations and variances come from the $Z_i$; $y_i$ is considered fixed -->
+
+## Example (from Activity)
+
+|   |   |   | [Population]{.alert} |   | [My Sample]{.alert2} |   |
+|-----------|-----------|-----------|:----------|-----------|:----------|-----------|
+|  |  |  | Mean | Variance | Mean | Variance |
+| Stratum A | $N_1=15$ | $n_1=5$ | $\bar{y}_{1U} = 4.4$ | $S_1^2 = 10.83$ | $\bar{y}_1 = 5.6$ | $s_1^2 = 14.8$ |
+| Stratum B | $N_2=11$ | $n_2=5$ | $\bar{y}_{2U} = 8.36$ | $S_2^2 = 6.45$ | $\bar{y}_2 = 7.8$ | $s_2^2 = 6.7$ |
+| Stratum C | $N_3=9$ | $n_3=5$ | $\bar{y}_{3U} = 11.22$ | $S_3^2 = 7.44$ | $\bar{y}_3 = 11.8$ | $s_3^2 = 6.7$ |
+
+[**True**]{.alert} **sampling variance** of $\bar{y}_{str}$:
+$$\begin{aligned}
+V(\bar{y}_{str}) &= \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(1-\frac{n_h}{N_h}\right)\frac{S_h^2}{n_h} \\
+ & = \left(\frac{15}{35}\right)^2 \left(1 - \frac{5}{15} \right) \frac{10.83}{5} + \left(\frac{11}{35}\right)^2 \left(1 - \frac{5}{11} \right) \frac{6.45}{5} + \left(\frac{9}{35}\right)^2 \left(1 - \frac{5}{9} \right) \frac{7.44}{5} = \textcolor{red}{0.378}
+\end{aligned}$$
+
+## Example (from Activity)
+
+|   |   |   | [Population]{.alert} |   | [My Sample]{.alert2} |   |
+|-----------|-----------|-----------|:----------|-----------|:----------|-----------|
+|  |  |  | Mean | Variance | Mean | Variance |
+| Stratum A | $N_1=15$ | $n_1=5$ | $\bar{y}_{1U} = 4.4$ | $S_1^2 = 10.83$ | $\bar{y}_1 = 5.6$ | $s_1^2 = 14.8$ |
+| Stratum B | $N_2=11$ | $n_2=5$ | $\bar{y}_{2U} = 8.36$ | $S_2^2 = 6.45$ | $\bar{y}_2 = 7.8$ | $s_2^2 = 6.7$ |
+| Stratum C | $N_3=9$ | $n_3=5$ | $\bar{y}_{3U} = 11.22$ | $S_3^2 = 7.44$ | $\bar{y}_3 = 11.8$ | $s_3^2 = 6.7$ |
+
+[**Estimate**]{.alert2} of **sampling variance** of $\bar{y}_{str}$:
+$$\begin{aligned}
+\widehat{V}(\bar{y}_{str}) &= \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(1-\frac{n_h}{N_h}\right)\frac{s_h^2}{n_h} \\
+ & = \left(\frac{15}{35}\right)^2 \left(1 - \frac{5}{15} \right) \frac{14.8}{5} + \left(\frac{11}{35}\right)^2 \left(1 - \frac{5}{11} \right) \frac{6.7}{5} + \left(\frac{9}{35}\right)^2 \left(1 - \frac{5}{9} \right) \frac{6.7}{5} = \textcolor{blue}{0.474}
+\end{aligned}$$
+
+## Activity 6.1 (Part 3)
+
+Construct a Stratified Sample Estimator (Part 3)
+
+## Simulated Data from Activity
+
+-   I repeated the activity 10,000 times (using R!), taking two types of samples:
+
+-   1.  SRS of size $n=15$
+
+    -   $\bar{y}=$ unweighted average of the 15 sampled units (SRS estimator)
+
+-   2.  Stratified sample of $n_h=5$ in each stratum (total of 15 units sampled)
+
+    -   $\bar{y}_{str}=$ weighted average of the stratum means (stratified sample estimator)
+
+-   Resulting estimates of $\bar{y}_U$ (averaged over replicates):
+
+```{r}
+#| echo: false
+
+# Simulate taking SRS and stratified samples so as to see the gain
+yA <- c(6,9,3,9,10,2,6,1,3,7,3,1,1,0,5)
+yB <- c(13,7,12,8,11,6,7,8,8,5,7)
+yC <- c(11,12,12,13,8,14,9,15,7)
+
+n_h <- 5
+NREPS <- 10000
+
+srs_means <- strat_means <- vector(length=NREPS)
+set.seed(525)
+for (rep in 1:NREPS)
+{
+  # SRS
+  srs_means[rep] <- mean(sample(c(yA,yB,yC), 3*n_h, replace=FALSE))
+  # stratified sample
+  yA_s <- sample(yA, n_h, replace=FALSE)
+  yB_s <- sample(yB, n_h, replace=FALSE)
+  yC_s <- sample(yC, n_h, replace=FALSE)
+  strat_means[rep] <- mean(yA_s)*(15/35) + mean(yB_s)*(11/35) + mean(yC_s)*(9/35)
+}
+```
+
+::::: columns
+::: {.column width="50%"}
+```{r, out.width='80%'}
+#| echo: false
+#| fig-cap: ""
+#| fig-alt: "Two histograms, one on top of the other, showing the normal-shaped distributions of the mean from an SRS (top) and the mean from a stratified sample (bottom)"
+
+library(tidyverse)
+
+tibble(rep=1:NREPS, srs=srs_means, strat=strat_means) %>%
+  pivot_longer(srs:strat, values_to = "ybar", names_to = "method") %>%
+  mutate(method_f = factor(method, levels = c("srs","strat"), labels=c("SRS", "Stratified"))) %>%
+  ggplot(aes(x=ybar, fill=method_f)) + 
+  geom_histogram(bins=45) + 
+  facet_grid(method_f ~ .) + 
+  theme_bw() + 
+  theme(legend.position="none", strip.text.y = element_text(size=18, face="bold")) + 
+  labs(x="Mean Estimate", y = "Frequency")
+```
+:::
+
+::: {.column width="50%"}
+
+|                              |  |                  |
+|------------------------------|:-----------------------:|:------------------:|
+| **Method**                   |      **Mean**           | **Variance of Mean** |
+| SRS $(\bar{y})$              |  `r round(mean(srs_means), 4)`    | `r round(var(srs_means), 4)` |
+| Stratified $(\bar{y}_{str})$ |  `r round(mean(strat_means), 4)`  | `r round(var(strat_means), 4)` |
+| Truth $(\bar{y}_U)$          |   `r round(mean(c(yA, yB, yC)), 4)` |                |
+
+Stratified estimator: **unbiased** and **more precise**!
+
+:::
+
+:::::
+
+<!-- Stratification produced an **unbiased** estimator that is **more precise** than SRS! -->
+
+<!-- Also -- note the average estimated variance of the mean under stratification was [0.3795]{.alert2} -- really close to the true (theoretical) value we calculated of [0.378]{.alert}! -->
+
+## Confidence Intervals for Stratified Samples
+
+-   If the size of the strata ($n_h$) are all large, or the number of strata
+($H$) is large, then an approximately $\alpha$-level confidence interval
+for the true mean $\bar{y}_U$ is given by: $$\left(
+\bar{y}_{str}- z_{\alpha/2} \sqrt{\widehat{V}(\bar{y}_{str})}, \quad \bar{y}_{str}+ z_{\alpha/2} \sqrt{\widehat{V}(\bar{y}_{str})}
+\right)$$ where $z_{\alpha/2}$ is the $(1-\alpha/2)$th percentile of the
+standard normal distribution
+
+-   In practice, often use ${t}$ distribution with [DF = $n-H$]{.alert2} instead of $z_{\alpha/2}$.
+
+    -   $\textcolor{blue}{DF = n-H}$ should remind you of ANOVA
+
+        -   **One-way ANOVA:** [denominator DF = $N-k$]{.alert2} = \# observations $-$ \# groups
+
+        -   **Stratified Sampling:** [DF = $n-H$]{style="color: purple"} = \# observations $-$ \# strata
+
+    -   We lose a DF for each group/stratum mean we estimate
+
+    -   You may see this DF "rule" written as" **DF = \# of PSUs -- \# of Strata**
+
+        -   PSU = Primary Sampling Unit (which so far has been the observation unit)
+
+## Selection Probabilities and Sampling Weights
+
+When an SRS is taken in each stratum:
+
+[**Selection (Inclusion) Probabilities**]{.alert}
+
+-   Stratum $h$ has $N_h$ units
+
+-   Take an SRS of $n_h$ units
+
+-   Thus, $P($unit $j$ in stratum $h$
+    selected$) = \textcolor{red}{\pi_{hj} = \frac{\text{Sample size in the stratum}}{\text{Population size in the stratum}} = \frac{n_h}{N_h}}$
+
+[**Sampling Weights**]{.alert2}
+
+-   Sample weight is the inverse of the selection (inclusion)
+    probability
+
+-   Thus, sample weight for unit $j$ in stratum $h$ =
+    $\textcolor{blue}{w_{hj} = \frac{1}{\pi_{hj}}=\frac{N_h}{n_h}}$
+
+Note also that [the sum of the weights for sampled units = population
+size, $N$]{.alert}:
+$$\sum_{i \in \mathcal{S}} w_i = \sum_{h=1}^H \sum_{j\in \mathcal{S}_h} w_{hj} = \sum_{h=1}^H \sum_{j\in \mathcal{S}_h} \frac{N_h}{n_h} = \sum_{h=1}^H n_h \frac{N_h}{n_h} = \sum_{h=1}^H N_h = N$$
+
+## Horvitz-Thompson Estimators
+
+-   We can re-write the estimate of the (overall) total using the weights:
+$$\begin{aligned}
+\hat{t}_{str}&= \sum_{h=1}^H N_h \textcolor{myGreen}{\bar{y}_h} = \sum_{h=1}^H N_h \textcolor{myGreen}{\frac{1}{n_h} \sum_{j\in \mathcal{S}_h} y_{hj}} = \sum_{h=1}^H \sum_{j\in \mathcal{S}_h} \textcolor{red}{\frac{N_h}{n_h}} y_{hj}= \sum_{h=1}^H \sum_{j\in \mathcal{S}_h} \textcolor{red}{w_{hj}} y_{hj}\\
+\text{(re-index) } &= \sum_{i \in \mathcal{S}} \textcolor{red}{w_i} y_i
+\end{aligned}$$
+
+-   This is the [Horvitz-Thompson estimator (of the total)!]{.alert}
+
+-   Similarly, the estimate of the (overall) mean written using the weights:
+$$\bar{y}_{str}= \sum_{h=1}^H \frac{N_h}{N} \bar{y}_h = \frac{\hat{t}_{str}}{N} = \frac{\sum_{i \in \mathcal{S}} w_i y_i}{\sum_{i \in \mathcal{S}} w_i}$$
+-    This is the [Horvitz-Thompson estimator of the mean]{.alert}
+
+*(not something new, just showing that the stratified sampling formulas to estimate the mean and total are the Horvitz-Thompson estimators)*
+
+## Activity 6.1 (Part 4)
+
+Construct a Stratified Sample Estimator (Part 4)
+
+## Can a Stratified Sample be EPSEM?
+
+> (Reminder) **EPSEM** = inclusion probability (and thus sample weights) same for all
+population units
+
+-   Consider this scenario:
+
+|           | $N_h$ | $n_h$ |
+|-----------|:------|:------|
+| Stratum A | 1,000 | 10    |
+| Stratum B | 4,000 | ?     |
+| Stratum C | 500   | ?     |
+
+-   Can you come up with sample sizes for stratum B and stratum C that is EPSEM?
+
+## An EPSEM Stratified Sample
+
+-   Stratified sample is EPSEM [**if sampling fraction is the same in all
+strata**]{.alert2}
+    -    I.e., if $\frac{n_h}{N_h}$ is the same for all $h$ (for all strata)
+
+-    In an EPSEM stratified sample, sample weights are identical but this is [**not** an SRS!]{.alert}
+
+-    Variance calculations [must take into account the design (stratification)]{.alert}
+
+-    What if the population and your sample look like this:
+
+```{r, out.width='60%'}
+#| echo: false
+#| fig-cap: ""
+#| fig-alt: "Two histograms, one on top of the other, showing tri-modal distributions from the full population (top) and a single stratified sample (bottom)"
+
+set.seed(1977)
+pop <- tibble(y = c(rnorm(1000), 5+rnorm(4000), 10+rnorm(500)),
+             stratum = c(rep(1,1000), rep(2,4000), rep(3,500))) %>%
+  add_column(set = "Population")
+samp <- pop %>%
+  group_by(stratum) %>%
+  slice_sample(prop = 0.01) %>%
+  ungroup() %>%
+  mutate(set = "Sample")
+bind_rows(pop, samp) %>%
+  ggplot(aes(x = y, fill = factor(stratum))) +
+  geom_histogram(bins=35, alpha = 0.5) + 
+  theme_bw() + 
+  labs(x="y", y = "Frequency") + 
+  facet_grid(set ~ ., scales="free_y") + 
+  theme(legend.position="none", strip.text.y = element_text(size=18, face="bold"))
+```
+
+-   Your variance estimator for the sample mean would be way too large if you treated this like an SRS!
+

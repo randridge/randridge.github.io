@@ -1,0 +1,45 @@
+---
+title: "Neyman Allocation Derivation"
+subtitle: "PUBHBIO 7225"
+format:
+  html:
+    theme: custom.scss
+    html-math-method: mathjax
+---
+
+Stratified sampling: $\displaystyle V(\bar{y}_{str})= \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(1-\frac{n_h}{N_h}\right)\frac{S_h^2}{n_h}$
+
+Goal: Find $n_h, h=1,\dots,H$ such that:
+
+1.  $\displaystyle \sum_{h=1}^H n_h = n$
+
+2.  $V(\bar{y}_{str})$ is minimized
+
+Solution: Use Lagrange multipliers
+
+-   Use constraint $\sum_{h=1}^H n_h = n$ as Lagrange multiplier
+
+-   Derivative = 0
+
+-   Solve for $n_h$
+
+Minimize:\
+$\displaystyle V(\bar{y}_{str}) = f(\underline{S}_h, \underline{n}_h, n) = \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(1-\frac{n_h}{N_h}\right)\frac{S_h^2}{n_h} = \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \frac{S_h^2}{n_h} - \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2 \frac{S_h^2}{N_h}$
+
+Subject to constraint:\
+$\displaystyle g(\underline{S}_h, \underline{n}_h, n) = \sum_{h=1}^H n_h = n \rightarrow \sum_{h=1}^H n_h - n = 0$
+
+Using Lagrange multipliers:\
+$\displaystyle \mathcal{L}(\underline{n}_h, \lambda) = \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \frac{S_h^2}{n_h} - \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2 \frac{S_h^2}{N_h} + \lambda \left( \sum_{h=1}^H n_h - n \right)$
+
+$\displaystyle \frac{\partial \mathcal{L}}{\partial n_h} = - \left(\frac{N_h}{N}\right)^2 \frac{S_h^2}{n_h^2} + \lambda = 0$
+
+$\displaystyle \frac{\partial \mathcal{L}}{\partial \lambda} = \sum_{h=1}^H n_h - n = 0$
+
+$$\begin{aligned}
+\text{Thus, from } \frac{\partial \mathcal{L}}{\partial n_h} \rightarrow n_h^2 &= \left(\frac{N_h}{N}\right)^2 \frac{S_h^2}{\lambda}& \\
+n_h &= \frac{N_h}{N} \frac{S_h}{\sqrt{\lambda}}\\
+\text{From } \frac{\partial \mathcal{L}}{\partial \lambda} \rightarrow \sum_{h=1}^H n_h &= \sum_{h=1}^H \frac{N_h}{N} \frac{S_h}{\sqrt{\lambda}} = n \\
+\sqrt{\lambda} &= \sum_{h=1}^H \frac{N_h}{N} \frac{S_h}{n} \\
+\text{Plug into above: }n_h &= \frac{N_h}{N} \frac{S_h}{\sqrt{\lambda}} = \frac{N_h}{N} \frac{S_h}{\sum_{h=1}^H \frac{N_h}{N} \frac{S_h}{n}} = n \left(\frac{N_h S_h}{\sum_{l=1}^H N_l S_l} \right)
+\end{aligned}$$
