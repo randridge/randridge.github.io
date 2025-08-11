@@ -3,7 +3,7 @@ title: |
   Stratified Sampling: \
   Allocation Methods
 subtitle: "PUBHBIO 7225 Lecture 7"
-# author: "Generative AI acknowledgment: MS Copilot was used to generate alt text for images"
+# author: "Generative AI acknowledgment: MS Copilot was used to (help) generate alt text for images"
 format:
   revealjs: 
     slide-number: true
@@ -29,7 +29,6 @@ format:
 :::
 
 ::: {.column width="50%"}
-
 **Activities**
 
 -   7.1 Comparing Allocation Methods
@@ -39,7 +38,6 @@ format:
 **Readings**
 
 -   Valliant R, Dever J, and Kreuter F (2018) *Practical Tools for Designing and Weighting Survey Samples, 2nd edition* -- **Section 3.1.3** (link on Carmen)
-
 
 **Assignments**
 
@@ -55,27 +53,17 @@ Why is this true?
 
 ## Stratified Sampling: Allocation Methods
 
-**Allocation Method** = how the total sample size $n$ is distributed
-across the strata
+> **Allocation Method** = how the total sample size $n$ is distributed across the strata
 
-Most often you decide how many units total you can afford to sample
-$(n)$ and then split ("allocate\") that across the strata with one of
-four methods:
+-   Most often you decide how many units total you can afford to sample $(n)$ and then split ("allocate") that across the strata with one of four methods:
 
-1.  **[Equal Allocation]{.alert}** -- $n_h$ the same for all
-    strata
+1.  **Equal Allocation** -- $n_h$ the same for all strata
 
-2.  **[Proportional Allocation]{.alert2}** -- Allocate
-    sample to the strata [proportional to the population size in each
-    stratum]{.alert2}
+2.  **Proportional Allocation** -- Allocate sample to the strata [proportional to the population size in each stratum]{.alert2}
 
-3.  **[Neyman Allocation]{.alert}** -- Allocate sample
-    to the strata [according to the estimated variability of $y$ and the
-    population size in each stratum]{.alert}
+3.  **Neyman Allocation** -- Allocate sample to the strata [according to the estimated variability of $y$ and the population size in each stratum]{.alert}
 
-4.  **[Optimal Allocation]{.alert2}** -- Neyman Allocation,
-    but also [accounting for the cost to sample each
-    unit]{.alert2} (may vary by strata)
+4.  **Optimal Allocation** -- Neyman Allocation, but also [accounting for the cost to sample each unit]{.alert2} (may vary by strata)
 
 ## Equal Allocation
 
@@ -110,12 +98,11 @@ four methods:
 
     -   Sample weights: $w_{hj} = N/n$
 
--   Formula for the variance of the sample mean, $\bar{y}_{str}$, can thus be simplified: 
-$$\begin{flalign}
-V_{prop}(\bar{y}_{str}) &= \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(1-\frac{n_h}{N_h}\right)\frac{S_h^2}{n_h} = &% \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(1-\frac{n \frac{N_h}{N}}{N_h}\right) \frac{S_h^2}{n \frac{N_h}{N}} \\
-%&= \sum_{h=1}^H \left(\frac{N_h}{N}\right) \fpcpar \frac{S_h^2}{n} %\\
-%&= \sum_{h=1}^H \left(\frac{N_h}{N}\right) \frac{S_h^2}{n} - \frac{1}{N} \sum_{h=1}^H \frac{N_h}{N} S_h^2
-\end{flalign}$$
+-   Formula for the variance of the sample mean, $\bar{y}_{str}$, can thus be simplified: $$\begin{flalign}
+    V_{prop}(\bar{y}_{str}) &= \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(1-\frac{n_h}{N_h}\right)\frac{S_h^2}{n_h} = &% \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(1-\frac{n \frac{N_h}{N}}{N_h}\right) \frac{S_h^2}{n \frac{N_h}{N}} \\
+    %&= \sum_{h=1}^H \left(\frac{N_h}{N}\right) \fpcpar \frac{S_h^2}{n} %\\
+    %&= \sum_{h=1}^H \left(\frac{N_h}{N}\right) \frac{S_h^2}{n} - \frac{1}{N} \sum_{h=1}^H \frac{N_h}{N} S_h^2
+    \end{flalign}$$
 
 ## Activity 7.1 (Part 1)
 
@@ -128,10 +115,10 @@ Comparing Allocation Methods (Part 1)
 -   Note that this only holds for [proportional allocation]{.alert2}
 
 -   The gain in precision (over SRS) will be [larger when the $\bar{y}_{hU}$ differ from $\bar{y}_U$ more]{.alert}
+
     -   i.e., when stratum means/proportions are more different
 
--   **Fact:** when $Y$ comes from a mixture of two distributions, $V(Y)$ is a weighted average of the two variances
-$(\sigma^2_1,\sigma^2_2)$ [plus an increase due to difference in the means]{.alert} $(\mu_1, \mu_2)$:
+-   **Fact:** when $Y$ comes from a mixture of two distributions, $V(Y)$ is a weighted average of the two variances $(\sigma^2_1,\sigma^2_2)$ [plus an increase due to difference in the means]{.alert} $(\mu_1, \mu_2)$:
 
 $$V(Y) = p_1 \sigma^2_1 + (1-p_1) \sigma^2_2 + p_1 (1-p_1) (\mu_1 - \mu_2)^2$$
 
@@ -139,11 +126,14 @@ where $p_1$ = fraction of the population from first distribution
 
 -   The further apart the means are, the bigger the variance of $y$ if you ignore strata $(S^2)$
 
--   Thus, stratification helps **if the stratification variable(s) are related to the survey outcome $\mathbf{y}$**
+-   Thus, stratification helps **if the stratification variable(s) are related to the survey outcome** $\mathbf{y}$
 
 ## Mixture Distribution in a Picture
 
 ```{r}
+#| echo: false
+#| fig-cap: ""
+#| fig-alt: "Nine histograms arranged in a 3×3 grid showing y values within two strata and overall and for different mean differences"
 library(tidyverse)
 N1 <- N2 <- 100000
 set.seed(1977)
@@ -166,23 +156,21 @@ dat_text <- tibble(group=c(1,2,3,1,2,3,1,2,3),
 dat_text$group_f <- factor(dat_text$group, levels=1:3, labels=c("Stratum 1", "Stratum 2", "Combined"))
 dat_text$diff <- factor(dat_text$diff, levels=1:3, labels=c("Equal Means", "1 SD apart", "2 SD apart"))
 
-# Alternate plot
 ggplot(df, aes(x=value, fill=group_f)) + geom_histogram(bins=40, alpha=0.5, col=1) + theme_bw() + labs(x="y") + facet_grid(group_f ~ diff) + theme(legend.position="none") + theme(strip.text.x = element_text(size=12, face="bold"), strip.text.y = element_text(size=14, face="bold")) + geom_vline(xintercept = 0, linetype = 2) + geom_text(data=dat_text, mapping=aes(x=4, y=15000, label=textlabel1), parse=TRUE, size=5) + geom_text(data=dat_text, mapping=aes(x=-3, y=15000, label=textlabel2), parse=TRUE, size=5)
 ```
-
 
 ## Numerical Illustration
 
 -   equal-sized strata $(N_1=N_2)$ and equal variance in each stratum $(S_1^2=S_2^2=1)$
 -   sample of size $n=1000$, population $N$ large enough to ignore FPC
 
-  $\mu_1$   $\mu_2$   $S_1^2$   $S_2^2$   $S^2$    $V_{srs}(\bar{y})$   $V_{prop}(\bar{y}_{str})$   Ratio (SRS/Stratified)
-  --------- --------- --------- --------- -------- -------------------- --------------------------- -----------------
-  0         0         1         1         1        0.001                0.001                       1
-  0         0.5       1         1         1.0625   0.0010625            0.001                       1.0625
-  0         1         1         1         1.25     0.00125              0.001                       1.25
-  0         1.5       1         1         1.5625   0.0015625            0.001                       1.5625
-  0         2         1         1         2        0.002                0.001                       2
+| $\mu_1$ | $\mu_2$ | $S_1^2$ | $S_2^2$ | $S^2$ | $V_{srs}(\bar{y})$ | $V_{prop}(\bar{y}_{str})$ | Ratio (SRS/Stratified) |
+|:---|:---|:---|:---|:---|:---|:---|----|
+| 0 | 0 | 1 | 1 | 1 | 0.001 | 0.001 | 1 |
+| 0 | 0.5 | 1 | 1 | 1.0625 | 0.0010625 | 0.001 | 1.0625 |
+| 0 | 1 | 1 | 1 | 1.25 | 0.00125 | 0.001 | 1.25 |
+| 0 | 1.5 | 1 | 1 | 1.5625 | 0.0015625 | 0.001 | 1.5625 |
+| 0 | 2 | 1 | 1 | 2 | 0.002 | 0.001 | 2 |
 
 Example calculations (2nd row of table above):
 
@@ -196,13 +184,13 @@ $V_{str}(\bar{y}_{str}) = \frac{N_1}{N}\frac{S_1^2}{n} + \frac{N_2}{N}\frac{S_2^
 
 What about proportions? Exact same story:
 
-  $p_1$   $p_2$   $S_1^2$   $S_2^2$   $S^2$   $V(\bar{y})$   $V_{prop}(\bar{y}_{str})$   Ratio (SRS/Stratified)
-  ------- ------- --------- --------- ------- -------------- --------------------------- -----------------
-  0.5     0.5     0.25      0.25      0.25    0.0025         0.0025                      1
-  0.4     0.6     0.24      0.24      0.25    0.0025         0.0024                      1.042
-  0.3     0.7     0.21      0.21      0.25    0.0025         0.0021                      1.19
-  0.2     0.8     0.16      0.16      0.25    0.0025         0.0016                      1.5625
-  0.1     0.9     0.09      0.09      0.25    0.0025         0.0009                      2.78
+| $p_1$ | $p_2$ | $S_1^2$ | $S_2^2$ | $S^2$ | $V(\bar{y})$ | $V_{prop}(\bar{y}_{str})$ | Ratio (SRS/Stratified) |
+|:---|:---|:---|:---|:---|:---|:---|----|
+| 0.5 | 0.5 | 0.25 | 0.25 | 0.25 | 0.0025 | 0.0025 | 1 |
+| 0.4 | 0.6 | 0.24 | 0.24 | 0.25 | 0.0025 | 0.0024 | 1.042 |
+| 0.3 | 0.7 | 0.21 | 0.21 | 0.25 | 0.0025 | 0.0021 | 1.19 |
+| 0.2 | 0.8 | 0.16 | 0.16 | 0.25 | 0.0025 | 0.0016 | 1.5625 |
+| 0.1 | 0.9 | 0.09 | 0.09 | 0.25 | 0.0025 | 0.0009 | 2.78 |
 
 -   Note that these results are for the [theoretical]{.alert} sampling variance (over repeated sampling)
 
@@ -244,18 +232,18 @@ V_{srs}(\bar{y}) &= \underbrace{\left(1-\frac{n}{N}\right)\frac{1}{n} \sum_{h=1}
 > **Neyman Allocation** = allocation that [minimizes $V(\bar{y}_{str})$, the variance of the overall mean of $y$]{.alert}, for a fixed total sample size, $n$ $$n_h = n \left( \frac{N_h S_h}{\sum_{l =1}^H N_l S_l} \right)$$
 
 -   Number of sampled units in each stratum is [proportional to the size of the stratum $(N_h)$ times the standard deviation of $y$ in the stratum $(S_h)$]{.alert2}
+
     -   I.e., $n_h \propto N_h S_h$
 
 -   [Sample more of a stratum]{.alert} if it has a [large within-stratum variance]{.alert} -- to compensate for the heterogeneity
 
 -   First determined by Alexander Chuprov (1923), rediscovered by Neyman (1934). Poor Chuprov!
 
-*[Math/Stat Note:]{.alert2} The derivation of the $n_h$ formula under Neyman Allocation uses the method of Lagrange multipliers (calculus) -- which is outside the scope of this class -- I encourage any interested students to refer to the additional handout on Carmen*
+[*Math/Stat Note:*]{.alert2} *The derivation of the* $n_h$ formula under Neyman Allocation uses the method of Lagrange multipliers (calculus) -- which is outside the scope of this class -- I encourage any interested students to refer to the additional handout on Carmen
 
 ## Neyman Allocation: Variance Formula
 
-[Ugly algebra]{.alert} to simplify the variance of the sample mean under Neyman Allocation:
-$$\begin{flalign}
+[Ugly algebra]{.alert} to simplify the variance of the sample mean under Neyman Allocation: $$\begin{flalign}
 V_{Neyman}(\bar{y}_{str}) &= \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(1-\frac{n_h}{N_h}\right)\frac{S_h^2}{n_h} 
 = \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2 \frac{S_h^2}{n_h} - \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \frac{S_h^2}{N_h} & \\
 &= \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2 \frac{S_h^2}{n \left( \frac{N_h S_h}{\sum_{l =1}^H N_l S_l} \right)} - \frac{1}{N^2} \sum_{h=1}^H N_h S_h^2\\
@@ -270,8 +258,8 @@ Comparing Allocation Methods (Part 2)
 
 ## Neyman Allocation vs. Proportional Allocation
 
--   If $S_h$ are all equal and correctly specified, then Neyman allocation is the **same** as proportional
-allocation
+-   If $S_h$ are all equal and correctly specified, then Neyman allocation is the **same** as proportional allocation
+
 -   If $S_h$ are correctly specified, (theoretical) variance from Neyman allocation is always **less than or equal to** the (theoretical) variance from [proportional allocation]{.alert} (proof next page)
 
     -   The gain in precision (over proportional allocation) will be **larger** when the $S_h$ differ from $\bar{S}$ more (when stratum standard deviations more different)
@@ -283,8 +271,7 @@ allocation
 However, note that:
 
 -   If $S_h$ are poorly (inaccurately) specified, Neyman allocation can result in higher variance than SRS
--   **Thus, Neyman allocation only used when we are confident in our estimates of $S_h$!**
-
+-   **Thus, Neyman allocation only used when we are confident in our estimates of** $S_h$!
 
 ## Neyman Allocation vs. Proportional Allocation: Theory
 
@@ -302,8 +289,7 @@ V_{prop}(\bar{y}_{str}) &- V_{Neyman}(\bar{y}_{str}) & \\
 
 > **Optimal Allocation** = allocation that [minimizes $V(\bar{y}_{str})$, the variance of the overall mean of $y$]{.alert}, for a fixed total sample size, $n$, and with a [fixed cost per unit]{.alert}, $c_h$ $$n_h = n \left( \frac{\frac{N_h S_h}{\sqrt{c_h}}}{\sum_{l =1}^H \frac{N_l S_l}{\sqrt{c_l}}} \right)$$
 
--   Number of sampled units in each stratum is [proportional to the size of the stratum]{.alert2} $(N_h)$, [the
-standard deviation of $y$ in the stratum]{.alert2} $(S_h)$, and [the reciprocal of the square root of the cost per unit of obtaining $y$ in each stratum]{.alert2} $(c_h)$
+-   Number of sampled units in each stratum is [proportional to the size of the stratum]{.alert2} $(N_h)$, [the standard deviation of $y$ in the stratum]{.alert2} $(S_h)$, and [the reciprocal of the square root of the cost per unit of obtaining $y$ in each stratum]{.alert2} $(c_h)$
 
 -   Fixed total cost $\displaystyle c = c_0 + \sum_{h=1}^H c_h n_h$, where $c_0$ = baseline costs
 
@@ -313,7 +299,7 @@ standard deviation of $y$ in the stratum]{.alert2} $(S_h)$, and [the reciprocal 
 
 ## Optimal Allocation
 
--   For completeness, here is the "simplified\" expression for the theoretical variance of the overall mean under pptimal allocation:
+-   For completeness, here is the "simplified" expression for the theoretical variance of the overall mean under pptimal allocation:
 
 $$\begin{aligned}
 V_{opt}(\bar{y}_{str}) &= \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(1-\frac{n_h}{N_h}\right)\frac{S_h^2}{n_h} \\
@@ -332,12 +318,9 @@ V_{opt}(\bar{y}_{str}) &= \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(1-\fr
     -   Classic (old-school) method: Dalenius-Hodges method
     -   Readings:
         -   Dalenius T and Hodges JL (1959). Minimum variance stratification. *Journal of the American Statistical Association*, 54; 88-101.
-        -   Cochran W (1977) *Sampling Techniques, 3rd edition* --
-Chapter 5A.7
-
+        -   Cochran W (1977) *Sampling Techniques, 3rd edition* -- Chapter 5A.7
 -   Optimal allocation when more than one $y$ variable is of interest
     -   This is ultimately a nonlinear optimization problem, with constraints set by the researchers
     -   Gets complex really quickly
     -   Readings:
         -   Valliant R, Dever J, and Kreuter F (2018) *Practical Tools for Designing and Weighting Survey Samples, 2nd edition* -- Chapter 5
-

@@ -171,13 +171,17 @@ Allocation Methods</p></h1>
 </section>
 <section id="stratified-sampling-allocation-methods" class="slide level2">
 <h2>Stratified Sampling: Allocation Methods</h2>
+<blockquote>
 <p><strong>Allocation Method</strong> = how the total sample size <span class="math inline">\(n\)</span> is distributed across the strata</p>
-<p>Most often you decide how many units total you can afford to sample <span class="math inline">\((n)\)</span> and then split (“allocate") that across the strata with one of four methods:</p>
+</blockquote>
+<ul>
+<li>Most often you decide how many units total you can afford to sample <span class="math inline">\((n)\)</span> and then split (“allocate”) that across the strata with one of four methods:</li>
+</ul>
 <ol type="1">
-<li><p><strong><span class="alert">Equal Allocation</span></strong> – <span class="math inline">\(n_h\)</span> the same for all strata</p></li>
-<li><p><strong><span class="alert2">Proportional Allocation</span></strong> – Allocate sample to the strata <span class="alert2">proportional to the population size in each stratum</span></p></li>
-<li><p><strong><span class="alert">Neyman Allocation</span></strong> – Allocate sample to the strata <span class="alert">according to the estimated variability of <span class="math inline">\(y\)</span> and the population size in each stratum</span></p></li>
-<li><p><strong><span class="alert2">Optimal Allocation</span></strong> – Neyman Allocation, but also <span class="alert2">accounting for the cost to sample each unit</span> (may vary by strata)</p></li>
+<li><p><strong>Equal Allocation</strong> – <span class="math inline">\(n_h\)</span> the same for all strata</p></li>
+<li><p><strong>Proportional Allocation</strong> – Allocate sample to the strata <span class="alert2">proportional to the population size in each stratum</span></p></li>
+<li><p><strong>Neyman Allocation</strong> – Allocate sample to the strata <span class="alert">according to the estimated variability of <span class="math inline">\(y\)</span> and the population size in each stratum</span></p></li>
+<li><p><strong>Optimal Allocation</strong> – Neyman Allocation, but also <span class="alert2">accounting for the cost to sample each unit</span> (may vary by strata)</p></li>
 </ol>
 </section>
 <section id="equal-allocation" class="slide level2">
@@ -248,13 +252,13 @@ V_{prop}(\bar{y}_{str}) &amp;= \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(
 <p>where <span class="math inline">\(p_1\)</span> = fraction of the population from first distribution</p>
 <ul>
 <li><p>The further apart the means are, the bigger the variance of <span class="math inline">\(y\)</span> if you ignore strata <span class="math inline">\((S^2)\)</span></p></li>
-<li><p>Thus, stratification helps <strong>if the stratification variable(s) are related to the survey outcome <span class="math inline">\(\mathbf{y}\)</span></strong></p></li>
+<li><p>Thus, stratification helps <strong>if the stratification variable(s) are related to the survey outcome</strong> <span class="math inline">\(\mathbf{y}\)</span></p></li>
 </ul>
 </section>
 <section id="mixture-distribution-in-a-picture" class="slide level2">
 <h2>Mixture Distribution in a Picture</h2>
 
-<img data-src="PUBHBIO7225_L07_stratSampAlloc_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
+<img data-src="PUBHBIO7225_L07_stratSampAlloc_files/figure-revealjs/unnamed-chunk-1-1.png" alt="Nine histograms arranged in a 3×3 grid showing y values within two strata and overall and for different mean differences" width="960" class="r-stretch"></section>
 <section id="numerical-illustration" class="slide level2">
 <h2>Numerical Illustration</h2>
 <ul>
@@ -262,6 +266,16 @@ V_{prop}(\bar{y}_{str}) &amp;= \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(
 <li>sample of size <span class="math inline">\(n=1000\)</span>, population <span class="math inline">\(N\)</span> large enough to ignore FPC</li>
 </ul>
 <table class="caption-top">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;"><span class="math inline">\(\mu_1\)</span></th>
@@ -336,6 +350,16 @@ V_{prop}(\bar{y}_{str}) &amp;= \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(
 <h2>Numerical Illustration: Proportions</h2>
 <p>What about proportions? Exact same story:</p>
 <table class="caption-top">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;"><span class="math inline">\(p_1\)</span></th>
@@ -448,7 +472,7 @@ V_{srs}(\bar{y}) &amp;= \underbrace{\left(1-\frac{n}{N}\right)\frac{1}{n} \sum_{
 <li><p><span class="alert">Sample more of a stratum</span> if it has a <span class="alert">large within-stratum variance</span> – to compensate for the heterogeneity</p></li>
 <li><p>First determined by Alexander Chuprov (1923), rediscovered by Neyman (1934). Poor Chuprov!</p></li>
 </ul>
-<p><em><span class="alert2">Math/Stat Note:</span> The derivation of the <span class="math inline">\(n_h\)</span> formula under Neyman Allocation uses the method of Lagrange multipliers (calculus) – which is outside the scope of this class – I encourage any interested students to refer to the additional handout on Carmen</em></p>
+<p><span class="alert2"><em>Math/Stat Note:</em></span> <em>The derivation of the</em> <span class="math inline">\(n_h\)</span> formula under Neyman Allocation uses the method of Lagrange multipliers (calculus) – which is outside the scope of this class – I encourage any interested students to refer to the additional handout on Carmen</p>
 </section>
 <section id="neyman-allocation-variance-formula" class="slide level2">
 <h2>Neyman Allocation: Variance Formula</h2>
@@ -479,7 +503,7 @@ V_{Neyman}(\bar{y}_{str}) &amp;= \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \lef
 <p>However, note that:</p>
 <ul>
 <li>If <span class="math inline">\(S_h\)</span> are poorly (inaccurately) specified, Neyman allocation can result in higher variance than SRS</li>
-<li><strong>Thus, Neyman allocation only used when we are confident in our estimates of <span class="math inline">\(S_h\)</span>!</strong></li>
+<li><strong>Thus, Neyman allocation only used when we are confident in our estimates of</strong> <span class="math inline">\(S_h\)</span>!</li>
 </ul>
 </section>
 <section id="neyman-allocation-vs.-proportional-allocation-theory" class="slide level2">
@@ -509,7 +533,7 @@ V_{prop}(\bar{y}_{str}) &amp;- V_{Neyman}(\bar{y}_{str}) &amp; \\
 <section id="optimal-allocation-1" class="slide level2">
 <h2>Optimal Allocation</h2>
 <ul>
-<li>For completeness, here is the “simplified" expression for the theoretical variance of the overall mean under pptimal allocation:</li>
+<li>For completeness, here is the “simplified” expression for the theoretical variance of the overall mean under pptimal allocation:</li>
 </ul>
 <p><span class="math display">\[\begin{aligned}
 V_{opt}(\bar{y}_{str}) &amp;= \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(1-\frac{n_h}{N_h}\right)\frac{S_h^2}{n_h} \\
