@@ -259,15 +259,15 @@ Random selection of units into the sample implies that [$(\bar{y}, \hat{t}, \hat
 
 -   Even the U.S. government doesn't have the resources to sample a large fraction of many populations of interest!
 
--   **Example:** National surveys conducted by U.S. Government (e.g., NHANES, BRFSS)
+-   **Example:** National surveys conducted by U.S. government (e.g., NHANES, BRFSS)
 
     -   Target population = all U.S. residents (sometimes exclude small subsets, e.g., incarcerated people)
 
     -   US adult population $\approx$ 250,000,000
 
-    -   Even if sample 100,000 people, that's only 0.04% of the population!
+    -   Even if sample $n =$ 100,000 people, that's only 0.04% of the population!
 
-    -   fpc = $1-\frac{100,000}{250,000,000} = 1 - 0.0004 = 0.9996 \approx 1$
+    -   fpc = $1 - \frac{n}{N} = 1-\frac{100,000}{250,000,000} = 1 - 0.0004 = 0.9996 \approx 1$
 
     -   $V(\bar{y})=\left(1-\frac{n}{N}\right)\frac{S^2}{n} \approx \frac{S^2}{n}$
 

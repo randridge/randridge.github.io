@@ -1,5 +1,7 @@
 ---
-title: "Stratified Sampling: Software (Stata, R)"
+title: |
+  Stratified Sampling: Software \
+  (Stata, R)
 subtitle: "PUBHBIO 7225 Lecture 8"
 # author: "Generative AI acknowledgment: MS Copilot was used to generate alt text for images"
 format:
@@ -98,3 +100,7 @@ DESIGN.OBJECT <- svydesign(id = ~1, weights = ~WEIGHTVAR, fpc = ~N_h,
 ```
 
 With the survey design object created, for estimation use same commands as for SRS (e.g., `svymean()`)
+
+## Activity 8.1
+
+Stata/R for Stratified Samples
