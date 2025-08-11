@@ -27,7 +27,6 @@ format:
 
 -   Stata for SRS
 -   R for SRS
-
 :::
 
 ::: {.column width="50%"}

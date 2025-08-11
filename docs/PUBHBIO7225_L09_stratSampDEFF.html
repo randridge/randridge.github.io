@@ -9,7 +9,7 @@
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.33">
 
-  <title>randridge.github.io – Stratified Sampling: Software (Stata, R)</title>
+  <title>randridge.github.io – Stratified Sampling: Sample Size and DEFF</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -27,74 +27,8 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-95cb67c9c984f121a47d2ee9f1acaeb7.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-0d4797bbe286a9d9dc5c43173ebfcc9e.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -192,9 +126,9 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title"><p>Stratified Sampling: Software<br>
-(Stata, R)</p></h1>
-  <p class="subtitle">PUBHBIO 7225 Lecture 8</p>
+  <h1 class="title"><p>Stratified Sampling:<br>
+Sample Size and DEFF</p></h1>
+  <p class="subtitle">PUBHBIO 7225 Lecture 9</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -202,76 +136,276 @@
 </section>
 <section id="outline" class="slide level2">
 <h2>Outline</h2>
+<div class="hidden">
+
+</div>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><strong>Topics</strong></p>
 <ul>
-<li>Stata for SRS</li>
-<li>R for SRS</li>
+<li>Sample Size Estimation for Stratified Samples</li>
+<li>Design Effect</li>
+<li>Group Project Work (time permitting)</li>
 </ul>
 </div><div class="column" style="width:50%;">
 <p><strong>Activities</strong></p>
 <ul>
-<li>8.1 Stata/R for SRS</li>
+<li>9.1 Stratification: Sample Size and Design Effects</li>
 </ul>
 </div></div>
 <p><br></p>
 <p><strong>Assignments</strong></p>
 <ul>
-<li>Peer Evaluation of Problem Set 2 due Tuesday 9/23/25 11:59pm via Carmen</li>
 <li>Quiz 2 due Thursday 9/25/2025 11:59pm via Carmen</li>
 <li>Group Progress Report due Thursday 9/25/2025 11:59pm via Carmen (only one group member needs to upload this)</li>
 </ul>
 </section>
-<section id="stata-commands-for-stratified-samples" class="slide level2">
-<h2>Stata Commands for Stratified Samples</h2>
-<p>Select a stratified random sample of <span class="math inline">\(n_h=50\)</span> in each stratum:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>sort STRATVAR IDVAR     <span class="co"># STRATVAR = variable defining strata, IDVAR = record ID</span></span>
-<span id="cb1-2"><a></a>set seed <span class="dv">217</span> </span>
-<span id="cb1-3"><a></a>by STRATVAR<span class="sc">:</span> sample <span class="dv">50</span>, count</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="sample-size-estimation-for-a-stratified-sample" class="slide level2">
+<h2>Sample Size Estimation for a Stratified Sample</h2>
+<ul>
+<li>Want to find necessary overall sample size <span class="math inline">\(n\)</span> that will produce a given MOE <span class="math inline">\((e)\)</span></li>
+</ul>
+<p><span class="math display">\[\text{CI: } \bar{y}_{str}\pm \underbrace{z_{\alpha/2} \sqrt{V(\bar{y}_{str})}}_{e = \text{half-width of CI}}\]</span> - Just as with SRS, the formula for the necessary sample size <span class="math inline">\(n\)</span> is found by plugging in the formula for the variance and solving for <span class="math inline">\(n\)</span>.</p>
+<ul>
+<li>But, you <strong>have to pick an allocation method first</strong>. Why?</li>
+</ul>
+<div class="fragment">
+<ul>
+<li><p>Because <span class="math inline">\(V(\bar{y}_{str})\)</span> depends on the <span class="math inline">\(\textcolor{blue}{n_h}\)</span>: <span class="math inline">\(V(\bar{y}_{str}) = \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left( 1 - \frac{\textcolor{blue}{n_h}}{N_h}\right) \frac{S_h^2}{\textcolor{blue}{n_h}}\)</span></p></li>
+<li><p>We can’t solve for the <span class="math inline">\(n_h\)</span> all at once – but if we pick an allocation method, we can replace the <span class="math inline">\(n_h\)</span> with expressions in terms of <span class="math inline">\(n\)</span>:</p></li>
+<li><p>Equal allocation: <span class="math inline">\(n_h = \frac{n}{H}\)</span></p></li>
+<li><p>Proportional allocation: <span class="math inline">\(n_h = n \frac{N_h}{N}\)</span></p></li>
+<li><p>Neyman allocation: <span class="math inline">\(n_h = n \left( \frac{N_h S_h}{\sum_{l =1}^H N_l S_l} \right)\)</span></p></li>
+</ul>
+<p>Thus there is a separate sample size formula for each allocation method.</p>
 </div>
-<p>Select a stratified random sample by taking 50% of each stratum:<br>
-</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>sort STRATVAR IDVAR </span>
-<span id="cb2-2"><a></a>set seed <span class="dv">531</span> </span>
-<span id="cb2-3"><a></a>by STRATVAR<span class="sc">:</span> sample <span class="dv">50</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Tell Stata about the sample design for a stratified sample:<br>
-</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>svyset [pweight<span class="ot">=</span>WEIGHTVAR], <span class="fu">fpc</span>(N_h) <span class="fu">strata</span>(STRATVAR) </span>
-<span id="cb3-2"><a></a><span class="co"># WEIGHTVAR = variable containing sampling weights</span></span>
-<span id="cb3-3"><a></a><span class="co"># N_h = variable that contains finite population sizes in each stratum</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>With the survey design set, for estimation use same commands as for SRS (e.g., <code>svy:</code>)</p>
 </section>
-<section id="r-commands-for-stratified-samples" class="slide level2">
-<h2>R Commands for Stratified Samples</h2>
-<p>Select a stratified random sample of <span class="math inline">\(n_h=50\)</span> in each stratum:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">set.seed</span>(<span class="dv">217</span>)</span>
-<span id="cb4-2"><a></a>DF <span class="ot">&lt;-</span> POPDATA <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(STRATVAR) <span class="sc">%&gt;%</span> <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">50</span>)</span>
-<span id="cb4-3"><a></a><span class="co"># STRATVAR = variable defining strata</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Select a stratified random sample by taking 50% of each stratum:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">set.seed</span>(<span class="dv">217</span>)</span>
-<span id="cb5-2"><a></a>DF <span class="ot">&lt;-</span> POPDATA <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(STRATVAR) <span class="sc">%&gt;%</span> <span class="fu">slice_sample</span>(<span class="at">prop =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Tell R about the sample design for a stratified sample:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>DESIGN.OBJECT <span class="ot">&lt;-</span> <span class="fu">svydesign</span>(<span class="at">id =</span> <span class="sc">~</span><span class="dv">1</span>, <span class="at">weights =</span> <span class="sc">~</span>WEIGHTVAR, <span class="at">fpc =</span> <span class="sc">~</span>N_h, </span>
-<span id="cb6-2"><a></a>                           <span class="at">strata =</span> <span class="sc">~</span>STRATVAR, <span class="at">data=</span>DF)</span>
-<span id="cb6-3"><a></a><span class="co"># WEIGHTVAR = variable containing sampling weights</span></span>
-<span id="cb6-4"><a></a><span class="co"># N_h = variable that contains finite population sizes in each stratum</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>With the survey design object created, for estimation use same commands as for SRS (e.g., <code>svymean()</code>)</p>
+<section id="sample-size-estimation-for-proportional-allocation" class="slide level2">
+<h2>Sample Size Estimation for Proportional Allocation</h2>
+<p>Simplified version of <span class="math inline">\(V(\bar{y}_{str})\)</span> under proportional allocation (obtained by plugging in <span class="math inline">\(n_h = n \frac{N_h}{N}\)</span> as in Lecture 7 slide 5): <span class="math display">\[V(\bar{y}_{str}) = \sum_{h=1}^H \frac{N_h}{N}\fpcpar\frac{S_h^2}{n}\]</span></p>
+<p>Plugging this into the general formula for MOE (previous slide): <span class="math display">\[\begin{aligned}
+e &amp;{}= z_{\alpha/2} \sqrt{V(\bar{y}_{str})} \\
+e &amp;{}= z_{\alpha/2} \sqrt{\sum_{h=1}^H \frac{N_h}{N}\fpcpar\frac{S_h^2}{n}}
+\end{aligned}\]</span></p>
+<p>Square both sides: <span class="math display">\[\begin{aligned}
+e^2 &amp;{}= z_{\alpha/2}^2 \left[{\sum_{h=1}^H \frac{N_h}{N}\fpcpar\frac{S_h^2}{n}}\right]
+\end{aligned}\]</span></p>
 </section>
-<section id="activity-8.1" class="slide level2">
-<h2>Activity 8.1</h2>
-<p>Stata/R for Stratified Samples</p>
+<section id="sample-size-estimation-for-proportional-allocation-cont" class="slide level2">
+<h2>Sample Size Estimation for Proportional Allocation (con’t)</h2>
+<p>Do some painful algebraic manipulation: <span class="math display">\[\begin{aligned}
+e^2 &amp;= z_{\alpha/2}^2 \left[ \sum_{h=1}^H \frac{N_h}{N}\fpcpar\frac{S_h^2}{n} \right] \qquad \text{\small (from previous slide)} \\
+e^2 &amp;= z_{\alpha/2}^2 \left[ \sum_{h=1}^H \frac{N_h}{N} \frac{S_h^2}{n} - \sum_{h=1}^H \frac{N_h}{N} \frac{n}{N} \frac{S_h^2}{n} \right] \qquad \text{\small (expand the parentheses/FPC part)}  \\
+e^2 &amp;= z_{\alpha/2}^2 \left[\frac{1}{n} \sum_{h=1}^H \frac{N_h}{N} S_h^2  - \frac{1}{N} \sum_{h=1}^H \frac{N_h}{N} S_h^2 \right] \qquad \text{\small (pulling $n$ and $N$ outside summations)} \\
+e^2 &amp;= z_{\alpha/2}^2 \left(\frac{S^{\ast 2}}{n} - \frac{S^{\ast 2}}{N} \right)\quad \red{\text{\small setting } S^{\ast 2} = \sum_{h=1}^H \frac{N_h}{N} S_h^2 = \text{\small weighted average of stratum variances}} \\
+&amp;= \text{\dots algebra to get $n$ on left side \dots} \\
+n &amp;= \frac{z_{\alpha/2}^2 S^{\ast 2}}{e^2 + \pink{\dfrac{z_{\alpha/2}^2 S^{\ast 2}}{N}}} = \frac{z_{\alpha/2}^2 \left(\sum_{h=1}^H \frac{N_h}{N}S_h^2\right)}{e^2 + \pink{\dfrac{z_{\alpha/2}^2}{N} \left(\sum_{h=1}^H \frac{N_h}{N}S_h^2 \right)}}
+\end{aligned}\]</span></p>
+<p>Think back to the formula for SRS – this is very simliar, but with <span class="math inline">\(S^{\ast 2}\)</span> instead of <span class="math inline">\(S^2\)</span> (weighted average of stratum variances instead of overall variance)</p>
+</section>
+<section id="example-sample-size-for-proportional-allocation" class="slide level2">
+<h2>Example: Sample Size for Proportional Allocation</h2>
+<p>In Activity 7.1 we had a population consisting of two strata:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Stratum</strong></th>
+<th style="text-align: left;"><strong>Definition</strong></th>
+<th style="text-align: left;"><span class="math inline">\(\bm{N_h}\)</span></th>
+<th style="text-align: left;"><strong>True Proportion</strong></th>
+<th style="text-align: left;"><span class="math inline">\(\bm{V(y)}\)</span> <strong>in Stratum</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Age 18-64</td>
+<td style="text-align: left;">750,000</td>
+<td style="text-align: left;"><span class="math inline">\(p_1=0.3\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(S_1^2 = 0.21\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">Age 65+</td>
+<td style="text-align: left;">250,000</td>
+<td style="text-align: left;"><span class="math inline">\(p_2=0.6\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(S_2^2 = 0.24\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>We want to use allocation to achieve an for a 95% CI</p>
+<p><strong>How large a sample do we need?</strong></p>
+<p>Formula: <span class="math display">\[n = \frac{z_{\alpha/2}^2 S^{\ast 2}}{e^2 + \dfrac{z_{\alpha/2}^2 S^{\ast 2}}{N}} \qquad \text{ where } S^{\ast 2} = \sum_{h=1}^H \frac{N_h}{N}S_h^2\]</span></p>
+<p>Necessary pieces:</p>
+<ul>
+<li><p><span class="math inline">\(e = 0.01\)</span> (margin of error of 1%)</p></li>
+<li><p><span class="math inline">\(z_{\alpha/2} = 1.96\)</span> (b/c 95% CI)</p></li>
+<li><p><span class="math inline">\(N\)</span> = 1,000,000 and <span class="math inline">\(\frac{N_1}{N} = 0.75\)</span> and <span class="math inline">\(\frac{N_2}{N}=0.25\)</span></p></li>
+<li><p><span class="math inline">\(S^{\ast 2} = \sum_{h=1}^H \frac{N_h}{N} S_h^2 = \frac{N_1}{N} S_1^2 + \frac{N_2}{N} S_2^2 = 0.75(0.21) + 0.25(0.24) = 0.2175\)</span><br>
+<em>(weighted average of the stratum-level variances)</em></p></li>
+</ul>
+</section>
+<section id="example-cont" class="slide level2">
+<h2>Example (con’t)</h2>
+<p>Plug in the pieces:</p>
+<p><span class="math display">\[\begin{aligned}
+n = \frac{z_{\alpha/2}^2 S^{\ast 2}}{e^2 + \dfrac{z_{\alpha/2}^2 S^{\ast 2}}{N}} &amp;= \frac{1.96^2 (0.2175)}{0.01^2 + \dfrac{1.96^2 (0.2175)}{1000000}} &amp; \\
+&amp; = \frac{0.835548}{0.0001+0.000000835548} = \frac{0.835548}{0.0001008355} = 8286.2
+\end{aligned}\]</span></p>
+<p>if ignore 2nd piece of denominator, <span class="math inline">\(n\)</span> = 8355.5</p>
+<p>Splitting this total <span class="math inline">\(n\)</span> between the two stratum :</p>
+<p>Stratum 1: <span class="math inline">\(n_1 = n \times \frac{N_1}{N} = 8286.2 \times 0.75 = 6214.7 \rightarrow n_1 = 6215\)</span></p>
+<p>Stratum 2: <span class="math inline">\(n_2 = n \times \frac{N_2}{N} = 8286.2 \times 0.25 = 2071.6 \rightarrow n_2 = 2072\)</span></p>
+<p>Note that both <span class="math inline">\(n_h\)</span> rounded both up – this makes the total sample size actually is <span class="math inline">\(n = 6125 + 2072 = 8287\)</span></p>
+<p>Would have to check the budget to be sure this was manageable.</p>
+</section>
+<section id="sample-size-estimation-for-neyman-allocation" class="slide level2">
+<h2>Sample Size Estimation for Neyman Allocation</h2>
+<p>Same type of calculation, using the simplified version of <span class="math inline">\(V(\bar{y}_{str})\)</span> under Neyman allocation (as in Lecture 7 slide 13): <span class="math display">\[V(\bar{y}_{str}) = \frac{1}{n} \left(\sum_{h=1}^H \frac{N_h}{N} S_h\right)^2 - \frac{1}{N} \sum_{h=1}^H \frac{N_h}{N} S_h^2\]</span> Again, plugging into the MOE formula and solving for <span class="math inline">\(n\)</span>: <span class="math display">\[e = z_{\alpha/2} \sqrt{V(\bar{y}_{str})} = z_{\alpha/2} \sqrt{\frac{1}{n} \left(\sum_{h=1}^H \frac{N_h}{N} S_h\right)^2 - \frac{1}{N} \sum_{h=1}^H \frac{N_h}{N} S_h^2}\]</span> …square both sides, do a bunch of algebra … <span class="math display">\[n = \frac{z_{\alpha/2}^2 \left(\sum_{h=1}^H \frac{N_h}{N}S_h\right)^2}{e^2 + \pink{\dfrac{z_{\alpha/2}^2}{N}\left(\sum_{h=1}^H \frac{N_h}{N}S_h^2 \right)}} = \frac{z_{\alpha/2}^2 \left(\sum_{h=1}^H \frac{N_h}{N}S_h\right)^2}{e^2 + \pink{{\dfrac{z_{\alpha/2}^2 S^{\ast 2}}{N}}}}\]</span></p>
+<p>Warning: Note the different pieces containing <span class="math inline">\(S_h\)</span> in the numerator and denominator</p>
+</section>
+<section id="example-sample-size-for-neyman-allocation" class="slide level2">
+<h2>Example: Sample Size for Neyman Allocation</h2>
+<p>Same set-up as before:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Stratum</strong></th>
+<th style="text-align: left;"><strong>Definition</strong></th>
+<th style="text-align: left;"><span class="math inline">\(\bm{N_h}\)</span></th>
+<th style="text-align: left;"><strong>True Proportion</strong></th>
+<th style="text-align: left;"><span class="math inline">\(\bm{V(y)}\)</span> <strong>in Stratum</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Age 18-64</td>
+<td style="text-align: left;">750,000</td>
+<td style="text-align: left;"><span class="math inline">\(p_1=0.3\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(S_1^2 = 0.21\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">Age 65+</td>
+<td style="text-align: left;">250,000</td>
+<td style="text-align: left;"><span class="math inline">\(p_2=0.6\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(S_2^2 = 0.24\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Now use allocation to achieve an for a 95% CI</p>
+<p><strong>How large a sample do we need?</strong></p>
+<p>Formula: <span class="math display">\[n = \frac{z_{\alpha/2}^2 \left(\sum_{h=1}^H \frac{N_h}{N}S_h\right)^2}{e^2 + {\dfrac{z_{\alpha/2}^2 S^{\ast 2}}{N}}}\]</span></p>
+<p>Necessary pieces:</p>
+<ul>
+<li><p><span class="math inline">\(e = 0.01\)</span> (margin of error of 1%)</p></li>
+<li><p><span class="math inline">\(z_{\alpha/2} = 1.96\)</span> (b/c 95% CI)</p></li>
+<li><p><span class="math inline">\(N\)</span> = 1,000,000 and <span class="math inline">\(\frac{N_1}{N} = 0.75\)</span> and <span class="math inline">\(\frac{N_2}{N}=0.25\)</span></p></li>
+<li><p><span class="math inline">\(S^{\ast 2} = 0.2175\)</span> <em>(weighted average of the stratum-level , as used for proportional allocation)</em></p></li>
+<li><p><span class="math inline">\(\left(\sum_{h=1}^H \frac{N_h}{N}S_h\right)^2 = \left(\frac{N_1}{N}S_1 + \frac{N_2}{N}S_2\right)^2 = (0.75\sqrt{0.21} + 0.25\sqrt{0.24})^2 = 0.4662^2 = 0.2173\)</span><br>
+<em>(weighted average of the stratum-level , squared)</em></p></li>
+</ul>
+</section>
+<section id="example-cont-1" class="slide level2">
+<h2>Example (con’t)</h2>
+<p>Plug in the pieces:</p>
+<p><span class="math display">\[\begin{aligned}
+n = \frac{z_{\alpha/2}^2 \left(\sum_{h=1}^H \frac{N_h}{N}S_h\right)^2}{e^2 + {\dfrac{z_{\alpha/2}^2 S^{\ast 2}}{N}}} &amp; = \frac{1.96^2 (0.2173)}{0.01^2 + \dfrac{1.96^2 (0.2175)}{1000000}} &amp; \\
+&amp; = \frac{0.8348}{0.0001+0.000000835548} = \frac{0.835548}{0.0001008355} = 8278.9
+\end{aligned}\]</span></p>
+<p>Only very slightly smaller than proportional allocation! <span class="math inline">\((n=8286.2)\)</span> – Why?</p>
+<p>To determine allocation to each stratum, have to go back to allocation formula:</p>
+<p>Stratum 1: <span class="math inline">\(n_1 = n \left( \frac{N_1 S_1}{N_1 S_1 + N_2 S_2} \right) = 8278.9 \left( \frac{750000 \sqrt{0.21}}{750000 \sqrt{0.21} + 250000 \sqrt{0.24}} \right) = 6103.8\)</span></p>
+<p>Stratum 2: <span class="math inline">\(n_2 = n \left( \frac{N_2 S_2}{N_1 S_1 + N_2 S_2} \right) = 8278.9 \left( \frac{250000 \sqrt{0.24}}{750000 \sqrt{0.21} + 250000 \sqrt{0.24}} \right) = 2175.1\)</span></p>
+<p>Round to <span class="math inline">\(n_1 = 6104\)</span> and <span class="math inline">\(n_2=2175\)</span></p>
+<p>Compared to allocation <span class="math inline">\((n_1 = 6215, n_2 = 2072)\)</span>, with Neyman allocation we take <strong>more observations</strong> from the <strong>more variable stratum</strong> (<span class="math inline">\(h=2\)</span>, older age group, which has higher <span class="math inline">\(S_h^2\)</span>)</p>
+</section>
+<section id="compare-to-srs-formula" class="slide level2">
+<h2>Compare to SRS Formula</h2>
+<p>Useful to step back and compare the formulae to see driver of the differences:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Sampling Method</strong></th>
+<th style="text-align: center;"><strong>Sample Size Formula</strong></th>
+<th style="text-align: center;"><strong>Sample Size Ignoring FPC</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">SRS</td>
+<td style="text-align: center;"><span class="math inline">\(\displaystyle n = \frac{z_{\alpha/2}^2 S^2}{e^2 + \dfrac{z_{\alpha/2}^2 S^2}{N}}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\displaystyle n = \frac{z_{\alpha/2}^2 S^2}{e^2}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Stratified, Proportional</td>
+<td style="text-align: center;"><span class="math inline">\(\displaystyle n = \frac{z_{\alpha/2}^2 \left(\sum_{h=1}^H \frac{N_h}{N}S_h^2\right)}{e^2 + \dfrac{z_{\alpha/2}^2}{N} \left(\sum_{h=1}^H \frac{N_h}{N}S_h^2 \right)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\displaystyle n = \frac{z_{\alpha/2}^2 \left(\sum_{h=1}^H \frac{N_h}{N}S_h^2\right)}{e^2}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Stratified, Neyman</td>
+<td style="text-align: center;"><span class="math inline">\(\displaystyle n = \frac{z_{\alpha/2}^2 \left(\sum_{h=1}^H \frac{N_h}{N}S_h\right)^2}{e^2 + \dfrac{z_{\alpha/2}^2}{N}\left(\sum_{h=1}^H \frac{N_h}{N}S_h^2 \right)}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\displaystyle n = \frac{z_{\alpha/2}^2 \left(\sum_{h=1}^H \frac{N_h}{N}S_h\right)^2}{e^2}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Remember that these calculations</p>
+</section>
+<section id="activity-9.1-part-2" class="slide level2">
+<h2>Activity 9.1 (Part 2)</h2>
+<p>Stratification: Sample Size and Design Effects (Part 1)</p>
+</section>
+<section id="design-eﬀect-deﬀ" class="slide level2">
+<h2>Design Eﬀect: deﬀ</h2>
+<p>Some history:</p>
+<ul>
+<li><p>Cornfield (1951) – measure the by the of the of <span class="math inline">\(k\)</span> units to the with <span class="math inline">\(k\)</span> units</p>
+<ul>
+<li>Article: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1525546/" class="uri">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1525546/</a></li>
+</ul></li>
+<li><p>Kish (1965) – turn that ratio upside-down and call it the</p>
+<ul>
+<li>Book: Kish L (1965) <em>Survey Sampling</em> <a href="https://www.wiley.com/en-us/Survey+Sampling-p-9780471109495" class="uri">https://www.wiley.com/en-us/Survey+Sampling-p-9780471109495</a></li>
+</ul></li>
+</ul>
+<p><span class="math display">\[\deff(\text{plan, statistic}) = \frac{V(\text{estimator from sampling plan})}{V(\text{estimator from SRS with same total sample size})}\]</span></p>
+<p>It may be old, but the design effect is in (constant) use today</p>
+<p>Note that the design effect is – different <span class="math inline">\(y\)</span> and/or different statistic (e.g., mean vs.&nbsp;regression coefficient) will have for the</p>
+</section>
+<section id="design-eﬀect-deﬀ-1" class="slide level2">
+<h2>Design Eﬀect: deﬀ</h2>
+<p>In terms of variance for that specific statistic:</p>
+<ul>
+<li><p><span class="math inline">\(\rightarrow\)</span> your design is than SRS (in terms of variance/efficiency)</p></li>
+<li><p><span class="math inline">\(\rightarrow\)</span> your design is than SRS (in terms of variance/efficiency)</p></li>
+</ul>
+<p>For a mean under : <span class="math display">\[\begin{aligned}
+\deff = \frac{V_{prop}(\bar{y}_{str})}{V_{srs}(\ybar)} &amp;= \frac{\sum_{h=1}^H \frac{N_h}{N} \fpcpar \frac{S_h^2}{n}}{\fpcpar \frac{S^2}{n}} = \frac{\sum_{h=1}^H \frac{N_h}{N} S_h^2}{S^2}\\
+\red{\text{assuming }(N-1)/N \approx 1} &amp; \red{\text{ and } (N_h-1)/N_h \approx 1:}\\
+&amp;= \frac{\sum_{h=1}^H \frac{N_h}{N} S_h^2}{\sum_{h=1}^H \frac{N_h}{N} S_h^2 +\sum_{h=1}^H \frac{N_h}{N} (\ybar_{hU}-\ybar_U)^2}  \le 1
+\end{aligned}\]</span></p>
+<p>Unless all of the stratum means are equal, deff for a stratified sample with proportional or Neyman allocation will usually be , corresponding to the</p>
+<p>Note that other allocation methods might not give (e.g., equal allocation)</p>
+<p>In addition, often we see for – i.e., domain means – subgroups that are <strong>not</strong> strata, but that cross strata</p>
+</section>
+<section id="a-slightly-diﬀerent-design-eﬀect-deft" class="slide level2">
+<h2>A Slightly Diﬀerent Design Eﬀect: deft</h2>
+<p>A similar design effect is sometimes used that compares the complex design to and uses instead of variances:</p>
+<p><span class="math display">\[\deft(\text{plan, statistic}) = \frac{\blue{SE}(\text{estimator from sampling plan})}{\blue{SE}(\text{estimator from \pink{SRSWR} with same total sample size})}\]</span></p>
+<p>When the small sampling fraction (<span class="math inline">\(n/N\)</span>) is very small, then <span class="math inline">\(\deft \approx \sqrt{\deff}\)</span></p>
+<p>Why?</p>
+<p>Because then variance under SRS is very close to variance under SRSWR</p>
+<p>Design effects are often used for estimating sample sizes for surveys:</p>
+<ul>
+<li><p>Have prior guess at the deff (e.g., from a prior survey)</p></li>
+<li><p>Calculate the sample size assuming SRS and multiply by deff</p></li>
+<li><p>Often used for complex designs involving clustering</p></li>
+</ul>
+</section>
+<section id="activity-9.1-part-2-1" class="slide level2">
+<h2>Activity 9.1 (Part 2)</h2>
+<p>Stratification: Sample Size and Design Effects (Part 2)</p>
 
 
 </section>
@@ -490,44 +624,6 @@
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

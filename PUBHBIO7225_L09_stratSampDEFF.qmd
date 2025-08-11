@@ -1,5 +1,7 @@
 ---
-title: "Stratified Sampling: Sample Size and DEFF"
+title: |
+  Stratified Sampling: \
+  Sample Size and DEFF
 subtitle: "PUBHBIO 7225 Lecture 9"
 # author: "Generative AI acknowledgment: MS Copilot was used to generate alt text for images"
 format:
@@ -15,6 +17,11 @@ format:
 
 ## Outline
 
+::: hidden
+\newcommand{\ybarstr}{\bar{y}_{str}}
+:::
+
+
 ::::: columns
 ::: {.column width="50%"}
 **Topics**
@@ -22,7 +29,6 @@ format:
 -   Sample Size Estimation for Stratified Samples
 -   Design Effect
 -   Group Project Work (time permitting)
-
 :::
 
 ::: {.column width="50%"}
@@ -39,12 +45,271 @@ format:
 -   Quiz 2 due Thursday 9/25/2025 11:59pm via Carmen
 -   Group Progress Report due Thursday 9/25/2025 11:59pm via Carmen (only one group member needs to upload this)
 
-## Slide title
+## Sample Size Estimation for a Stratified Sample
 
-slide text
+-   Want to find necessary overall sample size $n$ that will produce a given MOE $(e)$
 
-## Long text slide
+$$\text{CI: } \ybarstr \pm \underbrace{z_{\alpha/2} \sqrt{V(\ybarstr)}}_{e = \text{half-width of CI}}$$
+-   Just as with SRS, the formula for the necessary sample size $n$ is found by plugging in the formula for the variance and solving for $n$.
 
-::: {r-fit-text}
-To make sure text fits, use this environment
-:::
+-   But, you **have to pick an allocation method first**. Why?
+
+. . .
+
+-   Because $V(\ybarstr)$ depends on the $\textcolor{blue}{n_h}$:
+$V(\ybarstr) = \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left( 1 - \frac{\textcolor{blue}{n_h}}{N_h}\right) \frac{S_h^2}{\textcolor{blue}{n_h}}$
+
+-   We can't solve for the $n_h$ all at once -- but if we pick an allocation
+method, we can replace the $n_h$ with expressions in terms of $n$:
+
+-   Equal allocation: $n_h = \frac{n}{H}$
+
+-   Proportional allocation: $n_h = n \frac{N_h}{N}$
+
+-   Neyman allocation:
+    $n_h = n \left( \frac{N_h S_h}{\sum_{l =1}^H N_l S_l} \right)$
+
+Thus there is a separate sample size formula for each allocation method.
+
+## Sample Size Estimation for Proportional Allocation
+
+Simplified version of $V(\ybarstr)$ under proportional allocation
+(obtained by plugging in $n_h = n \frac{N_h}{N}$ as in Lecture 7 slide
+5): $$V(\ybarstr) = \sum_{h=1}^H \frac{N_h}{N}\fpcpar\frac{S_h^2}{n}$$
+
+Plugging this into the general formula for MOE (previous slide):
+$$\begin{aligned}
+e &{}= z_{\alpha/2} \sqrt{V(\ybarstr)} \\
+e &{}= z_{\alpha/2} \sqrt{\sum_{h=1}^H \frac{N_h}{N}\fpcpar\frac{S_h^2}{n}}
+\end{aligned}$$
+
+Square both sides: $$\begin{aligned}
+e^2 &{}= z_{\alpha/2}^2 \left[{\sum_{h=1}^H \frac{N_h}{N}\fpcpar\frac{S_h^2}{n}}\right]
+\end{aligned}$$
+
+## Sample Size Estimation for Proportional Allocation (con't)
+
+Do some painful algebraic manipulation: $$\begin{aligned}
+e^2 &= z_{\alpha/2}^2 \left[ \sum_{h=1}^H \frac{N_h}{N}\fpcpar\frac{S_h^2}{n} \right] \qquad \text{\small (from previous slide)} \\
+e^2 &= z_{\alpha/2}^2 \left[ \sum_{h=1}^H \frac{N_h}{N} \frac{S_h^2}{n} - \sum_{h=1}^H \frac{N_h}{N} \frac{n}{N} \frac{S_h^2}{n} \right] \qquad \text{\small (expand the parentheses/FPC part)}  \\
+e^2 &= z_{\alpha/2}^2 \left[\frac{1}{n} \sum_{h=1}^H \frac{N_h}{N} S_h^2  - \frac{1}{N} \sum_{h=1}^H \frac{N_h}{N} S_h^2 \right] \qquad \text{\small (pulling $n$ and $N$ outside summations)} \\
+e^2 &= z_{\alpha/2}^2 \left(\frac{S^{\ast 2}}{n} - \frac{S^{\ast 2}}{N} \right)\quad \red{\text{\small setting } S^{\ast 2} = \sum_{h=1}^H \frac{N_h}{N} S_h^2 = \text{\small weighted average of stratum variances}} \\
+ &= \text{\dots algebra to get $n$ on left side \dots} \\
+ n &= \frac{z_{\alpha/2}^2 S^{\ast 2}}{e^2 + \pink{\dfrac{z_{\alpha/2}^2 S^{\ast 2}}{N}}} = \frac{z_{\alpha/2}^2 \left(\sum_{h=1}^H \frac{N_h}{N}S_h^2\right)}{e^2 + \pink{\dfrac{z_{\alpha/2}^2}{N} \left(\sum_{h=1}^H \frac{N_h}{N}S_h^2 \right)}}
+\end{aligned}$$
+
+Think back to the formula for SRS -- this is very simliar, but with
+$S^{\ast 2}$ instead of $S^2$ (weighted average of stratum variances
+instead of overall variance)
+
+## Example: Sample Size for Proportional Allocation
+
+In Activity 7.1 we had a population consisting of two strata:
+
+  **Stratum**   **Definition**   $\bm{N_h}$   **True Proportion**   $\bm{V(y)}$ **in Stratum**
+  ------------- ---------------- ------------ --------------------- ----------------------------
+  1             Age 18-64        750,000      $p_1=0.3$             $S_1^2 = 0.21$
+  2             Age 65+          250,000      $p_2=0.6$             $S_2^2 = 0.24$
+
+We want to use allocation to achieve an for a 95% CI
+
+**How large a sample do we need?**
+
+Formula:
+$$n = \frac{z_{\alpha/2}^2 S^{\ast 2}}{e^2 + \dfrac{z_{\alpha/2}^2 S^{\ast 2}}{N}} \qquad \text{ where } S^{\ast 2} = \sum_{h=1}^H \frac{N_h}{N}S_h^2$$
+
+Necessary pieces:
+
+-   $e = 0.01$ (margin of error of 1%)
+
+-   $z_{\alpha/2} = 1.96$ (b/c 95% CI)
+
+-   $N$ = 1,000,000 and $\frac{N_1}{N} = 0.75$ and $\frac{N_2}{N}=0.25$
+
+-   $S^{\ast 2} = \sum_{h=1}^H \frac{N_h}{N} S_h^2 = \frac{N_1}{N} S_1^2 + \frac{N_2}{N} S_2^2 = 0.75(0.21) + 0.25(0.24) = 0.2175$\
+    *(weighted average of the stratum-level variances)*
+
+## Example (con't)
+
+Plug in the pieces:
+
+$$\begin{aligned}
+n = \frac{z_{\alpha/2}^2 S^{\ast 2}}{e^2 + \dfrac{z_{\alpha/2}^2 S^{\ast 2}}{N}} &= \frac{1.96^2 (0.2175)}{0.01^2 + \dfrac{1.96^2 (0.2175)}{1000000}} & \\
+& = \frac{0.835548}{0.0001+0.000000835548} = \frac{0.835548}{0.0001008355} = 8286.2
+\end{aligned}$$
+
+if ignore 2nd piece of denominator, $n$ = 8355.5
+
+Splitting this total $n$ between the two stratum :
+
+Stratum 1:
+$n_1 = n \times \frac{N_1}{N} = 8286.2 \times 0.75 = 6214.7 \rightarrow n_1 = 6215$
+
+Stratum 2:
+$n_2 = n \times \frac{N_2}{N} = 8286.2 \times 0.25 = 2071.6 \rightarrow n_2 = 2072$
+
+Note that both $n_h$ rounded both up -- this makes the total sample size
+actually is $n = 6125 + 2072 = 8287$
+
+Would have to check the budget to be sure this was manageable.
+
+## Sample Size Estimation for Neyman Allocation
+
+Same type of calculation, using the simplified version of $V(\ybarstr)$
+under Neyman allocation (as in Lecture 7 slide 13):
+$$V(\ybarstr) = \frac{1}{n} \left(\sum_{h=1}^H \frac{N_h}{N} S_h\right)^2 - \frac{1}{N} \sum_{h=1}^H \frac{N_h}{N} S_h^2$$
+Again, plugging into the MOE formula and solving for $n$:
+$$e = z_{\alpha/2} \sqrt{V(\ybarstr)} = z_{\alpha/2} \sqrt{\frac{1}{n} \left(\sum_{h=1}^H \frac{N_h}{N} S_h\right)^2 - \frac{1}{N} \sum_{h=1}^H \frac{N_h}{N} S_h^2}$$
+...square both sides, do a bunch of algebra ...
+$$n = \frac{z_{\alpha/2}^2 \left(\sum_{h=1}^H \frac{N_h}{N}S_h\right)^2}{e^2 + \pink{\dfrac{z_{\alpha/2}^2}{N}\left(\sum_{h=1}^H \frac{N_h}{N}S_h^2 \right)}} = \frac{z_{\alpha/2}^2 \left(\sum_{h=1}^H \frac{N_h}{N}S_h\right)^2}{e^2 + \pink{{\dfrac{z_{\alpha/2}^2 S^{\ast 2}}{N}}}}$$
+
+Warning: Note the different pieces containing $S_h$ in the numerator and
+denominator
+
+## Example: Sample Size for Neyman Allocation
+
+Same set-up as before:
+
+  **Stratum**   **Definition**   $\bm{N_h}$   **True Proportion**   $\bm{V(y)}$ **in Stratum**
+  ------------- ---------------- ------------ --------------------- ----------------------------
+  1             Age 18-64        750,000      $p_1=0.3$             $S_1^2 = 0.21$
+  2             Age 65+          250,000      $p_2=0.6$             $S_2^2 = 0.24$
+
+Now use allocation to achieve an for a 95% CI
+
+**How large a sample do we need?**
+
+Formula:
+$$n = \frac{z_{\alpha/2}^2 \left(\sum_{h=1}^H \frac{N_h}{N}S_h\right)^2}{e^2 + {\dfrac{z_{\alpha/2}^2 S^{\ast 2}}{N}}}$$
+
+Necessary pieces:
+
+-   $e = 0.01$ (margin of error of 1%)
+
+-   $z_{\alpha/2} = 1.96$ (b/c 95% CI)
+
+-   $N$ = 1,000,000 and $\frac{N_1}{N} = 0.75$ and $\frac{N_2}{N}=0.25$
+
+-   $S^{\ast 2} = 0.2175$ *(weighted average of the stratum-level , as
+    used for proportional allocation)*
+
+-   $\left(\sum_{h=1}^H \frac{N_h}{N}S_h\right)^2 = \left(\frac{N_1}{N}S_1 + \frac{N_2}{N}S_2\right)^2 = (0.75\sqrt{0.21} + 0.25\sqrt{0.24})^2 = 0.4662^2 = 0.2173$\
+    *(weighted average of the stratum-level , squared)*
+
+## Example (con't)
+
+Plug in the pieces:
+
+$$\begin{aligned}
+n = \frac{z_{\alpha/2}^2 \left(\sum_{h=1}^H \frac{N_h}{N}S_h\right)^2}{e^2 + {\dfrac{z_{\alpha/2}^2 S^{\ast 2}}{N}}} & = \frac{1.96^2 (0.2173)}{0.01^2 + \dfrac{1.96^2 (0.2175)}{1000000}} & \\
+& = \frac{0.8348}{0.0001+0.000000835548} = \frac{0.835548}{0.0001008355} = 8278.9
+\end{aligned}$$
+
+Only very slightly smaller than proportional allocation! $(n=8286.2)$ --
+Why?
+
+To determine allocation to each stratum, have to go back to allocation
+formula:
+
+Stratum 1:
+$n_1 = n \left( \frac{N_1 S_1}{N_1 S_1 + N_2 S_2} \right) = 8278.9 \left( \frac{750000 \sqrt{0.21}}{750000 \sqrt{0.21} + 250000 \sqrt{0.24}} \right) = 6103.8$
+
+Stratum 2:
+$n_2 = n \left( \frac{N_2 S_2}{N_1 S_1 + N_2 S_2} \right) = 8278.9 \left( \frac{250000 \sqrt{0.24}}{750000 \sqrt{0.21} + 250000 \sqrt{0.24}} \right) = 2175.1$
+
+Round to $n_1 = 6104$ and $n_2=2175$
+
+Compared to allocation $(n_1 = 6215, n_2 = 2072)$, with Neyman
+allocation we take **more observations** from the **more variable
+stratum** ($h=2$, older age group, which has higher $S_h^2$)
+
+## Compare to SRS Formula
+
+Useful to step back and compare the formulae to see driver of the
+differences:
+
+  **Sampling Method**                                                                                **Sample Size Formula**                                                                                                         **Sample Size Ignoring FPC**
+  -------------------------- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------
+  SRS                                                                  $\displaystyle n = \frac{z_{\alpha/2}^2 S^2}{e^2 + \dfrac{z_{\alpha/2}^2 S^2}{N}}$                                                                 $\displaystyle n = \frac{z_{\alpha/2}^2 S^2}{e^2}$
+  Stratified, Proportional    $\displaystyle n = \frac{z_{\alpha/2}^2 \left(\sum_{h=1}^H \frac{N_h}{N}S_h^2\right)}{e^2 + \dfrac{z_{\alpha/2}^2}{N} \left(\sum_{h=1}^H \frac{N_h}{N}S_h^2 \right)}$   $\displaystyle n = \frac{z_{\alpha/2}^2 \left(\sum_{h=1}^H \frac{N_h}{N}S_h^2\right)}{e^2}$
+  Stratified, Neyman          $\displaystyle n = \frac{z_{\alpha/2}^2 \left(\sum_{h=1}^H \frac{N_h}{N}S_h\right)^2}{e^2 + \dfrac{z_{\alpha/2}^2}{N}\left(\sum_{h=1}^H \frac{N_h}{N}S_h^2 \right)}$    $\displaystyle n = \frac{z_{\alpha/2}^2 \left(\sum_{h=1}^H \frac{N_h}{N}S_h\right)^2}{e^2}$
+
+Remember that these calculations
+
+## Activity 9.1 (Part 2)
+
+Stratification: Sample Size and Design Effects (Part 1)
+
+## Design Eﬀect: deﬀ
+
+Some history:
+
+-   Cornfield (1951) -- measure the by the of the of $k$ units to the
+    with $k$ units
+
+    -   Article: <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1525546/>
+
+-   Kish (1965) -- turn that ratio upside-down and call it the
+
+    -   Book: Kish L (1965) *Survey Sampling*
+        <https://www.wiley.com/en-us/Survey+Sampling-p-9780471109495>
+
+$$\deff(\text{plan, statistic}) = \frac{V(\text{estimator from sampling plan})}{V(\text{estimator from SRS with same total sample size})}$$
+
+It may be old, but the design effect is in (constant) use today
+
+Note that the design effect is -- different $y$ and/or different
+statistic (e.g., mean vs. regression coefficient) will have for the
+
+## Design Eﬀect: deﬀ
+
+In terms of variance for that specific statistic:
+
+-   $\rightarrow$ your design is than SRS (in terms of
+    variance/efficiency)
+
+-   $\rightarrow$ your design is than SRS (in terms of
+    variance/efficiency)
+
+For a mean under : $$\begin{aligned}
+\deff = \frac{V_{prop}(\ybarstr)}{V_{srs}(\ybar)} &= \frac{\sum_{h=1}^H \frac{N_h}{N} \fpcpar \frac{S_h^2}{n}}{\fpcpar \frac{S^2}{n}} = \frac{\sum_{h=1}^H \frac{N_h}{N} S_h^2}{S^2}\\
+\red{\text{assuming }(N-1)/N \approx 1} & \red{\text{ and } (N_h-1)/N_h \approx 1:}\\
+&= \frac{\sum_{h=1}^H \frac{N_h}{N} S_h^2}{\sum_{h=1}^H \frac{N_h}{N} S_h^2 +\sum_{h=1}^H \frac{N_h}{N} (\ybar_{hU}-\ybar_U)^2}  \le 1
+\end{aligned}$$
+
+Unless all of the stratum means are equal, deff for a stratified sample
+with proportional or Neyman allocation will usually be , corresponding
+to the
+
+Note that other allocation methods might not give (e.g., equal
+allocation)
+
+In addition, often we see for -- i.e., domain means -- subgroups that
+are **not** strata, but that cross strata
+
+## A Slightly Diﬀerent Design Eﬀect: deft
+
+A similar design effect is sometimes used that compares the complex
+design to and uses instead of variances:
+
+$$\deft(\text{plan, statistic}) = \frac{\blue{SE}(\text{estimator from sampling plan})}{\blue{SE}(\text{estimator from \pink{SRSWR} with same total sample size})}$$
+
+When the small sampling fraction ($n/N$) is very small, then
+$\deft \approx \sqrt{\deff}$
+
+Why?
+
+Because then variance under SRS is very close to variance under SRSWR
+
+Design effects are often used for estimating sample sizes for surveys:
+
+-   Have prior guess at the deff (e.g., from a prior survey)
+
+-   Calculate the sample size assuming SRS and multiply by deff
+
+-   Often used for complex designs involving clustering
+
+
+## Activity 9.1 (Part 2)
+
+Stratification: Sample Size and Design Effects (Part 2)

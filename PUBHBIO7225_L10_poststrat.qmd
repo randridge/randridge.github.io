@@ -1,0 +1,49 @@
+---
+title: "Course Intro: Vocabulary of Sampling"
+subtitle: "PUBHBIO 7225 Lecture 1"
+author: "Generative AI acknowledgment: MS Copilot was used to generate alt text for images"
+format:
+  revealjs: 
+    slide-number: true
+    smaller: true
+    footer: "PUBHBIO 7225"
+    width: 1280
+    height: 720
+    theme: custom.scss
+    html-math-method: mathjax
+---
+
+## Outline
+
+::::: columns
+::: {.column width="50%"}
+**Topics**
+
+-   topic 1
+-   topic 2
+:::
+
+::: {.column width="50%"}
+**Activities**
+
+-   #.# activity
+:::
+:::::
+
+<br>
+
+**Assignments**
+
+-   Problem Set \# due Thursday x/xx/xx 11:59pm via Carmen
+-   Quiz \# due Thursday x/xx/xx 11:59pm via Carmen
+-   Peer Evaluation of Problem Set \# due Tuesday x/x/xx 11:59pm via Carmen
+
+## Slide title
+
+slide text
+
+## Long text slide
+
+::: {r-fit-text}
+To make sure text fits, use this environment
+:::

@@ -161,10 +161,9 @@ ggplot(df, aes(x=value, fill=group_f)) + geom_histogram(bins=40, alpha=0.5, col=
 
 ## Numerical Illustration
 
--   equal-sized strata $(N_1=N_2)$ and equal variance in each stratum $(S_1^2=S_2^2=1)$
--   sample of size $n=1000$, population $N$ large enough to ignore FPC
+-   equal-sized strata $(N_1=N_2)$, equal variance in each stratum, $n=1000$, $N$ large enough to ignore FPC
 
-| $\mu_1$ | $\mu_2$ | $S_1^2$ | $S_2^2$ | $S^2$ | $V_{srs}(\bar{y})$ | $V_{prop}(\bar{y}_{str})$ | Ratio (SRS/Stratified) |
+| $\mu_1$ | $\mu_2$ | $S_1^2$ | $S_2^2$ | $S^2$ | $V_{srs}(\bar{y})$ | $V_{prop}(\bar{y}_{str})$ | Ratio (SRS/Strat) |
 |:---|:---|:---|:---|:---|:---|:---|----|
 | 0 | 0 | 1 | 1 | 1 | 0.001 | 0.001 | 1 |
 | 0 | 0.5 | 1 | 1 | 1.0625 | 0.0010625 | 0.001 | 1.0625 |
