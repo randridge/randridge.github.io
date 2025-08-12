@@ -28,7 +28,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-0d4797bbe286a9d9dc5c43173ebfcc9e.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-ac4fa79cf2fb0cd2d7770fb221242c58.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -160,60 +160,70 @@ Sample Size and DEFF</p></h1>
 <li>Group Progress Report due Thursday 9/25/2025 11:59pm via Carmen (only one group member needs to upload this)</li>
 </ul>
 </section>
-<section id="sample-size-estimation-for-a-stratified-sample" class="slide level2">
+<section id="sample-size-estimation-for-a-stratified-sample" class="slide level2 pause">
 <h2>Sample Size Estimation for a Stratified Sample</h2>
 <ul>
 <li>Want to find necessary overall sample size <span class="math inline">\(n\)</span> that will produce a given MOE <span class="math inline">\((e)\)</span></li>
 </ul>
-<p><span class="math display">\[\text{CI: } \bar{y}_{str}\pm \underbrace{z_{\alpha/2} \sqrt{V(\bar{y}_{str})}}_{e = \text{half-width of CI}}\]</span> - Just as with SRS, the formula for the necessary sample size <span class="math inline">\(n\)</span> is found by plugging in the formula for the variance and solving for <span class="math inline">\(n\)</span>.</p>
+<p><span class="math display">\[\text{CI: } \bar{y}_{str}\pm \underbrace{z_{\alpha/2} \sqrt{V(\bar{y}_{str})}}_{e = \text{half-width of CI}}\]</span></p>
 <ul>
-<li>But, you <strong>have to pick an allocation method first</strong>. Why?</li>
+<li><p>Just as with SRS, the formula for the necessary sample size <span class="math inline">\(n\)</span> is found by plugging in the formula for the variance and solving for <span class="math inline">\(n\)</span>.</p></li>
+<li><p>But, you <strong>have to pick an allocation method first</strong>. Why?</p></li>
 </ul>
 <div class="fragment">
 <ul>
-<li><p>Because <span class="math inline">\(V(\bar{y}_{str})\)</span> depends on the <span class="math inline">\(\textcolor{blue}{n_h}\)</span>: <span class="math inline">\(V(\bar{y}_{str}) = \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left( 1 - \frac{\textcolor{blue}{n_h}}{N_h}\right) \frac{S_h^2}{\textcolor{blue}{n_h}}\)</span></p></li>
-<li><p>We can’t solve for the <span class="math inline">\(n_h\)</span> all at once – but if we pick an allocation method, we can replace the <span class="math inline">\(n_h\)</span> with expressions in terms of <span class="math inline">\(n\)</span>:</p></li>
+<li><p>Because <span class="math inline">\(V(\bar{y}_{str})\)</span> depends on the <span class="math inline">\(\textcolor{blue}{n_h}\)</span>: <span class="math inline">\(V(\bar{y}_{str}) = \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left( 1 - \frac{\textcolor{blue}{n_h}}{N_h}\right) \frac{S_h^2}{\textcolor{blue}{n_h}}\)</span></p>
+<ul>
 <li><p>Equal allocation: <span class="math inline">\(n_h = \frac{n}{H}\)</span></p></li>
 <li><p>Proportional allocation: <span class="math inline">\(n_h = n \frac{N_h}{N}\)</span></p></li>
 <li><p>Neyman allocation: <span class="math inline">\(n_h = n \left( \frac{N_h S_h}{\sum_{l =1}^H N_l S_l} \right)\)</span></p></li>
+</ul></li>
 </ul>
-<p>Thus there is a separate sample size formula for each allocation method.</p>
 </div>
 </section>
 <section id="sample-size-estimation-for-proportional-allocation" class="slide level2">
 <h2>Sample Size Estimation for Proportional Allocation</h2>
-<p>Simplified version of <span class="math inline">\(V(\bar{y}_{str})\)</span> under proportional allocation (obtained by plugging in <span class="math inline">\(n_h = n \frac{N_h}{N}\)</span> as in Lecture 7 slide 5): <span class="math display">\[V(\bar{y}_{str}) = \sum_{h=1}^H \frac{N_h}{N}\fpcpar\frac{S_h^2}{n}\]</span></p>
-<p>Plugging this into the general formula for MOE (previous slide): <span class="math display">\[\begin{aligned}
-e &amp;{}= z_{\alpha/2} \sqrt{V(\bar{y}_{str})} \\
-e &amp;{}= z_{\alpha/2} \sqrt{\sum_{h=1}^H \frac{N_h}{N}\fpcpar\frac{S_h^2}{n}}
-\end{aligned}\]</span></p>
-<p>Square both sides: <span class="math display">\[\begin{aligned}
-e^2 &amp;{}= z_{\alpha/2}^2 \left[{\sum_{h=1}^H \frac{N_h}{N}\fpcpar\frac{S_h^2}{n}}\right]
-\end{aligned}\]</span></p>
+<ul>
+<li><p>Simplified version of <span class="math inline">\(V(\bar{y}_{str})\)</span> under proportional allocation (obtained by plugging in <span class="math inline">\(n_h = n \frac{N_h}{N}\)</span>): <span class="math display">\[V(\bar{y}_{str}) = \sum_{h=1}^H \frac{N_h}{N}\left(1-\frac{n}{N}\right)\frac{S_h^2}{n}\]</span></p></li>
+<li><p>Plugging this into the general formula for MOE (previous slide): <span class="math display">\[e = z_{\alpha/2} \sqrt{V(\bar{y}_{str})} = z_{\alpha/2} \sqrt{\sum_{h=1}^H \frac{N_h}{N}\left(1-\frac{n}{N}\right)\frac{S_h^2}{n}}\]</span></p></li>
+<li><p>Square both sides: <span class="math display">\[\begin{aligned}
+e^2 &amp;{}= z_{\alpha/2}^2 \left[{\sum_{h=1}^H \frac{N_h}{N}\left(1-\frac{n}{N}\right)\frac{S_h^2}{n}}\right]
+\end{aligned}\]</span></p></li>
+</ul>
 </section>
-<section id="sample-size-estimation-for-proportional-allocation-cont" class="slide level2">
-<h2>Sample Size Estimation for Proportional Allocation (con’t)</h2>
-<p>Do some painful algebraic manipulation: <span class="math display">\[\begin{aligned}
-e^2 &amp;= z_{\alpha/2}^2 \left[ \sum_{h=1}^H \frac{N_h}{N}\fpcpar\frac{S_h^2}{n} \right] \qquad \text{\small (from previous slide)} \\
-e^2 &amp;= z_{\alpha/2}^2 \left[ \sum_{h=1}^H \frac{N_h}{N} \frac{S_h^2}{n} - \sum_{h=1}^H \frac{N_h}{N} \frac{n}{N} \frac{S_h^2}{n} \right] \qquad \text{\small (expand the parentheses/FPC part)}  \\
+<section id="sample-size-estimation-for-proportional-allocation-1" class="slide level2">
+<h2>Sample Size Estimation for Proportional Allocation</h2>
+<ul>
+<li>Do some painful algebraic manipulation: <span class="math display">\[\begin{aligned}
+e^2 &amp;= z_{\alpha/2}^2 \left[ \sum_{h=1}^H \frac{N_h}{N}\left(1-\frac{n}{N}\right)\frac{S_h^2}{n} \right] = z_{\alpha/2}^2 \left[ \sum_{h=1}^H \frac{N_h}{N} \frac{S_h^2}{n} - \sum_{h=1}^H \frac{N_h}{N} \frac{n}{N} \frac{S_h^2}{n} \right] \qquad \text{\small (expand the parentheses)}  \\
 e^2 &amp;= z_{\alpha/2}^2 \left[\frac{1}{n} \sum_{h=1}^H \frac{N_h}{N} S_h^2  - \frac{1}{N} \sum_{h=1}^H \frac{N_h}{N} S_h^2 \right] \qquad \text{\small (pulling $n$ and $N$ outside summations)} \\
-e^2 &amp;= z_{\alpha/2}^2 \left(\frac{S^{\ast 2}}{n} - \frac{S^{\ast 2}}{N} \right)\quad \red{\text{\small setting } S^{\ast 2} = \sum_{h=1}^H \frac{N_h}{N} S_h^2 = \text{\small weighted average of stratum variances}} \\
-&amp;= \text{\dots algebra to get $n$ on left side \dots} \\
-n &amp;= \frac{z_{\alpha/2}^2 S^{\ast 2}}{e^2 + \pink{\dfrac{z_{\alpha/2}^2 S^{\ast 2}}{N}}} = \frac{z_{\alpha/2}^2 \left(\sum_{h=1}^H \frac{N_h}{N}S_h^2\right)}{e^2 + \pink{\dfrac{z_{\alpha/2}^2}{N} \left(\sum_{h=1}^H \frac{N_h}{N}S_h^2 \right)}}
-\end{aligned}\]</span></p>
-<p>Think back to the formula for SRS – this is very simliar, but with <span class="math inline">\(S^{\ast 2}\)</span> instead of <span class="math inline">\(S^2\)</span> (weighted average of stratum variances instead of overall variance)</p>
+e^2 &amp;= z_{\alpha/2}^2 \left(\frac{S^{\ast 2}}{n} - \frac{S^{\ast 2}}{N} \right)\quad \textcolor{red}{\text{\small setting } S^{\ast 2} = \sum_{h=1}^H \frac{N_h}{N} S_h^2 = \text{\small weighted average of stratum variances}} \\
+&amp; \ldots \text{ algebra to get $n$ on left side}\ldots \\
+n &amp;= \frac{z_{\alpha/2}^2 S^{\ast 2}}{e^2 + \dfrac{z_{\alpha/2}^2 S^{\ast 2}}{N}} = \frac{z_{\alpha/2}^2 \left(\sum_{h=1}^H \frac{N_h}{N}S_h^2\right)}{e^2 + \dfrac{z_{\alpha/2}^2}{N} \left(\sum_{h=1}^H \frac{N_h}{N}S_h^2 \right)}
+\end{aligned}\]</span></li>
+</ul>
+<p>Similar to SRS formula – with <span class="math inline">\(S^{\ast 2}\)</span> instead of <span class="math inline">\(S^2\)</span></p>
 </section>
-<section id="example-sample-size-for-proportional-allocation" class="slide level2">
-<h2>Example: Sample Size for Proportional Allocation</h2>
-<p>In Activity 7.1 we had a population consisting of two strata:</p>
+<section id="example" class="slide level2">
+<h2>Example</h2>
+<ul>
+<li>In Activity 7.1 we had a population consisting of two strata:</li>
+</ul>
 <table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;"><strong>Stratum</strong></th>
 <th style="text-align: left;"><strong>Definition</strong></th>
-<th style="text-align: left;"><span class="math inline">\(\bm{N_h}\)</span></th>
+<th style="text-align: left;"><span class="math inline">\(\mathbf{N_h}\)</span></th>
 <th style="text-align: left;"><strong>True Proportion</strong></th>
-<th style="text-align: left;"><span class="math inline">\(\bm{V(y)}\)</span> <strong>in Stratum</strong></th>
+<th style="text-align: left;"><span class="math inline">\(\mathbf{V(y)}\)</span> <strong>in Stratum</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -233,48 +243,73 @@ n &amp;= \frac{z_{\alpha/2}^2 S^{\ast 2}}{e^2 + \pink{\dfrac{z_{\alpha/2}^2 S^{\
 </tr>
 </tbody>
 </table>
-<p>We want to use allocation to achieve an for a 95% CI</p>
-<p><strong>How large a sample do we need?</strong></p>
-<p>Formula: <span class="math display">\[n = \frac{z_{\alpha/2}^2 S^{\ast 2}}{e^2 + \dfrac{z_{\alpha/2}^2 S^{\ast 2}}{N}} \qquad \text{ where } S^{\ast 2} = \sum_{h=1}^H \frac{N_h}{N}S_h^2\]</span></p>
-<p>Necessary pieces:</p>
+<ul>
+<li><p>We want to use <strong>proportional</strong> allocation to achieve an <strong>MOE of 1%</strong> for a 95% CI</p></li>
+<li><p><strong>How large a sample do we need?</strong></p></li>
+<li><p>Necessary pieces:</p>
 <ul>
 <li><p><span class="math inline">\(e = 0.01\)</span> (margin of error of 1%)</p></li>
 <li><p><span class="math inline">\(z_{\alpha/2} = 1.96\)</span> (b/c 95% CI)</p></li>
 <li><p><span class="math inline">\(N\)</span> = 1,000,000 and <span class="math inline">\(\frac{N_1}{N} = 0.75\)</span> and <span class="math inline">\(\frac{N_2}{N}=0.25\)</span></p></li>
-<li><p><span class="math inline">\(S^{\ast 2} = \sum_{h=1}^H \frac{N_h}{N} S_h^2 = \frac{N_1}{N} S_1^2 + \frac{N_2}{N} S_2^2 = 0.75(0.21) + 0.25(0.24) = 0.2175\)</span><br>
+<li><p><span class="math inline">\(\displaystyle S^{\ast 2} = \sum_{h=1}^H \frac{N_h}{N} S_h^2 = \frac{N_1}{N} S_1^2 + \frac{N_2}{N} S_2^2 = 0.75(0.21) + 0.25(0.24) = 0.2175\)</span><br>
 <em>(weighted average of the stratum-level variances)</em></p></li>
+</ul></li>
 </ul>
 </section>
 <section id="example-cont" class="slide level2">
 <h2>Example (con’t)</h2>
-<p>Plug in the pieces:</p>
-<p><span class="math display">\[\begin{aligned}
-n = \frac{z_{\alpha/2}^2 S^{\ast 2}}{e^2 + \dfrac{z_{\alpha/2}^2 S^{\ast 2}}{N}} &amp;= \frac{1.96^2 (0.2175)}{0.01^2 + \dfrac{1.96^2 (0.2175)}{1000000}} &amp; \\
-&amp; = \frac{0.835548}{0.0001+0.000000835548} = \frac{0.835548}{0.0001008355} = 8286.2
-\end{aligned}\]</span></p>
-<p>if ignore 2nd piece of denominator, <span class="math inline">\(n\)</span> = 8355.5</p>
-<p>Splitting this total <span class="math inline">\(n\)</span> between the two stratum :</p>
-<p>Stratum 1: <span class="math inline">\(n_1 = n \times \frac{N_1}{N} = 8286.2 \times 0.75 = 6214.7 \rightarrow n_1 = 6215\)</span></p>
-<p>Stratum 2: <span class="math inline">\(n_2 = n \times \frac{N_2}{N} = 8286.2 \times 0.25 = 2071.6 \rightarrow n_2 = 2072\)</span></p>
-<p>Note that both <span class="math inline">\(n_h\)</span> rounded both up – this makes the total sample size actually is <span class="math inline">\(n = 6125 + 2072 = 8287\)</span></p>
-<p>Would have to check the budget to be sure this was manageable.</p>
+<ul>
+<li><p>Plug in the pieces: <span class="math display">\[\begin{flalign}
+n &amp; = \frac{z_{\alpha/2}^2 S^{\ast 2}}{e^2 + \dfrac{z_{\alpha/2}^2 S^{\ast 2}}{N}} = \frac{1.96^2 (0.2175)}{0.01^2 + \dfrac{1.96^2 (0.2175)}{1000000}} = \frac{0.835548}{0.0001+0.000000835548} = \frac{0.835548}{0.0001008355} &amp; \\
+&amp; = \mathbf{8286.2}
+\end{flalign}\]</span></p>
+<ul>
+<li>If ignore 2nd piece of denominator (ignore FPC), <span class="math inline">\(n\)</span> = 8355.5</li>
+</ul></li>
+<li><p>Splitting this total <span class="math inline">\(n\)</span> between the two stratum :</p>
+<ul>
+<li><p>Stratum 1: <span class="math inline">\(n_1 = n \times \frac{N_1}{N} = 8286.2 \times 0.75 = 6214.7 \rightarrow n_1 = 6215\)</span></p></li>
+<li><p>Stratum 2: <span class="math inline">\(n_2 = n \times \frac{N_2}{N} = 8286.2 \times 0.25 = 2071.6 \rightarrow n_2 = 2072\)</span></p></li>
+</ul></li>
+<li><p>Note that both <span class="math inline">\(n_h\)</span> rounded both up – this makes the total sample size <span class="math inline">\(n = 6125 + 2072 = \mathbf{8287}\)</span></p>
+<ul>
+<li>Would have to check the budget to be sure this was manageable.</li>
+</ul></li>
+</ul>
 </section>
 <section id="sample-size-estimation-for-neyman-allocation" class="slide level2">
 <h2>Sample Size Estimation for Neyman Allocation</h2>
-<p>Same type of calculation, using the simplified version of <span class="math inline">\(V(\bar{y}_{str})\)</span> under Neyman allocation (as in Lecture 7 slide 13): <span class="math display">\[V(\bar{y}_{str}) = \frac{1}{n} \left(\sum_{h=1}^H \frac{N_h}{N} S_h\right)^2 - \frac{1}{N} \sum_{h=1}^H \frac{N_h}{N} S_h^2\]</span> Again, plugging into the MOE formula and solving for <span class="math inline">\(n\)</span>: <span class="math display">\[e = z_{\alpha/2} \sqrt{V(\bar{y}_{str})} = z_{\alpha/2} \sqrt{\frac{1}{n} \left(\sum_{h=1}^H \frac{N_h}{N} S_h\right)^2 - \frac{1}{N} \sum_{h=1}^H \frac{N_h}{N} S_h^2}\]</span> …square both sides, do a bunch of algebra … <span class="math display">\[n = \frac{z_{\alpha/2}^2 \left(\sum_{h=1}^H \frac{N_h}{N}S_h\right)^2}{e^2 + \pink{\dfrac{z_{\alpha/2}^2}{N}\left(\sum_{h=1}^H \frac{N_h}{N}S_h^2 \right)}} = \frac{z_{\alpha/2}^2 \left(\sum_{h=1}^H \frac{N_h}{N}S_h\right)^2}{e^2 + \pink{{\dfrac{z_{\alpha/2}^2 S^{\ast 2}}{N}}}}\]</span></p>
-<p>Warning: Note the different pieces containing <span class="math inline">\(S_h\)</span> in the numerator and denominator</p>
+<ul>
+<li><p>Same type of calculation, using the simplified version of <span class="math inline">\(V(\bar{y}_{str})\)</span> under Neyman allocation: <span class="math display">\[V(\bar{y}_{str}) = \frac{1}{n} \left(\sum_{h=1}^H \frac{N_h}{N} S_h\right)^2 - \frac{1}{N} \sum_{h=1}^H \frac{N_h}{N} S_h^2\]</span></p></li>
+<li><p>Again, plugging into the MOE formula and solving for <span class="math inline">\(n\)</span>:</p>
+<span class="math display">\[\begin{aligned}
+e &amp;= z_{\alpha/2} \sqrt{V(\bar{y}_{str})} = z_{\alpha/2} \sqrt{\frac{1}{n} \left(\sum_{h=1}^H \frac{N_h}{N} S_h\right)^2 - \frac{1}{N} \sum_{h=1}^H \frac{N_h}{N} S_h^2} \\
+&amp; \text{...square both sides, do a bunch of algebra ...} \\
+n &amp; = \frac{z_{\alpha/2}^2 \left(\sum_{h=1}^H \frac{N_h}{N}S_h\right)^2}{e^2 + \dfrac{z_{\alpha/2}^2}{N}\left(\sum_{h=1}^H \frac{N_h}{N}S_h^2 \right)} = \frac{z_{\alpha/2}^2 \left(\sum_{h=1}^H \frac{N_h}{N}S_h\right)^2}{e^2 + {\dfrac{z_{\alpha/2}^2 S^{\ast 2}}{N}}}
+\end{aligned}\]</span></li>
+<li><p>Warning: Note the different pieces containing <span class="math inline">\(S_h\)</span> in the numerator and denominator</p></li>
+</ul>
 </section>
-<section id="example-sample-size-for-neyman-allocation" class="slide level2">
-<h2>Example: Sample Size for Neyman Allocation</h2>
-<p>Same set-up as before:</p>
+<section id="example-1" class="slide level2">
+<h2>Example</h2>
+<ul>
+<li>Same set-up as before:</li>
+</ul>
 <table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;"><strong>Stratum</strong></th>
 <th style="text-align: left;"><strong>Definition</strong></th>
-<th style="text-align: left;"><span class="math inline">\(\bm{N_h}\)</span></th>
+<th style="text-align: left;"><span class="math inline">\(\mathbf{N_h}\)</span></th>
 <th style="text-align: left;"><strong>True Proportion</strong></th>
-<th style="text-align: left;"><span class="math inline">\(\bm{V(y)}\)</span> <strong>in Stratum</strong></th>
+<th style="text-align: left;"><span class="math inline">\(\mathbf{V(y)}\)</span> <strong>in Stratum</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -294,37 +329,45 @@ n = \frac{z_{\alpha/2}^2 S^{\ast 2}}{e^2 + \dfrac{z_{\alpha/2}^2 S^{\ast 2}}{N}}
 </tr>
 </tbody>
 </table>
-<p>Now use allocation to achieve an for a 95% CI</p>
-<p><strong>How large a sample do we need?</strong></p>
-<p>Formula: <span class="math display">\[n = \frac{z_{\alpha/2}^2 \left(\sum_{h=1}^H \frac{N_h}{N}S_h\right)^2}{e^2 + {\dfrac{z_{\alpha/2}^2 S^{\ast 2}}{N}}}\]</span></p>
-<p>Necessary pieces:</p>
+<ul>
+<li><p>Now use <strong>Neyman</strong> allocation to achieve an <strong>MOE of 1%</strong> for a 95% CI</p></li>
+<li><p><strong>How large a sample do we need?</strong></p></li>
+<li><p>Necessary pieces:</p>
 <ul>
 <li><p><span class="math inline">\(e = 0.01\)</span> (margin of error of 1%)</p></li>
 <li><p><span class="math inline">\(z_{\alpha/2} = 1.96\)</span> (b/c 95% CI)</p></li>
 <li><p><span class="math inline">\(N\)</span> = 1,000,000 and <span class="math inline">\(\frac{N_1}{N} = 0.75\)</span> and <span class="math inline">\(\frac{N_2}{N}=0.25\)</span></p></li>
-<li><p><span class="math inline">\(S^{\ast 2} = 0.2175\)</span> <em>(weighted average of the stratum-level , as used for proportional allocation)</em></p></li>
+<li><p><span class="math inline">\(S^{\ast 2} = 0.2175\)</span> <em>(weighted average of the stratum-level variances, as used for proportional allocation)</em></p></li>
 <li><p><span class="math inline">\(\left(\sum_{h=1}^H \frac{N_h}{N}S_h\right)^2 = \left(\frac{N_1}{N}S_1 + \frac{N_2}{N}S_2\right)^2 = (0.75\sqrt{0.21} + 0.25\sqrt{0.24})^2 = 0.4662^2 = 0.2173\)</span><br>
-<em>(weighted average of the stratum-level , squared)</em></p></li>
+<em>(weighted average of the stratum-level standard deviations, squared)</em></p></li>
+</ul></li>
 </ul>
 </section>
 <section id="example-cont-1" class="slide level2">
 <h2>Example (con’t)</h2>
-<p>Plug in the pieces:</p>
-<p><span class="math display">\[\begin{aligned}
-n = \frac{z_{\alpha/2}^2 \left(\sum_{h=1}^H \frac{N_h}{N}S_h\right)^2}{e^2 + {\dfrac{z_{\alpha/2}^2 S^{\ast 2}}{N}}} &amp; = \frac{1.96^2 (0.2173)}{0.01^2 + \dfrac{1.96^2 (0.2175)}{1000000}} &amp; \\
-&amp; = \frac{0.8348}{0.0001+0.000000835548} = \frac{0.835548}{0.0001008355} = 8278.9
-\end{aligned}\]</span></p>
-<p>Only very slightly smaller than proportional allocation! <span class="math inline">\((n=8286.2)\)</span> – Why?</p>
-<p>To determine allocation to each stratum, have to go back to allocation formula:</p>
-<p>Stratum 1: <span class="math inline">\(n_1 = n \left( \frac{N_1 S_1}{N_1 S_1 + N_2 S_2} \right) = 8278.9 \left( \frac{750000 \sqrt{0.21}}{750000 \sqrt{0.21} + 250000 \sqrt{0.24}} \right) = 6103.8\)</span></p>
-<p>Stratum 2: <span class="math inline">\(n_2 = n \left( \frac{N_2 S_2}{N_1 S_1 + N_2 S_2} \right) = 8278.9 \left( \frac{250000 \sqrt{0.24}}{750000 \sqrt{0.21} + 250000 \sqrt{0.24}} \right) = 2175.1\)</span></p>
-<p>Round to <span class="math inline">\(n_1 = 6104\)</span> and <span class="math inline">\(n_2=2175\)</span></p>
-<p>Compared to allocation <span class="math inline">\((n_1 = 6215, n_2 = 2072)\)</span>, with Neyman allocation we take <strong>more observations</strong> from the <strong>more variable stratum</strong> (<span class="math inline">\(h=2\)</span>, older age group, which has higher <span class="math inline">\(S_h^2\)</span>)</p>
+<ul>
+<li><p>Plug in the pieces: <span class="math display">\[\begin{aligned}
+n = \frac{z_{\alpha/2}^2 \left(\sum_{h=1}^H \frac{N_h}{N}S_h\right)^2}{e^2 + {\dfrac{z_{\alpha/2}^2 S^{\ast 2}}{N}}} &amp; = \frac{1.96^2 (0.2173)}{0.01^2 + \dfrac{1.96^2 (0.2175)}{1000000}} = \frac{0.8348}{0.0001+0.000000835548} = \mathbf{8278.9}
+\end{aligned}\]</span></p></li>
+<li><p>Only <strong>very slightly smaller</strong> than proportional allocation! <span class="math inline">\((n=8286.2)\)</span> – Why?</p></li>
+<li><p>To determine allocation to each stratum, have to go back to allocation formula:</p>
+<ul>
+<li><p>Stratum 1: <span class="math inline">\(n_1 = n \left( \frac{N_1 S_1}{N_1 S_1 + N_2 S_2} \right) = 8278.9 \left( \frac{750000 \sqrt{0.21}}{750000 \sqrt{0.21} + 250000 \sqrt{0.24}} \right) = 6103.8\)</span></p></li>
+<li><p>Stratum 2: <span class="math inline">\(n_2 = n \left( \frac{N_2 S_2}{N_1 S_1 + N_2 S_2} \right) = 8278.9 \left( \frac{250000 \sqrt{0.24}}{750000 \sqrt{0.21} + 250000 \sqrt{0.24}} \right) = 2175.1\)</span></p></li>
+<li><p>Round to <span class="math inline">\(n_1 = 6104\)</span> and <span class="math inline">\(n_2=2175\)</span></p></li>
+</ul></li>
+<li><p>Compared to proportional allocation <span class="math inline">\((n_1 = 6215, n_2 = 2072)\)</span>, with Neyman allocation we take <strong>more observations</strong> from the <strong>more variable stratum</strong> (<span class="math inline">\(h=2\)</span>, older age group, which has higher <span class="math inline">\(S_h^2\)</span>)</p></li>
+</ul>
 </section>
-<section id="compare-to-srs-formula" class="slide level2">
-<h2>Compare to SRS Formula</h2>
+<section id="compare-to-srs" class="slide level2">
+<h2>Compare to SRS</h2>
 <p>Useful to step back and compare the formulae to see driver of the differences:</p>
 <table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;"><strong>Sampling Method</strong></th>
@@ -350,7 +393,7 @@ n = \frac{z_{\alpha/2}^2 \left(\sum_{h=1}^H \frac{N_h}{N}S_h\right)^2}{e^2 + {\d
 </tr>
 </tbody>
 </table>
-<p>Remember that these calculations</p>
+<p>Remember that these calculations <strong>all require some estimate/guess of variance(s)</strong></p>
 </section>
 <section id="activity-9.1-part-2" class="slide level2">
 <h2>Activity 9.1 (Part 2)</h2>
@@ -358,50 +401,60 @@ n = \frac{z_{\alpha/2}^2 \left(\sum_{h=1}^H \frac{N_h}{N}S_h\right)^2}{e^2 + {\d
 </section>
 <section id="design-eﬀect-deﬀ" class="slide level2">
 <h2>Design Eﬀect: deﬀ</h2>
-<p>Some history:</p>
+<blockquote>
+<p><span class="math display">\[\text{deff}(\text{plan, statistic}) = \frac{V(\text{estimator from sampling plan})}{V(\text{estimator from SRS with same total sample size})}\]</span></p>
+</blockquote>
 <ul>
-<li><p>Cornfield (1951) – measure the by the of the of <span class="math inline">\(k\)</span> units to the with <span class="math inline">\(k\)</span> units</p>
+<li><p>Some history:</p>
 <ul>
-<li>Article: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1525546/" class="uri">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1525546/</a></li>
+<li><p>Cornfield (1951) – measure the eﬃciency of a sampling plan by the <strong>ratio</strong> of the variance that would be obtained from an SRS of <span class="math inline">\(k\)</span> units to the variance obtained from the complex sampling plan with <span class="math inline">\(k\)</span> units (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1525546">article link</a>)</p></li>
+<li><p>Kish (1965) – turn that ratio upside-down and call it the <strong>design effect (deff)</strong></p>
+<ul>
+<li>Book: Kish L (1965) <em>Survey Sampling</em> (<a href="https://www.wiley.com/en-us/Survey+Sampling-p-9780471109495">link to book</a>)</li>
 </ul></li>
-<li><p>Kish (1965) – turn that ratio upside-down and call it the</p>
-<ul>
-<li>Book: Kish L (1965) <em>Survey Sampling</em> <a href="https://www.wiley.com/en-us/Survey+Sampling-p-9780471109495" class="uri">https://www.wiley.com/en-us/Survey+Sampling-p-9780471109495</a></li>
 </ul></li>
+<li><p>It may be old, but the design effect is in (constant) use today</p></li>
+<li><p>Note that the design effect is <strong>statistic dependent</strong> – different <span class="math inline">\(y\)</span> and/or different statistic (e.g., mean vs.&nbsp;regression coefficient) will have diﬀerent design eﬀect for the same sampling plan</p></li>
 </ul>
-<p><span class="math display">\[\deff(\text{plan, statistic}) = \frac{V(\text{estimator from sampling plan})}{V(\text{estimator from SRS with same total sample size})}\]</span></p>
-<p>It may be old, but the design effect is in (constant) use today</p>
-<p>Note that the design effect is – different <span class="math inline">\(y\)</span> and/or different statistic (e.g., mean vs.&nbsp;regression coefficient) will have for the</p>
 </section>
 <section id="design-eﬀect-deﬀ-1" class="slide level2">
 <h2>Design Eﬀect: deﬀ</h2>
-<p>In terms of variance for that specific statistic:</p>
 <ul>
-<li><p><span class="math inline">\(\rightarrow\)</span> your design is than SRS (in terms of variance/efficiency)</p></li>
-<li><p><span class="math inline">\(\rightarrow\)</span> your design is than SRS (in terms of variance/efficiency)</p></li>
+<li><p>In terms of variance for that specific statistic:</p>
+<ul>
+<li><p><span class="math inline">\(\text{deff} &lt; 1 \rightarrow\)</span> your design is <strong>better</strong> than SRS (in terms of variance/efficiency)</p></li>
+<li><p><span class="math inline">\(\text{deff} &gt; 1 \rightarrow\)</span> your design is <strong>worse</strong>than SRS (in terms of variance/efficiency)</p></li>
+</ul></li>
+<li><p>For a mean under stratified sampling with proportional allocation: <span class="math display">\[\begin{aligned}
+\text{deff} = \frac{V_{prop}(\bar{y}_{str})}{V_{srs}(\bar{y})} &amp;= \frac{\sum_{h=1}^H \frac{N_h}{N} \left(1-\frac{n}{N}\right)\frac{S_h^2}{n}}{\left(1-\frac{n}{N}\right)\frac{S^2}{n}} = \frac{\sum_{h=1}^H \frac{N_h}{N} S_h^2}{S^2} \\
+&amp; \textcolor{red}{\text{assuming }(N-1)/N \approx 1} \textcolor{red}{\text{ and } (N_h-1)/N_h \approx 1:}\\
+&amp;= \frac{\sum_{h=1}^H \frac{N_h}{N} S_h^2}{\sum_{h=1}^H \frac{N_h}{N} S_h^2 +\sum_{h=1}^H \frac{N_h}{N} (\bar{y}_{hU}-\bar{y}_U)^2}  \le 1
+\end{aligned}\]</span></p></li>
+<li><p>deﬀ for a stratified sample with <strong>proportional</strong> or <strong>Neyman allocation</strong> will usually be less than 1</p>
+<ul>
+<li>Note that other allocation methods (e.g., equal allocation) might not give deﬀ <span class="math inline">\(&lt;1\)</span></li>
+</ul></li>
+<li><p>Often deﬀ <span class="math inline">\(&gt;1\)</span> for subgroup estimates that cross strata (domain means = subgroups that cross strata)</p></li>
 </ul>
-<p>For a mean under : <span class="math display">\[\begin{aligned}
-\deff = \frac{V_{prop}(\bar{y}_{str})}{V_{srs}(\ybar)} &amp;= \frac{\sum_{h=1}^H \frac{N_h}{N} \fpcpar \frac{S_h^2}{n}}{\fpcpar \frac{S^2}{n}} = \frac{\sum_{h=1}^H \frac{N_h}{N} S_h^2}{S^2}\\
-\red{\text{assuming }(N-1)/N \approx 1} &amp; \red{\text{ and } (N_h-1)/N_h \approx 1:}\\
-&amp;= \frac{\sum_{h=1}^H \frac{N_h}{N} S_h^2}{\sum_{h=1}^H \frac{N_h}{N} S_h^2 +\sum_{h=1}^H \frac{N_h}{N} (\ybar_{hU}-\ybar_U)^2}  \le 1
-\end{aligned}\]</span></p>
-<p>Unless all of the stratum means are equal, deff for a stratified sample with proportional or Neyman allocation will usually be , corresponding to the</p>
-<p>Note that other allocation methods might not give (e.g., equal allocation)</p>
-<p>In addition, often we see for – i.e., domain means – subgroups that are <strong>not</strong> strata, but that cross strata</p>
 </section>
-<section id="a-slightly-diﬀerent-design-eﬀect-deft" class="slide level2">
+<section id="a-slightly-diﬀerent-design-eﬀect-deft" class="slide level2 pause">
 <h2>A Slightly Diﬀerent Design Eﬀect: deft</h2>
-<p>A similar design effect is sometimes used that compares the complex design to and uses instead of variances:</p>
-<p><span class="math display">\[\deft(\text{plan, statistic}) = \frac{\blue{SE}(\text{estimator from sampling plan})}{\blue{SE}(\text{estimator from \pink{SRSWR} with same total sample size})}\]</span></p>
-<p>When the small sampling fraction (<span class="math inline">\(n/N\)</span>) is very small, then <span class="math inline">\(\deft \approx \sqrt{\deff}\)</span></p>
-<p>Why?</p>
-<p>Because then variance under SRS is very close to variance under SRSWR</p>
-<p>Design effects are often used for estimating sample sizes for surveys:</p>
+<ul>
+<li><p>A similar design effect is sometimes used that compares the complex design to and uses instead of variances: <span class="math display">\[\text{deft}(\text{plan, statistic}) = \frac{\textcolor{blue}{SE}(\text{estimator from sampling plan})}{\textcolor{blue}{SE}(\text{estimator from \textcolor{red}{SRSWR} with same total sample size})}\]</span></p></li>
+<li><p>When the small sampling fraction (<span class="math inline">\(n/N\)</span>) is very small, then <span class="math inline">\(\text{deft} \approx \sqrt{\text{deff}}\)</span></p></li>
+<li><p>Why?</p></li>
+</ul>
+<div class="fragment">
+<ul>
+<li><p>Because then variance under SRS is very close to variance under SRSWR</p></li>
+<li><p>Design effects are often used for estimating sample sizes for surveys:</p>
 <ul>
 <li><p>Have prior guess at the deff (e.g., from a prior survey)</p></li>
 <li><p>Calculate the sample size assuming SRS and multiply by deff</p></li>
 <li><p>Often used for complex designs involving clustering</p></li>
+</ul></li>
 </ul>
+</div>
 </section>
 <section id="activity-9.1-part-2-1" class="slide level2">
 <h2>Activity 9.1 (Part 2)</h2>
