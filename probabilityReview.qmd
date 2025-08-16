@@ -10,6 +10,8 @@ format:
 
 *For some of you, this material may be less familiar (depending on which prerequisite courses you took). I will demonstrate what is necessary for this class (and please ask Qs!).*
 
+*Generative AI acknowledgment: MS Copilot was used to help generate alt text for images*
+
 ## Events and Sample Space
 
 -   **Event** = an outcome of interest
