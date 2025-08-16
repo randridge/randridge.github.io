@@ -35,7 +35,7 @@ editor:
 ::: {.column width="50%"}
 **Activities**
 
--   9.1 Poststratification Weight Adjustments
+-   10.1 Poststratification Weight Adjustments
 :::
 :::::
 
@@ -43,7 +43,7 @@ editor:
 
 **Assignments**
 
--   Problem Set 3 due Thursday 9/25/25 11:59pm via Carmen
+-   Problem Set 3 due Thursday 10/2/25 11:59pm via Carmen
 
 ## Limitation of Stratification at the Design Stage
 
@@ -291,7 +291,7 @@ M2 <- N - M1
 -   For example, estimating the **proportion of students from Ohio**:
 
 | **Post-stratum** | **Sample Proportion from Ohio** $\mathbf{(\hat{p}_h)}$ | **Stratum Size** $\mathbf{(N_h)}$ |
-|:------------------|:---------------------------:|:-----------------------:|
+|:------------------|:--------------------------:|:-----------------------:|
 | Undergrad $(h=1)$ | `r o1`/`r n1` = `r o1/n1` | `r N1` |
 | Grad $(h=2)$ | `r o2`/`r n2` = `r o2/n2` | `r N2` |
 | Professional $(h=3)$ | `r o3`/`r n3` = `r o3/n3` | `r N3` |
@@ -428,7 +428,7 @@ n_oh <- n11 + n21 + n31
 n_notoh <- n12 + n22 + n32
 ```
 
-:::::: {.smaller-text }
+:::::: smaller-text
 ::::: columns
 ::: {.column width="50%"}
 |              |               |        |        |
@@ -452,7 +452,6 @@ n_notoh <- n12 + n22 + n32
 | Total           |   `r n_oh`    | `r n_notoh` | `r n`  |
 :::
 :::::
-
 ::::::
 
 -   Start with the row variable (**level**), and adjust the sample
@@ -466,14 +465,16 @@ n_notoh <- n12 + n22 + n32
 -   Now totals for **level** are right -- but totals for the other
     variable (**residency**) are not
 
-    -   Ex: Sum of weights for OH =
-        `r n11` $\times$ `r round(psw1,1)` + `r n21` $\times$ `r round(psw2,1)` + `r n31` $\times$ `r round(psw3,1)` =
-        `r round(n11*psw1+n21*psw2+n31*psw3)` -- but should be `r M1`
+    -   Ex: Sum of weights for OH = `r n11` $\times$ `r round(psw1,1)` +
+        `r n21` $\times$ `r round(psw2,1)` + `r n31` $\times$
+        `r round(psw3,1)` = `r round(n11*psw1+n21*psw2+n31*psw3)` -- but
+        should be `r M1`
 
 -   So, adjust the weights via poststratification using the other
     variable (**residency**)
 
     <!-- -   Example: For OH resident, multiply the (previously adjusted) -->
+
     <!--     weight times `r M1`/`r round(n11*psw1+n21*psw2+n31*psw3)` ($= N_h$/$\widehat{N}_h$) -->
 
 -   But now the totals for the first variable (**level**) are wrong...so
@@ -510,23 +511,27 @@ Resulting survey weights for the SRS of OSU students:
 | Group                   | Sample Count | Original Weight | Raked Weight |
 |:------------------------|:-------------|:----------------|:-------------|
 | Undergrad / Ohio        | `r n11`      | `r w_round`     | `r wr11`     |
-| Grad / Ohio             | `r n21`      | `r w_round`     | `r wr21`    |
-| Professional / Ohio     | `r n31`       | `r w_round`     | `r wr31`    |
-| Undergrad / Not Ohio    | `r n12`       | `r w_round`     | `r wr12`    |
-| Grad / Not Ohio         | `r n22`       | `r w_round`     | `r wr22`     |
-| Professional / Not Ohio | `r n32`       | `r w_round`     | `r wr32`    |
+| Grad / Ohio             | `r n21`      | `r w_round`     | `r wr21`     |
+| Professional / Ohio     | `r n31`      | `r w_round`     | `r wr31`     |
+| Undergrad / Not Ohio    | `r n12`      | `r w_round`     | `r wr12`     |
+| Grad / Not Ohio         | `r n22`      | `r w_round`     | `r wr22`     |
+| Professional / Not Ohio | `r n32`      | `r w_round`     | `r wr32`     |
 
--   Notice that now we will get the **correct totals for level and for residency**!
+-   Notice that now we will get the **correct totals for level and for
+    residency**!
 
-    -   Ex: Number of students from Ohio = `r n11` $\times$ `r wr11` + `r n21` $\times$ `r wr21` + `r n31` $\times$ `r wr31` = `r round(n11*wr11 + n21*wr21 + n31*wr31)` &check;
+    -   Ex: Number of students from Ohio = `r n11` $\times$ `r wr11` +
+        `r n21` $\times$ `r wr21` + `r n31` $\times$ `r wr31` =
+        `r round(n11*wr11 + n21*wr21 + n31*wr31)` ✓
 
-    -   Ex: Number of undergrads = `r n11` $\times$ `r wr11` + `r n12` $\times$ `r wr12` = `r round(n11*wr11 + n12*wr12)` &check;
+    -   Ex: Number of undergrads = `r n11` $\times$ `r wr11` + `r n12`
+        $\times$ `r wr12` = `r round(n11*wr11 + n12*wr12)` ✓
 
--   But, we are not guaranteed to get the correct level-by-residency totals
+-   But, we are not guaranteed to get the correct level-by-residency
+    totals
 
-    -   Ex: Estimated number of undergrads from Ohio = `r n11` $\times$ `r wr11`
-= `r round(n11*wr11)` &larr; **not guaranteed to be right**
-
+    -   Ex: Estimated number of undergrads from Ohio = `r n11` $\times$
+        `r wr11` = `r round(n11*wr11)` ← **not guaranteed to be right**
 
 ## Raking: Some Properties
 
@@ -555,7 +560,8 @@ Resulting survey weights for the SRS of OSU students:
         key survey outcomes, you also want to poststratify or rake to
         variable(s) related to your key survey outcomes
 
-Importantly -- **raking can be used with complex survey designs (not just SRS)**
+Importantly -- **raking can be used with complex survey designs (not
+just SRS)**
 
 ## Caveats for Post-Survey Weight Adjustments
 
