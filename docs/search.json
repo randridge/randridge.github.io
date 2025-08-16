@@ -1460,7 +1460,7 @@
     "href": "PUBHBIO7225_L07_stratSampAlloc.html#stratified-sampling-allocation-methods",
     "title": "Stratified Sampling:\nAllocation Methods",
     "section": "Stratified Sampling: Allocation Methods",
-    "text": "Stratified Sampling: Allocation Methods\nAllocation Method = how the total sample size \\(n\\) is distributed across the strata\nMost often you decide how many units total you can afford to sample \\((n)\\) and then split (“allocate\") that across the strata with one of four methods:\n\nEqual Allocation – \\(n_h\\) the same for all strata\nProportional Allocation – Allocate sample to the strata proportional to the population size in each stratum\nNeyman Allocation – Allocate sample to the strata according to the estimated variability of \\(y\\) and the population size in each stratum\nOptimal Allocation – Neyman Allocation, but also accounting for the cost to sample each unit (may vary by strata)"
+    "text": "Stratified Sampling: Allocation Methods\n\nAllocation Method = how the total sample size \\(n\\) is distributed across the strata\n\n\nMost often you decide how many units total you can afford to sample \\((n)\\) and then split (“allocate”) that across the strata with one of four methods:\n\n\nEqual Allocation – \\(n_h\\) the same for all strata\nProportional Allocation – Allocate sample to the strata proportional to the population size in each stratum\nNeyman Allocation – Allocate sample to the strata according to the estimated variability of \\(y\\) and the population size in each stratum\nOptimal Allocation – Neyman Allocation, but also accounting for the cost to sample each unit (may vary by strata)"
   },
   {
     "objectID": "PUBHBIO7225_L07_stratSampAlloc.html#equal-allocation",
@@ -1572,7 +1572,7 @@
     "href": "PUBHBIO7225_L07_stratSampAlloc.html#optimal-allocation-1",
     "title": "Stratified Sampling:\nAllocation Methods",
     "section": "Optimal Allocation",
-    "text": "Optimal Allocation\n\nFor completeness, here is the “simplified\" expression for the theoretical variance of the overall mean under pptimal allocation:\n\n\\[\\begin{aligned}\nV_{opt}(\\bar{y}_{str}) &= \\sum_{h=1}^H \\left(\\frac{N_h}{N}\\right)^2  \\left(1-\\frac{n_h}{N_h}\\right)\\frac{S_h^2}{n_h} \\\\\n&= \\sum_{h=1}^H \\left(\\frac{N_h}{N}\\right)^2 \\frac{S_h^2}{n_h} - \\sum_{h=1}^H \\left(\\frac{N_h}{N}\\right)^2  \\frac{S_h^2}{N_h} \\\\\n&= \\sum_{h=1}^H \\left(\\frac{N_h}{N}\\right)^2 \\frac{S_h^2}{n \\left( \\frac{\\frac{N_h S_h}{\\sqrt{c_h}}}{\\sum_{l =1}^H \\frac{N_l S_l}{\\sqrt{c_l}}} \\right)} - \\frac{1}{N^2} \\sum_{h=1}^H N_h S_h^2\\\\\n&= \\frac{1}{n}\\frac{1}{N^2} \\sum_{h=1}^H N_h S_h \\sqrt{c_h} \\sum_{l =1}^H \\frac{N_l S_l}{\\sqrt{c_l}} - \\frac{1}{N^2} \\sum_{h=1}^H N_h S_h^2\\\\\n%&= \\frac{1}{n}\\frac{1}{N^2} \\sum_{h=1}^H \\frac{N_h^2 S_h^2}{\\left( \\frac{\\frac{N_h S_h}{\\sqrt{c_h}}}{\\sum_{l =1}^H \\frac{N_l S_l}{\\sqrt{c_l}}} \\right)} - \\frac{1}{N^2} \\sum_{h=1}^H N_h S_h^2\\\\\n%&= \\frac{1}{n}\\frac{1}{N^2} \\left(\\sum_{h=1}^H N_h S_h\\right)^2 - \\frac{1}{N^2} \\sum_{h=1}^H N_h S_h^2\n\\end{aligned}\\]\n(Honestly, we will never use this formula)"
+    "text": "Optimal Allocation\n\nFor completeness, here is the “simplified” expression for the theoretical variance of the overall mean under pptimal allocation:\n\n\\[\\begin{aligned}\nV_{opt}(\\bar{y}_{str}) &= \\sum_{h=1}^H \\left(\\frac{N_h}{N}\\right)^2  \\left(1-\\frac{n_h}{N_h}\\right)\\frac{S_h^2}{n_h} \\\\\n&= \\sum_{h=1}^H \\left(\\frac{N_h}{N}\\right)^2 \\frac{S_h^2}{n_h} - \\sum_{h=1}^H \\left(\\frac{N_h}{N}\\right)^2  \\frac{S_h^2}{N_h} \\\\\n&= \\sum_{h=1}^H \\left(\\frac{N_h}{N}\\right)^2 \\frac{S_h^2}{n \\left( \\frac{\\frac{N_h S_h}{\\sqrt{c_h}}}{\\sum_{l =1}^H \\frac{N_l S_l}{\\sqrt{c_l}}} \\right)} - \\frac{1}{N^2} \\sum_{h=1}^H N_h S_h^2\\\\\n&= \\frac{1}{n}\\frac{1}{N^2} \\sum_{h=1}^H N_h S_h \\sqrt{c_h} \\sum_{l =1}^H \\frac{N_l S_l}{\\sqrt{c_l}} - \\frac{1}{N^2} \\sum_{h=1}^H N_h S_h^2\\\\\n%&= \\frac{1}{n}\\frac{1}{N^2} \\sum_{h=1}^H \\frac{N_h^2 S_h^2}{\\left( \\frac{\\frac{N_h S_h}{\\sqrt{c_h}}}{\\sum_{l =1}^H \\frac{N_l S_l}{\\sqrt{c_l}}} \\right)} - \\frac{1}{N^2} \\sum_{h=1}^H N_h S_h^2\\\\\n%&= \\frac{1}{n}\\frac{1}{N^2} \\left(\\sum_{h=1}^H N_h S_h\\right)^2 - \\frac{1}{N^2} \\sum_{h=1}^H N_h S_h^2\n\\end{aligned}\\]\n(Honestly, we will never use this formula)"
   },
   {
     "objectID": "PUBHBIO7225_L07_stratSampAlloc.html#allocation-related-topics-we-are-not-covering",
@@ -1593,14 +1593,14 @@
     "href": "PUBHBIO7225_L07_stratSampAlloc.html#numerical-illustration",
     "title": "Stratified Sampling:\nAllocation Methods",
     "section": "Numerical Illustration",
-    "text": "Numerical Illustration\n\nequal-sized strata \\((N_1=N_2)\\) and equal variance in each stratum \\((S_1^2=S_2^2=1)\\)\nsample of size \\(n=1000\\), population \\(N\\) large enough to ignore FPC\n\n\n\n\n\\(\\mu_1\\)\n\\(\\mu_2\\)\n\\(S_1^2\\)\n\\(S_2^2\\)\n\\(S^2\\)\n\\(V_{srs}(\\bar{y})\\)\n\\(V_{prop}(\\bar{y}_{str})\\)\nRatio (SRS/Stratified)\n\n\n\n\n0\n0\n1\n1\n1\n0.001\n0.001\n1\n\n\n0\n0.5\n1\n1\n1.0625\n0.0010625\n0.001\n1.0625\n\n\n0\n1\n1\n1\n1.25\n0.00125\n0.001\n1.25\n\n\n0\n1.5\n1\n1\n1.5625\n0.0015625\n0.001\n1.5625\n\n\n0\n2\n1\n1\n2\n0.002\n0.001\n2\n\n\n\nExample calculations (2nd row of table above):\n\\(S^2 = \\frac{N_1}{N}S_1^2 + \\frac{N_2}{N}S_2^2 + \\frac{N_1}{N}\\frac{N_2}{N} (\\mu_1-\\mu_2)^2= 0.5(1) + 0.5(1) + (0.5)(0.5)(0-0.5)^2 = 1.0625\\)\n\\(V_{srs}(\\bar{y}) = \\frac{S^2}{n} = \\frac{1.0625}{1000} = 0.0010625\\)\n\\(V_{str}(\\bar{y}_{str}) = \\frac{N_1}{N}\\frac{S_1^2}{n} + \\frac{N_2}{N}\\frac{S_2^2}{n} = 0.5\\left(\\frac{1}{1000}\\right) + 0.5\\left(\\frac{1}{1000}\\right) = 0.001\\)"
+    "text": "Numerical Illustration\n\nequal-sized strata \\((N_1=N_2)\\), equal variance in each stratum, \\(n=1000\\), \\(N\\) large enough to ignore FPC\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(\\mu_1\\)\n\\(\\mu_2\\)\n\\(S_1^2\\)\n\\(S_2^2\\)\n\\(S^2\\)\n\\(V_{srs}(\\bar{y})\\)\n\\(V_{prop}(\\bar{y}_{str})\\)\nRatio (SRS/Strat)\n\n\n\n\n0\n0\n1\n1\n1\n0.001\n0.001\n1\n\n\n0\n0.5\n1\n1\n1.0625\n0.0010625\n0.001\n1.0625\n\n\n0\n1\n1\n1\n1.25\n0.00125\n0.001\n1.25\n\n\n0\n1.5\n1\n1\n1.5625\n0.0015625\n0.001\n1.5625\n\n\n0\n2\n1\n1\n2\n0.002\n0.001\n2\n\n\n\nExample calculations (2nd row of table above):\n\\(S^2 = \\frac{N_1}{N}S_1^2 + \\frac{N_2}{N}S_2^2 + \\frac{N_1}{N}\\frac{N_2}{N} (\\mu_1-\\mu_2)^2= 0.5(1) + 0.5(1) + (0.5)(0.5)(0-0.5)^2 = 1.0625\\)\n\\(V_{srs}(\\bar{y}) = \\frac{S^2}{n} = \\frac{1.0625}{1000} = 0.0010625\\)\n\\(V_{str}(\\bar{y}_{str}) = \\frac{N_1}{N}\\frac{S_1^2}{n} + \\frac{N_2}{N}\\frac{S_2^2}{n} = 0.5\\left(\\frac{1}{1000}\\right) + 0.5\\left(\\frac{1}{1000}\\right) = 0.001\\)"
   },
   {
     "objectID": "PUBHBIO7225_L07_stratSampAlloc.html#numerical-illustration-proportions",
     "href": "PUBHBIO7225_L07_stratSampAlloc.html#numerical-illustration-proportions",
     "title": "Stratified Sampling:\nAllocation Methods",
     "section": "Numerical Illustration: Proportions",
-    "text": "Numerical Illustration: Proportions\nWhat about proportions? Exact same story:\n\n\n\n\\(p_1\\)\n\\(p_2\\)\n\\(S_1^2\\)\n\\(S_2^2\\)\n\\(S^2\\)\n\\(V(\\bar{y})\\)\n\\(V_{prop}(\\bar{y}_{str})\\)\nRatio (SRS/Stratified)\n\n\n\n\n0.5\n0.5\n0.25\n0.25\n0.25\n0.0025\n0.0025\n1\n\n\n0.4\n0.6\n0.24\n0.24\n0.25\n0.0025\n0.0024\n1.042\n\n\n0.3\n0.7\n0.21\n0.21\n0.25\n0.0025\n0.0021\n1.19\n\n\n0.2\n0.8\n0.16\n0.16\n0.25\n0.0025\n0.0016\n1.5625\n\n\n0.1\n0.9\n0.09\n0.09\n0.25\n0.0025\n0.0009\n2.78\n\n\n\n\nNote that these results are for the theoretical sampling variance (over repeated sampling)\nIn a single pair of samples (one SRS, one stratified) you might not see the benefit – especially if the stratified sample selected had large within-stratum sample variances\nAlso note that most surveys have more than one key outcome, \\(y\\)!\nCompromise necessary to attempt to achieve improved precision across multiple \\(y\\)"
+    "text": "Numerical Illustration: Proportions\nWhat about proportions? Exact same story:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(p_1\\)\n\\(p_2\\)\n\\(S_1^2\\)\n\\(S_2^2\\)\n\\(S^2\\)\n\\(V(\\bar{y})\\)\n\\(V_{prop}(\\bar{y}_{str})\\)\nRatio (SRS/Stratified)\n\n\n\n\n0.5\n0.5\n0.25\n0.25\n0.25\n0.0025\n0.0025\n1\n\n\n0.4\n0.6\n0.24\n0.24\n0.25\n0.0025\n0.0024\n1.042\n\n\n0.3\n0.7\n0.21\n0.21\n0.25\n0.0025\n0.0021\n1.19\n\n\n0.2\n0.8\n0.16\n0.16\n0.25\n0.0025\n0.0016\n1.5625\n\n\n0.1\n0.9\n0.09\n0.09\n0.25\n0.0025\n0.0009\n2.78\n\n\n\n\nNote that these results are for the theoretical sampling variance (over repeated sampling)\nIn a single pair of samples (one SRS, one stratified) you might not see the benefit – especially if the stratified sample selected had large within-stratum sample variances\nAlso note that most surveys have more than one key outcome, \\(y\\)!\nCompromise necessary to attempt to achieve improved precision across multiple \\(y\\)"
   },
   {
     "objectID": "PUBHBIO7225_L07_stratSampAlloc.html#neyman-allocation---variance-formula",
@@ -1643,5 +1643,397 @@
     "title": "Stratified Sampling:\nAllocation Methods",
     "section": "Neyman Allocation: Variance Formula",
     "text": "Neyman Allocation: Variance Formula\nUgly algebra to simplify the variance of the sample mean under Neyman Allocation: \\[\\begin{flalign}\nV_{Neyman}(\\bar{y}_{str}) &= \\sum_{h=1}^H \\left(\\frac{N_h}{N}\\right)^2  \\left(1-\\frac{n_h}{N_h}\\right)\\frac{S_h^2}{n_h}\n= \\sum_{h=1}^H \\left(\\frac{N_h}{N}\\right)^2 \\frac{S_h^2}{n_h} - \\sum_{h=1}^H \\left(\\frac{N_h}{N}\\right)^2  \\frac{S_h^2}{N_h} & \\\\\n&= \\sum_{h=1}^H \\left(\\frac{N_h}{N}\\right)^2 \\frac{S_h^2}{n \\left( \\frac{N_h S_h}{\\sum_{l =1}^H N_l S_l} \\right)} - \\frac{1}{N^2} \\sum_{h=1}^H N_h S_h^2\\\\\n&= \\frac{1}{n}\\frac{1}{N^2} \\sum_{h=1}^H N_h S_h \\sum_{l =1}^H N_l S_l - \\frac{1}{N^2} \\sum_{h=1}^H N_h S_h^2 \\\\\n&= \\frac{1}{n}\\frac{1}{N^2} \\left(\\sum_{h=1}^H N_h S_h\\right)^2 - \\frac{1}{N^2} \\sum_{h=1}^H N_h S_h^2\\\\\n&= \\frac{1}{n} \\left(\\sum_{h=1}^H \\frac{N_h}{N} S_h\\right)^2 - \\frac{1}{N} \\sum_{h=1}^H \\frac{N_h}{N} S_h^2\n\\end{flalign}\\]"
+  },
+  {
+    "objectID": "PUBHBIO7225_L09_stratSampDEFF.html#outline",
+    "href": "PUBHBIO7225_L09_stratSampDEFF.html#outline",
+    "title": "Stratified Sampling:\nSample Size and DEFF",
+    "section": "Outline",
+    "text": "Outline\n\n\n\n\n\nTopics\n\nSample Size Estimation for Stratified Samples\nDesign Effect\nGroup Project Work (time permitting)\n\n\nActivities\n\n9.1 Stratification: Sample Size and Design Effects\n\n\n\nAssignments\n\nQuiz 2 due Thursday 9/25/2025 11:59pm via Carmen\nGroup Progress Report due Thursday 9/25/2025 11:59pm via Carmen (only one group member needs to upload this)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L09_stratSampDEFF.html#sample-size-estimation-for-a-stratified-sample",
+    "href": "PUBHBIO7225_L09_stratSampDEFF.html#sample-size-estimation-for-a-stratified-sample",
+    "title": "Stratified Sampling:\nSample Size and DEFF",
+    "section": "Sample Size Estimation for a Stratified Sample",
+    "text": "Sample Size Estimation for a Stratified Sample\n\nWant to find necessary overall sample size \\(n\\) that will produce a given MOE \\((e)\\)\n\n\\[\\text{CI: } \\bar{y}_{str}\\pm \\underbrace{z_{\\alpha/2} \\sqrt{V(\\bar{y}_{str})}}_{e = \\text{half-width of CI}}\\]\n\nJust as with SRS, the formula for the necessary sample size \\(n\\) is found by plugging in the formula for the variance and solving for \\(n\\).\nBut, you have to pick an allocation method first. Why?\n\n\n\nBecause \\(V(\\bar{y}_{str})\\) depends on the \\(\\textcolor{blue}{n_h}\\): \\(V(\\bar{y}_{str}) = \\sum_{h=1}^H \\left(\\frac{N_h}{N}\\right)^2  \\left( 1 - \\frac{\\textcolor{blue}{n_h}}{N_h}\\right) \\frac{S_h^2}{\\textcolor{blue}{n_h}}\\)\n\nEqual allocation: \\(n_h = \\frac{n}{H}\\)\nProportional allocation: \\(n_h = n \\frac{N_h}{N}\\)\nNeyman allocation: \\(n_h = n \\left( \\frac{N_h S_h}{\\sum_{l =1}^H N_l S_l} \\right)\\)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L09_stratSampDEFF.html#sample-size-estimation-for-proportional-allocation",
+    "href": "PUBHBIO7225_L09_stratSampDEFF.html#sample-size-estimation-for-proportional-allocation",
+    "title": "Stratified Sampling:\nSample Size and DEFF",
+    "section": "Sample Size Estimation for Proportional Allocation",
+    "text": "Sample Size Estimation for Proportional Allocation\n\nSimplified version of \\(V(\\bar{y}_{str})\\) under proportional allocation (obtained by plugging in \\(n_h = n \\frac{N_h}{N}\\)): \\[V(\\bar{y}_{str}) = \\sum_{h=1}^H \\frac{N_h}{N}\\left(1-\\frac{n}{N}\\right)\\frac{S_h^2}{n}\\]\nPlugging this into the general formula for MOE (previous slide): \\[e = z_{\\alpha/2} \\sqrt{V(\\bar{y}_{str})} = z_{\\alpha/2} \\sqrt{\\sum_{h=1}^H \\frac{N_h}{N}\\left(1-\\frac{n}{N}\\right)\\frac{S_h^2}{n}}\\]\nSquare both sides: \\[\\begin{aligned}\ne^2 &{}= z_{\\alpha/2}^2 \\left[{\\sum_{h=1}^H \\frac{N_h}{N}\\left(1-\\frac{n}{N}\\right)\\frac{S_h^2}{n}}\\right]\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "PUBHBIO7225_L09_stratSampDEFF.html#sample-size-estimation-for-proportional-allocation-cont",
+    "href": "PUBHBIO7225_L09_stratSampDEFF.html#sample-size-estimation-for-proportional-allocation-cont",
+    "title": "Stratified Sampling:\nSample Size and DEFF",
+    "section": "Sample Size Estimation for Proportional Allocation (con’t)",
+    "text": "Sample Size Estimation for Proportional Allocation (con’t)\nDo some painful algebraic manipulation: \\[\\begin{aligned}\ne^2 &= z_{\\alpha/2}^2 \\left[ \\sum_{h=1}^H \\frac{N_h}{N}\\left(1-\\frac{n}{N}\\right)\\frac{S_h^2}{n} \\right] \\qquad \\text{\\small (from previous slide)} \\\\\ne^2 &= z_{\\alpha/2}^2 \\left[ \\sum_{h=1}^H \\frac{N_h}{N} \\frac{S_h^2}{n} - \\sum_{h=1}^H \\frac{N_h}{N} \\frac{n}{N} \\frac{S_h^2}{n} \\right] \\qquad \\text{\\small (expand the parentheses/FPC part)}  \\\\\ne^2 &= z_{\\alpha/2}^2 \\left[\\frac{1}{n} \\sum_{h=1}^H \\frac{N_h}{N} S_h^2  - \\frac{1}{N} \\sum_{h=1}^H \\frac{N_h}{N} S_h^2 \\right] \\qquad \\text{\\small (pulling $n$ and $N$ outside summations)} \\\\\ne^2 &= z_{\\alpha/2}^2 \\left(\\frac{S^{\\ast 2}}{n} - \\frac{S^{\\ast 2}}{N} \\right)\\quad \\red{\\text{\\small setting } S^{\\ast 2} = \\sum_{h=1}^H \\frac{N_h}{N} S_h^2 = \\text{\\small weighted average of stratum variances}} \\\\\n&= \\text{\\dots algebra to get $n$ on left side \\dots} \\\\\nn &= \\frac{z_{\\alpha/2}^2 S^{\\ast 2}}{e^2 + \\pink{\\dfrac{z_{\\alpha/2}^2 S^{\\ast 2}}{N}}} = \\frac{z_{\\alpha/2}^2 \\left(\\sum_{h=1}^H \\frac{N_h}{N}S_h^2\\right)}{e^2 + \\pink{\\dfrac{z_{\\alpha/2}^2}{N} \\left(\\sum_{h=1}^H \\frac{N_h}{N}S_h^2 \\right)}}\n\\end{aligned}\\]\nThink back to the formula for SRS – this is very simliar, but with \\(S^{\\ast 2}\\) instead of \\(S^2\\) (weighted average of stratum variances instead of overall variance)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L09_stratSampDEFF.html#example-sample-size-for-proportional-allocation",
+    "href": "PUBHBIO7225_L09_stratSampDEFF.html#example-sample-size-for-proportional-allocation",
+    "title": "Stratified Sampling:\nSample Size and DEFF",
+    "section": "Example: Sample Size for Proportional Allocation",
+    "text": "Example: Sample Size for Proportional Allocation\nIn Activity 7.1 we had a population consisting of two strata:\n\n\n\n\n\n\n\n\n\n\nStratum\nDefinition\n\\(\\mathbf{N_h}\\)\nTrue Proportion\n\\(\\mathbf{V(y)}\\) in Stratum\n\n\n\n\n1\nAge 18-64\n750,000\n\\(p_1=0.3\\)\n\\(S_1^2 = 0.21\\)\n\n\n2\nAge 65+\n250,000\n\\(p_2=0.6\\)\n\\(S_2^2 = 0.24\\)\n\n\n\nWe want to use allocation to achieve an for a 95% CI\nHow large a sample do we need?\n\nNecessary pieces:\n\n\\(e = 0.01\\) (margin of error of 1%)\n\\(z_{\\alpha/2} = 1.96\\) (b/c 95% CI)\n\\(N\\) = 1,000,000 and \\(\\frac{N_1}{N} = 0.75\\) and \\(\\frac{N_2}{N}=0.25\\)\n\\(\\displaystyle S^{\\ast 2} = \\sum_{h=1}^H \\frac{N_h}{N} S_h^2 = \\frac{N_1}{N} S_1^2 + \\frac{N_2}{N} S_2^2 = 0.75(0.21) + 0.25(0.24) = 0.2175\\)\n(weighted average of the stratum-level variances)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L09_stratSampDEFF.html#example-cont",
+    "href": "PUBHBIO7225_L09_stratSampDEFF.html#example-cont",
+    "title": "Stratified Sampling:\nSample Size and DEFF",
+    "section": "Example (con’t)",
+    "text": "Example (con’t)\n\nPlug in the pieces: \\[\\begin{flalign}\nn & = \\frac{z_{\\alpha/2}^2 S^{\\ast 2}}{e^2 + \\dfrac{z_{\\alpha/2}^2 S^{\\ast 2}}{N}} = \\frac{1.96^2 (0.2175)}{0.01^2 + \\dfrac{1.96^2 (0.2175)}{1000000}} = \\frac{0.835548}{0.0001+0.000000835548} = \\frac{0.835548}{0.0001008355} & \\\\\n& = \\mathbf{8286.2}\n\\end{flalign}\\]\n\nIf ignore 2nd piece of denominator (ignore FPC), \\(n\\) = 8355.5\n\nSplitting this total \\(n\\) between the two stratum :\n\nStratum 1: \\(n_1 = n \\times \\frac{N_1}{N} = 8286.2 \\times 0.75 = 6214.7 \\rightarrow n_1 = 6215\\)\nStratum 2: \\(n_2 = n \\times \\frac{N_2}{N} = 8286.2 \\times 0.25 = 2071.6 \\rightarrow n_2 = 2072\\)\n\nNote that both \\(n_h\\) rounded both up – this makes the total sample size \\(n = 6125 + 2072 = \\mathbf{8287}\\)\n\nWould have to check the budget to be sure this was manageable."
+  },
+  {
+    "objectID": "PUBHBIO7225_L09_stratSampDEFF.html#sample-size-estimation-for-neyman-allocation",
+    "href": "PUBHBIO7225_L09_stratSampDEFF.html#sample-size-estimation-for-neyman-allocation",
+    "title": "Stratified Sampling:\nSample Size and DEFF",
+    "section": "Sample Size Estimation for Neyman Allocation",
+    "text": "Sample Size Estimation for Neyman Allocation\n\nSame type of calculation, using the simplified version of \\(V(\\bar{y}_{str})\\) under Neyman allocation: \\[V(\\bar{y}_{str}) = \\frac{1}{n} \\left(\\sum_{h=1}^H \\frac{N_h}{N} S_h\\right)^2 - \\frac{1}{N} \\sum_{h=1}^H \\frac{N_h}{N} S_h^2\\]\nAgain, plugging into the MOE formula and solving for \\(n\\):\n\\[\\begin{aligned}\ne &= z_{\\alpha/2} \\sqrt{V(\\bar{y}_{str})} = z_{\\alpha/2} \\sqrt{\\frac{1}{n} \\left(\\sum_{h=1}^H \\frac{N_h}{N} S_h\\right)^2 - \\frac{1}{N} \\sum_{h=1}^H \\frac{N_h}{N} S_h^2} \\\\\n& \\text{...square both sides, do a bunch of algebra ...} \\\\\nn & = \\frac{z_{\\alpha/2}^2 \\left(\\sum_{h=1}^H \\frac{N_h}{N}S_h\\right)^2}{e^2 + \\dfrac{z_{\\alpha/2}^2}{N}\\left(\\sum_{h=1}^H \\frac{N_h}{N}S_h^2 \\right)} = \\frac{z_{\\alpha/2}^2 \\left(\\sum_{h=1}^H \\frac{N_h}{N}S_h\\right)^2}{e^2 + {\\dfrac{z_{\\alpha/2}^2 S^{\\ast 2}}{N}}}\n\\end{aligned}\\]\nWarning: Note the different pieces containing \\(S_h\\) in the numerator and denominator"
+  },
+  {
+    "objectID": "PUBHBIO7225_L09_stratSampDEFF.html#example-sample-size-for-neyman-allocation",
+    "href": "PUBHBIO7225_L09_stratSampDEFF.html#example-sample-size-for-neyman-allocation",
+    "title": "Stratified Sampling:\nSample Size and DEFF",
+    "section": "Example: Sample Size for Neyman Allocation",
+    "text": "Example: Sample Size for Neyman Allocation\n\nSame set-up as before:\n\n\n\n\n\n\n\n\n\n\n\nStratum\nDefinition\n\\(\\mathbf{N_h}\\)\nTrue Proportion\n\\(\\mathbf{V(y)}\\) in Stratum\n\n\n\n\n1\nAge 18-64\n750,000\n\\(p_1=0.3\\)\n\\(S_1^2 = 0.21\\)\n\n\n2\nAge 65+\n250,000\n\\(p_2=0.6\\)\n\\(S_2^2 = 0.24\\)\n\n\n\n\nNow use Neyman allocation to achieve an MOE of 1% for a 95% CI\nHow large a sample do we need?\nNecessary pieces:\n\n\\(e = 0.01\\) (margin of error of 1%)\n\\(z_{\\alpha/2} = 1.96\\) (b/c 95% CI)\n\\(N\\) = 1,000,000 and \\(\\frac{N_1}{N} = 0.75\\) and \\(\\frac{N_2}{N}=0.25\\)\n\\(S^{\\ast 2} = 0.2175\\) (weighted average of the stratum-level , as used for proportional allocation)\n\\(\\left(\\sum_{h=1}^H \\frac{N_h}{N}S_h\\right)^2 = \\left(\\frac{N_1}{N}S_1 + \\frac{N_2}{N}S_2\\right)^2 = (0.75\\sqrt{0.21} + 0.25\\sqrt{0.24})^2 = 0.4662^2 = 0.2173\\)\n(weighted average of the stratum-level , squared)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L09_stratSampDEFF.html#example-cont-1",
+    "href": "PUBHBIO7225_L09_stratSampDEFF.html#example-cont-1",
+    "title": "Stratified Sampling:\nSample Size and DEFF",
+    "section": "Example (con’t)",
+    "text": "Example (con’t)\n\nPlug in the pieces: \\[\\begin{aligned}\nn = \\frac{z_{\\alpha/2}^2 \\left(\\sum_{h=1}^H \\frac{N_h}{N}S_h\\right)^2}{e^2 + {\\dfrac{z_{\\alpha/2}^2 S^{\\ast 2}}{N}}} & = \\frac{1.96^2 (0.2173)}{0.01^2 + \\dfrac{1.96^2 (0.2175)}{1000000}} = \\frac{0.8348}{0.0001+0.000000835548} = \\mathbf{8278.9}\n\\end{aligned}\\]\nOnly very slightly smaller than proportional allocation! \\((n=8286.2)\\) – Why?\nTo determine allocation to each stratum, have to go back to allocation formula:\n\nStratum 1: \\(n_1 = n \\left( \\frac{N_1 S_1}{N_1 S_1 + N_2 S_2} \\right) = 8278.9 \\left( \\frac{750000 \\sqrt{0.21}}{750000 \\sqrt{0.21} + 250000 \\sqrt{0.24}} \\right) = 6103.8\\)\nStratum 2: \\(n_2 = n \\left( \\frac{N_2 S_2}{N_1 S_1 + N_2 S_2} \\right) = 8278.9 \\left( \\frac{250000 \\sqrt{0.24}}{750000 \\sqrt{0.21} + 250000 \\sqrt{0.24}} \\right) = 2175.1\\)\nRound to \\(n_1 = 6104\\) and \\(n_2=2175\\)\n\nCompared to proportional allocation \\((n_1 = 6215, n_2 = 2072)\\), with Neyman allocation we take more observations from the more variable stratum (\\(h=2\\), older age group, which has higher \\(S_h^2\\))"
+  },
+  {
+    "objectID": "PUBHBIO7225_L09_stratSampDEFF.html#compare-to-srs-formula",
+    "href": "PUBHBIO7225_L09_stratSampDEFF.html#compare-to-srs-formula",
+    "title": "Stratified Sampling:\nSample Size and DEFF",
+    "section": "Compare to SRS Formula",
+    "text": "Compare to SRS Formula\nUseful to step back and compare the formulae to see driver of the differences:\n\n\n\n\n\n\n\n\nSampling Method\nSample Size Formula\nSample Size Ignoring FPC\n\n\n\n\nSRS\n\\(\\displaystyle n = \\frac{z_{\\alpha/2}^2 S^2}{e^2 + \\dfrac{z_{\\alpha/2}^2 S^2}{N}}\\)\n\\(\\displaystyle n = \\frac{z_{\\alpha/2}^2 S^2}{e^2}\\)\n\n\nStratified, Proportional\n\\(\\displaystyle n = \\frac{z_{\\alpha/2}^2 \\left(\\sum_{h=1}^H \\frac{N_h}{N}S_h^2\\right)}{e^2 + \\dfrac{z_{\\alpha/2}^2}{N} \\left(\\sum_{h=1}^H \\frac{N_h}{N}S_h^2 \\right)}\\)\n\\(\\displaystyle n = \\frac{z_{\\alpha/2}^2 \\left(\\sum_{h=1}^H \\frac{N_h}{N}S_h^2\\right)}{e^2}\\)\n\n\nStratified, Neyman\n\\(\\displaystyle n = \\frac{z_{\\alpha/2}^2 \\left(\\sum_{h=1}^H \\frac{N_h}{N}S_h\\right)^2}{e^2 + \\dfrac{z_{\\alpha/2}^2}{N}\\left(\\sum_{h=1}^H \\frac{N_h}{N}S_h^2 \\right)}\\)\n\\(\\displaystyle n = \\frac{z_{\\alpha/2}^2 \\left(\\sum_{h=1}^H \\frac{N_h}{N}S_h\\right)^2}{e^2}\\)\n\n\n\nRemember that these calculations"
+  },
+  {
+    "objectID": "PUBHBIO7225_L09_stratSampDEFF.html#activity-9.1-part-2",
+    "href": "PUBHBIO7225_L09_stratSampDEFF.html#activity-9.1-part-2",
+    "title": "Stratified Sampling:\nSample Size and DEFF",
+    "section": "Activity 9.1 (Part 2)",
+    "text": "Activity 9.1 (Part 2)\nStratification: Sample Size and Design Effects (Part 1)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L09_stratSampDEFF.html#design-eﬀect-deﬀ",
+    "href": "PUBHBIO7225_L09_stratSampDEFF.html#design-eﬀect-deﬀ",
+    "title": "Stratified Sampling:\nSample Size and DEFF",
+    "section": "Design Eﬀect: deﬀ",
+    "text": "Design Eﬀect: deﬀ\n\n\\[\\text{deff}(\\text{plan, statistic}) = \\frac{V(\\text{estimator from sampling plan})}{V(\\text{estimator from SRS with same total sample size})}\\]\n\n\nSome history:\n\nCornfield (1951) – measure the eﬃciency of a sampling plan by the ratio of the variance that would be obtained from an SRS of \\(k\\) units to the variance obtained from the complex sampling plan with \\(k\\) units (article link)\nKish (1965) – turn that ratio upside-down and call it the design effect (deff)\n\nBook: Kish L (1965) Survey Sampling (link to book)\n\n\nIt may be old, but the design effect is in (constant) use today\nNote that the design effect is statistic dependent – different \\(y\\) and/or different statistic (e.g., mean vs. regression coefficient) will have diﬀerent design eﬀect for the same sampling plan"
+  },
+  {
+    "objectID": "PUBHBIO7225_L09_stratSampDEFF.html#design-eﬀect-deﬀ-1",
+    "href": "PUBHBIO7225_L09_stratSampDEFF.html#design-eﬀect-deﬀ-1",
+    "title": "Stratified Sampling:\nSample Size and DEFF",
+    "section": "Design Eﬀect: deﬀ",
+    "text": "Design Eﬀect: deﬀ\n\nIn terms of variance for that specific statistic:\n\n\\(\\text{deff} &lt; 1 \\rightarrow\\) your design is better than SRS (in terms of variance/efficiency)\n\\(\\text{deff} &gt; 1 \\rightarrow\\) your design is worsethan SRS (in terms of variance/efficiency)\n\nFor a mean under stratified sampling with proportional allocation: \\[\\begin{aligned}\n\\text{deff} = \\frac{V_{prop}(\\bar{y}_{str})}{V_{srs}(\\bar{y})} &= \\frac{\\sum_{h=1}^H \\frac{N_h}{N} \\left(1-\\frac{n}{N}\\right)\\frac{S_h^2}{n}}{\\left(1-\\frac{n}{N}\\right)\\frac{S^2}{n}} = \\frac{\\sum_{h=1}^H \\frac{N_h}{N} S_h^2}{S^2} \\\\\n& \\textcolor{red}{\\text{assuming }(N-1)/N \\approx 1} \\textcolor{red}{\\text{ and } (N_h-1)/N_h \\approx 1:}\\\\\n&= \\frac{\\sum_{h=1}^H \\frac{N_h}{N} S_h^2}{\\sum_{h=1}^H \\frac{N_h}{N} S_h^2 +\\sum_{h=1}^H \\frac{N_h}{N} (\\bar{y}_{hU}-\\bar{y}_U)^2}  \\le 1\n\\end{aligned}\\]\ndeﬀ for a stratified sample with proportional or Neyman allocation will usually be less than 1\n\nNote that other allocation methods (e.g., equal allocation) might not give deﬀ \\(&lt;1\\)\n\nOften deﬀ \\(&gt;1\\) for subgroup estimates that cross strata (domain means = subgroups that cross strata)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L09_stratSampDEFF.html#a-slightly-diﬀerent-design-eﬀect-deft",
+    "href": "PUBHBIO7225_L09_stratSampDEFF.html#a-slightly-diﬀerent-design-eﬀect-deft",
+    "title": "Stratified Sampling:\nSample Size and DEFF",
+    "section": "A Slightly Diﬀerent Design Eﬀect: deft",
+    "text": "A Slightly Diﬀerent Design Eﬀect: deft\n\nA similar design effect is sometimes used that compares the complex design to and uses instead of variances: \\[\\text{deft}(\\text{plan, statistic}) = \\frac{\\textcolor{blue}{SE}(\\text{estimator from sampling plan})}{\\textcolor{blue}{SE}(\\text{estimator from \\textcolor{red}{SRSWR} with same total sample size})}\\]\nWhen the small sampling fraction (\\(n/N\\)) is very small, then \\(\\text{deft} \\approx \\sqrt{\\text{deff}}\\)\nWhy?\n\n\n\nBecause then variance under SRS is very close to variance under SRSWR\nDesign effects are often used for estimating sample sizes for surveys:\n\nHave prior guess at the deff (e.g., from a prior survey)\nCalculate the sample size assuming SRS and multiply by deff\nOften used for complex designs involving clustering"
+  },
+  {
+    "objectID": "PUBHBIO7225_L09_stratSampDEFF.html#activity-9.1-part-2-1",
+    "href": "PUBHBIO7225_L09_stratSampDEFF.html#activity-9.1-part-2-1",
+    "title": "Stratified Sampling:\nSample Size and DEFF",
+    "section": "Activity 9.1 (Part 2)",
+    "text": "Activity 9.1 (Part 2)\nStratification: Sample Size and Design Effects (Part 2)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L09_stratSampDEFF.html#sample-size-estimation-for-proportional-allocation-1",
+    "href": "PUBHBIO7225_L09_stratSampDEFF.html#sample-size-estimation-for-proportional-allocation-1",
+    "title": "Stratified Sampling:\nSample Size and DEFF",
+    "section": "Sample Size Estimation for Proportional Allocation",
+    "text": "Sample Size Estimation for Proportional Allocation\n\nDo some painful algebraic manipulation: \\[\\begin{aligned}\ne^2 &= z_{\\alpha/2}^2 \\left[ \\sum_{h=1}^H \\frac{N_h}{N}\\left(1-\\frac{n}{N}\\right)\\frac{S_h^2}{n} \\right] = z_{\\alpha/2}^2 \\left[ \\sum_{h=1}^H \\frac{N_h}{N} \\frac{S_h^2}{n} - \\sum_{h=1}^H \\frac{N_h}{N} \\frac{n}{N} \\frac{S_h^2}{n} \\right] \\qquad \\text{\\small (expand the parentheses)}  \\\\\ne^2 &= z_{\\alpha/2}^2 \\left[\\frac{1}{n} \\sum_{h=1}^H \\frac{N_h}{N} S_h^2  - \\frac{1}{N} \\sum_{h=1}^H \\frac{N_h}{N} S_h^2 \\right] \\qquad \\text{\\small (pulling $n$ and $N$ outside summations)} \\\\\ne^2 &= z_{\\alpha/2}^2 \\left(\\frac{S^{\\ast 2}}{n} - \\frac{S^{\\ast 2}}{N} \\right)\\quad \\textcolor{red}{\\text{\\small setting } S^{\\ast 2} = \\sum_{h=1}^H \\frac{N_h}{N} S_h^2 = \\text{\\small weighted average of stratum variances}} \\\\\n& \\ldots \\text{ algebra to get $n$ on left side}\\ldots \\\\\nn &= \\frac{z_{\\alpha/2}^2 S^{\\ast 2}}{e^2 + \\dfrac{z_{\\alpha/2}^2 S^{\\ast 2}}{N}} = \\frac{z_{\\alpha/2}^2 \\left(\\sum_{h=1}^H \\frac{N_h}{N}S_h^2\\right)}{e^2 + \\dfrac{z_{\\alpha/2}^2}{N} \\left(\\sum_{h=1}^H \\frac{N_h}{N}S_h^2 \\right)}\n\\end{aligned}\\]\n\nSimilar to SRS formula – with \\(S^{\\ast 2}\\) instead of \\(S^2\\)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L09_stratSampDEFF.html#example",
+    "href": "PUBHBIO7225_L09_stratSampDEFF.html#example",
+    "title": "Stratified Sampling:\nSample Size and DEFF",
+    "section": "Example",
+    "text": "Example\n\nIn Activity 7.1 we had a population consisting of two strata:\n\n\n\n\n\n\n\n\n\n\n\nStratum\nDefinition\n\\(\\mathbf{N_h}\\)\nTrue Proportion\n\\(\\mathbf{V(y)}\\) in Stratum\n\n\n\n\n1\nAge 18-64\n750,000\n\\(p_1=0.3\\)\n\\(S_1^2 = 0.21\\)\n\n\n2\nAge 65+\n250,000\n\\(p_2=0.6\\)\n\\(S_2^2 = 0.24\\)\n\n\n\n\nWe want to use proportional allocation to achieve an MOE of 1% for a 95% CI\nHow large a sample do we need?\nNecessary pieces:\n\n\\(e = 0.01\\) (margin of error of 1%)\n\\(z_{\\alpha/2} = 1.96\\) (b/c 95% CI)\n\\(N\\) = 1,000,000 and \\(\\frac{N_1}{N} = 0.75\\) and \\(\\frac{N_2}{N}=0.25\\)\n\\(\\displaystyle S^{\\ast 2} = \\sum_{h=1}^H \\frac{N_h}{N} S_h^2 = \\frac{N_1}{N} S_1^2 + \\frac{N_2}{N} S_2^2 = 0.75(0.21) + 0.25(0.24) = 0.2175\\)\n(weighted average of the stratum-level variances)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L09_stratSampDEFF.html#example-1",
+    "href": "PUBHBIO7225_L09_stratSampDEFF.html#example-1",
+    "title": "Stratified Sampling:\nSample Size and DEFF",
+    "section": "Example",
+    "text": "Example\n\nSame set-up as before:\n\n\n\n\n\n\n\n\n\n\n\nStratum\nDefinition\n\\(\\mathbf{N_h}\\)\nTrue Proportion\n\\(\\mathbf{V(y)}\\) in Stratum\n\n\n\n\n1\nAge 18-64\n750,000\n\\(p_1=0.3\\)\n\\(S_1^2 = 0.21\\)\n\n\n2\nAge 65+\n250,000\n\\(p_2=0.6\\)\n\\(S_2^2 = 0.24\\)\n\n\n\n\nNow use Neyman allocation to achieve an MOE of 1% for a 95% CI\nHow large a sample do we need?\nNecessary pieces:\n\n\\(e = 0.01\\) (margin of error of 1%)\n\\(z_{\\alpha/2} = 1.96\\) (b/c 95% CI)\n\\(N\\) = 1,000,000 and \\(\\frac{N_1}{N} = 0.75\\) and \\(\\frac{N_2}{N}=0.25\\)\n\\(S^{\\ast 2} = 0.2175\\) (weighted average of the stratum-level variances, as used for proportional allocation)\n\\(\\left(\\sum_{h=1}^H \\frac{N_h}{N}S_h\\right)^2 = \\left(\\frac{N_1}{N}S_1 + \\frac{N_2}{N}S_2\\right)^2 = (0.75\\sqrt{0.21} + 0.25\\sqrt{0.24})^2 = 0.4662^2 = 0.2173\\)\n(weighted average of the stratum-level standard deviations, squared)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L09_stratSampDEFF.html#compare-to-srs",
+    "href": "PUBHBIO7225_L09_stratSampDEFF.html#compare-to-srs",
+    "title": "Stratified Sampling:\nSample Size and DEFF",
+    "section": "Compare to SRS",
+    "text": "Compare to SRS\nUseful to step back and compare the formulae to see driver of the differences:\n\n\n\n\n\n\n\n\nSampling Method\nSample Size Formula\nSample Size Ignoring FPC\n\n\n\n\nSRS\n\\(\\displaystyle n = \\frac{z_{\\alpha/2}^2 S^2}{e^2 + \\dfrac{z_{\\alpha/2}^2 S^2}{N}}\\)\n\\(\\displaystyle n = \\frac{z_{\\alpha/2}^2 S^2}{e^2}\\)\n\n\nStratified, Proportional\n\\(\\displaystyle n = \\frac{z_{\\alpha/2}^2 \\left(\\sum_{h=1}^H \\frac{N_h}{N}S_h^2\\right)}{e^2 + \\dfrac{z_{\\alpha/2}^2}{N} \\left(\\sum_{h=1}^H \\frac{N_h}{N}S_h^2 \\right)}\\)\n\\(\\displaystyle n = \\frac{z_{\\alpha/2}^2 \\left(\\sum_{h=1}^H \\frac{N_h}{N}S_h^2\\right)}{e^2}\\)\n\n\nStratified, Neyman\n\\(\\displaystyle n = \\frac{z_{\\alpha/2}^2 \\left(\\sum_{h=1}^H \\frac{N_h}{N}S_h\\right)^2}{e^2 + \\dfrac{z_{\\alpha/2}^2}{N}\\left(\\sum_{h=1}^H \\frac{N_h}{N}S_h^2 \\right)}\\)\n\\(\\displaystyle n = \\frac{z_{\\alpha/2}^2 \\left(\\sum_{h=1}^H \\frac{N_h}{N}S_h\\right)^2}{e^2}\\)\n\n\n\nRemember that these calculations all require some estimate/guess of variance(s)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L10_poststrat.html#outline",
+    "href": "PUBHBIO7225_L10_poststrat.html#outline",
+    "title": "Poststratification",
+    "section": "Outline",
+    "text": "Outline\n\n\nTopics\n\nAdjusting Survey Weights via: - Poststratification - Raking\n\n\nActivities\n\n9.1 Poststratification\n\n\n\nAssignments\n\nProblem Set 3 due Thursday 9/25/25 11:59pm via Carmen"
+  },
+  {
+    "objectID": "PUBHBIO7225_L10_poststrat.html#limitation-of-stratification-at-the-design-stage",
+    "href": "PUBHBIO7225_L10_poststrat.html#limitation-of-stratification-at-the-design-stage",
+    "title": "Poststratification",
+    "section": "Limitation of Stratification at the Design Stage",
+    "text": "Limitation of Stratification at the Design Stage\n\nTo use a variable for stratification at the design stage, you must know the value of that variable for all units in the population before you conduct the survey\n\nIn other words, stratification variables must be available on the sampling frame\n\nFor some surveys, frame data may be quite limited (especially phone surveys)\nExample: Ohio Medicaid Assessment Survey (OMAS) 2017\n\nPhone survey – only geography was available for stratification\nCan estimate population-level characteristics (e.g., total number of white people who live in Ohio)\nBut, we might know the true population totals for these characteristics (e.g., true number of white Ohioans) from another source\nSuppose we get an estimate from the data of \\(\\hat{t}_{str} = 8,320,817\\) white Ohioans\nWe know the “true” number of white Ohioans is \\(t= 7,164,904\\)\n(from American Community Survey 5-year estimates)\n\nHow can we reconcile this? Seems like we oversampled white people. . ."
+  },
+  {
+    "objectID": "PUBHBIO7225_L10_poststrat.html#example-srs-of-osu-students",
+    "href": "PUBHBIO7225_L10_poststrat.html#example-srs-of-osu-students",
+    "title": "Poststratification",
+    "section": "Example: SRS of OSU Students",
+    "text": "Example: SRS of OSU Students\n\nYou are interested in student perception of campus culture at OSU (Columbus Campus)\nThere are \\(N=60{,}540\\) students on the Columbus campus\nYou have access to a sampling frame that contains email addresses, but no additional information on the students (i.e., rank, gender, etc.)\nThus, you take a simple random sample of \\(n=100\\) students and send them a survey (cannot stratify on anything b/c your sampling frame doesn’t contain anything useful)\nProbability of selection and sample weight for each of the \\(n=100\\) students sampled:\n\nProbability of selection: \\(\\pi_i =\\)\nSampling weight: \\(w_i = 1/\\pi_i =\\)\n\nMiraculously, everyone replies (we will get to nonresponse later!)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L10_poststrat.html#example-srs-of-osu-students-cont",
+    "href": "PUBHBIO7225_L10_poststrat.html#example-srs-of-osu-students-cont",
+    "title": "Poststratification",
+    "section": "Example: SRS of OSU Students (con’t)",
+    "text": "Example: SRS of OSU Students (con’t)\n\nOn the survey you ask questions about:\n\nLevel: Undergraduate, Graduate, Professional\nResidency: From Ohio, Not from Ohio\n\nYour sample has 67 undergrads, 23 grad students, 10 professional students\nSince an SRS, unweighted proportions are the same as weighted\nResulting estimates: 67% undergrads, 23% grad students, 10% professional students"
+  },
+  {
+    "objectID": "PUBHBIO7225_L10_poststrat.html#example-srs-of-osu-students-cont-1",
+    "href": "PUBHBIO7225_L10_poststrat.html#example-srs-of-osu-students-cont-1",
+    "title": "Poststratification",
+    "section": "Example: SRS of OSU Students (con’t)",
+    "text": "Example: SRS of OSU Students (con’t)\nBut, you know from the OSU Statistical Summary that there are 46,123 undergraduates, 11,198 graduate students, and 3,219 professional students (https://www.osu.edu/osutoday/stuinfo.php) (2022-2023 data)\nComparing the proportions:\n\n\n\n\n\n\n\n\n\n\n\n\nSample\n\n\nPopulation\n\n\n\n\n\n2-3\nCount\nProportion\n\nCount\nProportion\n\n\nUndergraduate\n67\n0.67\n\n46,123\n46,123/60,540 = 0.762\n\n\nGraduate\n23\n0.23\n\n11,198\n11,198/60,540 = 0.185\n\n\nProfessional\n10\n0.10\n\n3,219\n3,219/60,540 = 0.053\n\n\nTotal\n100\n\n\n60,540\n\n\n\n\nIt seems that grad students and professional students are over-represented in your sample, and undergrads are under-represented\nWhat can you do about this?"
+  },
+  {
+    "objectID": "PUBHBIO7225_L10_poststrat.html#post-survey-weight-adjustments-poststratification",
+    "href": "PUBHBIO7225_L10_poststrat.html#post-survey-weight-adjustments-poststratification",
+    "title": "Poststratification",
+    "section": "Post-Survey Weight Adjustments: Poststratification",
+    "text": "Post-Survey Weight Adjustments: Poststratification\nEach student in your sample had a weight of \\(w_i = N/n = 60{,}540/100 = 605.4\\)\nThus, our estimates of the population size in each group :\n\n\n\n\n\n\n\n\n\n\nGroup\n# in sample\nWeight \\(\\bm{(w_i)}\\)\nEstimated Total Number\nTrue Total\n\n\n\n\nUndergrads\n67\n605.4\n67 \\(\\times\\) 605.4 = 40,561.8\n46,123\n\n\nGrads\n23\n605.4\n23 \\(\\times\\) 605.4 = 13,924.2\n11,198\n\n\nProfs\n10\n605.4\n10 \\(\\times\\) 605.4 = 6,054\n3,219\n\n\n\nBut, we can do something about this!\nWe can so that\nWe want to down-weight grad students and professionals and up-weight undergrads\nThis is called\n\nDivide sampled units into subgroups (post-strata) based on characteristics\n\nis assumed to be\nAdjust sample weights within each post-stratum so that counts\nequal the counts\nAll units within a subgroup have the same adjustment made\n(e.g., all up-weighted or down-weighted similarly)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L10_poststrat.html#adjusting-the-weights-for-the-srs-of-osu-students",
+    "href": "PUBHBIO7225_L10_poststrat.html#adjusting-the-weights-for-the-srs-of-osu-students",
+    "title": "Poststratification",
+    "section": "Adjusting the Weights for the SRS of OSU Students",
+    "text": "Adjusting the Weights for the SRS of OSU Students\n\n\n\n\n\n\n\n\n\n\nGroup\n# in sample\nWeight \\(\\bm{(w_i)}\\)\nEstimated Total Number\nTrue Total\n\n\n\n\nUndergrads\n67\n605.4\n67 \\(\\times\\) 605.4 = 40,561.8\n46,123\n\n\nGrads\n23\n605.4\n23 \\(\\times\\) 605.4 = 13,924.2\n11,198\n\n\nProfs\n10\n605.4\n10 \\(\\times\\) 605.4 = 6,054\n3,219\n\n\n\nStart with the undergrads – what should the weight be for the 67 undergrads if you want to end up with the true population count as your estimate? (How many units should each of the 67 UGs “represent”?)\nWhat about the grad students and the professional students?\n#@ Poststratification\nShould remind you of stratified sampling – different weight in each (post)stratum – but now the \\(n_h\\) are not fixed in advance – so we have added variability\nAll weights within a post-stratum are increased/decreased proportionately so that the sum of post-stratified weights equals the known population total\nFor unit \\(j\\) in post-stratum \\(h\\): \\[\\begin{aligned}\n\\text{\\blue{Poststratified weight}} &= \\text{\\red{original weight}} \\times \\text{\\purple{adjustment factor}} & \\\\\n\\blue{w_{hj}^{PS}} &= \\red{w_{hj}} \\times \\purple{\\frac{\\text{Population total in post-stratum}~h}{\\text{Estimated total in post-stratum}~h}} \\\\\n& = \\red{w_{hj}} \\times \\purple{\\frac{N_h}{\\widehat{N}_h}}\n\\end{aligned}\\]\nPost-stratification aligns the representation of the poststratification variable(s) to match that of the population\nYou can poststratify on multiple variables but you must know the population totals in the crosstabulation of the variables (e.g., level-by-residency: Undergraduates from Ohio; Undergraduates Not from Ohio; Grad students from Ohio; etc.)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L10_poststrat.html#poststratification-of-the-srs-of-osu-students",
+    "href": "PUBHBIO7225_L10_poststrat.html#poststratification-of-the-srs-of-osu-students",
+    "title": "Poststratification",
+    "section": "Poststratification of the SRS of OSU Students",
+    "text": "Poststratification of the SRS of OSU Students\n\n\n\n\n\n\n\n\n\n\n\n\n\nOrig. Weight\nEst. Total\nTrue Total\nPoststratified Weight\n\n\nPost-stratum\n\\(n_h\\)\n\\(w_{hj}\\)\n\\(\\widehat{N}_h\\)\n\\(N_h\\)\n\\(w_{hj}^{PS} = w_{hj} \\times \\frac{N_h}{\\widehat{N}_h}\\)\n\n\nUndergrad\n\\(67\\)\n\\(605.4\\)\n\\(40561.8\\)\n\\(46123\\)\n\\(605.4 \\times \\frac{46123}{40561.8} = 688.40\\)\n\n\nGrad\n\\(23\\)\n\\(605.4\\)\n\\(13924.2\\)\n\\(11198\\)\n\\(605.4 \\times \\frac{11198}{13924.2} = 486.87\\)\n\n\nProfessional\n\\(10\\)\n\\(605.4\\)\n\\(6054\\)\n\\(3219\\)\n\\(605.4 \\times \\frac{3219}{6054} = 321.9\\)\n\n\n\nNotice that the weights went for undergrads, for grad and professional\nThese new weights, \\(w_{hj}^{PS}\\), then replace the original weights, \\(w_{hj}\\) for all calculations\nThis effectively creates a \\(\\rightarrow\\) use\nOverall mean: \\(\\displaystyle \\ybar_{PS} = \\sum_{h=1}^H \\frac{N_h}{N} \\ybar_h\\)\nOverall proportion: \\(\\displaystyle \\phat_{PS} = \\sum_{h=1}^H \\frac{N_h}{N} \\phat_h\\)\nOverall total: \\(\\displaystyle \\that_{PS} = \\sum_{h=1}^H \\that_h= \\sum_{h=1}^H N_h \\ybar_h\\)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L10_poststrat.html#poststratification-of-the-srs-of-osu-students-cont",
+    "href": "PUBHBIO7225_L10_poststrat.html#poststratification-of-the-srs-of-osu-students-cont",
+    "title": "Poststratification",
+    "section": "Poststratification of the SRS of OSU Students (con’t)",
+    "text": "Poststratification of the SRS of OSU Students (con’t)\nFor example, estimating the proportion of students from Ohio:\n\n\n\n\n\n\n\n\nPost-stratum\nSample Proportion from Ohio \\(\\bm{(\\hat{p}_h)}\\)\nStratum Size \\(\\bm{(N_h)}\\)\n\n\n\n\nUndergrad \\((h=1)\\)\n49/67 = 0.7313\n46123\n\n\nGrad \\((h=2)\\)\n14/23 = 0.6087\n11198\n\n\nProfessional \\((h=3)\\)\n4/10 = 0.4\n3219\n\n\nTotal\n67/100 = 0.67\n60540\n\n\n\nestimate of overall proportion from Ohio: \\(\\phat = 0.67\\)\nestimate of overall proportion from Ohio: \\[\\begin{aligned}\n\\phat_{PS} &= \\sum_{h=1}^H \\frac{N_h}{N} \\phat_h = \\frac{N_1}{N} \\phat_1 + \\frac{N_1}{N} \\phat_1 + \\frac{N_3}{N} \\phat_3 & \\\\\n&= \\frac{46123}{60540} \\times 0.7313 + \\frac{11198}{60540} \\times 0.6087 + \\frac{3219}{60540} \\times 0.4 \\\\\n&= 0.762 \\times 0.7313 + 0.185 \\times 0.6087 + 0.053 \\times 0.4 \\\\\n&= 0.691\n\\end{aligned}\\]\nSlightly higher than the original estimate of 67% – undergrads were in the sample, and they are actually the – so the poststratified estimate is"
+  },
+  {
+    "objectID": "PUBHBIO7225_L10_poststrat.html#poststratification-of-the-srs-of-osu-students-cont-1",
+    "href": "PUBHBIO7225_L10_poststrat.html#poststratification-of-the-srs-of-osu-students-cont-1",
+    "title": "Poststratification",
+    "section": "Poststratification of the SRS of OSU Students (con’t)",
+    "text": "Poststratification of the SRS of OSU Students (con’t)\nNote that you can also just apply the sample weights directly:\nLet \\(y_i = \\begin{cases} 1 & \\text{person $i$ is from Ohio} \\\\ 0 & \\text{person $i$ is NOT from Ohio} \\end{cases}\\)\nPoststratified weights are \\(w_i^{PS} = \\begin{cases} 688.40 & \\text{Undergrad (stratum 1)} \\\\ 486.87 & \\text{Grad (stratum 2)} \\\\ 321.9 & \\text{Professional (stratum 3)} \\end{cases}\\) \\[\\begin{aligned}\n\\that_{PS} = \\sum_{i \\in S} w_i^{PS} y_i &= \\sum_{h = 1}^{3} \\sum_{j \\in S_h} w_{hj}^{PS} y_{hj} & \\\\\n&= \\underbrace{\\sum_{j \\in S_1} 688.40 \\times y_{1j}}_{\\text{stratum 1}} + \\underbrace{\\sum_{j \\in S_2} 486.87 \\times y_{2j}}_{\\text{stratum 2}} + \\underbrace{\\sum_{j \\in S_3} 321.9 \\times y_{3j}}_{\\text{stratum 3}} \\\\\n&= 688.40 \\times \\underbrace{\\sum_{j \\in S_1} y_{1j}}_{\\text{\\# from OH}} + 486.87 \\times \\underbrace{\\sum_{j \\in S_2} y_{2j}}_{\\text{\\# from OH}} + 321.9 \\times \\underbrace{\\sum_{j \\in S_3} y_{3j}}_{\\text{\\# from OH}}\\\\\n& = 688.40 \\times 49 + 486.87 \\times 14 + 321.9 \\times 4 = 41835.38\n\\end{aligned}\\] Thus \\(\\phat_{PS} = \\frac{\\that_{PS}}{N} = \\frac{41835.38}{60540} = 0.691\\) (same answer)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L10_poststrat.html#why-does-poststratification-work-the-theory",
+    "href": "PUBHBIO7225_L10_poststrat.html#why-does-poststratification-work-the-theory",
+    "title": "Poststratification",
+    "section": "Why Does Poststratification Work?: The Theory",
+    "text": "Why Does Poststratification Work?: The Theory\nUnlike stratification at the design stage, the \\(n_h\\) in poststrata\nTake a different SRS and the number in each poststrata will be different\n(unlike fixed sizes of design strata)\nBut – the poststratified mean estimate is still an estimator for the true mean \\[\\begin{aligned}\nE[\\ybar_{PS}] &= E\\left[\\sum_{h=1}^H \\frac{N_h}{N} \\ybar_h \\right] \\\\& = E\\left[ E\\left(\\sum_{h=1}^H \\frac{N_h}{N} \\ybar_h \\bigg\\vert n_1, n_2, \\dots, n_h \\right) \\right]   \\qquad \\text{\\small (condition on fixed poststratum sizes)} \\\\\n&= E\\left[ \\sum_{h=1}^H \\frac{N_h}{N} E\\left( \\ybar_h \\bigg\\vert n_1, n_2, \\dots, n_h \\right) \\right]\\\\\n&= E\\left[ \\sum_{h=1}^H \\frac{N_h}{N} \\ybar_{hU} \\right] = \\ybar_U\n\\end{aligned}\\]\nSo why would we ever stratify at the design stage?\nTechnically, the variance of \\(\\ybar_{PS}\\) is larger than \\(\\ybar_{str}\\) because the \\(n_h\\) are random\nAlso, guard against a fluke “bad sample”"
+  },
+  {
+    "objectID": "PUBHBIO7225_L10_poststrat.html#variance-estimation-after-poststratification-of-an-srs",
+    "href": "PUBHBIO7225_L10_poststrat.html#variance-estimation-after-poststratification-of-an-srs",
+    "title": "Poststratification",
+    "section": "Variance Estimation after Poststratification (of an SRS)",
+    "text": "Variance Estimation after Poststratification (of an SRS)\nIf the strata are fixed at the design stage (\\(n_h\\) are fixed), we have the usual formula:\n\\(\\displaystyle V(\\ybarstr) = \\sum_{h=1}^H \\left(\\frac{N_h}{N}\\right)^2  \\fpchpar \\frac{S_h^2}{n_h}\\)\nWith poststratification, \\(n_h\\) are random variables and we can do some trickery to get: \\[\\begin{aligned}\nV(\\ybar_{PS}) &= E[ V(\\ybarstr | n_1, n_2, \\dots, n_h)] + V[ E(\\ybarstr | n_1, n_2, \\dots, n_h)] & \\\\\n&= E\\left[ \\sum_{h=1}^H \\left(\\frac{N_h}{N}\\right)^2  \\fpchpar \\frac{S_h^2}{n_h}\\right] + \\underbrace{V(\\ybar_U)}_{\\text{\\small (= 0)}} \\\\\n&= E\\left[\\sum_{h=1}^H \\left(\\frac{N_h}{N}\\right)^2  \\frac{S_h^2}{n_h} - \\sum_{h=1}^H \\left(\\frac{N_h}{N}\\right)^2  \\frac{S_h^2}{N_h}\\right]\\\\\n&= \\sum_{h=1}^H \\left(\\frac{N_h}{N}\\right)^2 S_h^2 E\\left(\\frac{1}{n_h}\\right) - \\sum_{h=1}^H \\left(\\frac{N_h}{N}\\right)^2  \\frac{S_h^2}{N_h}  \\quad (\\text{\\small only random variable is }n_h)\\\\\n&= \\dots \\text{using an approximation for } E(1/n_h) \\text{ and some algebra}\\dots \\\\\n&\\approx \\underbrace{\\sum_{h=1}^H \\frac{N_h}{N}\\fpcpar\\frac{S_h^2}{n}}_{\\text{variance under proportional allocation!}} + \\underbrace{\\sum_{h=1}^H \\left(1-\\frac{N_h}{N} \\right) \\frac{S_h^2}{n^2}}_{\\text{extra variability due to $n_h$ being random}}\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "PUBHBIO7225_L10_poststrat.html#variance-estimation-cont",
+    "href": "PUBHBIO7225_L10_poststrat.html#variance-estimation-cont",
+    "title": "Poststratification",
+    "section": "Variance Estimation (con’t)",
+    "text": "Variance Estimation (con’t)\n\\(\\displaystyle V(\\ybar_{PS}) = \\red{\\sum_{h=1}^H \\frac{N_h}{N}\\fpcpar\\frac{S_h^2}{n}} + \\blue{\\sum_{h=1}^H \\left(1-\\frac{N_h}{N} \\right) \\frac{S_h^2}{n^2}}\\)\nNotice that the is of order \\(n^{-2}\\) (\\(n^2\\) in denominator)\nUsually the 2nd term is really small compared to the first term\nThus, variance of the poststratified mean (of an SRS) is usually effectively the same as variance of the stratified mean under proportional allocation!\nThis holds as long as the total sample size \\(n\\) is “large” (and it is in most surveys)\nPoststratification (or other related weight adjustment methods) are in household surveys\n\nDon’t have demographic info on the frame (example: OMAS)\nDo have access to population counts of people based on demographics such as age/race groups from the Census or other source\nThus, use age and race (cross-classified) to post-stratify\n\nImportantly – poststratification can be used with complex survey designs\n(not just SRS)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L10_poststrat.html#activity-9.1",
+    "href": "PUBHBIO7225_L10_poststrat.html#activity-9.1",
+    "title": "Poststratification",
+    "section": "Activity 9.1",
+    "text": "Activity 9.1\nPoststratification"
+  },
+  {
+    "objectID": "PUBHBIO7225_L10_poststrat.html#post-survey-weight-adjustments-raking",
+    "href": "PUBHBIO7225_L10_poststrat.html#post-survey-weight-adjustments-raking",
+    "title": "Poststratification",
+    "section": "Post-Survey Weight Adjustments: Raking",
+    "text": "Post-Survey Weight Adjustments: Raking\nOften we can get the population totals for a set of variables – age, race, etc. – but only know the\nIn other words, we know the number in each age group, and the number in each race group, but not in groups formed by crossing age and race (e.g., 18-25 year old white individuals, 18-25 year old Black individuals, etc.)\nIn this case, a method called can be used to adjust the weights to achieve the correct (true) marginal totals\n(You may see raking also referred to as “iterative proportional fitting”)\nIn you iteratively adjust the sample weights to match each set of marginal totals, going back and forth between margins (variables) until convergence (until all margins “match” the truth)\nThis is easiest seen in an example…"
+  },
+  {
+    "objectID": "PUBHBIO7225_L10_poststrat.html#raking-for-the-srs-of-osu-students",
+    "href": "PUBHBIO7225_L10_poststrat.html#raking-for-the-srs-of-osu-students",
+    "title": "Poststratification",
+    "section": "Raking for the SRS of OSU Students",
+    "text": "Raking for the SRS of OSU Students\nSuppose I only know the marginal totals for level and residency:\nMargins:\n\n\n\n\n\nResidency\n\n\n\n\nLevel\nOH\nNon-OH\nTotal\n\n\nUndergrad\n?\n?\n46,123\n\n\nGrad\n?\n?\n11,198\n\n\nProfessional\n?\n?\n3,219\n\n\nTotal\n41,978\n18,562\n60,540\n\n\n\nSample Data:\n\n\n\n\n\nResidency\n\n\n\n\nLevel\nOH\nNon-OH\nTotal\n\n\nUndergrad\n49\n18\n67\n\n\nGrad\n14\n9\n23\n\n\nProfessional\n4\n5\n10\n\n\nTotal\n67\n33\n100\n\n\n\n\nStart with the row variable (level), and adjust the sample weights via poststratification\n\nSame as when we poststratified by level – new weights for each level\n(undergrad: \\(w_i\\) = 688.40; grad: \\(w_i\\) = 486.87; professional: \\(w_i\\) = 321.9)\n\nNow totals for level are right – but totals for the other variable (residency) are not\n\nExample: Sum of weights for OH residency = \\(49\\times 688.40 + 14 \\times 486.87 + 4 \\times 321.9\\) = 41,835.38 – but should be 41,978\n\nSo, adjust the weights via poststratification using the other variable (residency)\n\nExample: For OH resident, multiply the (previously adjusted) weight times 41,978/41,835.38 (true total/estimated total)\n\nBut now the totals for the first variable (level) are wrong…so go back and adjust with those margins\nRepeat until weights don’t change (and marginal totals are correct!)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L10_poststrat.html#raking-for-the-srs-of-osu-students-cont",
+    "href": "PUBHBIO7225_L10_poststrat.html#raking-for-the-srs-of-osu-students-cont",
+    "title": "Poststratification",
+    "section": "Raking for the SRS of OSU Students (con’t)",
+    "text": "Raking for the SRS of OSU Students (con’t)\nResulting survey weights for the SRS of OSU students:\n\n\n\n\n\n\n\n\n\nGroup\nSample Count\nOriginal Weight\nRaked Weight\n\n\n\n\nUndergrad / Ohio\n49\n605.4\n690.5096\n\n\nGrad / Ohio\n14\n605.4\n489.04263\n\n\nProfessional / Ohio\n4\n605.4\n324.10825\n\n\nUndergrad / Not Ohio\n18\n605.4\n682.66836\n\n\nGrad / Not Ohio\n9\n605.4\n483.4892\n\n\nProfessional / Not Ohio\n6\n605.4\n320.42777\n\n\n\nNotice that now we will get the !\nE.g.,\nNumber of students from Ohio\n= \\(49 \\times 690.5096 + 14 \\times 489.04263 + 4 \\times 324.10825 = 41{,}978\\) \\(\\checkmark\\)\nNumber of undergrads\n= \\(49 \\times 690.5096 + 18 \\times 682.66836 = 46{,}123\\) \\(\\checkmark\\)\nBut, we are not guaranteed to get the correct level-by-residency totals\nE.g., estimated number of undergrads from Ohio = \\(49 \\times 690.5096 = 33,834.97\\)\nTruth might not be exactly this number…"
+  },
+  {
+    "objectID": "PUBHBIO7225_L10_poststrat.html#raking-some-properties",
+    "href": "PUBHBIO7225_L10_poststrat.html#raking-some-properties",
+    "title": "Poststratification",
+    "section": "Raking – Some Properties",
+    "text": "Raking – Some Properties\nPros\n\nCan be done with more than two variables\nDoes not always converge…diagnostics are often used to make sure adjustments are not too severe\nUsed extensively in U.S. household surveys where Census or other source can provide high quality totals\nUsed even when totals are not technically “known” but rather estimated with high precision – and with higher precision than fully crossed cells (e.g., level-by-residency) that would be needed for poststratification\n\nCon\n\nCan cause inflation of variances if variables used for poststratification are not related to the survey outcomes of interest\n\nJust like you want to stratify on variable(s) related to your key survey outcomes, you also want to poststratify or rake to variable(s) related to your key survey outcomes\n\n\nImportantly – raking can be used with complex survey designs (not just SRS)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L10_poststrat.html#caveats-for-post-survey-weight-adjustments",
+    "href": "PUBHBIO7225_L10_poststrat.html#caveats-for-post-survey-weight-adjustments",
+    "title": "Poststratification",
+    "section": "Caveats for Post-Survey Weight Adjustments",
+    "text": "Caveats for Post-Survey Weight Adjustments\n\nTheoretically, could use a lot of variables for poststratification and raking\n\nProblem: Resulting poststrata can end up with small estimated total counts \\((\\widehat{N}_h)\\), which can make the weights highly variable and unstable\n\nOptions:\n\nCollapse categories in the variable(s) used for poststratification/raking (ad hoc solution)\nUse a model-based method that can handle more poststrata/raking variables and ensure groupings are not too small or weight adjustments are not too extreme\n\nExample: OMAS uses something called a Generalized Exponential Model (GEM) to simultaneously adjust the weights to a large set of auxiliary variables – basically, super-charged raking that sets bounds on how much weights can be changed\n\n\nPoststratification and raking are also commonly used for nonresponse adjustment and to adjust for undercoverage, so we will come back to them later in the course\nBoth poststratification and raking fall under an umbrella method called weight calibration – you may see this terminology used to describe your chosen group project surveys"
+  },
+  {
+    "objectID": "probabilityReview.html",
+    "href": "probabilityReview.html",
+    "title": "Probability Rules (relevant to Probability Sampling)",
+    "section": "",
+    "text": "For some of you, this material may be less familiar (depending on which prerequisite courses you took). I will demonstrate what is necessary for this class (and please ask Qs!)."
+  },
+  {
+    "objectID": "probabilityReview.html#events-and-sample-space",
+    "href": "probabilityReview.html#events-and-sample-space",
+    "title": "Probability Rules (relevant to Probability Sampling)",
+    "section": "Events and Sample Space",
+    "text": "Events and Sample Space\n\nEvent = an outcome of interest\n\nUsually denoted with a capital letter near the beginning of the alphabet, like A or B\nExamples:\n\nA = randomly selected person is left-handed\nB = randomly selected person likes pineapple on pizza\n\n\nSample space = collection of all possible events\n\nUsually denoted with a capital Greek letter omega: \\(\\Omega\\)\nExamples:\n\n{Left-handed, Right-handed, Ambidextrous}\n{Likes pineapple on pizza, Doesn’t like pineapple on pizza}\n\n\nEach outcome/event is associated with a probability, think of this as a long-run frequency of the outcome/event occurring.\n\n\\(P(A)\\) = probability that event A occurs\n\\(P(A \\text{ and } B) = P(A \\cap B)\\) = probability that events A and B both occur = Intersection\n\\(P(A \\text{ or } B) = P(A \\cup B)\\) = probability that either A or B (or both) occur = Union"
+  },
+  {
+    "objectID": "probabilityReview.html#basic-probability-properties",
+    "href": "probabilityReview.html#basic-probability-properties",
+    "title": "Probability Rules (relevant to Probability Sampling)",
+    "section": "Basic Probability Properties",
+    "text": "Basic Probability Properties\n\n\\(P(\\Omega)=1\\) (something in the sample space must happen)\nFor any event \\(A\\), \\(0 \\le P(A) \\le 1\\) (probabilities are between 0 and 1, inclusive)\nIf \\(A\\) and \\(B\\) are disjoint, then \\(P(A \\text{ or } B) = P(A \\cup B) = P(A)+P(B)\\)\n(the probability of the union of two disjoint events is the sum of their probabilities)\n\nExample: \\(\\Omega\\) = {Left-handed, Right-handed, Ambidextrous}\n\nThe probability that a randomly selected person is either left-handed, right-handed, or ambidextrous is 1 (no other possibilities!)\n\\(P(\\)left-handed\\()\\) must be between 0 and 1 (also true for right-handed, ambidextrous)\nAssuming a person cannot be both left-handed and ambidextrous (events are disjoint),\n\\(P(\\)left-handed OR ambidextrous\\() = P(\\)left-handed\\() + P(\\)ambidextrous\\()\\)"
+  },
+  {
+    "objectID": "probabilityReview.html#additional-useful-probability-rules",
+    "href": "probabilityReview.html#additional-useful-probability-rules",
+    "title": "Probability Rules (relevant to Probability Sampling)",
+    "section": "Additional Useful Probability Rules",
+    "text": "Additional Useful Probability Rules\n\nMultiplication rule for independent events: If \\(A\\) and \\(B\\) are independent, \\(P(A \\text{ and } B) = P(A \\cap B) = P(A)\\times P(B)\\)\nAddition rule: \\(P(A \\text{ or } B) = P(A \\cup B) = P(A) + P(B) - P(A \\cap B)\\)\n\nComplements: \\(P(\\text{not }A) = P(A^C) = 1 - P(A)\\)"
+  },
+  {
+    "objectID": "probabilityReview.html#conditional-probability",
+    "href": "probabilityReview.html#conditional-probability",
+    "title": "Probability Rules (relevant to Probability Sampling)",
+    "section": "Conditional Probability",
+    "text": "Conditional Probability\n\nConditional probabilities arise when we know something that reduces the sample space. In this case we can rescale probabilities to fit the new smaller sample space.\n\\(P(A|B)\\) = probability that event A occurs given that event B occurs\nUseful properties\n\n\\(P(A \\text{ and } B) = P(A \\cap B) = P(A|B) \\times P(B) = P(B|A) \\times P(A)\\)\nIf the events \\(A\\) and \\(B\\) are independent, \\(P(A|B) = P(A)\\)\n(knowing something about B doesn’t tell you anything about A when A and B are independent)\n\n\nExample:\n\nA = randomly selected person is left-handed\nB = randomly selected person likes pineapple on pizza\n\n\\(P(A|B) = P(\\)left-handed \\(|\\) likes pineapple on pizza\\()\\) = given that a randomly selected person likes pineapple on pizza, the probability that they are left-handed\n\\(P(A \\cap B) = P(\\)left-handed AND likes pineapple on pizza\\()\\)\n\\(=P(A|B) \\times P(B)\\)\n\\(= P(\\)left-handed \\(|\\) likes pineapple on pizza\\() \\times P(\\)likes pineapple on pizza\\()\\)\n\\(= P(\\)likes pineapple on pizza \\(|\\) left-handed\\() \\times P(\\)left-handed\\()\\)\nIf liking pineapple on pizza is independent of being left-handed,\n\\(P(\\)left-handed AND likes pineapple on pizza\\()= P(\\)left-handed\\() \\times P(\\)likes pineapple on pizza\\()\\)"
+  },
+  {
+    "objectID": "probabilityReview.html#law-of-total-probability",
+    "href": "probabilityReview.html#law-of-total-probability",
+    "title": "Probability Rules (relevant to Probability Sampling)",
+    "section": "Law of Total Probability",
+    "text": "Law of Total Probability\n\nLaw of Total Probability:\n\\[\\begin{align}\n        P(B) &= P(B \\cap A) + P(B \\cap A^C) \\\\\n        &= P(B|A) \\times P(A) + P(B|A^C) \\times P(A^C)\n\n\\end{align}\\]\n\n\n\nimage\n\n\nThe area in the circle is equal to the part of the circle that overlaps with \\(A\\) plus the part of the circle that overlaps with \\(A^C\\)\n\nExample:\n\nA = randomly selected person is left-handed\n\nB = randomly selected person likes pineapple on pizza\n\n\\(P(B) = P(\\)likes pineapple on pizza\\()\\)\n\\(=P(B \\cap A) + P(B \\cap A^C)\\)\n\\(= P(\\)likes pineapple AND left-handed\\() + P(\\)likes pineapple AND not left-handed\\()\\)\n\\(=P(B|A) \\times P(A) + P(B|A^C) \\times P(A^C)\\)\n\\(= P(\\)likes pineapple \\(|\\) lefty\\() \\times P(\\)lefty\\() + P(\\)likes pineapple \\(|\\) not lefty\\() \\times P(\\)not lefty\\()\\)"
+  },
+  {
+    "objectID": "probabilityReview.html#what-is-a-random-variable",
+    "href": "probabilityReview.html#what-is-a-random-variable",
+    "title": "Probability Rules (relevant to Probability Sampling)",
+    "section": "What is a Random Variable?",
+    "text": "What is a Random Variable?\n\nA random variable is a function that assigns a number to each outcome in the sample space.\nA random variable represents a quantity whose value is unknown and is determined by chance\nExample: \\(X\\) = weight of a randomly selected cat\nThe set of all possible values of a random variable, along with the probability with which each value occurs, is called the probability distribution of the random variable.\nWe usually denote random variables with a capital letter near the end of the alphabet, like X, Y, Z."
+  },
+  {
+    "objectID": "probabilityReview.html#summary-measures-for-random-variables",
+    "href": "probabilityReview.html#summary-measures-for-random-variables",
+    "title": "Probability Rules (relevant to Probability Sampling)",
+    "section": "Summary Measures for Random Variables",
+    "text": "Summary Measures for Random Variables\n\nExpected Value = weighted (by probabilities) average = mean \\[E(X) = \\sum_x x P(X=x)\\]\n\nProperties:\n\n\\(E(aX+b) = aE(X) + b\\) where \\(a,b\\) are constants (NOT random variables)\n\\(E(X+Y) = E(X)+E(Y)\\)\nIf \\(X\\) and \\(Y\\) are independent, \\(E(XY) = E(X) \\times E(Y)\\)\n\n\nVariance = expected squared difference from the mean \\[V(X) = E[(X-E(X))^2] = \\sum_x (x-E(X))^2 P(X=x)\\]\n\nProperties:\n\n\\(V(X) = E(X^2) - [E(X)]^2\\)\n\\(V(aX+b) = a^2V(X)\\) where \\(a,b\\) are constants (NOT random variables)\n\n\nCovariance = expected product of how far from their means two random variables are\n\\[\\begin{align}\n    \\text{Cov}(X,Y) &{}= E[(X-E(X))(Y-E(Y))] \\\\\n    &{} = \\sum_x \\sum_y (x-E(X))(y-E(Y)) P(X=x \\cap Y=y)\n\n\\end{align}\\]\n\nIn other words, a measure of how much two random variables “vary together”\nProperties:\n\n\\(\\text{Cov}(X,Y) = E(XY) - E(X)E(Y)\\)\nIf \\(X\\) and \\(Y\\) are independent, \\(\\text{Cov}(X,Y) = 0\\)\n(note that the reverse is NOT true – a covariance of 0 does not imply independence)\n\\(\\text{Cov}(X,X)=V(X)\\)\n\\(\\text{Cov}(aX+b,cY+d) = a \\times c \\times \\text{Cov}(X,Y)\\) where \\(a,b,c,d\\) are constants\n\\(V(X+Y) = V(X)+V(Y)-2 \\times \\text{Cov}(X,Y)\\)\nIf \\(X\\) and \\(Y\\) are independent, \\(V(X+Y) = V(X)+V(Y)\\)\n(b/c \\(\\text{Cov}(X, Y)\\) = 0)\n\n\nCorrelation = covariance, scaled by the (square root of the) variances \\[\\text{Corr}(X,Y) = \\frac{\\text{Cov}(X,Y)}{\\sqrt{V(X) \\times V(Y)}} = \\frac{\\text{Cov}(X,Y)}{SD(X) \\times SD(Y)}\\]\n\nProperties:\n\n\\(-1 \\le \\text{Corr}(X,Y) \\le 1\\)\n\n\nCoefficient of Variation = a measure of relative variability, the standard deviation divided by the mean \\[\\text{CV}(X) = \\frac{\\sqrt{V(X)}}{E(X)} = \\frac{SD(X)}{E(X)}, \\text{ for } E(X) \\ne 0\\]\n\nSurvey samplers love the coefficient of variation."
+  },
+  {
+    "objectID": "probabilityReview.html#footnotes",
+    "href": "probabilityReview.html#footnotes",
+    "title": "Probability Review",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nFor some of you, this material may be less familiar (depending on which prerequisite courses you took). I will demonstrate what is necessary for this class (and please ask Qs!).↩︎"
+  },
+  {
+    "objectID": "review.html",
+    "href": "review.html",
+    "title": "Probability Rules (relevant to Probability Sampling)1",
+    "section": "",
+    "text": "= an outcome of interest\n\nUsually denoted with a capital letter near the beginning of the alphabet, like A or B\nExamples:\n\nA = randomly selected person is left-handed\nB = randomly selected person likes pineapple on pizza\n\n\n= collection of all possible events\n\nUsually denoted with a capital Greek letter omega: \\(\\Omega\\)\nExamples:\n\n{Left-handed, Right-handed, Ambidextrous}\n{Likes pineapple on pizza, Doesn’t like pineapple on pizza}\n\n\nEach outcome/event is associated with a , think of this as a long-run frequency of the outcome/event occurring.\n\n\\(P(A)\\) = probability that event A occurs\n\\(P(A \\text{ and } B) = P(A \\cap B)\\) = probability that events A and B both occur =\n\\(P(A \\text{ or } B) = P(A \\cup B)\\) = probability that either A or B (or both) occur =\n \n\n\n\n\n\n\n\\(P(\\Omega)=1\\) (something in the sample space must happen)\nFor any event \\(A\\), \\(0 \\le P(A) \\le 1\\) (probabilities are between 0 and 1, inclusive)\nIf \\(A\\) and \\(B\\) are disjoint, then \\(P(A \\text{ or } B) = P(A \\cup B) = P(A)+P(B)\\)\n(the probability of the union of two disjoint events is the sum of their probabilities)\n\nExample: \\(\\Omega\\) = {Left-handed, Right-handed, Ambidextrous}\n\nThe probability that a randomly selected person is either left-handed, right-handed, or ambidextrous is 1 (no other possibilities!)\n\\(P(\\)left-handed\\()\\) must be between 0 and 1 (also true for right-handed, ambidextrous)\nAssuming a person cannot be both left-handed and ambidextrous (events are disjoint),\n\\(P(\\)left-handed OR ambidextrous\\() = P(\\)left-handed\\() + P(\\)left-handed\\()\\)\n\n\n\n\n\n\nIf \\(A\\) and \\(B\\) are independent, \\(P(A \\text{ and } B) = P(A \\cap B) = P(A)\\times P(B)\\)\n\\(P(A \\text{ or } B) = P(A \\cup B) = P(A) + P(B) - P(A \\cap B)\\)\n\\(P(\\text{not }A) = P(A^C) = 1 - P(A)\\)\n\n\n\nimage\n\n\n\n\n\n\n\nConditional probabilities arise when we know something that . In this case we can .\n\\(P(A|B)\\) = probability that event A occurs that event B occurs\nUseful properties\n\n\\(P(A \\text{ and } B) = P(A \\cap B) = P(A|B) \\times P(B) = P(B|A) \\times P(A)\\)\nIf the events \\(A\\) and \\(B\\) are , \\(P(A|B) = P(A)\\)\n(knowing something about B doesn’t tell you anything about A when A and B are independent)\n\n\nExample:\n\nA = randomly selected person is left-handed\nB = randomly selected person likes pineapple on pizza\n\\(P(A|B) = P(\\)left-handed \\(|\\) likes pineapple on pizza\\()\\)\n= that a randomly selected person likes pineapple on pizza, probability that they are left-handed\n\\(P(A \\cap B) = P(\\)left-handed AND likes pineapple on pizza\\()\\)\n\\(=P(A|B) \\times P(B)\\)\n\\(= P(\\)left-handed \\(|\\) likes pineapple on pizza\\() \\times P(\\)likes pineapple on pizza\\()\\)\n\\(= P(\\)likes pineapple on pizza \\(|\\) left-handed\\() \\times P(\\)left-handed\\()\\)\nIf liking pineapple on pizza is being left-handed,\n\\(P(\\)left-handed AND likes pineapple on pizza\\()= P(\\)left-handed\\() \\times P(\\)likes pineapple on pizza\\()\\)\n\n\n\n\n\nLaw of Total Probability: $$\n\\[\\begin{aligned}\n        P(B) &= P(B \\cap A) + P(B \\cap A^C) \\\\\n        &= P(B|A) \\times P(A) + P(B|A^C) \\times P(A^C)\n\n\\end{aligned}\\]\n$$\n\n\n\n\nimage\n\n\n\nThe area in the circle is equal to the part of the circle that overlaps with A plus the part of the circle that overlaps with \\(A^C\\)\n\nExample:\n\nA = randomly selected person is left-handed\nB = randomly selected person likes pineapple on pizza\n\\(P(B) = P(\\)likes pineapple on pizza\\()\\)\n\\(=P(B \\cap A) + P(B \\cap A^C)\\)\n\\(= P(\\)likes pineapple AND left-handed\\() + P(\\)likes pineapple AND not left-handed\\()\\)\n\\(=P(B|A) \\times P(A) + P(B|A^C) \\times P(A^C)\\)\n\\(= P(\\)likes pineapple \\(|\\) lefty\\() \\times P(\\)lefty\\() + P(\\)likes pineapple \\(|\\) not lefty\\() \\times P(\\)not lefty\\()\\)"
+  },
+  {
+    "objectID": "review.html#events-and-sample-space",
+    "href": "review.html#events-and-sample-space",
+    "title": "Probability Rules (relevant to Probability Sampling)1",
+    "section": "",
+    "text": "= an outcome of interest\n\nUsually denoted with a capital letter near the beginning of the alphabet, like A or B\nExamples:\n\nA = randomly selected person is left-handed\nB = randomly selected person likes pineapple on pizza\n\n\n= collection of all possible events\n\nUsually denoted with a capital Greek letter omega: \\(\\Omega\\)\nExamples:\n\n{Left-handed, Right-handed, Ambidextrous}\n{Likes pineapple on pizza, Doesn’t like pineapple on pizza}\n\n\nEach outcome/event is associated with a , think of this as a long-run frequency of the outcome/event occurring.\n\n\\(P(A)\\) = probability that event A occurs\n\\(P(A \\text{ and } B) = P(A \\cap B)\\) = probability that events A and B both occur =\n\\(P(A \\text{ or } B) = P(A \\cup B)\\) = probability that either A or B (or both) occur ="
+  },
+  {
+    "objectID": "review.html#basic-probability-properties",
+    "href": "review.html#basic-probability-properties",
+    "title": "Probability Rules (relevant to Probability Sampling)1",
+    "section": "",
+    "text": "\\(P(\\Omega)=1\\) (something in the sample space must happen)\nFor any event \\(A\\), \\(0 \\le P(A) \\le 1\\) (probabilities are between 0 and 1, inclusive)\nIf \\(A\\) and \\(B\\) are disjoint, then \\(P(A \\text{ or } B) = P(A \\cup B) = P(A)+P(B)\\)\n(the probability of the union of two disjoint events is the sum of their probabilities)\n\nExample: \\(\\Omega\\) = {Left-handed, Right-handed, Ambidextrous}\n\nThe probability that a randomly selected person is either left-handed, right-handed, or ambidextrous is 1 (no other possibilities!)\n\\(P(\\)left-handed\\()\\) must be between 0 and 1 (also true for right-handed, ambidextrous)\nAssuming a person cannot be both left-handed and ambidextrous (events are disjoint),\n\\(P(\\)left-handed OR ambidextrous\\() = P(\\)left-handed\\() + P(\\)left-handed\\()\\)"
+  },
+  {
+    "objectID": "review.html#additional-useful-probability-rules",
+    "href": "review.html#additional-useful-probability-rules",
+    "title": "Probability Rules (relevant to Probability Sampling)1",
+    "section": "",
+    "text": "If \\(A\\) and \\(B\\) are independent, \\(P(A \\text{ and } B) = P(A \\cap B) = P(A)\\times P(B)\\)\n\\(P(A \\text{ or } B) = P(A \\cup B) = P(A) + P(B) - P(A \\cap B)\\)\n\\(P(\\text{not }A) = P(A^C) = 1 - P(A)\\)\n\n\n\nimage"
+  },
+  {
+    "objectID": "review.html#conditional-probability",
+    "href": "review.html#conditional-probability",
+    "title": "Probability Rules (relevant to Probability Sampling)1",
+    "section": "",
+    "text": "Conditional probabilities arise when we know something that . In this case we can .\n\\(P(A|B)\\) = probability that event A occurs that event B occurs\nUseful properties\n\n\\(P(A \\text{ and } B) = P(A \\cap B) = P(A|B) \\times P(B) = P(B|A) \\times P(A)\\)\nIf the events \\(A\\) and \\(B\\) are , \\(P(A|B) = P(A)\\)\n(knowing something about B doesn’t tell you anything about A when A and B are independent)\n\n\nExample:\n\nA = randomly selected person is left-handed\nB = randomly selected person likes pineapple on pizza\n\\(P(A|B) = P(\\)left-handed \\(|\\) likes pineapple on pizza\\()\\)\n= that a randomly selected person likes pineapple on pizza, probability that they are left-handed\n\\(P(A \\cap B) = P(\\)left-handed AND likes pineapple on pizza\\()\\)\n\\(=P(A|B) \\times P(B)\\)\n\\(= P(\\)left-handed \\(|\\) likes pineapple on pizza\\() \\times P(\\)likes pineapple on pizza\\()\\)\n\\(= P(\\)likes pineapple on pizza \\(|\\) left-handed\\() \\times P(\\)left-handed\\()\\)\nIf liking pineapple on pizza is being left-handed,\n\\(P(\\)left-handed AND likes pineapple on pizza\\()= P(\\)left-handed\\() \\times P(\\)likes pineapple on pizza\\()\\)"
+  },
+  {
+    "objectID": "review.html#law-of-total-probability",
+    "href": "review.html#law-of-total-probability",
+    "title": "Probability Rules (relevant to Probability Sampling)1",
+    "section": "",
+    "text": "Law of Total Probability: $$\n\\[\\begin{aligned}\n        P(B) &= P(B \\cap A) + P(B \\cap A^C) \\\\\n        &= P(B|A) \\times P(A) + P(B|A^C) \\times P(A^C)\n\n\\end{aligned}\\]\n$$\n\n\n\n\nimage\n\n\n\nThe area in the circle is equal to the part of the circle that overlaps with A plus the part of the circle that overlaps with \\(A^C\\)\n\nExample:\n\nA = randomly selected person is left-handed\nB = randomly selected person likes pineapple on pizza\n\\(P(B) = P(\\)likes pineapple on pizza\\()\\)\n\\(=P(B \\cap A) + P(B \\cap A^C)\\)\n\\(= P(\\)likes pineapple AND left-handed\\() + P(\\)likes pineapple AND not left-handed\\()\\)\n\\(=P(B|A) \\times P(A) + P(B|A^C) \\times P(A^C)\\)\n\\(= P(\\)likes pineapple \\(|\\) lefty\\() \\times P(\\)lefty\\() + P(\\)likes pineapple \\(|\\) not lefty\\() \\times P(\\)not lefty\\()\\)"
+  },
+  {
+    "objectID": "review.html#what-is-a-random-variable",
+    "href": "review.html#what-is-a-random-variable",
+    "title": "Probability Rules (relevant to Probability Sampling)1",
+    "section": "What is a Random Variable?",
+    "text": "What is a Random Variable?\n\nA random variable is a function that assigns a number to each outcome in the sample space.\nA random variable represents a quantity whose value is unknown and is determined by chance\nExample: \\(X\\) = weight of a randomly selected cat\nThe , along with the , is called the of the random variable.\nWe usually denote random variables with a capital letter near the end of the alphabet, like X, Y, Z."
+  },
+  {
+    "objectID": "review.html#summary-measures-for-random-variables",
+    "href": "review.html#summary-measures-for-random-variables",
+    "title": "Probability Rules (relevant to Probability Sampling)1",
+    "section": "Summary Measures for Random Variables",
+    "text": "Summary Measures for Random Variables\n\n= weighted (by probabilities) average = mean \\[E(X) = \\sum_x x P(X=x)\\] Properties:\n\n\\(E(aX+b) = aE(X) + b\\) where \\(a,b\\) are constants (NOT random variables)\n\\(E(X+Y) = E(X)+E(Y)\\)\nIf \\(X\\) and \\(Y\\) are independent, \\(E(XY) = E(X) \\times E(Y)\\)\n\n= expected squared difference from the mean \\[V(X) = E[(X-E(X))^2] = \\sum_x (x-E(X))^2 P(X=x)\\] Properties:\n\n\\(V(X) = E(X^2) - [E(X)]^2\\)\n\\(V(aX+b) = a^2V(X)\\) where \\(a,b\\) are constants (NOT random variables)\n\n= expected product of how far from their means two random variables are $$\n\\[\\begin{aligned}\n    \\Cov(X,Y) &{}= E[(X-E(X))(Y-E(Y))] \\\\\n    &{} = \\sum_x \\sum_y (x-E(X))(y-E(Y)) P(X=x \\cap Y=y)\n\n\\end{aligned}\\]\n$$ In other words, a measure of how much two random variables “vary together\"\nProperties:\n\n\\(\\Cov(X,Y) = E(XY) - E(X)E(Y)\\)\nIf \\(X\\) and \\(Y\\) are independent, \\(\\Cov(X,Y) = 0\\)\n\n\\(\\Cov(X,X)=V(X)\\)\n\\(\\Cov(aX+b,cY+d) = a \\times c \\times \\Cov(X,Y)\\) where \\(a,b,c,d\\) are constants\n\\(V(X+Y) = V(X)+V(Y)-2 \\times \\Cov(X,Y)\\)\nIf \\(X\\) and \\(Y\\) are independent, \\(V(X+Y) = V(X)+V(Y)\\)\n\n= covariance, scaled by the (square root of the) variances \\[\\Corr(X,Y) = \\frac{\\Cov(X,Y)}{\\sqrt{V(X) \\times V(Y)}} = \\frac{\\Cov(X,Y)}{SD(X) \\times SD(Y)}\\] Properties:\n\n\\(-1 \\le \\Corr(X,Y) \\le 1\\)\n\n= a measure of relative variability \\[\\CV(X) = \\frac{\\sqrt{V(X)}}{E(X)} = \\frac{SD(X)}{E(X)}, \\text{ for } E(X) \\ne 0\\]\nSurvey samplers love the coefficient of variation."
+  },
+  {
+    "objectID": "review.html#footnotes",
+    "href": "review.html#footnotes",
+    "title": "Probability Rules (relevant to Probability Sampling)1",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nFor some of you, this material may be less familiar (depending on which prerequisite courses you took). I will demonstrate what is necessary for this class (and please ask Qs!).↩︎"
   }
 ]
