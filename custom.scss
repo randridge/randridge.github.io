@@ -76,3 +76,8 @@ table, th, td {
 .pause ul {
   margin-bottom: 0 !important;
 }
+
+ /* Example: Change font size for specific elements on a slide */
+.reveal .smaller-text {
+  font-size: 0.8em;
+}
