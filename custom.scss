@@ -77,7 +77,10 @@ table, th, td {
   margin-bottom: 0 !important;
 }
 
- /* Example: Change font size for specific elements on a slide */
+// Change font size for specific elements on a slide
 .reveal .smaller-text {
   font-size: 0.8em;
 }
+
+// add border around R output
+.cell-output { border: black 1px solid; }

@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/tabby.min.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.33">
+
+  <title>randridge.github.io – Cluster Sampling: Intro and One-Stage</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-ca8ec5a083b5121248739a6aefbf269f.css">
+  <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title"><p>Cluster Sampling:<br>
+Intro and One-Stage</p></h1>
+  <p class="subtitle">PUBHBIO 7225 Lecture 11</p>
+
+<div class="quarto-title-authors">
+</div>
+
+</section>
+<section id="outline" class="slide level2">
+<h2>Outline</h2>
+<!-- ::: hidden -->
+<!-- \newcommand{\fpchpar}{\left(1-\frac{n_h}{N_h}\right)} -->
+<!-- \newcommand{\fpcpar}{\left(1-\frac{n}{N}\right)} -->
+<!-- ::: -->
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Topics</strong></p>
+<ul>
+<li>One-stage Cluster Sampling
+<ul>
+<li>Estimation</li>
+<li>Sampling weights</li>
+<li>CIs</li>
+</ul></li>
+<li>Quantifying the Impact of Clustering
+<ul>
+<li>ICC</li>
+<li>DEFF</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Activities</strong></p>
+<ul>
+<li>11.1 One-stage Cluster Sampling</li>
+</ul>
+</div></div>
+<p><br></p>
+<p><strong>Assignments</strong></p>
+<ul>
+<li>Problem Set 3 due Thursday 10/2/25 11:59pm via Carmen</li>
+</ul>
+</section>
+<section id="cluster-sampling-a-classic-example" class="slide level2">
+<h2>Cluster Sampling: A Classic Example</h2>
+<ul>
+<li><p>Want to estimate something about <span class="alert">children in a school</span></p></li>
+<li><p>Three possible ways to sample:</p>
+<ol type="1">
+<li><p>Take an SRS of <strong>children</strong> (from a list of all children enrolled at the school)</p></li>
+<li><p>Stratify by classroom: take an SRS of <strong>children</strong> within each classroom</p></li>
+<li><p>Take an SRS of <strong>classrooms</strong> and then sample either:</p>
+<ul>
+<li><p>All children in that classroom (<strong>one-stage cluster sample</strong>)</p></li>
+<li><p>An SRS of children in that classroom (<strong>two-stage cluster sample</strong>)</p></li>
+</ul></li>
+</ol></li>
+<li><p>In general, cluster sampling <strong>increases</strong> variance relative to an SRS (of the same number of observation units)</p></li>
+<li><p>If units <strong>within</strong> a cluster tend to be more similar than units <strong>between</strong> clusters → obtaining <strong>less information</strong></p></li>
+<li><p>Not all outcomes (<span class="math inline">\(y\)</span>s) would be impacted the same – which would be more impacted?</p>
+<ul>
+<li>Classroom Example A: <span class="math inline">\(y\)</span> = performance on a standardized test</li>
+<li>Classroom Example B: <span class="math inline">\(y\)</span> = handedness (left vs right)</li>
+</ul></li>
+</ul>
+</section>
+<section id="so-why-would-we-cluster-sample" class="slide level2">
+<h2>So Why Would We Cluster Sample?</h2>
+<ul>
+<li><p><strong>We might have to:</strong> Constructing a sampling frame of observation units may be difficult, costly, or impossible.</p>
+<ul>
+<li><p>Example: want to sample residents of a city, but only have a list of housing units</p></li>
+<li><p>Example: studying birds in a region, but cannot list all the birds in a region (but perhaps could list geographic units which cover the region)</p></li>
+</ul></li>
+<li><p><strong>Cost considerations:</strong> Cluster sampling is usually <strong>cheaper</strong> than SRS</p>
+<ul>
+<li><p>Population may be widely distributed geographically</p></li>
+<li><p>Population may occur in natural clusters (households, schools, etc.)</p></li>
+<li><p>For the <strong>same cost</strong> you often can sample <strong>more observation units</strong> in the cluster sample compared to an SRS, thus potentially overcoming the decrease in precision caused by clustering</p>
+<ul>
+<li><p>Example: Target population = all incarcerated juveniles in the U.S.</p>
+<ul>
+<li><p>Might be able to get a list of all incarcerated juveniles (frame), but taking an SRS would mean potentially going to a lot of locations across the U.S. (<a href="https://www.prisonpolicy.org/reports/pie2025.html">1,277 juvenile correctional facilities in 2025</a>)</p></li>
+<li><p>Much cheaper to take an SRS of the facilities and then interview incarcerated juveniles at the sampled facilities</p></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="vocabulary-of-cluster-sampling" class="slide level2">
+<h2>Vocabulary of Cluster Sampling</h2>
+<blockquote>
+<p><span class="alert"><strong>Primary sampling units (PSUs)</strong></span> = clusters = sampling units</p>
+</blockquote>
+<blockquote>
+<p><span class="alert2"><strong>Secondary sampling units (SSUs)</strong></span> = elements within clusters = observation units</p>
+</blockquote>
+<ul>
+<li><p>Importantly – <strong>the observation unit (SSU) is not the sampling unit (PSU)</strong></p></li>
+<li><p>Can have more than two stages (e.g., children within classrooms within schools within counties…)</p></li>
+</ul>
+<p>
+</p><blockquote>
+<p><span class="alert"><strong>One-stage cluster sample</strong></span> = Sample <strong>all</strong> SSUs within selected PSUs (e.g., <strong>all</strong> kids in a classroom)</p>
+</blockquote>
+<blockquote>
+<p><span class="alert2"><strong>Two-stage cluster sample</strong></span> = Sample <strong>some</strong> SSUs within selected PSUs (e.g., <strong>some</strong> kids in a classroom)</p>
+</blockquote>
+<ul>
+<li><p>Throughout this lecture we will assume that <strong>PSUs are selected via SRS</strong> and, for two-stage cluster sampling, <strong>SSUs are selected via SRS</strong></p>
+<ul>
+<li>We will cover another method of selecting PSUs in a later lecture</li>
+</ul></li>
+</ul>
+</section>
+<section id="contrasting-cluster-sampling-with-stratified-sampling" class="slide level2">
+<h2>Contrasting Cluster Sampling with Stratified Sampling</h2>
+<div class="smaller-text">
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Stratified Sampling</strong></th>
+<th style="text-align: left;"><strong>Cluster Sampling</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Each element of the population is in exactly one stratum</td>
+<td style="text-align: left;">Each element of the population is in exactly one cluster</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Strata do not overlap, and they cover the whole population</td>
+<td style="text-align: left;">Clusters do not overlap, and they cover the whole population</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Population of <span class="math inline">\(H\)</span> strata; stratum <span class="math inline">\(h\)</span> has <span class="math inline">\(n_h\)</span> elements, <span class="math inline">\(N=\sum_{h=1}^H n_h\)</span></td>
+<td style="text-align: left;">Population of <span class="math inline">\(N\)</span> clusters</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><img data-src="figures/str_vs_clus_pop.png" style="width:4in"></td>
+<td style="text-align: left;"><img data-src="figures/str_vs_clus_pop.png" style="width:4in"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PSU = individual element</td>
+<td style="text-align: left;">PSU = cluster</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SSU = n/a</td>
+<td style="text-align: left;">SSU = individual element</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="contrasting-cluster-sampling-with-stratified-sampling-1" class="slide level2">
+<h2>Contrasting Cluster Sampling with Stratified Sampling</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Stratified Sampling</strong></th>
+<th style="text-align: left;"><strong>Cluster Sampling</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><p>SRS of elements within each stratum:</p>
+<p><img data-src="figures/str_vs_clus_strat.png" style="width:40.0%" alt="set of rectangles representing strata, each divided into squares representing observation units. Some squares are shaded black in each stratum showing stratified sampling."></p></td>
+<td style="text-align: left;">SRS of clusters and:<br>
+<strong>One-stage</strong>: take all SSUs in selected PSUs<br>
+<img data-src="figures/str_vs_clus_clus_1stage.png" style="width:40.0%" alt="set of rectangles representing clusters, each divided into squares. All squares in some rectangles are colored black, showing 1-stage cluster sampling"><br>
+<strong>Two-stage</strong>: SRS of SSUs in selected PSUs<br>
+<img data-src="figures/str_vs_clus_clus_2stage.png" style="width:40.0%" alt="set of rectangles representing clusters, each divided into squares. Some squares in some rectangles are colored black, showing 2-stage cluster sampling">.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sample from <strong>every</strong> stratum</td>
+<td style="text-align: left;">Only sample from <strong>some clusters</strong></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="contrasting-cluster-sampling-with-stratified-sampling-2" class="slide level2">
+<h2>Contrasting Cluster Sampling with Stratified Sampling</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Stratified Sampling</strong></th>
+<th style="text-align: left;"><strong>Cluster Sampling</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Variance of estimate of <span class="math inline">\(\bar{y}_U\)</span> depends on variability of <span class="math inline">\(y\)</span> values <strong>within</strong> strata</td>
+<td style="text-align: left;">Variance of estimate of <span class="math inline">\(\bar{y}_U\)</span> depends primarily on variability <strong>between</strong> cluster means</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><p>Variance minimized when</p>
+<ul>
+<li><p>elements are <strong>similar within strata</strong> but</p></li>
+<li><p><strong>stratum means differ</strong></p></li>
+</ul></td>
+<td style="text-align: left;"><p>Variance minimized when</p>
+<ul>
+<li><p>elements are <strong>heterogeneous within cluster</strong> and</p></li>
+<li><p><strong>cluster means are similar</strong></p></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><p><em>Remember:</em></p>
+<ul>
+<li><p><span class="alert"><em>homogeneous</em></span> <em>within</em></p></li>
+<li><p><span class="alert2"><em>heterogeneous</em></span> <em>between</em></p></li>
+</ul></td>
+<td style="text-align: left;"><p><em>Remember:</em></p>
+<ul>
+<li><p><span class="alert2"><em>heterogeneous</em></span> <em>within</em></p></li>
+<li><p><span class="alert"><em>homogeneous</em></span> <em>between</em></p></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ignoring stratification often results in variance estimates that are <strong>too big</strong></td>
+<td style="text-align: left;">Ignoring clustering often results in variance estimates that are <strong>too small</strong></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="notation-for-cluster-sampling" class="slide level2">
+<h2>Notation for Cluster Sampling</h2>
+<ul>
+<li><span class="math inline">\(U\)</span> = the finite population of PSUs</li>
+<li><span class="math inline">\(N\)</span> = number of PSUs (clusters) in the <strong>population</strong> (NOT number of observation units/SSUs)</li>
+<li><span class="math inline">\(M_0\)</span> = number of SSUs in the <strong>population</strong></li>
+<li><span class="math inline">\(M_i\)</span> = number of SSUs in PSU <span class="math inline">\(i\)</span>, with <span class="math inline">\(\displaystyle \sum_{i=1}^N M_i = M_0\)</span></li>
+<li><span class="math inline">\(\mathcal{S}\)</span> = a particular sample of PSUs chosen from the population</li>
+<li><span class="math inline">\(\mathcal{S}_i\)</span> = the sample of SSUs selected in PSU <span class="math inline">\(i\)</span></li>
+<li><span class="math inline">\(n\)</span> = number of PSUs in the <strong>sample</strong></li>
+<li><span class="math inline">\(m_i\)</span> = number of SSUs in the <strong>sample</strong> from PSU <span class="math inline">\(i\)</span>
+<ul>
+<li>For <strong>one-stage</strong> cluster sampling, <span class="math inline">\(m_i = M_i\)</span> (take all SSUs in the PSU)</li>
+</ul></li>
+<li><span class="math inline">\(y_{ij}\)</span> = characteristic of interest for the <span class="math inline">\(j\)</span>th unit in the <span class="math inline">\(i\)</span>th PSU/cluster (not a random variable)</li>
+</ul>
+</section>
+<section id="activity-11.1" class="slide level2">
+<h2>Activity 11.1</h2>
+<p>One-Stage Cluster Sampling (Part 1)</p>
+</section>
+<section id="example-from-activity" class="slide level2">
+<h2>Example (from activity)</h2>
+<ul>
+<li><p>Notation:</p>
+<ul>
+<li><p>PSU = dorm room</p></li>
+<li><p>SSU = student</p></li>
+<li><p><span class="math inline">\(N\)</span> = Number of PSUs (rooms) = 100</p></li>
+<li><p><span class="math inline">\(M_i\)</span> = Number of SSUs (students) in PSU (room) <span class="math inline">\(i\)</span> = 4</p></li>
+<li><p><span class="math inline">\(M_0\)</span> = Total number of SSUs (students) = 400</p></li>
+<li><p><span class="math inline">\(n\)</span> = Number of PSUs (rooms) in the sample = 5</p></li>
+<li><p><span class="math inline">\(m_i\)</span> = Number of SSUs (students) in the sample from PSU (room) <span class="math inline">\(i\)</span> = 4 = <span class="math inline">\(M_i\)</span> (one-stage cluster sample)</p></li>
+<li><p><span class="math inline">\(y_{ij}\)</span> = GPA for <span class="math inline">\(j\)</span>th SSU (student) in PSU (room) <span class="math inline">\(i\)</span></p></li>
+</ul></li>
+<li><p>You observed <strong>all students</strong> in each dorm room (all SSUs in each PSU)</p>
+<ul>
+<li>→ You observed the <strong>true total for each sampled PSU,</strong> <span class="math inline">\(\mathbf{t_i}\)</span></li>
+</ul></li>
+<li><p>You took an SRS of dorm rooms (PSUs)</p></li>
+<li><p>No new formulae! Use the results for SRS with <span class="alert">PSU totals</span> as the <span class="alert">observations</span> <span class="math inline">\((t_i)\)</span></p></li>
+</ul>
+</section>
+<section id="example-a-picture" class="slide level2">
+<h2>Example: A Picture</h2>
+<ul>
+<li>Here’s my sample of <span class="math inline">\(n = 5\)</span> rooms, with the <span class="math inline">\(m_i=4\)</span> students in each room:</li>
+</ul>
+
+<img data-src="./figures/onestage_cluster_totals.png" class="quarto-figure quarto-figure-center r-stretch" style="width:30.0%" alt="A comparative data visualization consisting of two tables. The left table presents individual student data with three columns: id, room, and gpa. It includes 20 entries grouped by room numbers (17, 22, 31, 58, and 79), showing student IDs and their corresponding GPAs. The right table aggregates this data, displaying the total GPA per room with two columns: room and total of GPA. Red arrows visually link each student's GPA in the left table to the corresponding room's total GPA in the right table, illustrating the summation process to show an SRS of totals."><ul>
+<li>If we collapse into <strong>one row per room</strong>, we are back to an SRS, sampling rooms and measuring the “total GPA” in each room!</li>
+</ul>
+</section>
+<section id="one-stage-cluster-sampling-srs-of-totals" class="slide level2">
+<h2>One-Stage Cluster Sampling = SRS of TOTALS</h2>
+<ul>
+<li><p>We now have an SRS of PSUs, with measured variable = <strong>total</strong> <span class="math inline">\(\mathbf{y_{ij}}\)</span> in each room</p></li>
+<li><p>Can use standard SRS formulae – just substituting <span class="math inline">\(t\)</span> (total) for <span class="math inline">\(y\)</span> (outcome):</p></li>
+</ul>
+<div class="smaller-text">
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 41%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Quantity</strong></th>
+<th style="text-align: left;"><strong>Truth</strong></th>
+<th style="text-align: left;"><strong>Estimate</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Mean (of <span class="math inline">\(t\)</span>):</td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle \bar{t}_U = \frac{1}{N} \sum_{i=1}^{N} t_i\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle \bar{t}= \frac{1}{n} \sum_{i\in \mathcal{S}} t_i\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Variance:</td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle V(t_i)=S_t^2 = \frac{1}{N-1} \sum_{i = 1}^N (t_i - \bar{t}_U)^2\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle \widehat{V}(t_i)= s_t^2=\frac{1}{n-1} \sum_{i \in\mathcal{S}_i} (t_i - \bar{t})^2\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>And remembering that <span class="math inline">\(\bar{t}\)</span> from our sample is a <strong>random variable</strong>, we have that:</li>
+</ul>
+<div class="smaller-text">
+<table class="caption-top" style="width:99%;">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 39%">
+<col style="width: 45%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Expected Value</strong></th>
+<th style="text-align: left;"><strong>Variance</strong></th>
+<th style="text-align: left;"><strong>Variance Estimate</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(E(\bar{t})= \bar{t}_U\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle V(\bar{t})= \left(1-\frac{n}{N}\right)\frac{S_t^2}{n}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle \widehat{V}(\bar{t})= \left(1-\frac{n}{N}\right)\frac{s_t^2}{n}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><p>Remember, <span class="math inline">\(N\)</span> = number of <span class="alert">PSUs</span> in population, <span class="math inline">\(n\)</span> = number of <span class="alert">PSUs</span> in the sample</p></li>
+<li><p><span class="alert2">NOT the number of SSUs!</span></p></li>
+</ul>
+</section>
+<section id="example-from-activity-1" class="slide level2">
+<h2>Example (from activity)</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>My SRS of dorm rooms was:</li>
+</ul>
+<div class="smaller-text">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Room #</th>
+<th style="text-align: center;">Total GPA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">12.53</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">14.01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">31</td>
+<td style="text-align: center;">13.09</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">58</td>
+<td style="text-align: center;">10.29</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">79</td>
+<td style="text-align: center;">13</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><p><span class="math inline">\(N=100\)</span> (number of rooms in <strong>population</strong>)</p></li>
+<li><p><span class="math inline">\(n=5\)</span> (number of rooms in <strong>sample</strong>)</p></li>
+</ul>
+</div></div>
+<p><span class="math display">\[\bar{t} = \frac{1}{n} \sum_{i\in \mathcal{S}} t_i = \frac{1}{5} (12.53 + 14.01 + 13.09 + 10.29 + 13) = \frac{62.92}{5} = 12.584\]</span> <span class="math display">\[\widehat{V}(t_i) = s_t^2 =\frac{1}{n-1} \sum_{i \in\mathcal{S}_i} (t_i - \bar{t})^2= \frac{1}{5-1}\left[(12.53-12.584)^2 + \cdots + (13-12.584)^2 \right]= 1.93198\]</span></p>
+<p><span class="math display">\[\widehat{V}(\bar{t}) = \left(1-\frac{n}{N}\right)\frac{s_t^2}{n}= \left(1 - \frac{5}{100} \right) \frac{1.93198}{5} = 0.3670762\]</span></p>
+</section>
+<section id="from-total-to-mean" class="slide level2">
+<h2>From TOTAL to MEAN</h2>
+<ul>
+<li><p>We don’t really want to know about <strong>total</strong> GPA, we want to know about <strong>mean</strong> GPA</p></li>
+<li><p>Fortunately, we can go from one to the other fairly easily:</p>
+<ul>
+<li><span class="alert">Truth:</span> <span class="math inline">\(\bar{y}_U=\frac{\text{total of $y$}}{\text{\# of SSUs}}= \frac{t_U}{M_0}\)</span>   →   <span class="alert2">Estimate:</span> <span class="math inline">\(\hat{\bar{y}}_{clus}= \frac{\hat{t}_{clus}}{M_0}\)</span></li>
+</ul></li>
+<li><p>We have <span class="math inline">\(\bar{t}\)</span>, how can we get <span class="math inline">\(\hat{t}\)</span>?</p>
+<ul>
+<li><p>(# of PSUs) <span class="math inline">\(\times\)</span> (average total in a PSU) = total across all PSUs</p></li>
+<li><p><span class="alert">Truth:</span> <span class="math inline">\(N \times \bar{t}_U = t\)</span>   →   <span class="alert2">Estimate:</span> <span class="math inline">\(N \times \bar{t}= \hat{t}_{clus}\)</span></p></li>
+</ul></li>
+<li><p>Thus this gives us, for the <strong>mean</strong> of <span class="math inline">\(y\)</span>:</p>
+<ul>
+<li><span class="alert">Truth:</span> <span class="math inline">\(\bar{y}_U= \frac{t_U}{M_0} = \frac{N \bar{t}_U}{M_0}\)</span>   →   <span class="alert2">Estimate:</span> <span class="math inline">\(\hat{\bar{y}}_{clus}= \frac{\hat{t}_{clus}}{M_0} = \frac{N \bar{t}}{M_0}\)</span></li>
+</ul></li>
+<li><p>And of course we need variances… but conveniently <span class="math inline">\(N\)</span> and <span class="math inline">\(M_0\)</span> are constants!</p>
+<ul>
+<li><span class="alert">Truth:</span> <span class="math inline">\(V(\hat{\bar{y}}_{clus}) = V\left(\frac{N \bar{t}}{M_0}\right) = \frac{N^2}{M_0^2}V(\bar{t}) = \frac{N^2}{M_0^2} \left(1-\frac{n}{N}\right)\frac{S_t^2}{n}\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="one-stage-cluster-sampling-estimator-for-the-mean" class="slide level2">
+<h2>One-Stage Cluster Sampling – Estimator for the Mean</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Quantity</th>
+<th>Truth</th>
+<th>Estimate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Overall mean (of <span class="math inline">\(y\)</span>):</td>
+<td><span class="math inline">\(\displaystyle \bar{y}_U = \frac{t}{M_0}\)</span></td>
+<td><span class="math inline">\(\displaystyle \hat{\bar{y}}_{clus}= \frac{\hat{t}_{clus}}{M_0}= \frac{N\bar{t}}{M_0}\)</span></td>
+</tr>
+<tr class="even">
+<td>Variance of <span class="math inline">\(\hat{\bar{y}}_{clus}\)</span>:</td>
+<td><span class="math inline">\(\displaystyle V(\hat{\bar{y}}_{clus}) = \frac{N^2}{M_0^2} \left(1-\frac{n}{N}\right)\frac{S_t^2}{n}\)</span></td>
+<td><span class="math inline">\(\displaystyle  \widehat{V}(\hat{\bar{y}}_{clus}) = \frac{N^2}{M_0^2} \left(1-\frac{n}{N}\right)\frac{s_t^2}{n}\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="smaller-text">
+<ul>
+<li><p>Importantly, <span class="math inline">\(\hat{\bar{y}}_{clus}\)</span> is <strong>unbiased</strong>: <span class="math inline">\(E(\hat{\bar{y}}_{clus}) =\)</span></p></li>
+<li><p>Remember,</p>
+<ul>
+<li><p><span class="math inline">\(N\)</span> = Number of PSUs in <strong>population</strong></p></li>
+<li><p><span class="math inline">\(n\)</span> = Number of PSUs in <strong>sample</strong></p></li>
+<li><p><span class="math inline">\(M_0\)</span> = Total number of SSUs in <strong>population</strong></p></li>
+</ul></li>
+<li><p>So to estimate the mean of <span class="math inline">\(y\)</span> we…</p>
+<ul>
+<li><p>calculate the average cluster total across the sampled PSUs <span class="math inline">\((\bar{t})\)</span>,</p></li>
+<li><p>multiply this average by the number of PSUs <span class="math inline">\((N)\)</span> to get a grand total <span class="math inline">\((\hat{t}_{clus})\)</span></p></li>
+<li><p>and divide by the total number of SSUs <span class="math inline">\((M_0)\)</span> to get an overall mean <span class="math inline">\((\hat{\bar{y}}_{clus})\)</span></p></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="example-from-activity-2" class="slide level2">
+<h2>Example (from activity)</h2>
+<ul>
+<li><p>In my SRS of dorm rooms, I had:</p>
+<ul>
+<li><p><span class="math inline">\(N=100\)</span> (number of rooms in <strong>population</strong>)</p></li>
+<li><p><span class="math inline">\(n=5\)</span> (number of rooms in <strong>sample</strong>)</p></li>
+<li><p><span class="math inline">\(M_0 = 400\)</span> (number of students in <strong>population</strong>)</p></li>
+<li><p>Estimated mean PSU (room) total: <span class="math inline">\(\bar{t}= 12.584\)</span></p></li>
+<li><p>Estimated variance of PSU (room) totals: <span class="math inline">\(s_t^2 = 1.93198\)</span></p></li>
+</ul></li>
+<li><p>My resulting estimates:</p>
+<ul>
+<li><p><span class="math inline">\(\hat{\bar{y}}_{clus}= \frac{N\bar{t}}{M_0} = \frac{100 \times 12.584}{400} = 3.146\)</span></p></li>
+<li><p><span class="math inline">\(\widehat{V}(\hat{\bar{y}}_{clus}) = \frac{N^2}{M_0^2} \left(1-\frac{n}{N}\right)\frac{s_t^2}{n}= \frac{100^2}{400^2} \left(1 - \frac{5}{100} \right) \frac{1.93198}{5} = 0.0229\)</span></p></li>
+<li><p><span class="math inline">\(\widehat{SE}(\hat{\bar{y}}_{clus}) = \sqrt{Var} = \sqrt{0.0229} = 0.151\)</span></p></li>
+</ul></li>
+</ul>
+<p><em>Note: The true population mean GPA is</em> <span class="math inline">\(\bar{y}_U = 2.836075\)</span></p>
+</section>
+<section id="sampling-weights-in-one-stage-cluster-samples" class="slide level2">
+<h2>Sampling Weights in One-Stage Cluster Samples</h2>
+<ul>
+<li><p>When clusters are sampled with equal probability (i.e., via an SRS), an <span class="alert">SSU is included in the sample if the PSU is included in the sample</span></p></li>
+<li><p>Each PSU has probability <span class="math inline">\(n/N\)</span> of being selected (SRS of <span class="math inline">\(n\)</span> out of <span class="math inline">\(N\)</span> PSUs)</p></li>
+<li><p>Thus the sample weight for sampled SSU <span class="math inline">\(j\)</span> in PSU <span class="math inline">\(i\)</span> is: <span class="math display">\[w_{ij} = \frac{1}{P(\text{SSU $j$ of PSU $i$ included in sample})} = \frac{1}{\pi_{ij}} = \frac{N}{n}\]</span></p></li>
+<li><p>Compare to an SRS:</p>
+<ul>
+<li><p>If all PSUs had <span class="math inline">\(M_i=M\)</span> elements, then the population size is <span class="math inline">\(NM\)</span> and the one-stage cluster sample has <span class="math inline">\(nM\)</span> units</p></li>
+<li><p>An SRS of <span class="math inline">\(nM\)</span> units out of <span class="math inline">\(NM\)</span> units: <span class="math inline">\(w_i = \frac{NM}{nM} = \frac{N}{n}\)</span> = <span class="alert2">same as the one-stage cluster sample</span></p></li>
+<li><p>So point estimates would be the same – <span class="alert">but variance estimates would be different</span></p></li>
+</ul></li>
+<li><p>For the GPA cluster sample, <span class="math inline">\(w_{ij} = \frac{N}{n} = \frac{\text{\# of PSUs in \textbf{population}}}{\text{\# of PSUs in \textbf{sample}}} = \frac{100}{5} = 20\)</span></p></li>
+</ul>
+</section>
+<section id="confidence-intervals-for-one-stage-cluster-samples" class="slide level2">
+<h2>Confidence Intervals for One-Stage Cluster Samples</h2>
+<ul>
+<li>An approximately <span class="math inline">\(\alpha\)</span>-level confidence interval for the true mean <span class="math inline">\(\bar{y}_U\)</span> is given by: <span class="math display">\[\left(\hat{\bar{y}}_{clus}- t_{\alpha/2,n-1} \sqrt{\widehat{V}(\hat{\bar{y}}_{clus})}, \quad \bar{y}_{str}+ t_{\alpha/2,n-1} \sqrt{\widehat{V}(\hat{\bar{y}}_{clus})}\right)\]</span> where <span class="math inline">\(t_{\alpha/2,n-1}\)</span> is the <span class="math inline">\((1-\alpha/2)\)</span>th percentile of a <span class="math inline">\(t\)</span> distribution with <span class="alert">DF = <span class="math inline">\(n-1\)</span></span></li>
+</ul>
+<p><br></p>
+<ul>
+<li><p>Often the number of PSUs sampled is not large, thus we most often use <span class="math inline">\(t\)</span> (instead of <span class="math inline">\(Z\)</span>)</p></li>
+<li><p>Again, you may see the DF “rule” written as <strong>“DF = # of PSUs <span class="math inline">\(\mathbf{-}\)</span> # of Strata”</strong></p>
+<ul>
+<li><p>PSU = Primary Sampling Unit = cluster</p></li>
+<li><p>If no stratification, then DF = <span class="math inline">\(n-1\)</span> = # PSUs <span class="math inline">\(-1\)</span></p></li>
+</ul></li>
+</ul>
+</section>
+<section id="activity-11.1-1" class="slide level2">
+<h2>Activity 11.1</h2>
+<p>One-Stage Cluster Sampling (Part 2)</p>
+</section>
+<section id="partitioning-variability-between-and-within-clusters" class="slide level2">
+<h2>Partitioning Variability Between and Within Clusters</h2>
+<div class=".smaller-text">
+<ul>
+<li><p>When we take a cluster sample, we often <strong>lose precision (i.e., have increased variance)</strong> (relative to SRS)</p></li>
+<li><p>E.g., in the activity: students living in same room have more “similar” GPAs</p></li>
+</ul>
+<div class="columns">
+<div class="column" style="width:70%;">
+<p>Ideally:</p>
+<ul>
+<li><p>We want each cluster to be a mini version of the population – like if each cluster were an SRS of the population</p></li>
+<li><p>If true, <span class="alert"><span class="math inline">\(SSB \approx 0\)</span></span><br>
+(cluster means are similar, and all the variability is within a cluster)</p></li>
+</ul>
+</div><div class="column" style="width:30%;">
+<p><img data-src="./figures/cluster_between_small.png"></p>
+</div></div>
+<div class="columns">
+<div class="column" style="width:70%;">
+<p>However, the reality usually is:</p>
+<ul>
+<li><p>Usually units are <span class="alert">more similar within a cluster</span> (e.g., similarity within household, similarity within dorm room)</p></li>
+<li><p>If true, <span class="alert"><span class="math inline">\(SSB &gt; 0\)</span></span></p></li>
+</ul>
+</div><div class="column" style="width:30%;">
+<p><img data-src="./figures/cluster_between_big.png"></p>
+</div></div>
+</div>
+</section>
+<section id="partitioning-variability-between-and-within-clusters-1" class="slide level2">
+<h2>Partitioning Variability Between and Within Clusters</h2>
+<ul>
+<li><p>We can return once again (like we did with stratification) to the idea of <strong>partitioning sums of squares</strong> to see the impact of clustering</p></li>
+<li><p>This is like a one-way ANOVA, where the “grouping” variable is the cluster/PSU:</p></li>
+</ul>
+<p><span class="math display">\[\begin{aligned}
+\text{Total Sum of Squares} &amp;{}= \text{Between PSUs} + \text{Within PSU}\\
+SST &amp;{}= SSB + SSW \\
+\sum_{i=1}^N \sum_{j=1}^{M_i} (y_{ij}- \bar{y}_U)^2 &amp;{} = \underbrace{\sum_{i=1}^N \sum_{j=1}^{M_i} (\bar{y}_{Ui} - \bar{y}_U)^2}_{\text{\textbf{between} clusters: } SSB}  +  \underbrace{\sum_{i=1}^N \sum_{j=1}^{M_i} (y_{ij}- \bar{y}_{Ui})^2}_{\text{\textbf{within} clusters: } SSW}
+\end{aligned}\]</span></p>
+<ul>
+<li><p><span class="alert">Between-cluster variability</span> = how far are PSU means from overall mean (want <span class="alert">small</span>)</p></li>
+<li><p><span class="alert2">Within-cluster variability</span> = how far are SSUs from their PSU average (want <span class="alert2">large</span>) (relatively speaking)</p></li>
+</ul>
+<p><em>Here we are looking at the population – so, all the</em> <span class="math inline">\(y_{ij}\)</span>, not just the sampled ones</p>
+</section>
+<section id="partitioning-variability-between-and-within-clusters-2" class="slide level2">
+<h2>Partitioning Variability Between and Within Clusters</h2>
+<p><strong>When all clusters are the same size, i.e.,</strong> <span class="math inline">\(M_i=m_i=M\)</span>:</p>
+<p><strong>ANOVA Table</strong></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Source</th>
+<th style="text-align: left;">DF</th>
+<th style="text-align: left;">Sum of Squares</th>
+<th style="text-align: left;">Mean Square</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Between PSUs</td>
+<td style="text-align: left;"><span class="math inline">\(N-1\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(SSB=\sum_{i=1}^N \sum_{j=1}^{M} (\bar{y}_{Ui} - \bar{y}_U)^2\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(MSB = \frac{SSB}{N-1}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Within PSUs</td>
+<td style="text-align: left;"><span class="math inline">\(NM-N\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(SSW=\sum_{i=1}^N \sum_{j=1}^{M} (y_{ij} - \bar{y}_{Ui})^2\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(MSW = \frac{SSW}{NM-N}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td style="text-align: left;"><span class="math inline">\(NM-1\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(SST=\sum_{i=1}^N \sum_{j=1}^{M} (y_{ij} - \bar{y}_U)^2\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(S^2 = \frac{SST}{NM-1}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>
+</p><ul>
+<li><p><span class="alert"><strong>Between-cluster</strong></span> variability: <span class="math inline">\(SSB\)</span> = how far are PSU means <span class="math inline">\((\bar{y}_{Ui})\)</span> from overall mean <span class="math inline">\((\bar{y}_U)\)</span></p></li>
+<li><p><span class="alert2"><strong>Within-cluster</strong></span> variability: <span class="math inline">\(SSW\)</span> = how far are SSUs <span class="math inline">\((y_{ij})\)</span> from their PSU average <span class="math inline">\((\bar{y}_{Ui})\)</span></p></li>
+<li><p><strong>Total</strong> variability: <span class="math inline">\(SST\)</span> = how far are SSUs <span class="math inline">\((y_{ij})\)</span> from overall mean <span class="math inline">\((\bar{y}_U)\)</span></p></li>
+<li><p>We will use this ANOVA decomposition to obtain a DEFF (design effect)</p></li>
+</ul>
+</section>
+<section id="intracluster-correlation-coeﬃcient-icc" class="slide level2">
+<h2>Intracluster Correlation Coeﬃcient (ICC)</h2>
+<ul>
+<li><p>Goal: quantify the impact of the clustering (how “similar” are SSUs in same PSU?)</p></li>
+<li><p><strong>Assume all clusters are the same size, i.e.,</strong> <span class="math inline">\(M_i = m_i = M\)</span></p></li>
+</ul>
+<blockquote>
+<p><strong><span class="alert2">ICC</span></strong> = Intracluster Correlation Coefficient: &nbsp; <span class="math inline">\(ICC = 1 - \frac{M}{M-1} \frac{SSW}{SST}\)</span></p>
+</blockquote>
+<ul>
+<li><p>Properties of ICC:</p>
+<ul>
+<li><p>Measures how similar SSUs in the same PSU are, relative to overall variability of SSUs</p></li>
+<li><p>Since <span class="math inline">\(0 \le SSW/SST \le 1\)</span>, the ICC is bounded: <span class="math inline">\(-\frac{1}{M-1} \le ICC \le 1\)</span></p></li>
+<li><p>If all elements in a cluster are the same, then <span class="math inline">\(SSW=0\)</span> and ICC = 1</p></li>
+<li><p><span class="alert">If ICC <span class="math inline">\(&gt;\)</span> 0, cluster sampling is <strong>less efficient</strong> than simple random sampling of elements</span></p></li>
+<li><p>The ICC is equivalent to the Pearson correlation between all pairs of observation units from the same PSU in the population</p></li>
+</ul></li>
+<li><p>Warning: ICC is only defined for one-stage cluster samples with <strong>equal cluster sizes</strong></p></li>
+</ul>
+</section>
+<section id="example-calculation-of-icc-from-activity" class="slide level2">
+<h2>Example Calculation of ICC (from activity)</h2>
+<ul>
+<li>Using the <strong>full population data</strong>, I ran a one-way ANOVA for the GPA data (<span class="math inline">\(M=\)</span> 4 students per room, <span class="math inline">\(N=\)</span> 100 rooms):</li>
+</ul>
+<div class="cell cell-output">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>pop <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"./datasets/gpa.csv"</span>)</span>
+<span id="cb1-2"><a></a>anova_model <span class="ot">&lt;-</span> <span class="fu">aov</span>(gpa <span class="sc">~</span> <span class="fu">factor</span>(room), <span class="at">data=</span>pop)</span>
+<span id="cb1-3"><a></a><span class="fu">summary</span>(anova_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              Df Sum Sq Mean Sq F value Pr(&gt;F)    
+factor(room)  99  54.37  0.5492   3.553 &lt;2e-16 ***
+Residuals    300  46.38  0.1546                   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>
+</p><ul>
+<li><p>From this we can calculate the true (theoretical) ICC:</p>
+<ul>
+<li><p><span class="math inline">\(ICC = 1 - \frac{M}{M-1} \frac{SSW}{SST} = 1 - \frac{4}{4-1} \frac{46.38}{46.38+54.37} = 0.386\)</span></p></li>
+<li><p><span class="math inline">\(ICC = 0.386 &gt; 0\)</span> so clustering will <strong>increase variance</strong> relative to SRS</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="design-effect" class="slide level2">
+<h2>Design Effect</h2>
+<ul>
+<li><p>Just like with stratification, we use the <strong>design effect (DEFF)</strong> to quantify the impact of clustering</p></li>
+<li><p>Assuming all clusters are the same size (<span class="math inline">\(M_i=M\)</span>), a one-stage cluster sample of <span class="math inline">\(n\)</span> PSUs has <span class="math inline">\(nM\)</span> SSUs</p></li>
+<li><p>Compare the variance of the mean to an SRS of size <span class="math inline">\(nM\)</span> (out of <span class="math inline">\(NM\)</span> SSUs)</p></li>
+<li><p>Design effect (DEFF) for the estimated overall mean from 1-stage cluster sample<sup>1</sup>: <span class="math display">\[\begin{aligned}
+\text{deff}(\hat{\bar{y}}_{clus}) &amp;{}= \frac{V_{clus}(\hat{\bar{y}}_{clus})}{V_{srs}(\bar{y})} \\
+&amp;=\frac{NM-1}{NM-M}[1+(M-1)ICC] \\
+&amp; \approx 1+(M-1)ICC \quad \text{[if $N$ is large so }NM-1 \approx NM-M]
+\end{aligned}\]</span></p></li>
+<li><p>Thus, for each <span class="alert">1 SSU in an SRS</span>, you need <span class="alert2"><span class="math inline">\([1+(M-1)ICC]\)</span> SSUs from a one-stage cluster sample</span> to get the same amount of information</p></li>
+</ul>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Full derivation on Carmen if you’re interested (OPTIONAL)</p></li></ol></aside></section>
+<section id="example-calculation-of-deff-from-activity" class="slide level2">
+<h2>Example Calculation of DEFF (from Activity)</h2>
+<ul>
+<li><p>For the students (SSUs) within rooms (PSUs) the true, theoretical ICC = <span class="math inline">\(0.386\)</span></p></li>
+<li><p><span class="math inline">\(M = 4\)</span> students per room (SSUs per PSUs)</p></li>
+</ul>
+<p>
+</p><ul>
+<li>DEFF = <span class="math inline">\(1+(M-1)ICC =\)</span></li>
+</ul>
+<p>
+</p><ul>
+<li><p>Would need to sample <strong>more than twice as many students</strong> with clustered design as if we took an SRS (of the same number of SSUs)</p></li>
+<li><p>Note #1: This is the <strong>true ICC</strong> and <strong>true (theoretical) DEFF</strong>. When calculating ICC and DEFF from a cluster sample, you’ll only get <strong>estimates</strong> of these quantities.</p></li>
+<li><p>Note #2: In practice, clusters are rarely the same size – but we can still calculate the DEFF (using software)</p></li>
+</ul>
+</section>
+<section id="activity-11.1-2" class="slide level2">
+<h2>Activity 11.1</h2>
+<p>One-Stage Cluster Sampling (Part 3)</p>
+
+
+</section>
+
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p>PUBHBIO 7225</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': true,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+
+        height: 720,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

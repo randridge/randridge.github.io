@@ -179,7 +179,7 @@ In Activity 3.1, we were choosing $n=2$ cats out of $N=3$
 Basic quantities we want to estimate:
 
 | **Quantity** | **Estimand (Truth)** | **Estimate** |
-|:-----------------------|:-----------------------|:-----------------------|
+|:---|:---|:---|
 | Mean | $\displaystyle \bar{y}_U=\frac{1}{N} \sum_{i=1}^N y_i$ | $\displaystyle \bar{y}= \frac{1}{n} \sum_{i\in \mathcal{S}} y_i$ |
 | Total | $\displaystyle t = \sum_{i=1}^N y_i$ | $\hat{t}= N \bar{y}$ |
 | Variance (of $y$) | $\displaystyle S^2=\frac{1}{N-1} \sum_{i=1}^N (y_i - \bar{y}_U)^2$ | $\displaystyle s^2=\frac{1}{n-1} \sum_{i\in \mathcal{S}} (y_i - \bar{y})^2$ |
@@ -209,7 +209,7 @@ $y$ is not a random variable!
 Basic quantities we want to estimate:
 
 | **Quantity** | **Estimand (Truth)** | **Estimate** |
-|:-----------------------|:-----------------------|:-----------------------|
+|:---|:---|:---|
 | Mean | $\displaystyle \bar{y}_U=\frac{1}{N} \sum_{i=1}^N y_i$ | $\displaystyle \bar{y}= \frac{1}{n} \sum_{i\in \mathcal{S}} y_i$ |
 | Total | $\displaystyle t = \sum_{i=1}^N y_i$ | $\hat{t}= N \bar{y}$ |
 | Variance (of $y$) | $\displaystyle S^2=\frac{1}{N-1} \sum_{i=1}^N (y_i - \bar{y}_U)^2$ | $\displaystyle s^2=\frac{1}{n-1} \sum_{i\in \mathcal{S}} (y_i - \bar{y})^2$ |
@@ -223,7 +223,7 @@ Remember: $y$ is not a random variable!
 Random selection of units into the sample implies that [$(\bar{y}, \hat{t}, \hat{p})$ are random variables]{.alert}
 
 | **Estimate** | **Expected Value** | **Variance** | **Variance Estimate** |
-|:-----------------|:-----------------|:-----------------|:-----------------|
+|:---|:---|:---|:---|
 | Mean $(\bar{y})$ | $E(\bar{y})= \bar{y}_U$ | $\displaystyle V(\bar{y})= \left(1-\frac{n}{N}\right)\frac{S^2}{n}$ | $\displaystyle \widehat{V}(\bar{y})= \left(1-\frac{n}{N}\right)\frac{s^2}{n}$ |
 | Total $(\hat{t})$ | $E(\hat{t})=t$ | $\displaystyle V(\hat{t})=N^2 \left(1-\frac{n}{N}\right)\frac{S^2}{n}$ | $\displaystyle \widehat{V}(\hat{t})=N^2 \left(1-\frac{n}{N}\right)\frac{s^2}{n}$ |
 | Proportion $(\hat{p})$ | $E(\hat{p})=p$ | $\displaystyle V(\hat{p})= \left(\frac{N-n}{N-1}\right) \frac{p(1-p)}{n}$ | $\displaystyle \widehat{V}(\hat{p}) = \left(1-\frac{n}{N}\right)\frac{\hat{p}(1-\hat{p})}{n-1}$ |
