@@ -243,9 +243,11 @@ Sampling Cats (Part 1)
 
 ## Sampling Distribution for the Clinics SRS
 
+::::::: {.smaller-text}
+
 [SRS]{.alert2} of size $n=2$ from a population of size $N=5$.
 
-::::::: columns
+:::::: columns
 :::: {.column width="50%"}
 Population values:
 
@@ -281,6 +283,7 @@ Average for each sample:
 |      4, 5       |    1/10     |  60, 150   |          105           |
 :::
 ::::
+::::::
 :::::::
 
 ## Sampling Distribution for the Clinics SRS
@@ -325,6 +328,8 @@ tibble(ybar = c(15,30,35,40,55,80,85,100,105),
 
 ## Expectation and Variance
 
+:::: {.smaller-text}
+
 -   We can calculate the **expectation** and **variance** of $\hat{\theta}=\bar{y}$ using the sampling distribution:
 
 $$\begin{aligned}
@@ -345,6 +350,8 @@ V(\bar{y}) &= \sum_k (k-E(\bar{y}))^2 P(\bar{y}=k) \\
 -   Note that we **did not make any assumption about the distribution of the** $\mathbf{y}$ **values** -- the "randomness" is from the sampling scheme, the fact that a different sample will produce a different value of $\bar{y}$.
 
 -   This is called [**design-based inference**]{.alert}.
+
+::::
 
 ## An Alternative Sampling Distribution
 
