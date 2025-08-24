@@ -1,0 +1,342 @@
+---
+title: "Complex Designs"
+subtitle: "PUBHBIO 7225 Lecture 15"
+# author: "Generative AI acknowledgment: MS Copilot was used to generate alt text for some images"
+format:
+  revealjs: 
+    slide-number: true
+    smaller: true
+    footer: "PUBHBIO 7225"
+    width: 1280
+    height: 720
+    theme: custom.scss
+    html-math-method: mathjax
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+## Outline
+
+::::: columns
+::: {.column width="60%"}
+**Topics**
+
+-   Combining Design Features
+
+-   Calculating Sample Weights
+:::
+
+::: {.column width="40%"}
+**Activities**
+
+-   15.1 Weighting a Complex Survey
+:::
+:::::
+
+**Assignments**
+
+-   Problem Set 4 due Thursday 10/23/2025 11:59pm via Carmen\
+    (this is after fall break)
+
+## Complex Surveys
+
+-   Generally speaking, most surveys combine multiple of the features we
+    have covered:
+
+    -   Simple random sampling (without replacement)
+
+    -   Stratification
+
+    -   Cluster sampling
+
+    -   Probability Proportional to Size sampling
+
+-   Many large-scale surveys are **stratified multistage designs**
+    where:
+
+    1.  PSUs are grouped into strata
+
+    2.  PSUs are sampled (often via PPS) independently within each
+        stratum
+
+    3.  SSUs are sampled (often via SRS) from within each selected PSU
+
+    4.  Tertiary sampling units (TSUs) are sampled from within each
+        selected SSU
+
+    5.  ...
+
+-   Technically, you could assemble the various formulae we have used
+    for each of these different sampling techniques to (hand-)calculate
+    point estimates and variance estimates for population-level
+    quantities.
+
+    -   But obviously nobody does this anymore! Thank you, computers.
+
+## Example: Estimating Use of Bed Nets in Rural Gambia
+
+**Goal:** Estimate percent of beds using netting (Malaria prevention) in
+rural Gambia\
+[(D'Alessandro et al., (1994). Nationwide survey of bednet use in rural
+Gambia. *Bulletin of the World Health Organization*, 72,
+391-394.)]{.smaller-text}
+
+<!-- **Multistage Design with Stratification** -->
+
+-   **Stage 1:**
+
+    -   [Stratify]{.alert} districts by region: Western, Central,
+        Eastern
+
+    -   Take a [PPS sample]{.alert2} of 5 districts within each stratum,
+        with population size in each district as the size variable (from
+        national census data)
+
+-   **Stage 2:**
+
+    -   [Stratify]{.alert} villages by whether or not they had a primary
+        health care (PHC) facility
+
+    -   Take a [PPS sample]{.alert2} of 2 villages within each stratum,
+        with population size in each village as the size variable (from
+        national census data)
+
+-   **Stage 3:**
+
+    -   Select 6 compounds per village via [SRS]{.alert3}
+
+    -   Record the number of beds and how many had nets within each
+        compound
+
+PSU = ? SSU = ? TSU = ?
+
+## Example (con't)
+
+Let's draw this design:
+
+## Example (con't)
+
+::: smaller-text
+To estimate the total number of beds in rural Gambia that use netting,
+**start from the last stage and work backwards:**
+
+<!-- ::: {.incremental} -->
+
+1.  Record total number of beds with nets for each compound (TSU)
+
+2.  Estimate total number of beds with nets for each village (SSU) by:
+    (# compounds in village) $\times$ (average \# beds w/nets per
+    compound)
+
+3.  Estimate the total number of beds with nets for [PHC
+    villages]{.alert} by:
+    $$\sum_{\text{selected villages in PHC stratum}} \frac{\text{estimated total number of beds for the village}}{\text{probability of selection from PPS}}$$
+    Repeat for [non-PHC villages]{.alert2}
+
+4.  Estimate the total number of beds with nets in each district (PSU)
+    by:
+    $$\text{Estimated total in PHC villages} + \text{Estimated total in non-PHC villages}$$
+
+5.  Estimate the total number of beds with nets in [Eastern
+    region]{.alert} by:
+    $$\sum_{\text{selected districts in Eastern stratum}} \frac{\text{estimated total number of beds for the district}}{\text{probability of selection from PPS}}$$
+    Repeat for [Central and Western regions]{.alert2}
+
+6.  Estimate overall total by:
+    $\text{Estimated total in Eastern} + \text{Estimated total in Central} + \text{Estimated total in Western}$
+    <!-- ::: -->
+:::
+
+## Weights: The Easier Way
+
+-   We can calculate sampling weights to avoid the (ugly) process of
+    working backwards through the stages to get to the ultimate total
+
+-   Fortunately, the principles of [conditional probability]{.alert}
+    make this straightforward
+
+-   Start with the probability of selection: [$$\begin{aligned}
+    P(\text{TSU }k&\text{ in SSU }j\text{ in PSU }i\text{ selected}) = \\
+    &= P(\text{PSU }i\text{ selected}) \times P(\text{SSU }j\text{ selected }|\text{ PSU }i\text{ selected}) \times P(\text{TSU }k\text{ selected }|\text{ PSU }i\text{ and SSU }j\text{ selected})\\
+    \pi_{ijk} &= \pi_{i} \times \pi_{j|i} \times \pi_{k|ij}
+    \end{aligned}$$]{.smaller-text}
+
+-   From here obtain the weights:
+    $$w_{ijk} = \frac{1}{P(\text{TSU }k\text{ in SSU }j\text{ in PSU }i\text{ selected})} = \frac{1}{\pi_{ijk}}$$
+
+-   These weights (inverse of selection probabilities) are often called
+    the [**base weights**]{.alert2}
+
+-   Often, post-survey adjustments to the weights are done to provide
+    the [**final weights**]{.alert2} used for analysis
+
+    -   Poststratification, adjustments for nonresponse, other
+        adjustments (e.g., for under- or over-coverage)
+
+## Weights (con't) {.pause}
+
+-   [**Point estimates**]{.alert} can be obtained using **just the
+    weights**
+
+    -   As with all of our designs considered so far, estimates can be
+        written in terms of sampling weights:
+        $$\hat{t}= \sum_{i \in S} w_i y_i \qquad \qquad \hat{\bar{y}} = \frac{\hat{t}}{\sum_{i \in S} w_i} = \frac{\sum_{i \in S} w_i y_i}{\sum_{i \in S} w_i}$$
+        Here, $i$ indexes the observation unit (could be PSU, SSU, TSU,
+        etc.)\
+        (This general notation works for any design and avoids complex
+        notation like $y_{ijk}$)
+
+. . .
+
+-   [**Variance estimates (with-replacement approximation)**]{.alert2}
+    require full design information:
+
+    -   weights
+
+    -   stratification information
+
+    -   clustering information
+
+        -   If without-replacement design was used, approximation will
+            usually only be slightly conservative
+
+. . .
+
+-   [**Without replacement variance estimates**]{.alert3} also require
+    the joint/pairwise inclusion probabilities
+
+## Example: Calculating Sampling Weights
+
+-   Sampling weights **only need to be calculated for the units that end
+    up in the sample**
+
+-   Sampling weights for units **not** in the sample are 0
+
+<p>
+
+-   Suppose I have the following two-stage design:
+
+    -   **Stage 1:** select 3 geographic regions via PPS (based on
+        population size)
+
+        -   The total population size across all PSUs is 10,000
+
+    -   **Stage 2:** stratify people in the regions into two strata:
+        younger (19-64) and older (65+) and select 10 people in each
+        stratum via SRS
+
+-   In this design, PSU = geographic region and SSU = person
+
+-   Total sample size = 3 regions $\times$ 2 strata $\times$ 10 people
+    per stratum = 60
+
+-   Let's calculate the sampling weights for the 60 sampled people
+
+## Example (con't)
+
+:::::: columns
+::: {.column width="35%"}
+-   My 3 sampled regions (PSUs) are →
+
+-   Total population size = 10,000
+:::
+
+:::: {.column width="65%"}
+::: smaller-text
+|        | Population Size |         |       | Sample Size |         |       |
+|--------|:---------------:|:-------:|:-----:|:-----------:|:-------:|:-----:|
+| Region |      Total      | Younger | Older |    Total    | Younger | Older |
+| 1      |      1000       |   800   |  200  |     20      |   10    |  10   |
+| 2      |       850       |   400   |  450  |     20      |   10    |  10   |
+| 3      |       150       |   110   |  40   |     20      |   10    |  10   |
+:::
+::::
+::::::
+
+::: smaller-text
+-   For a **Young** person in **Region (PSU) 1**
+
+    -   [First stage (PPS):]{.alert2}  
+        $P(\text{PSU }1\text{ selected}) = \pi_i = n \psi_i = n \frac{M_i}{\sum_{i=1}^N M_i} = 3 \times \frac{1000}{10000} = 0.3$
+
+    -   [Second stage (SRS within stratum):]{.alert2}
+        $$P(\text{Young person }j\text{ selected }| \text{ PSU }1\text{ selected})  =  \pi_{j|1}^{Y} = \frac{\text{\# of Younger people selected in PSU } 1}{\text{\# of Younger people in PSU }1} = \frac{10}{800} = 0.0125$$
+
+    -   [Overall selection probability]{.alert} = product of first and
+        second stage probabilities
+        $$P(\text{Young person }j\text{ in PSU }1\text{ selected}) = \pi_{1j}^{Y} = \pi_1 \times \pi_{j|1}^{Y} = 0.3 \times 0.0125 = 0.00375$$
+
+    -   Sampling Weight:  
+        $\displaystyle w_{1j}^{Y} = \frac{1}{\pi_{1j}^{Y}} = \frac{1}{0.00375} = 266.67$
+:::
+
+## Example (con't)
+
+:::::: columns
+::: {.column width="35%"}
+-   My 3 sampled regions (PSUs) are →
+
+-   Total population size = 10,000
+:::
+
+:::: {.column width="65%"}
+::: smaller-text
+|        | Population Size |         |       | Sample Size |         |       |
+|--------|:---------------:|:-------:|:-----:|:-----------:|:-------:|:-----:|
+| Region |      Total      | Younger | Older |    Total    | Younger | Older |
+| 1      |      1000       |   800   |  200  |     20      |   10    |  10   |
+| 2      |       850       |   400   |  450  |     20      |   10    |  10   |
+| 3      |       150       |   110   |  40   |     20      |   10    |  10   |
+:::
+::::
+::::::
+
+-   Let's work through another one:
+
+## Example (con't)
+
+-   You can alternatively calculate the **weights** for each stage and
+    **multiply them**, because (for a general case):
+    $$\pi_{ijk} = \pi_{i} \times \pi_{j|i} \times \pi_{k|ij}$$ and thus
+    $$w_{ijk} = \frac{1}{\pi_{ijk} }= \frac{1}{\pi_{i} \times \pi_{j|i} \times \pi_{k|ij}} = \frac{1}{\pi_{i}} \times \frac{1}{\pi_{j|i}} \times \frac{1}{\pi_{k|ij}} = w_i \times w_{j|i} \times w_{k|ij}$$
+
+-   For the example, **Young** person in **Region (PSU) 1**:
+
+      -   [PSU 1:]{.alert2} &nbsp; $w_1 = \frac{1}{\pi_1} = \frac{1}{0.3} = 3.3333$
+      
+      -   [Young person $j$ within PSU 1:]{.alert2} $w_{j|1}^{Y} = \frac{1}{\pi_{j|1}^{Y}} = \frac{1}{0.0125} = 80$
+      
+      -   [Overall weight:]{.alert} $w_{1j}^{Y}=w_1\times w_{j|1}^{Y} = 3.3333 \times 80 = 266.67$
+          (same answer)
+
+
+
+## Estimating a Total (or Mean) in a Complex Design
+
+-   Suppose we have a complex design involving:
+
+    -   Dividing the population into $H$ strata: $h=1,\dots,H$
+
+    -   Sampling $n_h$ PSUs within stratum $h$: $i=1,\dots,n_h$
+
+    -   Sampling $m_{hi}$ SSUs within PSU $i$ within stratum $h$:
+        $j=1,\dots, m_{hi}$
+
+    -   $w_{hij}$ = weight for SSU $j$ in PSU $i$ in stratum $h$
+
+    -   $y_{hij}$ = outcome for SSU $j$ in PSU $i$ in stratum $h$
+
+-   **Estimated total** = sum up the product of the sampling weights
+    $(w_{hij})$ and the outcome $(y_{hij})$ over all the sampled SSUs
+    within each sampled PSU within each stratum:
+    $$\hat{t}_{HT} = \underbrace{\sum_{h=1}^H}_{\text{strata }} \underbrace{\sum_{i=1}^{n_h}}_{\text{ PSUs }} \underbrace{\sum_{i=1}^{m_{hi}}}_{\text{ SSUs }} w_{hij} y_{hij}$$
+
+-   **Estimated mean** would use the ratio estimator or the
+    unbiased estimator
+
+      -   What would the denominator for each estimator be?
+
+## Activity 15.1
+
+Weighting a Complex Survey

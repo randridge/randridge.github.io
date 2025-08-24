@@ -9,6 +9,7 @@ $presentation-h2-font-size: 1.3em !default;
 $red: #BA0C2F;
 $blue: #0000cc;
 $grey: #A2AAAD;
+$pink: #e6308a;
 
 /*-- scss:rules --*/
 
@@ -44,6 +45,10 @@ table, th, td {
 
 .alert2 {
   color: $blue;
+}
+
+.alert3 {
+  color: $pink;
 }
 
 // title slide text
