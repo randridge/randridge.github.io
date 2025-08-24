@@ -23,16 +23,16 @@ editor:
 ::: hidden
 \newcommand{\thetahat}{\hat{\theta}}
 
-\newcommand{\that}{\hat{t}}
-\newcommand{\tbar}{\bar{t}}
-\newcommand{\thatclus}{\hat{t}_{clus}}
-\newcommand{\ybar}{\bar{y}}
-\newcommand{\ybarclus}{\hat{\bar{y}}_{clus}}
-\newcommand{\ybarr}{\hat{\bar{y}}_r}
-\newcommand{\yij}{y_{ij}}
-\newcommand{\Mbarhat}{\hat{\bar{M}}}
-\newcommand{\fpcpar}{\left(1-\frac{n}{N}\right)}
-\newcommand{\Cov}{\text{Cov}}
+<!-- \newcommand{\that}{\hat{t}} -->
+<!-- \newcommand{\tbar}{\bar{t}} -->
+<!-- \newcommand{\thatclus}{\hat{t}_{clus}} -->
+<!-- \newcommand{\ybar}{\bar{y}} -->
+<!-- \newcommand{\ybarclus}{\hat{\bar{y}}_{clus}} -->
+<!-- \newcommand{\ybarr}{\hat{\bar{y}}_r} -->
+<!-- \newcommand{\yij}{y_{ij}} -->
+<!-- \newcommand{\Mbarhat}{\hat{\bar{M}}} -->
+<!-- \newcommand{\fpcpar}{\left(1-\frac{n}{N}\right)} -->
+<!-- \newcommand{\Cov}{\text{Cov}} -->
 :::
 
 ::::: columns
@@ -408,7 +408,7 @@ PPS Sampling (Part 1)
 -   For the population of schools:
 
 | School | $M_i$ | Cumulative Size   | Cumulative Size (Values)     |        Range |
-|:-----------:|:-----------:|-------------|:---------------------|------------:|
+|:------------:|:------------:|--------------|:----------------|-------------:|
 |   1    |  643  | $M_1$             | 643                          |     1 to 643 |
 |   2    |  492  | $M_1+M_2$         | 643 + 492 = 1153             |  644 to 1153 |
 |   3    |  574  | $M_1+M_2+M_3$     | 643 + 492 + 574 = 1709       | 1154 to 1709 |
@@ -677,12 +677,12 @@ svytotal(~totfemale, des.ppswor)
 -   $\widehat{SE}_{WR}(\hat{t}_{HT}) = 54.7$
 
 -   Compare to **without-replacement** variance estimation:
-      
-      -   $\widehat{SE}_{HT}(\hat{t}_{HT}) = \text{N/A}$ (variance estimate is
-          negative!)
-      
-      -   $\widehat{SE}_{SYG}(\hat{t}_{HT}) = 53.1$ (slightly smaller
-          than with-replacement estimate)
+
+    -   $\widehat{SE}_{HT}(\hat{t}_{HT}) = \text{N/A}$ (variance
+        estimate is negative!)
+
+    -   $\widehat{SE}_{SYG}(\hat{t}_{HT}) = 53.1$ (slightly smaller than
+        with-replacement estimate)
 
 ## Activity 14.1 (Part 3)
 
@@ -690,7 +690,8 @@ PPS Sampling (Part 3)
 
 ## Comparing the Designs
 
--   Three designs compared (for sampling schools): (A) SRS, (B) PPSWR, (C) PPSWOR
+-   Three designs compared (for sampling schools): (A) SRS, (B)
+    PPSWR, (C) PPSWOR
 
 -   All provide **unbiased estimates** of the true total
 
@@ -705,6 +706,8 @@ PPS Sampling (Part 3)
 ::::: columns
 ::: {.column width="50%"}
 ```{r}
+#| fig-cap: ""
+#| fig-alt: "Scatterplot with number of students on x-axis and number of females on y-axis, showing a very linear relationship along an approximately 45 degree line."
 pop %>%
   ggplot(aes(x = Mi, y = totfemale)) + 
   geom_point(size = 3) +
@@ -713,10 +716,12 @@ pop %>%
   theme(axis.text = element_text(size = 14),
         axis.title = element_text(size = 16))
 ```
-
 :::
+
 ::: {.column width="50%"}
 ```{r}
+#| fig-cap: ""
+#| fig-alt: "Scatterplot with number of students on x-axis and number of smokers on y-axis, showing no clear pattern, a random scattering of points."
 pop %>%
   ggplot(aes(x = Mi, y = totsmoke)) + 
   geom_point(size = 3) +
@@ -726,8 +731,8 @@ pop %>%
         axis.title = element_text(size = 16))
 ```
 :::
-
 :::::
+
 <!-- ![image](./figures/PPS_totfemale_Mi){width="30%"} -->
 
 <!-- ![image](./figures/PPS_totsmoke_Mi){width="30%"} -->
