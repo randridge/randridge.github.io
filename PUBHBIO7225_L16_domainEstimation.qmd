@@ -1,0 +1,495 @@
+---
+title: "Complex Designs"
+subtitle: "PUBHBIO 7225 Lecture 15"
+# author: "Generative AI acknowledgment: MS Copilot was used to generate alt text for some images"
+format:
+  revealjs: 
+    slide-number: true
+    smaller: true
+    footer: "PUBHBIO 7225"
+    width: 1280
+    height: 720
+    theme: custom.scss
+    html-math-method: mathjax
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+## Outline
+
+::::: columns
+::: {.column width="60%"}
+**Topics**
+
+-   Domain Estimation
+
+-   Chi-Square Tests
+
+-   Discussion of Individual Project
+:::
+
+::: {.column width="40%"}
+**Activities**
+
+-   16.1 Domain Estimation/Comparison
+:::
+:::::
+
+**Readings**
+
+-   West BT, Berglund P, Heeringa SG (2008). A closer examination of
+    subpopulation analysis of complex-sample survey data. *The Stata
+    Journal*, 8(4); 520-531. (PDF on Carmen)
+
+**Assignments**
+
+-   Problem Set 4 due Thursday 10/23/2025 11:59pm via Carmen
+
+## Estimation in Domains
+
+> [**Domain**]{.alert3} = a subgroup in the population that is not part
+> of the sampling design.\
+> Also called [subpopulations]{.alert3} or [subgroups]{.alert3} or
+> [subclasses]{.alert3}.
+
+-   Not a stratum, not a cluster/group of clusters
+
+    -   Domains can cross strata (and often/usually do)
+
+    -   Domains can include units from many clusters (but maybe not all
+        clusters)
+
+-   *Like* strata and clusters, each unit $i$ either belongs to a
+    certain domain or does not belong to the domain
+
+-   *Unlike* strata and clusters, we don't know what domain unit $i$
+    belongs to until it is sampled (i.e., record domain membership on
+    the survey)
+
+-   Examples:
+
+    -   SRS of OSU students on Columbus campus, domain = students who
+        live off-campus
+
+    -   Stratified (by county) random sample of women who recently gave
+        birth in Ohio, domain = women who did not have a prenatal visit
+
+    -   Two-stage cluster sample of students within schools, domain =
+        students with a disclosed disability
+
+## Domain Sizes are Random Variables {.pause}
+
+-   **Key Point:** We don't know which domain a unit belongs to until it
+    is sampled
+
+    -   Thus, the number of units in the domain is a [random
+        variable]{.alert2}
+
+    -   Take another sample, get a different number of units in the
+        domain
+
+        -   Contrast with stratum -- take another sample, get same
+            number of units in the stratum!
+
+    -   This extra variability **must be accounted for in analysis
+        stage** to get correct variance estimates
+
+. . .
+
+-   Variance estimates must properly account for the survey design
+
+-   You should **never subset your data for analysis**, even if there
+    are no units in a particular domain
+
+. . .
+
+-   Subsetting will definitely cause problems when:
+
+    -   A stratum does not contain any members of the domain
+
+        -   Usually unlikely to occur -- but possible in highly
+            stratified designs
+
+    -   A PSU does not contain any members of a domain
+
+        -   Quite possible -- imagine sampling households, and the
+            domain is males aged 50+
+
+. . .
+
+-   **One exception:** It's okay to subset an SRS -- an SRS of a
+    population contains SRS of a subpopulation
+
+## Domain Indicators
+
+-   Indicator variable, $x_i$, for domain membership:
+    $$x_i = \begin{cases} 1 & \text{unit $i$ is in domain $d$}\\ 
+    0 & \text{unit $i$ not in domain $d$} 
+    \end{cases}$$
+
+-   Estimates:
+
+    -   Domain total:  
+        $\displaystyle \hat{t}^{(d)} = \sum_{i \in \mathcal{S}} w_i x_i y_i$
+
+    -   Domain mean:  
+        $\displaystyle \bar{y}^{(d)} = \frac{\sum_{i \in \mathcal{S}} w_i x_i y_i}{\sum_{i \in \mathcal{S}} w_i x_i}$
+
+<p>
+
+-   Since $x_i=0$ for units not in the domain, you'd get the **same
+    point estimate** if you simply dropped the non-domain units
+
+-   But -- variance estimation would be incorrect
+
+-   **You must use the whole sample, even to obtain estimates for a
+    subpopulation**
+
+## Example: Domain Estimation in NHAMCS {.pause}
+
+-   Analysis of data from the 2004 National Hospital Ambulatory Medical
+    Care Survey (paper on Carmen)
+
+-   NHAMCS collects data on the use and provision of ambulatory care
+    services in hospital emergency departments (ED) and outpatient
+    departments and ambulatory surgery locations
+
+-   4-stage design with stratification:
+
+    1.  PSUs = geographic areas (selection via PPS) (stratified by SES
+        variables)
+
+    2.  hospitals within PSUs (selection via PPS)
+
+    3.  clinics within hospitals (complex selection procedure involving
+        PPS)
+
+    4.  patient visits within clinics (systematic sampling)
+
+-   2004 sample had [8 strata]{.alert} and [294 PSUs]{.alert} (between 6
+    and 86 PSUs per stratum)
+
+. . .
+
+-   **Domain of interest:** visits to EDs by elderly (age $\geq$ 60)
+    African-American males
+
+    -   Domain members could theoretically appear across the strata and
+        PSUs -- but there are likely PSUs with no domain members
+
+-   **Goal:** estimate the percentage of visits in this domain with
+    dizziness or vertigo as a reason for the visit
+
+## Example (con't)
+
+-   Two analysis approaches taken:
+
+    1.  **Conditional Approach**: Subsetting the data to domain members
+        only and performing estimation ([**bad!**]{.alert})
+
+    2.  **Unconditional Approach:** Appropriately including all sampled
+        units in calculations ([**good!**]{.alert2})
+
+::: smaller-text
+|   | Unconditional Approach (Correct) | Conditional Approach (Incorrect) | When subsetting, we have... |
+|------------------|------------------|------------------|------------------|
+| Sample Size | 68,372 | 397 |  |
+| Subpopulation Sample Size | 397 | 397 |  |
+| Design Strata | 8 | 8 | Correct \# strata |
+| Design Clusters | 294 | 114 | Too few PSUs |
+| Design DF (# PSUs − \# Strata) | 286 | 106 | DF too small |
+| Estimated Percentage | 4.8201 | 4.8201 | Correct point estimate |
+| Standard Error | 1.5904 | 1.5761 | SE too small |
+| 95% CI | (1.6897, 7.9504) | (1.6954, 7.9448) | CI too narrow |
+
+Adapted from Table 1 in West et al. (2008)
+:::
+
+## Domain Estimation in Software
+
+::: smaller-text
+**Stata:**
+
+```{r}
+#| echo: true
+#| eval: false
+
+# estimates just for the domain of interest -- units with DOMAIN not equal to 0
+svy, subpop(DOMAIN): mean y
+svy, subpop(DOMAIN): proportion y
+
+# estimates in all domains defined by the unique values of DOMAIN
+svy: mean y, over(DOMAIN)
+svy: proportion y, over(DOMAIN)
+```
+
+-   **Stata user warning:** do not use **if** with Stata for domain
+    estimates!
+
+-   This will subset the data (even if you used the **svyset** command
+    on the full dataset)
+
+**R:**
+
+```{r}
+#| echo: true
+#| eval: false
+
+# estimates just for the domain of interest -- units with DOMAIN = 1/TRUE
+svymean(~y, subset(DESIGN_OBJECT, DOMAIN==1))
+
+# estimates in all domains defined by the unique values of DOMAIN
+svyby(~y, ~DOMAIN, DESIGN_OBJECT, svymean)
+```
+:::
+
+## Activity 16.1 (Part 1)
+
+Domain Estimation and Comparison (Part 1)
+
+## Comparing Domains
+
+-   So far in this course we have done a lot of estimating of means and
+    totals and proportions, either for the whole population or (today)
+    for domains
+
+-   We have yet to do any formal comparisons -- i.e., any hypothesis
+    testing
+
+-   If we want to compare two (or more) domains, often we will be using
+    **chi-square tests** -- since so much of survey data is
+    **categorical**
+
+<br>
+
+-   I am going to assume you are [familiar with (and comfortable with)
+    chi-square tests in the context of infinite populations]{.alert2}
+    (i.e., what you've seen before this class), but stop me if you have
+    questions!
+
+-   We will start with an example that illustrates why taking into
+    account the survey design is important when doing tests like a
+    chi-square test
+
+## Example: Households With and Without Netflix
+
+-   Suppose we have an SRS of $n$ = 500 co-habiting couples from a very
+    large population (i.e., $N$ large enough to be able to ignore the
+    FPC)
+
+-   We want to compare two domains: [**People who have Netflix**]{.alert} and [**People who do not have Netflix**]{.alert2}
+
+-   [Question: Are people who have Netflix less likely to
+    subscribe to cable TV?]{.alert3} (We recognize that no causal link can be made
+    with a cross-sectional survey!)
+
+::::: columns
+::: {.column width="50%"}
+-   Data from our SRS of 500 co-habiting couples:
+:::
+::: {.column width="50%"}
+|         Has | Cable TV | No Cable TV | Total |
+|------------:|:--------:|:-----------:|:-----:|
+| Has Netflix |   119    | 88          |  207  |
+|  No Netflix |   188    | 105         |  293  |
+|       Total |          |             |  500  |
+
+:::
+:::::
+
+-   Resulting estimates:
+
+    -   119/207 = 57.5% of couples with Netflix have cable TV
+
+    -   188/293 = 64.2% of couples without Netflix have cable TV
+
+## Example (con't)
+
+-   A chi-square test gives us:
+
+```{r}
+library(tidyverse)
+dat <- tibble(id = 1:500) %>%
+  mutate(netflix = case_when(id > 207 ~ "No Netflix", .default = "Has Netflix"),
+         cable = case_when(id > 119 & id <= 207 ~ "No Cable TV",
+                           id > 395 ~ "No Cable TV",
+                           .default = "Cable TV"))
+dat_larger <- bind_rows(dat, dat)
+```
+
+```{r}
+#| echo: true
+chisq.test(dat$netflix, dat$cable, correct = FALSE)
+```
+
+-   Conclusion: There is **no evidence of an association** between having Netflix and
+    having cable (i.e., not true that the proportion of people with
+    cable differs for people with/without Netflix)
+
+-   Summarize observed association with an **odds ratio (OR)** or **prevalence ratio (PR)**:
+
+<br>
+
+<br>
+
+*Surveys are (usually) cross-sectional → prefer PR to RR (risk ratio)*
+
+## Example (con't)
+
+-   Now, suppose we asked *both partners* about Netflix and cable
+
+      -   We'll have *twice as many people* (1000 responses, instead of 500),
+      with the same proportions (assuming both partners answered the same),
+      but a different test result:
+
+```{r}
+dat_larger %>%
+  janitor::tabyl(netflix, cable) %>%
+  janitor::adorn_percentages("row") %>%
+  janitor::adorn_pct_formatting(digits = 2) %>%
+  janitor::adorn_ns()
+```
+
+```{r}
+#| echo: true
+chisq.test(dat_larger$netflix, dat_larger$cable, correct = FALSE)
+```
+
+
+-   Ignoring the clustering has **inflated the test statistic** value and
+    **lowered the p-value**
+
+-   ICC for this design is very high, in fact it is:
+
+-   What is the DEFF for this design?
+
+## Chi-Square Tests for Complex Survey Data
+
+<!-- -   This is an extreme example (and in fact you could make it more -->
+<!--     extreme by interviewing any children in the house too!), but it -->
+<!--     illustrates the problem -->
+
+-   [**Ignoring clustering can inflate test statistics and deflate
+    p-values**]{.alert}
+
+    -   Remember, DEFF > 1 for many outcomes in a cluster sample
+
+    -   A cluster sample of size $n$ provides the same precision as an
+        SRS of size $n$/DEFF
+        
+          -   Effective sample size is *smaller* than $n$
+
+    -   Thus you are **overstating your signficance** (p-value too small)
+
+    -   Note that the $X^2$ test statistic does not have a
+        $\chi^2_{(r-1)(c-1)}$ distribution under the null hypothesis
+        when a cluster sample is taken and ICC \> 0
+
+-   [**Ignoring stratification can deflate test statistics and inflate
+    p-values**]{.alert2}
+
+    -   Remember, DEFF < 1 for many outcomes in a stratified sample
+
+    -   A stratified sample of size $n$ provides the same precision as
+        an SRS of size $n$/DEFF
+        
+          -   Effective sample size is *larger* than $n$
+
+    -   Thus you are **being too conservative** (p-value too high)
+
+-   The worse crime (usually) is ignoring clustering and "overstating"
+    results (inflate Type 1 error)
+
+## Corrections to Chi-Square Tests for Complex Survey Data {.pause}
+
+-   For an [SRS in an infinite population]{.alert}:
+      -   $X^2$ from a chi-square test has a $\chi^2_{(r-1)(c-1)}$ distribution under $H_0$
+      -   Thus, $E[X^2] = (r-1)(c-1)$
+            -   (the expected value of a chi-square random variable is equal to its DF)
+
+-   For [complex survey designs]{.alert2}:
+      -   $X^2$ from a chi-square test **does not** follow a $\chi^2_{(r-1)(c-1)}$ distribution under $H_0$
+
+. . . 
+
+<p>
+
+-   However, we can adjust the test statistic $X^2$ in order to make a *rescaled* test statistic have an approximately
+    $\chi^2$ distribution
+
+-   Two methods used most often (not very creatively named):
+
+    -   **First Order Correction** (also called Rao-Scott first order
+        correction)
+
+    -   **Second Order Correction** (also called Rao-Scott second order
+        correction)
+
+## Option 1: (Rao-Scott) First Order Correction {.pause}
+
+-   **Idea:** Match the [**mean**]{.alert} of the test statistic $X^2$
+    (under the complex design) to the [**mean**]{.alert} of a
+    $\chi^2_{(r-1)(c-1)}$ distribution, thus "rescaling" the test
+    statistic
+
+-   **"First Order"** because we're rescaling based on the mean
+
+    1.   Calculate $E[X^2]$ = the expected value of $X^2$ for the complex
+        design under $H_0$
+
+    2.   Calculate first order corrected test statistic as &nbsp; $X^2_F = \frac{(r-1)(c-1) X^2}{E[X^2]}$
+
+    3.   Compare $X^2_F$ to a $\chi^2_{(r-1)(c-1)}$ distribution
+
+          -   In practice, works better to compare $X^2_F/(r-1)(c-1)$ to an $F$ distribution
+
+. . . 
+
+-   Calculation of $E[X^2]$ depends on the cell and marginal
+    probabilities and the DEFF for estimating each of these
+    probabilities (there's the survey design part!)
+
+. . . 
+
+-   [Slight problem:]{.alert} we are matching the mean of the distribution --
+    but p-values often come from the tail of the distribution (at least
+    the p-values we care about most!)
+
+      -   Variance of $X^2_F$ is actually larger than variance of
+    $\chi^2_{(r-1)(c-1)} \rightarrow$ p-values from $X^2_F$ are slightly
+    smaller than they should be
+
+## Option 2: (Rao-Scott) Second Order Correction
+
+-   **Idea:** Match the [**mean and variance**]{.alert2} of the test
+    statistic $X^2$ (under the complex design) to the [**mean and
+    variance**]{.alert2} of a $\chi^2_{(r-1)(c-1)}$ distribution, thus
+    "rescaling" the test statistic
+
+-   **Second Order** because we're rescaling based on the mean and variance
+
+    1.   Calculate $E[X^2]$ = the expected value of $X^2$ for the complex
+        design under $H_0$
+
+    2.   Calculate $V[X^2]$ = the variance of $X^2$ under $H_0$
+
+    3.   Calculate second order corrected test statistic as &nbsp; $X^2_S = \frac{\nu X^2_F}{(r-1)(c-1)}$ where $\nu = 2\frac{(E[X^2])^2}{V[X^2]}$
+
+    4.   Compare $X^2_F$ to a $\chi^2_{\nu}$ distribution
+
+          -   In practice, works better to compare $X^2_S/\nu$ to an $F$ distribution
+
+    -   Similar to the Satterthwaite approximation for ANOVA
+
+. . . 
+
+-   Calculation of $V[X^2]$ even more involved than $E[X^2]$, requires
+    covariance matrix of estimated cell proportions
+
+-   For many software packages (Stata, R), the second order correction
+    is the default
+
+## Activity 16.1 (Part 2)
+
+Domain Estimation and Comparison (Part 2)
