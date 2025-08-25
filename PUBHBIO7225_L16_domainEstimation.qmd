@@ -1,6 +1,6 @@
 ---
 title: "Complex Designs"
-subtitle: "PUBHBIO 7225 Lecture 15"
+subtitle: "PUBHBIO 7225 Lecture 16"
 # author: "Generative AI acknowledgment: MS Copilot was used to generate alt text for some images"
 format:
   revealjs: 
@@ -278,23 +278,24 @@ Domain Estimation and Comparison (Part 1)
     large population (i.e., $N$ large enough to be able to ignore the
     FPC)
 
--   We want to compare two domains: [**People who have Netflix**]{.alert} and [**People who do not have Netflix**]{.alert2}
+-   We want to compare two domains: [**People who have
+    Netflix**]{.alert} and [**People who do not have Netflix**]{.alert2}
 
--   [Question: Are people who have Netflix less likely to
-    subscribe to cable TV?]{.alert3} (We recognize that no causal link can be made
+-   [Question: Are people who have Netflix less likely to subscribe to
+    cable TV?]{.alert3} (We recognize that no causal link can be made
     with a cross-sectional survey!)
 
 ::::: columns
 ::: {.column width="50%"}
 -   Data from our SRS of 500 co-habiting couples:
 :::
+
 ::: {.column width="50%"}
 |         Has | Cable TV | No Cable TV | Total |
 |------------:|:--------:|:-----------:|:-----:|
-| Has Netflix |   119    | 88          |  207  |
-|  No Netflix |   188    | 105         |  293  |
+| Has Netflix |   119    |     88      |  207  |
+|  No Netflix |   188    |     105     |  293  |
 |       Total |          |             |  500  |
-
 :::
 :::::
 
@@ -323,11 +324,12 @@ dat_larger <- bind_rows(dat, dat)
 chisq.test(dat$netflix, dat$cable, correct = FALSE)
 ```
 
--   Conclusion: There is **no evidence of an association** between having Netflix and
-    having cable (i.e., not true that the proportion of people with
-    cable differs for people with/without Netflix)
+-   Conclusion: There is **no evidence of an association** between
+    having Netflix and having cable (i.e., not true that the proportion
+    of people with cable differs for people with/without Netflix)
 
--   Summarize observed association with an **odds ratio (OR)** or **prevalence ratio (PR)**:
+-   Summarize observed association with an **odds ratio (OR)** or
+    **prevalence ratio (PR)**:
 
 <br>
 
@@ -339,9 +341,9 @@ chisq.test(dat$netflix, dat$cable, correct = FALSE)
 
 -   Now, suppose we asked *both partners* about Netflix and cable
 
-      -   We'll have *twice as many people* (1000 responses, instead of 500),
-      with the same proportions (assuming both partners answered the same),
-      but a different test result:
+    -   We'll have *twice as many people* (1000 responses, instead of
+        500), with the same proportions (assuming both partners answered
+        the same), but a different test result:
 
 ```{r}
 dat_larger %>%
@@ -356,9 +358,8 @@ dat_larger %>%
 chisq.test(dat_larger$netflix, dat_larger$cable, correct = FALSE)
 ```
 
-
--   Ignoring the clustering has **inflated the test statistic** value and
-    **lowered the p-value**
+-   Ignoring the clustering has **inflated the test statistic** value
+    and **lowered the p-value**
 
 -   ICC for this design is very high, in fact it is:
 
@@ -367,20 +368,23 @@ chisq.test(dat_larger$netflix, dat_larger$cable, correct = FALSE)
 ## Chi-Square Tests for Complex Survey Data
 
 <!-- -   This is an extreme example (and in fact you could make it more -->
+
 <!--     extreme by interviewing any children in the house too!), but it -->
+
 <!--     illustrates the problem -->
 
 -   [**Ignoring clustering can inflate test statistics and deflate
     p-values**]{.alert}
 
-    -   Remember, DEFF > 1 for many outcomes in a cluster sample
+    -   Remember, DEFF \> 1 for many outcomes in a cluster sample
 
     -   A cluster sample of size $n$ provides the same precision as an
         SRS of size $n$/DEFF
-        
-          -   Effective sample size is *smaller* than $n$
 
-    -   Thus you are **overstating your signficance** (p-value too small)
+        -   Effective sample size is *smaller* than $n$
+
+    -   Thus you are **overstating your signficance** (p-value too
+        small)
 
     -   Note that the $X^2$ test statistic does not have a
         $\chi^2_{(r-1)(c-1)}$ distribution under the null hypothesis
@@ -389,12 +393,12 @@ chisq.test(dat_larger$netflix, dat_larger$cable, correct = FALSE)
 -   [**Ignoring stratification can deflate test statistics and inflate
     p-values**]{.alert2}
 
-    -   Remember, DEFF < 1 for many outcomes in a stratified sample
+    -   Remember, DEFF \< 1 for many outcomes in a stratified sample
 
     -   A stratified sample of size $n$ provides the same precision as
         an SRS of size $n$/DEFF
-        
-          -   Effective sample size is *larger* than $n$
+
+        -   Effective sample size is *larger* than $n$
 
     -   Thus you are **being too conservative** (p-value too high)
 
@@ -404,19 +408,22 @@ chisq.test(dat_larger$netflix, dat_larger$cable, correct = FALSE)
 ## Corrections to Chi-Square Tests for Complex Survey Data {.pause}
 
 -   For an [SRS in an infinite population]{.alert}:
-      -   $X^2$ from a chi-square test has a $\chi^2_{(r-1)(c-1)}$ distribution under $H_0$
-      -   Thus, $E[X^2] = (r-1)(c-1)$
-            -   (the expected value of a chi-square random variable is equal to its DF)
-
+    -   $X^2$ from a chi-square test has a $\chi^2_{(r-1)(c-1)}$
+        distribution under $H_0$
+    -   Thus, $E[X^2] = (r-1)(c-1)$
+        -   (the expected value of a chi-square random variable is equal
+            to its DF)
 -   For [complex survey designs]{.alert2}:
-      -   $X^2$ from a chi-square test **does not** follow a $\chi^2_{(r-1)(c-1)}$ distribution under $H_0$
+    -   $X^2$ from a chi-square test **does not** follow a
+        $\chi^2_{(r-1)(c-1)}$ distribution under $H_0$
 
-. . . 
+. . .
 
 <p>
 
--   However, we can adjust the test statistic $X^2$ in order to make a *rescaled* test statistic have an approximately
-    $\chi^2$ distribution
+-   However, we can adjust the test statistic $X^2$ in order to make a
+    *rescaled* test statistic have an approximately $\chi^2$
+    distribution
 
 -   Two methods used most often (not very creatively named):
 
@@ -435,30 +442,32 @@ chisq.test(dat_larger$netflix, dat_larger$cable, correct = FALSE)
 
 -   **"First Order"** because we're rescaling based on the mean
 
-    1.   Calculate $E[X^2]$ = the expected value of $X^2$ for the complex
+    1.  Calculate $E[X^2]$ = the expected value of $X^2$ for the complex
         design under $H_0$
 
-    2.   Calculate first order corrected test statistic as &nbsp; $X^2_F = \frac{(r-1)(c-1) X^2}{E[X^2]}$
+    2.  Calculate first order corrected test statistic as  
+        $X^2_F = \frac{(r-1)(c-1) X^2}{E[X^2]}$
 
-    3.   Compare $X^2_F$ to a $\chi^2_{(r-1)(c-1)}$ distribution
+    3.  Compare $X^2_F$ to a $\chi^2_{(r-1)(c-1)}$ distribution
 
-          -   In practice, works better to compare $X^2_F/(r-1)(c-1)$ to an $F$ distribution
+        -   In practice, works better to compare $X^2_F/(r-1)(c-1)$ to
+            an $F$ distribution
 
-. . . 
+. . .
 
 -   Calculation of $E[X^2]$ depends on the cell and marginal
     probabilities and the DEFF for estimating each of these
     probabilities (there's the survey design part!)
 
-. . . 
+. . .
 
--   [Slight problem:]{.alert} we are matching the mean of the distribution --
-    but p-values often come from the tail of the distribution (at least
-    the p-values we care about most!)
+-   [Slight problem:]{.alert} we are matching the mean of the
+    distribution -- but p-values often come from the tail of the
+    distribution (at least the p-values we care about most!)
 
-      -   Variance of $X^2_F$ is actually larger than variance of
-    $\chi^2_{(r-1)(c-1)} \rightarrow$ p-values from $X^2_F$ are slightly
-    smaller than they should be
+    -   Variance of $X^2_F$ is actually larger than variance of
+        $\chi^2_{(r-1)(c-1)} \rightarrow$ p-values from $X^2_F$ are
+        slightly smaller than they should be
 
 ## Option 2: (Rao-Scott) Second Order Correction
 
@@ -467,22 +476,26 @@ chisq.test(dat_larger$netflix, dat_larger$cable, correct = FALSE)
     variance**]{.alert2} of a $\chi^2_{(r-1)(c-1)}$ distribution, thus
     "rescaling" the test statistic
 
--   **Second Order** because we're rescaling based on the mean and variance
+-   **Second Order** because we're rescaling based on the mean and
+    variance
 
-    1.   Calculate $E[X^2]$ = the expected value of $X^2$ for the complex
+    1.  Calculate $E[X^2]$ = the expected value of $X^2$ for the complex
         design under $H_0$
 
-    2.   Calculate $V[X^2]$ = the variance of $X^2$ under $H_0$
+    2.  Calculate $V[X^2]$ = the variance of $X^2$ under $H_0$
 
-    3.   Calculate second order corrected test statistic as &nbsp; $X^2_S = \frac{\nu X^2_F}{(r-1)(c-1)}$ where $\nu = 2\frac{(E[X^2])^2}{V[X^2]}$
+    3.  Calculate second order corrected test statistic as  
+        $X^2_S = \frac{\nu X^2_F}{(r-1)(c-1)}$ where
+        $\nu = 2\frac{(E[X^2])^2}{V[X^2]}$
 
-    4.   Compare $X^2_F$ to a $\chi^2_{\nu}$ distribution
+    4.  Compare $X^2_F$ to a $\chi^2_{\nu}$ distribution
 
-          -   In practice, works better to compare $X^2_S/\nu$ to an $F$ distribution
+        -   In practice, works better to compare $X^2_S/\nu$ to an $F$
+            distribution
 
     -   Similar to the Satterthwaite approximation for ANOVA
 
-. . . 
+. . .
 
 -   Calculation of $V[X^2]$ even more involved than $E[X^2]$, requires
     covariance matrix of estimated cell proportions
