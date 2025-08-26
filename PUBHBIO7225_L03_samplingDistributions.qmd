@@ -66,32 +66,35 @@ format:
 
 ## Example of a Sampling Distribution
 
-::: {r-fit-text}
-Suppose there are $N=5$ clinics in a town and you want to estimate the average number of patients seen in a day (in the town)
+-   Suppose there are $N=5$ clinics in a town and you want to estimate the [average number of patients seen in a day (in the town)]{.alert}
 
-The **population** of clinics is:
+-   The **population** of clinics is:
 
+::: {.smaller-text}
 |                                        |     |     |     |     |     |
 |----------------------------------------|:---:|:---:|:---:|:---:|:---:|
 | Clinic ID:                             |  1  |  2  |  3  |  4  |  5  |
 | Number of Doctors:                     |  2  |  3  |  4  |  5  | 10  |
 | Number of Patients Seen in a Day ($y$) | 10  | 20  | 50  | 60  | 150 |
+:::
+
+<p>
 
 -   True mean \# of patients = $(10+20+50+60+150)/5 = 58$
 
--   [Number of doctors]{.alert2} -- we know in advance of the survey (i.e., its on the sampling frame)
+-   [Number of doctors]{.alert2}: we know in advance of the survey (i.e., its on the sampling frame)
 
--   [Number of patients seen per day]{.alert} -- we don't know until we take a sample (and then we will only know it for the sampled units)
+-   [Number of patients seen per day]{.alert}: we **don't know** until we take a sample (and then we will only know it for the sampled units)
 
 -   Suppose we only have enough money to sample $n=2$ of the $N=5$ clinics
 
--   Statistic for which we want the sampling distribution = $\hat{\theta}= \bar{y}$ = mean \# patients from sample of $n=2$ clinics
-:::
+-   Statistic for which we want the sampling distribution: $\hat{\theta}= \bar{y}$ = mean \# patients
 
 ## Example (con't)
 
-There are lots of ways we could select $n=2$ clinics from the population of $N=5$. Consider two options:
+-   There are lots of ways we could select $n=2$ clinics from the population of $N=5$. Consider two options:
 
+:::::: {.smaller-text}
 ::::: columns
 ::: {.column width="30%"}
 | Clinics | Probability |
@@ -124,37 +127,39 @@ There are lots of ways we could select $n=2$ clinics from the population of $N=5
 :::
 :::::
 
-For both schemes (designs), the probability of selection is equal for every pair of units
+::::::
 
-Can you name these two sampling schemes?
+-   For both schemes (designs), the probability of selection is equal for every pair of units
+
+-   Can you name these two sampling schemes?
 
 ## Number of Possible Samples in an SRS or SRSWR
 
-Without actually writing out all the possible samples, we can use math tools to calculate the number of possible samples for each of these designs (SRSWR, SRS)
+-   Without actually writing out all the possible samples, we can use math tools to calculate the number of possible samples for each of these designs (SRSWR, SRS)
 
-> **With replacement:** (Exponentiation)
+> [**With replacement:**]{.alert} (Exponentiation)
 >
 > <p>
 >
 > Total number of outcomes when repeating an experiment with $N$ outcomes $n$ times is $N^n$
 
-> **Without replacement:** (Combination)
+> [**Without replacement:**]{.alert2} (Combination)
 >
 > <p>
 >
 > Total number of different ways to pick $n$ subjects out of $N$ subjects without regard to order is $\displaystyle{_NC_n} = \binom{N}{n} = \text{``$N$ choose $n$"} = \frac{N!}{n!(N-n)!}$
 
-<br>
+<p>
 
-Thus for sampling $n=2$ clinics from population of $N=5$ clinics:
+-   Thus for sampling $n=2$ clinics from population of $N=5$ clinics:
 
--   SRSWR: \# possible samples = $N^n = 5^2 = 25$
-
--   SRS: \# possible samples = $\binom{N}{n} = \binom{5}{2} = \frac{5!}{2! (5-2)!} = \frac{120}{2 \times 6} = \frac{120}{12} = 10$
+      -   SRSWR: \# possible samples = $N^n = 5^2 = 25$
+      
+      -   SRS: \# possible samples = $\binom{N}{n} = \binom{5}{2} = \frac{5!}{2! (5-2)!} = \frac{120}{2 \times 6} = \frac{120}{12} = 10$
 
 ## Selection Probabilities
 
-> **Selection Probability** = the probability of a unit being sampled (ending up in our sample) under a specific sampling design
+> [**Selection Probability**]{.alert3} = the probability of a unit being sampled (ending up in our sample) under a specific sampling design
 
 -   **Selection probabilities are a crucial/critical part of probability sampling!**
 
@@ -168,20 +173,19 @@ Thus for sampling $n=2$ clinics from population of $N=5$ clinics:
 
 ## Selection Probabilities: SRSWR
 
-Sampling design: [**SRSWR**]{.alert} of size $n=2$ from a population of size $N=5$.
+-   Sampling design: [**SRSWR**]{.alert} of size $n=2$ from a population of size $N=5$.
 
-Define:
+-   Define:
 
--   A = Unit (clinic) 1 is randomly selected on the first draw
+      -   A = Unit (clinic) 1 is randomly selected on the first draw
+      
+      -   B = Unit (clinic) 1 is randomly selected on the second draw
 
--   B = Unit (clinic) 1 is randomly selected on the second draw
+-   Since this is [SRSWR]{.alert}, each time we pick a clinic we "put it back"
 
-Since this is [SRSWR]{.alert}, each time we pick a clinic we "put it back"
+-   Thus $P(A) = P(B) = 1/N = 1/5 = 0.2$
 
-Thus $P(A) = P(B) = 1/N = 1/5 = 0.2$
-
-Selection probability = [Probability that unit (clinic) 1 is selected into the sample]{.alert2}
-
+-   Selection probability = [Probability that unit (clinic) 1 is selected into the sample]{.alert2}
 $$\begin{aligned}
 P(\text{Unit 1 in sample}) &{}= P(\text{selected on 1st draw OR selected on 2nd draw})\\
 &{}= P(A \cup B)  \quad\qquad\qquad\qquad\qquad\qquad \text{(union)}\\
@@ -190,47 +194,53 @@ P(\text{Unit 1 in sample}) &{}= P(\text{selected on 1st draw OR selected on 2nd 
 &{}= 0.2 + 0.2 - 0.2 \times 0.2 = \mathbf{0.36}
 \end{aligned}$$
 
-For a review of these probability rules, see handout on Carmen.
+-   For a review of these probability rules, see review sheet on Carmen.
 
-## Selection Probabilities: SRS
+## Selection Probabilities: SRS {.pause}
 
-Now suppose we are taking a [simple random sample WITHOUT replacement (SRS)]{.alert2} of size $n=2$ from a population of size $N=5$.
+-   Now suppose we are taking a [simple random sample WITHOUT replacement (SRS)]{.alert2} of size $n=2$ from a population of size $N=5$.
 
--   A = Unit (clinic) 1 is randomly selected on the first draw
+      -   A = Unit (clinic) 1 is randomly selected on the first draw
+      
+      -   B = Unit (clinic) 1 is randomly selected on the second draw
 
--   B = Unit (clinic) 1 is randomly selected on the second draw
+-   As before, $P(A) = 1/5 = 0.2$ but $P(B) \ne P(A)$ !
 
-As before, $P(A) = 1/5 = 0.2$ but $P(B) \ne P(A)$ !
+      -   [Why?]{.alert2}
 
-[Why?]{.alert2}
+. . .
 
 <p>
 
-[The probability of selection on 2nd draw depends on whether or not the unit was selected on 1st draw]{.alert2}
+-   [The probability of selection on 2nd draw depends on whether or not the unit was selected on 1st draw]{.alert2}
 
-We can, however, use the **Law of Total Probability** to calculate $P(B)$: $$\begin{aligned}
+. . .
+
+-   We can, however, use the **Law of Total Probability** to calculate $P(B)$: $$\begin{aligned}
 P(B) &{}= P(B|A) \times P(A) + P(B|A^C) \times P(A^C) \\
 &{} = P(\text{chosen on 2nd }|\text{ chosen on 1st}) \times P(\text{chosen on 1st}) \\
 &{} \qquad + P(\text{chosen on 2nd }|\text{ NOT chosen on 1st}) \times P(\text{NOT chosen on 1st})
 \end{aligned}$$
 
-These are all quantities we know or can calculate!
+-   These are all quantities we know or can calculate!
 
-------------------------------------------------------------------------
+## Selection Probabilities: SRS (con't) {.pause}
 
-Each of the pieces from the Law of Total Probability:
+-   Each of the pieces from the Law of Total Probability:
 
--   $P(A) = P(\text{chosen on 1st}) = 0.2$
+      -   $P(A) = P(\text{chosen on 1st}) = 0.2$
+      
+      -   $P(A^C) = P(\text{NOT chosen on 1st}) = 1 - P(A) = 0.8$     [*(complement rule)*]{.alert}
+      
+      -   $P(B|A) = P(\text{chosen on 2nd }|\text{ chosen on 1st}) = 0$     [*(sampling without replacement!)*]{.alert}
+      
+      -   $P(B|A^C) = P(\text{chosen on 2nd }|\text{ NOT chosen on 1st}) = 1/4$
 
--   $P(A^C) = P(\text{NOT chosen on 1st}) = 1 - P(A) = 0.8$     [*(complement rule)*]{.alert}
+-   Putting these pieces all together gives us $P(B) = P(\text{Unit 1 selected on 2nd draw})$
 
--   $P(B|A) = P(\text{chosen on 2nd }|\text{ chosen on 1st}) = 0$     [*(sampling without replacement!)*]{.alert}
+. . .
 
--   $P(B|A^C) = P(\text{chosen on 2nd }|\text{ NOT chosen on 1st}) = 1/4$
-
-Putting these pieces all together gives us $P(B) = P(\text{Unit 1 selected on 2nd draw})$
-
-We want to know the [probability that unit (clinic) 1 is selected into the sample]{.alert2}: $$\begin{aligned}
+-   We want to know the [probability that unit (clinic) 1 is selected into the sample]{.alert2}: $$\begin{aligned}
 P(\text{Unit 1 in sample}) &{}= P(\text{selected on 1st draw OR selected on 2nd draw}) \\
 &{}= P(A \cup B)  \quad\qquad\qquad\qquad\qquad\qquad \text{(union)}\\
 &{}= P(A) + P(B) - \underbrace{P(A \cap B)}_{=0 \text{(why??)}} \qquad\qquad \text{(addition rule)} \\
@@ -243,32 +253,26 @@ Sampling Cats (Part 1)
 
 ## Sampling Distribution for the Clinics SRS
 
-::::::: {.smaller-text}
+-   [SRS]{.alert2} of size $n=2$ from a population of size $N=5$
 
-[SRS]{.alert2} of size $n=2$ from a population of size $N=5$.
+<p>
 
-:::::: columns
+::::: {.columns}
+
 :::: {.column width="50%"}
 Population values:
 
-::: center
+::: {.smaller-text}
 |                            |     |     |     |     |     |
 |---------------------------:|:---:|:---:|:---:|:---:|:---:|
 |                    Clinic: |  1  |  2  |  3  |  4  |  5  |
 | \# Patients per day ($y$): | 10  | 20  | 50  | 60  | 150 |
-
-<br>
-
-<br>
-
-This is the [**sampling distribution**]{.alert} of $\hat{\theta}$ (i.e., $\bar{y}$)! →
 :::
 ::::
-
 :::: {.column width="50%"}
 Average for each sample:
 
-::: center
+::: {.smaller-text}
 | Clinics Sampled | Probability | $y$ values | $\hat{\theta}=\bar{y}$ |
 |:---------------:|:-----------:|:----------:|:----------------------:|
 |      1, 2       |    1/10     |   10, 20   |           15           |
@@ -282,17 +286,19 @@ Average for each sample:
 |      3, 5       |    1/10     |  50, 150   |          100           |
 |      4, 5       |    1/10     |  60, 150   |          105           |
 :::
+
+This is the [**sampling distribution**]{.alert} of $\hat{\theta}$ (i.e., $\bar{y}$)!
 ::::
-::::::
-:::::::
+:::::
+
 
 ## Sampling Distribution for the Clinics SRS
 
-Notice that one value of $\hat{\theta}$ (35) appears twice -- so the sampling distribution is:
+-   Notice that one value of $\hat{\theta}$ (35) appears twice -- so the sampling distribution is:
 
 ::::: columns
 ::: {.column width="40%"}
-PMF:
+-   PMF:
 
 | $\hat{\theta}=\bar{y}$ | Probability |
 |:----------------------:|:-----------:|
@@ -308,7 +314,7 @@ PMF:
 :::
 
 ::: {.column width="60%"}
-Graph:
+-   Graph:
 
 ```{r}
 #| echo: false
@@ -328,65 +334,65 @@ tibble(ybar = c(15,30,35,40,55,80,85,100,105),
 
 ## Expectation and Variance
 
-:::: {.smaller-text}
-
--   We can calculate the **expectation** and **variance** of $\hat{\theta}=\bar{y}$ using the sampling distribution:
-
-$$\begin{aligned}
-E(\bar{y}) &= \sum_k k P(\bar{y}=k) \\
+$$\begin{flalign}
+\text{Expectation } = E(\bar{y}) &= \sum_k k P(\bar{y}=k) & \\
 &= 15 \times 0.1 ~ + ~ 30 \times 0.1 ~ + ~ 25 \times 0.2 ~ + \cdots + ~ 105 \times 0.1\\
 &= \mathbf{58}= \text{true population mean}
-\end{aligned}$$
-
+\end{flalign}$$
+  
 -   Under the SRS sampling scheme, $\bar{y}$ is an [unbiased estimate]{.alert} of mean of $y$\
 
--   Though, notice that [no sample actually produces the true mean!]{.alert} (look back at the sampling distribution...)
+-   Though, notice that [no sample actually produces the true mean!]{.alert}
 
-$$\begin{aligned}
-V(\bar{y}) &= \sum_k (k-E(\bar{y}))^2 P(\bar{y}=k) \\
+$$\begin{flalign}
+\text{Variance }=V(\bar{y}) &= \sum_k (k-E(\bar{y}))^2 P(\bar{y}=k) & \\
 & = (15-58)^2 \times 0.1 + (30-58)^2 \times 0.1 + \cdots + (105-58)^2 \times 0.1 = \mathbf{921}
-\end{aligned}$$
+\end{flalign}$$
 
--   Note that we **did not make any assumption about the distribution of the** $\mathbf{y}$ **values** -- the "randomness" is from the sampling scheme, the fact that a different sample will produce a different value of $\bar{y}$.
+-   Note that we **did not make any assumption about the distribution of the** $\mathbf{y}$ **values** -- the "randomness" is from the sampling scheme, from the fact that a different sample will produce a different value of $\bar{y}$.
 
--   This is called [**design-based inference**]{.alert}.
-
-::::
+-   This is called [**design-based inference**]{.alert2}.
 
 ## An Alternative Sampling Distribution
 
-Consider the following alternative sampling scheme:
-
-::: center
+::::{.columns}
+::: {.column width="60%"}
+-   Consider the following alternative sampling scheme:
+:::
+::: {.column width="40%"}
 | Clinics | Probability |
 |:-------:|:-----------:|
 |  1, 5   |    0.25     |
 |  2, 5   |    0.25     |
 |  3, 5   |    0.25     |
 |  4, 5   |    0.25     |
+
 :::
+::::
 
 -   In this scheme, clinic 5 is **always** sampled.
 
--   Clinic 5 is called a **certainty unit** $\rightarrow P(\text{clinic 5 is sampled}) = 1$
+      -   Clinic 5 is called a **certainty unit** $\rightarrow P(\text{clinic 5 is sampled}) = 1$
 
 -   Because of this, [not all units are selected with equal probability]{.alert}
 
 -   Thus the simple unweighted mean $(\bar{y})$ in each sample is **not** a good estimate of the population mean! (Why?)
 
-Can you come up with a way to estimate the mean?\
+<p>
+
+-   Can you come up with a way to estimate the mean?\
 (hint: each clinic 1-4 "represents" 4 clinics, and the 5th is itself...)
 
 ## An Alternative Sampling Distribution
 
-A reasonable estimator for the population mean under this sampling scheme is:
+-   A reasonable estimator for the population mean under this sampling scheme is:
 
-::: center
+
 $\hat{\theta}_i = (4 y_i + y_5)/5$ for $i = 1, 2, 3, 4$
-:::
 
-Whichever clinic is sampled (in addition to clinic 5) "represents" all 4 other units
+-   Whichever clinic is sampled (in addition to clinic 5) "represents" all 4 other units
 
+:::: {.smaller-text}
 ::: center
 | Clinics Sampled | Probability | $y$ values |    $\hat{\theta}$    |
 |:---------------:|:-----------:|:----------:|:--------------------:|
@@ -395,14 +401,15 @@ Whichever clinic is sampled (in addition to clinic 5) "represents" all 4 other u
 |      3, 5       |    0.25     |  50, 150   | (4\*50 + 150)/5 = 70 |
 |      4, 5       |    0.25     |  60, 150   | (4\*60 + 150)/5 = 78 |
 :::
+::::
 
 -   $E(\hat{\theta}) = \sum_k k P(\hat{\theta}=k) = 38 \times 0.25 + 46 \times 0.25 + 70 \times 0.25 + 78 \times 0.25 = \mathbf{58}$
 
-    -   true population mean → unbiased estimator
+    -   True population mean → unbiased estimator
 
 -   $V(\hat{\theta}) = \sum_k (k-E(\hat{\theta}))^2 P(\hat{\theta}=k) = (38-58)^2 \times 0.25 + \cdots + (78-58)^2 \times 0.25 = \mathbf{272}$
 
-    -   a whole lot smaller than under SRS (variance for SRS was 921)!
+    -   A whole lot smaller than under SRS (variance for SRS was 921)!
 
 ## Why is Variance Reduced?
 
@@ -412,6 +419,7 @@ Whichever clinic is sampled (in addition to clinic 5) "represents" all 4 other u
 #| echo: false
 #| fig-cap: ""
 #| fig-alt: "Scatterplot showing number of doctors on x-axis and number of clinics on y-axis. The relationship is positive."
+#| fig-align: center
 
 tibble(doctors = c(2,3,4,5,10),
        patients = c(10,20,50,60,150)) %>%
@@ -421,17 +429,17 @@ tibble(doctors = c(2,3,4,5,10),
         axis.text = element_text(size = 20))
 ```
 
--   This [**auxiliary data**]{.alert2} -- the number of doctors at each clinic -- can help create a more efficient sampling scheme.
+-   Using this [**auxiliary data**]{.alert2} -- the number of doctors at each clinic -- can help create a more efficient sampling scheme
 
--   The idea of creating more efficient sampling designs using auxiliary information will come up repeatedly in this course.
+-   The idea of creating more efficient sampling designs using auxiliary information will come up repeatedly in this course
 
-## MSE -- Combining Bias and Variance
+## MSE: Combining Bias and Variance
 
 -   Sometimes, we might prefer to allow a little bias in trade-off for much reduced variance
 
 -   Thus we often use another measure of the "accuracy" of an estimator:
 
-> **Mean Squared Error (MSE):** $$MSE(\hat{\theta}) = E[(\hat{\theta}-\theta)^2] = V(\hat{\theta}) + [\text{Bias}(\hat{\theta})]^2$$
+> [**Mean Squared Error (MSE):**]{.alert2} Variance + Bias-squared &nbsp; $$MSE(\hat{\theta}) = E[(\hat{\theta}-\theta)^2] = V(\hat{\theta}) + [\text{Bias}(\hat{\theta})]^2$$
 
 -   We describe estimators as:
 

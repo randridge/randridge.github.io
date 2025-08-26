@@ -269,7 +269,9 @@ All these representation-related errors can lead to **Selection Bias**
 
 -   Is most obviously a problem for non-probability samples, but can also arise with probability samples
 
-[![https://xkcd.com/2618/](figures/xkcd_selection_bias.png "Comic strip titled 'Statistics Conference ~2022~'. A speaker stands at a podium on stage and says, 'Raise your hand if you're familiar with selection bias.' All audience members raise their hands. The speaker then comments, 'As you can see, it's a term most people know.' The comic humorously illustrates selection bias by showing that only those familiar with the term are present and responding."){fig-alt="Comic strip titled 'Statistics Conference ~2022~'. A speaker stands at a podium on stage and says, 'Raise your hand if you're familiar with selection bias.' All audience members raise their hands. The speaker then comments, 'As you can see, it's a term most people know.' The comic humorously illustrates selection bias by showing that only those familiar with the term are present and responding." width="300"}](https://xkcd.com/2618/)
+[![](figures/xkcd_selection_bias.png){fig-alt="Comic strip titled 'Statistics Conference ~2022~'. A speaker stands at a podium on stage and says, 'Raise your hand if you're familiar with selection bias.' All audience members raise their hands. The speaker then comments, 'As you can see, it's a term most people know.' The comic humorously illustrates selection bias by showing that only those familiar with the term are present and responding." fig-align="center" width="300"}](https://xkcd.com/2618/)
+
+[Figure source](https://xkcd.com/2618/)
 
 ## Activity 2.2
 

@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-ca8ec5a083b5121248739a6aefbf269f.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-211bee566ce86fcb83c8148f581dc60e.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -190,9 +190,11 @@ Generative AI acknowledgment: MS Copilot was used to generate alt text for image
 </section>
 <section id="example-of-a-sampling-distribution" class="slide level2">
 <h2>Example of a Sampling Distribution</h2>
-<div class="{r-fit-text}">
-<p>Suppose there are <span class="math inline">\(N=5\)</span> clinics in a town and you want to estimate the average number of patients seen in a day (in the town)</p>
-<p>The <strong>population</strong> of clinics is:</p>
+<ul>
+<li><p>Suppose there are <span class="math inline">\(N=5\)</span> clinics in a town and you want to estimate the <span class="alert">average number of patients seen in a day (in the town)</span></p></li>
+<li><p>The <strong>population</strong> of clinics is:</p></li>
+</ul>
+<div class="smaller-text">
 <table class="caption-top">
 <tbody>
 <tr class="odd">
@@ -221,18 +223,22 @@ Generative AI acknowledgment: MS Copilot was used to generate alt text for image
 </tr>
 </tbody>
 </table>
-<ul>
-<li><p>True mean # of patients = <span class="math inline">\((10+20+50+60+150)/5 = 58\)</span></p></li>
-<li><p><span class="alert2">Number of doctors</span> – we know in advance of the survey (i.e., its on the sampling frame)</p></li>
-<li><p><span class="alert">Number of patients seen per day</span> – we don’t know until we take a sample (and then we will only know it for the sampled units)</p></li>
-<li><p>Suppose we only have enough money to sample <span class="math inline">\(n=2\)</span> of the <span class="math inline">\(N=5\)</span> clinics</p></li>
-<li><p>Statistic for which we want the sampling distribution = <span class="math inline">\(\hat{\theta}= \bar{y}\)</span> = mean # patients from sample of <span class="math inline">\(n=2\)</span> clinics</p></li>
-</ul>
 </div>
+<p>
+</p><ul>
+<li><p>True mean # of patients = <span class="math inline">\((10+20+50+60+150)/5 = 58\)</span></p></li>
+<li><p><span class="alert2">Number of doctors</span>: we know in advance of the survey (i.e., its on the sampling frame)</p></li>
+<li><p><span class="alert">Number of patients seen per day</span>: we <strong>don’t know</strong> until we take a sample (and then we will only know it for the sampled units)</p></li>
+<li><p>Suppose we only have enough money to sample <span class="math inline">\(n=2\)</span> of the <span class="math inline">\(N=5\)</span> clinics</p></li>
+<li><p>Statistic for which we want the sampling distribution: <span class="math inline">\(\hat{\theta}= \bar{y}\)</span> = mean # patients</p></li>
+</ul>
 </section>
 <section id="example-cont" class="slide level2">
 <h2>Example (con’t)</h2>
-<p>There are lots of ways we could select <span class="math inline">\(n=2\)</span> clinics from the population of <span class="math inline">\(N=5\)</span>. Consider two options:</p>
+<ul>
+<li>There are lots of ways we could select <span class="math inline">\(n=2\)</span> clinics from the population of <span class="math inline">\(N=5\)</span>. Consider two options:</li>
+</ul>
+<div class="smaller-text">
 <div class="columns">
 <div class="column" style="width:30%;">
 <table class="caption-top">
@@ -389,33 +395,40 @@ Generative AI acknowledgment: MS Copilot was used to generate alt text for image
 </tbody>
 </table>
 </div></div>
-<p>For both schemes (designs), the probability of selection is equal for every pair of units</p>
-<p>Can you name these two sampling schemes?</p>
+</div>
+<ul>
+<li><p>For both schemes (designs), the probability of selection is equal for every pair of units</p></li>
+<li><p>Can you name these two sampling schemes?</p></li>
+</ul>
 </section>
 <section id="number-of-possible-samples-in-an-srs-or-srswr" class="slide level2">
 <h2>Number of Possible Samples in an SRS or SRSWR</h2>
-<p>Without actually writing out all the possible samples, we can use math tools to calculate the number of possible samples for each of these designs (SRSWR, SRS)</p>
+<ul>
+<li>Without actually writing out all the possible samples, we can use math tools to calculate the number of possible samples for each of these designs (SRSWR, SRS)</li>
+</ul>
 <blockquote>
-<p><strong>With replacement:</strong> (Exponentiation)</p>
+<p><span class="alert"><strong>With replacement:</strong></span> (Exponentiation)</p>
 <p>
 </p><p>Total number of outcomes when repeating an experiment with <span class="math inline">\(N\)</span> outcomes <span class="math inline">\(n\)</span> times is <span class="math inline">\(N^n\)</span></p>
 </blockquote>
 <blockquote>
-<p><strong>Without replacement:</strong> (Combination)</p>
+<p><span class="alert2"><strong>Without replacement:</strong></span> (Combination)</p>
 <p>
 </p><p>Total number of different ways to pick <span class="math inline">\(n\)</span> subjects out of <span class="math inline">\(N\)</span> subjects without regard to order is <span class="math inline">\(\displaystyle{_NC_n} = \binom{N}{n} = \text{``$N$ choose $n$"} = \frac{N!}{n!(N-n)!}\)</span></p>
 </blockquote>
-<p><br></p>
-<p>Thus for sampling <span class="math inline">\(n=2\)</span> clinics from population of <span class="math inline">\(N=5\)</span> clinics:</p>
+<p>
+</p><ul>
+<li><p>Thus for sampling <span class="math inline">\(n=2\)</span> clinics from population of <span class="math inline">\(N=5\)</span> clinics:</p>
 <ul>
 <li><p>SRSWR: # possible samples = <span class="math inline">\(N^n = 5^2 = 25\)</span></p></li>
 <li><p>SRS: # possible samples = <span class="math inline">\(\binom{N}{n} = \binom{5}{2} = \frac{5!}{2! (5-2)!} = \frac{120}{2 \times 6} = \frac{120}{12} = 10\)</span></p></li>
+</ul></li>
 </ul>
 </section>
 <section id="selection-probabilities" class="slide level2">
 <h2>Selection Probabilities</h2>
 <blockquote>
-<p><strong>Selection Probability</strong> = the probability of a unit being sampled (ending up in our sample) under a specific sampling design</p>
+<p><span class="alert3"><strong>Selection Probability</strong></span> = the probability of a unit being sampled (ending up in our sample) under a specific sampling design</p>
 </blockquote>
 <ul>
 <li><p><strong>Selection probabilities are a crucial/critical part of probability sampling!</strong></p></li>
@@ -429,58 +442,77 @@ Generative AI acknowledgment: MS Copilot was used to generate alt text for image
 </section>
 <section id="selection-probabilities-srswr" class="slide level2">
 <h2>Selection Probabilities: SRSWR</h2>
-<p>Sampling design: <span class="alert"><strong>SRSWR</strong></span> of size <span class="math inline">\(n=2\)</span> from a population of size <span class="math inline">\(N=5\)</span>.</p>
-<p>Define:</p>
+<ul>
+<li><p>Sampling design: <span class="alert"><strong>SRSWR</strong></span> of size <span class="math inline">\(n=2\)</span> from a population of size <span class="math inline">\(N=5\)</span>.</p></li>
+<li><p>Define:</p>
 <ul>
 <li><p>A = Unit (clinic) 1 is randomly selected on the first draw</p></li>
 <li><p>B = Unit (clinic) 1 is randomly selected on the second draw</p></li>
-</ul>
-<p>Since this is <span class="alert">SRSWR</span>, each time we pick a clinic we “put it back”</p>
-<p>Thus <span class="math inline">\(P(A) = P(B) = 1/N = 1/5 = 0.2\)</span></p>
-<p>Selection probability = <span class="alert2">Probability that unit (clinic) 1 is selected into the sample</span></p>
-<p><span class="math display">\[\begin{aligned}
+</ul></li>
+<li><p>Since this is <span class="alert">SRSWR</span>, each time we pick a clinic we “put it back”</p></li>
+<li><p>Thus <span class="math inline">\(P(A) = P(B) = 1/N = 1/5 = 0.2\)</span></p></li>
+<li><p>Selection probability = <span class="alert2">Probability that unit (clinic) 1 is selected into the sample</span> <span class="math display">\[\begin{aligned}
 P(\text{Unit 1 in sample}) &amp;{}= P(\text{selected on 1st draw OR selected on 2nd draw})\\
 &amp;{}= P(A \cup B)  \quad\qquad\qquad\qquad\qquad\qquad \text{(union)}\\
 &amp;{}= P(A) + P(B) - P(A \cap B) \qquad\qquad \text{(addition rule)} \\
 &amp;{}= P(A) + P(B) -  P(A) \times P(B) \qquad \text{(A and B are independent)} \\
 &amp;{}= 0.2 + 0.2 - 0.2 \times 0.2 = \mathbf{0.36}
-\end{aligned}\]</span></p>
-<p>For a review of these probability rules, see handout on Carmen.</p>
+\end{aligned}\]</span></p></li>
+<li><p>For a review of these probability rules, see review sheet on Carmen.</p></li>
+</ul>
 </section>
-<section id="selection-probabilities-srs" class="slide level2">
+<section id="selection-probabilities-srs" class="slide level2 pause">
 <h2>Selection Probabilities: SRS</h2>
-<p>Now suppose we are taking a <span class="alert2">simple random sample WITHOUT replacement (SRS)</span> of size <span class="math inline">\(n=2\)</span> from a population of size <span class="math inline">\(N=5\)</span>.</p>
+<ul>
+<li><p>Now suppose we are taking a <span class="alert2">simple random sample WITHOUT replacement (SRS)</span> of size <span class="math inline">\(n=2\)</span> from a population of size <span class="math inline">\(N=5\)</span>.</p>
 <ul>
 <li><p>A = Unit (clinic) 1 is randomly selected on the first draw</p></li>
 <li><p>B = Unit (clinic) 1 is randomly selected on the second draw</p></li>
+</ul></li>
+<li><p>As before, <span class="math inline">\(P(A) = 1/5 = 0.2\)</span> but <span class="math inline">\(P(B) \ne P(A)\)</span> !</p>
+<ul>
+<li><span class="alert2">Why?</span></li>
+</ul></li>
 </ul>
-<p>As before, <span class="math inline">\(P(A) = 1/5 = 0.2\)</span> but <span class="math inline">\(P(B) \ne P(A)\)</span> !</p>
-<p><span class="alert2">Why?</span></p>
+<div class="fragment">
 <p>
-</p><p><span class="alert2">The probability of selection on 2nd draw depends on whether or not the unit was selected on 1st draw</span></p>
-<p>We can, however, use the <strong>Law of Total Probability</strong> to calculate <span class="math inline">\(P(B)\)</span>: <span class="math display">\[\begin{aligned}
+</p><ul>
+<li><span class="alert2">The probability of selection on 2nd draw depends on whether or not the unit was selected on 1st draw</span></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><p>We can, however, use the <strong>Law of Total Probability</strong> to calculate <span class="math inline">\(P(B)\)</span>: <span class="math display">\[\begin{aligned}
 P(B) &amp;{}= P(B|A) \times P(A) + P(B|A^C) \times P(A^C) \\
 &amp;{} = P(\text{chosen on 2nd }|\text{ chosen on 1st}) \times P(\text{chosen on 1st}) \\
 &amp;{} \qquad + P(\text{chosen on 2nd }|\text{ NOT chosen on 1st}) \times P(\text{NOT chosen on 1st})
-\end{aligned}\]</span></p>
-<p>These are all quantities we know or can calculate!</p>
+\end{aligned}\]</span></p></li>
+<li><p>These are all quantities we know or can calculate!</p></li>
+</ul>
+</div>
 </section>
-<section class="slide level2">
-
-<p>Each of the pieces from the Law of Total Probability:</p>
+<section id="selection-probabilities-srs-cont" class="slide level2 pause">
+<h2>Selection Probabilities: SRS (con’t)</h2>
+<ul>
+<li><p>Each of the pieces from the Law of Total Probability:</p>
 <ul>
 <li><p><span class="math inline">\(P(A) = P(\text{chosen on 1st}) = 0.2\)</span></p></li>
 <li><p><span class="math inline">\(P(A^C) = P(\text{NOT chosen on 1st}) = 1 - P(A) = 0.8\)</span> &nbsp;&nbsp;&nbsp; <span class="alert"><em>(complement rule)</em></span></p></li>
 <li><p><span class="math inline">\(P(B|A) = P(\text{chosen on 2nd }|\text{ chosen on 1st}) = 0\)</span> &nbsp;&nbsp;&nbsp; <span class="alert"><em>(sampling without replacement!)</em></span></p></li>
 <li><p><span class="math inline">\(P(B|A^C) = P(\text{chosen on 2nd }|\text{ NOT chosen on 1st}) = 1/4\)</span></p></li>
+</ul></li>
+<li><p>Putting these pieces all together gives us <span class="math inline">\(P(B) = P(\text{Unit 1 selected on 2nd draw})\)</span></p></li>
 </ul>
-<p>Putting these pieces all together gives us <span class="math inline">\(P(B) = P(\text{Unit 1 selected on 2nd draw})\)</span></p>
-<p>We want to know the <span class="alert2">probability that unit (clinic) 1 is selected into the sample</span>: <span class="math display">\[\begin{aligned}
+<div class="fragment">
+<ul>
+<li>We want to know the <span class="alert2">probability that unit (clinic) 1 is selected into the sample</span>: <span class="math display">\[\begin{aligned}
 P(\text{Unit 1 in sample}) &amp;{}= P(\text{selected on 1st draw OR selected on 2nd draw}) \\
 &amp;{}= P(A \cup B)  \quad\qquad\qquad\qquad\qquad\qquad \text{(union)}\\
 &amp;{}= P(A) + P(B) - \underbrace{P(A \cap B)}_{=0 \text{(why??)}} \qquad\qquad \text{(addition rule)} \\
 &amp;{}= 0.2 + 0.2 - 0 = \mathbf{0.4}
-\end{aligned}\]</span></p>
+\end{aligned}\]</span></li>
+</ul>
+</div>
 </section>
 <section id="activity-1.1-part-1" class="slide level2">
 <h2>Activity 1.1 (Part 1)</h2>
@@ -488,12 +520,14 @@ P(\text{Unit 1 in sample}) &amp;{}= P(\text{selected on 1st draw OR selected on 
 </section>
 <section id="sampling-distribution-for-the-clinics-srs" class="slide level2">
 <h2>Sampling Distribution for the Clinics SRS</h2>
-<div class="smaller-text">
-<p><span class="alert2">SRS</span> of size <span class="math inline">\(n=2\)</span> from a population of size <span class="math inline">\(N=5\)</span>.</p>
-<div class="columns">
+<ul>
+<li><span class="alert2">SRS</span> of size <span class="math inline">\(n=2\)</span> from a population of size <span class="math inline">\(N=5\)</span></li>
+</ul>
+<p>
+</p><div class="columns">
 <div class="column" style="width:50%;">
 <p>Population values:</p>
-<div class="center">
+<div class="smaller-text">
 <table class="caption-top">
 <tbody>
 <tr class="odd">
@@ -514,13 +548,10 @@ P(\text{Unit 1 in sample}) &amp;{}= P(\text{selected on 1st draw OR selected on 
 </tr>
 </tbody>
 </table>
-<p><br></p>
-<p><br></p>
-<p>This is the <span class="alert"><strong>sampling distribution</strong></span> of <span class="math inline">\(\hat{\theta}\)</span> (i.e., <span class="math inline">\(\bar{y}\)</span>)! →</p>
 </div>
 </div><div class="column" style="width:50%;">
 <p>Average for each sample:</p>
-<div class="center">
+<div class="smaller-text">
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -594,15 +625,19 @@ P(\text{Unit 1 in sample}) &amp;{}= P(\text{selected on 1st draw OR selected on 
 </tbody>
 </table>
 </div>
+<p>This is the <span class="alert"><strong>sampling distribution</strong></span> of <span class="math inline">\(\hat{\theta}\)</span> (i.e., <span class="math inline">\(\bar{y}\)</span>)!</p>
 </div></div>
-</div>
 </section>
 <section id="sampling-distribution-for-the-clinics-srs-1" class="slide level2">
 <h2>Sampling Distribution for the Clinics SRS</h2>
-<p>Notice that one value of <span class="math inline">\(\hat{\theta}\)</span> (35) appears twice – so the sampling distribution is:</p>
+<ul>
+<li>Notice that one value of <span class="math inline">\(\hat{\theta}\)</span> (35) appears twice – so the sampling distribution is:</li>
+</ul>
 <div class="columns">
 <div class="column" style="width:40%;">
-<p>PMF:</p>
+<ul>
+<li>PMF:</li>
+</ul>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -650,7 +685,9 @@ P(\text{Unit 1 in sample}) &amp;{}= P(\text{selected on 1st draw OR selected on 
 </tbody>
 </table>
 </div><div class="column" style="width:60%;">
-<p>Graph:</p>
+<ul>
+<li>Graph:</li>
+</ul>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -664,34 +701,33 @@ P(\text{Unit 1 in sample}) &amp;{}= P(\text{selected on 1st draw OR selected on 
 </section>
 <section id="expectation-and-variance" class="slide level2">
 <h2>Expectation and Variance</h2>
-<div class="smaller-text">
-<ul>
-<li>We can calculate the <strong>expectation</strong> and <strong>variance</strong> of <span class="math inline">\(\hat{\theta}=\bar{y}\)</span> using the sampling distribution:</li>
-</ul>
-<p><span class="math display">\[\begin{aligned}
-E(\bar{y}) &amp;= \sum_k k P(\bar{y}=k) \\
+<p><span class="math display">\[\begin{flalign}
+\text{Expectation } = E(\bar{y}) &amp;= \sum_k k P(\bar{y}=k) &amp; \\
 &amp;= 15 \times 0.1 ~ + ~ 30 \times 0.1 ~ + ~ 25 \times 0.2 ~ + \cdots + ~ 105 \times 0.1\\
 &amp;= \mathbf{58}= \text{true population mean}
-\end{aligned}\]</span></p>
+\end{flalign}\]</span></p>
 <ul>
 <li><p>Under the SRS sampling scheme, <span class="math inline">\(\bar{y}\)</span> is an <span class="alert">unbiased estimate</span> of mean of <span class="math inline">\(y\)</span><br>
 </p></li>
-<li><p>Though, notice that <span class="alert">no sample actually produces the true mean!</span> (look back at the sampling distribution…)</p></li>
+<li><p>Though, notice that <span class="alert">no sample actually produces the true mean!</span></p></li>
 </ul>
-<p><span class="math display">\[\begin{aligned}
-V(\bar{y}) &amp;= \sum_k (k-E(\bar{y}))^2 P(\bar{y}=k) \\
+<p><span class="math display">\[\begin{flalign}
+\text{Variance }=V(\bar{y}) &amp;= \sum_k (k-E(\bar{y}))^2 P(\bar{y}=k) &amp; \\
 &amp; = (15-58)^2 \times 0.1 + (30-58)^2 \times 0.1 + \cdots + (105-58)^2 \times 0.1 = \mathbf{921}
-\end{aligned}\]</span></p>
+\end{flalign}\]</span></p>
 <ul>
-<li><p>Note that we <strong>did not make any assumption about the distribution of the</strong> <span class="math inline">\(\mathbf{y}\)</span> <strong>values</strong> – the “randomness” is from the sampling scheme, the fact that a different sample will produce a different value of <span class="math inline">\(\bar{y}\)</span>.</p></li>
-<li><p>This is called <span class="alert"><strong>design-based inference</strong></span>.</p></li>
+<li><p>Note that we <strong>did not make any assumption about the distribution of the</strong> <span class="math inline">\(\mathbf{y}\)</span> <strong>values</strong> – the “randomness” is from the sampling scheme, from the fact that a different sample will produce a different value of <span class="math inline">\(\bar{y}\)</span>.</p></li>
+<li><p>This is called <span class="alert2"><strong>design-based inference</strong></span>.</p></li>
 </ul>
-</div>
 </section>
 <section id="an-alternative-sampling-distribution" class="slide level2">
 <h2>An Alternative Sampling Distribution</h2>
-<p>Consider the following alternative sampling scheme:</p>
-<div class="center">
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li>Consider the following alternative sampling scheme:</li>
+</ul>
+</div><div class="column" style="width:40%;">
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -718,23 +754,31 @@ V(\bar{y}) &amp;= \sum_k (k-E(\bar{y}))^2 P(\bar{y}=k) \\
 </tr>
 </tbody>
 </table>
-</div>
+</div></div>
 <ul>
-<li><p>In this scheme, clinic 5 is <strong>always</strong> sampled.</p></li>
-<li><p>Clinic 5 is called a <strong>certainty unit</strong> <span class="math inline">\(\rightarrow P(\text{clinic 5 is sampled}) = 1\)</span></p></li>
+<li><p>In this scheme, clinic 5 is <strong>always</strong> sampled.</p>
+<ul>
+<li>Clinic 5 is called a <strong>certainty unit</strong> <span class="math inline">\(\rightarrow P(\text{clinic 5 is sampled}) = 1\)</span></li>
+</ul></li>
 <li><p>Because of this, <span class="alert">not all units are selected with equal probability</span></p></li>
 <li><p>Thus the simple unweighted mean <span class="math inline">\((\bar{y})\)</span> in each sample is <strong>not</strong> a good estimate of the population mean! (Why?)</p></li>
 </ul>
-<p>Can you come up with a way to estimate the mean?<br>
-(hint: each clinic 1-4 “represents” 4 clinics, and the 5th is itself…)</p>
+<p>
+</p><ul>
+<li>Can you come up with a way to estimate the mean?<br>
+(hint: each clinic 1-4 “represents” 4 clinics, and the 5th is itself…)</li>
+</ul>
 </section>
 <section id="an-alternative-sampling-distribution-1" class="slide level2">
 <h2>An Alternative Sampling Distribution</h2>
-<p>A reasonable estimator for the population mean under this sampling scheme is:</p>
-<div class="center">
+<ul>
+<li>A reasonable estimator for the population mean under this sampling scheme is:</li>
+</ul>
 <p><span class="math inline">\(\hat{\theta}_i = (4 y_i + y_5)/5\)</span> for <span class="math inline">\(i = 1, 2, 3, 4\)</span></p>
-</div>
-<p>Whichever clinic is sampled (in addition to clinic 5) “represents” all 4 other units</p>
+<ul>
+<li>Whichever clinic is sampled (in addition to clinic 5) “represents” all 4 other units</li>
+</ul>
+<div class="smaller-text">
 <div class="center">
 <table class="caption-top">
 <thead>
@@ -773,14 +817,15 @@ V(\bar{y}) &amp;= \sum_k (k-E(\bar{y}))^2 P(\bar{y}=k) \\
 </tbody>
 </table>
 </div>
+</div>
 <ul>
 <li><p><span class="math inline">\(E(\hat{\theta}) = \sum_k k P(\hat{\theta}=k) = 38 \times 0.25 + 46 \times 0.25 + 70 \times 0.25 + 78 \times 0.25 = \mathbf{58}\)</span></p>
 <ul>
-<li>true population mean → unbiased estimator</li>
+<li>True population mean → unbiased estimator</li>
 </ul></li>
 <li><p><span class="math inline">\(V(\hat{\theta}) = \sum_k (k-E(\hat{\theta}))^2 P(\hat{\theta}=k) = (38-58)^2 \times 0.25 + \cdots + (78-58)^2 \times 0.25 = \mathbf{272}\)</span></p>
 <ul>
-<li>a whole lot smaller than under SRS (variance for SRS was 921)!</li>
+<li>A whole lot smaller than under SRS (variance for SRS was 921)!</li>
 </ul></li>
 </ul>
 </section>
@@ -790,19 +835,19 @@ V(\bar{y}) &amp;= \sum_k (k-E(\bar{y}))^2 P(\bar{y}=k) \\
 <li>The number of patients seen is positively correlated with the number of doctors. (Makes sense!)</li>
 </ul>
 
-<img data-src="PUBHBIO7225_L03_samplingDistributions_files/figure-revealjs/unnamed-chunk-2-1.png" alt="Scatterplot showing number of doctors on x-axis and number of clinics on y-axis. The relationship is positive." width="960" class="r-stretch"><ul>
-<li><p>This <span class="alert2"><strong>auxiliary data</strong></span> – the number of doctors at each clinic – can help create a more efficient sampling scheme.</p></li>
-<li><p>The idea of creating more efficient sampling designs using auxiliary information will come up repeatedly in this course.</p></li>
+<img data-src="PUBHBIO7225_L03_samplingDistributions_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" alt="Scatterplot showing number of doctors on x-axis and number of clinics on y-axis. The relationship is positive." width="960"><ul>
+<li><p>Using this <span class="alert2"><strong>auxiliary data</strong></span> – the number of doctors at each clinic – can help create a more efficient sampling scheme</p></li>
+<li><p>The idea of creating more efficient sampling designs using auxiliary information will come up repeatedly in this course</p></li>
 </ul>
 </section>
 <section id="mse-combining-bias-and-variance" class="slide level2">
-<h2>MSE – Combining Bias and Variance</h2>
+<h2>MSE: Combining Bias and Variance</h2>
 <ul>
 <li><p>Sometimes, we might prefer to allow a little bias in trade-off for much reduced variance</p></li>
 <li><p>Thus we often use another measure of the “accuracy” of an estimator:</p></li>
 </ul>
 <blockquote>
-<p><strong>Mean Squared Error (MSE):</strong> <span class="math display">\[MSE(\hat{\theta}) = E[(\hat{\theta}-\theta)^2] = V(\hat{\theta}) + [\text{Bias}(\hat{\theta})]^2\]</span></p>
+<p><span class="alert2"><strong>Mean Squared Error (MSE):</strong></span> Variance + Bias-squared &nbsp; <span class="math display">\[MSE(\hat{\theta}) = E[(\hat{\theta}-\theta)^2] = V(\hat{\theta}) + [\text{Bias}(\hat{\theta})]^2\]</span></p>
 </blockquote>
 <ul>
 <li><p>We describe estimators as:</p>
