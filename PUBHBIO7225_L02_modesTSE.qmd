@@ -41,15 +41,15 @@ format:
 -   Problem Set 1 due Thursday 9/4/25 11:59pm via Carmen
 -   Peer Evaluation of Problem Set 1 due Tuesday 9/9/25 11:59pm via Carmen
 
-## Designing Survey Questions
+## Designing Survey Questions {.pause}
 
-:::: {r-fit-text}
 Assuming the observation unit is a **person**, questions should be ...
 
-::: incremental
 -   Simple and clear
 
     -   Beware words that might be interpreted differently by different people, or might not be understood by some people
+
+. . .
 
 -   Specific, not general
 
@@ -57,26 +57,29 @@ Assuming the observation unit is a **person**, questions should be ...
 
     -   (better) "Has anyone ever attacked you in any of these ways: (a) With any weapon, for example, a gun or knife, (b) With anything like a baseball bat, frying pan, scissors..."
 
+. . .
+
 -   Related to the concept of interest
 
     -   Reusing questions from previous surveys allows for historical comparison -- if appropriate for the audience/topic
+
+. . .
 
 -   Carefully ordered
 
     -   Responses to a question may be unduly influenced by question(s) that preceded it
 
     -   Usually best to ask more general question first, followed by specific question(s)
-:::
-::::
 
-## Designing Survey Questions
+## Designing Survey Questions {.pause}
 
 Questions should be (cont.)...
 
-::: incremental
 -   Not leading or “loaded” questions
 
     -   Questions can be written to lead the respondent to the answer you want to hear — don't do this!
+
+. . .
 
 -   Not written as double-negatives
 
@@ -84,20 +87,25 @@ Questions should be (cont.)...
 
     -   (better) “Do you agree with laws banning cell phone use while driving?”
 
+. . .
+
 -   Not double-barreled
 
     -   Be sure to ask only one concept per question
+
+. . .
 
 -   If closed-ended, all response options are available
 
     -   Make sure all respondents would be able to endorse *at least one* answer
 
+. . .
+
 -   If multiple-choice/forced-choice, response options are mutually exclusive and exhaustive
 
     -   Make sure all respondents would be able to select *just one* answer
-:::
 
-## Activity 2.1: (Part 1)
+## Activity 2.1 (Part 1)
 
 Survey Questions (Part 1)
 
@@ -211,10 +219,12 @@ More modern approach is the **Total Survey Error approach**
 
 ![Adapted from Groves et al. (2009), Survey Methodology, 2nd Edition](figures/TSEdiagram.png){fig-alt="A flowchart diagram of the Total Survey Error (TSE) framework. The diagram is split into two main vertical columns, \"Measurement\" on the left and \"Representation\" on the right. In the Measurement column, the flow goes from \"Construct\" to \"Measurement\" to \"Response\" to \"Edited Data.\" Red arrows pointing to the right of each step label the sources of error: \"Specification Error (Validity)\" for the first step, \"Measurement Error\" for the second, and \"Processing Error\" for the third. The Representation column flows from \"Target Population\" to \"Sampling Frame\" to \"Sample\" to \"Respondents\" to \"Postsurvey Adjustments.\" Similarly, red arrows label the errors at each step: \"Coverage Error,\" \"Sampling Error,\" \"Nonresponse Error,\" and \"Adjustment Error.\" Both columns converge at the bottom, with arrows from \"Edited Data\" and \"Postsurvey Adjustments\" pointing to a final box labeled \"Survey Statistic.\""}
 
-## TSE Components Aﬀecting Measurement
+## TSE Components Aﬀecting Measurement {.pause}
 
-::: incremental
-1.  **Specification Error (Validity)** – error arising when the construct being measured is operationalized (turned into survey questions) in an invalid way, i.e., the questions do not properly measure the underlying construct
+1.  **Specification Error (Validity)** – error arising when the construct being measured is operationalized (turned into survey questions) in an invalid way; questions do not properly measure the underlying construct
+
+. . . 
+
 2.  **Measurement Error** – the measured response diﬀers from the true value (many possible reasons), which is especially problematic when asking people questions
     -   Some sources of measurement error:
 
@@ -243,21 +253,30 @@ More modern approach is the **Total Survey Error approach**
         -   question wording
         :::
         :::::
+        
+. . . 
+
 3.  **Processing Error** – data entry errors and coding errors, for example, from coding open-ended responses or classifying occupations
-:::
 
-## TSE Components Aﬀecting Representation
+## TSE Components Aﬀecting Representation {.pause}
 
-::: incremental
 1.  **Coverage Error** – mismatch between target population and sampling frame
     -   **Undercoverage** – some members of the target population are not in sampled population
     -   **Overcoverage** – sampling frame contains units that are not in the target population
+        
+. . . 
+
 2.  **Sampling Error** – error that results from taking a sample rather than evaluating the whole population (variability inherent in using a random subset of the population for estimation)
+        
+. . . 
+
 3.  **Nonresponse Error** – not all sampled units respond/provide complete data, and responses from the units who do participate may be diﬀerent from the responses from units who do not participate (if they had been observed)
     -   **Unit nonresponse** – a sampled unit provides no data at all
     -   **Item nonresponse** – a sampled unit provides some data, but some items have missing values
+        
+. . . 
+
 4.  **Adjustment Error** – error arising when the sample is adjusted for design eﬀects (i.e., the “complex design”) via weighting or other techniques (poststratification, calibration), possibly including adjustments for nonresponse
-:::
 
 ## Selection Bias
 

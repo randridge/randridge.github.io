@@ -87,5 +87,10 @@ table, th, td {
   font-size: 0.8em;
 }
 
+// Even smaller
+.reveal .even-smaller-text {
+  font-size: 0.6em;
+}
+
 // add border around R output
 .cell-output { border: black 1px solid; }
