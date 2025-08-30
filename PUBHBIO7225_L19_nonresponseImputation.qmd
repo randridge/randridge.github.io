@@ -440,5 +440,5 @@ samples (e.g., observational studies, clinical trials)
 -   Applying multiple imputation in survey context is (more) complicated ---
 have to properly account for the sample design
 
--   Some publicly available surveys *do* release multiply imputed data --- most
+-   Some publicly available surveys *do*   release multiply imputed data --- most
 often income data (e.g., NSCH, NHIS) --- why might this be?
