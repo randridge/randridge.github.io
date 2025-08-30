@@ -9,7 +9,7 @@
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.33">
 
-  <title>randridge.github.io – Complex Designs</title>
+  <title>randridge.github.io – Domain Estimation</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -94,7 +94,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-211bee566ce86fcb83c8148f581dc60e.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-65bdef740f5ccd0e8165dd2a54ffa6c3.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -192,7 +192,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Complex Designs</h1>
+  <h1 class="title">Domain Estimation</h1>
   <p class="subtitle">PUBHBIO 7225 Lecture 16</p>
 
 <div class="quarto-title-authors">
@@ -422,8 +422,10 @@ Also called <span class="alert3">subpopulations</span> or <span class="alert3">s
 <span id="cb1-7"><a></a>svy<span class="sc">:</span> proportion y, <span class="fu">over</span>(DOMAIN)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li><p><strong>Stata user warning:</strong> do not use <strong>if</strong> with Stata for domain estimates!</p></li>
-<li><p>This will subset the data (even if you used the <strong>svyset</strong> command on the full dataset)</p></li>
+<li><p><strong>Stata user warning:</strong> do not use <strong>if</strong> with Stata for domain estimates!</p>
+<ul>
+<li>This will subset the data (even if you used the <strong>svyset</strong> command on the full dataset)</li>
+</ul></li>
 </ul>
 <p><strong>R:</strong></p>
 <div class="cell">

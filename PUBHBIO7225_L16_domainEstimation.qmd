@@ -1,5 +1,5 @@
 ---
-title: "Complex Designs"
+title: "Domain Estimation"
 subtitle: "PUBHBIO 7225 Lecture 16"
 # author: "Generative AI acknowledgment: MS Copilot was used to generate alt text for some images"
 format:
@@ -227,8 +227,8 @@ svy: proportion y, over(DOMAIN)
 -   **Stata user warning:** do not use **if** with Stata for domain
     estimates!
 
--   This will subset the data (even if you used the **svyset** command
-    on the full dataset)
+    -   This will subset the data (even if you used the **svyset**
+        command on the full dataset)
 
 **R:**
 
