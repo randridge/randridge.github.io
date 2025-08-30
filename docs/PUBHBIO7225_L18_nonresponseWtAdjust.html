@@ -126,7 +126,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title"><p>Weighting Adjustments for Nonresponse in Surveys</p></h1>
+  <h1 class="title"><p>Weighting Adjustments<br>
+for Nonresponse in Surveys</p></h1>
   <p class="subtitle">PUBHBIO 7225 Lecture 18</p>
 
 <div class="quarto-title-authors">
@@ -164,13 +165,13 @@
 <h2>Reminder of the Missing Data Problem</h2>
 <div class="smaller-text">
 <ul>
-<li><p><strong>Not random variables:</strong></p>
+<li><p><span class="alert"><strong>Not random variables:</strong></span></p>
 <ul>
 <li><p><span class="math inline">\(y_i\)</span> = survey outcome of interest for unit <span class="math inline">\(i\)</span>, only observed for respondents</p></li>
 <li><p><span class="math inline">\(\mathbf{x}_i\)</span> = vector of information known about unit <span class="math inline">\(i\)</span>, observed for ALL sampled units<br>
 <em>(design information, information on the sampling frame, or information about the interview process)</em></p></li>
 </ul></li>
-<li><p><strong>Random variables:</strong></p>
+<li><p><span class="alert2"><strong>Random variables:</strong></span></p>
 <ul>
 <li><p><span class="math inline">\(Z_i\)</span> = selection indicator for unit <span class="math inline">\(i\)</span></p>
 <ul>
@@ -181,11 +182,13 @@
 <li><span class="math inline">\(\phi_i = P(R_i=1)\)</span> = probability unit <span class="math inline">\(i\)</span> responds = response propensity <span class="alert2">(unknown)</span></li>
 </ul></li>
 </ul></li>
-<li><p>Three types of missing data mechanisms:</p></li>
-<li><p><strong>MCAR</strong>: <span class="math inline">\(P(R_i=1 | y_i, \mathbf{x}_i) = P(R_i=1)\)</span> ← missingness doesn’t depend on <span class="math inline">\(y\)</span> or <span class="math inline">\(x\)</span></p></li>
-<li><p><strong>MAR</strong>: <span class="math inline">\(P(R_i=1 | y_i, \mathbf{x}_i) = P(R_i=1|\mathbf{x}_i)\)</span> ← missingness doesn’t depend on <span class="math inline">\(y\)</span></p></li>
-<li><p><strong>MNAR</strong>: <span class="math inline">\(P(R_i=1 | y_i, \mathbf{x}_i)\)</span> ← missingness depends on <span class="math inline">\(y\)</span>, possibly also <span class="math inline">\(x\)</span></p></li>
-<li><p>Usually MCAR does not hold (often we have visible differences between respondents and nonrespondents), and we assume MAR</p></li>
+<li><p>Three types of missing data mechanisms:</p>
+<ul>
+<li><p><strong>MCAR</strong>: <span class="math inline">\(P(R_i=1 | y_i, \mathbf{x}_i) = P(R_i=1)\)</span> &nbsp; ← &nbsp; missingness doesn’t depend on <span class="math inline">\(y\)</span> or <span class="math inline">\(x\)</span></p></li>
+<li><p><strong>MAR</strong>: <span class="math inline">\(P(R_i=1 | y_i, \mathbf{x}_i) = P(R_i=1|\mathbf{x}_i)\)</span> &nbsp; ← &nbsp; missingness doesn’t depend on <span class="math inline">\(y\)</span></p></li>
+<li><p><strong>MNAR</strong>: <span class="math inline">\(P(R_i=1 | y_i, \mathbf{x}_i)\)</span> &nbsp; ← &nbsp;missingness depends on <span class="math inline">\(y\)</span>, possibly also <span class="math inline">\(x\)</span></p></li>
+</ul></li>
+<li><p>Usually MCAR does not hold (often we have visible differences between respondents and nonrespondents), and we <span class="alert">assume MAR</span></p></li>
 <li><p>MNAR not testable given observed data</p></li>
 </ul>
 </div>
@@ -201,20 +204,16 @@ P(\text{unit }i &amp; \text{ selected in sample and responds}) \\
 \end{aligned}\]</span></p></li>
 <li><p>We adjust the weights by <span class="alert">estimating the <span class="math inline">\(\phi_i\)</span></span> and then assigning the weights: <span class="math display">\[w_i = \begin{cases} \frac{1}{\pi_i \hat{\phi}_i} &amp; \text{for respondents }(R_i=1) \\ 0 &amp; \text{for nonrespondents }(R_i=0)
 \end{cases}\]</span></p></li>
-<li><p><span class="math inline">\(\hat{\phi}_i\)</span> must be estimated – and info for doing so may be limited for some surveys</p></li>
 <li><p>Weighting methods assume that response probabilities can be estimated <span class="alert2">from variables known for all units</span></p>
 <ul>
-<li><span class="math inline">\(P(R_i=1 | y_i, \mathbf{x}_i) = P(R_i=1|\mathbf{x}_i)\)</span></li>
-<li>Thus they assume <span class="alert2">MAR</span> data</li>
+<li><span class="math inline">\(P(R_i=1 | y_i, \mathbf{x}_i) = P(R_i=1|\mathbf{x}_i)\)</span> &nbsp; → &nbsp; assumes <span class="alert3">MAR</span></li>
 </ul></li>
+<li><p>Info for estimating <span class="math inline">\(\hat{\phi}_i\)</span> may be limited for some surveys</p></li>
 </ul>
 </section>
 <section id="weighting-class-adjustments" class="slide level2">
 <h2>Weighting Class Adjustments</h2>
 <div class="smaller-text">
-<ul>
-<li>Simplest weighting adjustment method (but very, very commonly used)</li>
-</ul>
 <ol type="1">
 <li><p>Create <strong>weighting adjustment classes</strong> = groups of respondents and nonrespondents based on variables observed for both</p></li>
 <li><p>Estimate response probability within each class with either the unweighted or weighted response rate:</p></li>
@@ -226,9 +225,12 @@ P(\text{unit }i &amp; \text{ selected in sample and responds}) \\
 <ul>
 <li><p>Notes:</p>
 <ul>
+<li><p>Simple, but very commonly used</p></li>
 <li><p>Implicitly assumes probability of response is the <strong>same for all units within each class</strong></p></li>
-<li><p>All weights are <strong>up-weighted</strong> since response propensities are between 0 and 1</p></li>
-<li><p>This is <strong>different than poststratification</strong> (with complete response) where some units get up-weighted and some down-weighted</p></li>
+<li><p>All weights are <strong>up-weighted</strong> since response propensities are between 0 and 1</p>
+<ul>
+<li>Contrast this with poststratification (with complete response) where some units get up-weighted and some down-weighted</li>
+</ul></li>
 </ul></li>
 </ul>
 </div>
@@ -240,8 +242,8 @@ P(\text{unit }i &amp; \text{ selected in sample and responds}) \\
 <ul>
 <li><p>Population of <span class="math inline">\(N=1{,}000\)</span> graduates with PhDs in statistics/biostatistics in past year</p></li>
 <li><p>SRS of <span class="math inline">\(n=10\)</span> with response rate of 6/10 = 60%</p></li>
-<li><p>Type of degree (stat vs.&nbsp;biostat) is on the sampling frame</p></li>
-<li><p>Type of job is on the survey</p></li>
+<li><p>Type of degree (stat vs biostat) is <span class="alert2">on the sampling frame</span></p></li>
+<li><p>Type of job (academic vs not) is <span class="alert">on the survey</span></p></li>
 <li><p>Without adjustment, estimated proportion of graduates in Academic jobs is __________</p></li>
 </ul>
 </div><div class="column" style="width:40%;">
@@ -251,7 +253,272 @@ P(\text{unit }i &amp; \text{ selected in sample and responds}) \\
 <tr class="header">
 <th style="text-align: center;">ID</th>
 <th style="text-align: center;">Biostat</th>
-<th style="text-align: center;">Academic</th>
+<th style="text-align: center;">Academic Job</th>
+<th style="text-align: center;">Base Weight <span class="math inline">\((w_i)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">N/n = 1000/10 = 100</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">100</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">100</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">100</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">100</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">100</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">100</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">100</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">100</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">100</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div>
+<div class="fragment">
+<ul>
+<li><p>Don’t like this estimate? We have two choices:</p>
+<ol type="1">
+<li><p>Treat the entire sample as one adjustment class, and upweight all 6 respondents the same (<strong>MCAR</strong>)</p></li>
+<li><p>Group the sample by degree type, and apply a different adjustment factor to biostat and stat (<strong>MAR</strong>)</p>
+<ul>
+<li>Specifically, assume missingness depends on degree type</li>
+</ul></li>
+</ol></li>
+</ul>
+</div>
+</section>
+<section id="example-assume-mcar" class="slide level2">
+<h2>Example: Assume MCAR</h2>
+<div class="smaller-text">
+<ul>
+<li><p><strong>Option 1:</strong> Assume <strong>MCAR</strong> and use one big weighting adjustment class</p></li>
+<li><p>Estimated probability of response = <span class="math inline">\(\hat{\phi}_i\)</span> = 6/10 = 0.6 = same for all units</p></li>
+</ul>
+</div>
+<div class="even-smaller-text">
+<table class="caption-top">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>ID</strong></th>
+<th><strong>Biostat</strong></th>
+<th><strong>Academic</strong></th>
+<th style="text-align: center;"><strong>Base Weight</strong> (<span class="math inline">\(w_i\)</span>)</th>
+<th style="text-align: center;"><strong>Response Propensity</strong> (<span class="math inline">\(\hat{\phi}_i\)</span>)</th>
+<th style="text-align: center;"><strong>Adj. Weight</strong>: <span class="math inline">\(\tilde{w}_i = w_i / \hat{\phi}_i\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">6/10 = 0.6</td>
+<td style="text-align: center;">100/0.6 = 166.67</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>1</td>
+<td></td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>0</td>
+<td></td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>1</td>
+<td>1</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">0.6</td>
+<td style="text-align: center;">166.67</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>0</td>
+<td>0</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">0.6</td>
+<td style="text-align: center;">166.67</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>1</td>
+<td>0</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">0.6</td>
+<td style="text-align: center;">166.67</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">0.6</td>
+<td style="text-align: center;">166.67</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>0</td>
+<td></td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>1</td>
+<td>1</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">0.6</td>
+<td style="text-align: center;">166.67</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>0</td>
+<td></td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td style="text-align: center;">Sum: 1000</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Sum: 1000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+</p><div class="smaller-text">
+<ul>
+<li><p>Estimated <span class="alert">total</span> number of grads in Academic jobs: &nbsp; <span class="math inline">\(\hat{t} = \sum_{i \in \mathcal{S}} \tilde{w}_i y_i = 166.67(1) + 166.67(1) + 166.67(0) + \cdots = 500\)</span></p></li>
+<li><p>Estimated <span class="alert">proportion</span> of grads in Academic jobs: &nbsp; <span class="math inline">\(\hat{p} = \frac{\sum_{i \in \mathcal{S}} \tilde{w}_i y_i}{\sum_{i \in \mathcal{S}} \tilde{w}_i} = \frac{500}{1000} = 0.5\)</span></p>
+<ul>
+<li>Estimate is the <strong>same as without adjustment (“complete case”)</strong> – MCAR!</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="example-assume-mcar-cont" class="slide level2 pause">
+<h2>Example: Assume MCAR (con’t)</h2>
+<div class="{columns}">
+<div class="column" style="width:60%;">
+<ul>
+<li>Do you like this adjustment?</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Look at the breakdown of who responded:</li>
+</ul>
+<div class="smaller-text">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Type of Degree</th>
+<th style="text-align: center;">Number in Sample</th>
+<th style="text-align: center;">Number Responded</th>
+<th style="text-align: center;">Response Rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Biostatistics</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3/4 = 75%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Statistics</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">3/6 = 50%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li><p>Response rate is <strong>different</strong> for by degree type!<br>
+(different for biostat and stat graduates)</p></li>
+<li><p><strong>Not MCAR!</strong></p></li>
+</ul>
+</div>
+</div><div class="column" style="width:40%;">
+<div class="smaller-text">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">ID</th>
+<th style="text-align: center;">Biostat</th>
+<th style="text-align: center;">Academic Job</th>
 <th style="text-align: center;">Base Weight <span class="math inline">\((w_i)\)</span></th>
 </tr>
 </thead>
@@ -322,25 +589,30 @@ P(\text{unit }i &amp; \text{ selected in sample and responds}) \\
 </div></div>
 <div class="fragment">
 <ul>
-<li><p>Don’t like this estimate? We have two choices:</p>
-<ol type="1">
-<li><p>Treat the entire sample as one adjustment class, and upweight all 6 respondents the same (MCAR)</p></li>
-<li><p>Group the sample by degree type, and apply a different adjustment factor to biostat and stat (MAR)</p>
+<li><p>Suppose in reality biostat grads were <strong>more likely</strong> than stat grads to be in academic jobs</p>
 <ul>
-<li>Specifically, assume missingness depends on degree type</li>
+<li>Would our estimate based on this weight adjustment be too high? Too small? Just right?</li>
 </ul></li>
-</ol></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>What if there was <strong>no relationship</strong> between degree type and having an academic job?</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>A <span class="alert">better approach</span> is to <span class="alert">form weighting adjustment classes based on degree type</span></li>
 </ul>
 </div>
 </section>
-<section id="example-option-1" class="slide level2">
-<h2>Example: Option 1</h2>
-<div class="smaller-text">
+<section id="example-assume-mar" class="slide level2">
+<h2>Example: Assume MAR</h2>
 <ul>
-<li><p><strong>Option 1:</strong> Assume MCAR and use one big weighting adjustment class</p></li>
-<li><p>Estimated probability of response = <span class="math inline">\(\hat{\phi}_i\)</span> = same for all units</p></li>
+<li><p><strong>Option 2:</strong> Assume <strong>MAR</strong> and create weighting adjustment classes based on degree</p></li>
+<li><p>Estimated probability of response = <span class="math inline">\(\hat{\phi}_i\)</span> = <span class="alert">separately estimated for biostat, stat</span></p></li>
+<li><p>Sorting the data by biostat/stat:</p></li>
 </ul>
-</div>
 <div class="even-smaller-text">
 <table class="caption-top">
 <colgroup>
@@ -349,325 +621,19 @@ P(\text{unit }i &amp; \text{ selected in sample and responds}) \\
 <col style="width: 10%">
 <col style="width: 23%">
 <col style="width: 23%">
-<col style="width: 24%">
+<col style="width: 25%">
 </colgroup>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"><strong>Base Weight</strong></td>
-<td style="text-align: center;"><strong>Response Propensity</strong></td>
-<td style="text-align: center;"><strong>Adjusted Weight</strong></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">ID</td>
-<td style="text-align: center;">Biostat</td>
-<td style="text-align: center;">Academic</td>
-<td style="text-align: center;"><span class="math inline">\(w_i\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\hat{\phi}_i\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\tilde{w}_i = w_i / \hat{\phi}_i\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">100</td>
-<td style="text-align: center;">6/10 = 0.6</td>
-<td style="text-align: center;">100/0.6 = 166.67</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">100</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">3</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">100</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">4</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">100</td>
-<td style="text-align: center;">0.6</td>
-<td style="text-align: center;">166.67</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">5</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">100</td>
-<td style="text-align: center;">0.6</td>
-<td style="text-align: center;">166.67</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">6</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">100</td>
-<td style="text-align: center;">0.6</td>
-<td style="text-align: center;">166.67</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">7</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">100</td>
-<td style="text-align: center;">0.6</td>
-<td style="text-align: center;">166.67</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">8</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">100</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">9</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">100</td>
-<td style="text-align: center;">0.6</td>
-<td style="text-align: center;">166.67</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">10</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">100</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"><strong>Sum:</strong></td>
-<td style="text-align: center;">1000</td>
-<td style="text-align: center;"><strong>Sum:</strong></td>
-<td style="text-align: center;">1000</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section id="example-option-1-cont" class="slide level2">
-<h2>Example: Option 1 (con’t)</h2>
-<div class="even-smaller-text">
-<table class="caption-top">
-<colgroup>
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 23%">
-<col style="width: 23%">
-<col style="width: 24%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"><strong>Base Weight</strong></td>
-<td style="text-align: center;"><strong>Response Propensity</strong></td>
-<td style="text-align: center;"><strong>Adjusted Weight</strong></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">ID</td>
-<td style="text-align: center;">Biostat</td>
-<td style="text-align: center;">Academic</td>
-<td style="text-align: center;"><span class="math inline">\(w_i\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\hat{\phi}_i\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\tilde{w}_i = w_i / \hat{\phi}_i\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">100</td>
-<td style="text-align: center;">6/10 = 0.6</td>
-<td style="text-align: center;">100/0.6 = 166.67</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">100</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">3</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">100</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">4</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">100</td>
-<td style="text-align: center;">0.6</td>
-<td style="text-align: center;">166.67</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">5</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">100</td>
-<td style="text-align: center;">0.6</td>
-<td style="text-align: center;">166.67</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">6</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">100</td>
-<td style="text-align: center;">0.6</td>
-<td style="text-align: center;">166.67</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">7</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">100</td>
-<td style="text-align: center;">0.6</td>
-<td style="text-align: center;">166.67</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">8</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">100</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">9</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">100</td>
-<td style="text-align: center;">0.6</td>
-<td style="text-align: center;">166.67</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">10</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">100</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"><strong>Sum:</strong></td>
-<td style="text-align: center;">1000</td>
-<td style="text-align: center;"><strong>Sum:</strong></td>
-<td style="text-align: center;">1000</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><br></p>
-<div class="smaller-text">
-<ul>
-<li>Estimated total number of grads in Academic jobs: <span class="math inline">\(\hat{t} = \sum_{i \in \S} \tilde{w}_i y_i = 166.67(1) + 166.67(1) + 166.67(0) + \cdots = 500\)</span></li>
-<li>Estimated proportion of grads in Academic jobs: <span class="math inline">\(\hat{p} = \frac{\sum_{i \in \S} \tilde{w}_i y_i}{\sum_{i \in \S} \tilde{w}_i} = \frac{500}{1000} = 0.5\)</span></li>
-<li>Estimate is the same as without adjustment (“complete case”) – assumed MCAR!</li>
-</ul>
-</div>
-</section>
-<section id="example-cont" class="slide level2">
-<h2>Example (con’t)</h2>
-<ul>
-<li><p>Do you like this adjustment?</p></li>
-<li><p>Look at the breakdown of who responded:</p></li>
-</ul>
-<table class="caption-top">
 <thead>
 <tr class="header">
-<th style="text-align: left;">Type of Degree</th>
-<th style="text-align: center;">Number in Sample</th>
-<th style="text-align: center;">Number Responded</th>
-<th style="text-align: center;">Response Rate</th>
+<th><strong>ID</strong></th>
+<th><strong>Biostat</strong></th>
+<th><strong>Academic</strong></th>
+<th style="text-align: center;"><strong>Base Weight</strong> (<span class="math inline">\(w_i\)</span>)</th>
+<th style="text-align: center;"><strong>Response Propensity</strong> (<span class="math inline">\(\hat{\phi}_i\)</span>)</th>
+<th style="text-align: center;"><strong>Adj. Weight</strong>: <span class="math inline">\(\tilde{w}_i = w_i / \hat{\phi}_i\)</span></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">Biostatistics</td>
-<td style="text-align: center;">4</td>
-<td style="text-align: center;">3</td>
-<td style="text-align: center;">3/4 = 75%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Statistics</td>
-<td style="text-align: center;">6</td>
-<td style="text-align: center;">3</td>
-<td style="text-align: center;">3/6 = 50%</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>Response rate is <strong>different</strong> for biostat and stat graduates (different by degree type)!</li>
-</ul>
-<p><strong>Not MCAR!</strong></p>
-<ul>
-<li>Would our estimate based on this weight adjustment (assuming MCAR) be too high? Too small? Just right?</li>
-</ul>
-<p><br></p>
-<ul>
-<li>What if there was no relationship between degree type and having an academic job?</li>
-</ul>
-<p><br></p>
-<ul>
-<li>A better approach is to form weighting adjustment classes based on degree type</li>
-</ul>
-</section>
-<section id="example-cont-1" class="slide level2">
-<h2>Example (con’t)</h2>
-<ul>
-<li><p><strong>Option 2:</strong> Assume and create weighting adjustment classes based on degree</p></li>
-<li><p>Estimated probability of response = <span class="math inline">\(\hat{\phi}_i\)</span> separately estimated for biostat, stat</p></li>
-</ul>
-<div class="center">
-<table class="caption-top" style="width:100%;">
-<colgroup>
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-<td style="text-align: center;">Base Weight</td>
-<td style="text-align: center;">Response Propensity</td>
-<td style="text-align: center;">Adjusted Weight</td>
-</tr>
-<tr class="even">
-<td>ID</td>
-<td>Biostat</td>
-<td>Academic</td>
-<td style="text-align: center;"><span class="math inline">\(w_i\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\hat{\phi}_i\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\tilde{w}_i = w_i / \hat{\phi}_i\)</span></td>
-</tr>
 <tr class="odd">
 <td>1</td>
 <td>0</td>
@@ -760,50 +726,176 @@ P(\text{unit }i &amp; \text{ selected in sample and responds}) \\
 </table>
 </div>
 <ul>
-<li><p>Estimated total number of graduates who are in Academic jobs: <span class="math display">\[\hat{t} = \sum_{i \in \S} \tilde{w}_i y_i = 200(1) + 200(0) + \cdots + 133.33(1) = 466.67\]</span></p></li>
-<li><p>Estimated proportion of graduates who are in Academic jobs: <span class="math display">\[\hat{p} = \frac{\sum_{i \in \S} \tilde{w}_i y_i}{\sum_{i \in \S} \tilde{w}_i} = \frac{466.67}{1000} = 0.47\]</span></p></li>
-<li><p>Estimates are different than under MCAR!</p></li>
+<li>Note the up-weighting of statistics grads (lower response rate) and down-weighting of biostatistics grads (higher response rate)</li>
 </ul>
 </section>
-<section id="choosing-variables-for-adjustments" class="slide level2">
+<section id="example-assume-mar-cont" class="slide level2">
+<h2>Example: Assume MAR (con’t)</h2>
+<div class="even-smaller-text">
+<table class="caption-top">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>ID</strong></th>
+<th><strong>Biostat</strong></th>
+<th><strong>Academic</strong></th>
+<th style="text-align: center;"><strong>Base Weight</strong> (<span class="math inline">\(w_i\)</span>)</th>
+<th style="text-align: center;"><strong>Response Propensity</strong> (<span class="math inline">\(\hat{\phi}_i\)</span>)</th>
+<th style="text-align: center;"><strong>Adj. Weight</strong>: <span class="math inline">\(\tilde{w}_i = w_i / \hat{\phi}_i\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">3/6 = 0.5</td>
+<td style="text-align: center;">100/0.5 = 200</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>0</td>
+<td></td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>0</td>
+<td>0</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">0.5</td>
+<td style="text-align: center;">200</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">0.5</td>
+<td style="text-align: center;">200</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>0</td>
+<td></td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>0</td>
+<td></td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>1</td>
+<td></td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>1</td>
+<td>1</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">3/4 = 0.75</td>
+<td style="text-align: center;">100/0.75 = 133.33</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>1</td>
+<td>0</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">0.75</td>
+<td style="text-align: center;">133.33</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>1</td>
+<td>1</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">0.75</td>
+<td style="text-align: center;">133.33</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td style="text-align: center;">Sum: 1000</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Sum: 1000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+</p><div class="smaller-text">
+<ul>
+<li><p>Estimated <span class="alert">total</span> number of graduates who are in Academic jobs: &nbsp; <span class="math inline">\(\hat{t} = \sum_{i \in \mathcal{S}} \tilde{w}_i y_i = 200(1) + 200(0) + \cdots + 133.33(1) = 466.67\)</span></p></li>
+<li><p>Estimated <span class="alert">proportion</span> of graduates who are in Academic jobs: &nbsp; <span class="math inline">\(\hat{p} = \frac{\sum_{i \in \mathcal{S}} \tilde{w}_i y_i}{\sum_{i \in \mathcal{S}} \tilde{w}_i} = \frac{466.67}{1000} = 0.47\)</span></p>
+<ul>
+<li>Estimate is <strong>different</strong> than under MCAR!</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="choosing-variables-for-adjustments" class="slide level2 pause">
 <h2>Choosing Variables for Adjustments</h2>
+<div class="smaller-text">
 <ul>
-<li><p>Limited info might make the choice simple</p></li>
-<li><p>Can only use variables that are observed for both respondents and nonrespondents</p></li>
-<li><p>Limited to information on the sampling frame and design variables</p>
+<li><p>Can only use variables that are <span class="alert2">observed for both respondents and nonrespondents</span></p>
 <ul>
-<li><p>Ex: Ohio Medicaid Assessment Survey (OMAS)</p>
+<li><p>Limited to <span class="alert2">information on the sampling frame and design variables</span></p></li>
+<li><p>Ex: 2021 Ohio Medicaid Assessment Survey (OMAS) (<a href="https://grc.osu.edu/OMAS/2021Survey">link</a>)</p>
 <ul>
-<li><p>RDD phone survey, only info about nonrespondents is the stratum they are from</p></li>
+<li><p>Only info about nonrespondents is the stratum they are from</p></li>
 <li><p>Thus adjustment classes are the strata (only choice!)</p></li>
 </ul></li>
 </ul></li>
+</ul>
+<div class="fragment">
+<ul>
 <li><p>In multi-stage surveys, nonresponse can happen at different stages, thus can make different adjustment classes for each level</p>
 <ul>
-<li><p>Ex: National Health and Nutrition Examination Survey (NHANES)</p>
+<li><p>Ex: 2017-2020 National Health and Nutrition Examination Survey (NHANES) (<a href="https://www.cdc.gov/nchs/data/series/sr_02/sr02-190.pdf">link to methods report</a>)</p>
 <ul>
 <li><p>First dwelling units are screened (to enumerate people in them), then sampled people are interviewed, then interviewed people are given a medical exam</p></li>
 <li><p>Nonresponse can happen at any stage – refuse to participate in the screening, or the interview, or the medical exam</p></li>
-<li><p>Adjustment classes for nonresponse at screener are limited to design info<br>
-(i.e., use census tract/segment as adjustment class)</p></li>
-<li><p>Adjustment classes for interview can include screener info</p></li>
-<li><p>Adjustment classes for medical exam can include interview info</p></li>
+<li><p>Screener adjustment classes: census tract/segment (only info!)</p></li>
+<li><p>Interview adjustment classes: can include screener info</p></li>
+<li><p>Medical exam adjustment classes: can include interview info</p></li>
 </ul></li>
 </ul></li>
 </ul>
+</div>
+</div>
 </section>
 <section id="choosing-variables-for-adjustments-cont" class="slide level2">
 <h2>Choosing Variables for Adjustments (con’t)</h2>
 <ul>
-<li><p><strong>Overall goal: choose variables that are associated with</strong> <span class="math inline">\(R_i\)</span> and with <span class="math inline">\(y_i\)</span></p></li>
-<li><p>In other words, weighting classes should be formed so that:</p>
+<li><p><strong>Overall goal: choose variables that are associated with</strong> <span class="math inline">\(\mathbf{R_i}\)</span> <strong>and with</strong> <span class="math inline">\(\mathbf{y_i}\)</span></p>
 <ul>
 <li><p>Units within each class are as similar as possible with respect to <span class="math inline">\(y_i\)</span>, and</p></li>
 <li><p>Response propensities similar within class but (may) vary from class to class</p></li>
 </ul></li>
 <li><p>Impact on bias and variance when constructing classes using variables that have: <sup>1</sup></p></li>
 </ul>
-<div class="center">
+<div class="even-smaller-text">
 <table class="caption-top">
 <colgroup>
 <col style="width: 25%">
@@ -811,117 +903,129 @@ P(\text{unit }i &amp; \text{ selected in sample and responds}) \\
 <col style="width: 25%">
 <col style="width: 25%">
 </colgroup>
+<thead>
+<tr class="header">
+<th>Association with <span class="math inline">\(R_i\)</span></th>
+<th>Association with <span class="math inline">\(y_i\)</span></th>
+<th>Impact on Bias</th>
+<th>Impact on Variance</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td></td>
-<td></td>
-<td style="text-align: center;">Association with <span class="math inline">\(y_i\)</span></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td style="text-align: center;">Low</td>
-<td>High</td>
-</tr>
-<tr class="odd">
-<td>Association with <span class="math inline">\(R_i\)</span></td>
 <td>Low</td>
-<td style="text-align: center;">Bias: –</td>
-<td>Bias: –</td>
+<td>Low</td>
+<td>–</td>
+<td>–</td>
 </tr>
 <tr class="even">
-<td></td>
-<td></td>
-<td style="text-align: center;">Variance: –</td>
-<td>Variance: <span class="math inline">\(\downarrow\)</span></td>
+<td>Low</td>
+<td>High</td>
+<td>–</td>
+<td>↓</td>
 </tr>
 <tr class="odd">
-<td></td>
 <td>High</td>
-<td style="text-align: center;">Bias: –</td>
-<td>Bias: <span class="math inline">\(\downarrow\)</span></td>
+<td>Low</td>
+<td>–</td>
+<td>↑</td>
 </tr>
 <tr class="even">
-<td></td>
-<td></td>
-<td style="text-align: center;">Variance: <span class="math inline">\(\uparrow\)</span></td>
-<td>Variance: <span class="math inline">\(\downarrow\)</span></td>
+<td>High</td>
+<td>High</td>
+<td>↓</td>
+<td>↓</td>
 </tr>
 </tbody>
 </table>
 </div>
 <ul>
-<li><p>Key points:</p>
-<ul>
-<li><p>Only get bias reduction if classes are constructed with variables related to <span class="math inline">\(y_i\)</span></p></li>
+<li><p>Only get bias reduction if classes are constructed with variables related to <span class="math inline">\(y_i\)</span> and <span class="math inline">\(R_i\)</span></p></li>
 <li><p>“Punishment” for using variables not associated with <span class="math inline">\(y_i\)</span> can be an increase in variance</p></li>
+<li><p>Obvious problem: All surveys have more than one <span class="math inline">\(y\)</span> that they care about!</p>
+<ul>
+<li>But – only one set of adjusted weights!</li>
 </ul></li>
-<li><p>Obvious problem: All surveys have more than one <span class="math inline">\(y\)</span> that they care about!</p></li>
-<li><p>But – only one set of adjusted weights!</p></li>
 </ul>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>Table 1 in: Little RJA &amp; Vartivarian S (2005), Does Weighting for Nonresponse Increase the Variance of Survey Means? <em>Survey Methodology</em>, 31, 161-168.</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Adapted from Table 1 in: Little RJA &amp; Vartivarian S (2005), Does Weighting for Nonresponse Increase the Variance of Survey Means? <em>Survey Methodology</em>, 31, 161-168.</p></li></ol></aside></section>
 <section id="activity-18.1" class="slide level2">
 <h2>Activity 18.1</h2>
 <p>Nonresponse Weight Adjustments</p>
 </section>
-<section id="more-practical-details-on-weighting-adjustments" class="slide level2">
+<section id="more-practical-details-on-weighting-adjustments" class="slide level2 pause">
 <h2>More Practical Details on Weighting Adjustments</h2>
 <ul>
-<li><p>Resulting data are analyzed as if the adjusted weights were the base weights<br>
-(i.e., no special analysis method needed)</p></li>
+<li>Data are analyzed as if the adjusted weights were the base weights (no special analysis method needed)</li>
+</ul>
+<div class="fragment">
+<ul>
 <li><p>If &gt;50% nonresponse in a class, weights would be multiplied by a factor greater than 2 – and this is generally avoided</p>
 <ul>
 <li><p>Option 1: Collapse classes together until have enough respondents</p></li>
 <li><p>Option 2: Weight trimming, by choosing a max value for the weights and truncating any adjusted weights above this value</p></li>
 </ul></li>
-<li><p>Categorical variables can be easily used to form classes, but continuous variables need to be categorized (no strict rule about how)</p></li>
-<li><p>More complex weighting adjustments are possible – fancier methods to estimate <span class="math inline">\(\hat{\phi}_i\)</span></p>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Categorical variables can be easily used to form classes, but continuous variables need to be categorized (no strict rule about how)</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><p>More complex weighting adjustments are possible, using “fancier” methods to estimate <span class="math inline">\(\hat{\phi}_i\)</span></p>
 <ul>
 <li><p>Ex: Logistic regression with <span class="math inline">\(R_i\)</span> as the outcome</p>
 <ul>
-<li><p>Predictors are variables available for both respondents and nonrespondents (those available for creating classes)</p></li>
-<li><p>Each respondent has a predicted propensity from the model, <span class="math inline">\(\hat{\phi}_i\)</span></p></li>
-<li><p>Adjusted weight is (as usual) <span class="math inline">\(\tilde{w}_i = w_i/\hat{\phi}_i\)</span></p></li>
-<li><p>Or – create classes based on grouping units with similar <span class="math inline">\(\hat{\phi}_i\)</span></p></li>
+<li><p>Predictors are variables available for both respondents and nonrespondents</p></li>
+<li><p>Each respondent has predicted propensity from the model, <span class="math inline">\(\hat{\phi}_i\)</span>, and adjusted weight <span class="math inline">\(\tilde{w}_i = w_i/\hat{\phi}_i\)</span></p></li>
+<li><p>Or, create classes based on grouping units with similar <span class="math inline">\(\hat{\phi}_i\)</span></p></li>
 </ul></li>
 </ul></li>
 </ul>
+</div>
 </section>
-<section id="combining-nonresponse-adjustments-with-other-weight-adjustments" class="slide level2">
-<h2>Combining Nonresponse Adjustments with Other Weight Adjustments</h2>
+<section id="combining-weight-adjustments" class="slide level2 pause">
+<h2>Combining Weight Adjustments</h2>
 <ul>
-<li><p>When adjusting the weights for nonresponse, you can think of it as multiplying each weight by an adjustment factor, where <span class="math display">\[\tilde{w}_i = w_i \times \frac{1}{\hat{\phi}_i} = w_i \times \text{(adjustment factor)}\]</span></p></li>
-<li><p>This may remind you of poststratification: <span class="math display">\[w_{hj}^{PS} = w_{hj} \times \frac{\text{Population total in post-stratum}~h}{\text{Estimated total in post-stratum}~h}  = w_{hj} \times \frac{N_h}{\widehat{N}_h}\]</span></p></li>
+<li><p>When adjusting weights for nonresponse, we are multiplying each weight by an adjustment factor: <span class="math display">\[\tilde{w}_i = w_i \times \frac{1}{\hat{\phi}_i} = w_i \times \text{(adjustment factor)}\]</span></p></li>
+<li><p>Similar to poststratification: <span class="math display">\[w_{hj}^{PS} = w_{hj} \times \frac{\text{Population total in post-stratum}~h}{\text{Estimated total in post-stratum}~h}  = w_{hj} \times \frac{N_h}{\widehat{N}_h}\]</span></p></li>
+</ul>
+<div class="fragment">
+<ul>
 <li><p>Weighting adjustments for nonresponse can be combined with poststratification:</p>
 <ol type="1">
 <li><p>First, make nonresponse adjustments to the weights</p></li>
 <li><p>Second, use poststratification or raking to ensure that weights sum to population totals for key quantities (for which you know the population totals)</p></li>
 </ol></li>
-<li><p>The adjustment factors just all get multiplied together: <span class="math display">\[\tilde{w}_i = w_i \times \frac{1}{\hat{\phi}_i} \times \frac{N_h}{\widehat{N}_h}\]</span> where unit <span class="math inline">\(i\)</span> belongs to poststratum <span class="math inline">\(h\)</span></p></li>
+<li><p>The adjustment factors just all get multiplied together: <span class="math inline">\(\tilde{w}_i = w_i \times \frac{1}{\hat{\phi}_i} \times \frac{N_h}{\widehat{N}_h}\)</span><br>
+where unit <span class="math inline">\(i\)</span> belongs to poststratum <span class="math inline">\(h\)</span></p></li>
 </ul>
+</div>
 </section>
-<section id="combining-cont" class="slide level2">
-<h2>Combining (con’t)</h2>
+<section id="combining-weight-adjustments-cont" class="slide level2 pause">
+<h2>Combining Weight Adjustments (con’t)</h2>
 <ul>
-<li><p>Key difference between nonresponse weight adjustments and poststratification/raking:</p>
+<li><p>Key <span class="alert">difference between nonresponse weight adjustments and poststratification/raking</span>:</p>
 <ul>
-<li><p>For <strong>nonresponse weight adjustments</strong>, you must have the variables that create the adjustment cells <strong>observed for all sampled units, respondents and nonrespondents</strong></p></li>
-<li><p>For <strong>poststratification/raking</strong>, you need the <strong>population totals for variables that are observed for respondents</strong> (individual nonrespondent data not needed)</p></li>
+<li><p>For <span class="alert2"><strong>nonresponse weight adjustments</strong></span>, you must use variables observed for <span class="alert2"><strong>respondents and nonrespondents</strong></span></p></li>
+<li><p>For <span class="alert3"><strong>poststratification/raking</strong></span>, you need population totals for variables that are <span class="alert3"><strong>observed for respondents</strong></span> (individual nonrespondent data not needed)</p></li>
 </ul></li>
 <li><p>Most often, both are done – nonresponse first, then poststratification/raking (also commonly called calibration)</p></li>
 </ul>
-<p><br></p>
-<ul>
+<div class="fragment">
+<p>
+</p><ul>
 <li><p>Think of it this way:</p>
 <ul>
 <li><p><strong>Nonresponse weight adjustments</strong> are made to align the respondent sample with the originally selected sample (i.e., make the respondent sample look like the full sample)</p></li>
 <li><p><strong>Poststratification/Raking/Calibration</strong> are then made to align the resulting sample with the target population</p></li>
 </ul></li>
 </ul>
+</div>
 </section>
-<section id="combining-cont-1" class="slide level2">
-<h2>Combining (con’t)</h2>
+<section id="combining-weight-adjustments-cont-1" class="slide level2">
+<h2>Combining Weight Adjustments (con’t)</h2>
 <ul>
 <li><p>Other weight adjustments are commonly done in certain scenarios as well, e.g.,:</p>
 <ul>

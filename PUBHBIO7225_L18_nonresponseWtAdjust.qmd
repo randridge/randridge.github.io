@@ -1,6 +1,7 @@
 ---
 title:  |
-  Weighting Adjustments for Nonresponse in Surveys
+  Weighting Adjustments  \
+  for Nonresponse in Surveys
 subtitle: "PUBHBIO 7225 Lecture 18"
 # author: "Generative AI acknowledgment: Google Gemini was used to generate alt text for some images"
 format:
@@ -52,7 +53,7 @@ editor:
 ## Reminder of the Missing Data Problem
 
 ::: smaller-text
--   **Not random variables:**
+-   [**Not random variables:**]{.alert}
 
     -   $y_i$ = survey outcome of interest for unit $i$, only observed
         for respondents
@@ -62,7 +63,7 @@ editor:
         *(design information, information on the sampling frame, or
         information about the interview process)*
 
--   **Random variables:**
+-   [**Random variables:**]{.alert2}
 
     -   $Z_i$ = selection indicator for unit $i$
 
@@ -76,17 +77,17 @@ editor:
 
 -   Three types of missing data mechanisms:
 
--   **MCAR**: $P(R_i=1 | y_i, \mathbf{x}_i) = P(R_i=1)$ ← missingness
-    doesn't depend on $y$ or $x$
+    -   **MCAR**: $P(R_i=1 | y_i, \mathbf{x}_i) = P(R_i=1)$   ←  
+        missingness doesn't depend on $y$ or $x$
 
--   **MAR**: $P(R_i=1 | y_i, \mathbf{x}_i) = P(R_i=1|\mathbf{x}_i)$ ←
-    missingness doesn't depend on $y$
+    -   **MAR**: $P(R_i=1 | y_i, \mathbf{x}_i) = P(R_i=1|\mathbf{x}_i)$
+          ←   missingness doesn't depend on $y$
 
--   **MNAR**: $P(R_i=1 | y_i, \mathbf{x}_i)$ ← missingness depends on
-    $y$, possibly also $x$
+    -   **MNAR**: $P(R_i=1 | y_i, \mathbf{x}_i)$   ←  missingness
+        depends on $y$, possibly also $x$
 
 -   Usually MCAR does not hold (often we have visible differences
-    between respondents and nonrespondents), and we assume MAR
+    between respondents and nonrespondents), and we [assume MAR]{.alert}
 
 -   MNAR not testable given observed data
 :::
@@ -106,20 +107,17 @@ editor:
     $$w_i = \begin{cases} \frac{1}{\pi_i \hat{\phi}_i} & \text{for respondents }(R_i=1) \\ 0 & \text{for nonrespondents }(R_i=0)
     \end{cases}$$
 
--   $\hat{\phi}_i$ must be estimated -- and info for doing so may be
-    limited for some surveys
-
 -   Weighting methods assume that response probabilities can be
     estimated [from variables known for all units]{.alert2}
 
-    -   $P(R_i=1 | y_i, \mathbf{x}_i) = P(R_i=1|\mathbf{x}_i)$
-    -   Thus they assume [MAR]{.alert2} data
+    -   $P(R_i=1 | y_i, \mathbf{x}_i) = P(R_i=1|\mathbf{x}_i)$   →  
+        assumes [MAR]{.alert3}
+
+-   Info for estimating $\hat{\phi}_i$ may be limited for some surveys
 
 ## Weighting Class Adjustments
 
 ::: smaller-text
--   Simplest weighting adjustment method (but very, very commonly used)
-
 1.  Create **weighting adjustment classes** = groups of respondents and
     nonrespondents based on variables observed for both
 
@@ -134,15 +132,17 @@ $$\hat{\phi}_c = \frac{\text{number of respondents in class } c}{\text{number of
 
 -   Notes:
 
+    -   Simple, but very commonly used
+
     -   Implicitly assumes probability of response is the **same for all
         units within each class**
 
     -   All weights are **up-weighted** since response propensities are
         between 0 and 1
 
-    -   This is **different than poststratification** (with complete
-        response) where some units get up-weighted and some
-        down-weighted
+        -   Contrast this with poststratification (with complete
+            response) where some units get up-weighted and some
+            down-weighted
 :::
 
 ## Example: Weight Adjustments {.pause}
@@ -154,9 +154,9 @@ $$\hat{\phi}_c = \frac{\text{number of respondents in class } c}{\text{number of
 
 -   SRS of $n=10$ with response rate of 6/10 = 60%
 
--   Type of degree (stat vs. biostat) is on the sampling frame
+-   Type of degree (stat vs biostat) is [on the sampling frame]{.alert2}
 
--   Type of job is on the survey
+-   Type of job (academic vs not) is [on the survey]{.alert}
 
 -   Without adjustment, estimated proportion of graduates in Academic
     jobs is \_\_\_\_\_\_\_\_\_\_
@@ -164,18 +164,18 @@ $$\hat{\phi}_c = \frac{\text{number of respondents in class } c}{\text{number of
 
 :::: {.column width="40%"}
 ::: smaller-text
-| ID  | Biostat | Academic | Base Weight $(w_i)$ |
-|:---:|:-------:|:--------:|:-------------------:|
-|  1  |    0    |    1     |         100         |
-|  2  |    1    |          |         100         |
-|  3  |    0    |          |         100         |
-|  4  |    1    |    1     |         100         |
-|  5  |    0    |    0     |         100         |
-|  6  |    1    |    0     |         100         |
-|  7  |    0    |    0     |         100         |
-|  8  |    0    |          |         100         |
-|  9  |    1    |    1     |         100         |
-| 10  |    0    |          |         100         |
+| ID  | Biostat | Academic Job | Base Weight $(w_i)$ |
+|:---:|:-------:|:------------:|:-------------------:|
+|  1  |    0    |      1       | N/n = 1000/10 = 100 |
+|  2  |    1    |              |         100         |
+|  3  |    0    |              |         100         |
+|  4  |    1    |      1       |         100         |
+|  5  |    0    |      0       |         100         |
+|  6  |    1    |      0       |         100         |
+|  7  |    0    |      0       |         100         |
+|  8  |    0    |              |         100         |
+|  9  |    1    |      1       |         100         |
+| 10  |    0    |              |         100         |
 :::
 ::::
 ::::::
@@ -185,27 +185,26 @@ $$\hat{\phi}_c = \frac{\text{number of respondents in class } c}{\text{number of
 -   Don't like this estimate? We have two choices:
 
     1.  Treat the entire sample as one adjustment class, and upweight
-        all 6 respondents the same (MCAR)
+        all 6 respondents the same (**MCAR**)
 
     2.  Group the sample by degree type, and apply a different
-        adjustment factor to biostat and stat (MAR)
+        adjustment factor to biostat and stat (**MAR**)
 
         -   Specifically, assume missingness depends on degree type
 
-## Example: Option 1
+## Example: Assume MCAR
 
-::: {.smaller-text}
--   **Option 1:** Assume MCAR and use one big weighting adjustment class
+::: smaller-text
+-   **Option 1:** Assume **MCAR** and use one big weighting adjustment
+    class
 
--   Estimated probability of response = $\hat{\phi}_i$ = same for all
-    units
+-   Estimated probability of response = $\hat{\phi}_i$ = 6/10 = 0.6 =
+    same for all units
 :::
 
 ::: even-smaller-text
-|  |  |  |  |  |  |
-|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
-|  |  |  | **Base Weight** | **Response Propensity** | **Adjusted Weight** |
-| ID | Biostat | Academic | $w_i$ | $\hat{\phi}_i$ | $\tilde{w}_i = w_i / \hat{\phi}_i$ |
+| **ID** | **Biostat** | **Academic** | **Base Weight** ($w_i$) | **Response Propensity** ($\hat{\phi}_i$) | **Adj. Weight**: $\tilde{w}_i = w_i / \hat{\phi}_i$ |
+|------------|------------|------------|:----------:|:----------:|:----------:|
 | 1 | 0 | 1 | 100 | 6/10 = 0.6 | 100/0.6 = 166.67 |
 | 2 | 1 |  | 100 |  | 0 |
 | 3 | 0 |  | 100 |  | 0 |
@@ -216,84 +215,98 @@ $$\hat{\phi}_c = \frac{\text{number of respondents in class } c}{\text{number of
 | 8 | 0 |  | 100 |  | 0 |
 | 9 | 1 | 1 | 100 | 0.6 | 166.67 |
 | 10 | 0 |  | 100 |  | 0 |
-|  |  | **Sum:** | 1000 | **Sum:** | 1000 |
-: {tbl-colwidths="[10,10,10,23,23,24]"}
+|  |  |  | Sum: 1000 |  | Sum: 1000 |
+
+: {tbl-colwidths="\[10,10,10,23,23,25\]"}
 :::
 
-## Example: Option 1 (con't)
+<p>
 
-::: even-smaller-text
-|  |  |  |  |  |  |
-|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
-|  |  |  | **Base Weight** | **Response Propensity** | **Adjusted Weight** |
-| ID | Biostat | Academic | $w_i$ | $\hat{\phi}_i$ | $\tilde{w}_i = w_i / \hat{\phi}_i$ |
-| 1 | 0 | 1 | 100 | 6/10 = 0.6 | 100/0.6 = 166.67 |
-| 2 | 1 |  | 100 |  | 0 |
-| 3 | 0 |  | 100 |  | 0 |
-| 4 | 1 | 1 | 100 | 0.6 | 166.67 |
-| 5 | 0 | 0 | 100 | 0.6 | 166.67 |
-| 6 | 1 | 0 | 100 | 0.6 | 166.67 |
-| 7 | 0 | 0 | 100 | 0.6 | 166.67 |
-| 8 | 0 |  | 100 |  | 0 |
-| 9 | 1 | 1 | 100 | 0.6 | 166.67 |
-| 10 | 0 |  | 100 |  | 0 |
-|  |  | **Sum:** | 1000 | **Sum:** | 1000 |
-: {tbl-colwidths="[10,10,10,23,23,24]"}
+::: smaller-text
+-   Estimated [total]{.alert} number of grads in Academic jobs:  
+    $\hat{t} = \sum_{i \in \mathcal{S}} \tilde{w}_i y_i = 166.67(1) + 166.67(1) + 166.67(0) + \cdots = 500$
+
+-   Estimated [proportion]{.alert} of grads in Academic jobs:  
+    $\hat{p} = \frac{\sum_{i \in \mathcal{S}} \tilde{w}_i y_i}{\sum_{i \in \mathcal{S}} \tilde{w}_i} = \frac{500}{1000} = 0.5$
+
+    -   Estimate is the **same as without adjustment ("complete case")**
+        -- MCAR!
 :::
 
-<br>
+## Example: Assume MCAR (con't) {.pause}
 
-::: {.smaller-text}
-
--   Estimated total number of grads in Academic jobs: $\hat{t} = \sum_{i \in \S} \tilde{w}_i y_i = 166.67(1) + 166.67(1) + 166.67(0) + \cdots = 500$
--   Estimated proportion of grads in Academic jobs: $\hat{p} = \frac{\sum_{i \in \S} \tilde{w}_i y_i}{\sum_{i \in \S} \tilde{w}_i} = \frac{500}{1000} = 0.5$
--   Estimate is the same as without adjustment ("complete case") --
-    assumed MCAR!
-
-:::
-
-## Example (con't)
-
+::::::::: {columns}
+:::::: {.column width="60%"}
 -   Do you like this adjustment?
 
+:::: fragment
 -   Look at the breakdown of who responded:
 
+::: smaller-text
 | Type of Degree | Number in Sample | Number Responded | Response Rate |
 |:---------------|:----------------:|:----------------:|:-------------:|
 | Biostatistics  |        4         |        3         |   3/4 = 75%   |
 | Statistics     |        6         |        3         |   3/6 = 50%   |
+:::
+::::
 
--   Response rate is **different** for biostat and stat graduates
-    (different by degree type)!
+::: fragment
+-   Response rate is **different** for by degree type!\
+    (different for biostat and stat graduates)
 
-**Not MCAR!**
+-   **Not MCAR!**
+:::
+::::::
 
--   Would our estimate based on this weight adjustment (assuming MCAR)
-    be too high? Too small? Just right?
+:::: {.column width="40%"}
+::: smaller-text
+| ID  | Biostat | Academic Job | Base Weight $(w_i)$ |
+|:---:|:-------:|:------------:|:-------------------:|
+|  1  |    0    |      1       |         100         |
+|  2  |    1    |              |         100         |
+|  3  |    0    |              |         100         |
+|  4  |    1    |      1       |         100         |
+|  5  |    0    |      0       |         100         |
+|  6  |    1    |      0       |         100         |
+|  7  |    0    |      0       |         100         |
+|  8  |    0    |              |         100         |
+|  9  |    1    |      1       |         100         |
+| 10  |    0    |              |         100         |
+:::
+::::
+:::::::::
 
-<br>
+::: fragment
+-   Suppose in reality biostat grads were **more likely** than stat
+    grads to be in academic jobs
 
--   What if there was no relationship between degree type and having an
-    academic job?
+    -   Would our estimate based on this weight adjustment be too high?
+        Too small? Just right?
+:::
 
-<br>
+::: fragment
+-   What if there was **no relationship** between degree type and having
+    an academic job?
+:::
 
--   A better approach is to form weighting adjustment classes based on
-    degree type
+::: fragment
+-   A [better approach]{.alert} is to [form weighting adjustment classes
+    based on degree type]{.alert}
+:::
 
-## Example (con't)
+## Example: Assume MAR
 
--   **Option 2:** Assume and create weighting adjustment classes based
-    on degree
+-   **Option 2:** Assume **MAR** and create weighting adjustment classes
+    based on degree
 
--   Estimated probability of response = $\hat{\phi}_i$ separately
-    estimated for biostat, stat
+-   Estimated probability of response = $\hat{\phi}_i$ = [separately
+    estimated for biostat, stat]{.alert}
+    
+-   Sorting the data by biostat/stat:
 
-::: center
-|  |  |  |  |  |  |
-|------------|------------|------------|:----------:|:----------:|:----------:|
-|  |  |  | Base Weight | Response Propensity | Adjusted Weight |
-| ID | Biostat | Academic | $w_i$ | $\hat{\phi}_i$ | $\tilde{w}_i = w_i / \hat{\phi}_i$ |
+::: even-smaller-text
+| **ID** | **Biostat** | **Academic** | **Base Weight** ($w_i$) | **Response Propensity** ($\hat{\phi}_i$) | **Adj. Weight**: $\tilde{w}_i = w_i / \hat{\phi}_i$ |
+|----|----|----|:--:|:--:|:--:|
 | 1 | 0 | 1 | 100 | 3/6 = 0.5 | 100/0.5 = 200 |
 | 3 | 0 |  | 100 |  | 0 |
 | 5 | 0 | 0 | 100 | 0.5 | 200 |
@@ -305,36 +318,67 @@ $$\hat{\phi}_c = \frac{\text{number of respondents in class } c}{\text{number of
 | 6 | 1 | 0 | 100 | 0.75 | 133.33 |
 | 9 | 1 | 1 | 100 | 0.75 | 133.33 |
 |  |  |  | Sum: 1000 |  | Sum: 1000 |
+
+: {tbl-colwidths="\[10,10,10,23,23,25\]"}
 :::
 
--   Estimated total number of graduates who are in Academic jobs:
-    $$\hat{t} = \sum_{i \in \S} \tilde{w}_i y_i = 200(1) + 200(0) + \cdots + 133.33(1) = 466.67$$
+-   Note the up-weighting of statistics grads (lower response rate) and down-weighting of biostatistics grads (higher response rate)
 
--   Estimated proportion of graduates who are in Academic jobs:
-    $$\hat{p} = \frac{\sum_{i \in \S} \tilde{w}_i y_i}{\sum_{i \in \S} \tilde{w}_i} = \frac{466.67}{1000} = 0.47$$
+## Example: Assume MAR (con't)
 
--   Estimates are different than under MCAR!
+::: even-smaller-text
+| **ID** | **Biostat** | **Academic** | **Base Weight** ($w_i$) | **Response Propensity** ($\hat{\phi}_i$) | **Adj. Weight**: $\tilde{w}_i = w_i / \hat{\phi}_i$ |
+|----|----|----|:--:|:--:|:--:|
+| 1 | 0 | 1 | 100 | 3/6 = 0.5 | 100/0.5 = 200 |
+| 3 | 0 |  | 100 |  | 0 |
+| 5 | 0 | 0 | 100 | 0.5 | 200 |
+| 7 | 0 | 0 | 100 | 0.5 | 200 |
+| 8 | 0 |  | 100 |  | 0 |
+| 10 | 0 |  | 100 |  | 0 |
+| 2 | 1 |  | 100 |  | 0 |
+| 4 | 1 | 1 | 100 | 3/4 = 0.75 | 100/0.75 = 133.33 |
+| 6 | 1 | 0 | 100 | 0.75 | 133.33 |
+| 9 | 1 | 1 | 100 | 0.75 | 133.33 |
+|  |  |  | Sum: 1000 |  | Sum: 1000 |
 
-## Choosing Variables for Adjustments
+: {tbl-colwidths="\[10,10,10,23,23,25\]"}
+:::
 
--   Limited info might make the choice simple
+<p>
 
--   Can only use variables that are observed for both respondents and
-    nonrespondents
+::: smaller-text
+-   Estimated [total]{.alert} number of graduates who are in Academic jobs:  
+    $\hat{t} = \sum_{i \in \mathcal{S}} \tilde{w}_i y_i = 200(1) + 200(0) + \cdots + 133.33(1) = 466.67$
 
--   Limited to information on the sampling frame and design variables
+-   Estimated [proportion]{.alert} of graduates who are in Academic jobs:  
+    $\hat{p} = \frac{\sum_{i \in \mathcal{S}} \tilde{w}_i y_i}{\sum_{i \in \mathcal{S}} \tilde{w}_i} = \frac{466.67}{1000} = 0.47$
 
-    -   Ex: Ohio Medicaid Assessment Survey (OMAS)
+    -   Estimate is **different** than under MCAR!
+:::
 
-        -   RDD phone survey, only info about nonrespondents is the
-            stratum they are from
+## Choosing Variables for Adjustments {.pause}
+
+:::: smaller-text
+-   Can only use variables that are [observed for both respondents and
+    nonrespondents]{.alert2}
+
+    -   Limited to [information on the sampling frame and design
+        variables]{.alert2}
+
+    -   Ex: 2021 Ohio Medicaid Assessment Survey (OMAS)
+        ([link](https://grc.osu.edu/OMAS/2021Survey))
+
+        -   Only info about nonrespondents is the stratum they are from
 
         -   Thus adjustment classes are the strata (only choice!)
 
+::: fragment
 -   In multi-stage surveys, nonresponse can happen at different stages,
     thus can make different adjustment classes for each level
 
-    -   Ex: National Health and Nutrition Examination Survey (NHANES)
+    -   Ex: 2017-2020 National Health and Nutrition Examination Survey
+        (NHANES) ([link to methods
+        report](https://www.cdc.gov/nchs/data/series/sr_02/sr02-190.pdf))
 
         -   First dwelling units are screened (to enumerate people in
             them), then sampled people are interviewed, then interviewed
@@ -343,21 +387,19 @@ $$\hat{\phi}_c = \frac{\text{number of respondents in class } c}{\text{number of
         -   Nonresponse can happen at any stage -- refuse to participate
             in the screening, or the interview, or the medical exam
 
-        -   Adjustment classes for nonresponse at screener are limited
-            to design info\
-            (i.e., use census tract/segment as adjustment class)
+        -   Screener adjustment classes: census tract/segment (only
+            info!)
 
-        -   Adjustment classes for interview can include screener info
+        -   Interview adjustment classes: can include screener info
 
-        -   Adjustment classes for medical exam can include interview
-            info
+        -   Medical exam adjustment classes: can include interview info
+:::
+::::
 
 ## Choosing Variables for Adjustments (con't)
 
--   **Overall goal: choose variables that are associated with** $R_i$
-    and with $y_i$
-
--   In other words, weighting classes should be formed so that:
+-   **Overall goal: choose variables that are associated with**
+    $\mathbf{R_i}$ **and with** $\mathbf{y_i}$
 
     -   Units within each class are as similar as possible with respect
         to $y_i$, and
@@ -368,43 +410,40 @@ $$\hat{\phi}_c = \frac{\text{number of respondents in class } c}{\text{number of
 -   Impact on bias and variance when constructing classes using
     variables that have: [^1]
 
-[^1]: Table 1 in: Little RJA & Vartivarian S (2005), Does Weighting for
+[^1]: Adapted from Table 1 in: Little RJA & Vartivarian S (2005), Does Weighting for
     Nonresponse Increase the Variance of Survey Means? *Survey
     Methodology*, 31, 161-168.
 
-::: center
-|                        |      |                        |                        |
-|------------------|------------------|:----------------:|------------------|
-|                        |      | Association with $y_i$ |                        |
-|                        |      |          Low           | High                   |
-| Association with $R_i$ | Low  |        Bias: --        | Bias: --               |
-|                        |      |      Variance: --      | Variance: $\downarrow$ |
-|                        | High |        Bias: --        | Bias: $\downarrow$     |
-|                        |      |  Variance: $\uparrow$  | Variance: $\downarrow$ |
+::: even-smaller-text
+| Association with $R_i$ | Association with $y_i$ | Impact on Bias | Impact on Variance |
+|----------|----------|----------|----------|
+| Low | Low | -- | -- |
+| Low | High | -- | ↓ |
+| High | Low | -- | ↑ |
+| High | High | ↓ | ↓ |
 :::
 
--   Key points:
+-   Only get bias reduction if classes are constructed with variables
+    related to $y_i$ and $R_i$
 
-    -   Only get bias reduction if classes are constructed with
-        variables related to $y_i$
-
-    -   "Punishment" for using variables not associated with $y_i$ can
-        be an increase in variance
+-   "Punishment" for using variables not associated with $y_i$ can be an
+    increase in variance
 
 -   Obvious problem: All surveys have more than one $y$ that they care
     about!
 
--   But -- only one set of adjusted weights!
+    -   But -- only one set of adjusted weights!
 
 ## Activity 18.1
 
 Nonresponse Weight Adjustments
 
-## More Practical Details on Weighting Adjustments
+## More Practical Details on Weighting Adjustments {.pause}
 
--   Resulting data are analyzed as if the adjusted weights were the base
-    weights\
-    (i.e., no special analysis method needed)
+-   Data are analyzed as if the adjusted weights were the base weights
+    (no special analysis method needed)
+
+. . .
 
 -   If \>50% nonresponse in a class, weights would be multiplied by a
     factor greater than 2 -- and this is generally avoided
@@ -415,35 +454,39 @@ Nonresponse Weight Adjustments
     -   Option 2: Weight trimming, by choosing a max value for the
         weights and truncating any adjusted weights above this value
 
+. . .
+
 -   Categorical variables can be easily used to form classes, but
     continuous variables need to be categorized (no strict rule about
     how)
 
--   More complex weighting adjustments are possible -- fancier methods
-    to estimate $\hat{\phi}_i$
+. . .
+
+-   More complex weighting adjustments are possible, using "fancier"
+    methods to estimate $\hat{\phi}_i$
 
     -   Ex: Logistic regression with $R_i$ as the outcome
 
         -   Predictors are variables available for both respondents and
-            nonrespondents (those available for creating classes)
+            nonrespondents
 
-        -   Each respondent has a predicted propensity from the model,
-            $\hat{\phi}_i$
-
-        -   Adjusted weight is (as usual)
+        -   Each respondent has predicted propensity from the model,
+            $\hat{\phi}_i$, and adjusted weight
             $\tilde{w}_i = w_i/\hat{\phi}_i$
 
-        -   Or -- create classes based on grouping units with similar
+        -   Or, create classes based on grouping units with similar
             $\hat{\phi}_i$
 
-## Combining Nonresponse Adjustments with Other Weight Adjustments
+## Combining Weight Adjustments {.pause}
 
--   When adjusting the weights for nonresponse, you can think of it as
-    multiplying each weight by an adjustment factor, where
+-   When adjusting weights for nonresponse, we are multiplying each
+    weight by an adjustment factor:
     $$\tilde{w}_i = w_i \times \frac{1}{\hat{\phi}_i} = w_i \times \text{(adjustment factor)}$$
 
--   This may remind you of poststratification:
+-   Similar to poststratification:
     $$w_{hj}^{PS} = w_{hj} \times \frac{\text{Population total in post-stratum}~h}{\text{Estimated total in post-stratum}~h}  = w_{hj} \times \frac{N_h}{\widehat{N}_h}$$
+
+. . .
 
 -   Weighting adjustments for nonresponse can be combined with
     poststratification:
@@ -455,26 +498,29 @@ Nonresponse Weight Adjustments
         the population totals)
 
 -   The adjustment factors just all get multiplied together:
-    $$\tilde{w}_i = w_i \times \frac{1}{\hat{\phi}_i} \times \frac{N_h}{\widehat{N}_h}$$
+    $\tilde{w}_i = w_i \times \frac{1}{\hat{\phi}_i} \times \frac{N_h}{\widehat{N}_h}$\
     where unit $i$ belongs to poststratum $h$
 
-## Combining (con't)
+## Combining Weight Adjustments (con't) {.pause}
 
--   Key difference between nonresponse weight adjustments and
-    poststratification/raking:
+-   Key [difference between nonresponse weight adjustments and
+    poststratification/raking]{.alert}:
 
-    -   For **nonresponse weight adjustments**, you must have the
-        variables that create the adjustment cells **observed for all
-        sampled units, respondents and nonrespondents**
+    -   For [**nonresponse weight adjustments**]{.alert2}, you must use
+        variables observed for [**respondents and
+        nonrespondents**]{.alert2}
 
-    -   For **poststratification/raking**, you need the **population
-        totals for variables that are observed for respondents**
-        (individual nonrespondent data not needed)
+    -   For [**poststratification/raking**]{.alert3}, you need
+        population totals for variables that are [**observed for
+        respondents**]{.alert3} (individual nonrespondent data not
+        needed)
 
 -   Most often, both are done -- nonresponse first, then
     poststratification/raking (also commonly called calibration)
 
-<br>
+. . .
+
+<p>
 
 -   Think of it this way:
 
@@ -485,7 +531,7 @@ Nonresponse Weight Adjustments
     -   **Poststratification/Raking/Calibration** are then made to align
         the resulting sample with the target population
 
-## Combining (con't)
+## Combining Weight Adjustments (con't)
 
 -   Other weight adjustments are commonly done in certain scenarios as
     well, e.g.,:
