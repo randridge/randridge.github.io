@@ -24,14 +24,23 @@ editor:
 \newcommand{\thetahat}{\hat{\theta}}
 
 <!-- \newcommand{\that}{\hat{t}} -->
+
 <!-- \newcommand{\tbar}{\bar{t}} -->
+
 <!-- \newcommand{\thatclus}{\hat{t}_{clus}} -->
+
 <!-- \newcommand{\ybar}{\bar{y}} -->
+
 <!-- \newcommand{\ybarclus}{\hat{\bar{y}}_{clus}} -->
+
 <!-- \newcommand{\ybarr}{\hat{\bar{y}}_r} -->
+
 <!-- \newcommand{\yij}{y_{ij}} -->
+
 <!-- \newcommand{\Mbarhat}{\hat{\bar{M}}} -->
+
 <!-- \newcommand{\fpcpar}{\left(1-\frac{n}{N}\right)} -->
+
 <!-- \newcommand{\Cov}{\text{Cov}} -->
 :::
 
@@ -408,7 +417,7 @@ PPS Sampling (Part 1)
 -   For the population of schools:
 
 | School | $M_i$ | Cumulative Size   | Cumulative Size (Values)     |        Range |
-|:------------:|:------------:|--------------|:----------------|-------------:|
+|:-------------:|:-------------:|---------------|:--------------|--------------:|
 |   1    |  643  | $M_1$             | 643                          |     1 to 643 |
 |   2    |  492  | $M_1+M_2$         | 643 + 492 = 1153             |  644 to 1153 |
 |   3    |  574  | $M_1+M_2+M_3$     | 643 + 492 + 574 = 1709       | 1154 to 1709 |

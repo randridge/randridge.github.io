@@ -94,7 +94,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-ca8ec5a083b5121248739a6aefbf269f.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-37dd58ee8260662a2db356013c91c3b1.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -619,11 +619,11 @@ Intro and One-Stage</p></h1>
 </section>
 <section id="one-stage-cluster-sampling-estimator-for-the-mean" class="slide level2">
 <h2>One-Stage Cluster Sampling – Estimator for the Mean</h2>
-<table class="caption-top">
+<table class="caption-top" style="width:100%;">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 14%">
+<col style="width: 40%">
+<col style="width: 44%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -706,7 +706,7 @@ Intro and One-Stage</p></h1>
 <p><br></p>
 <ul>
 <li><p>Often the number of PSUs sampled is not large, thus we most often use <span class="math inline">\(t\)</span> (instead of <span class="math inline">\(Z\)</span>)</p></li>
-<li><p>Again, you may see the DF “rule” written as <strong>“DF = # of PSUs <span class="math inline">\(\mathbf{-}\)</span> # of Strata”</strong></p>
+<li><p>Again, you may see the DF “rule” written as **“DF = # of PSUs** <span class="math inline">\(\mathbf{-}\)</span> # of Strata”</p>
 <ul>
 <li><p>PSU = Primary Sampling Unit = cluster</p></li>
 <li><p>If no stratification, then DF = <span class="math inline">\(n-1\)</span> = # PSUs <span class="math inline">\(-1\)</span></p></li>
@@ -719,7 +719,7 @@ Intro and One-Stage</p></h1>
 </section>
 <section id="partitioning-variability-between-and-within-clusters" class="slide level2">
 <h2>Partitioning Variability Between and Within Clusters</h2>
-<div class=".smaller-text">
+<div class="smaller-text">
 <ul>
 <li><p>When we take a cluster sample, we often <strong>lose precision (i.e., have increased variance)</strong> (relative to SRS)</p></li>
 <li><p>E.g., in the activity: students living in same room have more “similar” GPAs</p></li>
@@ -769,6 +769,12 @@ SST &amp;{}= SSB + SSW \\
 <p><strong>When all clusters are the same size, i.e.,</strong> <span class="math inline">\(M_i=m_i=M\)</span>:</p>
 <p><strong>ANOVA Table</strong></p>
 <table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Source</th>
@@ -813,7 +819,7 @@ SST &amp;{}= SSB + SSW \\
 <li><p><strong>Assume all clusters are the same size, i.e.,</strong> <span class="math inline">\(M_i = m_i = M\)</span></p></li>
 </ul>
 <blockquote>
-<p><strong><span class="alert2">ICC</span></strong> = Intracluster Correlation Coefficient: &nbsp; <span class="math inline">\(ICC = 1 - \frac{M}{M-1} \frac{SSW}{SST}\)</span></p>
+<p><span class="alert2"><strong>ICC</strong></span> = Intracluster Correlation Coefficient: &nbsp; <span class="math inline">\(ICC = 1 - \frac{M}{M-1} \frac{SSW}{SST}\)</span></p>
 </blockquote>
 <ul>
 <li><p>Properties of ICC:</p>

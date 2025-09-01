@@ -117,7 +117,8 @@ editor:
 -   As a result, we should expect two contributions to ("pieces of") the
     variance of estimators:
 
-    -    \(1) variability from sampling PSUs, and (2) variability from sampling SSUs within PSU
+    -   \(1\) variability from sampling PSUs, and (2) variability from
+        sampling SSUs within PSU
 
 > **More Design Choices:** Have to decide [how many SSUs per PSU to
 > sample]{.alert2}
@@ -163,7 +164,8 @@ Population: $M_0=$ `r M0` schools in $N=$ `r N` school districts
 
 -   SSU = school
 
--   $y$ = Academic Performance Index (based on standardized test results)
+-   $y$ = Academic Performance Index (based on standardized test
+    results)
 
 -   True population mean API: $\bar{y}_U =$ `r round(mean(pop$api00),1)`
 
@@ -186,9 +188,11 @@ num_psus %>%
 
 **Two-stage cluster sample taken:**
 
--   **Stage 1:** $n =$ `r n_psu` PSUs (districts) out of $N=$ `r N` -- roughly 5% of total
+-   **Stage 1:** $n =$ `r n_psu` PSUs (districts) out of $N=$ `r N` --
+    roughly 5% of total
 
-    -   Selected PSUs have a range of $M_i=$ `r min(samp_psus$n)` to `r max(samp_psus$n)` SSUs
+    -   Selected PSUs have a range of $M_i=$ `r min(samp_psus$n)` to
+        `r max(samp_psus$n)` SSUs
 
 -   **Stage 2:** $m_i=$ 2 SSUs (schools) per PSU
 
@@ -197,8 +201,8 @@ num_psus %>%
 ## Example (con't)
 
 -   Result is a total of `r nrow(samp_psus)` SSUs (schools)
-    -   ($n=$ `r n_psu` PSUs $\times$ $m_i=2$ SSUs per = 76 -- but some PSUs only have 1 SSU)
-
+    -   ($n=$ `r n_psu` PSUs $\times$ $m_i=2$ SSUs per = 76 -- but some
+        PSUs only have 1 SSU)
 -   API $(y)$ by PSU (sampled SSUs only):
 
 ```{r}
@@ -212,10 +216,10 @@ samp %>%
   theme(axis.title = element_text(size = 18))
 ```
 
-
 -   Number of SSUs per PSU is either 1 or 2 (by design)
 
--   We want to use this 2-stage cluster sample to estimate the overall mean API
+-   We want to use this 2-stage cluster sample to estimate the overall
+    mean API
 
 ## Activity 13.1 (Part 1)
 
@@ -380,8 +384,8 @@ into the sample
 
 ## Example (con't)
 
-**Step 1: Cluster-Specific Estimates:** For each of the $n=$ `r n_psu` sampled
-PSUs (districts):
+**Step 1: Cluster-Specific Estimates:** For each of the $n=$ `r n_psu`
+sampled PSUs (districts):
 
 ::: smaller-text
 | PSU | $M_i$ | $m_i$ | SSU values of $y$ | $\bar{y}_i$ | $\hat{t}_i = M_i \bar{y}_i$ |
@@ -406,7 +410,6 @@ samp %>%
 # N*mean(stats$that)/M0
 ```
 
-
 -   Mean PSU Total =
     $\bar{\hat{t}} = \frac{7800 + 7525 + 10222 + \dots}{38} = 4252.013$
 
@@ -417,8 +420,11 @@ samp %>%
     $\frac{\hat{t}_{clus}}{M_0} = \frac{{3218773.8}}{6194} = {519.7}$
 
 <!-- -   Overall Mean, **Ratio Estimator** = -->
+
 <!--     $\frac{\hat{t}_{clus}}{\widehat{M}_0}$ $\leftarrow$ Need estimated -->
+
 <!--     population size, $\widehat{M}_0$ -->
+
 -   For **Ratio Estimator:** Estimated population size =
     $\widehat{M}_0 = \sum_{i \in \mathcal{S}} \sum_{j \in \mathcal{S}_i} w_{ij}$
     = sum of weights (sampled SSUs)
@@ -432,14 +438,15 @@ samp %>%
     &= \frac{m_i}{M_i} \times \frac{n}{N} = \frac{n}{N}\frac{m_i}{M_i}
     \end{align}$$
 
->   [**Sample weight for sampled SSU $j$ in PSU $i$**]{.alert2}: $\displaystyle w_{ij} = \frac{1}{\pi_{ij}} = \frac{N}{n} \frac{M_i}{m_i}$
+> [**Sample weight for sampled SSU** $j$ in PSU $i$]{.alert2}:
+> $\displaystyle w_{ij} = \frac{1}{\pi_{ij}} = \frac{N}{n} \frac{M_i}{m_i}$
 
 -   Intuition:
 
     -   Each sampled PSU "represents" $\frac{N}{n}$ PSUs
 
-    -   And within a PSU each sampled SSU "represents"
-        $\frac{M_i}{m_i}$ SSUs
+    -   And within a PSU each sampled SSU "represents" $\frac{M_i}{m_i}$
+        SSUs
 
     -   So in total a sampled SSU "represents"
         $\frac{N}{n} \times \frac{M_i}{m_i}$ SSUs
@@ -458,8 +465,8 @@ samp %>%
 -   Overall Mean, [**Ratio Estimator**]{.alert} =
     $\displaystyle \frac{\hat{t}_{clus}}{\widehat{M}_0} = \frac{3218773.8}{4900.6} = 656.8$
 
--   We can also write estimates in terms of **weights** (that's how software is
-    calculating these!)
+-   We can also write estimates in terms of **weights** (that's how
+    software is calculating these!)
 
     -   $\displaystyle \hat{t}_{clus}= \sum_{i \in \mathcal{S}} \sum_{j \in \mathcal{S}_i} w_{ij} y_{ij}$
         = weight $\times$ y, added up for all sampled SSUs
@@ -472,8 +479,8 @@ samp %>%
 
 ## EPSEM Sampling
 
--   In the schools example, the sampling weights **differed** across the 65
-    sampled PSUs:
+-   In the schools example, the sampling weights **differed** across the
+    65 sampled PSUs:
 
 ```{r}
 summary(samp$wt)
@@ -481,20 +488,24 @@ summary(samp$wt)
 
 <br>
 
--   Can a two-stage cluster sample be EPSEM (have all sampling weights **equal**)?
+-   Can a two-stage cluster sample be EPSEM (have all sampling weights
+    **equal**)?
 
-    -   Q: When will $\frac{n}{N}\frac{m_i}{M_i}$ be the same for all PSUs? (for all $i$)
+    -   Q: When will $\frac{n}{N}\frac{m_i}{M_i}$ be the same for all
+        PSUs? (for all $i$)
 
     -   A: When $\displaystyle \frac{m_i}{M_i}$ is the same for all PSUs
-    (for all $i$)!
+        (for all $i$)!
 
-        -   In other words, when the same **proportion** of SSUs are sampled from each PSU
+        -   In other words, when the same **proportion** of SSUs are
+            sampled from each PSU
 
 <br>
 
 -   A two-stage cluster sample (with SRS at the first stage) is only
-    **self-weighting (EPSEM)** if [more SSUs are selected from the larger
-    PSUs]{.alert} (kind of like proportional allocation to strata)
+    **self-weighting (EPSEM)** if [more SSUs are selected from the
+    larger PSUs]{.alert} (kind of like proportional allocation to
+    strata)
 
 ## Activity 13.1 (Part 2)
 
@@ -619,6 +630,7 @@ $$\widehat{V}(\hat{t}_{clus}) = \underbrace{N^2 \left(1-\frac{n}{N}\right)\frac{
 -   This is sometimes referred to as an **ultimate PSU analysis**
 
     <!-- -   This approach is usually used in complex designs with more than -->
+
     <!--     two stages -->
 
     -   *It's still a two-stage design, you're just ignoring the second
@@ -648,13 +660,12 @@ des_ign <- svydesign(id = ~dnum, weight = ~wt, fpc = ~N, data=samp)
 svytotal(~api00, design = des_ign)
 ```
 
-
 -   Point estimates **identical**
 
 -   Standard error estimates **very similar**
 
-    -   Most variability is from sampling PSUs (not sampling SSUs within PSUs)
-
+    -   Most variability is from sampling PSUs (not sampling SSUs within
+        PSUs)
 
 ## Variance Estimation for the Ratio Estimator
 
@@ -729,13 +740,12 @@ des_ign <- svydesign(id = ~dnum, weight = ~wt, fpc = ~N, data=samp)
 svymean(~api00, design = des_ign)
 ```
 
-
 -   Point estimates **identical**
 
 -   Standard error estimates **very similar**
 
-    -   Most variability is from sampling PSUs (not sampling SSUs within PSUs)
-
+    -   Most variability is from sampling PSUs (not sampling SSUs within
+        PSUs)
 
 ## Example (con't)
 
@@ -769,7 +779,8 @@ Two-Stage Cluster Sampling (Part 3)
 
 ## A Note on Notation for Variance of Ratio Estimator
 
--   We have the variance estimator for the ratio estimator for 2-stage cluster sampling:
+-   We have the variance estimator for the ratio estimator for 2-stage
+    cluster sampling:
     $$\widehat{V}(\hat{\bar{y}}_r) = \frac{1}{n \hat{\bar{M}}^2} \left(1-\frac{n}{N}\right)\frac{\sum_{i \in \mathcal{S}} (\hat{t}_i - M_i\hat{\bar{y}}_r)^2}{n-1} + \frac{1}{nN\hat{\bar{M}}^2} \sum_{i \in \mathcal{S}}M_i^2 \left(1-\frac{m_i}{M_i}\right) \frac{s_i^2}{m_i}$$
 
 -   We can also write that first stage piece as:
@@ -777,9 +788,10 @@ Two-Stage Cluster Sampling (Part 3)
 $$\widehat{V}_{stage1}(\hat{\bar{y}}_r) = \frac{1}{\hat{\bar{M}}^2} \left(1-\frac{n}{N}\right)\frac{{\sum_{i \in \mathcal{S}} (\hat{t}_i - M_i\hat{\bar{y}}_r)^2}}{n{(n-1)}} = \frac{1}{\hat{\bar{M}}^2} \left(1-\frac{n}{N}\right)\frac{{s_r^2}}{n}$$
 
 -   ${s_r^2} = \frac{1}{n-1} \sum_{i \in \mathcal{S}} (\hat{t}_i - M_i\hat{\bar{y}}_r)^2$
-= estimated variance of the **residuals**
+    = estimated variance of the **residuals**
 
-    -   Dfference between estimated PSU totals, $\hat{t}_i$, and predicted total based on the ratio
-        estimator, $M_i\hat{\bar{y}}_r$
-    
+    -   Dfference between estimated PSU totals, $\hat{t}_i$, and
+        predicted total based on the ratio estimator,
+        $M_i\hat{\bar{y}}_r$
+
     -   No "model" involved, but a residual nonetheless

@@ -449,8 +449,6 @@ Exploring Imputation
     correct variance estimates from singly imputed data, outside the
     scope of this class
 
-<p>
-
 -   Multiple imputation more often used with non-probability/convenience
     samples (e.g., observational studies, clinical trials)
 

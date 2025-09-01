@@ -315,13 +315,15 @@ $$\widehat{V}(\bar{t}) = \left(1-\frac{n}{N}\right)\frac{s_t^2}{n}= \left(1 - \f
 
 ## One-Stage Cluster Sampling – Estimator for the Mean
 
-| Quantity | Truth | Estimate |
-|----|----|----|
-| Overall mean (of $y$): | $\displaystyle \bar{y}_U = \frac{t}{M_0}$ | $\displaystyle \hat{\bar{y}}_{clus}= \frac{\hat{t}_{clus}}{M_0}= \frac{N\bar{t}}{M_0}$ |
++-------------------------------------+-------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
+| Quantity                            | Truth                                                                                                 | Estimate                                                                                                         |
++=====================================+=======================================================================================================+==================================================================================================================+
+| Overall mean (of $y$):              | $\displaystyle \bar{y}_U = \frac{t}{M_0}$                                                             | $\displaystyle \hat{\bar{y}}_{clus}= \frac{\hat{t}_{clus}}{M_0}= \frac{N\bar{t}}{M_0}$                           |
++-------------------------------------+-------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
 | Variance of $\hat{\bar{y}}_{clus}$: | $\displaystyle V(\hat{\bar{y}}_{clus}) = \frac{N^2}{M_0^2} \left(1-\frac{n}{N}\right)\frac{S_t^2}{n}$ | $\displaystyle  \widehat{V}(\hat{\bar{y}}_{clus}) = \frac{N^2}{M_0^2} \left(1-\frac{n}{N}\right)\frac{s_t^2}{n}$ |
++-------------------------------------+-------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
 
 ::: smaller-text
-
 -   Importantly, $\hat{\bar{y}}_{clus}$ is **unbiased**: $E(\hat{\bar{y}}_{clus}) =$
 
 -   Remember,
@@ -339,7 +341,6 @@ $$\widehat{V}(\bar{t}) = \left(1-\frac{n}{N}\right)\frac{s_t^2}{n}= \left(1 - \f
     -   multiply this average by the number of PSUs $(N)$ to get a grand total $(\hat{t}_{clus})$
 
     -   and divide by the total number of SSUs $(M_0)$ to get an overall mean $(\hat{\bar{y}}_{clus})$
-
 :::
 
 ## Example (from activity)
@@ -357,12 +358,12 @@ $$\widehat{V}(\bar{t}) = \left(1-\frac{n}{N}\right)\frac{s_t^2}{n}= \left(1 - \f
     -   Estimated variance of PSU (room) totals: $s_t^2 = 1.93198$
 
 -   My resulting estimates:
-      
-      -   $\hat{\bar{y}}_{clus}= \frac{N\bar{t}}{M_0} = \frac{100 \times 12.584}{400} = 3.146$
-      
-      -   $\widehat{V}(\hat{\bar{y}}_{clus}) = \frac{N^2}{M_0^2} \left(1-\frac{n}{N}\right)\frac{s_t^2}{n}= \frac{100^2}{400^2} \left(1 - \frac{5}{100} \right) \frac{1.93198}{5} = 0.0229$
-      
-      -   $\widehat{SE}(\hat{\bar{y}}_{clus}) = \sqrt{Var} = \sqrt{0.0229} = 0.151$
+
+    -   $\hat{\bar{y}}_{clus}= \frac{N\bar{t}}{M_0} = \frac{100 \times 12.584}{400} = 3.146$
+
+    -   $\widehat{V}(\hat{\bar{y}}_{clus}) = \frac{N^2}{M_0^2} \left(1-\frac{n}{N}\right)\frac{s_t^2}{n}= \frac{100^2}{400^2} \left(1 - \frac{5}{100} \right) \frac{1.93198}{5} = 0.0229$
+
+    -   $\widehat{SE}(\hat{\bar{y}}_{clus}) = \sqrt{Var} = \sqrt{0.0229} = 0.151$
 
 *Note: The true population mean GPA is* $\bar{y}_U = 2.836075$
 
@@ -386,17 +387,16 @@ $$\widehat{V}(\bar{t}) = \left(1-\frac{n}{N}\right)\frac{s_t^2}{n}= \left(1 - \f
 
 ## Confidence Intervals for One-Stage Cluster Samples
 
--   An approximately $\alpha$-level confidence interval for the true mean $\bar{y}_U$ is given by: 
-$$\left(\hat{\bar{y}}_{clus}- t_{\alpha/2,n-1} \sqrt{\widehat{V}(\hat{\bar{y}}_{clus})}, \quad \bar{y}_{str}+ t_{\alpha/2,n-1} \sqrt{\widehat{V}(\hat{\bar{y}}_{clus})}\right)$$ where $t_{\alpha/2,n-1}$ is the $(1-\alpha/2)$th percentile of a $t$ distribution with [DF = $n-1$]{.alert}
+-   An approximately $\alpha$-level confidence interval for the true mean $\bar{y}_U$ is given by: $$\left(\hat{\bar{y}}_{clus}- t_{\alpha/2,n-1} \sqrt{\widehat{V}(\hat{\bar{y}}_{clus})}, \quad \bar{y}_{str}+ t_{\alpha/2,n-1} \sqrt{\widehat{V}(\hat{\bar{y}}_{clus})}\right)$$ where $t_{\alpha/2,n-1}$ is the $(1-\alpha/2)$th percentile of a $t$ distribution with [DF = $n-1$]{.alert}
 
 <br>
 
 -   Often the number of PSUs sampled is not large, thus we most often use $t$ (instead of $Z$)
 
--   Again, you may see the DF "rule" written as **"DF = \# of PSUs $\mathbf{-}$ \# of Strata"**
+-   Again, you may see the DF "rule" written as **"DF = \# of PSUs** $\mathbf{-}$ \# of Strata"
 
     -   PSU = Primary Sampling Unit = cluster
-    
+
     -   If no stratification, then DF = $n-1$ = \# PSUs $-1$
 
 ## Activity 11.1
@@ -405,7 +405,7 @@ One-Stage Cluster Sampling (Part 2)
 
 ## Partitioning Variability Between and Within Clusters
 
-:::::: .smaller-text
+::::::::: smaller-text
 -   When we take a cluster sample, we often **lose precision (i.e., have increased variance)** (relative to SRS)
 
 -   E.g., in the activity: students living in same room have more "similar" GPAs
@@ -438,8 +438,7 @@ However, the reality usually is:
 ![](./figures/cluster_between_big){width="\\textwidth"}
 :::
 :::::
-
-::::::
+:::::::::
 
 ## Partitioning Variability Between and Within Clusters
 
@@ -457,7 +456,6 @@ SST &{}= SSB + SSW \\
 
 -   [Within-cluster variability]{.alert2} = how far are SSUs from their PSU average (want [large]{.alert2}) (relatively speaking)
 
-
 *Here we are looking at the population -- so, all the* $y_{ij}$, not just the sampled ones
 
 ## Partitioning Variability Between and Within Clusters
@@ -466,11 +464,11 @@ SST &{}= SSB + SSW \\
 
 **ANOVA Table**
 
-  Source         DF       Sum of Squares                                                    Mean Square
-  -------------- -------- ----------------------------------------------------------------- -----------------------------------------
-  Between PSUs   $N-1$     $SSB=\sum_{i=1}^N \sum_{j=1}^{M} (\bar{y}_{Ui} - \bar{y}_U)^2$   $MSB = \frac{SSB}{N-1}$
-  Within PSUs    $NM-N$    $SSW=\sum_{i=1}^N \sum_{j=1}^{M} (y_{ij} - \bar{y}_{Ui})^2$      $MSW = \frac{SSW}{NM-N}$
-  Total          $NM-1$    $SST=\sum_{i=1}^N \sum_{j=1}^{M} (y_{ij} - \bar{y}_U)^2$         $S^2 = \frac{SST}{NM-1}$
+| Source | DF | Sum of Squares | Mean Square |
+|:---|:---|:---|:---|
+| Between PSUs | $N-1$ | $SSB=\sum_{i=1}^N \sum_{j=1}^{M} (\bar{y}_{Ui} - \bar{y}_U)^2$ | $MSB = \frac{SSB}{N-1}$ |
+| Within PSUs | $NM-N$ | $SSW=\sum_{i=1}^N \sum_{j=1}^{M} (y_{ij} - \bar{y}_{Ui})^2$ | $MSW = \frac{SSW}{NM-N}$ |
+| Total | $NM-1$ | $SST=\sum_{i=1}^N \sum_{j=1}^{M} (y_{ij} - \bar{y}_U)^2$ | $S^2 = \frac{SST}{NM-1}$ |
 
 <p>
 
@@ -488,7 +486,7 @@ SST &{}= SSB + SSW \\
 
 -   **Assume all clusters are the same size, i.e.,** $M_i = m_i = M$
 
-> **[ICC]{.alert2}** = Intracluster Correlation Coefficient: &nbsp; $ICC = 1 - \frac{M}{M-1} \frac{SSW}{SST}$
+> [**ICC**]{.alert2} = Intracluster Correlation Coefficient:   $ICC = 1 - \frac{M}{M-1} \frac{SSW}{SST}$
 
 -   Properties of ICC:
 
@@ -504,8 +502,6 @@ SST &{}= SSB + SSW \\
 
 -   Warning: ICC is only defined for one-stage cluster samples with **equal cluster sizes**
 
-
-
 ## Example Calculation of ICC (from activity)
 
 -   Using the **full population data**, I ran a one-way ANOVA for the GPA data ($M=$ 4 students per room, $N=$ 100 rooms):
@@ -517,6 +513,7 @@ pop <- read.csv("./datasets/gpa.csv")
 anova_model <- aov(gpa ~ factor(room), data=pop)
 summary(anova_model)
 ```
+
 <p>
 
 -   From this we can calculate the true (theoretical) ICC:
@@ -533,7 +530,7 @@ summary(anova_model)
 
 -   Compare the variance of the mean to an SRS of size $nM$ (out of $NM$ SSUs)
 
--   Design effect (DEFF) for the estimated overall mean from 1-stage cluster sample[^2]: $$\begin{aligned}
+-   Design effect (DEFF) for the estimated overall mean from 1-stage cluster sample[^1]: $$\begin{aligned}
     \text{deff}(\hat{\bar{y}}_{clus}) &{}= \frac{V_{clus}(\hat{\bar{y}}_{clus})}{V_{srs}(\bar{y})} \\
     &=\frac{NM-1}{NM-M}[1+(M-1)ICC] \\
     & \approx 1+(M-1)ICC \quad \text{[if $N$ is large so }NM-1 \approx NM-M]
@@ -541,7 +538,7 @@ summary(anova_model)
 
 -   Thus, for each [1 SSU in an SRS]{.alert}, you need [$[1+(M-1)ICC]$ SSUs from a one-stage cluster sample]{.alert2} to get the same amount of information
 
-[^2]: Full derivation on Carmen if you're interested (OPTIONAL)
+[^1]: Full derivation on Carmen if you're interested (OPTIONAL)
 
 ## Example Calculation of DEFF (from Activity)
 
