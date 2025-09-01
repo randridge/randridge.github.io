@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-ca8ec5a083b5121248739a6aefbf269f.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-37dd58ee8260662a2db356013c91c3b1.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -166,7 +166,7 @@ Generative AI acknowledgment: MS Copilot was used to generate alt text for some 
 <li>Problem Set 3 due Thursday 10/2/25 11:59pm via Carmen</li>
 </ul>
 </section>
-<section id="limitation-of-stratification-at-the-design-stage" class="slide level2">
+<section id="limitation-of-stratification-at-the-design-stage" class="slide level2 pause">
 <h2>Limitation of Stratification at the Design Stage</h2>
 <ul>
 <li><p>To use a variable for stratification at the design stage, you must know the value of that variable for all units in the population <strong>before</strong> you conduct the survey</p>
@@ -174,6 +174,9 @@ Generative AI acknowledgment: MS Copilot was used to generate alt text for some 
 <li>In other words, stratification variables must be available on the sampling frame</li>
 </ul></li>
 <li><p>For some surveys, frame data may be quite limited (especially phone surveys)</p></li>
+</ul>
+<div class="fragment">
+<ul>
 <li><p>Example: Ohio Medicaid Assessment Survey (OMAS) 2017</p>
 <ul>
 <li>Phone survey – only geography was available for stratification</li>
@@ -185,6 +188,7 @@ Generative AI acknowledgment: MS Copilot was used to generate alt text for some 
 </ul></li>
 <li><p>How can we reconcile this? Seems like we <strong>oversampled</strong> white people. . .</p></li>
 </ul>
+</div>
 </section>
 <section id="example-srs-of-osu-students" class="slide level2">
 <h2>Example: SRS of OSU Students</h2>
@@ -230,13 +234,13 @@ Generative AI acknowledgment: MS Copilot was used to generate alt text for some 
 <li><p>But, you know from the OSU Statistical Summary that there are 46815 undergraduates, 11404 graduate students, and 3224 professional students (<a href="https://irp.osu.edu/sites/default/files/documents/2025/03/2024-25-statistical-summary.pdf">Statistical Summary 2024-2025</a>)</p></li>
 <li><p>Comparing the proportions:</p></li>
 </ul>
-<table class="caption-top">
+<table class="caption-top" style="width:90%;">
 <colgroup>
 <col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
+<col style="width: 10%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 30%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -266,7 +270,7 @@ Generative AI acknowledgment: MS Copilot was used to generate alt text for some 
 <td>Graduate</td>
 <td style="text-align: right;">23</td>
 <td>0.23</td>
-<td style="text-align: right;">3224</td>
+<td style="text-align: right;">11404</td>
 <td>11404/61443 = 0.186</td>
 </tr>
 <tr class="even">
@@ -296,19 +300,19 @@ Generative AI acknowledgment: MS Copilot was used to generate alt text for some 
 <li><p>Each student in your sample had a weight of <span class="math inline">\(w_i = N/n =\)</span> 61443/100 = 614.4</p></li>
 <li><p>Thus, our estimates of the population size in each group :</p></li>
 </ul>
-<table class="caption-top">
+<table class="caption-top" style="width:95%;">
 <colgroup>
 <col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 30%">
+<col style="width: 15%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;"><strong>Group</strong></th>
 <th style="text-align: center;"><strong># in sample</strong></th>
-<th style="text-align: center;"><strong>Weight</strong> <span class="math inline">\(\mathbf{(w_i)}\)</span></th>
+<th style="text-align: center;"><strong>Weight</strong> <span class="math inline">\((w_i)\)</span></th>
 <th style="text-align: left;"><strong>Estimated Total</strong> <span class="math inline">\((\hat{t})\)</span></th>
 <th style="text-align: center;"><strong>True Total</strong> <span class="math inline">\((t)\)</span></th>
 </tr>
@@ -337,13 +341,15 @@ Generative AI acknowledgment: MS Copilot was used to generate alt text for some 
 </tr>
 </tbody>
 </table>
-<p><br></p>
-<ul>
+<p>
+</p><ul>
 <li><p>Our estimates are not equal to the known truth</p></li>
 <li><p>But, we can do something about this!</p></li>
-<li><p>We can adjust the weights within each group so that estimated totals equal true totals</p></li>
-<li><p>We want to <strong>down-weight</strong> grad students and professionals and <strong>up-weight</strong> undergrads</p></li>
-<li><p>This is called <strong>Poststratification</strong></p></li>
+<li><p>We can adjust the weights within each group so that estimated totals equal true totals</p>
+<ul>
+<li>We want to <strong>down-weight</strong> grad students and professionals and <strong>up-weight</strong> undergrads</li>
+</ul></li>
+<li><p>This is called <span class="alert"><strong>Poststratification</strong></span></p></li>
 </ul>
 </section>
 <section id="poststratification" class="slide level2">
@@ -370,19 +376,19 @@ Generative AI acknowledgment: MS Copilot was used to generate alt text for some 
 </section>
 <section id="adjusting-the-weights-for-the-srs-of-osu-students" class="slide level2">
 <h2>Adjusting the Weights for the SRS of OSU Students</h2>
-<table class="caption-top">
+<table class="caption-top" style="width:95%;">
 <colgroup>
 <col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 30%">
+<col style="width: 15%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;"><strong>Group</strong></th>
 <th style="text-align: center;"><strong># in sample</strong></th>
-<th style="text-align: center;"><strong>Weight</strong> <span class="math inline">\(\mathbf{(w_i)}\)</span></th>
+<th style="text-align: center;"><strong>Weight</strong> <span class="math inline">\((w_i)\)</span></th>
 <th style="text-align: left;"><strong>Estimated Total</strong> <span class="math inline">\((\hat{t})\)</span></th>
 <th style="text-align: center;"><strong>True Total</strong> <span class="math inline">\((t)\)</span></th>
 </tr>
@@ -441,59 +447,54 @@ Generative AI acknowledgment: MS Copilot was used to generate alt text for some 
 </section>
 <section id="poststratification-of-the-srs-of-osu-students" class="slide level2">
 <h2>Poststratification of the SRS of OSU Students</h2>
-<table class="caption-top" style="width:100%;">
+<table class="caption-top" style="width:98%;">
 <colgroup>
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
+<col style="width: 15%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 35%">
 </colgroup>
+<thead>
+<tr class="header">
+<th><strong>Post-stratum</strong></th>
+<th style="text-align: center;"><strong>Sample Size</strong> (<span class="math inline">\(n_h\)</span>)</th>
+<th style="text-align: center;"><strong>Orig.&nbsp;Weight</strong> (<span class="math inline">\(w_{hj}\)</span>)</th>
+<th style="text-align: center;"><strong>Est.&nbsp;Total</strong> (<span class="math inline">\(\widehat{N}_h\)</span>)</th>
+<th style="text-align: center;"><strong>True Total</strong> (<span class="math inline">\(N_h\)</span>)</th>
+<th style="text-align: center;"><strong>Poststratified Weight</strong> <span class="math inline">\(w_{hj}^{PS} = w_{hj} \times \frac{N_h}{\widehat{N}_h}\)</span></th>
+</tr>
+</thead>
 <tbody>
-<tr class="odd">
-<td></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"><strong>Orig.&nbsp;Weight</strong></td>
-<td style="text-align: right;"><strong>Est.&nbsp;Total</strong></td>
-<td style="text-align: right;"><strong>True Total</strong></td>
-<td style="text-align: right;"><strong>Poststratified Weight</strong></td>
-</tr>
-<tr class="even">
-<td><strong>Post-stratum</strong></td>
-<td style="text-align: center;"><span class="math inline">\(n_h\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(w_{hj}\)</span></td>
-<td style="text-align: right;"><span class="math inline">\(\widehat{N}_h\)</span></td>
-<td style="text-align: right;"><span class="math inline">\(N_h\)</span></td>
-<td style="text-align: right;"><span class="math inline">\(w_{hj}^{PS} = w_{hj} \times \frac{N_h}{\widehat{N}_h}\)</span></td>
-</tr>
 <tr class="odd">
 <td>Undergrad</td>
 <td style="text-align: center;">67</td>
 <td style="text-align: center;">614.4</td>
-<td style="text-align: right;">41166.81</td>
-<td style="text-align: right;">46815</td>
-<td style="text-align: right;">614.4<span class="math inline">\(\times\)</span> 46815 / 41166.81 = 698.7</td>
+<td style="text-align: center;">41166.81</td>
+<td style="text-align: center;">46815</td>
+<td style="text-align: center;">614.4<span class="math inline">\(\times\)</span> 46815 / 41166.81 = 698.7</td>
 </tr>
 <tr class="even">
 <td>Grad</td>
 <td style="text-align: center;">23</td>
 <td style="text-align: center;">614.4</td>
-<td style="text-align: right;">14131.89</td>
-<td style="text-align: right;">11404</td>
-<td style="text-align: right;">614.4<span class="math inline">\(\times\)</span> 11404 / 14131.89 = 495.8</td>
+<td style="text-align: center;">14131.89</td>
+<td style="text-align: center;">11404</td>
+<td style="text-align: center;">614.4<span class="math inline">\(\times\)</span> 11404 / 14131.89 = 495.8</td>
 </tr>
 <tr class="odd">
 <td>Professional</td>
 <td style="text-align: center;">10</td>
 <td style="text-align: center;">614.4</td>
-<td style="text-align: right;">6144.3</td>
-<td style="text-align: right;">3224</td>
-<td style="text-align: right;">614.4<span class="math inline">\(\times\)</span> 3224 / 6144.3 = 322.4</td>
+<td style="text-align: center;">6144.3</td>
+<td style="text-align: center;">3224</td>
+<td style="text-align: center;">614.4<span class="math inline">\(\times\)</span> 3224 / 6144.3 = 322.4</td>
 </tr>
 </tbody>
 </table>
-<ul>
+<p>
+</p><ul>
 <li><p>Notice that the weights went <strong>up</strong> for undergrads, <strong>down</strong> for grad and professional</p></li>
 <li><p>These new weights, <span class="math inline">\(w_{hj}^{PS}\)</span>, replace the original weights, <span class="math inline">\(w_{hj}\)</span> for all calculations</p></li>
 <li><p>This eﬀectively creates a stratified sample → use stratified sampling formulae for estimates</p>
@@ -507,17 +508,18 @@ Generative AI acknowledgment: MS Copilot was used to generate alt text for some 
 <ul>
 <li>For example, estimating the <strong>proportion of students from Ohio</strong>:</li>
 </ul>
-<table class="caption-top">
+<div class="smaller-text">
+<table class="caption-top" style="width:90%;">
 <colgroup>
-<col style="width: 26%">
-<col style="width: 38%">
-<col style="width: 34%">
+<col style="width: 20%">
+<col style="width: 35%">
+<col style="width: 35%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;"><strong>Post-stratum</strong></th>
-<th style="text-align: center;"><strong>Sample Proportion from Ohio</strong> <span class="math inline">\(\mathbf{(\hat{p}_h)}\)</span></th>
-<th style="text-align: center;"><strong>Stratum Size</strong> <span class="math inline">\(\mathbf{(N_h)}\)</span></th>
+<th style="text-align: center;"><strong>Sample Proportion from Ohio</strong> (<span class="math inline">\(\hat{p}_h\)</span>)</th>
+<th style="text-align: center;"><strong>True Stratum Population Size</strong> (<span class="math inline">\(N_h\)</span>)</th>
 </tr>
 </thead>
 <tbody>
@@ -543,12 +545,13 @@ Generative AI acknowledgment: MS Copilot was used to generate alt text for some 
 </tr>
 </tbody>
 </table>
+</div>
 <ul>
-<li><strong>Poststratified</strong> estimate of overall proportion from Ohio: <span class="math display">\[\begin{flalign}
+<li><p><strong>Poststratified</strong> estimate of overall proportion from Ohio: <span class="math display">\[\begin{flalign}
 \hat{p}_{PS} &amp;= \sum_{h=1}^H \frac{N_h}{N} \hat{p}_h = \frac{N_1}{N} \hat{p}_1 + \frac{N_1}{N} \hat{p}_1 + \frac{N_3}{N} \hat{p}_3 &amp; \\
 &amp;= \frac{\text{46815}}{\text{61443}} \times \text{0.731} + \frac{\text{11404}}{\text{61443}} \times \text{0.609} + \frac{\text{3224}}{\text{61443}} \times \text{0.4} = \textbf{0.691}
-\end{flalign}\]</span></li>
-<li>Slightly higher than the original estimate of 67% – undergrads were <strong>underrepresented</strong> in the sample, and they are <strong>more likely</strong> to be from Ohio</li>
+\end{flalign}\]</span></p></li>
+<li><p>Slightly higher than the original estimate of 67% – undergrads were <strong>underrepresented</strong> in the sample, and they are <strong>more likely</strong> to be from Ohio</p></li>
 </ul>
 </section>
 <section id="estimates-after-poststratification-using-adjusted-weights" class="slide level2">
@@ -582,8 +585,9 @@ E[\bar{y}_{PS}] &amp;= E\left[\sum_{h=1}^H \frac{N_h}{N} \bar{y}_h \right] = E\l
 </section>
 <section id="variance-estimation-after-poststratification-of-an-srs" class="slide level2">
 <h2>Variance Estimation after Poststratification (of an SRS)</h2>
+<div class="smaller-text">
 <ul>
-<li><p>If the strata are fixed at the design stage (<span class="math inline">\(n_h\)</span> are fixed), we have the usual formula: <span class="math inline">\(V(\bar{y}_{str}) = \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(1-\frac{n_h}{N_h}\right)\frac{S_h^2}{n_h}\)</span></p></li>
+<li><p>If the strata are fixed at the design stage (<span class="math inline">\(n_h\)</span> are fixed), we have the usual formula: <span class="math display">\[V(\bar{y}_{str}) = \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(1-\frac{n_h}{N_h}\right)\frac{S_h^2}{n_h}\]</span></p></li>
 <li><p>With poststratification, <span class="math inline">\(n_h\)</span> are random variables and we can do some trickery to get: <span class="math display">\[\begin{aligned}
 V(\bar{y}_{PS}) &amp;= E[ V(\bar{y}_{str} | n_1, n_2, \dots, n_h)] + V[ E(\bar{y}_{str} | n_1, n_2, \dots, n_h)] &amp; \\
 &amp;= E\left[ \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(1-\frac{n_h}{N_h}\right)\frac{S_h^2}{n_h}\right] + \underbrace{V(\bar{y}_U)}_{\text{\small (= 0)}} = E\left[\sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \frac{S_h^2}{n_h} - \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \frac{S_h^2}{N_h}\right]\\
@@ -592,44 +596,51 @@ V(\bar{y}_{PS}) &amp;= E[ V(\bar{y}_{str} | n_1, n_2, \dots, n_h)] + V[ E(\bar{y
 &amp;\approx \underbrace{\sum_{h=1}^H \frac{N_h}{N}\left(1-\frac{n}{N}\right)\frac{S_h^2}{n}}_{\text{variance under proportional allocation!}} + \underbrace{\sum_{h=1}^H \left(1-\frac{N_h}{N} \right) \frac{S_h^2}{n^2}}_{\text{extra variability due to $n_h$ being random}}
 \end{aligned}\]</span></p></li>
 </ul>
+</div>
 </section>
 <section id="variance-estimation-cont" class="slide level2">
 <h2>Variance Estimation (con’t)</h2>
 <p><span class="math inline">\(\displaystyle V(\bar{y}_{PS}) = \textcolor{red}{\sum_{h=1}^H \frac{N_h}{N}\left(1-\frac{n}{N}\right)\frac{S_h^2}{n}} + \textcolor{blue}{\sum_{h=1}^H \left(1-\frac{N_h}{N} \right) \frac{S_h^2}{n^2}}\)</span></p>
 <ul>
-<li><p>Notice that the is of order <span class="math inline">\(n^{-2}\)</span> (<span class="math inline">\(n^2\)</span> in denominator)</p></li>
-<li><p>Usually the 2nd term is really small compared to the first term</p></li>
+<li><p>Usually the 2nd term is really small compared to the first term</p>
+<ul>
+<li>Notice that 2nd term the is of order <span class="math inline">\(n^{-2}\)</span> (<span class="math inline">\(n^2\)</span> in denominator)</li>
+</ul></li>
 <li><p>Thus, variance of the poststratified mean (of an SRS) is usually effectively <strong>the same as variance of the stratified mean under proportional allocation</strong>!</p></li>
 <li><p>This holds as long as the total sample size <span class="math inline">\(n\)</span> is “large” (and it is in most surveys)</p></li>
 <li><p>Poststratification (or related weight adjustment methods) are <strong>very commonly used</strong> in household surveys</p>
 <ul>
-<li><p>Often don’t have demographic info on the frame (example: OMAS), or it is limited</p></li>
-<li><p>Do have access to population counts of people based on demographics such as age/race groups from the Census or other source</p></li>
+<li><p>Often <strong>don’t</strong> have demographic info on the frame, or it is limited</p></li>
+<li><p><strong>Do</strong> have access to population counts of people based on demographics such as age/race groups from the Census or other source</p></li>
 <li><p>Thus, use age and race (cross-classified) to post-stratify</p></li>
 </ul></li>
-<li><p>Importantly – <strong>poststratification can be used with complex survey designs(not just SRS)</strong></p></li>
+<li><p>Importantly – <strong>poststratification can be used with complex survey designs (not just SRS)</strong></p></li>
 </ul>
 </section>
 <section id="activity-9.1" class="slide level2">
 <h2>Activity 9.1</h2>
 <p>Poststratification</p>
 </section>
-<section id="post-survey-weight-adjustments-raking" class="slide level2">
+<section id="post-survey-weight-adjustments-raking" class="slide level2 pause">
 <h2>Post-Survey Weight Adjustments: Raking</h2>
 <ul>
 <li><p>Often we can get the population totals for a set of variables – age, race, etc. – but only the <strong>marginal counts</strong></p>
 <ul>
 <li>We know the number in each age group, and the number in each race group, but not in groups formed by crossing age and race (e.g., 18-25 year old white individuals, 18-25 year old Black individuals, etc.)</li>
 </ul></li>
-<li><p>In this case, a method called <strong>raking</strong> can be used to adjust the weights to achieve the correct (true) marginal totals</p>
+</ul>
+<div class="fragment">
 <ul>
-<li><p>You may see raking also referred to as “iterative proportional fitting”</p></li>
+<li><p>A method called <strong>raking</strong> can be used to adjust the weights to achieve the correct (true) marginal totals</p>
+<ul>
+<li><p>Also called “iterative proportional fitting”</p></li>
 <li><p>In <strong>raking</strong> you iteratively adjust the sample weights to match each set of marginal totals, going back and forth between margins (variables) until convergence (until all margins “match” the truth)</p></li>
 <li><p>This is easiest seen in an example…</p></li>
 </ul></li>
 </ul>
+</div>
 </section>
-<section id="example-raking" class="slide level2">
+<section id="example-raking" class="slide level2 pause">
 <h2>Example: Raking</h2>
 <div class="smaller-text">
 <div class="columns">
@@ -723,20 +734,37 @@ V(\bar{y}_{PS}) &amp;= E[ V(\bar{y}_{str} | n_1, n_2, \dots, n_h)] + V[ E(\bar{y
 <li>Same as when we poststratified by level – new weights for each level<br>
 (undergrad: <span class="math inline">\(w_i\)</span> = 698.7; grad: <span class="math inline">\(w_i\)</span> = 495.8; professional: <span class="math inline">\(w_i\)</span> = 322.4)</li>
 </ul></li>
+</ul>
+<div class="fragment">
+<ul>
 <li><p>Now totals for <strong>level</strong> are right – but totals for the other variable (<strong>residency</strong>) are not</p>
 <ul>
 <li>Ex: Sum of weights for OH = 49 <span class="math inline">\(\times\)</span> 698.7 + 14 <span class="math inline">\(\times\)</span> 495.8 + 4 <span class="math inline">\(\times\)</span> 322.4 = 42469 – but should be 42191</li>
 </ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
 <li><p>So, adjust the weights via poststratification using the other variable (<strong>residency</strong>)</p>
 <!-- -   Example: For OH resident, multiply the (previously adjusted) -->
-<!--     weight times 42191/42469 ($= N_h$/$\widehat{N}_h$) --></li>
-<li><p>But now the totals for the first variable (<strong>level</strong>) are wrong…so go back and adjust with those margins</p></li>
-<li><p>Repeat until weights don’t change (and marginal totals are correct!)</p></li>
+<!--     weight times 42191/42469 ($= N_h$/$\widehat{N}_h$) -->
+<ul>
+<li>But now the totals for the first variable (<strong>level</strong>) are wrong…so go back and adjust with those margins</li>
+</ul></li>
 </ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Repeat until weights don’t change (and marginal totals are correct!)</li>
+</ul>
+</div>
 </section>
 <section id="example-raking-cont" class="slide level2">
 <h2>Example: Raking (con’t)</h2>
-<p>Resulting survey weights for the SRS of OSU students:</p>
+<ul>
+<li>Resulting survey weights for the SRS of OSU students:</li>
+</ul>
+<div class="smaller-text">
 <table class="caption-top">
 <colgroup>
 <col style="width: 35%">
@@ -791,37 +819,42 @@ V(\bar{y}_{PS}) &amp;= E[ V(\bar{y}_{str} | n_1, n_2, \dots, n_h)] + V[ E(\bar{y
 </tr>
 </tbody>
 </table>
+</div>
 <ul>
 <li><p>Notice that now we will get the <strong>correct totals for level and for residency</strong>!</p>
 <ul>
 <li><p>Ex: Number of students from Ohio = 49 <span class="math inline">\(\times\)</span> 694.615 + 14 <span class="math inline">\(\times\)</span> 491.583 + 4 <span class="math inline">\(\times\)</span> 318.189 = 42191 ✓</p></li>
 <li><p>Ex: Number of undergrads = 49 <span class="math inline">\(\times\)</span> 694.615 + 18 <span class="math inline">\(\times\)</span> 709.937 = 46815 ✓</p></li>
 </ul></li>
-<li><p>But, we are not guaranteed to get the correct level-by-residency totals</p>
+<li><p>But, we are <strong>not guaranteed</strong> to get the correct level-by-residency totals</p>
 <ul>
 <li>Ex: Estimated number of undergrads from Ohio = 49 <span class="math inline">\(\times\)</span> 694.615 = 34036 ← <strong>not guaranteed to be right</strong></li>
 </ul></li>
 </ul>
 </section>
-<section id="raking-some-properties" class="slide level2">
+<section id="raking-some-properties" class="slide level2 pause">
 <h2>Raking: Some Properties</h2>
 <p><strong>Pros</strong></p>
 <ul>
 <li><p>Can be done with more than two variables</p></li>
-<li><p>Does not always converge… diagnostics are often used to make sure adjustments are not too severe</p></li>
 <li><p>Used extensively in U.S. household surveys where Census or other source can provide high quality totals</p></li>
-<li><p>Used even when totals are not technically “known” but rather estimated with high precision – and with higher precision than fully crossed cells (e.g., level-by-residency) that would be needed for poststratification</p></li>
+<li><p>Used even when totals are not technically “known” but rather estimated with high precision (and with higher precision than fully crossed cells needed for poststratification)</p></li>
 </ul>
-<p><strong>Con</strong></p>
+<div class="fragment">
+<p><strong>Cons</strong></p>
 <ul>
-<li><p>Can cause inflation of variances if variables used for poststratification are not related to the survey outcomes of interest</p>
+<li><p>Does not always converge… diagnostics are often used to make sure adjustments are not too severe</p></li>
+<li><p>Can cause <span class="alert">inflation of variances</span> if variables used for poststratification are <span class="alert">not related to the survey outcomes</span> of interest</p>
 <ul>
 <li>Just like you want to stratify on variable(s) related to your key survey outcomes, you also want to poststratify or rake to variable(s) related to your key survey outcomes</li>
 </ul></li>
 </ul>
+</div>
+<div class="fragment">
 <p>Importantly – <strong>raking can be used with complex survey designs (not just SRS)</strong></p>
+</div>
 </section>
-<section id="caveats-for-post-survey-weight-adjustments" class="slide level2">
+<section id="caveats-for-post-survey-weight-adjustments" class="slide level2 pause">
 <h2>Caveats for Post-Survey Weight Adjustments</h2>
 <ul>
 <li><p>Theoretically, could use a lot of variables for poststratification and raking</p>
@@ -833,14 +866,18 @@ V(\bar{y}_{PS}) &amp;= E[ V(\bar{y}_{str} | n_1, n_2, \dots, n_h)] + V[ E(\bar{y
 <li><p>Collapse categories in the variable(s) used for poststratification/raking (ad hoc solution)</p></li>
 <li><p>Use a model-based method that can handle more poststrata/raking variables and ensure groupings are not too small or weight adjustments are not too extreme</p>
 <ul>
-<li>Example: OMAS uses something called a Generalized Exponential Model (GEM) to simultaneously adjust the weights to a large set of auxiliary variables – basically, super-charged raking that sets bounds on how much weights can be changed</li>
+<li>Example: OMAS 2021 used a Generalized Exponential Model (GEM) to simultaneously adjust the weights to a large set of auxiliary variables – basically, super-charged raking that sets bounds on how much weights can be changed (<a href="https://grc.osu.edu/sites/default/files/projects/OMAS-2021/2021_OMAS_Methods_Report_v1.1.pdf">methods report</a>)</li>
 </ul></li>
 </ul></li>
+</ul>
+<div class="fragment">
+<ul>
 <li><p>Poststratification and raking are also commonly used for <strong>nonresponse adjustment</strong> and to <strong>adjust for undercoverage</strong>, so we will come back to them later in the course</p></li>
 <li><p>Both poststratification and raking fall under an umbrella method called <strong>weight calibration</strong> – you may see this terminology used to describe your chosen group project surveys</p></li>
 </ul>
 
 
+</div>
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">

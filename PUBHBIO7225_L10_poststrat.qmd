@@ -45,7 +45,7 @@ editor:
 
 -   Problem Set 3 due Thursday 10/2/25 11:59pm via Carmen
 
-## Limitation of Stratification at the Design Stage
+## Limitation of Stratification at the Design Stage {.pause}
 
 -   To use a variable for stratification at the design stage, you must
     know the value of that variable for all units in the population
@@ -56,6 +56,8 @@ editor:
 
 -   For some surveys, frame data may be quite limited (especially phone
     surveys)
+
+. . .
 
 -   Example: Ohio Medicaid Assessment Survey (OMAS) 2017
 
@@ -165,12 +167,14 @@ M2 <- N - M1
 -   Comparing the proportions:
 
 |               | Sample |            | Population |                                  |
-|---------------|--------------:|---------------|--------------:|---------------|
+|---------------|-------:|------------|-----------:|----------------------------------|
 |               |  Count | Proportion |      Count | Proportion                       |
 | Undergraduate | `r n1` | `r p1`     |     `r N1` | `r N1`/`r N` = `r round(N1/N,3)` |
-| Graduate      | `r n2` | `r p2`     |     `r N3` | `r N2`/`r N` = `r round(N2/N,3)` |
+| Graduate      | `r n2` | `r p2`     |     `r N2` | `r N2`/`r N` = `r round(N2/N,3)` |
 | Professional  | `r n3` | `r p3`     |     `r N3` | `r N3`/`r N` = `r round(N3/N,3)` |
 | Total         |  `r n` |            |      `r N` |                                  |
+
+: {tbl-colwidths="[20, 10, 15, 15, 30]"}
 
 -   It seems that grad students and professional students are
     **over-represented** in your sample, and undergrads are
@@ -185,13 +189,15 @@ M2 <- N - M1
 
 -   Thus, our estimates of the population size in each group :
 
-| **Group** | **\# in sample** | **Weight** $\mathbf{(w_i)}$ | **Estimated Total** $(\hat{t})$ | **True Total** $(t)$ |
+| **Group** | **\# in sample** | **Weight** $(w_i)$ | **Estimated Total** $(\hat{t})$ | **True Total** $(t)$ |
 |:--------------|:-------------:|:-------------:|:--------------|:-------------:|
 | Undergrads | `r n1` | `r w_round` | `r n1` $\times$ `r w_round` = `r round(n1*w,1)` | `r N1` |
 | Grads | `r n2` | `r w_round` | `r n2` $\times$ `r w_round` = `r round(n2*w,1)` | `r N2` |
 | Profs | `r n3` | `r w_round` | `r n3` $\times$ `r w_round` = `r round(n3*w,1)` | `r N3` |
 
-<br>
+: {tbl-colwidths="[20, 15, 15, 30, 15]"}
+
+<p>
 
 -   Our estimates are not equal to the known truth
 
@@ -200,10 +206,10 @@ M2 <- N - M1
 -   We can adjust the weights within each group so that estimated totals
     equal true totals
 
--   We want to **down-weight** grad students and professionals and
+      -   We want to **down-weight** grad students and professionals and
     **up-weight** undergrads
 
--   This is called **Poststratification**
+-   This is called [**Poststratification**]{.alert}
 
 ## Poststratification
 
@@ -229,12 +235,14 @@ M2 <- N - M1
 
 ## Adjusting the Weights for the SRS of OSU Students
 
-| **Group** | **\# in sample** | **Weight** $\mathbf{(w_i)}$ | **Estimated Total** $(\hat{t})$ | **True Total** $(t)$ |
+| **Group** | **\# in sample** | **Weight** $(w_i)$ | **Estimated Total** $(\hat{t})$ | **True Total** $(t)$ |
 |:--------------|:-------------:|:-------------:|:--------------|:-------------:|
 | Undergrads | `r n1` | `r w_round` | `r n1` $\times$ `r w_round` = `r round(n1*w,1)` | `r N1` |
 | Grads | `r n2` | `r w_round` | `r n2` $\times$ `r w_round` = `r round(n2*w,1)` | `r N2` |
 | Profs | `r n3` | `r w_round` | `r n3` $\times$ `r w_round` = `r round(n3*w,1)` | `r N3` |
 
+: {tbl-colwidths="[20, 15, 15, 30, 15]"}
+  
 -   Start with the undergrads -- what should the weight be for the 67
     undergrads if you want to end up with the true population count as
     your estimate? (How many units should each of the 67 UGs
@@ -266,13 +274,15 @@ M2 <- N - M1
 
 ## Poststratification of the SRS of OSU Students
 
-|  |  |  |  |  |  |
-|------------|:----------:|:----------:|-----------:|-----------:|-----------:|
-|  |  | **Orig. Weight** | **Est. Total** | **True Total** | **Poststratified Weight** |
-| **Post-stratum** | $n_h$ | $w_{hj}$ | $\widehat{N}_h$ | $N_h$ | $w_{hj}^{PS} = w_{hj} \times \frac{N_h}{\widehat{N}_h}$ |
+| **Post-stratum** | **Sample Size** ($n_h$) | **Orig. Weight** ($w_{hj}$) | **Est. Total** ($\widehat{N}_h$) | **True Total** ($N_h$) | **Poststratified Weight** $w_{hj}^{PS} = w_{hj} \times \frac{N_h}{\widehat{N}_h}$ |
+|------------|:----------:|:----------:|:----------:|:----------:|:----------:|
 | Undergrad | `r n1` | `r w_round` | `r Nhat1` | `r N1` | `r w_round`$\times$ `r N1` / `r Nhat1` = `r round(w*N1/Nhat1, 1)` |
 | Grad | `r n2` | `r w_round` | `r Nhat2` | `r N2` | `r w_round`$\times$ `r N2` / `r Nhat2` = `r round(w*N2/Nhat2, 1)` |
 | Professional | `r n3` | `r w_round` | `r Nhat3` | `r N3` | `r w_round`$\times$ `r N3` / `r Nhat3` = `r round(w*N3/Nhat3, 1)` |
+
+: {tbl-colwidths="[15, 12, 12, 12, 12, 35]"}
+
+<p>
 
 -   Notice that the weights went **up** for undergrads, **down** for
     grad and professional
@@ -290,18 +300,24 @@ M2 <- N - M1
 
 -   For example, estimating the **proportion of students from Ohio**:
 
-| **Post-stratum** | **Sample Proportion from Ohio** $\mathbf{(\hat{p}_h)}$ | **Stratum Size** $\mathbf{(N_h)}$ |
+::: {.smaller-text}
+| **Post-stratum** | **Sample Proportion from Ohio** ($\hat{p}_h$) | **True Stratum Population Size** ($N_h$) |
 |:------------------|:--------------------------:|:-----------------------:|
 | Undergrad $(h=1)$ | `r o1`/`r n1` = `r o1/n1` | `r N1` |
 | Grad $(h=2)$ | `r o2`/`r n2` = `r o2/n2` | `r N2` |
 | Professional $(h=3)$ | `r o3`/`r n3` = `r o3/n3` | `r N3` |
 | Total | `r (o1+o2+o3)`/`r n` = `r (o1+o2+o3)/n` | `r N` |
 
+: {tbl-colwidths="[20, 35, 35]"}
+
+:::
+
 -   **Poststratified** estimate of overall proportion from Ohio:
     $$\begin{flalign}
     \hat{p}_{PS} &= \sum_{h=1}^H \frac{N_h}{N} \hat{p}_h = \frac{N_1}{N} \hat{p}_1 + \frac{N_1}{N} \hat{p}_1 + \frac{N_3}{N} \hat{p}_3 & \\
     &= \frac{\text{`r N1`}}{\text{`r N`}} \times \text{`r po1`} + \frac{\text{`r N2`}}{\text{`r N`}} \times \text{`r po2`} + \frac{\text{`r N3`}}{\text{`r N`}} \times \text{`r po3`} = \textbf{`r round(ps_o,3)`}
     \end{flalign}$$
+
 -   Slightly higher than the original estimate of `r 100*(o1+o2+o3)/n`%
     -- undergrads were **underrepresented** in the sample, and they are
     **more likely** to be from Ohio
@@ -345,9 +361,10 @@ M2 <- N - M1
 
 ## Variance Estimation after Poststratification (of an SRS)
 
+::: {.smaller-text}
 -   If the strata are fixed at the design stage ($n_h$ are fixed), we
     have the usual formula:
-    $V(\bar{y}_{str}) = \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(1-\frac{n_h}{N_h}\right)\frac{S_h^2}{n_h}$
+    $$V(\bar{y}_{str}) = \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(1-\frac{n_h}{N_h}\right)\frac{S_h^2}{n_h}$$
 
 -   With poststratification, $n_h$ are random variables and we can do
     some trickery to get: $$\begin{aligned}
@@ -357,14 +374,14 @@ M2 <- N - M1
     &= \dots \text{using an approximation for } E(1/n_h) \text{ and some algebra}\dots \\
     &\approx \underbrace{\sum_{h=1}^H \frac{N_h}{N}\left(1-\frac{n}{N}\right)\frac{S_h^2}{n}}_{\text{variance under proportional allocation!}} + \underbrace{\sum_{h=1}^H \left(1-\frac{N_h}{N} \right) \frac{S_h^2}{n^2}}_{\text{extra variability due to $n_h$ being random}}
     \end{aligned}$$
-
+:::
 ## Variance Estimation (con't)
 
 $\displaystyle V(\bar{y}_{PS}) = \textcolor{red}{\sum_{h=1}^H \frac{N_h}{N}\left(1-\frac{n}{N}\right)\frac{S_h^2}{n}} + \textcolor{blue}{\sum_{h=1}^H \left(1-\frac{N_h}{N} \right) \frac{S_h^2}{n^2}}$
 
--   Notice that the is of order $n^{-2}$ ($n^2$ in denominator)
-
 -   Usually the 2nd term is really small compared to the first term
+
+      -   Notice that 2nd term the is of order $n^{-2}$ ($n^2$ in denominator)
 
 -   Thus, variance of the poststratified mean (of an SRS) is usually
     effectively **the same as variance of the stratified mean under
@@ -376,23 +393,23 @@ $\displaystyle V(\bar{y}_{PS}) = \textcolor{red}{\sum_{h=1}^H \frac{N_h}{N}\left
 -   Poststratification (or related weight adjustment methods) are **very
     commonly used** in household surveys
 
-    -   Often don't have demographic info on the frame (example: OMAS),
+    -   Often **don't** have demographic info on the frame,
         or it is limited
 
-    -   Do have access to population counts of people based on
+    -   **Do** have access to population counts of people based on
         demographics such as age/race groups from the Census or other
         source
 
     -   Thus, use age and race (cross-classified) to post-stratify
 
 -   Importantly -- **poststratification can be used with complex survey
-    designs(not just SRS)**
+    designs (not just SRS)**
 
 ## Activity 9.1
 
 Poststratification
 
-## Post-Survey Weight Adjustments: Raking
+## Post-Survey Weight Adjustments: Raking {.pause}
 
 -   Often we can get the population totals for a set of variables --
     age, race, etc. -- but only the **marginal counts**
@@ -402,11 +419,12 @@ Poststratification
         (e.g., 18-25 year old white individuals, 18-25 year old Black
         individuals, etc.)
 
--   In this case, a method called **raking** can be used to adjust the
+. . .
+
+-   A method called **raking** can be used to adjust the
     weights to achieve the correct (true) marginal totals
 
-    -   You may see raking also referred to as "iterative proportional
-        fitting"
+    -   Also called "iterative proportional fitting"
 
     -   In **raking** you iteratively adjust the sample weights to match
         each set of marginal totals, going back and forth between
@@ -415,7 +433,7 @@ Poststratification
 
     -   This is easiest seen in an example...
 
-## Example: Raking
+## Example: Raking {.pause}
 
 ```{r}
 n11 <- 49
@@ -462,6 +480,8 @@ n_notoh <- n12 + n22 + n32
         (undergrad: $w_i$ = `r round(psw1,1)`; grad: $w_i$ =
         `r round(psw2,1)`; professional: $w_i$ = `r round(psw3,1)`)
 
+. . . 
+
 -   Now totals for **level** are right -- but totals for the other
     variable (**residency**) are not
 
@@ -470,6 +490,8 @@ n_notoh <- n12 + n22 + n32
         `r round(psw3,1)` = `r round(n11*psw1+n21*psw2+n31*psw3)` -- but
         should be `r M1`
 
+. . . 
+
 -   So, adjust the weights via poststratification using the other
     variable (**residency**)
 
@@ -477,8 +499,9 @@ n_notoh <- n12 + n22 + n32
 
     <!--     weight times `r M1`/`r round(n11*psw1+n21*psw2+n31*psw3)` ($= N_h$/$\widehat{N}_h$) -->
 
--   But now the totals for the first variable (**level**) are wrong...so
-    go back and adjust with those margins
+      -   But now the totals for the first variable (**level**) are wrong...so go back and adjust with those margins
+
+. . . 
 
 -   Repeat until weights don't change (and marginal totals are correct!)
 
@@ -506,8 +529,9 @@ wr22 <- round(dat$w_rake[dat$level==2 & dat$residency=="NOT"][1],3)
 wr32 <- round(dat$w_rake[dat$level==3 & dat$residency=="NOT"][1],3)
 ```
 
-Resulting survey weights for the SRS of OSU students:
+-   Resulting survey weights for the SRS of OSU students:
 
+::: {.smaller-text}
 | Group                   | Sample Count | Original Weight | Raked Weight |
 |:------------------------|:-------------|:----------------|:-------------|
 | Undergrad / Ohio        | `r n11`      | `r w_round`     | `r wr11`     |
@@ -516,6 +540,8 @@ Resulting survey weights for the SRS of OSU students:
 | Undergrad / Not Ohio    | `r n12`      | `r w_round`     | `r wr12`     |
 | Grad / Not Ohio         | `r n22`      | `r w_round`     | `r wr22`     |
 | Professional / Not Ohio | `r n32`      | `r w_round`     | `r wr32`     |
+
+:::
 
 -   Notice that now we will get the **correct totals for level and for
     residency**!
@@ -527,43 +553,46 @@ Resulting survey weights for the SRS of OSU students:
     -   Ex: Number of undergrads = `r n11` $\times$ `r wr11` + `r n12`
         $\times$ `r wr12` = `r round(n11*wr11 + n12*wr12)` ✓
 
--   But, we are not guaranteed to get the correct level-by-residency
+-   But, we are **not guaranteed** to get the correct level-by-residency
     totals
 
     -   Ex: Estimated number of undergrads from Ohio = `r n11` $\times$
         `r wr11` = `r round(n11*wr11)` ← **not guaranteed to be right**
 
-## Raking: Some Properties
+## Raking: Some Properties {.pause}
 
 **Pros**
 
 -   Can be done with more than two variables
 
--   Does not always converge... diagnostics are often used to make sure
-    adjustments are not too severe
-
 -   Used extensively in U.S. household surveys where Census or other
     source can provide high quality totals
 
 -   Used even when totals are not technically "known" but rather
-    estimated with high precision -- and with higher precision than
-    fully crossed cells (e.g., level-by-residency) that would be needed
-    for poststratification
+    estimated with high precision (and with higher precision than
+    fully crossed cells needed for poststratification)
 
-**Con**
+. . .
 
--   Can cause inflation of variances if variables used for
-    poststratification are not related to the survey outcomes of
+**Cons**
+
+-   Does not always converge... diagnostics are often used to make sure
+    adjustments are not too severe
+
+-   Can cause [inflation of variances]{.alert} if variables used for
+    poststratification are [not related to the survey outcomes]{.alert} of
     interest
 
     -   Just like you want to stratify on variable(s) related to your
         key survey outcomes, you also want to poststratify or rake to
         variable(s) related to your key survey outcomes
 
+. . .
+
 Importantly -- **raking can be used with complex survey designs (not
 just SRS)**
 
-## Caveats for Post-Survey Weight Adjustments
+## Caveats for Post-Survey Weight Adjustments {.pause}
 
 -   Theoretically, could use a lot of variables for poststratification
     and raking
@@ -581,11 +610,13 @@ just SRS)**
         variables and ensure groupings are not too small or weight
         adjustments are not too extreme
 
-        -   Example: OMAS uses something called a Generalized
+        -   Example: OMAS 2021 used a Generalized
             Exponential Model (GEM) to simultaneously adjust the weights
             to a large set of auxiliary variables -- basically,
             super-charged raking that sets bounds on how much weights
-            can be changed
+            can be changed ([methods report](https://grc.osu.edu/sites/default/files/projects/OMAS-2021/2021_OMAS_Methods_Report_v1.1.pdf))
+
+. . .
 
 -   Poststratification and raking are also commonly used for
     **nonresponse adjustment** and to **adjust for undercoverage**, so
