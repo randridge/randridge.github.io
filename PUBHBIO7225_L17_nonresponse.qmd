@@ -176,13 +176,9 @@ The Impact of Missing Data (Part 1)
 ## Nonresponse a Growing Problem
 
 -   Response rates steadily declining for large Federally-sponsored
-    surveys[^1]
+    surveys^[Czajka JL and Beyler A (2016) Declining Response Rates in Federal Surveys: Trends and Implications. *Washington, DC: Mathematica Policy Research*]
 
 -   For seven major surveys, 1995 to 2015 (Y-axis is 65% to 95%):
-
-[^1]: Czajka JL and Beyler A (2016) Declining Response Rates in Federal
-    Surveys: Trends and Implications. *Washington, DC: Mathematica
-    Policy Research*
 
 ![](./figures/Czajka_RRs){fig-alt="A line graph depicting the response rates for seven major surveys from 1995 to 2015. The y-axis shows response rates from 65% to 95%. While the CPS survey started with the highest response rate around 94% and remained high, all surveys show a general downward trend over time."
 fig-align="center" width="60%"}
