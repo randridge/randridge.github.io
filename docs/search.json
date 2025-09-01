@@ -438,21 +438,21 @@
     "href": "PUBHBIO7225_L03_samplingDistributions.html#sampling-distribution-for-the-clinics-srs",
     "title": "Sampling Distributions",
     "section": "Sampling Distribution for the Clinics SRS",
-    "text": "Sampling Distribution for the Clinics SRS\n\nSRS of size \\(n=2\\) from a population of size \\(N=5\\)\n\n\n\n\nPopulation values:\n\n\n\n\nClinic:\n1\n2\n3\n4\n5\n\n\n# Patients per day (\\(y\\)):\n10\n20\n50\n60\n150\n\n\n\n\n\nAverage for each sample:\n\n\n\n\nClinics Sampled\nProbability\n\\(y\\) values\n\\(\\hat{\\theta}=\\bar{y}\\)\n\n\n\n\n1, 2\n1/10\n10, 20\n15\n\n\n1, 3\n1/10\n10, 50\n30\n\n\n1, 4\n1/10\n10, 60\n35\n\n\n1, 5\n1/10\n10, 150\n80\n\n\n2, 3\n1/10\n20, 50\n35\n\n\n2, 4\n1/10\n20, 60\n40\n\n\n2, 5\n1/10\n20, 150\n85\n\n\n3, 4\n1/10\n50, 60\n55\n\n\n3, 5\n1/10\n50, 150\n100\n\n\n4, 5\n1/10\n60, 150\n105\n\n\n\n\nThis is the sampling distribution of \\(\\hat{\\theta}\\) (i.e., \\(\\bar{y}\\))!"
+    "text": "Sampling Distribution for the Clinics SRS\n\nSRS of size \\(n=2\\) from a population of size \\(N=5\\)\n\n\n\n\nPopulation values:\n\n\n\n\nClinic:\n1\n2\n3\n4\n5\n\n\n# Patients per day (\\(y\\)):\n10\n20\n50\n60\n150\n\n\n\n\n\nEstimate for each sample:\n\n\n\n\nClinics Sampled\nProbability\n\\(y\\) values\n\\(\\hat{\\theta}=\\bar{y}\\)\n\n\n\n\n1, 2\n1/10\n10, 20\n15\n\n\n1, 3\n1/10\n10, 50\n30\n\n\n1, 4\n1/10\n10, 60\n35\n\n\n1, 5\n1/10\n10, 150\n80\n\n\n2, 3\n1/10\n20, 50\n35\n\n\n2, 4\n1/10\n20, 60\n40\n\n\n2, 5\n1/10\n20, 150\n85\n\n\n3, 4\n1/10\n50, 60\n55\n\n\n3, 5\n1/10\n50, 150\n100\n\n\n4, 5\n1/10\n60, 150\n105\n\n\n\n\nThis is the sampling distribution of \\(\\hat{\\theta}\\) (i.e., \\(\\bar{y}\\))!"
   },
   {
     "objectID": "PUBHBIO7225_L03_samplingDistributions.html#sampling-distribution-for-the-clinics-srs-1",
     "href": "PUBHBIO7225_L03_samplingDistributions.html#sampling-distribution-for-the-clinics-srs-1",
     "title": "Sampling Distributions",
     "section": "Sampling Distribution for the Clinics SRS",
-    "text": "Sampling Distribution for the Clinics SRS\n\nNotice that one value of \\(\\hat{\\theta}\\) (35) appears twice – so the sampling distribution is:\n\n\n\n\nPMF:\n\n\n\n\n\\(\\hat{\\theta}=\\bar{y}\\)\nProbability\n\n\n\n\n15\n0.1\n\n\n30\n0.1\n\n\n35\n0.2\n\n\n40\n0.1\n\n\n55\n0.1\n\n\n80\n0.1\n\n\n85\n0.1\n\n\n100\n0.1\n\n\n105\n0.1\n\n\n\n\n\nGraph:"
+    "text": "Sampling Distribution for the Clinics SRS\n\nNotice that one value of \\(\\hat{\\theta}\\) (35) appears twice – so the sampling distribution is:\n\n\n\n\nPMF:\n\n\n\n\n\n\\(\\hat{\\theta}=\\bar{y}\\)\nProbability\n\n\n\n\n15\n0.1\n\n\n30\n0.1\n\n\n35\n0.2\n\n\n40\n0.1\n\n\n55\n0.1\n\n\n80\n0.1\n\n\n85\n0.1\n\n\n100\n0.1\n\n\n105\n0.1\n\n\n\n\n\n\nGraph:"
   },
   {
     "objectID": "PUBHBIO7225_L03_samplingDistributions.html#expectation-and-variance",
     "href": "PUBHBIO7225_L03_samplingDistributions.html#expectation-and-variance",
     "title": "Sampling Distributions",
     "section": "Expectation and Variance",
-    "text": "Expectation and Variance\n\\[\\begin{flalign}\n\\text{Expectation } = E(\\bar{y}) &= \\sum_k k P(\\bar{y}=k) & \\\\\n&= 15 \\times 0.1 ~ + ~ 30 \\times 0.1 ~ + ~ 25 \\times 0.2 ~ + \\cdots + ~ 105 \\times 0.1\\\\\n&= \\mathbf{58}= \\text{true population mean}\n\\end{flalign}\\]\n\nUnder the SRS sampling scheme, \\(\\bar{y}\\) is an unbiased estimate of mean of \\(y\\)\n\nThough, notice that no sample actually produces the true mean!\n\n\\[\\begin{flalign}\n\\text{Variance }=V(\\bar{y}) &= \\sum_k (k-E(\\bar{y}))^2 P(\\bar{y}=k) & \\\\\n& = (15-58)^2 \\times 0.1 + (30-58)^2 \\times 0.1 + \\cdots + (105-58)^2 \\times 0.1 = \\mathbf{921}\n\\end{flalign}\\]\n\nNote that we did not make any assumption about the distribution of the \\(\\mathbf{y}\\) values – the “randomness” is from the sampling scheme, from the fact that a different sample will produce a different value of \\(\\bar{y}\\).\nThis is called design-based inference."
+    "text": "Expectation and Variance\n\nExpectation = \\(\\displaystyle E(\\bar{y}) = \\sum_k k P(\\bar{y}=k)\\)\nmultiply each possible value of the variable by its probability and sum\n\n\\[\\begin{flalign}\n\\text{Expectation } = E(\\bar{y}) &= \\sum_k k P(\\bar{y}=k) & \\\\\n&= 15 \\times 0.1 ~ + ~ 30 \\times 0.1 ~ + ~ 25 \\times 0.2 ~ + \\cdots + ~ 105 \\times 0.1\\\\\n&= \\mathbf{58}= \\text{true population mean}\n\\end{flalign}\\]\n\nUnder the SRS sampling scheme, \\(\\bar{y}\\) is an unbiased estimate of mean of \\(y\\)\n\nThough, notice that no sample actually produces the true mean!\n\n\\[\\begin{flalign}\n\\text{Variance }=V(\\bar{y}) &= \\sum_k (k-E(\\bar{y}))^2 P(\\bar{y}=k) & \\\\\n& = (15-58)^2 \\times 0.1 + (30-58)^2 \\times 0.1 + \\cdots + (105-58)^2 \\times 0.1 = \\mathbf{921}\n\\end{flalign}\\]\n\nNote that we did not make any assumption about the distribution of the \\(\\mathbf{y}\\) values – the “randomness” is from the sampling scheme, from the fact that a different sample will produce a different value of \\(\\bar{y}\\).\nThis is called design-based inference."
   },
   {
     "objectID": "PUBHBIO7225_L03_samplingDistributions.html#example-of-an-alternative-sampling-distribution",
@@ -466,7 +466,7 @@
     "href": "PUBHBIO7225_L03_samplingDistributions.html#an-alternative-sampling-distribution",
     "title": "Sampling Distributions",
     "section": "An Alternative Sampling Distribution",
-    "text": "An Alternative Sampling Distribution\n\n\n\nConsider the following alternative sampling scheme:\n\n\n\n\n\nClinics\nProbability\n\n\n\n\n1, 5\n0.25\n\n\n2, 5\n0.25\n\n\n3, 5\n0.25\n\n\n4, 5\n0.25\n\n\n\n\n\nIn this scheme, clinic 5 is always sampled.\n\nClinic 5 is called a certainty unit \\(\\rightarrow P(\\text{clinic 5 is sampled}) = 1\\)\n\nBecause of this, not all units are selected with equal probability\nThus the simple unweighted mean \\((\\bar{y})\\) in each sample is not a good estimate of the population mean! (Why?)\n\n\n\nCan you come up with a way to estimate the mean?\n(hint: each clinic 1-4 “represents” 4 clinics, and the 5th is itself…)"
+    "text": "An Alternative Sampling Distribution\n\n\n\nConsider the following alternative sampling scheme:\n\n\n\n\n\nClinics\nProbability\n\n\n\n\n1, 5\n0.25\n\n\n2, 5\n0.25\n\n\n3, 5\n0.25\n\n\n4, 5\n0.25\n\n\n\n\n\nIn this scheme, clinic 5 is always sampled.\n\nClinic 5 is called a certainty unit → \\(P(\\text{clinic 5 is sampled}) = 1\\)\n\nBecause of this, not all units are selected with equal probability\nThus the simple unweighted mean \\((\\bar{y})\\) in each sample is not a good estimate of the population mean! (Why?)\n\n\n\nCan you come up with a way to estimate the mean?\n(hint: each clinic 1-4 “represents” 4 clinics, and the 5th is itself…)"
   },
   {
     "objectID": "PUBHBIO7225_L03_samplingDistributions.html#an-alternative-sampling-distribution-1",
@@ -480,7 +480,7 @@
     "href": "PUBHBIO7225_L03_samplingDistributions.html#mse-combining-bias-and-variance",
     "title": "Sampling Distributions",
     "section": "MSE: Combining Bias and Variance",
-    "text": "MSE: Combining Bias and Variance\n\nSometimes, we might prefer to allow a little bias in trade-off for much reduced variance\nThus we often use another measure of the “accuracy” of an estimator:\n\n\nMean Squared Error (MSE): Variance + Bias-squared   \\[MSE(\\hat{\\theta}) = E[(\\hat{\\theta}-\\theta)^2] = V(\\hat{\\theta}) + [\\text{Bias}(\\hat{\\theta})]^2\\]\n\n\nWe describe estimators as:\n\nUnbiased if \\(E[\\hat{\\theta}] = \\theta\\)\nPrecise if \\(V(\\hat{\\theta})\\) is small\nAccurate if \\(MSE\\) is small\n\nAn estimator can be biased and precise – but then its not accurate\nMSE vs Variance: MSE measures how close an estimate is to the truth, while variance measures how close estimates are across different samples"
+    "text": "MSE: Combining Bias and Variance\n\nSometimes, we might prefer to allow a little bias in trade-off for much reduced variance, and use another measure of the “accuracy” of an estimator:\n\n\nMean Squared Error (MSE): \\(MSE(\\hat{\\theta}) = E[(\\hat{\\theta}-\\theta)^2] = V(\\hat{\\theta}) + [\\text{Bias}(\\hat{\\theta})]^2\\)\nVariance plus bias-squared\n\n\nWe describe estimators as:\n\nUnbiased if \\(E[\\hat{\\theta}] = \\theta\\)\nPrecise if \\(V(\\hat{\\theta})\\) is small\nAccurate if \\(MSE\\) is small\n\nAn estimator can be biased and precise – but then its not accurate\nMSE vs Variance\n\nMSE measures how close an estimate is to the truth\nVariance measures how close estimates are across different samples"
   },
   {
     "objectID": "PUBHBIO7225_L03_samplingDistributions.html#what-happened",
@@ -508,7 +508,7 @@
     "href": "PUBHBIO7225_L03_samplingDistributions.html#why-is-variance-reduced",
     "title": "Sampling Distributions",
     "section": "Why is Variance Reduced?",
-    "text": "Why is Variance Reduced?\n\nThe number of patients seen is positively correlated with the number of doctors. (Makes sense!)\n\n\n\nUsing this auxiliary data – the number of doctors at each clinic – can help create a more efficient sampling scheme\nThe idea of creating more efficient sampling designs using auxiliary information will come up repeatedly in this course"
+    "text": "Why is Variance Reduced?\n\nThe number of patients seen is positively correlated with the number of doctors. (Makes sense!)\n\n\n\nUsing auxiliary data (the number of doctors at each clinic) can create a more efficient sampling scheme\n\nThis idea will come up repeatedly in this course"
   },
   {
     "objectID": "PUBHBIO7225_LXX_template.html",
@@ -1789,7 +1789,7 @@
     "href": "PUBHBIO7225_L10_poststrat.html#limitation-of-stratification-at-the-design-stage",
     "title": "Poststratification",
     "section": "Limitation of Stratification at the Design Stage",
-    "text": "Limitation of Stratification at the Design Stage\n\nTo use a variable for stratification at the design stage, you must know the value of that variable for all units in the population before you conduct the survey\n\nIn other words, stratification variables must be available on the sampling frame\n\nFor some surveys, frame data may be quite limited (especially phone surveys)\nExample: Ohio Medicaid Assessment Survey (OMAS) 2017\n\nPhone survey – only geography was available for stratification\nCan estimate population-level characteristics (e.g., total number of white people who live in Ohio)\nBut, we might know the true population totals for these characteristics (e.g., true number of white Ohioans) from another source\nSuppose we get an estimate from the data of \\(\\hat{t}_{str} = 8,320,817\\) white Ohioans\nWe know the “true” number of white Ohioans is \\(t= 7,164,904\\)\n(from American Community Survey 5-year estimates)\n\nHow can we reconcile this? Seems like we oversampled white people. . ."
+    "text": "Limitation of Stratification at the Design Stage\n\nTo use a variable for stratification at the design stage, you must know the value of that variable for all units in the population before you conduct the survey\n\nIn other words, stratification variables must be available on the sampling frame\n\nFor some surveys, frame data may be quite limited (especially phone surveys)\n\n\n\nExample: Ohio Medicaid Assessment Survey (OMAS) 2017\n\nPhone survey – only geography was available for stratification\nCan estimate population-level characteristics (e.g., total number of white people who live in Ohio)\nBut, we might know the true population totals for these characteristics (e.g., true number of white Ohioans) from another source\nSuppose we get an estimate from the data of \\(\\hat{t}_{str} = 8,320,817\\) white Ohioans\nWe know the “true” number of white Ohioans is \\(t= 7,164,904\\)\n(from American Community Survey 5-year estimates)\n\nHow can we reconcile this? Seems like we oversampled white people. . ."
   },
   {
     "objectID": "PUBHBIO7225_L10_poststrat.html#example-srs-of-osu-students",
@@ -1810,7 +1810,7 @@
     "href": "PUBHBIO7225_L10_poststrat.html#example-srs-of-osu-students-cont-1",
     "title": "Poststratification",
     "section": "Example: SRS of OSU Students (con’t)",
-    "text": "Example: SRS of OSU Students (con’t)\n\nBut, you know from the OSU Statistical Summary that there are 46815 undergraduates, 11404 graduate students, and 3224 professional students (Statistical Summary 2024-2025)\nComparing the proportions:\n\n\n\n\n\n\n\n\n\n\n\n\nSample\n\nPopulation\n\n\n\n\n\n\nCount\nProportion\nCount\nProportion\n\n\nUndergraduate\n67\n0.67\n46815\n46815/61443 = 0.762\n\n\nGraduate\n23\n0.23\n3224\n11404/61443 = 0.186\n\n\nProfessional\n10\n0.1\n3224\n3224/61443 = 0.052\n\n\nTotal\n100\n\n61443\n\n\n\n\n\nIt seems that grad students and professional students are over-represented in your sample, and undergrads are under-represented\nWhat can you do about this?"
+    "text": "Example: SRS of OSU Students (con’t)\n\nBut, you know from the OSU Statistical Summary that there are 46815 undergraduates, 11404 graduate students, and 3224 professional students (Statistical Summary 2024-2025)\nComparing the proportions:\n\n\n\n\n\n\n\n\n\n\n\n\nSample\n\nPopulation\n\n\n\n\n\n\nCount\nProportion\nCount\nProportion\n\n\nUndergraduate\n67\n0.67\n46815\n46815/61443 = 0.762\n\n\nGraduate\n23\n0.23\n11404\n11404/61443 = 0.186\n\n\nProfessional\n10\n0.1\n3224\n3224/61443 = 0.052\n\n\nTotal\n100\n\n61443\n\n\n\n\n\nIt seems that grad students and professional students are over-represented in your sample, and undergrads are under-represented\nWhat can you do about this?"
   },
   {
     "objectID": "PUBHBIO7225_L10_poststrat.html#post-survey-weight-adjustments-poststratification",
@@ -1824,14 +1824,14 @@
     "href": "PUBHBIO7225_L10_poststrat.html#adjusting-the-weights-for-the-srs-of-osu-students",
     "title": "Poststratification",
     "section": "Adjusting the Weights for the SRS of OSU Students",
-    "text": "Adjusting the Weights for the SRS of OSU Students\n\n\n\n\n\n\n\n\n\n\nGroup\n# in sample\nWeight \\(\\mathbf{(w_i)}\\)\nEstimated Total \\((\\hat{t})\\)\nTrue Total \\((t)\\)\n\n\n\n\nUndergrads\n67\n614.4\n67 \\(\\times\\) 614.4 = 41166.8\n46815\n\n\nGrads\n23\n614.4\n23 \\(\\times\\) 614.4 = 14131.9\n11404\n\n\nProfs\n10\n614.4\n10 \\(\\times\\) 614.4 = 6144.3\n3224\n\n\n\n\nStart with the undergrads – what should the weight be for the 67 undergrads if you want to end up with the true population count as your estimate? (How many units should each of the 67 UGs “represent”?)\n\n \n\nWhat about the grad students and the professional students?"
+    "text": "Adjusting the Weights for the SRS of OSU Students\n\n\n\n\n\n\n\n\n\n\nGroup\n# in sample\nWeight \\((w_i)\\)\nEstimated Total \\((\\hat{t})\\)\nTrue Total \\((t)\\)\n\n\n\n\nUndergrads\n67\n614.4\n67 \\(\\times\\) 614.4 = 41166.8\n46815\n\n\nGrads\n23\n614.4\n23 \\(\\times\\) 614.4 = 14131.9\n11404\n\n\nProfs\n10\n614.4\n10 \\(\\times\\) 614.4 = 6144.3\n3224\n\n\n\n\nStart with the undergrads – what should the weight be for the 67 undergrads if you want to end up with the true population count as your estimate? (How many units should each of the 67 UGs “represent”?)\n\n \n\nWhat about the grad students and the professional students?"
   },
   {
     "objectID": "PUBHBIO7225_L10_poststrat.html#poststratification-of-the-srs-of-osu-students",
     "href": "PUBHBIO7225_L10_poststrat.html#poststratification-of-the-srs-of-osu-students",
     "title": "Poststratification",
     "section": "Poststratification of the SRS of OSU Students",
-    "text": "Poststratification of the SRS of OSU Students\n\n\n\n\n\n\n\n\n\n\n\n\n\nOrig. Weight\nEst. Total\nTrue Total\nPoststratified Weight\n\n\nPost-stratum\n\\(n_h\\)\n\\(w_{hj}\\)\n\\(\\widehat{N}_h\\)\n\\(N_h\\)\n\\(w_{hj}^{PS} = w_{hj} \\times \\frac{N_h}{\\widehat{N}_h}\\)\n\n\nUndergrad\n67\n614.4\n41166.81\n46815\n614.4\\(\\times\\) 46815 / 41166.81 = 698.7\n\n\nGrad\n23\n614.4\n14131.89\n11404\n614.4\\(\\times\\) 11404 / 14131.89 = 495.8\n\n\nProfessional\n10\n614.4\n6144.3\n3224\n614.4\\(\\times\\) 3224 / 6144.3 = 322.4\n\n\n\n\nNotice that the weights went up for undergrads, down for grad and professional\nThese new weights, \\(w_{hj}^{PS}\\), replace the original weights, \\(w_{hj}\\) for all calculations\nThis eﬀectively creates a stratified sample → use stratified sampling formulae for estimates\n\nE.g., Overall proportion: \\(\\hat{p}_{PS} = \\sum_{h=1}^H \\frac{N_h}{N} \\hat{p}_h\\)"
+    "text": "Poststratification of the SRS of OSU Students\n\n\n\n\n\n\n\n\n\n\n\nPost-stratum\nSample Size (\\(n_h\\))\nOrig. Weight (\\(w_{hj}\\))\nEst. Total (\\(\\widehat{N}_h\\))\nTrue Total (\\(N_h\\))\nPoststratified Weight \\(w_{hj}^{PS} = w_{hj} \\times \\frac{N_h}{\\widehat{N}_h}\\)\n\n\n\n\nUndergrad\n67\n614.4\n41166.81\n46815\n614.4\\(\\times\\) 46815 / 41166.81 = 698.7\n\n\nGrad\n23\n614.4\n14131.89\n11404\n614.4\\(\\times\\) 11404 / 14131.89 = 495.8\n\n\nProfessional\n10\n614.4\n6144.3\n3224\n614.4\\(\\times\\) 3224 / 6144.3 = 322.4\n\n\n\n\n\nNotice that the weights went up for undergrads, down for grad and professional\nThese new weights, \\(w_{hj}^{PS}\\), replace the original weights, \\(w_{hj}\\) for all calculations\nThis eﬀectively creates a stratified sample → use stratified sampling formulae for estimates\n\nE.g., Overall proportion: \\(\\hat{p}_{PS} = \\sum_{h=1}^H \\frac{N_h}{N} \\hat{p}_h\\)"
   },
   {
     "objectID": "PUBHBIO7225_L10_poststrat.html#poststratification-of-the-srs-of-osu-students-cont",
@@ -1859,14 +1859,14 @@
     "href": "PUBHBIO7225_L10_poststrat.html#variance-estimation-after-poststratification-of-an-srs",
     "title": "Poststratification",
     "section": "Variance Estimation after Poststratification (of an SRS)",
-    "text": "Variance Estimation after Poststratification (of an SRS)\n\nIf the strata are fixed at the design stage (\\(n_h\\) are fixed), we have the usual formula: \\(V(\\bar{y}_{str}) = \\sum_{h=1}^H \\left(\\frac{N_h}{N}\\right)^2  \\left(1-\\frac{n_h}{N_h}\\right)\\frac{S_h^2}{n_h}\\)\nWith poststratification, \\(n_h\\) are random variables and we can do some trickery to get: \\[\\begin{aligned}\nV(\\bar{y}_{PS}) &= E[ V(\\bar{y}_{str} | n_1, n_2, \\dots, n_h)] + V[ E(\\bar{y}_{str} | n_1, n_2, \\dots, n_h)] & \\\\\n&= E\\left[ \\sum_{h=1}^H \\left(\\frac{N_h}{N}\\right)^2  \\left(1-\\frac{n_h}{N_h}\\right)\\frac{S_h^2}{n_h}\\right] + \\underbrace{V(\\bar{y}_U)}_{\\text{\\small (= 0)}} = E\\left[\\sum_{h=1}^H \\left(\\frac{N_h}{N}\\right)^2  \\frac{S_h^2}{n_h} - \\sum_{h=1}^H \\left(\\frac{N_h}{N}\\right)^2  \\frac{S_h^2}{N_h}\\right]\\\\\n&= \\sum_{h=1}^H \\left(\\frac{N_h}{N}\\right)^2 S_h^2 E\\left(\\frac{1}{n_h}\\right) - \\sum_{h=1}^H \\left(\\frac{N_h}{N}\\right)^2  \\frac{S_h^2}{N_h}  \\quad (\\text{\\small only random variable is }n_h)\\\\\n&= \\dots \\text{using an approximation for } E(1/n_h) \\text{ and some algebra}\\dots \\\\\n&\\approx \\underbrace{\\sum_{h=1}^H \\frac{N_h}{N}\\left(1-\\frac{n}{N}\\right)\\frac{S_h^2}{n}}_{\\text{variance under proportional allocation!}} + \\underbrace{\\sum_{h=1}^H \\left(1-\\frac{N_h}{N} \\right) \\frac{S_h^2}{n^2}}_{\\text{extra variability due to $n_h$ being random}}\n\\end{aligned}\\]"
+    "text": "Variance Estimation after Poststratification (of an SRS)\n\n\nIf the strata are fixed at the design stage (\\(n_h\\) are fixed), we have the usual formula: \\[V(\\bar{y}_{str}) = \\sum_{h=1}^H \\left(\\frac{N_h}{N}\\right)^2  \\left(1-\\frac{n_h}{N_h}\\right)\\frac{S_h^2}{n_h}\\]\nWith poststratification, \\(n_h\\) are random variables and we can do some trickery to get: \\[\\begin{aligned}\nV(\\bar{y}_{PS}) &= E[ V(\\bar{y}_{str} | n_1, n_2, \\dots, n_h)] + V[ E(\\bar{y}_{str} | n_1, n_2, \\dots, n_h)] & \\\\\n&= E\\left[ \\sum_{h=1}^H \\left(\\frac{N_h}{N}\\right)^2  \\left(1-\\frac{n_h}{N_h}\\right)\\frac{S_h^2}{n_h}\\right] + \\underbrace{V(\\bar{y}_U)}_{\\text{\\small (= 0)}} = E\\left[\\sum_{h=1}^H \\left(\\frac{N_h}{N}\\right)^2  \\frac{S_h^2}{n_h} - \\sum_{h=1}^H \\left(\\frac{N_h}{N}\\right)^2  \\frac{S_h^2}{N_h}\\right]\\\\\n&= \\sum_{h=1}^H \\left(\\frac{N_h}{N}\\right)^2 S_h^2 E\\left(\\frac{1}{n_h}\\right) - \\sum_{h=1}^H \\left(\\frac{N_h}{N}\\right)^2  \\frac{S_h^2}{N_h}  \\quad (\\text{\\small only random variable is }n_h)\\\\\n&= \\dots \\text{using an approximation for } E(1/n_h) \\text{ and some algebra}\\dots \\\\\n&\\approx \\underbrace{\\sum_{h=1}^H \\frac{N_h}{N}\\left(1-\\frac{n}{N}\\right)\\frac{S_h^2}{n}}_{\\text{variance under proportional allocation!}} + \\underbrace{\\sum_{h=1}^H \\left(1-\\frac{N_h}{N} \\right) \\frac{S_h^2}{n^2}}_{\\text{extra variability due to $n_h$ being random}}\n\\end{aligned}\\]"
   },
   {
     "objectID": "PUBHBIO7225_L10_poststrat.html#variance-estimation-cont",
     "href": "PUBHBIO7225_L10_poststrat.html#variance-estimation-cont",
     "title": "Poststratification",
     "section": "Variance Estimation (con’t)",
-    "text": "Variance Estimation (con’t)\n\\(\\displaystyle V(\\bar{y}_{PS}) = \\textcolor{red}{\\sum_{h=1}^H \\frac{N_h}{N}\\left(1-\\frac{n}{N}\\right)\\frac{S_h^2}{n}} + \\textcolor{blue}{\\sum_{h=1}^H \\left(1-\\frac{N_h}{N} \\right) \\frac{S_h^2}{n^2}}\\)\n\nNotice that the is of order \\(n^{-2}\\) (\\(n^2\\) in denominator)\nUsually the 2nd term is really small compared to the first term\nThus, variance of the poststratified mean (of an SRS) is usually effectively the same as variance of the stratified mean under proportional allocation!\nThis holds as long as the total sample size \\(n\\) is “large” (and it is in most surveys)\nPoststratification (or related weight adjustment methods) are very commonly used in household surveys\n\nOften don’t have demographic info on the frame (example: OMAS), or it is limited\nDo have access to population counts of people based on demographics such as age/race groups from the Census or other source\nThus, use age and race (cross-classified) to post-stratify\n\nImportantly – poststratification can be used with complex survey designs(not just SRS)"
+    "text": "Variance Estimation (con’t)\n\\(\\displaystyle V(\\bar{y}_{PS}) = \\textcolor{red}{\\sum_{h=1}^H \\frac{N_h}{N}\\left(1-\\frac{n}{N}\\right)\\frac{S_h^2}{n}} + \\textcolor{blue}{\\sum_{h=1}^H \\left(1-\\frac{N_h}{N} \\right) \\frac{S_h^2}{n^2}}\\)\n\nUsually the 2nd term is really small compared to the first term\n\nNotice that 2nd term the is of order \\(n^{-2}\\) (\\(n^2\\) in denominator)\n\nThus, variance of the poststratified mean (of an SRS) is usually effectively the same as variance of the stratified mean under proportional allocation!\nThis holds as long as the total sample size \\(n\\) is “large” (and it is in most surveys)\nPoststratification (or related weight adjustment methods) are very commonly used in household surveys\n\nOften don’t have demographic info on the frame, or it is limited\nDo have access to population counts of people based on demographics such as age/race groups from the Census or other source\nThus, use age and race (cross-classified) to post-stratify\n\nImportantly – poststratification can be used with complex survey designs (not just SRS)"
   },
   {
     "objectID": "PUBHBIO7225_L10_poststrat.html#activity-9.1",
@@ -1880,7 +1880,7 @@
     "href": "PUBHBIO7225_L10_poststrat.html#post-survey-weight-adjustments-raking",
     "title": "Poststratification",
     "section": "Post-Survey Weight Adjustments: Raking",
-    "text": "Post-Survey Weight Adjustments: Raking\n\nOften we can get the population totals for a set of variables – age, race, etc. – but only the marginal counts\n\nWe know the number in each age group, and the number in each race group, but not in groups formed by crossing age and race (e.g., 18-25 year old white individuals, 18-25 year old Black individuals, etc.)\n\nIn this case, a method called raking can be used to adjust the weights to achieve the correct (true) marginal totals\n\nYou may see raking also referred to as “iterative proportional fitting”\nIn raking you iteratively adjust the sample weights to match each set of marginal totals, going back and forth between margins (variables) until convergence (until all margins “match” the truth)\nThis is easiest seen in an example…"
+    "text": "Post-Survey Weight Adjustments: Raking\n\nOften we can get the population totals for a set of variables – age, race, etc. – but only the marginal counts\n\nWe know the number in each age group, and the number in each race group, but not in groups formed by crossing age and race (e.g., 18-25 year old white individuals, 18-25 year old Black individuals, etc.)\n\n\n\n\nA method called raking can be used to adjust the weights to achieve the correct (true) marginal totals\n\nAlso called “iterative proportional fitting”\nIn raking you iteratively adjust the sample weights to match each set of marginal totals, going back and forth between margins (variables) until convergence (until all margins “match” the truth)\nThis is easiest seen in an example…"
   },
   {
     "objectID": "PUBHBIO7225_L10_poststrat.html#raking-for-the-srs-of-osu-students",
@@ -1901,14 +1901,14 @@
     "href": "PUBHBIO7225_L10_poststrat.html#raking-some-properties",
     "title": "Poststratification",
     "section": "Raking: Some Properties",
-    "text": "Raking: Some Properties\nPros\n\nCan be done with more than two variables\nDoes not always converge… diagnostics are often used to make sure adjustments are not too severe\nUsed extensively in U.S. household surveys where Census or other source can provide high quality totals\nUsed even when totals are not technically “known” but rather estimated with high precision – and with higher precision than fully crossed cells (e.g., level-by-residency) that would be needed for poststratification\n\nCon\n\nCan cause inflation of variances if variables used for poststratification are not related to the survey outcomes of interest\n\nJust like you want to stratify on variable(s) related to your key survey outcomes, you also want to poststratify or rake to variable(s) related to your key survey outcomes\n\n\nImportantly – raking can be used with complex survey designs (not just SRS)"
+    "text": "Raking: Some Properties\nPros\n\nCan be done with more than two variables\nUsed extensively in U.S. household surveys where Census or other source can provide high quality totals\nUsed even when totals are not technically “known” but rather estimated with high precision (and with higher precision than fully crossed cells needed for poststratification)\n\n\nCons\n\nDoes not always converge… diagnostics are often used to make sure adjustments are not too severe\nCan cause inflation of variances if variables used for poststratification are not related to the survey outcomes of interest\n\nJust like you want to stratify on variable(s) related to your key survey outcomes, you also want to poststratify or rake to variable(s) related to your key survey outcomes\n\n\n\n\nImportantly – raking can be used with complex survey designs (not just SRS)"
   },
   {
     "objectID": "PUBHBIO7225_L10_poststrat.html#caveats-for-post-survey-weight-adjustments",
     "href": "PUBHBIO7225_L10_poststrat.html#caveats-for-post-survey-weight-adjustments",
     "title": "Poststratification",
     "section": "Caveats for Post-Survey Weight Adjustments",
-    "text": "Caveats for Post-Survey Weight Adjustments\n\nTheoretically, could use a lot of variables for poststratification and raking\n\nProblem: Resulting poststrata can end up with small estimated total counts \\((\\widehat{N}_h)\\), which can make the weights highly variable and unstable\n\nOptions:\n\nCollapse categories in the variable(s) used for poststratification/raking (ad hoc solution)\nUse a model-based method that can handle more poststrata/raking variables and ensure groupings are not too small or weight adjustments are not too extreme\n\nExample: OMAS uses something called a Generalized Exponential Model (GEM) to simultaneously adjust the weights to a large set of auxiliary variables – basically, super-charged raking that sets bounds on how much weights can be changed\n\n\nPoststratification and raking are also commonly used for nonresponse adjustment and to adjust for undercoverage, so we will come back to them later in the course\nBoth poststratification and raking fall under an umbrella method called weight calibration – you may see this terminology used to describe your chosen group project surveys"
+    "text": "Caveats for Post-Survey Weight Adjustments\n\nTheoretically, could use a lot of variables for poststratification and raking\n\nProblem: Resulting poststrata can end up with small estimated total counts \\((\\widehat{N}_h)\\), which can make the weights highly variable and unstable\n\nOptions:\n\nCollapse categories in the variable(s) used for poststratification/raking (ad hoc solution)\nUse a model-based method that can handle more poststrata/raking variables and ensure groupings are not too small or weight adjustments are not too extreme\n\nExample: OMAS 2021 used a Generalized Exponential Model (GEM) to simultaneously adjust the weights to a large set of auxiliary variables – basically, super-charged raking that sets bounds on how much weights can be changed (methods report)\n\n\n\n\n\nPoststratification and raking are also commonly used for nonresponse adjustment and to adjust for undercoverage, so we will come back to them later in the course\nBoth poststratification and raking fall under an umbrella method called weight calibration – you may see this terminology used to describe your chosen group project surveys"
   },
   {
     "objectID": "probabilityReview.html",
@@ -2041,7 +2041,7 @@
     "href": "PUBHBIO7225_L10_poststrat.html#post-survey-weight-adjustments",
     "title": "Poststratification",
     "section": "Post-Survey Weight Adjustments",
-    "text": "Post-Survey Weight Adjustments\n\nEach student in your sample had a weight of \\(w_i = N/n =\\) 61443/100 = 614.4\nThus, our estimates of the population size in each group :\n\n\n\n\n\n\n\n\n\n\n\nGroup\n# in sample\nWeight \\(\\mathbf{(w_i)}\\)\nEstimated Total \\((\\hat{t})\\)\nTrue Total \\((t)\\)\n\n\n\n\nUndergrads\n67\n614.4\n67 \\(\\times\\) 614.4 = 41166.8\n46815\n\n\nGrads\n23\n614.4\n23 \\(\\times\\) 614.4 = 14131.9\n11404\n\n\nProfs\n10\n614.4\n10 \\(\\times\\) 614.4 = 6144.3\n3224\n\n\n\n\n\nOur estimates are not equal to the known truth\nBut, we can do something about this!\nWe can adjust the weights within each group so that estimated totals equal true totals\nWe want to down-weight grad students and professionals and up-weight undergrads\nThis is called Poststratification"
+    "text": "Post-Survey Weight Adjustments\n\nEach student in your sample had a weight of \\(w_i = N/n =\\) 61443/100 = 614.4\nThus, our estimates of the population size in each group :\n\n\n\n\n\n\n\n\n\n\n\nGroup\n# in sample\nWeight \\((w_i)\\)\nEstimated Total \\((\\hat{t})\\)\nTrue Total \\((t)\\)\n\n\n\n\nUndergrads\n67\n614.4\n67 \\(\\times\\) 614.4 = 41166.8\n46815\n\n\nGrads\n23\n614.4\n23 \\(\\times\\) 614.4 = 14131.9\n11404\n\n\nProfs\n10\n614.4\n10 \\(\\times\\) 614.4 = 6144.3\n3224\n\n\n\n\n\nOur estimates are not equal to the known truth\nBut, we can do something about this!\nWe can adjust the weights within each group so that estimated totals equal true totals\n\nWe want to down-weight grad students and professionals and up-weight undergrads\n\nThis is called Poststratification"
   },
   {
     "objectID": "PUBHBIO7225_L10_poststrat.html#poststratification",
@@ -2083,7 +2083,7 @@
     "href": "PUBHBIO7225_L10_poststrat.html#estimates-after-poststratification",
     "title": "Poststratification",
     "section": "Estimates after Poststratification",
-    "text": "Estimates after Poststratification\n\nFor example, estimating the proportion of students from Ohio:\n\n\n\n\n\n\n\n\n\nPost-stratum\nSample Proportion from Ohio \\(\\mathbf{(\\hat{p}_h)}\\)\nStratum Size \\(\\mathbf{(N_h)}\\)\n\n\n\n\nUndergrad \\((h=1)\\)\n49/67 = 0.7313433\n46815\n\n\nGrad \\((h=2)\\)\n14/23 = 0.6086957\n11404\n\n\nProfessional \\((h=3)\\)\n4/10 = 0.4\n3224\n\n\nTotal\n67/100 = 0.67\n61443\n\n\n\n\nPoststratified estimate of overall proportion from Ohio: \\[\\begin{flalign}\n\\hat{p}_{PS} &= \\sum_{h=1}^H \\frac{N_h}{N} \\hat{p}_h = \\frac{N_1}{N} \\hat{p}_1 + \\frac{N_1}{N} \\hat{p}_1 + \\frac{N_3}{N} \\hat{p}_3 & \\\\\n&= \\frac{\\text{46815}}{\\text{61443}} \\times \\text{0.731} + \\frac{\\text{11404}}{\\text{61443}} \\times \\text{0.609} + \\frac{\\text{3224}}{\\text{61443}} \\times \\text{0.4} = \\textbf{0.691}\n\\end{flalign}\\]\nSlightly higher than the original estimate of 67% – undergrads were underrepresented in the sample, and they are more likely to be from Ohio"
+    "text": "Estimates after Poststratification\n\nFor example, estimating the proportion of students from Ohio:\n\n\n\n\n\n\n\n\n\n\nPost-stratum\nSample Proportion from Ohio (\\(\\hat{p}_h\\))\nTrue Stratum Population Size (\\(N_h\\))\n\n\n\n\nUndergrad \\((h=1)\\)\n49/67 = 0.7313433\n46815\n\n\nGrad \\((h=2)\\)\n14/23 = 0.6086957\n11404\n\n\nProfessional \\((h=3)\\)\n4/10 = 0.4\n3224\n\n\nTotal\n67/100 = 0.67\n61443\n\n\n\n\n\nPoststratified estimate of overall proportion from Ohio: \\[\\begin{flalign}\n\\hat{p}_{PS} &= \\sum_{h=1}^H \\frac{N_h}{N} \\hat{p}_h = \\frac{N_1}{N} \\hat{p}_1 + \\frac{N_1}{N} \\hat{p}_1 + \\frac{N_3}{N} \\hat{p}_3 & \\\\\n&= \\frac{\\text{46815}}{\\text{61443}} \\times \\text{0.731} + \\frac{\\text{11404}}{\\text{61443}} \\times \\text{0.609} + \\frac{\\text{3224}}{\\text{61443}} \\times \\text{0.4} = \\textbf{0.691}\n\\end{flalign}\\]\nSlightly higher than the original estimate of 67% – undergrads were underrepresented in the sample, and they are more likely to be from Ohio"
   },
   {
     "objectID": "PUBHBIO7225_L10_poststrat.html#estimates-after-poststratification-cont",
@@ -2104,14 +2104,14 @@
     "href": "PUBHBIO7225_L10_poststrat.html#example-raking",
     "title": "Poststratification",
     "section": "Example: Raking",
-    "text": "Example: Raking\n\n\n\n\n\n\nMARGINS\nResidency\n\n\n\n\nLevel\nOH\nNon-OH\nTotal\n\n\nUndergrad\n?\n?\n46815\n\n\nGrad\n?\n?\n11404\n\n\nProfessional\n?\n?\n3224\n\n\nTotal\n42191\n19252\n61443\n\n\n\n\n\n\n\nSAMPLE DATA\nResidency\n\n\n\n\nLevel\nOH\nNon-OH\nTotal\n\n\nUndergrad\n49\n18\n67\n\n\nGrad\n14\n9\n23\n\n\nProfessional\n4\n6\n67\n\n\nTotal\n67\n33\n100\n\n\n\n\n\n\nStart with the row variable (level), and adjust the sample weights via poststratification\n\nSame as when we poststratified by level – new weights for each level\n(undergrad: \\(w_i\\) = 698.7; grad: \\(w_i\\) = 495.8; professional: \\(w_i\\) = 322.4)\n\nNow totals for level are right – but totals for the other variable (residency) are not\n\nEx: Sum of weights for OH = 49 \\(\\times\\) 698.7 + 14 \\(\\times\\) 495.8 + 4 \\(\\times\\) 322.4 = 42469 – but should be 42191\n\nSo, adjust the weights via poststratification using the other variable (residency)\n\n\nBut now the totals for the first variable (level) are wrong…so go back and adjust with those margins\nRepeat until weights don’t change (and marginal totals are correct!)"
+    "text": "Example: Raking\n\n\n\n\n\n\nMARGINS\nResidency\n\n\n\n\nLevel\nOH\nNon-OH\nTotal\n\n\nUndergrad\n?\n?\n46815\n\n\nGrad\n?\n?\n11404\n\n\nProfessional\n?\n?\n3224\n\n\nTotal\n42191\n19252\n61443\n\n\n\n\n\n\n\nSAMPLE DATA\nResidency\n\n\n\n\nLevel\nOH\nNon-OH\nTotal\n\n\nUndergrad\n49\n18\n67\n\n\nGrad\n14\n9\n23\n\n\nProfessional\n4\n6\n67\n\n\nTotal\n67\n33\n100\n\n\n\n\n\n\nStart with the row variable (level), and adjust the sample weights via poststratification\n\nSame as when we poststratified by level – new weights for each level\n(undergrad: \\(w_i\\) = 698.7; grad: \\(w_i\\) = 495.8; professional: \\(w_i\\) = 322.4)\n\n\n\n\nNow totals for level are right – but totals for the other variable (residency) are not\n\nEx: Sum of weights for OH = 49 \\(\\times\\) 698.7 + 14 \\(\\times\\) 495.8 + 4 \\(\\times\\) 322.4 = 42469 – but should be 42191\n\n\n\n\n\nSo, adjust the weights via poststratification using the other variable (residency)\n\n\n\nBut now the totals for the first variable (level) are wrong…so go back and adjust with those margins\n\n\n\n\n\nRepeat until weights don’t change (and marginal totals are correct!)"
   },
   {
     "objectID": "PUBHBIO7225_L10_poststrat.html#example-raking-cont",
     "href": "PUBHBIO7225_L10_poststrat.html#example-raking-cont",
     "title": "Poststratification",
     "section": "Example: Raking (con’t)",
-    "text": "Example: Raking (con’t)\nResulting survey weights for the SRS of OSU students:\n\n\n\n\n\n\n\n\n\nGroup\nSample Count\nOriginal Weight\nRaked Weight\n\n\n\n\nUndergrad / Ohio\n49\n614.4\n694.615\n\n\nGrad / Ohio\n14\n614.4\n491.583\n\n\nProfessional / Ohio\n4\n614.4\n318.189\n\n\nUndergrad / Not Ohio\n18\n614.4\n709.937\n\n\nGrad / Not Ohio\n9\n614.4\n502.427\n\n\nProfessional / Not Ohio\n6\n614.4\n325.208\n\n\n\n\nNotice that now we will get the correct totals for level and for residency!\n\nEx: Number of students from Ohio = 49 \\(\\times\\) 694.615 + 14 \\(\\times\\) 491.583 + 4 \\(\\times\\) 318.189 = 42191 ✓\nEx: Number of undergrads = 49 \\(\\times\\) 694.615 + 18 \\(\\times\\) 709.937 = 46815 ✓\n\nBut, we are not guaranteed to get the correct level-by-residency totals\n\nEx: Estimated number of undergrads from Ohio = 49 \\(\\times\\) 694.615 = 34036 ← not guaranteed to be right"
+    "text": "Example: Raking (con’t)\n\nResulting survey weights for the SRS of OSU students:\n\n\n\n\n\n\n\n\n\n\n\nGroup\nSample Count\nOriginal Weight\nRaked Weight\n\n\n\n\nUndergrad / Ohio\n49\n614.4\n694.615\n\n\nGrad / Ohio\n14\n614.4\n491.583\n\n\nProfessional / Ohio\n4\n614.4\n318.189\n\n\nUndergrad / Not Ohio\n18\n614.4\n709.937\n\n\nGrad / Not Ohio\n9\n614.4\n502.427\n\n\nProfessional / Not Ohio\n6\n614.4\n325.208\n\n\n\n\n\nNotice that now we will get the correct totals for level and for residency!\n\nEx: Number of students from Ohio = 49 \\(\\times\\) 694.615 + 14 \\(\\times\\) 491.583 + 4 \\(\\times\\) 318.189 = 42191 ✓\nEx: Number of undergrads = 49 \\(\\times\\) 694.615 + 18 \\(\\times\\) 709.937 = 46815 ✓\n\nBut, we are not guaranteed to get the correct level-by-residency totals\n\nEx: Estimated number of undergrads from Ohio = 49 \\(\\times\\) 694.615 = 34036 ← not guaranteed to be right"
   },
   {
     "objectID": "PUBHBIO7225_L11_introClusterSamp.html#outline",
@@ -3448,7 +3448,7 @@
     "href": "PUBHBIO7225_L03_samplingDistributions.html#selection-probabilities-srs-cont",
     "title": "Sampling Distributions",
     "section": "Selection Probabilities: SRS (con’t)",
-    "text": "Selection Probabilities: SRS (con’t)\n\nEach of the pieces from the Law of Total Probability:\n\n\\(P(A) = P(\\text{chosen on 1st}) = 0.2\\)\n\\(P(A^C) = P(\\text{NOT chosen on 1st}) = 1 - P(A) = 0.8\\)     (complement rule)\n\\(P(B|A) = P(\\text{chosen on 2nd }|\\text{ chosen on 1st}) = 0\\)     (sampling without replacement!)\n\\(P(B|A^C) = P(\\text{chosen on 2nd }|\\text{ NOT chosen on 1st}) = 1/4\\)\n\nPutting these pieces all together gives us \\(P(B) = P(\\text{Unit 1 selected on 2nd draw})\\)\n\n\n\nWe want to know the probability that unit (clinic) 1 is selected into the sample: \\[\\begin{aligned}\nP(\\text{Unit 1 in sample}) &{}= P(\\text{selected on 1st draw OR selected on 2nd draw}) \\\\\n&{}= P(A \\cup B)  \\quad\\qquad\\qquad\\qquad\\qquad\\qquad \\text{(union)}\\\\\n&{}= P(A) + P(B) - \\underbrace{P(A \\cap B)}_{=0 \\text{(why??)}} \\qquad\\qquad \\text{(addition rule)} \\\\\n&{}= 0.2 + 0.2 - 0 = \\mathbf{0.4}\n\\end{aligned}\\]"
+    "text": "Selection Probabilities: SRS (con’t)\n\nEach of the pieces from the Law of Total Probability:\n\n\\(P(A) = P(\\text{chosen on 1st}) = 0.2\\)\n\\(P(A^C) = P(\\text{NOT chosen on 1st}) = 1 - P(A) = 0.8\\)     (complement rule)\n\\(P(B|A) = P(\\text{chosen on 2nd }|\\text{ chosen on 1st}) = 0\\)     (sampling without replacement!)\n\\(P(B|A^C) = P(\\text{chosen on 2nd }|\\text{ NOT chosen on 1st}) = 1/4\\)\n\n\n\n\nPutting these pieces all together gives us \\(P(B) = P(\\text{Unit 1 selected on 2nd draw})\\)\n\n\\(P(B) = P(B|A) \\times P(A) + P(B|A^C) \\times P(A^C) = 0 \\times 0.2 + 1/4 \\times 0.8 = 0.2\\)\n\n\n\n\n\nWe want to know the probability that unit (clinic) 1 is selected into the sample: \\[\\begin{aligned}\nP(\\text{Unit 1 in sample}) &{}= P(\\text{selected on 1st draw OR selected on 2nd draw}) \\\\\n&{}= P(A \\cup B)  \\quad\\qquad\\qquad\\qquad\\qquad\\qquad \\text{(union)}\\\\\n&{}= P(A) + P(B) - \\underbrace{P(A \\cap B)}_{=0 \\text{(why??)}} \\qquad\\qquad \\text{(addition rule)} \\\\\n&{}= 0.2 + 0.2 - 0 = \\mathbf{0.4}\n\\end{aligned}\\]"
   },
   {
     "objectID": "PUBHBIO7225_L03_samplingDistributions.html#section",
@@ -4086,5 +4086,208 @@
     "title": "Logistic/Log-Binomial Regression\nwith Survey Data",
     "section": "Example (con’t)",
     "text": "Example (con’t)\n\nSurvey-weighted log-binomial regression (fit using Poisson “trick”)\n\n\nsvyglm(highapi ~ I(1-highell), family = poisson, design=des)\n\n1 - level Cluster Sampling design\nWith (38) clusters.\nsvydesign(id = ~dnum, weight = ~wt, fpc = ~N, data = samp)\n\nCall:  svyglm(formula = highapi ~ I(1 - highell), design = des, family = poisson)\n\nCoefficients:\n   (Intercept)  I(1 - highell)  \n        -1.796           1.383  \n\nDegrees of Freedom: 64 Total (i.e. Null);  36 Residual\nNull Deviance:      47.28 \nResidual Deviance: 37.07    AIC: 96.3\n\n\n\nPR = \\(e^\\text{1.383}\\) = 3.99"
+  },
+  {
+    "objectID": "PUBHBIO7225_L22_graphs.html#outline",
+    "href": "PUBHBIO7225_L22_graphs.html#outline",
+    "title": "Graphing Survey Data",
+    "section": "Outline",
+    "text": "Outline\n\n\n\n\n\nTopics\n\nSome Thoughts on Data Display\n\n\nActivities\n\n22.1 Graphing Survey Data\n\n\nAssignments\n\nQuiz 5 (last one!) due Thursday 11/20/2025 11:59pm via Carmen\n\nAdditional Remaining Due Dates\n\nGroup Project slides due Tuesday 12/2 (week after Thanksgiving)\nIndividual Project due Tuesday 12/9 (last week of classes)\nGroup Project paper due Thursday 12/18 (last day of finals)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L22_graphs.html#some-thoughts-on-data-display",
+    "href": "PUBHBIO7225_L22_graphs.html#some-thoughts-on-data-display",
+    "title": "Graphing Survey Data",
+    "section": "Some Thoughts on Data Display",
+    "text": "Some Thoughts on Data Display\n\nA picture is worth 1,000 words…but it’s also subjective.\nWhich do you prefer:\n\n\n\n\n\n\n\nMedicaid Region\n% No Usual Source of Care\n95% CI\n\n\n\n\nNorth Central\n9.3\n(7.7, 10.9)\n\n\nNorth East\n8.4\n(7.7, 9.2)\n\n\nNE Central\n8.7\n(7.4, 10.0)\n\n\nNorth West\n7.0\n(5.7, 8.4)\n\n\nSouth Central\n7.9\n(7.1, 8.7)\n\n\nSouth East\n7.3\n(6.1, 8.5)\n\n\nSouth West\n8.0\n(7.2, 8.8)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSame data/info, different displays (both are “data visualizations”)\nEach might be “optimal” in different situations / for different purposes"
+  },
+  {
+    "objectID": "PUBHBIO7225_L22_graphs.html#a-checklist-for-producing-good-data-visualizations1",
+    "href": "PUBHBIO7225_L22_graphs.html#a-checklist-for-producing-good-data-visualizations1",
+    "title": "Graphing Survey Data",
+    "section": "A Checklist for Producing “Good” Data Visualizations[^1]]",
+    "text": "A Checklist for Producing “Good” Data Visualizations[^1]]\n\nKnow your audience\nKnow the message you want to communicate (what’s the “story”?)\nConsider how and where the visualization will be presented\n\nE.g., Oral presentation with slides vs. Written paper vs. Poster presentation\n\nThe answer is not always a graph/chart! Sometimes tables are the better choice.\nAccessibility considerations are important\n\nIf you remove color, is the presentation still understandable?\nIs there enough contrast? Do the colors work for color-blind?\nIs there alternate text available?\n\nTry to be consistent across visualizations if there are common elements\n\nE.g., same line type or color for same group\nE.g., same order of columns across tables\n\n“Size, duration, complexity” – Is the visualization easy to understand? Is it too much for the audience to “digest”? Are you providing enough context/interpretation to ensure the audience can indeed “digest” it?\n\n[^1]Adapted from A guide to presenting statistics"
+  },
+  {
+    "objectID": "PUBHBIO7225_L22_graphs.html#tables-a-few-tips",
+    "href": "PUBHBIO7225_L22_graphs.html#tables-a-few-tips",
+    "title": "Graphing Survey Data",
+    "section": "Tables: A Few Tips",
+    "text": "Tables: A Few Tips\n\nProvide enough information for the table to be able to stand alone separate from the document in which it is embedded\n\nCaption should include the what/where/who/when – make sure the data source (e.g., survey) is cited!\n\nFootnotes can be used to include additional information\n\n\nClearly label what the numbers are\n\nunweighted n? weighted N? weighted percentages? etc.\n\nBe mindful of decimal places; think about significant digits\n\nWith survey data, often we present weighted N, which are large. Use thousands separators to make big numbers readable (9274893 vs 9,274,893)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L22_graphs.html#graphscharts-a-few-tips",
+    "href": "PUBHBIO7225_L22_graphs.html#graphscharts-a-few-tips",
+    "title": "Graphing Survey Data",
+    "section": "Graphs/Charts: A Few Tips",
+    "text": "Graphs/Charts: A Few Tips\n\nAnalyzing complex survey data? Always show weighted data!\nWhat you are trying to show with the graph? Let this inform your choice of graph.\n\nDistributions\nComparisons (between groups, within a group, over time, etc.)\nCorrelations / Associations\n\nUse colors to improve data display, not just for the sake of using color (remember: accessibility)\nAvoid 3-D or other “fancy” stuff – simpler/cleaner is usually better"
+  },
+  {
+    "objectID": "PUBHBIO7225_L22_graphs.html#some-types-of-charts-useful-for-survey-data",
+    "href": "PUBHBIO7225_L22_graphs.html#some-types-of-charts-useful-for-survey-data",
+    "title": "Graphing Survey Data",
+    "section": "(Some) Types of Charts Useful for Survey Data",
+    "text": "(Some) Types of Charts Useful for Survey Data\n\nHistograms\n\nUsed to show the distribution of a continuous/semi-continuous/discrete variable\nWeighted versions can be made easily with software\nGenerally more useful than boxplots for survey data\n\nDiscrete nature of (a lot of) survey data renders a boxplot less appealing\n\n\n\n\n\nScatterplots\n\nUsed to show relationship between two continuous/semi-continuous/discrete variables\nWeighted versions can be made with software\n\nSize of dot = weight (“bubble plot”)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L22_graphs.html#some-examples-from-omas-2017",
+    "href": "PUBHBIO7225_L22_graphs.html#some-examples-from-omas-2017",
+    "title": "Graphing Survey Data",
+    "section": "Some Examples (from OMAS 2017)",
+    "text": "Some Examples (from OMAS 2017)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L22_graphs.html#statisticians-least-favorite-chart-type1",
+    "href": "PUBHBIO7225_L22_graphs.html#statisticians-least-favorite-chart-type1",
+    "title": "Graphing Survey Data",
+    "section": "Statisticians’ Least Favorite Chart Type1",
+    "text": "Statisticians’ Least Favorite Chart Type1\n\n\n\nimage\n\n\n\nYou can’t even tell which pie slice is biggest!\nSome people “fix” this by adding the %s – but then what is the point of the plot?\n\n\nSeriously though – please don’t make pie charts.\nFrom an article undergoing peer review:\n\n\n\n\nimage\n\n\n\nFrom a published article in a peer-reviewed journal:\n\n\n\n\nimage\n\n\n\nWhat an instructor sees when checking on their SEI response rate:\n\n\n\n\nimage\n\n\n\nFrom the GA Department of Public Health’s website during COVID pandemic:\nExplanatory text (above the chart):\nThe chart below presents the number of newly confirmed COVID-19 cases over time. This chart is meant to aid understanding whether the outbreak is growing, leveling off, or declining, and can help to guide the COVID-19 response.\n\n\n\n\n\n\n\n\nDay 1:\nDay 2:\n\n\n\n\n\n\n\n\nGraphs/charts…\n\nare attention-grabbing (whether good or bad!)\nare often (always?) useful for presentations\n\nTip: sometimes graphs that work well in a paper need to be modified for presentation on slides/poster\n\nare harder to make (well) than you’d think\nshow up in PubMed abstracts!\nnaturally display numerical results less precisely than a table\nare not always the best choice for data display (tables are useful!)\ncan be fun to make, but also time-consuming (especially for perfectionists)\n\nI don’t expect perfect tables and graphs for your project, but there are components of the rubrics devoted to data display. For example:\n\n\n\nimage\n\n\n\nTechnically there are a few cases where pie charts can be used to eﬀectively communicate. . . but they are generally limited to what I’d call “infographic”-type displays. I’ve never seen a good one in a peer-reviewed journal or scientific presentation."
+  },
+  {
+    "objectID": "PUBHBIO7225_L22_graphs.html#activity-22.1",
+    "href": "PUBHBIO7225_L22_graphs.html#activity-22.1",
+    "title": "Graphing Survey Data",
+    "section": "Activity 22.1",
+    "text": "Activity 22.1\nGraphing Survey Data"
+  },
+  {
+    "objectID": "PUBHBIO7225_L22_graphs.html#a-guide-to-producing-good-data-visualizations1",
+    "href": "PUBHBIO7225_L22_graphs.html#a-guide-to-producing-good-data-visualizations1",
+    "title": "Graphing Survey Data",
+    "section": "A Guide to Producing “Good” Data Visualizations1",
+    "text": "A Guide to Producing “Good” Data Visualizations1\n\nKnow your audience\nKnow the message you want to communicate (what’s the “story”?)\nConsider how and where the visualization will be presented\n\nOral presentation with slides\nWritten paper\nPoster presentation\netc.\n\nThe answer is not always a graph/chart! Sometimes tables are the better choice.\nAccessibility considerations are important\n\nIf you remove color, is the presentation still understandable?\nIs there enough contrast? Do the colors work for color-blind?\nIs there alternate text available?\n\n\nAdapted from A guide to presenting statistics"
+  },
+  {
+    "objectID": "PUBHBIO7225_L22_graphs.html#a-guide-cont",
+    "href": "PUBHBIO7225_L22_graphs.html#a-guide-cont",
+    "title": "Graphing Survey Data",
+    "section": "A Guide (con’t)",
+    "text": "A Guide (con’t)\n\nTry to be consistent across visualizations if there are common elements\n\nE.g., same line type or color for same group\nE.g., same order of columns across tables\n\n“Size, duration, complexity”\n\nIs the visualization easy to understand?\nIs it too much for the audience to “digest”?\nAre you providing enough context/interpretation to ensure the audience can indeed “digest” it?"
+  },
+  {
+    "objectID": "PUBHBIO7225_L22_graphs.html#statisticians-least-favorite-chart-type2",
+    "href": "PUBHBIO7225_L22_graphs.html#statisticians-least-favorite-chart-type2",
+    "title": "Graphing Survey Data",
+    "section": "Statisticians’ Least Favorite Chart Type1",
+    "text": "Statisticians’ Least Favorite Chart Type1\n\n\n\nThe dreaded pie chart:\n\n\n\n\n\n\n\n\n\n\n\n\n\nYou can’t even tell which pie slice is biggest!\nSome people “fix” this by adding the %s – but then what is the point of the plot?\n\n\n\n\nSeriously though – please don’t make pie charts.\n\n\n\nTechnically there are a few cases where pie charts can be used to eﬀectively communicate. . . but they are generally limited to what I’d call “infographic”-type displays. I’ve never seen a good one in a peer-reviewed journal or scientific presentation."
+  },
+  {
+    "objectID": "PUBHBIO7225_L22_graphs.html#a-guide-to-producing-good-data-visualizations-cont",
+    "href": "PUBHBIO7225_L22_graphs.html#a-guide-to-producing-good-data-visualizations-cont",
+    "title": "Graphing Survey Data",
+    "section": "A Guide to Producing “Good” Data Visualizations (con’t)",
+    "text": "A Guide to Producing “Good” Data Visualizations (con’t)\n\nTry to be consistent across visualizations if there are common elements\n\nE.g., same line type or color for same group\nE.g., same order of columns across tables\n\n“Size, duration, complexity”\n\nIs the visualization easy to understand?\nIs it too much for the audience to “digest”?\nAre you providing enough context/interpretation to ensure the audience can indeed “digest” it?"
+  },
+  {
+    "objectID": "PUBHBIO7225_L22_graphs.html#give-me-your-thoughts-on-these-real-data-displays",
+    "href": "PUBHBIO7225_L22_graphs.html#give-me-your-thoughts-on-these-real-data-displays",
+    "title": "Graphing Survey Data",
+    "section": "Give Me Your Thoughts On These (Real) Data Displays",
+    "text": "Give Me Your Thoughts On These (Real) Data Displays\n\nFrom an article undergoing peer review:"
+  },
+  {
+    "objectID": "PUBHBIO7225_L22_graphs.html#give-me-your-thoughts-cont",
+    "href": "PUBHBIO7225_L22_graphs.html#give-me-your-thoughts-cont",
+    "title": "Graphing Survey Data",
+    "section": "Give Me Your Thoughts (con’t)",
+    "text": "Give Me Your Thoughts (con’t)\n\nFrom a published article in a peer-reviewed journal:"
+  },
+  {
+    "objectID": "PUBHBIO7225_L22_graphs.html#give-me-your-thoughts-cont-1",
+    "href": "PUBHBIO7225_L22_graphs.html#give-me-your-thoughts-cont-1",
+    "title": "Graphing Survey Data",
+    "section": "Give Me Your Thoughts (con’t)",
+    "text": "Give Me Your Thoughts (con’t)\n\nWhat an instructor sees when checking on their SEI response rate:"
+  },
+  {
+    "objectID": "PUBHBIO7225_L22_graphs.html#give-me-your-thoughts-cont-2",
+    "href": "PUBHBIO7225_L22_graphs.html#give-me-your-thoughts-cont-2",
+    "title": "Graphing Survey Data",
+    "section": "Give Me Your Thoughts (con’t)",
+    "text": "Give Me Your Thoughts (con’t)\n\nFrom the GA Department of Public Health’s website during COVID pandemic:\nExplanatory text (above the chart): The chart below presents the number of newly confirmed COVID-19 cases over time. This chart is meant to aid understanding whether the outbreak is growing, leveling off, or declining, and can help to guide the COVID-19 response.\n\n\n\n\nDay 1 \n\n\nDay 2"
+  },
+  {
+    "objectID": "PUBHBIO7225_L22_graphs.html#final-thoughts-on-chartsgraphs",
+    "href": "PUBHBIO7225_L22_graphs.html#final-thoughts-on-chartsgraphs",
+    "title": "Graphing Survey Data",
+    "section": "Final Thoughts on Charts/Graphs",
+    "text": "Final Thoughts on Charts/Graphs\n\nGraphs/charts…\n\nare attention-grabbing (whether good or bad!)\nare often (always?) useful for presentations\n\nTip: sometimes graphs that work well in a paper need to be modified for presentation on slides/poster\n\nare harder to make (well) than you’d think\nshow up in PubMed abstracts!\nnaturally display numerical results less precisely than a table\nare not always the best choice for data display (tables are useful!)\ncan be fun to make, but also time-consuming (especially for perfectionists)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L22_graphs.html#final-thoughts-cont",
+    "href": "PUBHBIO7225_L22_graphs.html#final-thoughts-cont",
+    "title": "Graphing Survey Data",
+    "section": "Final Thoughts (con’t)",
+    "text": "Final Thoughts (con’t)\n\nI don’t expect perfect tables and graphs for your project, but there are components of the rubrics devoted to data display. For example:\n\n\n\n\n\n\n\n\n\n\n\nCriterion\nPoor (0.5 points)\nGood (0.75 points)\nExcellent (1 point)\n\n\n\n\nTables – quality\nTables do not convey important or interesting information and contain many errors/incorrectly calculated statistics\nTables provide some important information but not entirely clear why some of them are included and/or contain some statistics that appear incorrectly calculated\nTables convey important information supporting the “story” of the paper and contain appropriately calculated statistics\n\n\nFigures – quality\nFigure(s) does not display information in a meaningful way and/or not explained well and/or contains statistical errors\nFigures(s) are hard to understand/not explained well or have calculation errors, but attempt to display information important to the paper’s “story”\nFigure(s) display information in a meaningful way, add to the “story” of the paper, are explained well, and contain appropriately calculated statistics"
+  },
+  {
+    "objectID": "PUBHBIO7225_L22_graphs.html#tables-a-few-tips-cont",
+    "href": "PUBHBIO7225_L22_graphs.html#tables-a-few-tips-cont",
+    "title": "Graphing Survey Data",
+    "section": "Tables: A Few Tips (con’t)",
+    "text": "Tables: A Few Tips (con’t)\n\nText/number alignment matters – a neat table is easier to read than a messy one\nPlease don’t use vertical lines in your tables (but do use horizontal ones, appropriately)\nComparisons are easiest to make vertically (though this is not always achievable)\n\nVertical comparison:\n\n\n\n\nSmoking Status\n% No Usual Source of Care\n\n\n\n\nCurrent\n11.3 (10.4, 12.2)\n\n\nNever/Former\n7.2 (6.8, 7.6)\n\n\n\n\nHorizontal comparison:\n\n\n\n\nCharacteristic\nCurrent Smoker\nNever/Former Smoker\n\n\n\n\n% No Usual Source\n11.3 (10.4, 12.2)\n7.2 (6.8, 7.6)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L22_graphs.html#graphscharts-a-few-tips-cont",
+    "href": "PUBHBIO7225_L22_graphs.html#graphscharts-a-few-tips-cont",
+    "title": "Graphing Survey Data",
+    "section": "Graphs/Charts: A Few Tips (con’t)",
+    "text": "Graphs/Charts: A Few Tips (con’t)\n\nEnsure text – axis labels, tick marks, legends, etc. – is readable (and big enough if in a slide presentation)\n\n\n\nDefault font sizes\n\n\n\n\n\n\n\n\n\n\nIncreased font sizes\n\n\n\n\n\n\n\n\n\n\n\nSeems obvious, but don’t make a misleading chart!\nYou don’t have to make the graph in the same software you used to do the analysis! Taking estimates from Stata/R and making a plot in Excel is fine (maybe don’t use the default graph settings)."
+  },
+  {
+    "objectID": "PUBHBIO7225_L22_graphs.html#graphscharts-a-few-tips-cont-1",
+    "href": "PUBHBIO7225_L22_graphs.html#graphscharts-a-few-tips-cont-1",
+    "title": "Graphing Survey Data",
+    "section": "## Graphs/Charts: A Few Tips (con’t)",
+    "text": "## Graphs/Charts: A Few Tips (con’t)\n\nEnsure text – axis labels, tick marks, legends, etc. – is readable (and big enough if in a slide presentation)\nSeems obvious, but don’t make a misleading chart!\nYou don’t have to make the graph in the same software you used to do the analysis! Taking estimates from Stata/R and making a plot in Excel is fine. (maybe don’t use the default graph settings)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L22_graphs.html#some-types-of-charts-useful-for-survey-data-1",
+    "href": "PUBHBIO7225_L22_graphs.html#some-types-of-charts-useful-for-survey-data-1",
+    "title": "Graphing Survey Data",
+    "section": "(Some) Types of Charts Useful for Survey Data",
+    "text": "(Some) Types of Charts Useful for Survey Data\n\nBar Charts\n\nShow the amount of something – counts (frequencies) or percentages\nShould not be used to show means! (“dynamite plots” are bad)\nClustered or Stacked bar charts can be used to show comparisons\n\nCan sometimes be complicated/hard to interpret\n\nBars can be vertical or horizontal (horizontal = good for long category labels)\n\n\n\n\nPoints and CI Bars\n\nShow means (or proportions) with CIs (or +/- SE)\nEasy to show comparisons across groups"
+  },
+  {
+    "objectID": "PUBHBIO7225_L22_graphs.html#some-types-of-charts-useful-for-survey-data-cont",
+    "href": "PUBHBIO7225_L22_graphs.html#some-types-of-charts-useful-for-survey-data-cont",
+    "title": "Graphing Survey Data",
+    "section": "(Some) Types of Charts Useful for Survey Data (con’t)",
+    "text": "(Some) Types of Charts Useful for Survey Data (con’t)\n\nBar Charts\n\nShow the amount of something – counts (frequencies) or percentages\nShould not be used to show means! (“dynamite plots” are bad)\nClustered or Stacked bar charts can be used to show comparisons\n\nCan sometimes be complicated/hard to interpret\n\nBars can be vertical or horizontal (horizontal = good for long category labels)\nWeighted versions straighforward – plot the weighted estimates\n\n\n\n\nPoints and CI Bars\n\nShow means (or proportions) with CIs (or +/- SE)\nEasy to show comparisons across groups\nWeighted versions straighforward – plot the weighted estimates"
+  },
+  {
+    "objectID": "PUBHBIO7225_L22_graphs.html#some-examples-from-2017-omas",
+    "href": "PUBHBIO7225_L22_graphs.html#some-examples-from-2017-omas",
+    "title": "Graphing Survey Data",
+    "section": "Some Examples (from 2017 OMAS)",
+    "text": "Some Examples (from 2017 OMAS)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L03_samplingDistributions.html#expectation",
+    "href": "PUBHBIO7225_L03_samplingDistributions.html#expectation",
+    "title": "Sampling Distributions",
+    "section": "Expectation",
+    "text": "Expectation\n\nExpectation = \\(\\displaystyle E(\\bar{y}) = \\sum_k k P(\\bar{y}=k)\\)\nmultiply each possible value (\\(k\\)) of the variable by its probability and sum\n\n\n\n\nFor the clinics SRS:\n\n\\[\\begin{align}\nE(\\bar{y}) &= \\sum_k k P(\\bar{y}=k) \\\\\n&= 15 \\times 0.1 + 30 \\times 0.1 + 35 \\times 0.2 + \\cdots + 105 \\times 0.1\\\\\n&= \\mathbf{58}= \\text{true population mean}\n\\end{align}\\]\n\nUnder the SRS sampling scheme, \\(\\bar{y}\\) is an unbiased estimate of mean of \\(y\\)\n\nThough, notice that no sample actually produces the true mean (\\(\\theta=58\\))!\n\n\n\n\n\n\n\\(\\hat{\\theta}=\\bar{y}\\)\nProbability\n\n\n\n\n15\n0.1\n\n\n30\n0.1\n\n\n35\n0.2\n\n\n40\n0.1\n\n\n55\n0.1\n\n\n80\n0.1\n\n\n85\n0.1\n\n\n100\n0.1\n\n\n105\n0.1"
+  },
+  {
+    "objectID": "PUBHBIO7225_L03_samplingDistributions.html#variance",
+    "href": "PUBHBIO7225_L03_samplingDistributions.html#variance",
+    "title": "Sampling Distributions",
+    "section": "Variance",
+    "text": "Variance\n\nVariance = \\(\\displaystyle V(\\bar{y}) = \\sum_k (k-E(\\bar{y}))^2 P(\\bar{y}=k)\\)\ntake each possible value (\\(k\\)), subtract the expected value and square the difference, multiply each by its probability, and sum\n\n\nFor the clinics SRS:\n\n\\[\\begin{align}\nV(\\bar{y}) &= \\sum_k (k-E(\\bar{y}))^2 P(\\bar{y}=k) \\\\\n& = (15-58)^2 \\times 0.1 + (30-58)^2 \\times 0.1 + \\cdots + (105-58)^2 \\times 0.1 = \\mathbf{921}\n\\end{align}\\]"
+  },
+  {
+    "objectID": "PUBHBIO7225_L03_samplingDistributions.html#design-based-inference",
+    "href": "PUBHBIO7225_L03_samplingDistributions.html#design-based-inference",
+    "title": "Sampling Distributions",
+    "section": "Design-Based Inference",
+    "text": "Design-Based Inference\n\nNote that we did not make any assumption about the distribution of the \\(y\\) values\nThe “randomness” is from the sampling\n\nA different sample will produce a different value of \\(\\bar{y}\\).\n\nThis is called design-based inference.\nSimulated 10,000 draws of \\(n=2\\) clinics from the population (without replacement)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L03_samplingDistributions.html#an-alternative-sampling-distribution-cont",
+    "href": "PUBHBIO7225_L03_samplingDistributions.html#an-alternative-sampling-distribution-cont",
+    "title": "Sampling Distributions",
+    "section": "An Alternative Sampling Distribution (con’t)",
+    "text": "An Alternative Sampling Distribution (con’t)\n\nA reasonable estimator for the population mean under this sampling scheme is:\n\n\\(\\hat{\\theta}_i = (4 y_i + y_5)/5\\) for \\(i = 1, 2, 3, 4\\)\n\nWhichever clinic is sampled (in addition to clinic 5) “represents” all 4 other units\n\n\n\n\n\n\nClinics Sampled\nProbability\n\\(y\\) values\n\\(\\hat{\\theta}\\)\n\n\n\n\n1, 5\n0.25\n10, 150\n(4*10 + 150)/5 = 38\n\n\n2, 5\n0.25\n20, 150\n(4*20 + 150)/5 = 46\n\n\n3, 5\n0.25\n50, 150\n(4*50 + 150)/5 = 70\n\n\n4, 5\n0.25\n60, 150\n(4*60 + 150)/5 = 78\n\n\n\n\n\n\n\\(E(\\hat{\\theta}) = \\sum_k k P(\\hat{\\theta}=k) = 38 \\times 0.25 + 46 \\times 0.25 + 70 \\times 0.25 + 78 \\times 0.25 = \\mathbf{58}\\)\n\nTrue population mean → unbiased estimator\n\n\\(V(\\hat{\\theta}) = \\sum_k (k-E(\\hat{\\theta}))^2 P(\\hat{\\theta}=k) = (38-58)^2 \\times 0.25 + \\cdots + (78-58)^2 \\times 0.25 = \\mathbf{272}\\)\n\nA whole lot smaller than under SRS (variance for SRS was 921)!"
   }
 ]

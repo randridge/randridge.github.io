@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-211bee566ce86fcb83c8148f581dc60e.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-37dd58ee8260662a2db356013c91c3b1.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -501,8 +501,15 @@ P(B) &amp;{}= P(B|A) \times P(A) + P(B|A^C) \times P(A^C) \\
 <li><p><span class="math inline">\(P(B|A) = P(\text{chosen on 2nd }|\text{ chosen on 1st}) = 0\)</span> &nbsp;&nbsp;&nbsp; <span class="alert"><em>(sampling without replacement!)</em></span></p></li>
 <li><p><span class="math inline">\(P(B|A^C) = P(\text{chosen on 2nd }|\text{ NOT chosen on 1st}) = 1/4\)</span></p></li>
 </ul></li>
-<li><p>Putting these pieces all together gives us <span class="math inline">\(P(B) = P(\text{Unit 1 selected on 2nd draw})\)</span></p></li>
 </ul>
+<div class="fragment">
+<ul>
+<li>Putting these pieces all together gives us <span class="math inline">\(P(B) = P(\text{Unit 1 selected on 2nd draw})\)</span>
+<ul>
+<li><span class="math inline">\(P(B) = P(B|A) \times P(A) + P(B|A^C) \times P(A^C) = 0 \times 0.2 + 1/4 \times 0.8 = 0.2\)</span></li>
+</ul></li>
+</ul>
+</div>
 <div class="fragment">
 <ul>
 <li>We want to know the <span class="alert2">probability that unit (clinic) 1 is selected into the sample</span>: <span class="math display">\[\begin{aligned}
@@ -550,7 +557,7 @@ P(\text{Unit 1 in sample}) &amp;{}= P(\text{selected on 1st draw OR selected on 
 </table>
 </div>
 </div><div class="column" style="width:50%;">
-<p>Average for each sample:</p>
+<p>Estimate for each sample:</p>
 <div class="smaller-text">
 <table class="caption-top">
 <thead>
@@ -638,6 +645,7 @@ P(\text{Unit 1 in sample}) &amp;{}= P(\text{selected on 1st draw OR selected on 
 <ul>
 <li>PMF:</li>
 </ul>
+<div class="smaller-text">
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -684,6 +692,7 @@ P(\text{Unit 1 in sample}) &amp;{}= P(\text{selected on 1st draw OR selected on 
 </tr>
 </tbody>
 </table>
+</div>
 </div><div class="column" style="width:60%;">
 <ul>
 <li>Graph:</li>
@@ -699,27 +708,105 @@ P(\text{Unit 1 in sample}) &amp;{}= P(\text{selected on 1st draw OR selected on 
 </div>
 </div></div>
 </section>
-<section id="expectation-and-variance" class="slide level2">
-<h2>Expectation and Variance</h2>
-<p><span class="math display">\[\begin{flalign}
-\text{Expectation } = E(\bar{y}) &amp;= \sum_k k P(\bar{y}=k) &amp; \\
-&amp;= 15 \times 0.1 ~ + ~ 30 \times 0.1 ~ + ~ 25 \times 0.2 ~ + \cdots + ~ 105 \times 0.1\\
+<section id="expectation" class="slide level2">
+<h2>Expectation</h2>
+<blockquote>
+<p><strong>Expectation</strong> = <span class="math inline">\(\displaystyle E(\bar{y}) = \sum_k k P(\bar{y}=k)\)</span><br>
+<em>multiply each possible value (</em><span class="math inline">\(k\)</span>) of the variable by its probability and sum</p>
+</blockquote>
+<div class="{columns}">
+<div class="column" style="width:70%;">
+<ul>
+<li>For the clinics SRS:</li>
+</ul>
+<p><span class="math display">\[\begin{align}
+E(\bar{y}) &amp;= \sum_k k P(\bar{y}=k) \\
+&amp;= 15 \times 0.1 + 30 \times 0.1 + 35 \times 0.2 + \cdots + 105 \times 0.1\\
 &amp;= \mathbf{58}= \text{true population mean}
-\end{flalign}\]</span></p>
+\end{align}\]</span></p>
 <ul>
 <li><p>Under the SRS sampling scheme, <span class="math inline">\(\bar{y}\)</span> is an <span class="alert">unbiased estimate</span> of mean of <span class="math inline">\(y\)</span><br>
 </p></li>
-<li><p>Though, notice that <span class="alert">no sample actually produces the true mean!</span></p></li>
+<li><p>Though, notice that <span class="alert">no sample actually produces the true mean (<span class="math inline">\(\theta=58\)</span>)!</span></p></li>
 </ul>
-<p><span class="math display">\[\begin{flalign}
-\text{Variance }=V(\bar{y}) &amp;= \sum_k (k-E(\bar{y}))^2 P(\bar{y}=k) &amp; \\
-&amp; = (15-58)^2 \times 0.1 + (30-58)^2 \times 0.1 + \cdots + (105-58)^2 \times 0.1 = \mathbf{921}
-\end{flalign}\]</span></p>
-<ul>
-<li><p>Note that we <strong>did not make any assumption about the distribution of the</strong> <span class="math inline">\(\mathbf{y}\)</span> <strong>values</strong> – the “randomness” is from the sampling scheme, from the fact that a different sample will produce a different value of <span class="math inline">\(\bar{y}\)</span>.</p></li>
-<li><p>This is called <span class="alert2"><strong>design-based inference</strong></span>.</p></li>
-</ul>
+</div><div class="column" style="width:30%;">
+<div class="smaller-text">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(\hat{\theta}=\bar{y}\)</span></th>
+<th style="text-align: center;">Probability</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">0.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">0.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">35</td>
+<td style="text-align: center;">0.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">40</td>
+<td style="text-align: center;">0.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">55</td>
+<td style="text-align: center;">0.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">80</td>
+<td style="text-align: center;">0.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">85</td>
+<td style="text-align: center;">0.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">0.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">105</td>
+<td style="text-align: center;">0.1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div>
 </section>
+<section id="variance" class="slide level2">
+<h2>Variance</h2>
+<blockquote>
+<p><strong>Variance</strong> = <span class="math inline">\(\displaystyle V(\bar{y}) = \sum_k (k-E(\bar{y}))^2 P(\bar{y}=k)\)</span><br>
+<em>take each possible value (</em><span class="math inline">\(k\)</span><em>), subtract the expected value and square the difference, multiply each by its probability, and sum</em></p>
+</blockquote>
+<ul>
+<li>For the clinics SRS:</li>
+</ul>
+<p><span class="math display">\[\begin{align}
+V(\bar{y}) &amp;= \sum_k (k-E(\bar{y}))^2 P(\bar{y}=k) \\
+&amp; = (15-58)^2 \times 0.1 + (30-58)^2 \times 0.1 + \cdots + (105-58)^2 \times 0.1 = \mathbf{921}
+\end{align}\]</span></p>
+</section>
+<section id="design-based-inference" class="slide level2">
+<h2>Design-Based Inference</h2>
+<ul>
+<li><p>Note that we <strong>did not make any assumption about the distribution of the</strong> <span class="math inline">\(y\)</span> <strong>values</strong></p></li>
+<li><p>The “randomness” is from the sampling</p>
+<ul>
+<li>A different sample will produce a different value of <span class="math inline">\(\bar{y}\)</span>.</li>
+</ul></li>
+<li><p>This is called <span class="alert2"><strong>design-based inference</strong></span>.</p></li>
+<li><p>Simulated 10,000 draws of <span class="math inline">\(n=2\)</span> clinics from the population (without replacement)</p></li>
+</ul>
+
+<img data-src="PUBHBIO7225_L03_samplingDistributions_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" alt="Bar graph showing the simulated probability distribution of y-bar corresponding to 10,000 replicate draws, with the x-axis labeled y-bar and the y-axis labeled 'Probability'." width="960"></section>
 <section id="an-alternative-sampling-distribution" class="slide level2">
 <h2>An Alternative Sampling Distribution</h2>
 <div class="columns">
@@ -758,7 +845,7 @@ P(\text{Unit 1 in sample}) &amp;{}= P(\text{selected on 1st draw OR selected on 
 <ul>
 <li><p>In this scheme, clinic 5 is <strong>always</strong> sampled.</p>
 <ul>
-<li>Clinic 5 is called a <strong>certainty unit</strong> <span class="math inline">\(\rightarrow P(\text{clinic 5 is sampled}) = 1\)</span></li>
+<li>Clinic 5 is called a <strong>certainty unit</strong> → <span class="math inline">\(P(\text{clinic 5 is sampled}) = 1\)</span></li>
 </ul></li>
 <li><p>Because of this, <span class="alert">not all units are selected with equal probability</span></p></li>
 <li><p>Thus the simple unweighted mean <span class="math inline">\((\bar{y})\)</span> in each sample is <strong>not</strong> a good estimate of the population mean! (Why?)</p></li>
@@ -769,14 +856,14 @@ P(\text{Unit 1 in sample}) &amp;{}= P(\text{selected on 1st draw OR selected on 
 (hint: each clinic 1-4 “represents” 4 clinics, and the 5th is itself…)</li>
 </ul>
 </section>
-<section id="an-alternative-sampling-distribution-1" class="slide level2">
-<h2>An Alternative Sampling Distribution</h2>
+<section id="an-alternative-sampling-distribution-cont" class="slide level2">
+<h2>An Alternative Sampling Distribution (con’t)</h2>
 <ul>
-<li>A reasonable estimator for the population mean under this sampling scheme is:</li>
-</ul>
-<p><span class="math inline">\(\hat{\theta}_i = (4 y_i + y_5)/5\)</span> for <span class="math inline">\(i = 1, 2, 3, 4\)</span></p>
+<li><p>A reasonable estimator for the population mean under this sampling scheme is:</p>
 <ul>
-<li>Whichever clinic is sampled (in addition to clinic 5) “represents” all 4 other units</li>
+<li><span class="math inline">\(\hat{\theta}_i = (4 y_i + y_5)/5\)</span> for <span class="math inline">\(i = 1, 2, 3, 4\)</span></li>
+</ul></li>
+<li><p>Whichever clinic is sampled (in addition to clinic 5) “represents” all 4 other units</p></li>
 </ul>
 <div class="smaller-text">
 <div class="center">
@@ -835,19 +922,21 @@ P(\text{Unit 1 in sample}) &amp;{}= P(\text{selected on 1st draw OR selected on 
 <li>The number of patients seen is positively correlated with the number of doctors. (Makes sense!)</li>
 </ul>
 
-<img data-src="PUBHBIO7225_L03_samplingDistributions_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" alt="Scatterplot showing number of doctors on x-axis and number of clinics on y-axis. The relationship is positive." width="960"><ul>
-<li><p>Using this <span class="alert2"><strong>auxiliary data</strong></span> – the number of doctors at each clinic – can help create a more efficient sampling scheme</p></li>
-<li><p>The idea of creating more efficient sampling designs using auxiliary information will come up repeatedly in this course</p></li>
+<img data-src="PUBHBIO7225_L03_samplingDistributions_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" alt="Scatterplot showing number of doctors on x-axis and number of clinics on y-axis. The relationship is positive." width="960"><ul>
+<li><p>Using <span class="alert2"><strong>auxiliary data</strong></span> (the number of doctors at each clinic) can create a more efficient sampling scheme</p>
+<ul>
+<li>This idea will come up repeatedly in this course</li>
+</ul></li>
 </ul>
 </section>
 <section id="mse-combining-bias-and-variance" class="slide level2">
 <h2>MSE: Combining Bias and Variance</h2>
 <ul>
-<li><p>Sometimes, we might prefer to allow a little bias in trade-off for much reduced variance</p></li>
-<li><p>Thus we often use another measure of the “accuracy” of an estimator:</p></li>
+<li>Sometimes, we might prefer to allow a little bias in trade-off for much reduced variance, and use another measure of the “accuracy” of an estimator:</li>
 </ul>
 <blockquote>
-<p><span class="alert2"><strong>Mean Squared Error (MSE):</strong></span> Variance + Bias-squared &nbsp; <span class="math display">\[MSE(\hat{\theta}) = E[(\hat{\theta}-\theta)^2] = V(\hat{\theta}) + [\text{Bias}(\hat{\theta})]^2\]</span></p>
+<p><span class="alert2"><strong>Mean Squared Error (MSE):</strong></span> <span class="math inline">\(MSE(\hat{\theta}) = E[(\hat{\theta}-\theta)^2] = V(\hat{\theta}) + [\text{Bias}(\hat{\theta})]^2\)</span><br>
+<em>Variance plus bias-squared</em></p>
 </blockquote>
 <ul>
 <li><p>We describe estimators as:</p>
@@ -857,7 +946,11 @@ P(\text{Unit 1 in sample}) &amp;{}= P(\text{selected on 1st draw OR selected on 
 <li><p><span class="alert"><strong>Accurate</strong></span> if <span class="math inline">\(MSE\)</span> is small</p></li>
 </ul></li>
 <li><p>An estimator can be biased and precise – but then its not accurate</p></li>
-<li><p><strong>MSE</strong> vs <strong>Variance</strong>: MSE measures how close an estimate is to the truth, while variance measures how close estimates are across different samples</p></li>
+<li><p><strong>MSE</strong> vs <strong>Variance</strong></p>
+<ul>
+<li>MSE measures how close an estimate is to the truth</li>
+<li>Variance measures how close estimates are across different samples</li>
+</ul></li>
 </ul>
 </section>
 <section id="activity-1.1-part-2" class="slide level2">

@@ -70,7 +70,7 @@ format:
 
 -   The **population** of clinics is:
 
-::: {.smaller-text}
+::: smaller-text
 |                                        |     |     |     |     |     |
 |----------------------------------------|:---:|:---:|:---:|:---:|:---:|
 | Clinic ID:                             |  1  |  2  |  3  |  4  |  5  |
@@ -94,7 +94,7 @@ format:
 
 -   There are lots of ways we could select $n=2$ clinics from the population of $N=5$. Consider two options:
 
-:::::: {.smaller-text}
+:::::: smaller-text
 ::::: columns
 ::: {.column width="30%"}
 | Clinics | Probability |
@@ -126,7 +126,6 @@ format:
 |  2, 5   |    0.04     |  4, 5   |    0.04     |         |             |
 :::
 :::::
-
 ::::::
 
 -   For both schemes (designs), the probability of selection is equal for every pair of units
@@ -153,9 +152,9 @@ format:
 
 -   Thus for sampling $n=2$ clinics from population of $N=5$ clinics:
 
-      -   SRSWR: \# possible samples = $N^n = 5^2 = 25$
-      
-      -   SRS: \# possible samples = $\binom{N}{n} = \binom{5}{2} = \frac{5!}{2! (5-2)!} = \frac{120}{2 \times 6} = \frac{120}{12} = 10$
+    -   SRSWR: \# possible samples = $N^n = 5^2 = 25$
+
+    -   SRS: \# possible samples = $\binom{N}{n} = \binom{5}{2} = \frac{5!}{2! (5-2)!} = \frac{120}{2 \times 6} = \frac{120}{12} = 10$
 
 ## Selection Probabilities
 
@@ -177,22 +176,21 @@ format:
 
 -   Define:
 
-      -   A = Unit (clinic) 1 is randomly selected on the first draw
-      
-      -   B = Unit (clinic) 1 is randomly selected on the second draw
+    -   A = Unit (clinic) 1 is randomly selected on the first draw
+
+    -   B = Unit (clinic) 1 is randomly selected on the second draw
 
 -   Since this is [SRSWR]{.alert}, each time we pick a clinic we "put it back"
 
 -   Thus $P(A) = P(B) = 1/N = 1/5 = 0.2$
 
--   Selection probability = [Probability that unit (clinic) 1 is selected into the sample]{.alert2}
-$$\begin{aligned}
-P(\text{Unit 1 in sample}) &{}= P(\text{selected on 1st draw OR selected on 2nd draw})\\
-&{}= P(A \cup B)  \quad\qquad\qquad\qquad\qquad\qquad \text{(union)}\\
-&{}= P(A) + P(B) - P(A \cap B) \qquad\qquad \text{(addition rule)} \\
-&{}= P(A) + P(B) -  P(A) \times P(B) \qquad \text{(A and B are independent)} \\
-&{}= 0.2 + 0.2 - 0.2 \times 0.2 = \mathbf{0.36}
-\end{aligned}$$
+-   Selection probability = [Probability that unit (clinic) 1 is selected into the sample]{.alert2} $$\begin{aligned}
+    P(\text{Unit 1 in sample}) &{}= P(\text{selected on 1st draw OR selected on 2nd draw})\\
+    &{}= P(A \cup B)  \quad\qquad\qquad\qquad\qquad\qquad \text{(union)}\\
+    &{}= P(A) + P(B) - P(A \cap B) \qquad\qquad \text{(addition rule)} \\
+    &{}= P(A) + P(B) -  P(A) \times P(B) \qquad \text{(A and B are independent)} \\
+    &{}= 0.2 + 0.2 - 0.2 \times 0.2 = \mathbf{0.36}
+    \end{aligned}$$
 
 -   For a review of these probability rules, see review sheet on Carmen.
 
@@ -200,13 +198,13 @@ P(\text{Unit 1 in sample}) &{}= P(\text{selected on 1st draw OR selected on 2nd 
 
 -   Now suppose we are taking a [simple random sample WITHOUT replacement (SRS)]{.alert2} of size $n=2$ from a population of size $N=5$.
 
-      -   A = Unit (clinic) 1 is randomly selected on the first draw
-      
-      -   B = Unit (clinic) 1 is randomly selected on the second draw
+    -   A = Unit (clinic) 1 is randomly selected on the first draw
+
+    -   B = Unit (clinic) 1 is randomly selected on the second draw
 
 -   As before, $P(A) = 1/5 = 0.2$ but $P(B) \ne P(A)$ !
 
-      -   [Why?]{.alert2}
+    -   [Why?]{.alert2}
 
 . . .
 
@@ -217,10 +215,10 @@ P(\text{Unit 1 in sample}) &{}= P(\text{selected on 1st draw OR selected on 2nd 
 . . .
 
 -   We can, however, use the **Law of Total Probability** to calculate $P(B)$: $$\begin{aligned}
-P(B) &{}= P(B|A) \times P(A) + P(B|A^C) \times P(A^C) \\
-&{} = P(\text{chosen on 2nd }|\text{ chosen on 1st}) \times P(\text{chosen on 1st}) \\
-&{} \qquad + P(\text{chosen on 2nd }|\text{ NOT chosen on 1st}) \times P(\text{NOT chosen on 1st})
-\end{aligned}$$
+    P(B) &{}= P(B|A) \times P(A) + P(B|A^C) \times P(A^C) \\
+    &{} = P(\text{chosen on 2nd }|\text{ chosen on 1st}) \times P(\text{chosen on 1st}) \\
+    &{} \qquad + P(\text{chosen on 2nd }|\text{ NOT chosen on 1st}) \times P(\text{NOT chosen on 1st})
+    \end{aligned}$$
 
 -   These are all quantities we know or can calculate!
 
@@ -228,24 +226,27 @@ P(B) &{}= P(B|A) \times P(A) + P(B|A^C) \times P(A^C) \\
 
 -   Each of the pieces from the Law of Total Probability:
 
-      -   $P(A) = P(\text{chosen on 1st}) = 0.2$
-      
-      -   $P(A^C) = P(\text{NOT chosen on 1st}) = 1 - P(A) = 0.8$     [*(complement rule)*]{.alert}
-      
-      -   $P(B|A) = P(\text{chosen on 2nd }|\text{ chosen on 1st}) = 0$     [*(sampling without replacement!)*]{.alert}
-      
-      -   $P(B|A^C) = P(\text{chosen on 2nd }|\text{ NOT chosen on 1st}) = 1/4$
+    -   $P(A) = P(\text{chosen on 1st}) = 0.2$
+
+    -   $P(A^C) = P(\text{NOT chosen on 1st}) = 1 - P(A) = 0.8$     [*(complement rule)*]{.alert}
+
+    -   $P(B|A) = P(\text{chosen on 2nd }|\text{ chosen on 1st}) = 0$     [*(sampling without replacement!)*]{.alert}
+
+    -   $P(B|A^C) = P(\text{chosen on 2nd }|\text{ NOT chosen on 1st}) = 1/4$
+
+. . .
 
 -   Putting these pieces all together gives us $P(B) = P(\text{Unit 1 selected on 2nd draw})$
+    -   $P(B) = P(B|A) \times P(A) + P(B|A^C) \times P(A^C) = 0 \times 0.2 + 1/4 \times 0.8 = 0.2$
 
 . . .
 
 -   We want to know the [probability that unit (clinic) 1 is selected into the sample]{.alert2}: $$\begin{aligned}
-P(\text{Unit 1 in sample}) &{}= P(\text{selected on 1st draw OR selected on 2nd draw}) \\
-&{}= P(A \cup B)  \quad\qquad\qquad\qquad\qquad\qquad \text{(union)}\\
-&{}= P(A) + P(B) - \underbrace{P(A \cap B)}_{=0 \text{(why??)}} \qquad\qquad \text{(addition rule)} \\
-&{}= 0.2 + 0.2 - 0 = \mathbf{0.4}
-\end{aligned}$$
+    P(\text{Unit 1 in sample}) &{}= P(\text{selected on 1st draw OR selected on 2nd draw}) \\
+    &{}= P(A \cup B)  \quad\qquad\qquad\qquad\qquad\qquad \text{(union)}\\
+    &{}= P(A) + P(B) - \underbrace{P(A \cap B)}_{=0 \text{(why??)}} \qquad\qquad \text{(addition rule)} \\
+    &{}= 0.2 + 0.2 - 0 = \mathbf{0.4}
+    \end{aligned}$$
 
 ## Activity 1.1 (Part 1)
 
@@ -257,22 +258,22 @@ Sampling Cats (Part 1)
 
 <p>
 
-::::: {.columns}
-
+::::::: columns
 :::: {.column width="50%"}
 Population values:
 
-::: {.smaller-text}
+::: smaller-text
 |                            |     |     |     |     |     |
 |---------------------------:|:---:|:---:|:---:|:---:|:---:|
 |                    Clinic: |  1  |  2  |  3  |  4  |  5  |
 | \# Patients per day ($y$): | 10  | 20  | 50  | 60  | 150 |
 :::
 ::::
-:::: {.column width="50%"}
-Average for each sample:
 
-::: {.smaller-text}
+:::: {.column width="50%"}
+Estimate for each sample:
+
+::: smaller-text
 | Clinics Sampled | Probability | $y$ values | $\hat{\theta}=\bar{y}$ |
 |:---------------:|:-----------:|:----------:|:----------------------:|
 |      1, 2       |    1/10     |   10, 20   |           15           |
@@ -289,17 +290,17 @@ Average for each sample:
 
 This is the [**sampling distribution**]{.alert} of $\hat{\theta}$ (i.e., $\bar{y}$)!
 ::::
-:::::
-
+:::::::
 
 ## Sampling Distribution for the Clinics SRS
 
 -   Notice that one value of $\hat{\theta}$ (35) appears twice -- so the sampling distribution is:
 
-::::: columns
-::: {.column width="40%"}
+:::::: columns
+:::: {.column width="40%"}
 -   PMF:
 
+::: smaller-text
 | $\hat{\theta}=\bar{y}$ | Probability |
 |:----------------------:|:-----------:|
 |           15           |     0.1     |
@@ -312,53 +313,121 @@ This is the [**sampling distribution**]{.alert} of $\hat{\theta}$ (i.e., $\bar{y
 |          100           |     0.1     |
 |          105           |     0.1     |
 :::
+::::
 
-::: {.column width="60%"}
+:::: {.column width="60%"}
 -   Graph:
 
 ```{r}
 #| echo: false
-#| fig-cap: ""
 #| fig-alt: "Bar graph showing the probability distribution of y-bar corresponding to the table, with the x-axis labeled y-bar and the y-axis labeled 'Probability'."
 
 library(tidyverse)
+theme_set(theme_bw())
 tibble(ybar = c(15,30,35,40,55,80,85,100,105),
        prob = c(0.1,0.1,0.2,0.1,0.1,0.1,0.1,0.1,0.1)) %>%
   ggplot(aes(y = prob, x = ybar)) + geom_bar(stat = "identity") + theme_bw() +
   labs(y = "Probability", x = expression(bar(y))) +
   theme(axis.title = element_text(size = 24),
-        axis.text = element_text(size = 20))
+        axis.text = element_text(size = 16)) +
+  scale_x_continuous(breaks = seq(15,105,5))
 ```
-:::
-:::::
+::::
+::::::
 
-## Expectation and Variance
+## Expectation
 
-$$\begin{flalign}
-\text{Expectation } = E(\bar{y}) &= \sum_k k P(\bar{y}=k) & \\
-&= 15 \times 0.1 ~ + ~ 30 \times 0.1 ~ + ~ 25 \times 0.2 ~ + \cdots + ~ 105 \times 0.1\\
+> **Expectation** = $\displaystyle E(\bar{y}) = \sum_k k P(\bar{y}=k)$\
+> *multiply each possible value (*$k$) of the variable by its probability and sum
+
+:::::: {columns}
+:::: {.column width = "70%"}
+
+-   For the clinics SRS:
+
+$$\begin{align}
+E(\bar{y}) &= \sum_k k P(\bar{y}=k) \\
+&= 15 \times 0.1 + 30 \times 0.1 + 35 \times 0.2 + \cdots + 105 \times 0.1\\
 &= \mathbf{58}= \text{true population mean}
-\end{flalign}$$
-  
+\end{align}$$
+
 -   Under the SRS sampling scheme, $\bar{y}$ is an [unbiased estimate]{.alert} of mean of $y$\
 
--   Though, notice that [no sample actually produces the true mean!]{.alert}
+-   Though, notice that [no sample actually produces the true mean ($\theta=58$)!]{.alert}
+::::
 
-$$\begin{flalign}
-\text{Variance }=V(\bar{y}) &= \sum_k (k-E(\bar{y}))^2 P(\bar{y}=k) & \\
+:::: {.column width = "30%"}
+::: {.smaller-text}
+
+| $\hat{\theta}=\bar{y}$ | Probability |
+|:----------------------:|:-----------:|
+|           15           |     0.1     |
+|           30           |     0.1     |
+|           35           |     0.2     |
+|           40           |     0.1     |
+|           55           |     0.1     |
+|           80           |     0.1     |
+|           85           |     0.1     |
+|          100           |     0.1     |
+|          105           |     0.1     |
+
+::: 
+:::: 
+::::::
+
+## Variance
+
+> **Variance** = $\displaystyle V(\bar{y}) = \sum_k (k-E(\bar{y}))^2 P(\bar{y}=k)$\
+> *take each possible value (*$k$*), subtract the expected value and square the difference, multiply each by its probability, and sum*
+
+-   For the clinics SRS:
+
+$$\begin{align}
+V(\bar{y}) &= \sum_k (k-E(\bar{y}))^2 P(\bar{y}=k) \\
 & = (15-58)^2 \times 0.1 + (30-58)^2 \times 0.1 + \cdots + (105-58)^2 \times 0.1 = \mathbf{921}
-\end{flalign}$$
+\end{align}$$
 
--   Note that we **did not make any assumption about the distribution of the** $\mathbf{y}$ **values** -- the "randomness" is from the sampling scheme, from the fact that a different sample will produce a different value of $\bar{y}$.
+## Design-Based Inference
+
+-   Note that we **did not make any assumption about the distribution of the** $y$ **values**
+
+-   The "randomness" is from the sampling
+
+    -   A different sample will produce a different value of $\bar{y}$.
 
 -   This is called [**design-based inference**]{.alert2}.
 
+-   Simulated 10,000 draws of $n=2$ clinics from the population (without replacement)
+
+```{r}
+#| fig-alt: "Bar graph showing the simulated probability distribution of y-bar corresponding to 10,000 replicate draws, with the x-axis labeled y-bar and the y-axis labeled 'Probability'."
+#| fig-align: center
+pop <- tibble(clinic = 1:5,
+              patients = c(10, 20, 50, 60, 150))
+set.seed(7489243)
+pop %>%
+  infer::rep_slice_sample(n=2, reps=10000) %>%
+  group_by(replicate) %>%
+  summarize(ybar = mean(patients)) %>%
+  group_by(ybar) %>%
+  tally() %>%
+  mutate(prob = n/10000) -> temp
+temp %>%
+  ggplot(aes(y = prob, x = ybar)) + geom_bar(stat = "identity") + 
+  geom_bar(stat = "identity") + 
+  labs(y = "Fraction of Replicates", x = expression(bar(y))) +
+  theme(axis.title = element_text(size = 24),
+        axis.text = element_text(size = 16)) +
+  scale_x_continuous(breaks = seq(15,105,5))
+```
+
 ## An Alternative Sampling Distribution
 
-::::{.columns}
+::::: columns
 ::: {.column width="60%"}
 -   Consider the following alternative sampling scheme:
 :::
+
 ::: {.column width="40%"}
 | Clinics | Probability |
 |:-------:|:-----------:|
@@ -366,13 +435,12 @@ $$\begin{flalign}
 |  2, 5   |    0.25     |
 |  3, 5   |    0.25     |
 |  4, 5   |    0.25     |
-
 :::
-::::
+:::::
 
 -   In this scheme, clinic 5 is **always** sampled.
 
-      -   Clinic 5 is called a **certainty unit** $\rightarrow P(\text{clinic 5 is sampled}) = 1$
+    -   Clinic 5 is called a **certainty unit** → $P(\text{clinic 5 is sampled}) = 1$
 
 -   Because of this, [not all units are selected with equal probability]{.alert}
 
@@ -381,18 +449,17 @@ $$\begin{flalign}
 <p>
 
 -   Can you come up with a way to estimate the mean?\
-(hint: each clinic 1-4 "represents" 4 clinics, and the 5th is itself...)
+    (hint: each clinic 1-4 "represents" 4 clinics, and the 5th is itself...)
 
-## An Alternative Sampling Distribution
+## An Alternative Sampling Distribution (con't)
 
 -   A reasonable estimator for the population mean under this sampling scheme is:
 
-
-$\hat{\theta}_i = (4 y_i + y_5)/5$ for $i = 1, 2, 3, 4$
+    -   $\hat{\theta}_i = (4 y_i + y_5)/5$ for $i = 1, 2, 3, 4$
 
 -   Whichever clinic is sampled (in addition to clinic 5) "represents" all 4 other units
 
-:::: {.smaller-text}
+:::: smaller-text
 ::: center
 | Clinics Sampled | Probability | $y$ values |    $\hat{\theta}$    |
 |:---------------:|:-----------:|:----------:|:--------------------:|
@@ -429,17 +496,16 @@ tibble(doctors = c(2,3,4,5,10),
         axis.text = element_text(size = 20))
 ```
 
--   Using this [**auxiliary data**]{.alert2} -- the number of doctors at each clinic -- can help create a more efficient sampling scheme
+-   Using [**auxiliary data**]{.alert2} (the number of doctors at each clinic) can create a more efficient sampling scheme
 
--   The idea of creating more efficient sampling designs using auxiliary information will come up repeatedly in this course
+    -   This idea will come up repeatedly in this course
 
 ## MSE: Combining Bias and Variance
 
--   Sometimes, we might prefer to allow a little bias in trade-off for much reduced variance
+-   Sometimes, we might prefer to allow a little bias in trade-off for much reduced variance, and use another measure of the "accuracy" of an estimator:
 
--   Thus we often use another measure of the "accuracy" of an estimator:
-
-> [**Mean Squared Error (MSE):**]{.alert2} Variance + Bias-squared &nbsp; $$MSE(\hat{\theta}) = E[(\hat{\theta}-\theta)^2] = V(\hat{\theta}) + [\text{Bias}(\hat{\theta})]^2$$
+> [**Mean Squared Error (MSE):**]{.alert2} $MSE(\hat{\theta}) = E[(\hat{\theta}-\theta)^2] = V(\hat{\theta}) + [\text{Bias}(\hat{\theta})]^2$ \
+> *Variance plus bias-squared*
 
 -   We describe estimators as:
 
@@ -451,7 +517,9 @@ tibble(doctors = c(2,3,4,5,10),
 
 -   An estimator can be biased and precise -- but then its not accurate
 
--   **MSE** vs **Variance**: MSE measures how close an estimate is to the truth, while variance measures how close estimates are across different samples
+-   **MSE** vs **Variance**
+      -   MSE measures how close an estimate is to the truth
+      -   Variance measures how close estimates are across different samples
 
 ## Activity 1.1 (Part 2)
 
