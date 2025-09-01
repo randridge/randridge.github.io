@@ -1,0 +1,522 @@
+---
+title: "Graphing Survey Data"
+subtitle: "PUBHBIO 7225 Lecture 22"
+author: "Generative AI acknowledgment: Google Gemini was used to assist in generating alt text for most images"
+format:
+  revealjs: 
+    slide-number: true
+    smaller: true
+    footer: "PUBHBIO 7225"
+    width: 1280
+    height: 720
+    theme: custom.scss
+    html-math-method: mathjax
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+## Outline
+
+<!-- ::: hidden -->
+
+<!-- \newcommand{\logit}{\mathrm{logit}} -->
+
+<!-- ::: -->
+
+::::: columns
+::: {.column width="60%"}
+**Topics**
+
+-   Some Thoughts on Data Display
+:::
+
+::: {.column width="40%"}
+**Activities**
+
+-   22.1 Graphing Survey Data
+:::
+:::::
+
+**Assignments**
+
+-   Quiz 5 (last one!) due Thursday 11/20/2025 11:59pm via Carmen
+
+**Additional Remaining Due Dates**
+
+-   Group Project **slides** due [Tuesday]{.underline} 12/2 (week after
+    Thanksgiving)
+
+-   Individual Project due [Tuesday]{.underline} 12/9 (last week of
+    classes)
+
+-   Group Project **paper** due Thursday 12/18 (last day of finals)
+
+## Some Thoughts on Data Display
+
+```{r}
+library(tidyverse)
+library(survey)
+theme_set(theme_bw())
+omas2017 <- readRDS("./datasets/omas_2017_puf_04252023.rds")
+omas2017 <- omas2017 %>%
+  mutate(smoke = case_when(smoke_stat == 4 ~ NA, .default = smoke_stat),
+         smoke = factor(smoke, levels=1:3, labels=c("Never Smoked", "Former Smoker", "Current Smoker")),
+         currsmoke = 1*(smoke == "Current Smoker"),
+         nousual = case_when(usual_a == 2 ~ 1,
+                             usual_a == 1 ~ 0),
+         mc_region = factor(mc_region, 
+                            levels=1:7, 
+                            labels=c("North Central", "North East", "NE Central", 
+                                     "North West", "South Central", "South East", "South West")),
+         drinks = case_when(D46 %in% c(98,99) ~ NA, .default = D46),
+         c_height = case_when(PL125A2 == 1 ~ L125AP_F*12 + L125AP_I)) %>%
+  mutate(d30_imp_f = factor(d30_imp, 
+                            levels=1:5, 
+                            labels=c("Excellent", "Very Good", "Good", "Fair", "Poor")),
+         currsmoke_f = factor(currsmoke, 
+                              levels=c(1,0), 
+                              labels=c("Current", "Never/Former")))
+
+des.omas <- svydesign(id = ~1, weights = ~WT_A, strata = ~STRATA, data=omas2017)
+```
+
+
+-   A picture is worth 1,000 words...but it's also subjective.
+
+-   Which do you prefer:
+
+:::::: columns
+:::: {.column width="50%"}
+::: even-smaller-text
+| Medicaid Region     |  \% No Usual Source of Care  |  95% CI | 
+|:--------------|:--------------:|:-----------:|
+| North Central |      9.3       | (7.7, 10.9) |
+| North East    |      8.4       | (7.7, 9.2)  |
+| NE Central    |      8.7       | (7.4, 10.0) |
+| North West    |      7.0       | (5.7, 8.4)  |
+| South Central |      7.9       | (7.1, 8.7)  |
+| South East    |      7.3       | (6.1, 8.5)  |
+| South West    |      8.0       | (7.2, 8.8)  |
+:::
+::::
+::: {.column width="50%"}
+```{r}
+#| fig-alt: "A dot plot showing the percentage of people with no usual source of care across different Medicaid regions. The dots represent the mean, and the horizontal lines represent the confidence intervals. The North Central and North East regions have a higher percentage of people without a usual source of care than other regions."
+# usual source of care, by region
+est <- svyby(~nousual, ~mc_region, design=des.omas, svymean, na.rm = TRUE)
+ci <- confint(est) %>% as_tibble()
+est %>% 
+  as_tibble() %>% 
+  bind_cols(ci) %>% 
+  ggplot(aes(y=mc_region, x=nousual)) + 
+  geom_point() + 
+  geom_errorbar(aes(xmin=`2.5 %`, xmax=`97.5 %`), width=0.1) + 
+  labs(x="No usual source of care", y="Medicaid Region") + 
+  scale_x_continuous(labels = scales::percent) + 
+  coord_cartesian(xlim=c(NA, 0.11)) + 
+  theme(axis.text = element_text(size=14),
+        axis.title = element_text(size=16))
+# ggsave("./omas_usual_by_region.pdf", width=4, height=4)
+```
+:::
+::::::
+
+-   Same data/info, different displays (both are "data visualizations")
+
+-   Each might be "optimal" in different situations / for different
+    purposes
+
+## A Guide to Producing "Good" Data Visualizations[^1]
+
+[^1]: Adapted from [A guide to presenting
+    statistics](https://unece.org/statistics/making-data-meaningful)
+
+-   Know your audience
+
+-   Know the message you want to communicate (what's the "story"?)
+
+-   Consider how and where the visualization will be presented
+
+    -   Oral presentation with slides
+    -   Written paper
+    -   Poster presentation
+    -   etc.
+
+-   **The answer is not always a graph/chart!** Sometimes tables are the
+    better choice.
+
+-   Accessibility considerations are important
+
+    -   If you remove color, is the presentation still understandable?
+
+    -   Is there enough contrast? Do the colors work for color-blind?
+
+    -   Is there alternate text available?
+
+## A Guide to Producing "Good" Data Visualizations (con't)
+
+-   Try to be consistent across visualizations if there are common
+    elements
+
+    -   E.g., same line type or color for same group
+
+    -   E.g., same order of columns across tables
+
+-   "Size, duration, complexity"
+
+    -   Is the visualization easy to understand?
+    -   Is it too much for the audience to "digest"?
+    -   Are you providing enough context/interpretation to ensure the
+        audience can indeed "digest" it?
+
+## Tables: A Few Tips
+
+-   Provide enough information for the table to be able to stand alone
+    *separate from the document in which it is embedded*
+
+    -   Caption should include the what/where/who/when -- make sure the
+        data source (e.g., survey) is cited!
+        -   Footnotes can be used to include additional information
+
+-   Clearly label what the numbers are
+
+    -   unweighted n? weighted N? weighted percentages? etc.
+
+-   Be mindful of decimal places; think about significant digits
+
+    -   With survey data, often we present weighted N, which are large.
+        Use thousands separators to make big numbers readable (9274893
+        vs 9,274,893)
+
+## Tables: A Few Tips (con't)
+
+-   Text/number alignment matters -- a neat table is easier to read than
+    a messy one
+
+-   Please don't use vertical lines in your tables (but do use
+    horizontal ones, appropriately)
+
+-   Comparisons are easiest to make *vertically* (though this is not
+    always achievable)
+
+*Vertical comparison:*
+
+<!-- ::: {.smaller-text} -->
+| Smoking Status | % No Usual Source of Care   |
+|:-------------|:------------------:|
+| Current      |  11.3 (10.4, 12.2) |
+| Never/Former |   7.2 (6.8, 7.6)   |
+<!-- ::: -->
+
+*Horizontal comparison:*
+
+<!-- ::: {.smaller-text} -->
+| Characteristic  | Current Smoker    | Never/Former Smoker |
+|--------------------|:-----------------:|:--------------:|
+| \% No Usual Source | 11.3 (10.4, 12.2) | 7.2 (6.8, 7.6) |
+<!-- ::: -->
+
+## Graphs/Charts: A Few Tips
+
+-   Analyzing complex survey data? **Always show weighted data!**
+
+-   What you are trying to show with the graph? Let this inform your
+    choice of graph.
+
+    -   Distributions
+
+    -   Comparisons (between groups, within a group, over time, etc.)
+
+    -   Correlations / Associations
+
+-   Use colors to improve data display, not just for the sake of using
+    color (remember: accessibility)
+
+-   Avoid 3-D or other "fancy" stuff -- simpler/cleaner is usually
+    better
+
+::: {layout-ncol=3}
+![](./figures/bar_badColors){fig-alt="A bar chart with the x-axis labeled 'Number of classes ditched per month.' The bars are all different, random colors: orange, light blue, purple, light green, reddish-brown, dark blue, dark purple, and light gray. The y-axis shows a count, and the bars have varying heights, with the tallest bar being light green."}
+
+![](./figures/bar_bad3D){fig-alt="A bar chart with the x-axis labeled 'Number of classes ditched per month.' All bars are the same color, a gradient of light to dark blue, and have a 3D effect. The y-axis shows a count, and the bars have varying heights, with the tallest bar appearing to be in the middle of the chart."}
+
+![](./figures/bar_goodColors){fig-alt="A bar chart with the x-axis labeled 'Number of classes ditched per month.' All bars are the same light blue color and are a consistent 2D style. The y-axis shows a count, and the bars have varying heights, with the tallest bar being the fourth one from the left."}
+:::
+
+## Graphs/Charts: A Few Tips (con't)
+
+-   Ensure text -- axis labels, tick marks, legends, etc. -- is readable
+    (and big enough if in a slide presentation)
+
+::::: {columns}
+::: {.column width="50%"}
+**Default font sizes**
+
+```{r}
+#| fig-alt: "A plot with default font sizes on axis. A dot plot showing the percentage of people with no usual source of care across different Medicaid regions. The dots represent the mean, and the horizontal lines represent the confidence intervals. The North Central and North East regions have a higher percentage of people without a usual source of care than other regions."
+# usual source of care, by region
+est %>% 
+  as_tibble() %>% 
+  bind_cols(ci) %>% 
+  ggplot(aes(y=mc_region, x=nousual)) + 
+  geom_point() + 
+  geom_errorbar(aes(xmin=`2.5 %`, xmax=`97.5 %`), width=0.1) + 
+  labs(x="No usual source of care", y="Medicaid Region") + 
+  scale_x_continuous(labels = scales::percent) + 
+  coord_cartesian(xlim=c(NA, 0.11))
+```
+:::
+::: {.column width="50%"}
+**Increased font sizes**
+
+```{r}
+#| fig-alt: "A plot with increased font sizes on axis. A dot plot showing the percentage of people with no usual source of care across different Medicaid regions. The dots represent the mean, and the horizontal lines represent the confidence intervals. The North Central and North East regions have a higher percentage of people without a usual source of care than other regions."
+# usual source of care, by region
+est %>% 
+  as_tibble() %>% 
+  bind_cols(ci) %>% 
+  ggplot(aes(y=mc_region, x=nousual)) + 
+  geom_point() + 
+  geom_errorbar(aes(xmin=`2.5 %`, xmax=`97.5 %`), width=0.1) + 
+  labs(x="No usual source of care", y="Medicaid Region") + 
+  scale_x_continuous(labels = scales::percent) + 
+  coord_cartesian(xlim=c(NA, 0.11)) + 
+  theme(axis.text = element_text(size=14),
+        axis.title = element_text(size=16))
+```
+:::
+:::::
+-   Seems obvious, but don't make a misleading chart!
+
+-   You don't have to make the graph in the same software you used to do
+    the analysis! Taking estimates from Stata/R and making a plot in
+    Excel is fine (maybe don't use the default graph settings).
+
+## (Some) Types of Charts Useful for Survey Data
+
+-   **Histograms**
+
+      -   Used to show the distribution of a
+          continuous/semi-continuous/discrete variable
+      
+      -   Weighted versions can be made easily with software
+      
+      -   Generally more useful than boxplots for survey data
+            -   Discrete nature of (a lot of) survey data renders a boxplot less appealing
+
+<p>
+
+-   **Scatterplots**
+
+      -   Used to show relationship between two
+          continuous/semi-continuous/discrete variables
+      
+      -   Weighted versions can be made with software
+            -   Size of dot = weight ("bubble plot")
+
+## (Some) Types of Charts Useful for Survey Data (con't)
+
+-   **Bar Charts**
+
+      -   Show the *amount* of something -- counts (frequencies) or
+          percentages
+      
+      -   Should not be used to show means! ("dynamite plots" are bad)
+      
+      -   Clustered or Stacked bar charts can be used to show comparisons
+            -   Can sometimes be complicated/hard to interpret
+      
+      -   Bars can be vertical or horizontal (horizontal = good for long
+          category labels)
+          
+      -   Weighted versions straighforward -- plot the weighted estimates
+
+<p>
+
+-   **Points and CI Bars**
+
+      -   Show means (or proportions) with CIs (or +/- SE)
+      
+      -   Easy to show comparisons across groups
+      
+      -   Weighted versions straighforward -- plot the weighted estimates
+
+## Some Examples (from 2017 OMAS)
+
+::: {layout-ncol=2 layout-nrow=2}
+```{r}
+#| fig-alt: "A histogram showing the number of days people had alcohol in the past 30 days. The x-axis is 'Number of Days Had Alcohol, Past 30 Days' and the y-axis is 'Count'The bar at zero days is by far the tallest, representing nearly 4,000,000 people, with a sharp decline in the bars as the number of days increases"
+#| fig-height: 4.5
+omas2017 %>%
+  ggplot(aes(x=drinks, weight=WT_A)) + 
+  geom_histogram(bins=30, fill="pink", color="black") + 
+  scale_y_continuous(labels = scales::comma) + 
+  labs(x="Number of Days Had Alcohol, Past 30 Days", y="Count") +
+  theme(axis.text = element_text(size=14),
+        axis.title = element_text(size=16))
+```
+
+```{r}
+#| fig-alt: "A scatter plot showing the relationship between child weight and child height. The x-axis is 'Child Height (in)' and the y-axis is 'Child Weight (lbs)'. The data points are a collection of gray circles, with the size and color of the circles varying. The plot shows a positive correlation, where as a child's height increases, their weight also tends to increase."
+#| fig-height: 4.5
+omas2017 %>% 
+  filter(WT_C>0 & I90A_IMP == 9) %>% 
+  filter(!is.na(c_height) & !is.na(L125A2P)) %>%
+  ggplot(aes(x=c_height, y=L125A2P, size=WT_C)) + 
+  geom_point(alpha=0.3) + 
+  guides(size="none") + 
+  labs(y="Child Weight (lbs)", x="Child Height (in)") +
+  theme(axis.text = element_text(size=14),
+        axis.title = element_text(size=16))
+```
+
+```{r}
+#| fig-alt: "A bar chart showing the percentage of people's self-reported health status. The x-axis is 'Self-Reported Health Status' with categories 'Excellent,' 'Very Good,' 'Good,' 'Fair,' and 'Poor'. The y-axis shows the 'Percentage'. The tallest bar is for 'Very Good,' followed by 'Good,' then 'Excellent,' 'Fair,' and finally 'Poor'."
+#| fig-height: 4.5
+prop <- svymean(~d30_imp_f, design=des.omas, na.rm=TRUE) %>% as_tibble()
+prop$health <- fct_inorder(levels(omas2017$d30_imp_f))
+prop %>% ggplot(aes(x=health, y=mean)) + 
+  geom_bar(stat="identity") + 
+  labs(y="Percentage", x="Self-Reported Health Status") + 
+  scale_y_continuous(labels = scales::percent) +
+  theme(axis.text = element_text(size=14),
+        axis.title = element_text(size=16))
+```
+
+```{r}
+#| fig-alt: "A dot plot showing the percentage of people with no usual source of care, broken down by Medicaid region and smoking status. The x-axis represents the percentage of people with no usual source of care , while the y-axis lists the Medicaid Regions. The plot shows two points for each region: one for 'Current' smokers (orange circles) and one for 'Never/Former' smokers (blue triangles). Horizontal lines extending from each point represent confidence intervals. The North Central and NE Central regions have the highest percentage of people with no usual source of care, particularly among current smokers."
+#| fig-height: 4.5
+pd <- position_dodge(0.5)
+props <- svyby(~nousual, ~currsmoke_f+mc_region, design=des.omas, svymean, na.rm=TRUE)
+props %>% 
+  ggplot(aes(x=mc_region, y=nousual, group=currsmoke_f, color=currsmoke_f, shape=currsmoke_f)) +
+  geom_point(position=pd) + geom_errorbar(aes(ymin=nousual-2*se, ymax=nousual+2*se), width=0.3, position=pd) + 
+  coord_flip() + 
+  labs(x="Medicaid Region", y="No Usual Source of Care", color="Smoking Status", shape="Smoking Status") +
+  scale_y_continuous(labels = scales::percent) +
+  theme(axis.text = element_text(size=14),
+        axis.title = element_text(size=16),
+        legend.title = element_text(size=14),
+        legend.text = element_text(size=14))
+```
+:::
+
+## Statisticians’ Least Favorite Chart Type[^2] {.pause}
+
+[^2]: Technically there are a few cases where pie charts can be used to
+    eﬀectively communicate. . . but they are generally limited to what
+    I’d call "infographic"-type displays. I’ve never seen a good one in
+    a peer-reviewed journal or scientific presentation.
+
+::::: columns
+:::: {.column width="50%"}
+-   The dreaded pie chart:
+
+```{r}
+#| fig-alt: "A pie chart showing self-reported health status. The pie is divided into five sections representing 'Excellent,' 'Very Good,' 'Good,' 'Fair,' and 'Poor' health."
+#| fig-align: center
+#| fig-asp: .8
+prop %>% 
+  ggplot(aes(x="", y=mean, fill=health)) + 
+  geom_bar(stat="identity", width=1, color="white") + 
+  coord_polar("y", start=0) + 
+  theme_void() + 
+  labs(fill="Health") +
+  theme(legend.title = element_text(size=14),
+        legend.text = element_text(size=14))
+```
+::::
+:::: {.column width="50%"}
+<br>
+
+-   You can't even tell which pie slice is biggest!
+
+-   Some people "fix" this by adding the %s -- but then what is the
+    point of the plot?
+
+<br>
+
+::: {.fragment}
+
+-   Seriously though -- please don't make pie charts.
+
+:::
+
+::::
+:::::
+
+
+
+
+## Give Me Your Thoughts On These (Real) Data Displays
+
+-   From an article undergoing peer review:
+
+![](./figures/bad_bar){fig-align="center" fig-alt="A stacked bar chart titled 'Number of Dogs' displays outcomes (Graduated, Behavior, Behavior & Health, Health) for male and female dogs across three age groups. It highlights that behavioral issues are common, particularly in younger males and males over 11 months. Older females (7-11 months) show a higher percentage of health issues. The bar chart has percentages overlaid on every piece of each bar."}
+
+## Give Me Your Thoughts (con't)
+
+-   From a published article in a peer-reviewed journal:
+
+![](./figures/bad_table){fig-align="center" fig-alt="A table titled 'Change of Mean WOMAC Scores after Eight Months of Treatment' shows a comparison of pain, stiffness, physical functions, and total scores between a treatment and control group at enrollment and after eight months. The treatment group's scores showed a significant decrease in all categories, while the control group's scores remained relatively stable or decreased slightly. The table is colored with green and blue shading on various rows with no discernible pattern."}
+
+## Give Me Your Thoughts (con't)
+
+-   What an instructor sees when checking on their SEI response rate:
+
+![](./figures/bad_donut){fig-align="center" fig-alt="A donut chart titled 'Overall Response Status.' The chart shows two segments: 56.52% in orange, labeled 'Not Completed,' and 43.48% in green, labeled 'Completed.' The number 43.48% is also displayed in the center of the donut chart. Below the chart is a key showing the full color spectrum, including 'In Progress,' 'Not Ready,' and 'Expired,' none of which are present on the chart itself."}
+
+## Give Me Your Thoughts (con't)
+
+-   From the GA Department of Public Health's website during COVID
+    pandemic:
+
+-   Explanatory text (above the chart):  **The chart below presents the number of newly confirmed COVID-19 cases
+over time. This chart is meant to aid understanding whether the outbreak
+is growing, leveling off, or declining, and can help to guide the
+COVID-19 response.**
+
+::: {layout-ncol=2}
+**Day 1** ![](./figures/bad_map1){width="60%" fig-alt="A map of Georgia that shows county-level data for 'Cases per 100K.' The color key at the bottom shows six categories, ranging from light blue to dark blue and finally red. The category ranges are: None (white), 1-620 (lightest blue), 621-1,070 (light blue), 1,071-1,622 (medium blue), 1,623-2,960 (dark blue), and 2,961-4,661 (red). Several counties in the western and central parts of the state are colored red, indicating the highest case rates."}
+
+**Day 2** ![](./figures/bad_map2){width="60%" fig-alt="A map of Georgia that shows county-level data for 'Cases per 100K.' The color key at the bottom shows six categories, ranging from light blue to dark blue and finally red. The category ranges are: None (white), 1-949 (lightest blue), 950-1,555 (light blue), 1,556-2,336 (medium blue), 2,337-3,768 (dark blue), and 3,769-5,165 (red). Several counties in the western and central parts of the state are colored red, indicating the highest case rates."}
+:::
+
+## Final Thoughts on Charts/Graphs
+
+-   Graphs/charts...
+
+      -   are attention-grabbing (whether good or bad!)
+      
+      -   are often (always?) useful for presentations
+      
+          -   Tip: sometimes graphs that work well in a paper need to be
+              modified for presentation on slides/poster
+      
+      -   are harder to make (well) than you'd think
+      
+      -   show up in PubMed abstracts!
+      
+      -   naturally display numerical results *less precisely* than a table
+      
+      -   are not always the best choice for data display (tables are useful!)
+      
+      -   can be fun to make, but also time-consuming (especially for
+          perfectionists)
+
+## Final Thoughts (con't)
+
+-   I don't expect perfect tables and graphs for your project, but there
+    are components of the rubrics devoted to data display. For example:
+
+::: smaller-text
+| Criterion | Poor (0.5 points) | Good (0.75 points) | Excellent (1 point) |
+|:-----------------|:-----------------|:-----------------|:-----------------|
+| Tables – quality | Tables do not convey important or interesting information and contain many errors/incorrectly calculated statistics | Tables provide some important information but not entirely clear why some of them are included and/or contain some statistics that appear incorrectly calculated | Tables convey important information supporting the “story” of the paper and contain appropriately calculated statistics |
+| Figures – quality | Figure(s) does not display information in a meaningful way and/or not explained well and/or contains statistical errors | Figures(s) are hard to understand/not explained well or have calculation errors, but attempt to display information important to the paper’s “story” | Figure(s) display information in a meaningful way, add to the “story” of the paper, are explained well, and contain appropriately calculated statistics |
+:::
+
+## Activity 22.1
+
+Graphing Survey Data
