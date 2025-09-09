@@ -112,7 +112,7 @@ Select an SRS of size 100 (from a dataset called `POPDATA`):\
 
 ```{r}
 set.seed(72947)
-DF <- POPDATA
+DF <- POPDATA %>% slice_sample(n = 100)
 # DF = resulting dataset with 100 observations
 ```
 

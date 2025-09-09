@@ -315,7 +315,7 @@ This is the [**sampling distribution**]{.alert} of $\hat{\theta}$ (i.e., $\bar{y
 :::
 ::::
 
-:::: {.column width="60%"}
+::: {.column width="60%"}
 -   Graph:
 
 ```{r}
@@ -332,7 +332,7 @@ tibble(ybar = c(15,30,35,40,55,80,85,100,105),
         axis.text = element_text(size = 16)) +
   scale_x_continuous(breaks = seq(15,105,5))
 ```
-::::
+:::
 ::::::
 
 ## Expectation
@@ -340,7 +340,7 @@ tibble(ybar = c(15,30,35,40,55,80,85,100,105),
 > **Expectation** = $\displaystyle E(\bar{y}) = \sum_k k P(\bar{y}=k)$\
 > *multiply each possible value (*$k$) of the variable by its probability and sum
 
-:::::: {columns}
+::: {columns}
 :::: {.column width = "70%"}
 
 -   For the clinics SRS:
@@ -354,10 +354,9 @@ E(\bar{y}) &= \sum_k k P(\bar{y}=k) \\
 -   Under the SRS sampling scheme, $\bar{y}$ is an [unbiased estimate]{.alert} of mean of $y$\
 
 -   Though, notice that [no sample actually produces the true mean ($\theta=58$)!]{.alert}
-::::
+:::
 
-:::: {.column width = "30%"}
-::: {.smaller-text}
+:::: {.column width = "30%"} ::: {.smaller-text}
 
 | $\hat{\theta}=\bar{y}$ | Probability |
 |:----------------------:|:-----------:|
@@ -371,9 +370,7 @@ E(\bar{y}) &= \sum_k k P(\bar{y}=k) \\
 |          100           |     0.1     |
 |          105           |     0.1     |
 
-::: 
-:::: 
-::::::
+::: :::: ::::::
 
 ## Variance
 
@@ -504,7 +501,7 @@ tibble(doctors = c(2,3,4,5,10),
 
 -   Sometimes, we might prefer to allow a little bias in trade-off for much reduced variance, and use another measure of the "accuracy" of an estimator:
 
-> [**Mean Squared Error (MSE):**]{.alert2} $MSE(\hat{\theta}) = E[(\hat{\theta}-\theta)^2] = V(\hat{\theta}) + [\text{Bias}(\hat{\theta})]^2$ \
+> [**Mean Squared Error (MSE):**]{.alert2} $MSE(\hat{\theta}) = E[(\hat{\theta}-\theta)^2] = V(\hat{\theta}) + [\text{Bias}(\hat{\theta})]^2$\
 > *Variance plus bias-squared*
 
 -   We describe estimators as:
@@ -518,8 +515,9 @@ tibble(doctors = c(2,3,4,5,10),
 -   An estimator can be biased and precise -- but then its not accurate
 
 -   **MSE** vs **Variance**
-      -   MSE measures how close an estimate is to the truth
-      -   Variance measures how close estimates are across different samples
+
+    -   MSE measures how close an estimate is to the truth
+    -   Variance measures how close estimates are across different samples
 
 ## Activity 1.1 (Part 2)
 

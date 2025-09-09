@@ -557,7 +557,7 @@
     "href": "PUBHBIO7225_L05_srsSoftware.html#r-commands-for-srs",
     "title": "Simple Random Sampling: Software (Stata, R)",
     "section": "R Commands for SRS",
-    "text": "R Commands for SRS\nSelect an SRS of size 100 (from a dataset called POPDATA):\n\n\nset.seed(72947)\nDF &lt;- POPDATA\n# DF = resulting dataset with 100 observations\n\nSelect an SRS that is 15% of the population (from a dataset called POPDATA):\n\nset.seed(72947)\nDF &lt;- POPDATA %&gt;% slice_sample(prop = 0.15)\n\nCreate a new variable called N that contains the value 10,000 for all records:\n\nDF$N &lt;- 10000\n# or, tidyverse-style:\nDF &lt;- DF %&gt;% mutate(N = 10000)\n\nTell R about the sample design for an SRS:\n\nDESIGN.OBJECT &lt;- svydesign(id = ~1, weights = ~WEIGHTVAR, fpc = ~N, data=DF)\n# WEIGHTVAR = variable containing sampling weights\n# N = variable that contains finite population size"
+    "text": "R Commands for SRS\nSelect an SRS of size 100 (from a dataset called POPDATA):\n\n\nset.seed(72947)\nDF &lt;- POPDATA %&gt;% slice_sample(n = 100)\n# DF = resulting dataset with 100 observations\n\nSelect an SRS that is 15% of the population (from a dataset called POPDATA):\n\nset.seed(72947)\nDF &lt;- POPDATA %&gt;% slice_sample(prop = 0.15)\n\nCreate a new variable called N that contains the value 10,000 for all records:\n\nDF$N &lt;- 10000\n# or, tidyverse-style:\nDF &lt;- DF %&gt;% mutate(N = 10000)\n\nTell R about the sample design for an SRS:\n\nDESIGN.OBJECT &lt;- svydesign(id = ~1, weights = ~WEIGHTVAR, fpc = ~N, data=DF)\n# WEIGHTVAR = variable containing sampling weights\n# N = variable that contains finite population size"
   },
   {
     "objectID": "PUBHBIO7225_L05_srsSoftware.html#some-r-commands-for-survey-estimation",
@@ -4267,7 +4267,7 @@
     "href": "PUBHBIO7225_L03_samplingDistributions.html#expectation",
     "title": "Sampling Distributions",
     "section": "Expectation",
-    "text": "Expectation\n\nExpectation = \\(\\displaystyle E(\\bar{y}) = \\sum_k k P(\\bar{y}=k)\\)\nmultiply each possible value (\\(k\\)) of the variable by its probability and sum\n\n\n\n\nFor the clinics SRS:\n\n\\[\\begin{align}\nE(\\bar{y}) &= \\sum_k k P(\\bar{y}=k) \\\\\n&= 15 \\times 0.1 + 30 \\times 0.1 + 35 \\times 0.2 + \\cdots + 105 \\times 0.1\\\\\n&= \\mathbf{58}= \\text{true population mean}\n\\end{align}\\]\n\nUnder the SRS sampling scheme, \\(\\bar{y}\\) is an unbiased estimate of mean of \\(y\\)\n\nThough, notice that no sample actually produces the true mean (\\(\\theta=58\\))!\n\n\n\n\n\n\n\\(\\hat{\\theta}=\\bar{y}\\)\nProbability\n\n\n\n\n15\n0.1\n\n\n30\n0.1\n\n\n35\n0.2\n\n\n40\n0.1\n\n\n55\n0.1\n\n\n80\n0.1\n\n\n85\n0.1\n\n\n100\n0.1\n\n\n105\n0.1"
+    "text": "Expectation\n\nExpectation = \\(\\displaystyle E(\\bar{y}) = \\sum_k k P(\\bar{y}=k)\\)\nmultiply each possible value (\\(k\\)) of the variable by its probability and sum\n\n\n\n\nFor the clinics SRS:\n\n\\[\\begin{align}\nE(\\bar{y}) &= \\sum_k k P(\\bar{y}=k) \\\\\n&= 15 \\times 0.1 + 30 \\times 0.1 + 35 \\times 0.2 + \\cdots + 105 \\times 0.1\\\\\n&= \\mathbf{58}= \\text{true population mean}\n\\end{align}\\]\n\nUnder the SRS sampling scheme, \\(\\bar{y}\\) is an unbiased estimate of mean of \\(y\\)\n\nThough, notice that no sample actually produces the true mean (\\(\\theta=58\\))!\n\n:::: {.column width = “30%”} ::: {.smaller-text}\n\n\n\n\\(\\hat{\\theta}=\\bar{y}\\)\nProbability\n\n\n\n\n15\n0.1\n\n\n30\n0.1\n\n\n35\n0.2\n\n\n40\n0.1\n\n\n55\n0.1\n\n\n80\n0.1\n\n\n85\n0.1\n\n\n100\n0.1\n\n\n105\n0.1\n\n\n\n\n\nVariance\n\nVariance = \\(\\displaystyle V(\\bar{y}) = \\sum_k (k-E(\\bar{y}))^2 P(\\bar{y}=k)\\)\ntake each possible value (\\(k\\)), subtract the expected value and square the difference, multiply each by its probability, and sum\n\n\nFor the clinics SRS:\n\n\\[\\begin{align}\nV(\\bar{y}) &= \\sum_k (k-E(\\bar{y}))^2 P(\\bar{y}=k) \\\\\n& = (15-58)^2 \\times 0.1 + (30-58)^2 \\times 0.1 + \\cdots + (105-58)^2 \\times 0.1 = \\mathbf{921}\n\\end{align}\\]\n\n\nDesign-Based Inference\n\nNote that we did not make any assumption about the distribution of the \\(y\\) values\nThe “randomness” is from the sampling\n\nA different sample will produce a different value of \\(\\bar{y}\\).\n\nThis is called design-based inference.\nSimulated 10,000 draws of \\(n=2\\) clinics from the population (without replacement)\n\n\n\n\nAn Alternative Sampling Distribution\n\n\n\nConsider the following alternative sampling scheme:\n\n\n\n\n\nClinics\nProbability\n\n\n\n\n1, 5\n0.25\n\n\n2, 5\n0.25\n\n\n3, 5\n0.25\n\n\n4, 5\n0.25\n\n\n\n\n\nIn this scheme, clinic 5 is always sampled.\n\nClinic 5 is called a certainty unit → \\(P(\\text{clinic 5 is sampled}) = 1\\)\n\nBecause of this, not all units are selected with equal probability\nThus the simple unweighted mean \\((\\bar{y})\\) in each sample is not a good estimate of the population mean! (Why?)\n\n\n\nCan you come up with a way to estimate the mean?\n(hint: each clinic 1-4 “represents” 4 clinics, and the 5th is itself…)\n\n\n\nAn Alternative Sampling Distribution (con’t)\n\nA reasonable estimator for the population mean under this sampling scheme is:\n\n\\(\\hat{\\theta}_i = (4 y_i + y_5)/5\\) for \\(i = 1, 2, 3, 4\\)\n\nWhichever clinic is sampled (in addition to clinic 5) “represents” all 4 other units\n\n\n\n\n\n\nClinics Sampled\nProbability\n\\(y\\) values\n\\(\\hat{\\theta}\\)\n\n\n\n\n1, 5\n0.25\n10, 150\n(4*10 + 150)/5 = 38\n\n\n2, 5\n0.25\n20, 150\n(4*20 + 150)/5 = 46\n\n\n3, 5\n0.25\n50, 150\n(4*50 + 150)/5 = 70\n\n\n4, 5\n0.25\n60, 150\n(4*60 + 150)/5 = 78\n\n\n\n\n\n\n\\(E(\\hat{\\theta}) = \\sum_k k P(\\hat{\\theta}=k) = 38 \\times 0.25 + 46 \\times 0.25 + 70 \\times 0.25 + 78 \\times 0.25 = \\mathbf{58}\\)\n\nTrue population mean → unbiased estimator\n\n\\(V(\\hat{\\theta}) = \\sum_k (k-E(\\hat{\\theta}))^2 P(\\hat{\\theta}=k) = (38-58)^2 \\times 0.25 + \\cdots + (78-58)^2 \\times 0.25 = \\mathbf{272}\\)\n\nA whole lot smaller than under SRS (variance for SRS was 921)!\n\n\n\n\nWhy is Variance Reduced?\n\nThe number of patients seen is positively correlated with the number of doctors. (Makes sense!)\n\n\n\nUsing auxiliary data (the number of doctors at each clinic) can create a more efficient sampling scheme\n\nThis idea will come up repeatedly in this course\n\n\n\n\nMSE: Combining Bias and Variance\n\nSometimes, we might prefer to allow a little bias in trade-off for much reduced variance, and use another measure of the “accuracy” of an estimator:\n\n\nMean Squared Error (MSE): \\(MSE(\\hat{\\theta}) = E[(\\hat{\\theta}-\\theta)^2] = V(\\hat{\\theta}) + [\\text{Bias}(\\hat{\\theta})]^2\\)\nVariance plus bias-squared\n\n\nWe describe estimators as:\n\nUnbiased if \\(E[\\hat{\\theta}] = \\theta\\)\nPrecise if \\(V(\\hat{\\theta})\\) is small\nAccurate if \\(MSE\\) is small\n\nAn estimator can be biased and precise – but then its not accurate\nMSE vs Variance\n\nMSE measures how close an estimate is to the truth\nVariance measures how close estimates are across different samples\n\n\n\n\nActivity 1.1 (Part 2)\nSampling Cats (Part 2)"
   },
   {
     "objectID": "PUBHBIO7225_L03_samplingDistributions.html#variance",
@@ -4289,5 +4289,89 @@
     "title": "Sampling Distributions",
     "section": "An Alternative Sampling Distribution (con’t)",
     "text": "An Alternative Sampling Distribution (con’t)\n\nA reasonable estimator for the population mean under this sampling scheme is:\n\n\\(\\hat{\\theta}_i = (4 y_i + y_5)/5\\) for \\(i = 1, 2, 3, 4\\)\n\nWhichever clinic is sampled (in addition to clinic 5) “represents” all 4 other units\n\n\n\n\n\n\nClinics Sampled\nProbability\n\\(y\\) values\n\\(\\hat{\\theta}\\)\n\n\n\n\n1, 5\n0.25\n10, 150\n(4*10 + 150)/5 = 38\n\n\n2, 5\n0.25\n20, 150\n(4*20 + 150)/5 = 46\n\n\n3, 5\n0.25\n50, 150\n(4*50 + 150)/5 = 70\n\n\n4, 5\n0.25\n60, 150\n(4*60 + 150)/5 = 78\n\n\n\n\n\n\n\\(E(\\hat{\\theta}) = \\sum_k k P(\\hat{\\theta}=k) = 38 \\times 0.25 + 46 \\times 0.25 + 70 \\times 0.25 + 78 \\times 0.25 = \\mathbf{58}\\)\n\nTrue population mean → unbiased estimator\n\n\\(V(\\hat{\\theta}) = \\sum_k (k-E(\\hat{\\theta}))^2 P(\\hat{\\theta}=k) = (38-58)^2 \\times 0.25 + \\cdots + (78-58)^2 \\times 0.25 = \\mathbf{272}\\)\n\nA whole lot smaller than under SRS (variance for SRS was 921)!"
+  },
+  {
+    "objectID": "PUBHBIO7225_L23_misc.html#outline",
+    "href": "PUBHBIO7225_L23_misc.html#outline",
+    "title": "Miscellaneous Topics\nin Survey Sampling",
+    "section": "Outline",
+    "text": "Outline\n\n\n\n\n\nTopics\n\nData Suppression\nCombining Survey Waves\nReplicate Weights\n\n\nActivities\n\n23.1 Combining NSCH Waves (Years)\n\n\nAssignments\n\nQuiz 5 (last one!) due Thursday 11/20/2025 11:59pm via Carmen\n\nAdditional Remaining Due Dates\n\nGroup Project slides due Tuesday 12/2 (week after Thanksgiving)\nIndividual Project due Tuesday 12/9 (last week of classes)\nGroup Project paper due Thursday 12/18 (last day of finals)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L23_misc.html#data-suppression",
+    "href": "PUBHBIO7225_L23_misc.html#data-suppression",
+    "title": "Miscellaneous Topics\nin Survey Sampling",
+    "section": "Data Suppression",
+    "text": "Data Suppression\n\nSurveys (based on probability samples) often have large sample sizes (relative to other study designs)\nHowever, some point estimates may still be quite variable (imprecise/large variance)\n\nFor example, for a subpopulation that is small and was not purposely oversampled\n\nAdditionally, some estimates based on small numbers of people, or estimates for population groups that are small, might be dangerous in terms of privacy\n\n\nSuppression = Purposefully withholding / not releasing a specific estimate (to the public)\n\n\nDifferent statistical agencies use different rules about when to suppress results\n\nPossible Reason 1: limit risk of disclosure – i.e., that you could figure out who answered the survey\nPossible Reason 2: estimate is deemed “too variable” or “too unreliable”"
+  },
+  {
+    "objectID": "PUBHBIO7225_L23_misc.html#slide-table",
+    "href": "PUBHBIO7225_L23_misc.html#slide-table",
+    "title": "Miscellaneous Topics\nin Survey Sampling",
+    "section": "Example – Published Analysis using BRFSS",
+    "text": "Example – Published Analysis using BRFSS\nArticle: Racial and Ethnic Diﬀerences in Subjective Cognitive Decline — U.S., 2015–2020.1 (link)\n\n\n\n\n\nMMWR Morb Mortal Wkly Rep 2023;72:249–255."
+  },
+  {
+    "objectID": "PUBHBIO7225_L23_misc.html#data-suppression-rules-examples",
+    "href": "PUBHBIO7225_L23_misc.html#data-suppression-rules-examples",
+    "title": "Miscellaneous Topics\nin Survey Sampling",
+    "section": "Data Suppression Rules: Examples",
+    "text": "Data Suppression Rules: Examples\n\nPopulation Thresholds\n\nOnly release estimates for areas/population groups that exceed a certain size\n\nExample: Areas or groups of 65,000 or more are eligible for estimates to be released\n(American Community Survey, ACS)\n\n\n\n\n\nRestrictions on Numerators and/or Denominators of Proportions\n\nBased on the unweighted sample, suppress estimates with too few cases in the numerator or denominator of a proportion\n\nExample: Suppress estimates based on proportions with numerator &lt;10\n(National Crime Victimization Survey, NCVS)\nExample: Suppress estimates based on proportions with denominator &lt;30\n(National Survey of Family Growth, NSFG)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L23_misc.html#combining-survey-waves",
+    "href": "PUBHBIO7225_L23_misc.html#combining-survey-waves",
+    "title": "Miscellaneous Topics\nin Survey Sampling",
+    "section": "Combining Survey Waves",
+    "text": "Combining Survey Waves\n\nMany surveys are repeated (e.g., yearly, every 2 years) to monitor trends\nCombining across survey waves can also be used to estimate characteristics from small subpopulations\nGenerally speaking, these are two different possible goals of combining survey waves:\n\n\n\nEstimate a change in a mean/proportion and test the significance of the change\n\nExample: Has the proportion of children aged 3-17 diagnosed with anxiety changed from 2017 to 2020? What is the estimate of the change?\n\n\n\n\n\nEstimate a mean/proportion using data from multiple years assuming that the mean/proportion has not changed over time\n\nExample: What is the average proportion of children aged 3-17 with an Autism Spectrum Disorder in the years 2017-2020?\n\n\n\n\n\nAssuming that a new (cross-sectional) sample is taken each wave (i.e., not a panel/longitudinal survey), samples from wave to wave are independent\nThus combining across waves is straightfoward (it is what was done to produce this table)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L23_misc.html#estimating-changes",
+    "href": "PUBHBIO7225_L23_misc.html#estimating-changes",
+    "title": "Miscellaneous Topics\nin Survey Sampling",
+    "section": "Estimating Changes",
+    "text": "Estimating Changes\n\nAs long as the samples each year/wave are drawn independently:\n\n\n\n\n\n\n\n\n\n\nYear\nTrue Population Value\nEstimate\nVariance of Estimate\n\n\n\n\n1\n\\(\\theta_1\\)\n\\(\\hat{\\theta}_1\\)\n\\(V(\\hat{\\theta}_1)\\)\n\n\n2\n\\(\\theta_2\\)\n\\(\\hat{\\theta}_2\\)\n\\(V(\\hat{\\theta}_2)\\)\n\n\nChange\n\\(\\Delta = \\theta_2-\\theta_1\\)\n\\(\\hat{\\Delta}=\\hat{\\theta}_2-\\hat{\\theta}_1\\)\n\\(V(\\hat{\\Delta}) = V(\\hat{\\theta}_1) + V(\\hat{\\theta}_2)\\)\n\n\n\n\nSince \\(\\hat{\\theta}_1\\) and \\(\\hat{\\theta}_2\\) are independent!\nCalculate estimates in each year/wave, subtract to estimate the change, add the (estimated) variances to obtain the variance of the change, and test for change…\n\n\n…or you can pool the data from the waves and let software do the analysis for you!\n\nBenefit to using software: can conduct more sophisticated analyses (e.g., test for linear change trend, adjust for covariates, etc.)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L23_misc.html#combining-waves-of-the-same-survey",
+    "href": "PUBHBIO7225_L23_misc.html#combining-waves-of-the-same-survey",
+    "title": "Miscellaneous Topics\nin Survey Sampling",
+    "section": "Combining Waves of the Same Survey",
+    "text": "Combining Waves of the Same Survey\n\nTwo things to be careful about when pooling survey years:\n\n\nIs the design the same in each year? E.g., strata, clustering, etc.\n\nFor many large surveys the answer will be yes – precisely because they want to facilitate trend analyses\nIf differences in strata definitions, may have to redefine to align correctly (e.g., “stratum 1”, “stratum 2” for all waves)\n\n\n\n\nThe sample weights – rescale or not rescaled?\n\nEstimating changes in means/proportions – does not matter whether you rescale weights or not, estimates identical\nPooled estimates (e.g., average prevalence in 2017-2020) – rescale weights so sum is the average population size by dividing by number of waves being combined\n\nTechnically, prevalence estimates will be identical with/without rescaling – but population counts will only be correct if you rescale"
+  },
+  {
+    "objectID": "PUBHBIO7225_L23_misc.html#activity-23.1",
+    "href": "PUBHBIO7225_L23_misc.html#activity-23.1",
+    "title": "Miscellaneous Topics\nin Survey Sampling",
+    "section": "Activity 23.1",
+    "text": "Activity 23.1\nCombining NSCH Waves (Years)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L23_misc.html#bonus-topic-alternative-variance-estimation-methods",
+    "href": "PUBHBIO7225_L23_misc.html#bonus-topic-alternative-variance-estimation-methods",
+    "title": "Miscellaneous Topics\nin Survey Sampling",
+    "section": "Bonus Topic: Alternative Variance Estimation Methods",
+    "text": "Bonus Topic: Alternative Variance Estimation Methods\nIn this class we have considered two possible methods for getting a variance estimate for point estimates:\n\nExact variance formula (specific to survey design and what you’re estimating)\nLinearization (uses the exact variance formulas)\n\nPotential difficulties with these approaches:\n\nLinearization can only be used for smooth statistics – means, but not medians\nLinearization requires large sample size (not usually a problem for surveys)\nLinearization requires you to have a formula for means/totals under the specific design, which often leads to approximations such as ultimate PSU analysis – ignoring second stage sampling\nLinearization requires you to derive a unique formula for each statistic (maybe not so problematic in the world of computing)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L23_misc.html#resampling-methods",
+    "href": "PUBHBIO7225_L23_misc.html#resampling-methods",
+    "title": "Miscellaneous Topics\nin Survey Sampling",
+    "section": "Resampling Methods",
+    "text": "Resampling Methods\nAlternative variance estimation methods use resampling – mimic taking lots of samples, using your one sample\nThree main approaches used:\n\nBalanced Repeated Replication (BRR)\nJackknife (lots of variations)\nBootstrap (also quite a few variations)\n\nFormally, resampling methods re-create the sample for each replicate\n\nSimplest case: treat your sample of size \\(n\\) like a population, and take an SRSWR of size \\(n\\) from it (that “with replacement” part being very important!)\n\nA teeny bit of math to illustrate how resampling methods work:\n\nPopulation quantity we want to estimate: \\(\\theta\\) (e.g., a mean of \\(y\\) for a finite population)\nPoint estimate: \\(\\hat{\\theta}\\)\nVia one of the resampling methods, we create \\(R\\) resampled datasets\nVariance estimate from resampling method: \\(\\displaystyle \\widehat{V}(\\hat{\\theta}) = \\frac{A}{R}\\sum_{r=1}^R \\left(\\hat{\\theta}^{(r)} - \\hat\\theta \\right)^2\\)\nwhere \\(A\\) is a scaling constant, depends on the resampling method"
+  },
+  {
+    "objectID": "PUBHBIO7225_L23_misc.html#replicate-weights",
+    "href": "PUBHBIO7225_L23_misc.html#replicate-weights",
+    "title": "Miscellaneous Topics\nin Survey Sampling",
+    "section": "Replicate Weights",
+    "text": "Replicate Weights\nWe don’t actually have to create lots of datasets though…\nWe can accomplish this via manipulation of the sampling weights!\nFor all of these methods, replicate weights are created that capture the variability and allow end users to calculate standard errors without knowing design information, thus reducing disclosure risk\nPros:\n\nCan suppress design information (e.g., strata, PSUs)\nBRR and Bootstrap work for any estimate (including non-smooth statistics)\n\nCons:\n\nComputationally intensive\nPost-survey adjustments (e.g., nonresponse weighting adjustments, poststratification) must be done for all sets of weights\nBRR requires a very specific design: 2 PSUs per stratum\n\nFor publicly available datasets, agencies decide to either:\n\nRelease design information (so you can use linearization)\nRelease masked (“pseudo”) design information (so you can use linearization)\nRelease no design information and give you replicate weights"
+  },
+  {
+    "objectID": "PUBHBIO7225_L23_misc.html#data-suppression-rules-examples-cont",
+    "href": "PUBHBIO7225_L23_misc.html#data-suppression-rules-examples-cont",
+    "title": "Miscellaneous Topics\nin Survey Sampling",
+    "section": "Data Suppression Rules: Examples (con’t)",
+    "text": "Data Suppression Rules: Examples (con’t)\n\nRelative Standard Error (RSE)\n\n\\[RSE = 100 \\times \\frac{\\widehat{SE}(\\bar{y})}{|\\bar{y}|}\\]\n\nUsually a cutoff is chosen and estimates with RSE above this threshold are suppressed\n\nExample: Suppress estimates with RSE &gt;30%\n(National Health Interview Survey, NHIS)\n\nSometimes RSE is modified for proportions: \\[\\frac{\\widehat{SE}(\\hat{p})/\\hat{p}}{-\\mathrm{ln}(\\hat{p})}&gt;.175\\] when \\(\\hat{p} \\le\\) 0.5"
   }
 ]

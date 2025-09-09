@@ -1,0 +1,323 @@
+---
+title:  |
+   Miscellaneous Topics  \ 
+   in Survey Sampling
+subtitle: "PUBHBIO 7225 Lecture 23"
+author: "Generative AI acknowledgment: Google Gemini was used to assist in generating alt text for images"
+format:
+  revealjs: 
+    slide-number: true
+    smaller: true
+    footer: "PUBHBIO 7225"
+    width: 1280
+    height: 720
+    theme: custom.scss
+    html-math-method: mathjax
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+## Outline
+
+<!-- ::: hidden -->
+
+<!-- \newcommand{\logit}{\mathrm{logit}} -->
+
+<!-- ::: -->
+
+::::: columns
+::: {.column width="60%"}
+**Topics**
+
+-   Data Suppression
+
+-   Combining Survey Waves
+
+-   Replicate Weights
+:::
+
+::: {.column width="40%"}
+**Activities**
+
+-   23.1 Combining NSCH Waves (Years)
+:::
+:::::
+
+**Assignments**
+
+-   Quiz 5 (last one!) due Thursday 11/20/2025 11:59pm via Carmen
+
+**Additional Remaining Due Dates**
+
+-   Group Project **slides** due [Tuesday]{.underline} 12/2 (week after
+    Thanksgiving)
+
+-   Individual Project due [Tuesday]{.underline} 12/9 (last week of
+    classes)
+
+-   Group Project **paper** due Thursday 12/18 (last day of finals)
+
+## Data Suppression
+
+-   Surveys (based on probability samples) often have large sample sizes
+    (relative to other study designs)
+
+-   However, some point estimates may still be quite variable
+    (imprecise/large variance)
+
+    -   For example, for a subpopulation that is small and was not
+        purposely oversampled
+
+-   Additionally, some estimates based on small numbers of people, or
+    estimates for population groups that are small, might be **dangerous
+    in terms of privacy**
+
+> [**Suppression**]{.alert} = Purposefully withholding / not releasing a
+> specific estimate (to the public)
+
+-   Different statistical agencies use different rules about when to
+    *suppress* results
+
+    -   Possible Reason 1: limit risk of disclosure -- i.e., that you
+        could figure out who answered the survey
+
+    -   Possible Reason 2: estimate is deemed "too variable" or "too
+        unreliable"
+
+## Example – Published Analysis using BRFSS {#slide-table}
+
+*Article: Racial and Ethnic Diﬀerences in Subjective Cognitive Decline —
+U.S., 2015–2020.*[^1] ([link](http://dx.doi.org/10.15585/mmwr.mm7210a1))
+
+[^1]: MMWR Morb Mortal Wkly Rep 2023;72:249–255.
+
+![](./figures/suppression_example_mmwr){width="50%" fig-align="center"
+fig-alt="A detailed table titled ‘Prevalence of subjective cognitive decline among adults aged >= 45 years, by race and ethnicity and selected characteristics - Behavioral Risk Factor Surveillance System, United States, 2015-2020.’ The table presents data for the total population and breakdowns by race and ethnicity: American Indian or Alaska Native, Asian or Pacific Islander, Black or African American, White, and Hispanic or Latino. For each characteristic listed on the left—Overall, Unadjusted, Age-adjusted, Sex, Age group, Education level, Marital status, Health insurance status, and Has personal doctor—the table provides the percentage of adults reporting subjective cognitive decline and the corresponding 95% confidence interval for each racial/ethnic group."}
+
+## Data Suppression Rules: Examples
+
+-   [**Population Thresholds**]{.alert}
+
+    -   Only release estimates for areas/population groups that exceed a
+        certain size
+
+        -   Example: *Areas or groups of 65,000 or more are eligible for
+            estimates to be released*\
+            (American Community Survey, ACS)
+
+<p>
+
+-   [**Restrictions on Numerators and/or Denominators of
+    Proportions**]{.alert}
+
+    -   Based on the **unweighted** sample, suppress estimates with too
+        few cases in the numerator or denominator of a proportion
+
+        -   Example: *Suppress estimates based on proportions with
+            numerator \<10*\
+            (National Crime Victimization Survey, NCVS)
+
+        -   Example: *Suppress estimates based on proportions with
+            denominator \<30*\
+            (National Survey of Family Growth, NSFG)
+
+## Data Suppression Rules: Examples (con't)
+
+-   [**Relative Standard Error (RSE)**]{.alert}
+
+$$RSE = 100 \times \frac{\widehat{SE}(\bar{y})}{|\bar{y}|}$$
+
+-   Usually a cutoff is chosen and estimates with **RSE above this
+    threshold are suppressed**
+
+    -   Example: *Suppress estimates with RSE \>30%*\
+        (National Health Interview Survey, NHIS)
+
+-   Sometimes RSE is modified for proportions:
+    $$\frac{\widehat{SE}(\hat{p})/\hat{p}}{-\mathrm{ln}(\hat{p})}>.175$$
+    when $\hat{p} \le$ 0.5
+
+## Combining Survey Waves {.pause}
+
+-   Many surveys are repeated (e.g., yearly, every 2 years) to monitor
+    trends
+
+-   Combining **across survey waves** can also be used to estimate
+    characteristics from small subpopulations
+
+-   Generally speaking, these are two different possible goals of
+    combining survey waves:
+
+. . .
+
+1.  Estimate a *change* in a mean/proportion and test the significance
+    of the change
+
+    -   Example: Has the proportion of children aged 3-17 diagnosed with
+        anxiety changed from 2017 to 2020? What is the estimate of the
+        change?
+
+. . .
+
+2.  Estimate a mean/proportion using data from multiple years *assuming
+    that the mean/proportion has not changed over time*
+
+    -   Example: What is the average proportion of children aged 3-17
+        with an Autism Spectrum Disorder in the years 2017-2020?
+
+. . .
+
+-   Assuming that **a new (cross-sectional) sample is taken each wave**
+    (i.e., not a panel/longitudinal survey), samples from wave to wave
+    are **independent**
+
+-   Thus combining across waves is straightfoward (it is what was done
+    to produce [this table](#slide-table))
+
+## Estimating Changes {.pause}
+
+-   As long as the samples each year/wave are drawn independently:
+
+| Year | True Population Value | Estimate | Variance of Estimate |
+|:-----------------|:-----------------|:-----------------|:-----------------|
+| 1 | $\theta_1$ | $\hat{\theta}_1$ | $V(\hat{\theta}_1)$ |
+| 2 | $\theta_2$ | $\hat{\theta}_2$ | $V(\hat{\theta}_2)$ |
+| Change | $\Delta = \theta_2-\theta_1$ | $\hat{\Delta}=\hat{\theta}_2-\hat{\theta}_1$ | $V(\hat{\Delta}) = V(\hat{\theta}_1) + V(\hat{\theta}_2)$ |
+
+-   Since $\hat{\theta}_1$ and $\hat{\theta}_2$ are **independent**!
+
+-   Calculate estimates in each year/wave, subtract to estimate the
+    change, add the (estimated) variances to obtain the variance of the
+    change, and test for change...
+
+. . .
+
+...or you can **pool the data from the waves** and let software do the
+analysis for you!
+
+-   Benefit to using software: can conduct more sophisticated analyses
+    (e.g., test for linear change trend, adjust for covariates, etc.)
+
+## Combining Waves of the Same Survey {.pause}
+
+-   Two things to be careful about when pooling survey years:
+
+1.  Is the design the same in each year? E.g., strata, clustering, etc.
+
+    -   For many large surveys the answer will be yes -- precisely
+        because they want to facilitate trend analyses
+
+    -   If differences in strata definitions, may have to redefine to
+        align correctly (e.g., "stratum 1", "stratum 2" for all waves)
+
+. . .
+
+2.  The sample weights -- rescale or not rescaled?
+
+    -   Estimating changes in means/proportions -- does not matter
+        whether you rescale weights or not, estimates identical
+
+    -   Pooled estimates (e.g., average prevalence in 2017-2020) --
+        rescale weights so sum is the average population size by
+        dividing by number of waves being combined
+
+        -   Technically, prevalence estimates will be identical
+            with/without rescaling -- but population counts will only be
+            correct if you rescale
+
+## Activity 23.1
+
+Combining NSCH Waves (Years)
+
+## Bonus Topic: Alternative Variance Estimation Methods
+
+In this class we have considered two possible methods for getting a
+variance estimate for point estimates:
+
+-   Exact variance formula (specific to survey design and what you're
+    estimating)
+
+-   Linearization (uses the exact variance formulas)
+
+Potential difficulties with these approaches:
+
+-   Linearization can only be used for smooth statistics -- means, but
+    not medians
+
+-   Linearization requires large sample size (not usually a problem for
+    surveys)
+
+-   Linearization requires you to have a formula for means/totals under
+    the specific design, which often leads to approximations such as
+    ultimate PSU analysis -- ignoring second stage sampling
+
+-   Linearization requires you to derive a unique formula for each
+    statistic (maybe not so problematic in the world of computing)
+
+## Resampling Methods
+
+Alternative variance estimation methods use **resampling** -- mimic
+taking lots of samples, using your one sample
+
+Three main approaches used:
+
+-   Balanced Repeated Replication (BRR)
+
+-   Jackknife (lots of variations)
+
+-   Bootstrap (also quite a few variations)
+
+Formally, resampling methods re-create the sample for each replicate
+
+-   Simplest case: treat your sample of size $n$ like a population, and
+    take an SRSWR of size $n$ from it (that "with replacement" part
+    being very important!)
+
+A teeny bit of math to illustrate how resampling methods work:
+
+-   Population quantity we want to estimate: $\theta$ (e.g., a mean of
+    $y$ for a finite population)
+
+-   Point estimate: $\hat{\theta}$
+
+-   Via one of the resampling methods, we create $R$ resampled datasets
+
+-   Variance estimate from resampling method:
+    $\displaystyle \widehat{V}(\hat{\theta}) = \frac{A}{R}\sum_{r=1}^R \left(\hat{\theta}^{(r)} - \hat\theta \right)^2$\
+    where $A$ is a scaling constant, depends on the resampling method
+
+## Replicate Weights
+
+We don't actually have to create lots of datasets though...
+
+We can accomplish this via manipulation of the sampling weights!
+
+For all of these methods, **replicate weights** are created that capture
+the variability and allow end users to calculate standard errors without
+knowing design information, thus reducing disclosure risk
+
+Pros:
+
+-   Can suppress design information (e.g., strata, PSUs)
+
+-   BRR and Bootstrap work for any estimate (including non-smooth
+    statistics)
+
+Cons:
+
+-   Computationally intensive
+
+-   Post-survey adjustments (e.g., nonresponse weighting adjustments,
+    poststratification) must be done for all sets of weights
+
+-   BRR requires a very specific design: 2 PSUs per stratum
+
+For publicly available datasets, agencies decide to either:
+
+-   Release design information (so you can use linearization)
+
+-   Release masked ("pseudo") design information (so you can use
+    linearization)
+
+-   Release no design information and give you replicate weights
