@@ -351,7 +351,7 @@ V(\bar{y}) &= V \left( \sum_{i=1}^N Z_i \frac{y_i}{n} \right) =  \frac{1}{n^2} V
 
 For any sampling design, define:
 
-> Sampling weight = $\displaystyle w_i = \frac{1}{w_i}$ = inverse probability of selection
+> Sampling weight = $\displaystyle w_i = \frac{1}{\pi_i}$ = inverse probability of selection
 
 -   Each unit $i$ in the sample "represents" $w_i$ units in the population
 
