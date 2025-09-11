@@ -28,7 +28,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-95cb67c9c984f121a47d2ee9f1acaeb7.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-37dd58ee8260662a2db356013c91c3b1.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -212,26 +212,28 @@
 <col style="width: 25%">
 <col style="width: 25%">
 </colgroup>
+<thead>
+<tr class="header">
+<th><strong>Stratum</strong></th>
+<th style="text-align: center;"><span class="alert"><strong>Units in Population</strong></span></th>
+<th style="text-align: center;"><span class="alert2"><strong>Units in Sample</strong></span></th>
+<th style="text-align: center;"><strong>Each Sampled Unit “Represents”:</strong></th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td><strong>Stratum</strong></td>
-<td style="text-align: center;"><span class="alert"><strong>Units in Population</strong></span></td>
-<td style="text-align: center;"><span class="alert2"><strong>Units in Sample</strong></span></td>
-<td style="text-align: center;"><strong>Each Sampled Unit “Represents”:</strong></td>
-</tr>
-<tr class="even">
 <td>Stratum A</td>
 <td style="text-align: center;">15</td>
 <td style="text-align: center;">5</td>
 <td style="text-align: center;">15/5 = 3</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Stratum B</td>
 <td style="text-align: center;">11</td>
 <td style="text-align: center;">5</td>
 <td style="text-align: center;">11/5 = 2.2</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Stratum C</td>
 <td style="text-align: center;">9</td>
 <td style="text-align: center;">5</td>
@@ -412,7 +414,7 @@ s_1^2&amp;=\frac{1}{n_1-1} \sum_{j\in \mathcal{S}_h} (y_{1j} - \bar{y}_1)^2 \\
 </colgroup>
 <thead>
 <tr class="header">
-<th></th>
+<th>Stratum</th>
 <th style="text-align: left;"><span class="alert">Population</span></th>
 <th style="text-align: left;"><span class="alert2">My Sample</span></th>
 </tr>
@@ -439,7 +441,7 @@ s_1^2&amp;=\frac{1}{n_1-1} \sum_{j\in \mathcal{S}_h} (y_{1j} - \bar{y}_1)^2 \\
 <table class="caption-top">
 <thead>
 <tr class="header">
-<th></th>
+<th>Stratum</th>
 <th style="text-align: left;"><span class="alert">Population</span></th>
 <th style="text-align: left;"><span class="alert2">My Sample</span></th>
 </tr>
@@ -593,7 +595,7 @@ V(\bar{y}_{str}) &amp;= V\left(\sum_{h=1}^H \frac{N_h}{N} \bar{y}_h \right) =&am
 </section>
 <section id="estimators-are-random-variables" class="slide level2">
 <h2>Estimators are Random Variables</h2>
-<!-- Random selection of units into $\mathcal{S}$ implies that $(\hat{t}_{str}, \bar{y}_{str}, \hat{p}_{str})$ are random variables -->
+<div class="smaller-text">
 <table class="caption-top">
 <colgroup>
 <col style="width: 25%">
@@ -601,44 +603,46 @@ V(\bar{y}_{str}) &amp;= V\left(\sum_{h=1}^H \frac{N_h}{N} \bar{y}_h \right) =&am
 <col style="width: 25%">
 <col style="width: 25%">
 </colgroup>
+<thead>
+<tr class="header">
+<th><strong>Estimate</strong></th>
+<th style="text-align: left;"><strong>Expected Value</strong></th>
+<th><strong>Variance</strong></th>
+<th><strong>Formula</strong></th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td><strong>Estimate</strong></td>
-<td style="text-align: left;"><strong>Expected Value</strong></td>
-<td><strong>Variance</strong></td>
-<td></td>
-</tr>
-<tr class="even">
 <td>Mean: <span class="math inline">\(\bar{y}_{str}\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(E(\bar{y}_{str})= \bar{y}_U\)</span></td>
 <td>Truth:</td>
 <td><span class="math inline">\(\displaystyle V(\bar{y}_{str})= \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(1-\frac{n_h}{N_h}\right)\frac{S_h^2}{n_h}\)</span></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td style="text-align: left;"></td>
 <td>Estimate:</td>
 <td><span class="math inline">\(\displaystyle \widehat{V}(\bar{y}_{str})= \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(1-\frac{n_h}{N_h}\right)\frac{s_h^2}{n_h}\)</span></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Total: <span class="math inline">\(\hat{t}_{str}\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(E(\hat{t}_{str})=t\)</span></td>
 <td>Truth:</td>
 <td><span class="math inline">\(\displaystyle V(\hat{t}_{str})=\sum_{h=1}^H N_h^2 \left(1-\frac{n_h}{N_h}\right)\frac{S_h^2}{n_h}\)</span></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td style="text-align: left;"></td>
 <td>Estimate:</td>
 <td><span class="math inline">\(\displaystyle \widehat{V}(\hat{t}_{str})=\sum_{h=1}^H N_h^2 \left(1-\frac{n_h}{N_h}\right)\frac{s_h^2}{n_h}\)</span></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Proportion: <span class="math inline">\(\hat{p}_{str}\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(E(\hat{p}_{str})=p\)</span></td>
 <td>Truth:</td>
 <td><span class="math inline">\(\displaystyle V(\hat{p}_{str})= \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2 \left(\frac{N_h-n_h}{N_h-1}\right) \frac{p_{hU}(1-p_{hU})}{n_h}\)</span></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td style="text-align: left;"></td>
 <td>Estimate:</td>
@@ -646,6 +650,7 @@ V(\bar{y}_{str}) &amp;= V\left(\sum_{h=1}^H \frac{N_h}{N} \bar{y}_h \right) =&am
 </tr>
 </tbody>
 </table>
+</div>
 <!-- These expectations and variances come from the $Z_i$; $y_i$ is considered fixed -->
 </section>
 <section id="example-from-activity-5" class="slide level2">
@@ -818,27 +823,29 @@ V(\bar{y}_{str}) &amp;= \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(1-\frac
 </div><div class="column" style="width:50%;">
 <table class="caption-top">
 <colgroup>
-<col style="width: 40%">
-<col style="width: 33%">
-<col style="width: 26%">
+<col style="width: 39%">
+<col style="width: 32%">
+<col style="width: 27%">
 </colgroup>
+<thead>
+<tr class="header">
+<th><strong>Method</strong></th>
+<th style="text-align: center;"><strong>Mean</strong></th>
+<th style="text-align: center;"><strong>Variance of Mean</strong></th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td><strong>Method</strong></td>
-<td style="text-align: center;"><strong>Mean</strong></td>
-<td style="text-align: center;"><strong>Variance of Mean</strong></td>
-</tr>
-<tr class="even">
 <td>SRS <span class="math inline">\((\bar{y})\)</span></td>
 <td style="text-align: center;">7.3991</td>
 <td style="text-align: center;">0.6137</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Stratified <span class="math inline">\((\bar{y}_{str})\)</span></td>
 <td style="text-align: center;">7.4044</td>
 <td style="text-align: center;">0.3805</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Truth <span class="math inline">\((\bar{y}_U)\)</span></td>
 <td style="text-align: center;">7.4</td>
 <td style="text-align: center;"></td>
@@ -898,7 +905,9 @@ V(\bar{y}_{str}) &amp;= \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(1-\frac
 <li><p>Similarly, the estimate of the (overall) mean written using the weights: <span class="math display">\[\bar{y}_{str}= \sum_{h=1}^H \frac{N_h}{N} \bar{y}_h = \frac{\hat{t}_{str}}{N} = \frac{\sum_{i \in \mathcal{S}} w_i y_i}{\sum_{i \in \mathcal{S}} w_i}\]</span></p></li>
 <li><p>This is the <span class="alert">Horvitz-Thompson estimator of the mean</span></p></li>
 </ul>
+<div class="smaller-text">
 <p><em>(not something new, just showing that the stratified sampling formulas to estimate the mean and total are the Horvitz-Thompson estimators)</em></p>
+</div>
 </section>
 <section id="activity-6.1-part-4" class="slide level2">
 <h2>Activity 6.1 (Part 4)</h2>
