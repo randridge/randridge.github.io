@@ -28,7 +28,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-95cb67c9c984f121a47d2ee9f1acaeb7.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-37dd58ee8260662a2db356013c91c3b1.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -165,9 +165,10 @@ Allocation Methods</p></h1>
 </section>
 <section id="quick-note-about-minimum-sample-size-per-stratum" class="slide level2">
 <h2>Quick Note About Minimum Sample Size Per Stratum</h2>
-<p>For each stratum, <span class="math inline">\(h=1, \dots, H\)</span>, we require <span class="math inline">\(n_h \ge 2\)</span></p>
-<p>(minimum of 2 units sampled per stratum)</p>
-<p>Why is this true?</p>
+<ul>
+<li><p>For each stratum, <span class="math inline">\(h=1, \dots, H\)</span>, we require <span class="math inline">\(n_h \ge 2\)</span> (minimum of 2 units sampled per stratum)</p></li>
+<li><p>Why is this true?</p></li>
+</ul>
 </section>
 <section id="stratified-sampling-allocation-methods" class="slide level2">
 <h2>Stratified Sampling: Allocation Methods</h2>
@@ -184,10 +185,10 @@ Allocation Methods</p></h1>
 <li><p><strong>Optimal Allocation</strong> – Neyman Allocation, but also <span class="alert2">accounting for the cost to sample each unit</span> (may vary by strata)</p></li>
 </ol>
 </section>
-<section id="equal-allocation" class="slide level2">
+<section id="equal-allocation" class="slide level2 pause">
 <h2>Equal Allocation</h2>
 <blockquote>
-<p><strong>Equal Allocation</strong> = Number of sampled units in each stratum is <span class="alert">the same</span> <span class="math display">\[n_h = n \quad \forall ~ h\]</span></p>
+<p><strong>Equal Allocation</strong> = Number of sampled units in each stratum is <span class="alert">the same</span> <span class="math display">\[n_h = \frac{n}{H} \quad \forall ~ h\]</span></p>
 </blockquote>
 <ul>
 <li>Often used if <span class="alert">goal is to compare stratum means/proportions</span>
@@ -197,56 +198,66 @@ Allocation Methods</p></h1>
 </ul></li>
 </ul>
 <p>
-</p><ul>
-<li>Probability of selection for a unit will differ by stratum if stratum sizes are unequal
+</p><div class="fragment">
 <ul>
-<li>Thus, sampling weights will differ if stratums sizes unequal (not EPSEM)</li>
+<li><p>If stratum sizes <span class="math inline">\((N_h)\)</span> are unequal:</p>
+<ul>
+<li>Probability of selection for a unit will differ by stratum</li>
+<li>Sampling weights will differ</li>
+<li><strong>Not</strong> EPSEM!</li>
 </ul></li>
 </ul>
 <p>
-</p><ul>
-<li><p>Total sample size <span class="math inline">\(n = H n_h\)</span> where <span class="math inline">\(n_h\)</span> the same for all <span class="math inline">\(h\)</span></p>
+</p></div>
+<div class="fragment">
 <ul>
-<li>Or could set total sample size <span class="math inline">\(n\)</span> and take <span class="math inline">\(n_h = n/H\)</span></li>
-</ul></li>
-</ul>
-<p>
-</p><ul>
 <li>Downside: estimate of the <span class="alert2">overall mean <strong>less precise</strong></span> than other allocation methods</li>
 </ul>
+</div>
 </section>
-<section id="proportional-allocation" class="slide level2">
+<section id="proportional-allocation" class="slide level2 pause">
 <h2>Proportional Allocation</h2>
 <blockquote>
-<p><strong>Proportional Allocation</strong> = Number of sampled units in each stratum is <span class="alert2">proportional to the size of the stratum</span> <span class="math display">\[n_h = n \frac{N_h}{N}\]</span></p>
+<p><strong>Proportional Allocation</strong> = Number of sampled units in each stratum is <span class="alert2">proportional to the<br>
+size of the stratum (relative to total population size)</span> <span class="math display">\[n_h = n \frac{N_h}{N}\]</span></p>
 </blockquote>
 <ul>
-<li><p>Resulting sample is <strong>EPSEM</strong> (self-weighting, all weights equal)</p>
+<li><p>Resulting sample <strong>is EPSEM</strong> (self-weighting, all weights equal)</p>
 <ul>
 <li><p><span class="math inline">\(P(\)</span>selection for unit <span class="math inline">\(j\)</span> in stratum <span class="math inline">\(h)=\pi_{hj} = n_h/N_h = n/N\)</span></p></li>
 <li><p>Sample weights: <span class="math inline">\(w_{hj} = N/n\)</span></p></li>
 </ul></li>
-<li><p>Formula for the variance of the sample mean, <span class="math inline">\(\bar{y}_{str}\)</span>, can thus be simplified: <span class="math display">\[\begin{flalign}
+</ul>
+<div class="fragment">
+<ul>
+<li>Formula for the variance of the sample mean, <span class="math inline">\(\bar{y}_{str}\)</span>, can thus be simplified: <span class="math display">\[\begin{flalign}
 V_{prop}(\bar{y}_{str}) &amp;= \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(1-\frac{n_h}{N_h}\right)\frac{S_h^2}{n_h} = &amp;% \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(1-\frac{n \frac{N_h}{N}}{N_h}\right) \frac{S_h^2}{n \frac{N_h}{N}} \\
 %&amp;= \sum_{h=1}^H \left(\frac{N_h}{N}\right) \fpcpar \frac{S_h^2}{n} %\\
 %&amp;= \sum_{h=1}^H \left(\frac{N_h}{N}\right) \frac{S_h^2}{n} - \frac{1}{N} \sum_{h=1}^H \frac{N_h}{N} S_h^2
-\end{flalign}\]</span></p></li>
+\end{flalign}\]</span></li>
 </ul>
+</div>
 </section>
 <section id="activity-7.1-part-1" class="slide level2">
 <h2>Activity 7.1 (Part 1)</h2>
 <p>Comparing Allocation Methods (Part 1)</p>
 </section>
-<section id="proportional-allocation-vs.-srs" class="slide level2">
+<section id="proportional-allocation-vs.-srs" class="slide level2 pause">
 <h2>Proportional Allocation vs.&nbsp;SRS</h2>
 <ul>
-<li><p>When the strata are large enough, the theoretical variance of <span class="math inline">\(\bar{y}_{str}\)</span> under <span class="alert2">proportional allocation</span> is <span class="alert2">at most as large as</span> the variance of the sample mean from an SRS with the same number of observations.</p></li>
-<li><p>Note that this only holds for <span class="alert2">proportional allocation</span></p></li>
+<li>When the strata are large enough, the theoretical variance of <span class="math inline">\(\bar{y}_{str}\)</span> under <span class="alert2"><strong>proportional</strong> allocation</span> is <span class="alert2">at most as large as</span> the variance of the sample mean from an SRS with the same number of observations.</li>
+</ul>
+<div class="fragment">
+<ul>
 <li><p>The gain in precision (over SRS) will be <span class="alert">larger when the <span class="math inline">\(\bar{y}_{hU}\)</span> differ from <span class="math inline">\(\bar{y}_U\)</span> more</span></p>
 <ul>
 <li>i.e., when stratum means/proportions are more different</li>
 </ul></li>
-<li><p><strong>Fact:</strong> when <span class="math inline">\(Y\)</span> comes from a mixture of two distributions, <span class="math inline">\(V(Y)\)</span> is a weighted average of the two variances <span class="math inline">\((\sigma^2_1,\sigma^2_2)\)</span> <span class="alert">plus an increase due to difference in the means</span> <span class="math inline">\((\mu_1, \mu_2)\)</span>:</p></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><strong>Fact:</strong> when <span class="math inline">\(Y\)</span> comes from a mixture of two distributions, <span class="math inline">\(V(Y)\)</span> is a weighted average of the two variances <span class="math inline">\((\sigma^2_1,\sigma^2_2)\)</span> <span class="alert">plus an increase due to difference in the means</span> <span class="math inline">\((\mu_1, \mu_2)\)</span>:</li>
 </ul>
 <p><span class="math display">\[V(Y) = p_1 \sigma^2_1 + (1-p_1) \sigma^2_2 + p_1 (1-p_1) (\mu_1 - \mu_2)^2\]</span></p>
 <p>where <span class="math inline">\(p_1\)</span> = fraction of the population from first distribution</p>
@@ -254,6 +265,7 @@ V_{prop}(\bar{y}_{str}) &amp;= \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(
 <li><p>The further apart the means are, the bigger the variance of <span class="math inline">\(y\)</span> if you ignore strata <span class="math inline">\((S^2)\)</span></p></li>
 <li><p>Thus, stratification helps <strong>if the stratification variable(s) are related to the survey outcome</strong> <span class="math inline">\(\mathbf{y}\)</span></p></li>
 </ul>
+</div>
 </section>
 <section id="mixture-distribution-in-a-picture" class="slide level2">
 <h2>Mixture Distribution in a Picture</h2>
@@ -262,7 +274,7 @@ V_{prop}(\bar{y}_{str}) &amp;= \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(
 <section id="numerical-illustration" class="slide level2">
 <h2>Numerical Illustration</h2>
 <ul>
-<li>equal-sized strata <span class="math inline">\((N_1=N_2)\)</span>, equal variance in each stratum, <span class="math inline">\(n=1000\)</span>, <span class="math inline">\(N\)</span> large enough to ignore FPC</li>
+<li>Equal-sized strata <span class="math inline">\((N_1=N_2)\)</span>, equal variance in each stratum, <span class="math inline">\(n=1000\)</span>, <span class="math inline">\(N\)</span> large enough to ignore FPC</li>
 </ul>
 <table class="caption-top">
 <colgroup>
@@ -340,14 +352,18 @@ V_{prop}(\bar{y}_{str}) &amp;= \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(
 </tr>
 </tbody>
 </table>
-<p>Example calculations (2nd row of table above):</p>
+<ul>
+<li>Example calculations (2nd row of table above):</li>
+</ul>
 <p><span class="math inline">\(S^2 = \frac{N_1}{N}S_1^2 + \frac{N_2}{N}S_2^2 + \frac{N_1}{N}\frac{N_2}{N} (\mu_1-\mu_2)^2= 0.5(1) + 0.5(1) + (0.5)(0.5)(0-0.5)^2 = 1.0625\)</span></p>
 <p><span class="math inline">\(V_{srs}(\bar{y}) = \frac{S^2}{n} = \frac{1.0625}{1000} = 0.0010625\)</span></p>
 <p><span class="math inline">\(V_{str}(\bar{y}_{str}) = \frac{N_1}{N}\frac{S_1^2}{n} + \frac{N_2}{N}\frac{S_2^2}{n} = 0.5\left(\frac{1}{1000}\right) + 0.5\left(\frac{1}{1000}\right) = 0.001\)</span></p>
 </section>
-<section id="numerical-illustration-proportions" class="slide level2">
+<section id="numerical-illustration-proportions" class="slide level2 pause">
 <h2>Numerical Illustration: Proportions</h2>
-<p>What about proportions? Exact same story:</p>
+<ul>
+<li>What about proportions? Exact same story:</li>
+</ul>
 <table class="caption-top">
 <colgroup>
 <col style="width: 12%">
@@ -424,12 +440,18 @@ V_{prop}(\bar{y}_{str}) &amp;= \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(
 </tr>
 </tbody>
 </table>
+<div class="fragment">
 <ul>
-<li><p>Note that these results are for the <span class="alert">theoretical</span> sampling variance (over repeated sampling)</p></li>
+<li><p>These results are for the <span class="alert"><strong>theoretical</strong></span> sampling variance (over repeated sampling)</p></li>
 <li><p>In a single pair of samples (one SRS, one stratified) you might not see the benefit – especially if the stratified sample selected had large within-stratum sample variances</p></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
 <li><p>Also note that <span class="alert">most surveys have more than one key outcome, <span class="math inline">\(y\)</span>!</span></p></li>
 <li><p>Compromise necessary to attempt to achieve improved precision across multiple <span class="math inline">\(y\)</span></p></li>
 </ul>
+</div>
 </section>
 <section id="proportional-allocation-vs.-srs-theory" class="slide level2">
 <h2>Proportional Allocation vs.&nbsp;SRS: Theory</h2>
@@ -471,7 +493,7 @@ V_{srs}(\bar{y}) &amp;= \underbrace{\left(1-\frac{n}{N}\right)\frac{1}{n} \sum_{
 <li><p><span class="alert">Sample more of a stratum</span> if it has a <span class="alert">large within-stratum variance</span> – to compensate for the heterogeneity</p></li>
 <li><p>First determined by Alexander Chuprov (1923), rediscovered by Neyman (1934). Poor Chuprov!</p></li>
 </ul>
-<p><span class="alert2"><em>Math/Stat Note:</em></span> <em>The derivation of the</em> <span class="math inline">\(n_h\)</span> formula under Neyman Allocation uses the method of Lagrange multipliers (calculus) – which is outside the scope of this class – I encourage any interested students to refer to the additional handout on Carmen</p>
+<p><span class="alert2"><em>Math/Stat Note:</em></span> <em>The derivation of the</em> <span class="math inline">\(n_h\)</span> <em>formula under Neyman Allocation uses the method of Lagrange multipliers (calculus) – which is outside the scope of this class – I encourage any interested students to refer to the additional handout on Carmen</em></p>
 </section>
 <section id="neyman-allocation-variance-formula" class="slide level2">
 <h2>Neyman Allocation: Variance Formula</h2>
@@ -488,7 +510,7 @@ V_{Neyman}(\bar{y}_{str}) &amp;= \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \lef
 <h2>Activity 7.1 (Part 2)</h2>
 <p>Comparing Allocation Methods (Part 2)</p>
 </section>
-<section id="neyman-allocation-vs.-proportional-allocation" class="slide level2">
+<section id="neyman-allocation-vs.-proportional-allocation" class="slide level2 pause">
 <h2>Neyman Allocation vs.&nbsp;Proportional Allocation</h2>
 <ul>
 <li><p>If <span class="math inline">\(S_h\)</span> are all equal and correctly specified, then Neyman allocation is the <strong>same</strong> as proportional allocation</p></li>
@@ -496,14 +518,22 @@ V_{Neyman}(\bar{y}_{str}) &amp;= \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \lef
 <ul>
 <li>The gain in precision (over proportional allocation) will be <strong>larger</strong> when the <span class="math inline">\(S_h\)</span> differ from <span class="math inline">\(\bar{S}\)</span> more (when stratum standard deviations more different)</li>
 </ul></li>
+</ul>
+<div class="fragment">
+<ul>
 <li><p>Combining with result about proportional allocation vs.&nbsp;SRS, assuming the <span class="math inline">\(S_h\)</span> are correctly specified, we have that: <span class="math display">\[V_{Neyman}(\bar{y}_{str}) \le V_{prop}(\bar{y}_{str}) \le V_{srs}(\bar{y}_{str})\]</span></p></li>
 <li><p>Remember that these are the theoretical variances…in practice the <strong>estimated</strong> variances from two samples from the same population might not have this property</p></li>
 </ul>
-<p>However, note that:</p>
+</div>
+<div class="fragment">
+<ul>
+<li><p>However, note that:</p>
 <ul>
 <li>If <span class="math inline">\(S_h\)</span> are poorly (inaccurately) specified, Neyman allocation can result in higher variance than SRS</li>
 <li><strong>Thus, Neyman allocation only used when we are confident in our estimates of</strong> <span class="math inline">\(S_h\)</span>!</li>
+</ul></li>
 </ul>
+</div>
 </section>
 <section id="neyman-allocation-vs.-proportional-allocation-theory" class="slide level2">
 <h2>Neyman Allocation vs.&nbsp;Proportional Allocation: Theory</h2>
@@ -532,7 +562,7 @@ V_{prop}(\bar{y}_{str}) &amp;- V_{Neyman}(\bar{y}_{str}) &amp; \\
 <section id="optimal-allocation-1" class="slide level2">
 <h2>Optimal Allocation</h2>
 <ul>
-<li>For completeness, here is the “simplified” expression for the theoretical variance of the overall mean under pptimal allocation:</li>
+<li>For completeness, here is the “simplified” expression for the theoretical variance of the overall mean under optimal allocation:</li>
 </ul>
 <p><span class="math display">\[\begin{aligned}
 V_{opt}(\bar{y}_{str}) &amp;= \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(1-\frac{n_h}{N_h}\right)\frac{S_h^2}{n_h} \\

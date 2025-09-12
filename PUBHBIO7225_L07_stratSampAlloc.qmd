@@ -45,11 +45,9 @@ format:
 
 ## Quick Note About Minimum Sample Size Per Stratum
 
-For each stratum, $h=1, \dots, H$, we require $n_h \ge 2$
+-   For each stratum, $h=1, \dots, H$, we require $n_h \ge 2$ (minimum of 2 units sampled per stratum)
 
-(minimum of 2 units sampled per stratum)
-
-Why is this true?
+-   Why is this true?
 
 ## Stratified Sampling: Allocation Methods
 
@@ -65,9 +63,9 @@ Why is this true?
 
 4.  **Optimal Allocation** -- Neyman Allocation, but also [accounting for the cost to sample each unit]{.alert2} (may vary by strata)
 
-## Equal Allocation
+## Equal Allocation {.pause}
 
-> **Equal Allocation** = Number of sampled units in each stratum is [the same]{.alert} $$n_h = n \quad \forall ~ h$$
+> **Equal Allocation** = Number of sampled units in each stratum is [the same]{.alert} $$n_h = \frac{n}{H} \quad \forall ~ h$$
 
 -   Often used if [goal is to compare stratum means/proportions]{.alert}
     -   Want the same precision for each mean/proportion being compared
@@ -75,28 +73,32 @@ Why is this true?
 
 <p>
 
--   Probability of selection for a unit will differ by stratum if stratum sizes are unequal
-    -   Thus, sampling weights will differ if stratums sizes unequal (not EPSEM)
+. . .
+
+-   If stratum sizes $(N_h)$ are unequal:
+
+    -   Probability of selection for a unit will differ by stratum
+    -   Sampling weights will differ
+    -   **Not** EPSEM!
 
 <p>
 
--   Total sample size $n = H n_h$ where $n_h$ the same for all $h$
-
-    -   Or could set total sample size $n$ and take $n_h = n/H$
-
-<p>
+. . .
 
 -   Downside: estimate of the [overall mean **less precise**]{.alert2} than other allocation methods
 
-## Proportional Allocation
+## Proportional Allocation {.pause}
 
-> **Proportional Allocation** = Number of sampled units in each stratum is [proportional to the size of the stratum]{.alert2} $$n_h = n \frac{N_h}{N}$$
+> **Proportional Allocation** = Number of sampled units in each stratum is [proportional to the \
+> size of the stratum (relative to total population size)]{.alert2} $$n_h = n \frac{N_h}{N}$$
 
--   Resulting sample is **EPSEM** (self-weighting, all weights equal)
+-   Resulting sample **is EPSEM** (self-weighting, all weights equal)
 
     -   $P($selection for unit $j$ in stratum $h)=\pi_{hj} = n_h/N_h = n/N$
 
     -   Sample weights: $w_{hj} = N/n$
+
+. . .
 
 -   Formula for the variance of the sample mean, $\bar{y}_{str}$, can thus be simplified: $$\begin{flalign}
     V_{prop}(\bar{y}_{str}) &= \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(1-\frac{n_h}{N_h}\right)\frac{S_h^2}{n_h} = &% \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(1-\frac{n \frac{N_h}{N}}{N_h}\right) \frac{S_h^2}{n \frac{N_h}{N}} \\
@@ -108,15 +110,17 @@ Why is this true?
 
 Comparing Allocation Methods (Part 1)
 
-## Proportional Allocation vs. SRS
+## Proportional Allocation vs. SRS {.pause}
 
--   When the strata are large enough, the theoretical variance of $\bar{y}_{str}$ under [proportional allocation]{.alert2} is [at most as large as]{.alert2} the variance of the sample mean from an SRS with the same number of observations.
+-   When the strata are large enough, the theoretical variance of $\bar{y}_{str}$ under [**proportional** allocation]{.alert2} is [at most as large as]{.alert2} the variance of the sample mean from an SRS with the same number of observations.
 
--   Note that this only holds for [proportional allocation]{.alert2}
+. . . 
 
 -   The gain in precision (over SRS) will be [larger when the $\bar{y}_{hU}$ differ from $\bar{y}_U$ more]{.alert}
 
     -   i.e., when stratum means/proportions are more different
+
+. . . 
 
 -   **Fact:** when $Y$ comes from a mixture of two distributions, $V(Y)$ is a weighted average of the two variances $(\sigma^2_1,\sigma^2_2)$ [plus an increase due to difference in the means]{.alert} $(\mu_1, \mu_2)$:
 
@@ -161,17 +165,17 @@ ggplot(df, aes(x=value, fill=group_f)) + geom_histogram(bins=40, alpha=0.5, col=
 
 ## Numerical Illustration
 
--   equal-sized strata $(N_1=N_2)$, equal variance in each stratum, $n=1000$, $N$ large enough to ignore FPC
+-   Equal-sized strata $(N_1=N_2)$, equal variance in each stratum, $n=1000$, $N$ large enough to ignore FPC
 
 | $\mu_1$ | $\mu_2$ | $S_1^2$ | $S_2^2$ | $S^2$ | $V_{srs}(\bar{y})$ | $V_{prop}(\bar{y}_{str})$ | Ratio (SRS/Strat) |
-|:---|:---|:---|:---|:---|:---|:---|----|
+|:--------|:--------|:--------|:--------|:--------|:--------|:--------|---------|
 | 0 | 0 | 1 | 1 | 1 | 0.001 | 0.001 | 1 |
 | 0 | 0.5 | 1 | 1 | 1.0625 | 0.0010625 | 0.001 | 1.0625 |
 | 0 | 1 | 1 | 1 | 1.25 | 0.00125 | 0.001 | 1.25 |
 | 0 | 1.5 | 1 | 1 | 1.5625 | 0.0015625 | 0.001 | 1.5625 |
 | 0 | 2 | 1 | 1 | 2 | 0.002 | 0.001 | 2 |
 
-Example calculations (2nd row of table above):
+-   Example calculations (2nd row of table above):
 
 $S^2 = \frac{N_1}{N}S_1^2 + \frac{N_2}{N}S_2^2 + \frac{N_1}{N}\frac{N_2}{N} (\mu_1-\mu_2)^2= 0.5(1) + 0.5(1) + (0.5)(0.5)(0-0.5)^2 = 1.0625$
 
@@ -179,21 +183,25 @@ $V_{srs}(\bar{y}) = \frac{S^2}{n} = \frac{1.0625}{1000} = 0.0010625$
 
 $V_{str}(\bar{y}_{str}) = \frac{N_1}{N}\frac{S_1^2}{n} + \frac{N_2}{N}\frac{S_2^2}{n} = 0.5\left(\frac{1}{1000}\right) + 0.5\left(\frac{1}{1000}\right) = 0.001$
 
-## Numerical Illustration: Proportions
+## Numerical Illustration: Proportions {.pause}
 
-What about proportions? Exact same story:
+-   What about proportions? Exact same story:
 
 | $p_1$ | $p_2$ | $S_1^2$ | $S_2^2$ | $S^2$ | $V(\bar{y})$ | $V_{prop}(\bar{y}_{str})$ | Ratio (SRS/Stratified) |
-|:---|:---|:---|:---|:---|:---|:---|----|
+|:--------|:--------|:--------|:--------|:--------|:--------|:--------|---------|
 | 0.5 | 0.5 | 0.25 | 0.25 | 0.25 | 0.0025 | 0.0025 | 1 |
 | 0.4 | 0.6 | 0.24 | 0.24 | 0.25 | 0.0025 | 0.0024 | 1.042 |
 | 0.3 | 0.7 | 0.21 | 0.21 | 0.25 | 0.0025 | 0.0021 | 1.19 |
 | 0.2 | 0.8 | 0.16 | 0.16 | 0.25 | 0.0025 | 0.0016 | 1.5625 |
 | 0.1 | 0.9 | 0.09 | 0.09 | 0.25 | 0.0025 | 0.0009 | 2.78 |
 
--   Note that these results are for the [theoretical]{.alert} sampling variance (over repeated sampling)
+. . . 
+
+-   These results are for the [**theoretical**]{.alert} sampling variance (over repeated sampling)
 
 -   In a single pair of samples (one SRS, one stratified) you might not see the benefit -- especially if the stratified sample selected had large within-stratum sample variances
+
+. . . 
 
 -   Also note that [most surveys have more than one key outcome, $y$!]{.alert}
 
@@ -238,7 +246,7 @@ V_{srs}(\bar{y}) &= \underbrace{\left(1-\frac{n}{N}\right)\frac{1}{n} \sum_{h=1}
 
 -   First determined by Alexander Chuprov (1923), rediscovered by Neyman (1934). Poor Chuprov!
 
-[*Math/Stat Note:*]{.alert2} *The derivation of the* $n_h$ formula under Neyman Allocation uses the method of Lagrange multipliers (calculus) -- which is outside the scope of this class -- I encourage any interested students to refer to the additional handout on Carmen
+[*Math/Stat Note:*]{.alert2} *The derivation of the* $n_h$ *formula under Neyman Allocation uses the method of Lagrange multipliers (calculus) -- which is outside the scope of this class -- I encourage any interested students to refer to the additional handout on Carmen*
 
 ## Neyman Allocation: Variance Formula
 
@@ -255,7 +263,7 @@ V_{Neyman}(\bar{y}_{str}) &= \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(1-
 
 Comparing Allocation Methods (Part 2)
 
-## Neyman Allocation vs. Proportional Allocation
+## Neyman Allocation vs. Proportional Allocation {.pause}
 
 -   If $S_h$ are all equal and correctly specified, then Neyman allocation is the **same** as proportional allocation
 
@@ -263,14 +271,18 @@ Comparing Allocation Methods (Part 2)
 
     -   The gain in precision (over proportional allocation) will be **larger** when the $S_h$ differ from $\bar{S}$ more (when stratum standard deviations more different)
 
+. . . 
+
 -   Combining with result about proportional allocation vs. SRS, assuming the $S_h$ are correctly specified, we have that: $$V_{Neyman}(\bar{y}_{str}) \le V_{prop}(\bar{y}_{str}) \le V_{srs}(\bar{y}_{str})$$
 
 -   Remember that these are the theoretical variances...in practice the **estimated** variances from two samples from the same population might not have this property
 
-However, note that:
+. . . 
 
--   If $S_h$ are poorly (inaccurately) specified, Neyman allocation can result in higher variance than SRS
--   **Thus, Neyman allocation only used when we are confident in our estimates of** $S_h$!
+-   However, note that:
+
+      -   If $S_h$ are poorly (inaccurately) specified, Neyman allocation can result in higher variance than SRS
+      -   **Thus, Neyman allocation only used when we are confident in our estimates of** $S_h$!
 
 ## Neyman Allocation vs. Proportional Allocation: Theory
 
@@ -298,7 +310,7 @@ V_{prop}(\bar{y}_{str}) &- V_{Neyman}(\bar{y}_{str}) & \\
 
 ## Optimal Allocation
 
--   For completeness, here is the "simplified" expression for the theoretical variance of the overall mean under pptimal allocation:
+-   For completeness, here is the "simplified" expression for the theoretical variance of the overall mean under optimal allocation:
 
 $$\begin{aligned}
 V_{opt}(\bar{y}_{str}) &= \sum_{h=1}^H \left(\frac{N_h}{N}\right)^2  \left(1-\frac{n_h}{N_h}\right)\frac{S_h^2}{n_h} \\
