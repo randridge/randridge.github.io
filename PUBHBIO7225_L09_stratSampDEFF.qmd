@@ -146,6 +146,8 @@ Similar to SRS formula -- with $S^{\ast 2}$ instead of $S^2$
 
 ## Example
 
+::: {.smaller-text}
+
 -   Same set-up as before:
 
 | **Stratum** | **Definition** | $\mathbf{N_h}$ | **True Proportion** | $\mathbf{V(y)}$ **in Stratum** |
@@ -169,6 +171,8 @@ Similar to SRS formula -- with $S^{\ast 2}$ instead of $S^2$
 
     -   $\left(\sum_{h=1}^H \frac{N_h}{N}S_h\right)^2 = \left(\frac{N_1}{N}S_1 + \frac{N_2}{N}S_2\right)^2 = (0.75\sqrt{0.21} + 0.25\sqrt{0.24})^2 = 0.4662^2 = 0.2173$\
         *(weighted average of the stratum-level standard deviations, squared)*
+
+:::
 
 ## Example (con't)
 
@@ -229,27 +233,26 @@ Stratification: Sample Size and Design Effects (Part 1)
     -   $\text{deff} > 1 \rightarrow$ your design is **worse**than SRS (in terms of variance/efficiency)
 
 -   For a mean under stratified sampling with proportional allocation: $$\begin{aligned}
-\text{deff} = \frac{V_{prop}(\bar{y}_{str})}{V_{srs}(\bar{y})} &= \frac{\sum_{h=1}^H \frac{N_h}{N} \left(1-\frac{n}{N}\right)\frac{S_h^2}{n}}{\left(1-\frac{n}{N}\right)\frac{S^2}{n}} = \frac{\sum_{h=1}^H \frac{N_h}{N} S_h^2}{S^2} \\
-& \textcolor{red}{\text{assuming }(N-1)/N \approx 1} \textcolor{red}{\text{ and } (N_h-1)/N_h \approx 1:}\\
-&= \frac{\sum_{h=1}^H \frac{N_h}{N} S_h^2}{\sum_{h=1}^H \frac{N_h}{N} S_h^2 +\sum_{h=1}^H \frac{N_h}{N} (\bar{y}_{hU}-\bar{y}_U)^2}  \le 1
-\end{aligned}$$
+    \text{deff} = \frac{V_{prop}(\bar{y}_{str})}{V_{srs}(\bar{y})} &= \frac{\sum_{h=1}^H \frac{N_h}{N} \left(1-\frac{n}{N}\right)\frac{S_h^2}{n}}{\left(1-\frac{n}{N}\right)\frac{S^2}{n}} = \frac{\sum_{h=1}^H \frac{N_h}{N} S_h^2}{S^2} \\
+    & \textcolor{red}{\text{assuming }(N-1)/N \approx 1} \textcolor{red}{\text{ and } (N_h-1)/N_h \approx 1:}\\
+    &= \frac{\sum_{h=1}^H \frac{N_h}{N} S_h^2}{\sum_{h=1}^H \frac{N_h}{N} S_h^2 +\sum_{h=1}^H \frac{N_h}{N} (\bar{y}_{hU}-\bar{y}_U)^2}  \le 1
+    \end{aligned}$$
 
 -   deﬀ for a stratified sample with **proportional** or **Neyman allocation** will usually be less than 1
 
-    -   Note that other allocation methods (e.g., equal allocation) might not give deﬀ $<1$ 
+    -   Note that other allocation methods (e.g., equal allocation) might not give deﬀ $<1$
 
 -   Often deﬀ $>1$ for subgroup estimates that cross strata (domain means = subgroups that cross strata)
 
 ## A Slightly Diﬀerent Design Eﬀect: deft {.pause}
 
--   A similar design effect is sometimes used that compares the complex design to and uses instead of variances:
-$$\text{deft}(\text{plan, statistic}) = \frac{\textcolor{blue}{SE}(\text{estimator from sampling plan})}{\textcolor{blue}{SE}(\text{estimator from \textcolor{red}{SRSWR} with same total sample size})}$$
+-   A similar design effect is sometimes used that compares the complex design to and uses instead of variances: $$\text{deft}(\text{plan, statistic}) = \frac{\textcolor{blue}{SE}(\text{estimator from sampling plan})}{\textcolor{blue}{SE}(\text{estimator from \textcolor{red}{SRSWR} with same total sample size})}$$
 
 -   When the small sampling fraction ($n/N$) is very small, then $\text{deft} \approx \sqrt{\text{deff}}$
 
 -   Why?
 
-. . . 
+. . .
 
 -   Because then variance under SRS is very close to variance under SRSWR
 
