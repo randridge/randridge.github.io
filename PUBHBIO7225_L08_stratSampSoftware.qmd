@@ -25,14 +25,14 @@ format:
 ::: {.column width="50%"}
 **Topics**
 
--   Stata for SRS
--   R for SRS
+-   Stata for Stratified Samples
+-   R for Stratified Samples
 :::
 
 ::: {.column width="50%"}
 **Activities**
 
--   8.1 Stata/R for SRS
+-   8.1 Stata/R for Stratified Samples
 :::
 :::::
 
