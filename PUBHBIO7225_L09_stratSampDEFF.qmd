@@ -146,8 +146,7 @@ Similar to SRS formula -- with $S^{\ast 2}$ instead of $S^2$
 
 ## Example
 
-::: {.smaller-text}
-
+::: smaller-text
 -   Same set-up as before:
 
 | **Stratum** | **Definition** | $\mathbf{N_h}$ | **True Proportion** | $\mathbf{V(y)}$ **in Stratum** |
@@ -171,7 +170,6 @@ Similar to SRS formula -- with $S^{\ast 2}$ instead of $S^2$
 
     -   $\left(\sum_{h=1}^H \frac{N_h}{N}S_h\right)^2 = \left(\frac{N_1}{N}S_1 + \frac{N_2}{N}S_2\right)^2 = (0.75\sqrt{0.21} + 0.25\sqrt{0.24})^2 = 0.4662^2 = 0.2173$\
         *(weighted average of the stratum-level standard deviations, squared)*
-
 :::
 
 ## Example (con't)
@@ -204,7 +202,7 @@ Useful to step back and compare the formulae to see driver of the differences:
 
 Remember that these calculations **all require some estimate/guess of variance(s)**
 
-## Activity 9.1 (Part 2)
+## Activity 9.1 (Part 1)
 
 Stratification: Sample Size and Design Effects (Part 1)
 
