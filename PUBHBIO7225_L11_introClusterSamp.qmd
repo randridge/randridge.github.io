@@ -3,7 +3,7 @@ title:  |
   Cluster Sampling: \
   Intro and One-Stage
 subtitle: "PUBHBIO 7225 Lecture 11"
-# author: "Generative AI acknowledgment: MS Copilot was used to generate alt text for images"
+author: "Generative AI acknowledgment: Google Gemini was used to generate alt text for some images"
 format:
   revealjs: 
     slide-number: true
@@ -51,7 +51,7 @@ format:
 
 -   Problem Set 3 due Thursday 10/2/25 11:59pm via Carmen
 
-## Cluster Sampling: A Classic Example
+## Cluster Sampling: A Classic Example {.pause}
 
 -   Want to estimate something about [children in a school]{.alert}
 
@@ -67,22 +67,28 @@ format:
 
         -   An SRS of children in that classroom (**two-stage cluster sample**)
 
+. . .
+
 -   In general, cluster sampling **increases** variance relative to an SRS (of the same number of observation units)
 
 -   If units **within** a cluster tend to be more similar than units **between** clusters → obtaining **less information**
+
+. . .
 
 -   Not all outcomes ($y$s) would be impacted the same -- which would be more impacted?
 
     -   Classroom Example A: $y$ = performance on a standardized test
     -   Classroom Example B: $y$ = handedness (left vs right)
 
-## So Why Would We Cluster Sample?
+## So Why Would We Cluster Sample? {.pause}
 
 -   **We might have to:** Constructing a sampling frame of observation units may be difficult, costly, or impossible.
 
     -   Example: want to sample residents of a city, but only have a list of housing units
 
     -   Example: studying birds in a region, but cannot list all the birds in a region (but perhaps could list geographic units which cover the region)
+
+. . .
 
 -   **Cost considerations:** Cluster sampling is usually **cheaper** than SRS
 
@@ -92,13 +98,15 @@ format:
 
     -   For the **same cost** you often can sample **more observation units** in the cluster sample compared to an SRS, thus potentially overcoming the decrease in precision caused by clustering
 
-        -   Example: Target population = all incarcerated juveniles in the U.S.
+. . .
 
-            -   Might be able to get a list of all incarcerated juveniles (frame), but taking an SRS would mean potentially going to a lot of locations across the U.S. ([1,277 juvenile correctional facilities in 2025](https://www.prisonpolicy.org/reports/pie2025.html))
+-   Example: Target population = all incarcerated juveniles in the U.S.
 
-            -   Much cheaper to take an SRS of the facilities and then interview incarcerated juveniles at the sampled facilities
+    -   Might be able to get a list of all incarcerated juveniles (frame), but taking an SRS would mean potentially going to a lot of locations across the U.S. ([1,277 juvenile correctional facilities in 2025](https://www.prisonpolicy.org/reports/pie2025.html))
 
-## Vocabulary of Cluster Sampling
+    -   Cheaper to take an SRS of facilities and interview incarcerated juveniles at the sampled facilities
+
+## Vocabulary of Cluster Sampling {.pause}
 
 > [**Primary sampling units (PSUs)**]{.alert} = clusters = sampling units
 
@@ -109,6 +117,8 @@ format:
 -   Can have more than two stages (e.g., children within classrooms within schools within counties...)
 
 <p>
+
+. . .
 
 > [**One-stage cluster sample**]{.alert} = Sample **all** SSUs within selected PSUs (e.g., **all** kids in a classroom)
 
@@ -121,21 +131,21 @@ format:
 ## Contrasting Cluster Sampling with Stratified Sampling
 
 ::: smaller-text
-+--------------------------------------------------------------------------------+--------------------------------------------------------------+
-| **Stratified Sampling**                                                        | **Cluster Sampling**                                         |
-+:===============================================================================+:=============================================================+
-| Each element of the population is in exactly one stratum                       | Each element of the population is in exactly one cluster     |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------+
-| Strata do not overlap, and they cover the whole population                     | Clusters do not overlap, and they cover the whole population |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------+
-| Population of $H$ strata; stratum $h$ has $n_h$ elements, $N=\sum_{h=1}^H n_h$ | Population of $N$ clusters                                   |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------+
-| ![](figures/str_vs_clus_pop.png){width="4in"}                                  | ![](figures/str_vs_clus_pop.png){width="4in"}                |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------+
-| PSU = individual element                                                       | PSU = cluster                                                |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------+
-| SSU = n/a                                                                      | SSU = individual element                                     |
-+--------------------------------------------------------------------------------+--------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Stratified Sampling**                                                                                                                                  | **Cluster Sampling**                                                                                                                                     |
++:=========================================================================================================================================================+:=========================================================================================================================================================+
+| Each element of the population is in exactly one stratum                                                                                                 | Each element of the population is in exactly one cluster                                                                                                 |
++----------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Strata do not overlap, and they cover the whole population                                                                                               | Clusters do not overlap, and they cover the whole population                                                                                             |
++----------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Population of $H$ strata; stratum $h$ has $n_h$ elements, $N=\sum_{h=1}^H n_h$                                                                           | Population of $N$ clusters                                                                                                                               |
++----------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ![](figures/str_vs_clus_pop.png){fig-alt="set of rectangles representing strata, each divided into squares representing observation units." width="4in"} | ![](figures/str_vs_clus_pop.png){fig-alt="set of rectangles representing strata, each divided into squares representing observation units." width="4in"} |
++----------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| PSU = individual element                                                                                                                                 | PSU = cluster                                                                                                                                            |
++----------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| SSU = n/a                                                                                                                                                | SSU = individual element                                                                                                                                 |
++----------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 : {tbl-colwidths="\[50,50\]"}
 :::
@@ -287,11 +297,13 @@ One-Stage Cluster Sampling (Part 1)
 :::
 ::::::
 
+::: smaller-text
 $$\bar{t} = \frac{1}{n} \sum_{i\in \mathcal{S}} t_i = \frac{1}{5} (12.53 + 14.01 + 13.09 + 10.29 + 13) = \frac{62.92}{5} = 12.584$$ $$\widehat{V}(t_i) = s_t^2 =\frac{1}{n-1} \sum_{i \in\mathcal{S}_i} (t_i - \bar{t})^2= \frac{1}{5-1}\left[(12.53-12.584)^2 + \cdots + (13-12.584)^2 \right]= 1.93198$$
 
 $$\widehat{V}(\bar{t}) = \left(1-\frac{n}{N}\right)\frac{s_t^2}{n}= \left(1 - \frac{5}{100} \right) \frac{1.93198}{5} = 0.3670762$$
+:::
 
-## From TOTAL to MEAN
+## From TOTAL to MEAN {.pause}
 
 -   We don't really want to know about **total** GPA, we want to know about **mean** GPA
 
@@ -299,15 +311,21 @@ $$\widehat{V}(\bar{t}) = \left(1-\frac{n}{N}\right)\frac{s_t^2}{n}= \left(1 - \f
 
     -   [Truth:]{.alert} $\bar{y}_U=\frac{\text{total of $y$}}{\text{\# of SSUs}}= \frac{t_U}{M_0}$   →   [Estimate:]{.alert2} $\hat{\bar{y}}_{clus}= \frac{\hat{t}_{clus}}{M_0}$
 
+. . .
+
 -   We have $\bar{t}$, how can we get $\hat{t}$?
 
     -   (# of PSUs) $\times$ (average total in a PSU) = total across all PSUs
 
     -   [Truth:]{.alert} $N \times \bar{t}_U = t$   →   [Estimate:]{.alert2} $N \times \bar{t}= \hat{t}_{clus}$
 
+. . .
+
 -   Thus this gives us, for the **mean** of $y$:
 
     -   [Truth:]{.alert} $\bar{y}_U= \frac{t_U}{M_0} = \frac{N \bar{t}_U}{M_0}$   →   [Estimate:]{.alert2} $\hat{\bar{y}}_{clus}= \frac{\hat{t}_{clus}}{M_0} = \frac{N \bar{t}}{M_0}$
+
+. . .
 
 -   And of course we need variances... but conveniently $N$ and $M_0$ are constants!
 
@@ -315,6 +333,7 @@ $$\widehat{V}(\bar{t}) = \left(1-\frac{n}{N}\right)\frac{s_t^2}{n}= \left(1 - \f
 
 ## One-Stage Cluster Sampling – Estimator for the Mean
 
+::: smaller-text
 +-------------------------------------+-------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
 | Quantity                            | Truth                                                                                                 | Estimate                                                                                                         |
 +=====================================+=======================================================================================================+==================================================================================================================+
@@ -323,7 +342,6 @@ $$\widehat{V}(\bar{t}) = \left(1-\frac{n}{N}\right)\frac{s_t^2}{n}= \left(1 - \f
 | Variance of $\hat{\bar{y}}_{clus}$: | $\displaystyle V(\hat{\bar{y}}_{clus}) = \frac{N^2}{M_0^2} \left(1-\frac{n}{N}\right)\frac{S_t^2}{n}$ | $\displaystyle  \widehat{V}(\hat{\bar{y}}_{clus}) = \frac{N^2}{M_0^2} \left(1-\frac{n}{N}\right)\frac{s_t^2}{n}$ |
 +-------------------------------------+-------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
 
-::: smaller-text
 -   Importantly, $\hat{\bar{y}}_{clus}$ is **unbiased**: $E(\hat{\bar{y}}_{clus}) =$
 
 -   Remember,
@@ -367,21 +385,25 @@ $$\widehat{V}(\bar{t}) = \left(1-\frac{n}{N}\right)\frac{s_t^2}{n}= \left(1 - \f
 
 *Note: The true population mean GPA is* $\bar{y}_U = 2.836075$
 
-## Sampling Weights in One-Stage Cluster Samples
+## Sampling Weights in One-Stage Cluster Samples {.pause}
+
+-   SRS of $n$ out of $N$ PSU   →   each PSU has probability $n/N$ of being selected
 
 -   When clusters are sampled with equal probability (i.e., via an SRS), an [SSU is included in the sample if the PSU is included in the sample]{.alert}
 
--   Each PSU has probability $n/N$ of being selected (SRS of $n$ out of $N$ PSUs)
-
 -   Thus the sample weight for sampled SSU $j$ in PSU $i$ is: $$w_{ij} = \frac{1}{P(\text{SSU $j$ of PSU $i$ included in sample})} = \frac{1}{\pi_{ij}} = \frac{N}{n}$$
+
+. . .
 
 -   Compare to an SRS:
 
-    -   If all PSUs had $M_i=M$ elements, then the population size is $NM$ and the one-stage cluster sample has $nM$ units
+    -   If all PSUs had $M_i=M$ elements, population size = $NM$ and one-stage cluster sample has $nM$ units
 
     -   An SRS of $nM$ units out of $NM$ units: $w_i = \frac{NM}{nM} = \frac{N}{n}$ = [same as the one-stage cluster sample]{.alert2}
 
     -   So point estimates would be the same -- [but variance estimates would be different]{.alert}
+
+. . .
 
 -   For the GPA cluster sample, $w_{ij} = \frac{N}{n} = \frac{\text{\# of PSUs in \textbf{population}}}{\text{\# of PSUs in \textbf{sample}}} = \frac{100}{5} = 20$
 
@@ -393,7 +415,7 @@ $$\widehat{V}(\bar{t}) = \left(1-\frac{n}{N}\right)\frac{s_t^2}{n}= \left(1 - \f
 
 -   Often the number of PSUs sampled is not large, thus we most often use $t$ (instead of $Z$)
 
--   Again, you may see the DF "rule" written as **"DF = \# of PSUs** $\mathbf{-}$ \# of Strata"
+-   Again, you may see the DF "rule" written as **DF = \# of PSUs** $\mathbf{-}$ **\# of Strata**
 
     -   PSU = Primary Sampling Unit = cluster
 
@@ -421,7 +443,7 @@ Ideally:
 :::
 
 ::: {.column width="30%"}
-![](./figures/cluster_between_small){width="\\textwidth"}
+![](./figures/cluster_between_small){width="\\textwidth" fig-alt="Scatter plot of five clusters. Data points within each cluster are spread widely along the y-axis. The red squares, marking the cluster means, are all located at very similar y-values, indicating small separation between cluster means."}
 :::
 :::::
 
@@ -435,7 +457,7 @@ However, the reality usually is:
 :::
 
 ::: {.column width="30%"}
-![](./figures/cluster_between_big){width="\\textwidth"}
+![](./figures/cluster_between_big){width="\\textwidth" fig-alt="Scatter plot of five clusters. Data points within each cluster are tightly grouped along the y-axis. The red squares, marking the cluster means, are located at distinct, well-separated y-values, indicating large separation between cluster means."}
 :::
 :::::
 :::::::::
@@ -464,11 +486,15 @@ SST &{}= SSB + SSW \\
 
 **ANOVA Table**
 
-| Source | DF | Sum of Squares | Mean Square |
-|:---|:---|:---|:---|
-| Between PSUs | $N-1$ | $SSB=\sum_{i=1}^N \sum_{j=1}^{M} (\bar{y}_{Ui} - \bar{y}_U)^2$ | $MSB = \frac{SSB}{N-1}$ |
-| Within PSUs | $NM-N$ | $SSW=\sum_{i=1}^N \sum_{j=1}^{M} (y_{ij} - \bar{y}_{Ui})^2$ | $MSW = \frac{SSW}{NM-N}$ |
-| Total | $NM-1$ | $SST=\sum_{i=1}^N \sum_{j=1}^{M} (y_{ij} - \bar{y}_U)^2$ | $S^2 = \frac{SST}{NM-1}$ |
++--------------+-----------+----------------------------------------------------------------+--------------------------+
+| Source       | DF        | Sum of Squares                                                 | Mean Square              |
++:=============+:==========+:===============================================================+:=========================+
+| Between PSUs | $N-1$     | $SSB=\sum_{i=1}^N \sum_{j=1}^{M} (\bar{y}_{Ui} - \bar{y}_U)^2$ | $MSB = \frac{SSB}{N-1}$  |
++--------------+-----------+----------------------------------------------------------------+--------------------------+
+| Within PSUs  | $NM-N$    | $SSW=\sum_{i=1}^N \sum_{j=1}^{M} (y_{ij} - \bar{y}_{Ui})^2$    | $MSW = \frac{SSW}{NM-N}$ |
++--------------+-----------+----------------------------------------------------------------+--------------------------+
+| Total        | $NM-1$    | $SST=\sum_{i=1}^N \sum_{j=1}^{M} (y_{ij} - \bar{y}_U)^2$       | $S^2 = \frac{SST}{NM-1}$ |
++--------------+-----------+----------------------------------------------------------------+--------------------------+
 
 <p>
 
@@ -540,7 +566,7 @@ summary(anova_model)
 
 [^1]: Full derivation on Carmen if you're interested (OPTIONAL)
 
-## Example Calculation of DEFF (from Activity)
+## Example Calculation of DEFF (from Activity) {.pause}
 
 -   For the students (SSUs) within rooms (PSUs) the true, theoretical ICC = $0.386$
 
@@ -552,7 +578,13 @@ summary(anova_model)
 
 <p>
 
+. . .
+
 -   Would need to sample **more than twice as many students** with clustered design as if we took an SRS (of the same number of SSUs)
+
+<p>
+
+. . .
 
 -   Note #1: This is the **true ICC** and **true (theoretical) DEFF**. When calculating ICC and DEFF from a cluster sample, you'll only get **estimates** of these quantities.
 

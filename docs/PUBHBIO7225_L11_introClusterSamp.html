@@ -9,6 +9,7 @@
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.33">
 
+  <meta name="author" content="Generative AI acknowledgment: Google Gemini was used to generate alt text for some images">
   <title>randridge.github.io – Cluster Sampling: Intro and One-Stage</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -197,6 +198,11 @@ Intro and One-Stage</p></h1>
   <p class="subtitle">PUBHBIO 7225 Lecture 11</p>
 
 <div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Generative AI acknowledgment: Google Gemini was used to generate alt text for some images 
+</div>
+</div>
 </div>
 
 </section>
@@ -234,7 +240,7 @@ Intro and One-Stage</p></h1>
 <li>Problem Set 3 due Thursday 10/2/25 11:59pm via Carmen</li>
 </ul>
 </section>
-<section id="cluster-sampling-a-classic-example" class="slide level2">
+<section id="cluster-sampling-a-classic-example" class="slide level2 pause">
 <h2>Cluster Sampling: A Classic Example</h2>
 <ul>
 <li><p>Want to estimate something about <span class="alert">children in a school</span></p></li>
@@ -248,16 +254,24 @@ Intro and One-Stage</p></h1>
 <li><p>An SRS of children in that classroom (<strong>two-stage cluster sample</strong>)</p></li>
 </ul></li>
 </ol></li>
+</ul>
+<div class="fragment">
+<ul>
 <li><p>In general, cluster sampling <strong>increases</strong> variance relative to an SRS (of the same number of observation units)</p></li>
 <li><p>If units <strong>within</strong> a cluster tend to be more similar than units <strong>between</strong> clusters → obtaining <strong>less information</strong></p></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
 <li><p>Not all outcomes (<span class="math inline">\(y\)</span>s) would be impacted the same – which would be more impacted?</p>
 <ul>
 <li>Classroom Example A: <span class="math inline">\(y\)</span> = performance on a standardized test</li>
 <li>Classroom Example B: <span class="math inline">\(y\)</span> = handedness (left vs right)</li>
 </ul></li>
 </ul>
+</div>
 </section>
-<section id="so-why-would-we-cluster-sample" class="slide level2">
+<section id="so-why-would-we-cluster-sample" class="slide level2 pause">
 <h2>So Why Would We Cluster Sample?</h2>
 <ul>
 <li><p><strong>We might have to:</strong> Constructing a sampling frame of observation units may be difficult, costly, or impossible.</p>
@@ -265,22 +279,28 @@ Intro and One-Stage</p></h1>
 <li><p>Example: want to sample residents of a city, but only have a list of housing units</p></li>
 <li><p>Example: studying birds in a region, but cannot list all the birds in a region (but perhaps could list geographic units which cover the region)</p></li>
 </ul></li>
+</ul>
+<div class="fragment">
+<ul>
 <li><p><strong>Cost considerations:</strong> Cluster sampling is usually <strong>cheaper</strong> than SRS</p>
 <ul>
 <li><p>Population may be widely distributed geographically</p></li>
 <li><p>Population may occur in natural clusters (households, schools, etc.)</p></li>
-<li><p>For the <strong>same cost</strong> you often can sample <strong>more observation units</strong> in the cluster sample compared to an SRS, thus potentially overcoming the decrease in precision caused by clustering</p>
+<li><p>For the <strong>same cost</strong> you often can sample <strong>more observation units</strong> in the cluster sample compared to an SRS, thus potentially overcoming the decrease in precision caused by clustering</p></li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
 <ul>
 <li><p>Example: Target population = all incarcerated juveniles in the U.S.</p>
 <ul>
 <li><p>Might be able to get a list of all incarcerated juveniles (frame), but taking an SRS would mean potentially going to a lot of locations across the U.S. (<a href="https://www.prisonpolicy.org/reports/pie2025.html">1,277 juvenile correctional facilities in 2025</a>)</p></li>
-<li><p>Much cheaper to take an SRS of the facilities and then interview incarcerated juveniles at the sampled facilities</p></li>
-</ul></li>
-</ul></li>
+<li><p>Cheaper to take an SRS of facilities and interview incarcerated juveniles at the sampled facilities</p></li>
 </ul></li>
 </ul>
+</div>
 </section>
-<section id="vocabulary-of-cluster-sampling" class="slide level2">
+<section id="vocabulary-of-cluster-sampling" class="slide level2 pause">
 <h2>Vocabulary of Cluster Sampling</h2>
 <blockquote>
 <p><span class="alert"><strong>Primary sampling units (PSUs)</strong></span> = clusters = sampling units</p>
@@ -293,7 +313,8 @@ Intro and One-Stage</p></h1>
 <li><p>Can have more than two stages (e.g., children within classrooms within schools within counties…)</p></li>
 </ul>
 <p>
-</p><blockquote>
+</p><div class="fragment">
+<blockquote>
 <p><span class="alert"><strong>One-stage cluster sample</strong></span> = Sample <strong>all</strong> SSUs within selected PSUs (e.g., <strong>all</strong> kids in a classroom)</p>
 </blockquote>
 <blockquote>
@@ -305,6 +326,7 @@ Intro and One-Stage</p></h1>
 <li>We will cover another method of selecting PSUs in a later lecture</li>
 </ul></li>
 </ul>
+</div>
 </section>
 <section id="contrasting-cluster-sampling-with-stratified-sampling" class="slide level2">
 <h2>Contrasting Cluster Sampling with Stratified Sampling</h2>
@@ -334,8 +356,8 @@ Intro and One-Stage</p></h1>
 <td style="text-align: left;">Population of <span class="math inline">\(N\)</span> clusters</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><img data-src="figures/str_vs_clus_pop.png" style="width:4in"></td>
-<td style="text-align: left;"><img data-src="figures/str_vs_clus_pop.png" style="width:4in"></td>
+<td style="text-align: left;"><img data-src="figures/str_vs_clus_pop.png" style="width:4in" alt="set of rectangles representing strata, each divided into squares representing observation units."></td>
+<td style="text-align: left;"><img data-src="figures/str_vs_clus_pop.png" style="width:4in" alt="set of rectangles representing strata, each divided into squares representing observation units."></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">PSU = individual element</td>
@@ -591,10 +613,12 @@ Intro and One-Stage</p></h1>
 <li><p><span class="math inline">\(n=5\)</span> (number of rooms in <strong>sample</strong>)</p></li>
 </ul>
 </div></div>
+<div class="smaller-text">
 <p><span class="math display">\[\bar{t} = \frac{1}{n} \sum_{i\in \mathcal{S}} t_i = \frac{1}{5} (12.53 + 14.01 + 13.09 + 10.29 + 13) = \frac{62.92}{5} = 12.584\]</span> <span class="math display">\[\widehat{V}(t_i) = s_t^2 =\frac{1}{n-1} \sum_{i \in\mathcal{S}_i} (t_i - \bar{t})^2= \frac{1}{5-1}\left[(12.53-12.584)^2 + \cdots + (13-12.584)^2 \right]= 1.93198\]</span></p>
 <p><span class="math display">\[\widehat{V}(\bar{t}) = \left(1-\frac{n}{N}\right)\frac{s_t^2}{n}= \left(1 - \frac{5}{100} \right) \frac{1.93198}{5} = 0.3670762\]</span></p>
+</div>
 </section>
-<section id="from-total-to-mean" class="slide level2">
+<section id="from-total-to-mean" class="slide level2 pause">
 <h2>From TOTAL to MEAN</h2>
 <ul>
 <li><p>We don’t really want to know about <strong>total</strong> GPA, we want to know about <strong>mean</strong> GPA</p></li>
@@ -602,23 +626,36 @@ Intro and One-Stage</p></h1>
 <ul>
 <li><span class="alert">Truth:</span> <span class="math inline">\(\bar{y}_U=\frac{\text{total of $y$}}{\text{\# of SSUs}}= \frac{t_U}{M_0}\)</span>   →   <span class="alert2">Estimate:</span> <span class="math inline">\(\hat{\bar{y}}_{clus}= \frac{\hat{t}_{clus}}{M_0}\)</span></li>
 </ul></li>
+</ul>
+<div class="fragment">
+<ul>
 <li><p>We have <span class="math inline">\(\bar{t}\)</span>, how can we get <span class="math inline">\(\hat{t}\)</span>?</p>
 <ul>
 <li><p>(# of PSUs) <span class="math inline">\(\times\)</span> (average total in a PSU) = total across all PSUs</p></li>
 <li><p><span class="alert">Truth:</span> <span class="math inline">\(N \times \bar{t}_U = t\)</span>   →   <span class="alert2">Estimate:</span> <span class="math inline">\(N \times \bar{t}= \hat{t}_{clus}\)</span></p></li>
 </ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
 <li><p>Thus this gives us, for the <strong>mean</strong> of <span class="math inline">\(y\)</span>:</p>
 <ul>
 <li><span class="alert">Truth:</span> <span class="math inline">\(\bar{y}_U= \frac{t_U}{M_0} = \frac{N \bar{t}_U}{M_0}\)</span>   →   <span class="alert2">Estimate:</span> <span class="math inline">\(\hat{\bar{y}}_{clus}= \frac{\hat{t}_{clus}}{M_0} = \frac{N \bar{t}}{M_0}\)</span></li>
 </ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
 <li><p>And of course we need variances… but conveniently <span class="math inline">\(N\)</span> and <span class="math inline">\(M_0\)</span> are constants!</p>
 <ul>
 <li><span class="alert">Truth:</span> <span class="math inline">\(V(\hat{\bar{y}}_{clus}) = V\left(\frac{N \bar{t}}{M_0}\right) = \frac{N^2}{M_0^2}V(\bar{t}) = \frac{N^2}{M_0^2} \left(1-\frac{n}{N}\right)\frac{S_t^2}{n}\)</span></li>
 </ul></li>
 </ul>
+</div>
 </section>
 <section id="one-stage-cluster-sampling-estimator-for-the-mean" class="slide level2">
 <h2>One-Stage Cluster Sampling – Estimator for the Mean</h2>
+<div class="smaller-text">
 <table class="caption-top" style="width:100%;">
 <colgroup>
 <col style="width: 14%">
@@ -645,7 +682,6 @@ Intro and One-Stage</p></h1>
 </tr>
 </tbody>
 </table>
-<div class="smaller-text">
 <ul>
 <li><p>Importantly, <span class="math inline">\(\hat{\bar{y}}_{clus}\)</span> is <strong>unbiased</strong>: <span class="math inline">\(E(\hat{\bar{y}}_{clus}) =\)</span></p></li>
 <li><p>Remember,</p>
@@ -683,20 +719,28 @@ Intro and One-Stage</p></h1>
 </ul>
 <p><em>Note: The true population mean GPA is</em> <span class="math inline">\(\bar{y}_U = 2.836075\)</span></p>
 </section>
-<section id="sampling-weights-in-one-stage-cluster-samples" class="slide level2">
+<section id="sampling-weights-in-one-stage-cluster-samples" class="slide level2 pause">
 <h2>Sampling Weights in One-Stage Cluster Samples</h2>
 <ul>
+<li><p>SRS of <span class="math inline">\(n\)</span> out of <span class="math inline">\(N\)</span> PSU &nbsp; → &nbsp; each PSU has probability <span class="math inline">\(n/N\)</span> of being selected</p></li>
 <li><p>When clusters are sampled with equal probability (i.e., via an SRS), an <span class="alert">SSU is included in the sample if the PSU is included in the sample</span></p></li>
-<li><p>Each PSU has probability <span class="math inline">\(n/N\)</span> of being selected (SRS of <span class="math inline">\(n\)</span> out of <span class="math inline">\(N\)</span> PSUs)</p></li>
 <li><p>Thus the sample weight for sampled SSU <span class="math inline">\(j\)</span> in PSU <span class="math inline">\(i\)</span> is: <span class="math display">\[w_{ij} = \frac{1}{P(\text{SSU $j$ of PSU $i$ included in sample})} = \frac{1}{\pi_{ij}} = \frac{N}{n}\]</span></p></li>
+</ul>
+<div class="fragment">
+<ul>
 <li><p>Compare to an SRS:</p>
 <ul>
-<li><p>If all PSUs had <span class="math inline">\(M_i=M\)</span> elements, then the population size is <span class="math inline">\(NM\)</span> and the one-stage cluster sample has <span class="math inline">\(nM\)</span> units</p></li>
+<li><p>If all PSUs had <span class="math inline">\(M_i=M\)</span> elements, population size = <span class="math inline">\(NM\)</span> and one-stage cluster sample has <span class="math inline">\(nM\)</span> units</p></li>
 <li><p>An SRS of <span class="math inline">\(nM\)</span> units out of <span class="math inline">\(NM\)</span> units: <span class="math inline">\(w_i = \frac{NM}{nM} = \frac{N}{n}\)</span> = <span class="alert2">same as the one-stage cluster sample</span></p></li>
 <li><p>So point estimates would be the same – <span class="alert">but variance estimates would be different</span></p></li>
 </ul></li>
-<li><p>For the GPA cluster sample, <span class="math inline">\(w_{ij} = \frac{N}{n} = \frac{\text{\# of PSUs in \textbf{population}}}{\text{\# of PSUs in \textbf{sample}}} = \frac{100}{5} = 20\)</span></p></li>
 </ul>
+</div>
+<div class="fragment">
+<ul>
+<li>For the GPA cluster sample, <span class="math inline">\(w_{ij} = \frac{N}{n} = \frac{\text{\# of PSUs in \textbf{population}}}{\text{\# of PSUs in \textbf{sample}}} = \frac{100}{5} = 20\)</span></li>
+</ul>
+</div>
 </section>
 <section id="confidence-intervals-for-one-stage-cluster-samples" class="slide level2">
 <h2>Confidence Intervals for One-Stage Cluster Samples</h2>
@@ -706,7 +750,7 @@ Intro and One-Stage</p></h1>
 <p><br></p>
 <ul>
 <li><p>Often the number of PSUs sampled is not large, thus we most often use <span class="math inline">\(t\)</span> (instead of <span class="math inline">\(Z\)</span>)</p></li>
-<li><p>Again, you may see the DF “rule” written as **“DF = # of PSUs** <span class="math inline">\(\mathbf{-}\)</span> # of Strata”</p>
+<li><p>Again, you may see the DF “rule” written as <strong>DF = # of PSUs</strong> <span class="math inline">\(\mathbf{-}\)</span> <strong># of Strata</strong></p>
 <ul>
 <li><p>PSU = Primary Sampling Unit = cluster</p></li>
 <li><p>If no stratification, then DF = <span class="math inline">\(n-1\)</span> = # PSUs <span class="math inline">\(-1\)</span></p></li>
@@ -733,7 +777,7 @@ Intro and One-Stage</p></h1>
 (cluster means are similar, and all the variability is within a cluster)</p></li>
 </ul>
 </div><div class="column" style="width:30%;">
-<p><img data-src="./figures/cluster_between_small.png"></p>
+<p><img data-src="./figures/cluster_between_small.png" alt="Scatter plot of five clusters. Data points within each cluster are spread widely along the y-axis. The red squares, marking the cluster means, are all located at very similar y-values, indicating small separation between cluster means."></p>
 </div></div>
 <div class="columns">
 <div class="column" style="width:70%;">
@@ -743,7 +787,7 @@ Intro and One-Stage</p></h1>
 <li><p>If true, <span class="alert"><span class="math inline">\(SSB &gt; 0\)</span></span></p></li>
 </ul>
 </div><div class="column" style="width:30%;">
-<p><img data-src="./figures/cluster_between_big.png"></p>
+<p><img data-src="./figures/cluster_between_big.png" alt="Scatter plot of five clusters. Data points within each cluster are tightly grouped along the y-axis. The red squares, marking the cluster means, are located at distinct, well-separated y-values, indicating large separation between cluster means."></p>
 </div></div>
 </div>
 </section>
@@ -768,12 +812,12 @@ SST &amp;{}= SSB + SSW \\
 <h2>Partitioning Variability Between and Within Clusters</h2>
 <p><strong>When all clusters are the same size, i.e.,</strong> <span class="math inline">\(M_i=m_i=M\)</span>:</p>
 <p><strong>ANOVA Table</strong></p>
-<table class="caption-top">
+<table class="caption-top" style="width:98%;">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 12%">
+<col style="width: 9%">
+<col style="width: 53%">
+<col style="width: 22%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -873,7 +917,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <li><p>Thus, for each <span class="alert">1 SSU in an SRS</span>, you need <span class="alert2"><span class="math inline">\([1+(M-1)ICC]\)</span> SSUs from a one-stage cluster sample</span> to get the same amount of information</p></li>
 </ul>
 <aside><ol class="aside-footnotes"><li id="fn1"><p>Full derivation on Carmen if you’re interested (OPTIONAL)</p></li></ol></aside></section>
-<section id="example-calculation-of-deff-from-activity" class="slide level2">
+<section id="example-calculation-of-deff-from-activity" class="slide level2 pause">
 <h2>Example Calculation of DEFF (from Activity)</h2>
 <ul>
 <li><p>For the students (SSUs) within rooms (PSUs) the true, theoretical ICC = <span class="math inline">\(0.386\)</span></p></li>
@@ -884,11 +928,18 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <li>DEFF = <span class="math inline">\(1+(M-1)ICC =\)</span></li>
 </ul>
 <p>
-</p><ul>
-<li><p>Would need to sample <strong>more than twice as many students</strong> with clustered design as if we took an SRS (of the same number of SSUs)</p></li>
+</p><div class="fragment">
+<ul>
+<li>Would need to sample <strong>more than twice as many students</strong> with clustered design as if we took an SRS (of the same number of SSUs)</li>
+</ul>
+<p>
+</p></div>
+<div class="fragment">
+<ul>
 <li><p>Note #1: This is the <strong>true ICC</strong> and <strong>true (theoretical) DEFF</strong>. When calculating ICC and DEFF from a cluster sample, you’ll only get <strong>estimates</strong> of these quantities.</p></li>
 <li><p>Note #2: In practice, clusters are rarely the same size – but we can still calculate the DEFF (using software)</p></li>
 </ul>
+</div>
 </section>
 <section id="activity-11.1-2" class="slide level2">
 <h2>Activity 11.1</h2>
