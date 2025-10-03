@@ -293,9 +293,17 @@ Generative AI acknowledgment: MS Copilot was used to generate alt text for some 
 <li><p>Schools within school districts</p></li>
 <li><p>Etc.</p></li>
 </ul></li>
-<li><p><span class="alert2"><strong>Good news:</strong></span> the same estimation method <strong>can</strong> be used when <strong>cluster sizes are unequal</strong></p></li>
-<li><p><span class="alert"><strong>Bad news:</strong></span> when PSUs are unequal in size, often the PSU totals <span class="math inline">\((t_i)\)</span> are <span class="alert">highly variable</span>, leading to <span class="alert">large <span class="math inline">\(s_t^2\)</span></span> and thus <span class="alert">large <span class="math inline">\(\widehat{V}(\hat{\bar{y}}_{clus})\)</span></span></p></li>
 </ul>
+<div class="fragment">
+<ul>
+<li><span class="alert2"><strong>Good news:</strong></span> the same estimation method <strong>can</strong> be used when <strong>cluster sizes are unequal</strong></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><span class="alert"><strong>Bad news:</strong></span> when PSUs are unequal in size, often the PSU totals <span class="math inline">\((t_i)\)</span> are <span class="alert">highly variable</span>, leading to <span class="alert">large <span class="math inline">\(s_t^2\)</span></span> and thus <span class="alert">large <span class="math inline">\(\widehat{V}(\hat{\bar{y}}_{clus})\)</span></span></li>
+</ul>
+</div>
 </section>
 <section id="in-a-picture-1" class="slide level2">
 <h2>In a Picture</h2>
@@ -388,7 +396,7 @@ Generative AI acknowledgment: MS Copilot was used to generate alt text for some 
 <li>Notice that the one really big PSU didn’t happen to get sampled</li>
 </ul>
 </section>
-<section id="example-estimating-the-mean-api" class="slide level2">
+<section id="example-estimating-the-mean-api" class="slide level2 pause">
 <h2>Example: Estimating the Mean API</h2>
 <div class="cell cell-output">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>des <span class="ot">&lt;-</span> <span class="fu">svydesign</span>(<span class="at">id =</span> <span class="sc">~</span>dnum, <span class="at">weight =</span> <span class="sc">~</span>wt, <span class="at">fpc =</span> <span class="sc">~</span>popsize, <span class="at">data=</span>samp)</span>
@@ -404,26 +412,37 @@ api00 3272511 642857</code></pre>
 <ul>
 <li><span class="math inline">\(\hat{t}_{clus} = \text{3272511}\)</span></li>
 </ul></li>
+</ol>
+<div class="fragment">
+<ol start="2" type="1">
 <li><p>Estimate of mean:</p>
 <ul>
 <li><span class="math inline">\(\hat{\bar{y}}_{clus}= \hat{t}_{clus}/M_0 = \text{3272511}/\text{6194} = \text{528.3}\)</span> &nbsp;&nbsp; (<span class="math inline">\(M_0=\)</span> 6194 districts in pop.)</li>
 </ul></li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="3" type="1">
 <li><p>Estimate of variance of the mean:</p>
 <ul>
 <li><span class="math inline">\(\widehat{V}(\hat{\bar{y}}_{clus}) = \frac{1}{M_0^2}\widehat{V}(\hat{t}_{clus}) = \frac{1}{\text{6194}^2} (\text{642857}^2) = \text{10771.7}\)</span></li>
 </ul></li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="4" type="1">
 <li><p>Estimated SE of the mean: <span class="math inline">\(\widehat{SE}(\hat{\bar{y}}_{clus}) = \sqrt{\text{10771.7}} = \text{103.8}\)</span></p>
 <ul>
-<li>That is a pretty big standard error!</li>
-<li>A 95% CI would be roughly 528.3 <span class="math inline">\(\pm\)</span> 103.8 = (320.8, 735.9)</li>
+<li>That is a pretty big standard error! 95% CI = 528.3 <span class="math inline">\(\pm\)</span> 103.8 = (320.8, 735.9)</li>
 </ul></li>
 </ol>
+</div>
 </section>
 <section id="activity-12.1-part-1" class="slide level2">
 <h2>Activity 12.1 (Part 1)</h2>
 <p>Clusters of Unequal Sizes (Part 1)</p>
 </section>
-<section id="our-mean-estimate-the-unbiased-estimator" class="slide level2">
+<section id="our-mean-estimate-the-unbiased-estimator" class="slide level2 pause">
 <h2>Our Mean Estimate: The Unbiased Estimator</h2>
 <ul>
 <li><p>Our mean estimator is: <span class="math inline">\(\displaystyle \hat{\bar{y}}_{clus}=  \frac{N \bar{t}}{M_0}  = \frac{\hat{t}_{clus}}{M_0}\)</span></p></li>
@@ -436,29 +455,41 @@ api00 3272511 642857</code></pre>
 </ul></li>
 <li><p>The <strong>unbiased estimator</strong> can be written in terms of sampling weights: <span class="math inline">\(\displaystyle \hat{\bar{y}}_{clus}= \frac{\sum_{i\in \mathcal{S}} \sum_{j\in \mathcal{S}_i}  w_{ij} y_{ij}}{M_0}\)</span></p>
 <ul>
-<li>Remember that when an SRS of PSUs is taken, <span class="math inline">\(w_{ij} = N/n\)</span> for all sampled units)</li>
+<li>Remember that when an SRS of PSUs is taken, <span class="math inline">\(w_{ij} = N/n\)</span> for all sampled units</li>
 </ul></li>
+</ul>
+<div class="fragment">
+<ul>
 <li><p><span class="alert">But, what if we don’t know <span class="math inline">\(M_0\)</span>?</span></p>
 <ul>
 <li>For example, if we only have a list of housing units, not people in the units</li>
 </ul></li>
 <li><p>We can definitely still estimate the total – but can we still estimate the mean?</p></li>
 </ul>
+</div>
 </section>
-<section id="another-way-ratio-estimation" class="slide level2">
+<section id="another-way-ratio-estimation" class="slide level2 pause">
 <h2>Another Way: Ratio Estimation</h2>
 <blockquote>
 <p><span class="alert"><strong>Ratio estimator of the mean:</strong></span> <span class="math display">\[\hat{\bar{y}}_r= \frac{\hat{t}_{clus}}{\widehat{M}_0} = \frac{N \bar{t}}{N \hat{\bar{M}}} = \frac{N \frac{1}{n} \sum_{i\in \mathcal{S}} t_i}{N\frac{1}{n} \sum_{i\in \mathcal{S}} M_i}  = \frac{\sum_{i\in \mathcal{S}} t_i}{\sum_{i\in \mathcal{S}} M_i} = \frac{\sum_{i\in \mathcal{S}} M_i \bar{y}_i}{\sum_{i\in \mathcal{S}} M_i}\]</span> where <span class="math inline">\(\hat{\bar{M}}= \frac{1}{n} \sum_{i \in \mathcal{S}} M_i =\)</span> average number of SSUs per PSU (based on sample)</p>
 </blockquote>
 <ul>
-<li><p>Note the denominator: <span class="alert">estimated</span> total number of SSUs</p></li>
+<li>Note the denominator: <span class="alert">estimated</span> total number of SSUs</li>
+</ul>
+<div class="fragment">
+<ul>
 <li><p>The <strong>ratio estimator</strong> can also be written in terms of sampling weights: <span class="math inline">\(\displaystyle \hat{\bar{y}}_r= \frac{\hat{t}_{clus}}{\widehat{M}_0} = \frac{\sum_{i\in \mathcal{S}} \sum_{j\in \mathcal{S}_i}  w_{ij} y_{ij}}{\sum_{i\in \mathcal{S}} \sum_{j\in \mathcal{S}_i}  w_{ij} }\)</span></p></li>
 <li><p>This estimator can be used <strong>even if you don’t know the true total number of SSUs,</strong> <span class="math inline">\(M_0\)</span></p></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
 <li><p>It is, however, <strong>not unbiased</strong> (<span class="math inline">\(E[\hat{\bar{y}}_r] \ne \bar{y}_U\)</span>) and is a <strong>ratio of two random variables</strong></p>
 <ul>
 <li>Both the numerator, <span class="math inline">\(\hat{t}_{clus}\)</span>, and denominator, <span class="math inline">\(\widehat{M}_0\)</span>, will be different in another sample</li>
 </ul></li>
 </ul>
+</div>
 </section>
 <section id="another-way-cont" class="slide level2">
 <h2>Another Way (con’t)</h2>
@@ -475,7 +506,7 @@ api00 3272511 642857</code></pre>
 <li><p>Also think about the dorm room example – the more students in a room, the larger the total GPA will be</p></li>
 </ul>
 </section>
-<section id="example-estimating-the-mean-api-with-ratio-estimator" class="slide level2">
+<section id="example-estimating-the-mean-api-with-ratio-estimator" class="slide level2 pause">
 <h2>Example: Estimating the Mean API with Ratio Estimator</h2>
 <ul>
 <li><p>Hand-calculating the ratio estimator:</p>
@@ -486,28 +517,45 @@ api00 3272511 642857</code></pre>
 </ul></li>
 </ul>
 <p>
-</p><ul>
+</p><div class="fragment">
+<ul>
 <li>Ratio estimate of mean API: <span class="math inline">\(\displaystyle \hat{\bar{y}}_r= \frac{\hat{t}_{clus}}{\widehat{M}_0} = \frac{\text{3272511}}{\text{4900.58}} = \text{667.8}\)</span></li>
 </ul>
 <p>
-</p><ul>
-<li><p>Compare to the unbiased estimator, <span class="math inline">\(\displaystyle \hat{\bar{y}}_{clus} = \frac{\hat{t}_{clus}}{M_0} = \frac{\text{3272511}}{\text{6194}} = \text{528.3}\)</span></p></li>
-<li><p>Ratio estimate of the mean is <span class="alert">larger</span> than the unbiased estimate <span class="alert">for this sample</span> – why?</p>
+</p></div>
+<div class="fragment">
+<ul>
+<li>Compare to the unbiased estimator, <span class="math inline">\(\displaystyle \hat{\bar{y}}_{clus} = \frac{\hat{t}_{clus}}{M_0} = \frac{\text{3272511}}{\text{6194}} = \text{528.3}\)</span></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><p>For this sample, the ratio estimate of the mean is <span class="alert">larger</span> than the unbiased estimate <span class="alert">for this sample</span> – why?</p>
 <ul>
 <li><em>Note: this is just true for this sample – ratio estimator could be bigger, could be smaller, depends on the specific sample</em></li>
 </ul></li>
 </ul>
+</div>
 </section>
-<section id="variance-estimation-for-the-ratio-estimator" class="slide level2">
+<section id="variance-estimation-for-the-ratio-estimator" class="slide level2 pause">
 <h2>Variance Estimation for the Ratio Estimator</h2>
 <ul>
-<li><p>Why would we want to use a <strong>biased</strong> estimator, even if the bias is small?</p></li>
-<li><p>Because of potentially HUGE gains in efficiency – much smaller variance estimate</p></li>
+<li>Why would we want to use a <strong>biased</strong> estimator, even if the bias is small?</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Because of potentially HUGE gains in efficiency – much smaller variance estimate</li>
+</ul>
+</div>
+<div class="fragment">
+<p>
+</p><ul>
 <li><p>But, it is also a <strong>ratio of two random variables</strong> <span class="math inline">\((\hat{t}_{clus},\widehat{M}_0)\)</span>, thus tricky to deal with</p></li>
 <li><p>To calculate its variance we use Taylor series <strong>linearization</strong><sup>1</sup></p></li>
 </ul>
+</div>
 <aside><ol class="aside-footnotes"><li id="fn1"><p>It is important to know this name, <strong>linearization</strong>, but not to understand the technical details</p></li></ol></aside></section>
-<section id="what-is-linearization" class="slide level2">
+<section id="what-is-linearization" class="slide level2 pause">
 <h2>What is Linearization?</h2>
 <ul>
 <li><p>We want the variance of a nonlinear function of two random variables: <span class="math inline">\(V(\hat{t}_{clus}/\widehat{M}_0)\)</span></p></li>
@@ -515,12 +563,14 @@ api00 3272511 642857</code></pre>
 <li><p>But, if we could <span class="alert"><strong>approximate the nonlinear function with a linear function</strong></span> then we <strong>could</strong> use the rules about sums of random variables</p></li>
 </ul>
 <p>
-</p><ul>
+</p><div class="fragment">
+<ul>
 <li><p><strong>Linearization</strong> reduces the nonlinear quantity (the ratio, here) to an approximate linear quantity (an expression involving adding and subtracting random variables – not multiplying or dividing them) by using the linear terms of a Taylor series expansion<sup>1</sup></p></li>
 <li><p>Then a variance formula can be constructed using usual rules (and an estimate obtained by plugging in estimates of unknown quantities)</p></li>
 </ul>
+</div>
 <aside><ol class="aside-footnotes"><li id="fn2"><p>Again, math details not important – just the concept</p></li></ol></aside></section>
-<section id="linearization-for-the-variance-of-the-ratio-estimator" class="slide level2">
+<section id="linearization-for-the-variance-of-the-ratio-estimator" class="slide level2 pause">
 <h2>Linearization for the Variance of the Ratio Estimator</h2>
 <ul>
 <li><p>For our estimate of the mean, <span class="math inline">\(\hat{\bar{y}}_r\)</span>, the first order Taylor series expansion is: <span class="math display">\[\hat{\bar{y}}_r= \frac{\hat{t}_{clus}}{\widehat{M}_0} \approx \frac{t_U}{M_0} + \frac{1}{M_0}\left(\hat{t}_{clus}- \frac{t_U}{M_0} \widehat{M}_0 \right)\]</span></p></li>
@@ -529,11 +579,19 @@ api00 3272511 642857</code></pre>
 <li><p><span class="math inline">\(\hat{t}_{clus}, \widehat{M}_0\)</span> – estimates, which are <span class="alert2"><strong>random variables</strong></span></p></li>
 <li><p><span class="math inline">\(t_U, M_0\)</span> – fixed (unknown) quantities (<span class="alert"><strong>constants</strong></span>)</p></li>
 </ul></li>
-<li><p>So now the rules of variance of a linear combination of random variables can be used: <span class="math display">\[V(\hat{\bar{y}}_r) \approx V\left[\frac{t_U}{M_0} + \frac{1}{M_0}\left(\hat{t}_{clus}- \frac{t_U}{M_0} \widehat{M}_0 \right)\right] = \frac{1}{M_0^2}\left[V(\hat{t}_{clus}) + \frac{t_U^2}{M_0^2} V(\widehat{M}_0) - 2\frac{t_U}{M_0} \text{Cov}(\hat{t}_{clus},\widehat{M}_0) \right]\]</span></p></li>
-<li><p>To get the estimated variance, plug in <span class="math inline">\(\hat{t}_{clus}\)</span> and <span class="math inline">\(\widehat{M}_0\)</span> (in place of <span class="math inline">\(t_U\)</span> and <span class="math inline">\(M_0\)</span>) in the variance expression above</p></li>
 </ul>
+<div class="fragment">
+<ul>
+<li>So now the rules of variance of a linear combination of random variables can be used: <span class="math display">\[V(\hat{\bar{y}}_r) \approx V\left[\frac{t_U}{M_0} + \frac{1}{M_0}\left(\hat{t}_{clus}- \frac{t_U}{M_0} \widehat{M}_0 \right)\right] = \frac{1}{M_0^2}\left[V(\hat{t}_{clus}) + \frac{t_U^2}{M_0^2} V(\widehat{M}_0) - 2\frac{t_U}{M_0} \text{Cov}(\hat{t}_{clus},\widehat{M}_0) \right]\]</span></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>To get the estimated variance, plug in <span class="math inline">\(\hat{t}_{clus}\)</span> and <span class="math inline">\(\widehat{M}_0\)</span> (in place of <span class="math inline">\(t_U\)</span> and <span class="math inline">\(M_0\)</span>) in variance expression above</li>
+</ul>
+</div>
 </section>
-<section id="linearization-cont" class="slide level2">
+<section id="linearization-cont" class="slide level2 pause">
 <h2>Linearization (con’t)</h2>
 <ul>
 <li>Looking closer at this variance expression:</li>
@@ -542,16 +600,20 @@ api00 3272511 642857</code></pre>
 <ul>
 <li><p>If the cluster sizes are all the same size:</p>
 <ul>
-<li><p><span class="math inline">\(V(\widehat{M}_0) = 0\)</span> because every sample of <span class="math inline">\(n\)</span> PSUs contains the same number of SSUs</p></li>
+<li><p><span class="math inline">\(\widehat{M}_0 = M_0\)</span> because every sample of <span class="math inline">\(n\)</span> PSUs contains the same number of SSUs, so <span class="math inline">\(V(\widehat{M}_0) = 0\)</span></p></li>
 <li><p><span class="math inline">\(\text{Cov}(\hat{t}_{clus},\widehat{M}_0) = 0\)</span> because <span class="math inline">\(\widehat{M}_0\)</span> is a constant, and the covariance of a random variable with a constant is 0</p></li>
 </ul></li>
+</ul>
+<div class="fragment">
+<ul>
 <li><p>Thus, the linearization variance estimator reduces to: <span class="math inline">\(\displaystyle V(\hat{\bar{y}}_r) = \frac{1}{M_0^2} V(\hat{t}_{clus})\)</span></p></li>
 <li><p>This is the variance of the unbiased estimator!</p></li>
 <li><p>Software (e.g., Stata, R, SAS) uses the linearization estimator even when the clusters are all the same size</p></li>
 <li><p>Linearization is also used for other, complex statistics – such as regression coefficients</p></li>
 </ul>
+</div>
 </section>
-<section id="variance-estimation-for-one-stage-cluster-sampling-ratio-estimator" class="slide level2">
+<section id="variance-estimation-for-one-stage-cluster-sampling-ratio-estimator" class="slide level2 pause">
 <h2>Variance Estimation for One-Stage Cluster Sampling (Ratio Estimator)</h2>
 <ul>
 <li><p>By plugging in estimates for the quantities in <span class="math inline">\(V(\hat{\bar{y}}_r)\)</span>, for a <strong>one-stage cluster sample</strong> where the <strong>sampling of PSUs is via SRS</strong>, we can <span class="alert">estimate</span> the variance of the (ratio estimator of the) mean with: <span class="math display">\[\widehat{V}(\hat{\bar{y}}_r) = \frac{1}{n \hat{\bar{M}}^2} \left(1-\frac{n}{N}\right)\frac{\sum_{i \in \mathcal{S}} (t_i - M_i\hat{\bar{y}}_r)^2}{n-1} = \frac{1}{n \hat{\bar{M}}^2} \left(1-\frac{n}{N}\right)\frac{\sum_{i \in \mathcal{S}} M_i^2 (\bar{y}_i - \hat{\bar{y}}_r)^2}{n-1}\]</span></p></li>
@@ -561,20 +623,31 @@ api00 3272511 642857</code></pre>
 <li><p>FPC = <span class="math inline">\(\left(1-\frac{n}{N}\right)\)</span> is incorporated <strong>based on number of PSUs sampled</strong></p></li>
 <li><p>Piece with the summation looks kind of like a variance of <span class="math inline">\(t_i\)</span></p></li>
 </ul></li>
+</ul>
+<div class="fragment">
+<ul>
 <li><p><strong>Key part:</strong> <span class="math inline">\(\sum_{i \in \mathcal{S}} (t_i - M_i\hat{\bar{y}}_r)^2\)</span><br>
 = how far the PSU totals <span class="math inline">\((t_i)\)</span> are from the <span class="alert"><strong>estimated total for each specific PSU</strong> <span class="math inline">\((M_i \hat{\bar{y}}_r)\)</span></span></p>
 <ul>
 <li><span class="math inline">\(M_i \hat{\bar{y}}_r\)</span> = (size of the PSU) <span class="math inline">\(\times\)</span> (estimated mean) = estimate of the total for that PSU</li>
 </ul></li>
 </ul>
+</div>
 </section>
-<section id="compare-ratio-estimator-to-unbiased-estimator" class="slide level2">
+<section id="compare-ratio-estimator-to-unbiased-estimator" class="slide level2 pause">
 <h2>Compare Ratio Estimator to Unbiased Estimator</h2>
 <ul>
-<li><p>Recall the estimated variance of the <strong>unbiased estimator</strong>: <span class="math display">\[\widehat{V}(\hat{\bar{y}}_{clus}) = \frac{N^2}{M_0^2} \left(1-\frac{n}{N}\right)\frac{s_t^2}{n} = \frac{1}{n \bar{M}^2} \left(1-\frac{n}{N}\right)\frac{\sum_{i \in\mathcal{S}_i} (t_i - \bar{t})^2}{n-1}\]</span> (simplification: <span class="math inline">\(s_t^2 = \frac{1}{n-1}\sum_{i \in\mathcal{S}_i} (t_i - \bar{t})^2\)</span>; <span class="math inline">\(\bar{M}=M_0/N=\)</span> true mean number of SSUs per PSU)</p></li>
+<li><p>Recall the estimated variance of the <strong>unbiased estimator</strong>: <span class="math display">\[\widehat{V}(\hat{\bar{y}}_{clus}) = \frac{N^2}{M_0^2} \left(1-\frac{n}{N}\right)\frac{s_t^2}{n} = \frac{1}{n \bar{M}^2} \left(1-\frac{n}{N}\right)\frac{\sum_{i \in\mathcal{S}_i} (t_i - \bar{t})^2}{n-1}\]</span> (plugging in: <span class="math inline">\(s_t^2 = \frac{1}{n-1}\sum_{i \in\mathcal{S}_i} (t_i - \bar{t})^2\)</span>; <span class="math inline">\(\bar{M}=M_0/N=\)</span> true mean number of SSUs per PSU)</p></li>
 <li><p><strong>Key part:</strong> <span class="math inline">\(\sum_{i \in\mathcal{S}_i} (t_i - \bar{t})^2\)</span><br>
 = how far the PSU totals <span class="math inline">\((t_i)\)</span> are from the <span class="alert"><strong>estimated mean total across all PSUs</strong> <span class="math inline">\((\bar{t})\)</span></span></p></li>
-<li><p>Variance of the <strong>ratio estimate</strong> of the mean: <span class="math inline">\(\displaystyle \widehat{V}(\hat{\bar{y}}_r) = \frac{1}{n \hat{\bar{M}}^2} \left(1-\frac{n}{N}\right)\frac{\sum_{i \in \mathcal{S}} (t_i - M_i\hat{\bar{y}_r})^2}{n-1}\)</span></p></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Variance of the <strong>ratio estimate</strong> of the mean: <span class="math inline">\(\displaystyle \widehat{V}(\hat{\bar{y}}_r) = \frac{1}{n \hat{\bar{M}}^2} \left(1-\frac{n}{N}\right)\frac{\sum_{i \in \mathcal{S}} (t_i - M_i\hat{\bar{y}_r})^2}{n-1}\)</span></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
 <li><p>Key differences:</p>
 <ul>
 <li><p>Ratio estimator uses an <strong>estimate</strong> of the average number of SSUs per PSU <span class="math inline">\((\hat{\bar{M}})\)</span> where the unbiased estimator uses the actual, <strong>true</strong> average <span class="math inline">\((M_0/N)\)</span></p></li>
@@ -582,6 +655,7 @@ api00 3272511 642857</code></pre>
 <!-- -   These differences will be much smaller for ratio estimator since the size of the PSU $(M_i$) is taken into account! --></li>
 </ul></li>
 </ul>
+</div>
 </section>
 <section id="visualization" class="slide level2">
 <h2>Visualization</h2>
@@ -638,17 +712,14 @@ api00 667.78 27.859</code></pre>
 api00 613.1775 722.3835</code></pre>
 </div>
 </div>
-<p><br></p>
 <ul>
 <li><p>Compare to the unbiased estimator (previously calculated):</p>
 <ul>
-<li><p><span class="math inline">\(\hat{\bar{y}}_{clus}= \text{528.3}\)</span></p></li>
-<li><p><span class="math inline">\(\widehat{SE}(\hat{\bar{y}}_{clus}) = \text{103.8}\)</span></p></li>
+<li><p><span class="math inline">\(\hat{\bar{y}}_{clus}\)</span> = 528.3</p></li>
+<li><p><span class="math inline">\(\widehat{SE}(\hat{\bar{y}}_{clus})\)</span> = 103.8</p></li>
+<li><p>95% CI = (320.8, 735.9)</p></li>
 </ul></li>
-</ul>
-<p>
-</p><ul>
-<li><strong>HUGE</strong> gain in efficiency with ratio estimator! SE almost 4 times larger for <span class="math inline">\(\hat{\bar{y}}_{clus}\)</span>!</li>
+<li><p><strong>HUGE</strong> gain in efficiency with ratio estimator! SE almost 4 times larger for <span class="math inline">\(\hat{\bar{y}}_{clus}\)</span>!</p></li>
 </ul>
 </section>
 <section id="activity-12.1-part-2" class="slide level2">

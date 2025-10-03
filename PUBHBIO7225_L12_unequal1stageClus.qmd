@@ -122,7 +122,11 @@ To estimate the **mean of** $y$ we...
 
     -   Etc.
 
+. . .
+
 -   [**Good news:**]{.alert2} the same estimation method **can** be used when **cluster sizes are unequal**
+
+. . .
 
 -   [**Bad news:**]{.alert} when PSUs are unequal in size, often the PSU totals $(t_i)$ are [highly variable]{.alert}, leading to [large $s_t^2$]{.alert} and thus [large $\widehat{V}(\hat{\bar{y}}_{clus})$]{.alert}
 
@@ -247,7 +251,7 @@ round(summary(num_psus$n))
 
 -   Notice that the one really big PSU didn't happen to get sampled
 
-## Example: Estimating the Mean API
+## Example: Estimating the Mean API {.pause}
 
 ```{r}
 #| echo: true
@@ -267,24 +271,29 @@ tot <- svytotal(~api00, design = des)
 
     -   $\hat{t}_{clus} = \text{`r round(coef(tot))`}$
 
+. . .
+
 2.  Estimate of mean:
 
     -   $\hat{\bar{y}}_{clus}= \hat{t}_{clus}/M_0 = \text{`r round(coef(tot))`}/\text{`r M0`} = \text{`r round(coef(tot)/M0,1)`}$    ($M_0=$ `r M0` districts in pop.)
+
+. . .
 
 3.  Estimate of variance of the mean:
 
     -   $\widehat{V}(\hat{\bar{y}}_{clus}) = \frac{1}{M_0^2}\widehat{V}(\hat{t}_{clus}) = \frac{1}{\text{`r M0`}^2} (\text{`r round(SE(tot))`}^2) = \text{`r round(SE(tot)^2/M0^2,1)`}$
 
+. . .
+
 4.  Estimated SE of the mean: $\widehat{SE}(\hat{\bar{y}}_{clus}) = \sqrt{\text{`r round(SE(tot)^2/M0^2,1)`}} = \text{`r round(sqrt(SE(tot)^2/M0^2),1)`}$
 
-    -   That is a pretty big standard error!
-    -   A 95% CI would be roughly `r round(coef(tot)/M0,1)` $\pm$ `r round(sqrt(SE(tot)^2/M0^2),1)` = (`r round(coef(tot)/M0 - 2*sqrt(SE(tot)^2/M0^2),1)`, `r round(coef(tot)/M0 + 2*sqrt(SE(tot)^2/M0^2),1)`)
+    -   That is a pretty big standard error! 95% CI = `r round(coef(tot)/M0,1)` $\pm$ `r round(sqrt(SE(tot)^2/M0^2),1)` = (`r round(coef(tot)/M0 - 2*sqrt(SE(tot)^2/M0^2),1)`, `r round(coef(tot)/M0 + 2*sqrt(SE(tot)^2/M0^2),1)`)
 
 ## Activity 12.1 (Part 1)
 
 Clusters of Unequal Sizes (Part 1)
 
-## Our Mean Estimate: The Unbiased Estimator
+## Our Mean Estimate: The Unbiased Estimator {.pause}
 
 -   Our mean estimator is: $\displaystyle \hat{\bar{y}}_{clus}=  \frac{N \bar{t}}{M_0}  = \frac{\hat{t}_{clus}}{M_0}$
 
@@ -300,7 +309,9 @@ Clusters of Unequal Sizes (Part 1)
 
 -   The **unbiased estimator** can be written in terms of sampling weights: $\displaystyle \hat{\bar{y}}_{clus}= \frac{\sum_{i\in \mathcal{S}} \sum_{j\in \mathcal{S}_i}  w_{ij} y_{ij}}{M_0}$
 
-    -   Remember that when an SRS of PSUs is taken, $w_{ij} = N/n$ for all sampled units)
+    -   Remember that when an SRS of PSUs is taken, $w_{ij} = N/n$ for all sampled units
+
+. . .
 
 -   [But, what if we don't know $M_0$?]{.alert}
 
@@ -308,15 +319,19 @@ Clusters of Unequal Sizes (Part 1)
 
 -   We can definitely still estimate the total -- but can we still estimate the mean?
 
-## Another Way: Ratio Estimation
+## Another Way: Ratio Estimation {.pause}
 
 > [**Ratio estimator of the mean:**]{.alert} $$\hat{\bar{y}}_r= \frac{\hat{t}_{clus}}{\widehat{M}_0} = \frac{N \bar{t}}{N \hat{\bar{M}}} = \frac{N \frac{1}{n} \sum_{i\in \mathcal{S}} t_i}{N\frac{1}{n} \sum_{i\in \mathcal{S}} M_i}  = \frac{\sum_{i\in \mathcal{S}} t_i}{\sum_{i\in \mathcal{S}} M_i} = \frac{\sum_{i\in \mathcal{S}} M_i \bar{y}_i}{\sum_{i\in \mathcal{S}} M_i}$$ where $\hat{\bar{M}}= \frac{1}{n} \sum_{i \in \mathcal{S}} M_i =$ average number of SSUs per PSU (based on sample)
 
 -   Note the denominator: [estimated]{.alert} total number of SSUs
 
+. . .
+
 -   The **ratio estimator** can also be written in terms of sampling weights: $\displaystyle \hat{\bar{y}}_r= \frac{\hat{t}_{clus}}{\widehat{M}_0} = \frac{\sum_{i\in \mathcal{S}} \sum_{j\in \mathcal{S}_i}  w_{ij} y_{ij}}{\sum_{i\in \mathcal{S}} \sum_{j\in \mathcal{S}_i}  w_{ij} }$
 
 -   This estimator can be used **even if you don't know the true total number of SSUs,** $M_0$
+
+. . .
 
 -   It is, however, **not unbiased** ($E[\hat{\bar{y}}_r] \ne \bar{y}_U$) and is a **ratio of two random variables**
 
@@ -355,7 +370,7 @@ cor_t_M <- cor(samp_collapse$total_api, samp_collapse$num_schools)
 
 -   Also think about the dorm room example -- the more students in a room, the larger the total GPA will be
 
-## Example: Estimating the Mean API with Ratio Estimator
+## Example: Estimating the Mean API with Ratio Estimator {.pause}
 
 ```{r}
 that <- coef(tot)
@@ -373,21 +388,33 @@ M0hat <- n_ssu*N/n_psu
 
 <p>
 
+. . .
+
 -   Ratio estimate of mean API: $\displaystyle \hat{\bar{y}}_r= \frac{\hat{t}_{clus}}{\widehat{M}_0} = \frac{\text{`r round(that)`}}{\text{`r round(M0hat, 2)`}} = \text{`r round(that/M0hat,1)`}$
 
 <p>
 
+. . .
+
 -   Compare to the unbiased estimator, $\displaystyle \hat{\bar{y}}_{clus} = \frac{\hat{t}_{clus}}{M_0} = \frac{\text{`r round(that)`}}{\text{`r M0`}} = \text{`r round(that/M0,1)`}$
 
--   Ratio estimate of the mean is [larger]{.alert} than the unbiased estimate [for this sample]{.alert} -- why?
+. . .
+
+-   For this sample, the ratio estimate of the mean is [larger]{.alert} than the unbiased estimate [for this sample]{.alert} -- why?
 
     -   *Note: this is just true for this sample -- ratio estimator could be bigger, could be smaller, depends on the specific sample*
 
-## Variance Estimation for the Ratio Estimator
+## Variance Estimation for the Ratio Estimator {.pause}
 
 -   Why would we want to use a **biased** estimator, even if the bias is small?
 
+. . .
+
 -   Because of potentially HUGE gains in efficiency -- much smaller variance estimate
+
+. . .
+
+<p>
 
 -   But, it is also a **ratio of two random variables** $(\hat{t}_{clus},\widehat{M}_0)$, thus tricky to deal with
 
@@ -395,7 +422,7 @@ M0hat <- n_ssu*N/n_psu
 
 [^1]: It is important to know this name, **linearization**, but not to understand the technical details
 
-## What is Linearization?
+## What is Linearization? {.pause}
 
 -   We want the variance of a nonlinear function of two random variables: $V(\hat{t}_{clus}/\widehat{M}_0)$
 
@@ -405,13 +432,15 @@ M0hat <- n_ssu*N/n_psu
 
 <p>
 
+. . .
+
 -   **Linearization** reduces the nonlinear quantity (the ratio, here) to an approximate linear quantity (an expression involving adding and subtracting random variables -- not multiplying or dividing them) by using the linear terms of a Taylor series expansion[^2]
 
 -   Then a variance formula can be constructed using usual rules (and an estimate obtained by plugging in estimates of unknown quantities)
 
 [^2]: Again, math details not important -- just the concept
 
-## Linearization for the Variance of the Ratio Estimator
+## Linearization for the Variance of the Ratio Estimator {.pause}
 
 -   For our estimate of the mean, $\hat{\bar{y}}_r$, the first order Taylor series expansion is: $$\hat{\bar{y}}_r= \frac{\hat{t}_{clus}}{\widehat{M}_0} \approx \frac{t_U}{M_0} + \frac{1}{M_0}\left(\hat{t}_{clus}- \frac{t_U}{M_0} \widehat{M}_0 \right)$$
 
@@ -421,11 +450,15 @@ M0hat <- n_ssu*N/n_psu
 
     -   $t_U, M_0$ -- fixed (unknown) quantities ([**constants**]{.alert})
 
+. . .
+
 -   So now the rules of variance of a linear combination of random variables can be used: $$V(\hat{\bar{y}}_r) \approx V\left[\frac{t_U}{M_0} + \frac{1}{M_0}\left(\hat{t}_{clus}- \frac{t_U}{M_0} \widehat{M}_0 \right)\right] = \frac{1}{M_0^2}\left[V(\hat{t}_{clus}) + \frac{t_U^2}{M_0^2} V(\widehat{M}_0) - 2\frac{t_U}{M_0} \text{Cov}(\hat{t}_{clus},\widehat{M}_0) \right]$$
 
--   To get the estimated variance, plug in $\hat{t}_{clus}$ and $\widehat{M}_0$ (in place of $t_U$ and $M_0$) in the variance expression above
+. . .
 
-## Linearization (con't)
+-   To get the estimated variance, plug in $\hat{t}_{clus}$ and $\widehat{M}_0$ (in place of $t_U$ and $M_0$) in variance expression above
+
+## Linearization (con't) {.pause}
 
 -   Looking closer at this variance expression:
 
@@ -433,9 +466,11 @@ $$V(\hat{\bar{y}}_r) \approx \frac{1}{M_0^2}\left[V(\hat{t}_{clus}) + \frac{t_U^
 
 -   If the cluster sizes are all the same size:
 
-    -   $V(\widehat{M}_0) = 0$ because every sample of $n$ PSUs contains the same number of SSUs
+    -   $\widehat{M}_0 = M_0$ because every sample of $n$ PSUs contains the same number of SSUs, so $V(\widehat{M}_0) = 0$
 
     -   $\text{Cov}(\hat{t}_{clus},\widehat{M}_0) = 0$ because $\widehat{M}_0$ is a constant, and the covariance of a random variable with a constant is 0
+
+. . .
 
 -   Thus, the linearization variance estimator reduces to: $\displaystyle V(\hat{\bar{y}}_r) = \frac{1}{M_0^2} V(\hat{t}_{clus})$
 
@@ -445,7 +480,7 @@ $$V(\hat{\bar{y}}_r) \approx \frac{1}{M_0^2}\left[V(\hat{t}_{clus}) + \frac{t_U^
 
 -   Linearization is also used for other, complex statistics -- such as regression coefficients
 
-## Variance Estimation for One-Stage Cluster Sampling (Ratio Estimator)
+## Variance Estimation for One-Stage Cluster Sampling (Ratio Estimator)  {.pause}
 
 -   By plugging in estimates for the quantities in $V(\hat{\bar{y}}_r)$, for a **one-stage cluster sample** where the **sampling of PSUs is via SRS**, we can [estimate]{.alert} the variance of the (ratio estimator of the) mean with: $$\widehat{V}(\hat{\bar{y}}_r) = \frac{1}{n \hat{\bar{M}}^2} \left(1-\frac{n}{N}\right)\frac{\sum_{i \in \mathcal{S}} (t_i - M_i\hat{\bar{y}}_r)^2}{n-1} = \frac{1}{n \hat{\bar{M}}^2} \left(1-\frac{n}{N}\right)\frac{\sum_{i \in \mathcal{S}} M_i^2 (\bar{y}_i - \hat{\bar{y}}_r)^2}{n-1}$$
 
@@ -457,19 +492,25 @@ $$V(\hat{\bar{y}}_r) \approx \frac{1}{M_0^2}\left[V(\hat{t}_{clus}) + \frac{t_U^
 
     -   Piece with the summation looks kind of like a variance of $t_i$
 
+. . .
+
 -   **Key part:** $\sum_{i \in \mathcal{S}} (t_i - M_i\hat{\bar{y}}_r)^2$\
     = how far the PSU totals $(t_i)$ are from the [**estimated total for each specific PSU** $(M_i \hat{\bar{y}}_r)$]{.alert}
 
     -   $M_i \hat{\bar{y}}_r$ = (size of the PSU) $\times$ (estimated mean) = estimate of the total for that PSU
 
-## Compare Ratio Estimator to Unbiased Estimator
+## Compare Ratio Estimator to Unbiased Estimator {.pause}
 
--   Recall the estimated variance of the **unbiased estimator**: $$\widehat{V}(\hat{\bar{y}}_{clus}) = \frac{N^2}{M_0^2} \left(1-\frac{n}{N}\right)\frac{s_t^2}{n} = \frac{1}{n \bar{M}^2} \left(1-\frac{n}{N}\right)\frac{\sum_{i \in\mathcal{S}_i} (t_i - \bar{t})^2}{n-1}$$ (simplification: $s_t^2 = \frac{1}{n-1}\sum_{i \in\mathcal{S}_i} (t_i - \bar{t})^2$; $\bar{M}=M_0/N=$ true mean number of SSUs per PSU)
+-   Recall the estimated variance of the **unbiased estimator**: $$\widehat{V}(\hat{\bar{y}}_{clus}) = \frac{N^2}{M_0^2} \left(1-\frac{n}{N}\right)\frac{s_t^2}{n} = \frac{1}{n \bar{M}^2} \left(1-\frac{n}{N}\right)\frac{\sum_{i \in\mathcal{S}_i} (t_i - \bar{t})^2}{n-1}$$ (plugging in: $s_t^2 = \frac{1}{n-1}\sum_{i \in\mathcal{S}_i} (t_i - \bar{t})^2$; $\bar{M}=M_0/N=$ true mean number of SSUs per PSU)
 
 -   **Key part:** $\sum_{i \in\mathcal{S}_i} (t_i - \bar{t})^2$\
     = how far the PSU totals $(t_i)$ are from the [**estimated mean total across all PSUs** $(\bar{t})$]{.alert}
 
+. . .
+
 -   Variance of the **ratio estimate** of the mean: $\displaystyle \widehat{V}(\hat{\bar{y}}_r) = \frac{1}{n \hat{\bar{M}}^2} \left(1-\frac{n}{N}\right)\frac{\sum_{i \in \mathcal{S}} (t_i - M_i\hat{\bar{y}_r})^2}{n-1}$
+
+. . .
 
 -   Key differences:
 
@@ -563,15 +604,13 @@ svymean(~api00, design = des)
 confint(svymean(~api00, design = des))
 ```
 
-<br>
-
 -   Compare to the unbiased estimator (previously calculated):
 
-    -   $\hat{\bar{y}}_{clus}= \text{`r round(coef(tot)/M0,1)`}$
+    -   $\hat{\bar{y}}_{clus}$ = `r round(coef(tot)/M0,1)`
 
-    -   $\widehat{SE}(\hat{\bar{y}}_{clus}) = \text{`r round(sqrt(SE(tot)^2/M0^2),1)`}$
+    -   $\widehat{SE}(\hat{\bar{y}}_{clus})$ = `r round(sqrt(SE(tot)^2/M0^2),1)`
 
-<p>
+    -   95% CI = (`r round(coef(tot)/M0 - 2*sqrt(SE(tot)^2/M0^2),1)`, `r round(coef(tot)/M0 + 2*sqrt(SE(tot)^2/M0^2),1)`)
 
 -   **HUGE** gain in efficiency with ratio estimator! SE almost 4 times larger for $\hat{\bar{y}}_{clus}$!
 
