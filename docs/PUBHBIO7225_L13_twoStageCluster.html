@@ -9,7 +9,7 @@
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.33">
 
-  <title>randridge.github.io – Two-stage Cluster Sampling: </title>
+  <title>randridge.github.io – Two-stage Cluster Sampling </title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -192,7 +192,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title"><p>Two-stage Cluster Sampling:<br>
+  <h1 class="title"><p>Two-stage Cluster Sampling<br>
 </p></h1>
   <p class="subtitle">PUBHBIO 7225 Lecture 13</p>
 
@@ -225,7 +225,7 @@
 </div></div>
 <p><strong>Readings</strong></p>
 <ul>
-<li>Handout on Carmen with mathematical details on variance estimation</li>
+<li>Handout on Carmen with mathematical details on variance estimation (OPTIONAL)</li>
 </ul>
 <p><strong>Assignments</strong></p>
 <ul>
@@ -238,13 +238,15 @@
 <ul>
 <li><p>In <strong>one-stage</strong> cluster sampling, we sample <strong>all SSUs</strong> within the sampled PSUs</p></li>
 <li><p>In <strong>two-stage</strong> cluster sampling, we only sample <strong>some SSUs</strong> within the sampled PSUs</p></li>
-<li><p>Why might we do this?</p>
+<li><p>Why might we do this?</p></li>
+</ul>
+<div class="fragment">
 <ul>
 <li><p>SSUs within a cluster may be so similar that measuring all is a waste of resources</p></li>
 <li><p>Might be expensive to sample SSUs, so only a subsample is taken for cost reasons</p></li>
 <li><p>Might not be practical to sample all SSUs (ex: all people in a household)</p></li>
-</ul></li>
 </ul>
+</div>
 </section>
 <section id="stages-of-two-stage-cluster-sampling" class="slide level2">
 <h2>Stages of Two-Stage Cluster Sampling</h2>
@@ -265,7 +267,7 @@
 <li><p>We will return to this concept next lecture (but it is exactly what it sounds like!)</p></li>
 </ul>
 </section>
-<section id="two-stages-more-variability-more-choices" class="slide level2">
+<section id="two-stages-more-variability-more-choices" class="slide level2 pause">
 <h2>Two Stages: More Variability, More Choices</h2>
 <blockquote>
 <p><strong>More Variability:</strong> Now there is sample-to-sample variability from <strong>both</strong> stages of data collection</p>
@@ -278,6 +280,7 @@
 <li>(1) variability from sampling PSUs, and (2) variability from sampling SSUs within PSU</li>
 </ul></li>
 </ul>
+<div class="fragment">
 <blockquote>
 <p><strong>More Design Choices:</strong> Have to decide <span class="alert2">how many SSUs per PSU to sample</span></p>
 </blockquote>
@@ -289,8 +292,9 @@
 <li>Ex: PSU = housing unit, SSU = person → can sample just 1 person in a household</li>
 </ul></li>
 </ul>
+</div>
 </section>
-<section id="example-sampling-school-districts" class="slide level2">
+<section id="example-sampling-school-districts" class="slide level2 pause">
 <h2>Example: Sampling School Districts</h2>
 <p>Population: <span class="math inline">\(M_0=\)</span> 6194 schools in <span class="math inline">\(N=\)</span> 757 school districts</p>
 <div class="columns">
@@ -298,9 +302,10 @@
 <ul>
 <li><p>PSU = school district</p></li>
 <li><p>SSU = school</p></li>
-<li><p><span class="math inline">\(y\)</span> = Academic Performance Index (based on standardized test results)</p></li>
+<li><p><span class="math inline">\(y\)</span> = school’s Academic Performance Index<br>
+(based on standardized test results)</p></li>
 <li><p>True population mean API: <span class="math inline">\(\bar{y}_U =\)</span> 664.7</p></li>
-<li><p>Highly skewed number of SSUs (schools) per PSU (district)</p></li>
+<li><p>Highly skewed number of SSUs per PSU</p></li>
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell">
@@ -313,24 +318,30 @@
 </div>
 </div>
 </div></div>
+<div class="fragment">
 <p><strong>Two-stage cluster sample taken:</strong></p>
 <ul>
 <li><p><strong>Stage 1:</strong> <span class="math inline">\(n =\)</span> 38 PSUs (districts) out of <span class="math inline">\(N=\)</span> 757 – roughly 5% of total</p>
 <ul>
 <li>Selected PSUs have a range of <span class="math inline">\(M_i=\)</span> 1 to 36 SSUs</li>
 </ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
 <li><p><strong>Stage 2:</strong> <span class="math inline">\(m_i=\)</span> 2 SSUs (schools) per PSU</p>
 <ul>
-<li>For PSUs with only 1 SSU, selected the 1 SSU (i.e., <span class="math inline">\(m_i=M_i=1\)</span>)</li>
+<li>For PSUs with only 1 SSU, <span class="math inline">\(m_i=M_i=1\)</span> (can only select the 1 school!)</li>
 </ul></li>
 </ul>
+</div>
 </section>
-<section id="example-cont" class="slide level2">
+<section id="slide-school-sample-figure" class="slide level2">
 <h2>Example (con’t)</h2>
 <ul>
-<li>Result is a total of 38 SSUs (schools)
+<li>Result is a total of 65 SSUs (schools)
 <ul>
-<li>(<span class="math inline">\(n=\)</span> 38 PSUs <span class="math inline">\(\times\)</span> <span class="math inline">\(m_i=2\)</span> SSUs per = 76 – but some PSUs only have 1 SSU)</li>
+<li>Some sampled PSUs (districts) had only 1 SSU (school)</li>
 </ul></li>
 <li>API <span class="math inline">\((y)\)</span> by PSU (sampled SSUs only):</li>
 </ul>
@@ -344,7 +355,7 @@
 <h2>Activity 13.1 (Part 1)</h2>
 <p>Two-Stage Cluster Sampling (Part 1)</p>
 </section>
-<section id="similar-estimation-as-one-stage-cluster-sample" class="slide level2">
+<section id="similar-estimation-as-one-stage-cluster-sample" class="slide level2 pause">
 <h2>Similar Estimation as One-Stage Cluster Sample</h2>
 <ul>
 <li><p><strong>One-Stage Cluster Sample:</strong> (SRS of <span class="math inline">\(n\)</span> PSUs out of <span class="math inline">\(N\)</span> total; take all <span class="math inline">\(M_i\)</span> SSUs in the selected PSUs):</p>
@@ -358,6 +369,9 @@
 <li><p>OR, divide by the estimated total number of SSUs <span class="math inline">\((\widehat{M}_0)\)</span> to get the ratio estimate <span class="math inline">\((\hat{\bar{y}}_r)\)</span></p></li>
 </ul></li>
 </ul></li>
+</ul>
+<div class="fragment">
+<ul>
 <li><p>In a <strong>Two-Stage Cluster Sample</strong>, <strong>we don’t observe the true</strong> <span class="math inline">\(\mathbf t_i\)</span> for each sampled PSU</p>
 <ul>
 <li><p>However, we can <em>estimate</em> the PSU-specific totals because we took an SRS from each PSU!</p></li>
@@ -366,6 +380,7 @@
 <li><p>Of course, variance estimation is much messier…</p></li>
 </ul></li>
 </ul>
+</div>
 </section>
 <section id="step-1-cluster-specific-estimates" class="slide level2">
 <h2>Step 1: Cluster-Specific Estimates</h2>
@@ -478,7 +493,7 @@
 </ul></li>
 </ul>
 </section>
-<section id="expectation-of-the-estimators" class="slide level2">
+<section id="expectation-of-the-estimators" class="slide level2 pause">
 <h2>Expectation of the Estimators</h2>
 <ul>
 <li><p><span class="math inline">\(\hat{t}_{clus}\)</span> is an <strong>unbiased</strong> estimator of the true population total <span class="math inline">\(t_U\)</span> (derivation next slide)</p>
@@ -487,7 +502,7 @@
 </ul></li>
 <li><p>Thus the <span class="alert2"><strong>unbiased estimator</strong></span> of the mean is an <strong>unbiased</strong> estimator of the true population mean, <span class="math inline">\(\bar{y}_U\)</span></p>
 <ul>
-<li><span class="math inline">\(E[\hat{\bar{y}}_{clus}] = E[\hat{t}_{clus}/M_0] = t_U/M_0 = \bar{y}_U\)</span></li>
+<li><span class="math inline">\(E[\hat{\bar{y}}_{clus}] = E[\hat{t}_{clus}/M_0] = E[\hat{t}_{clus}]/M_0 = t_U/M_0 = \bar{y}_U\)</span></li>
 </ul></li>
 <li><p>But the <span class="alert"><strong>ratio estimate</strong></span> of the mean is <strong>biased</strong>, just like with one-stage cluster sampling</p>
 <ul>
@@ -496,11 +511,13 @@
 </ul></li>
 </ul>
 <p>
-</p><ul>
+</p><div class="fragment">
+<ul>
 <li><p>For multi-stage sampling we prove theoretical results by <strong>conditioning on a realized sample</strong> and then taking the expectation – using the property of successive conditioning: <span class="math inline">\(E(A) = E[E(A|B)]\)</span></p></li>
 <li><p>Inclusion indicator <span class="math inline">\(Z_i\)</span> (for the <span class="math inline">\(i\)</span>th PSU) is a random variable</p></li>
 <li><p>For equal probability sampling of PSUs: <span class="math inline">\(P(Z_i=1) = \pi_i = n/N = E(Z_i) = E(Z_i^2)\)</span></p></li>
 </ul>
+</div>
 </section>
 <section id="expectation-of-the-estimators-cont" class="slide level2">
 <h2>Expectation of the Estimators (con’t)</h2>
@@ -517,7 +534,7 @@
 <p>*Expected value of the estimated total in PSU <span class="math inline">\(i\)</span> (based on the second stage sampling) is independent of whether or not the PSU is selected into the sample</p>
 </div>
 </section>
-<section id="example-cont-1" class="slide level2">
+<section id="example-cont" class="slide level2">
 <h2>Example (con’t)</h2>
 <p><strong>Step 1: Cluster-Specific Estimates:</strong> For each of the <span class="math inline">\(n=\)</span> 38 sampled PSUs (districts):</p>
 <div class="smaller-text">
@@ -600,14 +617,10 @@
 <section id="sampling-weights-for-two-stage-cluster-samples" class="slide level2">
 <h2>Sampling Weights for Two-Stage Cluster Samples</h2>
 <ul>
-<li><p>For two-stage cluster sampling with SRS at first stage:</p>
-<p><span class="math display">\[\begin{align}
-\pi_{ij} &amp;= P(\text{SSU $j$ of PSU $i$ in sample}) = P(\text{SSU $j$ selected}|\text{PSU $i$ selected}) \times P(\text{PSU $i$ selected})\\
-&amp;= \frac{m_i}{M_i} \times \frac{n}{N} = \frac{n}{N}\frac{m_i}{M_i}
-\end{align}\]</span></p></li>
+<li>For two-stage cluster sampling with <strong>SRS</strong> at first and second stage:</li>
 </ul>
 <blockquote>
-<p><span class="alert2"><strong>Sample weight for sampled SSU</strong> <span class="math inline">\(j\)</span> in PSU <span class="math inline">\(i\)</span></span>: <span class="math inline">\(\displaystyle w_{ij} = \frac{1}{\pi_{ij}} = \frac{N}{n} \frac{M_i}{m_i}\)</span></p>
+<p><span class="alert2"><strong>Sample weight for sampled SSU</strong> <span class="math inline">\(j\)</span> <strong>in PSU</strong> <span class="math inline">\(i\)</span></span>: &nbsp; <span class="math inline">\(\displaystyle w_{ij} = \frac{1}{\pi_{ij}} = \frac{N}{n} \frac{M_i}{m_i}\)</span></p>
 </blockquote>
 <ul>
 <li><p>Intuition:</p>
@@ -616,9 +629,14 @@
 <li><p>And within a PSU each sampled SSU “represents” <span class="math inline">\(\frac{M_i}{m_i}\)</span> SSUs</p></li>
 <li><p>So in total a sampled SSU “represents” <span class="math inline">\(\frac{N}{n} \times \frac{M_i}{m_i}\)</span> SSUs</p></li>
 </ul></li>
+<li><p>Weight is the inverse of the probability of selection:</p>
+<p><span class="math display">\[\begin{align}
+\pi_{ij} &amp;= P(\text{SSU $j$ of PSU $i$ in sample}) = P(\text{SSU $j$ selected}|\text{PSU $i$ selected}) \times P(\text{PSU $i$ selected})\\
+&amp;= \frac{m_i}{M_i} \times \frac{n}{N} = \frac{n}{N}\frac{m_i}{M_i}
+\end{align}\]</span></p></li>
 </ul>
 </section>
-<section id="example-cont-2" class="slide level2">
+<section id="example-cont-1" class="slide level2">
 <h2>Example (con’t)</h2>
 <ul>
 <li><p>To get the ratio estimator, we need the estimated population size:</p>
@@ -633,7 +651,7 @@
 </ul></li>
 </ul>
 <aside><ol class="aside-footnotes"><li id="fn1"><p>You can hand-calculate <span class="math inline">\(\widehat{M}_0\)</span> as <span class="math inline">\(\widehat{M}_0 = N \hat{\bar{M}}= N \frac{1}{n} \sum_{i \in S} M_i\)</span> if you wanted to, but do you really want to?</p></li></ol></aside></section>
-<section id="epsem-sampling" class="slide level2">
+<section id="epsem-sampling" class="slide level2 pause">
 <h2>EPSEM Sampling</h2>
 <ul>
 <li>In the schools example, the sampling weights <strong>differed</strong> across the 65 sampled PSUs:</li>
@@ -644,21 +662,29 @@
   19.92   19.92   39.84   75.39   99.61  358.58 </code></pre>
 </div>
 </div>
-<p><br></p>
+<p>
+</p><ul>
+<li>Can a two-stage cluster sample be EPSEM (have all sampling weights <strong>equal</strong>)?</li>
+</ul>
+<div class="fragment">
 <ul>
-<li><p>Can a two-stage cluster sample be EPSEM (have all sampling weights <strong>equal</strong>)?</p>
+<li>Q: When will <span class="math inline">\(\frac{n}{N}\frac{m_i}{M_i}\)</span> be the same for all PSUs? (for all <span class="math inline">\(i\)</span>)</li>
+</ul>
+</div>
+<div class="fragment">
 <ul>
-<li><p>Q: When will <span class="math inline">\(\frac{n}{N}\frac{m_i}{M_i}\)</span> be the same for all PSUs? (for all <span class="math inline">\(i\)</span>)</p></li>
-<li><p>A: When <span class="math inline">\(\displaystyle \frac{m_i}{M_i}\)</span> is the same for all PSUs (for all <span class="math inline">\(i\)</span>)!</p>
+<li><p>A: When <span class="math inline">\(\frac{m_i}{M_i}\)</span> is the same for all PSUs (for all <span class="math inline">\(i\)</span>)!</p>
 <ul>
 <li>In other words, when the same <strong>proportion</strong> of SSUs are sampled from each PSU</li>
 </ul></li>
-</ul></li>
 </ul>
-<p><br></p>
+<p>
+</p></div>
+<div class="fragment">
 <ul>
 <li>A two-stage cluster sample (with SRS at the first stage) is only <strong>self-weighting (EPSEM)</strong> if <span class="alert">more SSUs are selected from the larger PSUs</span> (kind of like proportional allocation to strata)</li>
 </ul>
+</div>
 </section>
 <section id="activity-13.1-part-2" class="slide level2">
 <h2>Activity 13.1 (Part 2)</h2>
@@ -675,7 +701,8 @@
 <li><p>So why do we focus on the total?</p></li>
 </ul>
 <p>
-</p><ul>
+</p><div class="fragment">
+<ul>
 <li><p>Nearly every quantity we want to estimate can be written as a function of <strong>totals</strong></p></li>
 <li><p>If we can write the quantity in terms of totals, we can use <strong>linearization</strong> to estimate its variance – like we did with the ratio estimate of the mean in 1-stage cluster sampling</p></li>
 <li><p>Linearization can be used for a wide range of estimates:</p>
@@ -687,6 +714,7 @@
 <li><p>etc.</p></li>
 </ul></li>
 </ul>
+</div>
 </section>
 <section id="variance-estimation-for-the-estimated-total" class="slide level2">
 <h2>Variance Estimation for the Estimated Total</h2>
@@ -728,13 +756,16 @@
 </ul>
 </div>
 <aside><ol class="aside-footnotes"><li id="fn3"><p>See math details in handout on Carmen if interested.</p></li></ol></aside></section>
-<section id="variance-estimation-in-software" class="slide level2">
+<section id="variance-estimation-in-software" class="slide level2 pause">
 <h2>Variance Estimation in Software</h2>
 <ul>
 <li><p>Many software packages simplify calculations by only using <span class="math inline">\(\widehat{V}_{stage1}\)</span></p>
 <ul>
 <li><span class="math inline">\(\widehat{V}_{stage1}\)</span> is “close enough” to the true variance of the total, since it dominates <span class="math inline">\(\widehat{V}_{stage2}\)</span></li>
 </ul></li>
+</ul>
+<div class="fragment">
+<ul>
 <li><p>Might not be able to calculate <span class="math inline">\(\widehat{V}_{stage2}\)</span> because:</p>
 <ul>
 <li><p>You don’t have the PSU sizes <span class="math inline">\((M_i)\)</span> for sampled PSUs</p>
@@ -746,18 +777,23 @@
 <li>Very common design when sampling people within households</li>
 </ul></li>
 </ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
 <li><p>If the software is ignoring the second stage variance <span class="math inline">\((V_{stage2})\)</span> then you only have to tell it about the PSUs (i.e., don’t need to tell it the <span class="math inline">\(M_i\)</span> or an identifier for the SSUs)</p></li>
 <li><p>This is sometimes referred to as an <strong>ultimate PSU analysis</strong></p>
 <!-- -   This approach is usually used in complex designs with more than -->
 <!--     two stages -->
 <ul>
-<li><em>It’s still a two-stage design, you’re just ignoring the second stage of sampling when approximating the variance. Sampling weights still need to be constructing accounting for the multiple stages.</em></li>
+<li><em>It’s still a two-stage design, you’re just ignoring the second stage of sampling when approximating the variance. Sampling weights still need to be constructed accounting for the multiple stages.</em></li>
 </ul></li>
 </ul>
+</div>
 </section>
-<section id="example-cont-3" class="slide level2">
+<section id="example-cont-2" class="slide level2">
 <h2>Example (con’t)</h2>
-<p><strong>Estimator of the Total</strong></p>
+<p><span class="alert3"><strong>Estimator of the Total</strong></span></p>
 <ul>
 <li>Analysis including information about both stages of sampling</li>
 </ul>
@@ -820,7 +856,7 @@ api00 3218774 612593</code></pre>
 </ul></li>
 </ul>
 </section>
-<section id="example-cont-4" class="slide level2">
+<section id="example-cont-3" class="slide level2">
 <h2>Example (con’t)</h2>
 <p><span class="alert2"><strong>Ratio Estimator of the Mean</strong></span></p>
 <ul>
@@ -849,11 +885,11 @@ api00 656.82 32.587</code></pre>
 <li><p>Point estimates <strong>identical</strong></p></li>
 <li><p>Standard error estimates <strong>very similar</strong></p>
 <ul>
-<li>Most variability is from sampling PSUs (not sampling SSUs within PSUs)</li>
+<li>Most variability is from sampling PSUs (not sampling SSUs within PSUs) <a href="#/slide-school-sample-figure">(Look back at plot of API)</a></li>
 </ul></li>
 </ul>
 </section>
-<section id="example-cont-5" class="slide level2">
+<section id="example-cont-4" class="slide level2">
 <h2>Example (con’t)</h2>
 <p><span class="alert"><strong>Unbiased Estimator of the Mean</strong></span></p>
 <ul>
@@ -869,9 +905,6 @@ api00 656.82 32.587</code></pre>
 <li><p><span class="math inline">\(\widehat{SE}(\hat{\bar{y}}_{clus}) = \sqrt{\widehat{V}(\hat{\bar{y}}_{clus})} = \sqrt{60{,}586{,}081} = {7{,}784}\)</span></p></li>
 <li><p>Compare to <span class="math inline">\(\widehat{SE}(\hat{\bar{y}}_r) = {32.59}\)</span></p></li>
 </ul></li>
-</ul>
-<p>
-</p><ul>
 <li><p>Ratio estimator has <strong>much</strong> smaller SEs!</p></li>
 <li><p>SE is over 200 times larger for unbiased estimator!!</p></li>
 </ul>

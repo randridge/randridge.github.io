@@ -1,7 +1,7 @@
 ---
 title:  |
   Two-stage
-  Cluster Sampling: \
+  Cluster Sampling \
 subtitle: "PUBHBIO 7225 Lecture 13"
 # author: "Generative AI acknowledgment: MS Copilot was used to generate alt text for some images"
 format:
@@ -58,6 +58,7 @@ editor:
 **Readings**
 
 -   Handout on Carmen with mathematical details on variance estimation
+    (OPTIONAL)
 
 **Assignments**
 
@@ -75,14 +76,16 @@ editor:
 
 -   Why might we do this?
 
-    -   SSUs within a cluster may be so similar that measuring all is a
-        waste of resources
+. . .
 
-    -   Might be expensive to sample SSUs, so only a subsample is taken
-        for cost reasons
+-   SSUs within a cluster may be so similar that measuring all is a
+    waste of resources
 
-    -   Might not be practical to sample all SSUs (ex: all people in a
-        household)
+-   Might be expensive to sample SSUs, so only a subsample is taken for
+    cost reasons
+
+-   Might not be practical to sample all SSUs (ex: all people in a
+    household)
 
 ## Stages of Two-Stage Cluster Sampling
 
@@ -103,7 +106,7 @@ editor:
 -   We will return to this concept next lecture (but it is exactly what
     it sounds like!)
 
-## Two Stages: More Variability, More Choices
+## Two Stages: More Variability, More Choices {.pause}
 
 > **More Variability:** Now there is sample-to-sample variability from
 > **both** stages of data collection
@@ -119,6 +122,8 @@ editor:
 
     -   \(1\) variability from sampling PSUs, and (2) variability from
         sampling SSUs within PSU
+
+. . .
 
 > **More Design Choices:** Have to decide [how many SSUs per PSU to
 > sample]{.alert2}
@@ -136,7 +141,7 @@ editor:
     -   Ex: PSU = housing unit, SSU = person → can sample just 1 person
         in a household
 
-## Example: Sampling School Districts
+## Example: Sampling School Districts {.pause}
 
 ```{r}
 library(tidyverse)
@@ -164,12 +169,12 @@ Population: $M_0=$ `r M0` schools in $N=$ `r N` school districts
 
 -   SSU = school
 
--   $y$ = Academic Performance Index (based on standardized test
-    results)
+-   $y$ = school's Academic Performance Index\
+    (based on standardized test results)
 
 -   True population mean API: $\bar{y}_U =$ `r round(mean(pop$api00),1)`
 
--   Highly skewed number of SSUs (schools) per PSU (district)
+-   Highly skewed number of SSUs per PSU
 :::
 
 ::: {.column width="50%"}
@@ -186,6 +191,8 @@ num_psus %>%
 :::
 :::::
 
+. . .
+
 **Two-stage cluster sample taken:**
 
 -   **Stage 1:** $n =$ `r n_psu` PSUs (districts) out of $N=$ `r N` --
@@ -194,15 +201,17 @@ num_psus %>%
     -   Selected PSUs have a range of $M_i=$ `r min(samp_psus$n)` to
         `r max(samp_psus$n)` SSUs
 
+. . .
+
 -   **Stage 2:** $m_i=$ 2 SSUs (schools) per PSU
 
-    -   For PSUs with only 1 SSU, selected the 1 SSU (i.e., $m_i=M_i=1$)
+    -   For PSUs with only 1 SSU, $m_i=M_i=1$ (can only select the 1
+        school!)
 
-## Example (con't)
+## Example (con't) {#slide-school-sample-figure}
 
--   Result is a total of `r nrow(samp_psus)` SSUs (schools)
-    -   ($n=$ `r n_psu` PSUs $\times$ $m_i=2$ SSUs per = 76 -- but some
-        PSUs only have 1 SSU)
+-   Result is a total of `r nrow(samp)` SSUs (schools)
+    -   Some sampled PSUs (districts) had only 1 SSU (school)
 -   API $(y)$ by PSU (sampled SSUs only):
 
 ```{r}
@@ -225,7 +234,7 @@ samp %>%
 
 Two-Stage Cluster Sampling (Part 1)
 
-## Similar Estimation as One-Stage Cluster Sample
+## Similar Estimation as One-Stage Cluster Sample {.pause}
 
 -   **One-Stage Cluster Sample:** (SRS of $n$ PSUs out of $N$ total;
     take all $M_i$ SSUs in the selected PSUs):
@@ -247,6 +256,8 @@ Two-Stage Cluster Sampling (Part 1)
         -   OR, divide by the estimated total number of SSUs
             $(\widehat{M}_0)$ to get the ratio estimate
             $(\hat{\bar{y}}_r)$
+
+. . .
 
 -   In a **Two-Stage Cluster Sample**, **we don't observe the true**
     $\mathbf t_i$ for each sampled PSU
@@ -270,7 +281,7 @@ Start with **cluster-specific estimates**:
 
 ::: smaller-text
 | **Quantity** | **Estimate** | **In Words** |
-|:-----------------------|:-----------------------|:-----------------------|
+|:---|:---|:---|
 | PSU Mean (of $y$) | $\displaystyle \bar{y}_i= \frac{1}{m_i} \sum_{j\in \mathcal{S}_i} y_{ij}$ | average of $y$ for sampled SSUs in PSU $i$ |
 | PSU Total (of $y$) | $\displaystyle \hat{t}_i = M_i \bar{y}_i$ | average of $y$ for sampled SSUs times the total number of SSUs in PSU $i$ |
 | Variance of $y$ for SSUs within PSU | $\displaystyle s_i^2 = \frac{1}{m_i-1} \sum_{j \in \mathcal{S}_i} \left(y_{ij}-  \bar{y}_i\right)^2$ | variance of $y$ for sampled SSUs in PSU $i$ |
@@ -297,7 +308,7 @@ Then combine cluster-specific estimates to get **overall estimates**:
 
 ::: smaller-text
 | **Quantity** | **Estimate** | **In Words** |
-|:-----------------------|:-----------------------|:-----------------------|
+|:---|:---|:---|
 | Mean PSU Total (of $y$) | $\displaystyle \bar{\hat{t}} = \frac{1}{n} \sum_{i \in \mathcal{S}} \hat{t}_i$ | average of estimated PSU totals from sampled PSUs |
 | Overall Total (of $y$) | $\displaystyle \hat{t}_{clus}= N\bar{\hat{t}}$ | estimated average PSU total times the number of PSUs (in pop.) |
 | Overall Mean (of $y$) | $\displaystyle \hat{\bar{y}}_{clus}= \frac{\hat{t}_{clus}}{M_0}$ (unbiased estimator) | estimated total divided by **known** total number of SSUs |
@@ -330,7 +341,7 @@ Then combine cluster-specific estimates to get **overall estimates**:
     -   OR, divide by the estimated total number of SSUs
         $(\widehat{M}_0)$ to get the ratio estimate $(\hat{\bar{y}}_r)$
 
-## Expectation of the Estimators
+## Expectation of the Estimators {.pause}
 
 -   $\hat{t}_{clus}$ is an **unbiased** estimator of the true population
     total $t_U$ (derivation next slide)
@@ -340,7 +351,7 @@ Then combine cluster-specific estimates to get **overall estimates**:
 -   Thus the [**unbiased estimator**]{.alert2} of the mean is an
     **unbiased** estimator of the true population mean, $\bar{y}_U$
 
-    -   $E[\hat{\bar{y}}_{clus}] = E[\hat{t}_{clus}/M_0] = t_U/M_0 = \bar{y}_U$
+    -   $E[\hat{\bar{y}}_{clus}] = E[\hat{t}_{clus}/M_0] = E[\hat{t}_{clus}]/M_0 = t_U/M_0 = \bar{y}_U$
 
 -   But the [**ratio estimate**]{.alert} of the mean is **biased**, just
     like with one-stage cluster sampling
@@ -352,6 +363,8 @@ Then combine cluster-specific estimates to get **overall estimates**:
         preferred estimator
 
 <p>
+
+. . .
 
 -   For multi-stage sampling we prove theoretical results by
     **conditioning on a realized sample** and then taking the
@@ -389,7 +402,7 @@ sampled PSUs (districts):
 
 ::: smaller-text
 | PSU | $M_i$ | $m_i$ | SSU values of $y$ | $\bar{y}_i$ | $\hat{t}_i = M_i \bar{y}_i$ |
-|:-----------|:-----------|:-----------|:-----------|:-----------|:-----------|
+|:---|:---|:---|:---|:---|:---|
 | 1 | 10 | 2 | 753, 807 | 780 | 10 $\times$ 780 = 7800 |
 | 2 | 10 | 2 | 762, 743 | 752.5 | 10 $\times$ 752.5 = 7525 |
 | 3 | 19 | 2 | 536, 540 | 538 | 19 $\times$ 538 = 10222 |
@@ -431,14 +444,10 @@ samp %>%
 
 ## Sampling Weights for Two-Stage Cluster Samples
 
--   For two-stage cluster sampling with SRS at first stage:
+-   For two-stage cluster sampling with **SRS** at first and second
+    stage:
 
-    $$\begin{align}
-     \pi_{ij} &= P(\text{SSU $j$ of PSU $i$ in sample}) = P(\text{SSU $j$ selected}|\text{PSU $i$ selected}) \times P(\text{PSU $i$ selected})\\
-    &= \frac{m_i}{M_i} \times \frac{n}{N} = \frac{n}{N}\frac{m_i}{M_i}
-    \end{align}$$
-
-> [**Sample weight for sampled SSU** $j$ in PSU $i$]{.alert2}:
+> [**Sample weight for sampled SSU** $j$ **in PSU** $i$]{.alert2}:  
 > $\displaystyle w_{ij} = \frac{1}{\pi_{ij}} = \frac{N}{n} \frac{M_i}{m_i}$
 
 -   Intuition:
@@ -450,6 +459,13 @@ samp %>%
 
     -   So in total a sampled SSU "represents"
         $\frac{N}{n} \times \frac{M_i}{m_i}$ SSUs
+
+-   Weight is the inverse of the probability of selection:
+
+    $$\begin{align}
+     \pi_{ij} &= P(\text{SSU $j$ of PSU $i$ in sample}) = P(\text{SSU $j$ selected}|\text{PSU $i$ selected}) \times P(\text{PSU $i$ selected})\\
+    &= \frac{m_i}{M_i} \times \frac{n}{N} = \frac{n}{N}\frac{m_i}{M_i}
+    \end{align}$$
 
 ## Example (con't)
 
@@ -477,7 +493,7 @@ samp %>%
     $\widehat{M}_0 = N \hat{\bar{M}}= N \frac{1}{n} \sum_{i \in S} M_i$
     if you wanted to, but do you really want to?
 
-## EPSEM Sampling
+## EPSEM Sampling {.pause}
 
 -   In the schools example, the sampling weights **differed** across the
     65 sampled PSUs:
@@ -486,21 +502,26 @@ samp %>%
 summary(samp$wt)
 ```
 
-<br>
+<p>
 
 -   Can a two-stage cluster sample be EPSEM (have all sampling weights
     **equal**)?
 
-    -   Q: When will $\frac{n}{N}\frac{m_i}{M_i}$ be the same for all
-        PSUs? (for all $i$)
+. . .
 
-    -   A: When $\displaystyle \frac{m_i}{M_i}$ is the same for all PSUs
-        (for all $i$)!
+-   Q: When will $\frac{n}{N}\frac{m_i}{M_i}$ be the same for all PSUs?
+    (for all $i$)
 
-        -   In other words, when the same **proportion** of SSUs are
-            sampled from each PSU
+. . .
 
-<br>
+-   A: When $\frac{m_i}{M_i}$ is the same for all PSUs (for all $i$)!
+
+    -   In other words, when the same **proportion** of SSUs are sampled
+        from each PSU
+
+<p>
+
+. . .
 
 -   A two-stage cluster sample (with SRS at the first stage) is only
     **self-weighting (EPSEM)** if [more SSUs are selected from the
@@ -524,6 +545,8 @@ Two-Stage Cluster Sampling (Part 2)
 -   So why do we focus on the total?
 
 <p>
+
+. . .
 
 -   Nearly every quantity we want to estimate can be written as a
     function of **totals**
@@ -602,13 +625,15 @@ $$\widehat{V}(\hat{t}_{clus}) = \underbrace{N^2 \left(1-\frac{n}{N}\right)\frac{
 
 [^3]: See math details in handout on Carmen if interested.
 
-## Variance Estimation in Software
+## Variance Estimation in Software {.pause}
 
 -   Many software packages simplify calculations by only using
     $\widehat{V}_{stage1}$
 
     -   $\widehat{V}_{stage1}$ is "close enough" to the true variance of
         the total, since it dominates $\widehat{V}_{stage2}$
+
+. . .
 
 -   Might not be able to calculate $\widehat{V}_{stage2}$ because:
 
@@ -623,6 +648,8 @@ $$\widehat{V}(\hat{t}_{clus}) = \underbrace{N^2 \left(1-\frac{n}{N}\right)\frac{
 
         -   Very common design when sampling people within households
 
+. . .
+
 -   If the software is ignoring the second stage variance $(V_{stage2})$
     then you only have to tell it about the PSUs (i.e., don't need to
     tell it the $M_i$ or an identifier for the SSUs)
@@ -635,12 +662,12 @@ $$\widehat{V}(\hat{t}_{clus}) = \underbrace{N^2 \left(1-\frac{n}{N}\right)\frac{
 
     -   *It's still a two-stage design, you're just ignoring the second
         stage of sampling when approximating the variance. Sampling
-        weights still need to be constructing accounting for the
-        multiple stages.*
+        weights still need to be constructed accounting for the multiple
+        stages.*
 
 ## Example (con't)
 
-**Estimator of the Total**
+[**Estimator of the Total**]{.alert3}
 
 -   Analysis including information about both stages of sampling
 
@@ -745,7 +772,7 @@ svymean(~api00, design = des_ign)
 -   Standard error estimates **very similar**
 
     -   Most variability is from sampling PSUs (not sampling SSUs within
-        PSUs)
+        PSUs) [(Look back at plot of API)](#slide-school-sample-figure)
 
 ## Example (con't)
 
@@ -766,8 +793,6 @@ svymean(~api00, design = des_ign)
     -   $\widehat{SE}(\hat{\bar{y}}_{clus}) = \sqrt{\widehat{V}(\hat{\bar{y}}_{clus})} = \sqrt{60{,}586{,}081} = {7{,}784}$
 
     -   Compare to $\widehat{SE}(\hat{\bar{y}}_r) = {32.59}$
-
-<p>
 
 -   Ratio estimator has **much** smaller SEs!
 
