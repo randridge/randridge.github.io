@@ -97,27 +97,13 @@ editor:
     -   Unbiased estimate of total $t$:  
         $\hat{t}=  \sum_{i \in \mathcal{S}} \sum_{j \in \mathcal{S}_i} w_{ij} y_{ij}$
 
-These designs do not take into account that totals $(t_i)$ are
-often correlated with the size of PSUs $(M_i)$
+These designs do not take into account that totals $(t_i)$ are often
+correlated with the size of PSUs $(M_i)$
 
 We saw that [ratio estimation]{.alert2} can improve estimation of
 $\bar{y}_U$ -- but [can we improve on estimation of $t$?]{.alert}
 
 ## Time Machine: Back to Lecture 3 (Sampling Clinics)
-
-```{r}
-id <- 1:5
-docs <- c(2,3,4,5,10)
-patients <- c(10,20,50,60,150)
-# SRS
-a <- c(1,1,1,1,2,2,2,3,3,4)
-b <- c(2,3,4,5,3,4,5,4,5,5)
-# (patients[a] + patients[b])/2
-# Clinic 5 with certainty
-a <- c(1,2,3,4)
-b <- c(5,5,5,5)
-# (4*patients[a] + 1*patients[b])/5
-```
 
 -   There are $N=5$ clinics in a town and you want to estimate the
     average number of patients seen in a day (in the town)
@@ -490,38 +476,6 @@ svytotal(~totfemale, design = des.srs)
 *Note: If a PSU is selected into the sample more than once, you'll
 include its estimate multiple times*
 
-<!-- ## PPSWR: Sampling Weights -->
-
-<!-- -   Can rewrite the formula for the estimated total to see the sampling -->
-
-<!--     weights: -->
-
-<!-- $$\hat{t}_{wr} = \frac{1}{n}\sum_{i \in \mathcal{S}} \frac{t_i}{\psi_i} = \sum_{i \in \mathcal{S}} \frac{t_i}{n \psi_i} = \sum_{i \in \mathcal{S}} \textcolor{red}{\frac{1}{n \psi_i}} t_i = \sum_{i \in \mathcal{S}} \textcolor{red}{w_i} t_i$$ -->
-
-<!-- -   Weight for PSU $i$: -->
-
-<!--     $w_i= \frac{1}{n \psi_i} = \frac{1}{\text{expected \# times PSU $i$ appears in sample}}$ -->
-
-<!-- -   *Note: sampling weights are **not** the inverse of inclusion -->
-
-<!--     probabilities for this design* -->
-
-<!-- For my sample, -->
-
-<!-- | School | $M_i$ | $t_i$ | $\psi_i$ | $w_i = \frac{1}{n\psi_i}$ | -->
-
-<!-- |:-------------:|:-------------:|:-------------:|:--------------|:--------------| -->
-
-<!-- | 8 | 500 | 251 | 0.0333578 | $\frac{1}{2*0.0333578} = \frac{1}{0.0667156} = 14.988998$ | -->
-
-<!-- | 23 | 690 | 343 | 0.04603376 | $\frac{1}{2*0.04603376} =\frac{1}{0.09206752} = 10.861594$ | -->
-
-<!-- -   So I can also calculate the estimated total as: -->
-
-<!--     $\hat{t}_{wr} = \sum_{i \in \mathcal{S}} w_i t_i = (14.988998\times 251) + (10.861594 \times 343) = 7487.8$ -->
-
-<!--     *(Same estimate, of course!)* -->
-
 ## PPSWR: Estimating the Variance of the Population Total {#slide-ppswr-var}
 
 ::: smaller-text
@@ -543,10 +497,6 @@ $\widehat{V}(\hat{t}_{wr}) = \frac{1}{n} \frac{1}{n-1} \sum_{i \in \mathcal{S}} 
 
 $\widehat{SE}(\hat{t}_{wr}) = \sqrt{1347.6} = 36.7$
 :::
-
-<!-- ## Activity 14.1 (Part 2) -->
-
-<!-- PPS Sampling (Part 2) -->
 
 ## Sampling Design C: PPS Without Replacement {.pause}
 
@@ -584,7 +534,7 @@ $\widehat{SE}(\hat{t}_{wr}) = \sqrt{1347.6} = 36.7$
 -   Note the implied restriction:
 
     -   Inclusion probabilities $(\pi_i)$ cannot be $>$ 1
-    
+
     $$
     \begin{split}
     \pi_i = n \psi_i &< 1 \\
@@ -596,7 +546,8 @@ $\widehat{SE}(\hat{t}_{wr}) = \sqrt{1347.6} = 36.7$
 -   No one PSU can be so big its $X_i$ takes up more than $1/n$ of the
     total of the $X_i$
 
--   If such a PSU exists, it should be **selected with certainty** (certainty unit)
+-   If such a PSU exists, it should be **selected with certainty**
+    (certainty unit)
 
 ## PPSWOR: Estimating the Population Total
 
@@ -627,7 +578,7 @@ $\widehat{SE}(\hat{t}_{wr}) = \sqrt{1347.6} = 36.7$
 
 -   The $\pi_{ij}$ are **not** just products of the $\pi_i$!
 
-. . . 
+. . .
 
 -   For $n=2$:
 
@@ -687,8 +638,8 @@ $$V(\hat{t}_{HT}) = \sum_{i=1}^N \frac{1- \pi_i}{\pi_i} t_i^2 + \sum_{i=1}^N \su
     estimate** (the one on [this slide](#slide-ppswr-var))
     $$\widehat{V}_{WR}(\hat{t}_{HT}) = \frac{1}{n} \frac{1}{n-1} \sum_{i \in \mathcal{S}} \left( \frac{t_i}{\psi_i} - \hat{t}_{HT} \right)^2 = \frac{n}{n-1}\sum_{i \in \mathcal{S}} \left( \frac{t_i}{\pi_i} - \frac{\hat{t}_{HT}}{n} \right)^2$$
 
-    -   **Consequence:** result is (usually slightly) [conservative]{.alert2} --
-        i.e., variance too big
+    -   **Consequence:** result is (usually slightly)
+        [conservative]{.alert2} -- i.e., variance too big
 
     -   **Benefit:** don't need pairwise inclusion probabilities, and
         never get a negative variance!
@@ -699,13 +650,7 @@ $$V(\hat{t}_{HT}) = \sum_{i=1}^N \frac{1- \pi_i}{\pi_i} t_i^2 + \sum_{i=1}^N \su
 ## Problems With These Variance Estimators (con't)
 
 ```{r}
-library(tidyverse)
-library(haven)
-library(survey)
-theme_set(theme_bw())
-
-pop <- read_dta("./datasets/smoke_schools.dta")
-samp <- pop %>%
+samp_pps <- pop %>%
   filter(school %in% c(14,24)) %>%
   mutate(wt = 1/(2*Mi/14989))
 ```
@@ -719,7 +664,7 @@ samp <- pop %>%
 #| echo: true
 #| classes: .cell-output
 
-des.ppswor <- svydesign(id = ~1, weight = ~wt, data=samp)
+des.ppswor <- svydesign(id = ~1, weight = ~wt, data=samp_pps)
 svytotal(~totfemale, des.ppswor)
 ```
 

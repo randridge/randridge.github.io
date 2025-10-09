@@ -843,22 +843,6 @@ totfemale  6615 478.22</code></pre>
 <li>Estimated total = <span class="math inline">\(\hat{t}_{wr} = \frac{1}{n}\sum_{i \in \mathcal{S}} \frac{t_i}{\psi_i} = (7524.5 + 7451.1)/2 = 7487.8\)</span></li>
 </ul>
 <p><em>Note: If a PSU is selected into the sample more than once, you’ll include its estimate multiple times</em></p>
-<!-- ## PPSWR: Sampling Weights -->
-<!-- -   Can rewrite the formula for the estimated total to see the sampling -->
-<!--     weights: -->
-<!-- $$\hat{t}_{wr} = \frac{1}{n}\sum_{i \in \mathcal{S}} \frac{t_i}{\psi_i} = \sum_{i \in \mathcal{S}} \frac{t_i}{n \psi_i} = \sum_{i \in \mathcal{S}} \textcolor{red}{\frac{1}{n \psi_i}} t_i = \sum_{i \in \mathcal{S}} \textcolor{red}{w_i} t_i$$ -->
-<!-- -   Weight for PSU $i$: -->
-<!--     $w_i= \frac{1}{n \psi_i} = \frac{1}{\text{expected \# times PSU $i$ appears in sample}}$ -->
-<!-- -   *Note: sampling weights are **not** the inverse of inclusion -->
-<!--     probabilities for this design* -->
-<!-- For my sample, -->
-<!-- | School | $M_i$ | $t_i$ | $\psi_i$ | $w_i = \frac{1}{n\psi_i}$ | -->
-<!-- |:-------------:|:-------------:|:-------------:|:--------------|:--------------| -->
-<!-- | 8 | 500 | 251 | 0.0333578 | $\frac{1}{2*0.0333578} = \frac{1}{0.0667156} = 14.988998$ | -->
-<!-- | 23 | 690 | 343 | 0.04603376 | $\frac{1}{2*0.04603376} =\frac{1}{0.09206752} = 10.861594$ | -->
-<!-- -   So I can also calculate the estimated total as: -->
-<!--     $\hat{t}_{wr} = \sum_{i \in \mathcal{S}} w_i t_i = (14.988998\times 251) + (10.861594 \times 343) = 7487.8$ -->
-<!--     *(Same estimate, of course!)* -->
 </section>
 <section id="slide-ppswr-var" class="slide level2">
 <h2>PPSWR: Estimating the Variance of the Population Total</h2>
@@ -903,8 +887,6 @@ totfemale  6615 478.22</code></pre>
 = \frac{1}{2} \frac{1}{(2-1)} \left[(7524.477-7487.8)^2 + (7451.0533-7487.8)^2 \right] = \frac{2695.5}{2} = 1347.6\)</span></p>
 <p><span class="math inline">\(\widehat{SE}(\hat{t}_{wr}) = \sqrt{1347.6} = 36.7\)</span></p>
 </div>
-<!-- ## Activity 14.1 (Part 2) -->
-<!-- PPS Sampling (Part 2) -->
 </section>
 <section id="sampling-design-c-pps-without-replacement" class="slide level2 pause">
 <h2>Sampling Design C: PPS Without Replacement</h2>
@@ -1080,7 +1062,7 @@ totfemale  6615 478.22</code></pre>
 </ul></li>
 </ul>
 <div class="cell cell-output">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>des.ppswor <span class="ot">&lt;-</span> <span class="fu">svydesign</span>(<span class="at">id =</span> <span class="sc">~</span><span class="dv">1</span>, <span class="at">weight =</span> <span class="sc">~</span>wt, <span class="at">data=</span>samp)</span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>des.ppswor <span class="ot">&lt;-</span> <span class="fu">svydesign</span>(<span class="at">id =</span> <span class="sc">~</span><span class="dv">1</span>, <span class="at">weight =</span> <span class="sc">~</span>wt, <span class="at">data=</span>samp_pps)</span>
 <span id="cb3-2"><a></a><span class="fu">svytotal</span>(<span class="sc">~</span>totfemale, des.ppswor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           total     SE
@@ -1121,7 +1103,7 @@ totfemale 7482.1 54.728</code></pre>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="PUBHBIO7225_L14_ppsSampling_files/figure-revealjs/unnamed-chunk-6-1.png" alt="Scatterplot with number of students on x-axis and number of females on y-axis, showing a very linear relationship along an approximately 45 degree line." width="960"></p>
+<p><img data-src="PUBHBIO7225_L14_ppsSampling_files/figure-revealjs/unnamed-chunk-5-1.png" alt="Scatterplot with number of students on x-axis and number of females on y-axis, showing a very linear relationship along an approximately 45 degree line." width="960"></p>
 </figure>
 </div>
 </div>
@@ -1131,7 +1113,7 @@ totfemale 7482.1 54.728</code></pre>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="PUBHBIO7225_L14_ppsSampling_files/figure-revealjs/unnamed-chunk-7-1.png" alt="Scatterplot with number of students on x-axis and number of smokers on y-axis, showing no clear pattern, a random scattering of points." width="960"></p>
+<p><img data-src="PUBHBIO7225_L14_ppsSampling_files/figure-revealjs/unnamed-chunk-6-1.png" alt="Scatterplot with number of students on x-axis and number of smokers on y-axis, showing no clear pattern, a random scattering of points." width="960"></p>
 </figure>
 </div>
 </div>
