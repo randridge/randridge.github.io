@@ -496,7 +496,7 @@ samp %>%
 ## EPSEM Sampling {.pause}
 
 -   In the schools example, the sampling weights **differed** across the
-    65 sampled PSUs:
+    65 sampled SSUs:
 
 ```{r}
 summary(samp$wt)
