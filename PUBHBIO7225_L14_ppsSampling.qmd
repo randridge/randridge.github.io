@@ -81,8 +81,8 @@ editor:
 
     -   $\pi_i = \frac{n}{N}$ for PSU $i$     →     $w_i = \frac{N}{n}$
 
-    -   Unbiased estimate of total $t$:
-        $\hat{t}= \sum_{i \in \mathcal{S}} \frac{t_i}{\pi_i} = \sum_{i \in \mathcal{S}} w_i t_i = \frac{N}{n} \sum_{i \in \mathcal{S}} t_i$
+    -   Unbiased estimate of total $t$:  
+        $\hat{t} = \sum_{i \in \mathcal{S}} w_i t_i$
 
 -   **Two-stage designs**
 
@@ -94,10 +94,10 @@ editor:
     -   $\pi_{ij} = \frac{n}{N}\frac{m_i}{M_i}$ for SSU $j$ in PSU $i$  
           →     $w_{ij} =  \frac{N}{n}\frac{M_i}{m_i}$
 
-    -   Unbiased estimate of total $t$:
-        $\hat{t}=  \sum_{i \in \mathcal{S}} \sum_{j \in \mathcal{S}_i} \frac{y_{ij}}{\pi_{ij}}= \sum_{i \in \mathcal{S}} \sum_{j \in \mathcal{S}_i} w_{ij} y_{ij}= \frac{N}{n} \sum_{i \in \mathcal{S}} M_i \bar{y}_i$
+    -   Unbiased estimate of total $t$:  
+        $\hat{t}=  \sum_{i \in \mathcal{S}} \sum_{j \in \mathcal{S}_i} w_{ij} y_{ij}$
 
-These designs do not take into account the fact that totals $(t_i)$ are
+These designs do not take into account that totals $(t_i)$ are
 often correlated with the size of PSUs $(M_i)$
 
 We saw that [ratio estimation]{.alert2} can improve estimation of
@@ -125,9 +125,8 @@ b <- c(5,5,5,5)
 -   The population of clinics is:
 
 ::: center
-|           |                   |                                        |
-|:---------:|:-----------------:|:--------------------------------------:|
 | Clinic ID | Number of Doctors | Number of Patients Seen in a Day ($y$) |
+|:---------:|:-----------------:|:--------------------------------------:|
 |     1     |         2         |                   10                   |
 |     2     |         3         |                   20                   |
 |     3     |         4         |                   50                   |
@@ -147,36 +146,47 @@ b <- c(5,5,5,5)
 
 ## Sampling Clinics (con't)
 
-:::: smaller-text
+:::::: smaller-text
+::::: columns
+::: {.column width="50%"}
 **Design 1:** SRS of $n=2$ clinics (for each sampled clinic:
 $\pi_i = n/N = 2/5$)
 
-|                        |      |      |      |      |      |      |      |      |      |      |
-|------:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-|       Clinics Sampled: | 1, 2 | 1, 3 | 1, 4 | 1, 5 | 2, 3 | 2, 4 | 2, 5 | 3, 4 | 3, 5 | 4, 5 |
-| Selection Probability: | 1/10 | 1/10 | 1/10 | 1/10 | 1/10 | 1/10 | 1/10 | 1/10 | 1/10 | 1/10 |
-|         Weighted Mean: |  15  |  30  |  35  |  80  |  35  |  40  |  85  |  55  | 100  | 105  |
+| Clinics Sampled | Selection Probability | Weighted Mean |
+|-----------------|-----------------------|---------------|
+| 1,2             | 1/10                  | 15            |
+| 1,3             | 1/10                  | 30            |
+| 1,4             | 1/10                  | 35            |
+| 1,5             | 1/10                  | 80            |
+| 2,3             | 1/10                  | 35            |
+| 2,4             | 1/10                  | 40            |
+| 2,5             | 1/10                  | 85            |
+| 3,4             | 1/10                  | 55            |
+| 3,5             | 1/10                  | 100           |
+| 4,5             | 1/10                  | 105           |
 
 -   $E(\bar{y})=58$ (unbiased)
 
 -   $V(\bar{y})=921$
+:::
 
+::: {.column width="50%"}
 **Design 2:** Select largest clinic with **certainty** $(\pi_i = 1)$,
 one of the others with equal probability $(\pi_i = 1/4)$
 
-::: center
-|                        |      |      |      |      |
-|-----------------------:|:----:|:----:|:----:|:----:|
-|       Clinics Sampled: | 1, 5 | 2, 5 | 3, 5 | 4, 5 |
-| Selection Probability: | 1/4  | 1/4  | 1/4  | 1/4  |
-|         Weighted Mean: |  38  |  46  |  70  |  78  |
-:::
+| Clinics Sampled | Selection Probability | Weighted Mean |
+|-----------------|-----------------------|---------------|
+| 1,5             | 1/4                   | 38            |
+| 2,5             | 1/4                   | 46            |
+| 3,4             | 1/4                   | 70            |
+| 4,5             | 1/4                   | 78            |
 
 -   $E(\hat{\theta})=58$ (unbiased)
 
 -   $V(\hat{\theta})=272$ $\rightarrow$ a whole lot smaller than SRS!
-    (less than 1/3 of SRS variance!)
-::::
+:::
+:::::
+::::::
 
 ## Example: Sampling Schools
 
@@ -202,15 +212,13 @@ one of the others with equal probability $(\pi_i = 1/4)$
 :::
 
 ::: {.column width="40%"}
-|        |                  |                 |
-|--------|:----------------:|:---------------:|
-|        |    Number of     |    Number of    |
-| School | Students $(M_i)$ | Females $(t_i)$ |
-| 1      |       643        |       324       |
-| 2      |       492        |       249       |
-| 3      |       574        |       284       |
-| 4      |       324        |       163       |
-| ⋮      |        ⋮         |        ⋮        |
+| School | \# Students $(M_i)$ | \# Females $(t_i)$ |
+|--------|:-------------------:|:------------------:|
+| 1      |         643         |        324         |
+| 2      |         492         |        249         |
+| 3      |         574         |        284         |
+| 4      |         324         |        163         |
+| ⋮      |          ⋮          |         ⋮          |
 :::
 :::::
 
@@ -218,7 +226,7 @@ one of the others with equal probability $(\pi_i = 1/4)$
     population to estimate $t$, the [total number of females in the
     population]{.alert}
 
-## Tangent: Why Sample Only $n=2$? {.pause}
+## Tangent: "Pseudo-PSUs"
 
 -   Many large-scale surveys have complex designs, with stratification
     and multi-stage clustering
@@ -233,10 +241,6 @@ one of the others with equal probability $(\pi_i = 1/4)$
 -   But, we need to have at least 2 PSUs per stratum to estimate
     variances
 
-    -   Suppose you took an SRS in each stratum (as we have done before)
-
-    -   If you only sample $n_h=1$ you can't estimate variance!
-
 . . .
 
 -   Note that despite this, sometimes only 1 PSU is sampled in highly
@@ -248,11 +252,13 @@ one of the others with equal probability $(\pi_i = 1/4)$
     -   You use these pseudo-PSUs just like "real" PSUs
 
     -   You often see this when using publicly available survey data
-        ("masked variance PSUs" or "masked variance units")
+
+        -   "masked variance PSUs"
+        -   "masked variance units"
 
 . . .
 
-**Main point:** Sampling only 2 PSUs is actually pretty common!
+**Note:** Sampling only 2 PSUs is actually pretty common!
 
 ## Sampling Design A: SRS
 
@@ -260,13 +266,12 @@ one of the others with equal probability $(\pi_i = 1/4)$
 
 -   I took an SRS and obtained this sample:
 
-|        |                            |                           |
-|--------|:--------------------------:|:-------------------------:|
 | School | Number of Students $(M_i)$ | Number of Females $(t_i)$ |
+|--------|:--------------------------:|:-------------------------:|
 | 9      |            473             |            237            |
 | 22     |            415             |            204            |
 
--   To estimate the total number of females I have:
+-   To estimate the total number of females:
 
     -   $\pi_i = n/N = 2/30 = 1/15$
 
@@ -276,31 +281,45 @@ one of the others with equal probability $(\pi_i = 1/4)$
 
 <p>
 
--   *Note:* SRS sample is EPSEM, so could alternatively calculate as:
+-   *Note:* Could also calculate as:  
     $\hat{t}= N \bar{t}= 30 \times (237 + 204)/2 = 30 \times 220.5 = 6615$
 
 ## SRS (con't)
 
 -   By properties of SRS estimators (think way back!):
 
-|  |  |
-|:-----------------------------------|:-----------------------------------|
-| True (theoretical) variance: | $\displaystyle V(\hat{t})=N^2 \left(1-\frac{n}{N}\right)\frac{S^2}{n}$ |
-| Estimate from a sample: | $\displaystyle \widehat{V}(\hat{t})=N^2 \left(1-\frac{n}{N}\right)\frac{s^2}{n}$ |
+    -   $\displaystyle \widehat{V}(\hat{t})=N^2 \left(1-\frac{n}{N}\right)\frac{s^2}{n}$
+        <!-- | True (theoretical) variance | Estimate from a sample | -->
+        <!-- |------------------------------------|:-----------------------------------| -->
+        <!-- | $\displaystyle V(\hat{t})=N^2 \left(1-\frac{n}{N}\right)\frac{S^2}{n}$ | $\displaystyle \widehat{V}(\hat{t})=N^2 \left(1-\frac{n}{N}\right)\frac{s^2}{n}$ | -->
 
--   In my sample,
+-   In my sample:
 
-$s^2 = \frac{1}{n-1} \sum_{i \in \mathcal{S}} (t_i - \bar{t})^2 = \frac{1}{2-1} \left[(237 - 220.5)^2 + (204 - 220.5)^2 \right] = 544.5$
+    -   $s^2 = \frac{1}{n-1} \sum_{i \in \mathcal{S}} (t_i - \bar{t})^2 = \frac{1}{2-1} \left[(237 - 220.5)^2 + (204 - 220.5)^2 \right] = 544.5$
 
--   Thus my estimated variance is
+    -   $\displaystyle \widehat{V}(\hat{t})=N^2 \left(1-\frac{n}{N}\right)\frac{s^2}{n} = 30^2 \left(1 - \frac{2}{30} \right) \frac{544.5}{22} = 228690$
 
-$\displaystyle \widehat{V}(\hat{t})=N^2 \left(1-\frac{n}{N}\right)\frac{s^2}{n} = 30^2 \left(1 - \frac{2}{30} \right) \frac{544.5}{22} = 228690$
+    -   $\displaystyle \widehat{SE}(\hat{t}) = \sqrt{228690} = 478.2$
 
-$\displaystyle \widehat{SE}(\hat{t}) = \sqrt{228690} = 478.2$
+```{r}
+library(tidyverse)
+library(haven)
+library(survey)
+theme_set(theme_bw())
 
-## Activity 14.1 (Part 1)
+pop <- read_dta("./datasets/smoke_schools.dta")
+samp_srs <- pop %>%
+  filter(school %in% c(9,22)) %>%
+  mutate(wt = 15,
+         N = 30)
+```
 
-PPS Sampling (Part 1)
+```{r}
+#| echo: true
+#| classes: .cell-output
+des.srs <- svydesign(id = ~1, weight = ~wt, fpc = ~N, data=samp_srs)
+svytotal(~totfemale, design = des.srs)
+```
 
 ## Probability Proportional to Size (PPS) Sampling
 
@@ -311,7 +330,8 @@ PPS Sampling (Part 1)
 > [**Probability Proportional to Size (PPS) sampling**]{.alert2} =
 > sample selection methods in which the probability of selection for a
 > sampling unit is directly proportional to a size measure, $X_i$, which
-> is known for all units before sampling
+> is known for all units before sampling (with "larger" units more
+> likely to be selected)
 
 -   We will use throughout this lecture $X_i = M_i =$ number of SSUs in
     the PSU
@@ -350,8 +370,9 @@ PPS Sampling (Part 1)
 -   $\psi_i$ = probability PSU $i$ is [selected on a single
     draw]{.alert2}
 
--   $\pi_i$ = probability PSU $i$ is [in the sample]{.alert} =
-    $2 \psi_i - \psi_i^2$   *(via addition rule for probabilities)*
+-   $\pi_i$ = probability PSU $i$ is [in the sample (inclusion
+    probability)]{.alert} = $2 \psi_i - \psi_i^2$   *(via addition rule
+    for probabilities)*
 
 -   $\psi_i \ne \pi_i$
 
@@ -371,8 +392,8 @@ PPS Sampling (Part 1)
 
 <br>
 
--   The probability of selection (on a single draw), $\psi_i$, is larger
-    for the larger schools
+-   The probability of selection on a single draw, $\psi_i$, is [larger
+    for the larger schools]{.alert2}
 
 ## PPSWR Algorithms
 
@@ -425,8 +446,7 @@ PPS Sampling (Part 1)
 |   ⋮    |   ⋮   | ⋮                 | ⋮                            |            ⋮ |
 |  Sum:  | 14989 |                   |                              |              |
 
--   Randomly select $n=2$ integers from 1 to 14989 (One easy way in
-    Excel: `RANDBETWEEN()` function)
+-   Randomly select $n=2$ integers from 1 to 14989
 
     -   My integers: 3572, 11002
 
@@ -470,29 +490,37 @@ PPS Sampling (Part 1)
 *Note: If a PSU is selected into the sample more than once, you'll
 include its estimate multiple times*
 
-## PPSWR: Sampling Weights
+<!-- ## PPSWR: Sampling Weights -->
 
--   Can rewrite the formula for the estimated total to see the sampling
-    weights:
+<!-- -   Can rewrite the formula for the estimated total to see the sampling -->
 
-$$\hat{t}_{wr} = \frac{1}{n}\sum_{i \in \mathcal{S}} \frac{t_i}{\psi_i} = \sum_{i \in \mathcal{S}} \frac{t_i}{n \psi_i} = \sum_{i \in \mathcal{S}} \textcolor{red}{\frac{1}{n \psi_i}} t_i = \sum_{i \in \mathcal{S}} \textcolor{red}{w_i} t_i$$
+<!--     weights: -->
 
--   Weight for PSU $i$:
-    $w_i= \frac{1}{n \psi_i} = \frac{1}{\text{expected \# times PSU $i$ appears in sample}}$
+<!-- $$\hat{t}_{wr} = \frac{1}{n}\sum_{i \in \mathcal{S}} \frac{t_i}{\psi_i} = \sum_{i \in \mathcal{S}} \frac{t_i}{n \psi_i} = \sum_{i \in \mathcal{S}} \textcolor{red}{\frac{1}{n \psi_i}} t_i = \sum_{i \in \mathcal{S}} \textcolor{red}{w_i} t_i$$ -->
 
--   *Note: sampling weights are **not** the inverse of inclusion
-    probabilities for this design*
+<!-- -   Weight for PSU $i$: -->
 
-For my sample,
+<!--     $w_i= \frac{1}{n \psi_i} = \frac{1}{\text{expected \# times PSU $i$ appears in sample}}$ -->
 
-| School | $M_i$ | $t_i$ | $\psi_i$ | $w_i = \frac{1}{n\psi_i}$ |
-|:-------------:|:-------------:|:-------------:|:--------------|:--------------|
-| 8 | 500 | 251 | 0.0333578 | $\frac{1}{2*0.0333578} = \frac{1}{0.0667156} = 14.988998$ |
-| 23 | 690 | 343 | 0.04603376 | $\frac{1}{2*0.04603376} =\frac{1}{0.09206752} = 10.861594$ |
+<!-- -   *Note: sampling weights are **not** the inverse of inclusion -->
 
--   So I can also calculate the estimated total as:
-    $\hat{t}_{wr} = \sum_{i \in \mathcal{S}} w_i t_i = (14.988998\times 251) + (10.861594 \times 343) = 7487.8$
-    *(Same estimate, of course!)*
+<!--     probabilities for this design* -->
+
+<!-- For my sample, -->
+
+<!-- | School | $M_i$ | $t_i$ | $\psi_i$ | $w_i = \frac{1}{n\psi_i}$ | -->
+
+<!-- |:-------------:|:-------------:|:-------------:|:--------------|:--------------| -->
+
+<!-- | 8 | 500 | 251 | 0.0333578 | $\frac{1}{2*0.0333578} = \frac{1}{0.0667156} = 14.988998$ | -->
+
+<!-- | 23 | 690 | 343 | 0.04603376 | $\frac{1}{2*0.04603376} =\frac{1}{0.09206752} = 10.861594$ | -->
+
+<!-- -   So I can also calculate the estimated total as: -->
+
+<!--     $\hat{t}_{wr} = \sum_{i \in \mathcal{S}} w_i t_i = (14.988998\times 251) + (10.861594 \times 343) = 7487.8$ -->
+
+<!--     *(Same estimate, of course!)* -->
 
 ## PPSWR: Estimating the Variance of the Population Total {#slide-ppswr-var}
 
@@ -516,9 +544,9 @@ $\widehat{V}(\hat{t}_{wr}) = \frac{1}{n} \frac{1}{n-1} \sum_{i \in \mathcal{S}} 
 $\widehat{SE}(\hat{t}_{wr}) = \sqrt{1347.6} = 36.7$
 :::
 
-## Activity 14.1 (Part 2)
+<!-- ## Activity 14.1 (Part 2) -->
 
-PPS Sampling (Part 2)
+<!-- PPS Sampling (Part 2) -->
 
 ## Sampling Design C: PPS Without Replacement {.pause}
 
@@ -529,34 +557,46 @@ PPS Sampling (Part 2)
     selecting PSU $i$ on the second draw **is not the same** as the
     probability of selecting PSU $i$ on the first draw
 
+. . .
+
 -   Simple example illustrates this:
 
-    -   $P($select PSU 1 on 1st draw$) =\psi_1$\
-        but
+    -   $P($select PSU 1 on 1st draw$) =\psi_1$, but:
 
-    -   $P($select PSU 1 on 2nd draw $|$ **selected** PSU 1 on 1st
-        draw$)=0$
+        -   $P($select PSU 1 on 2nd draw $|$ **selected** PSU 1 on 1st
+            draw$)=0$
 
-    -   $P($select PSU 1 on 2nd draw $|$ **didn't select** PSU 1 on 1st
-        draw$)>0$
+        -   $P($select PSU 1 on 2nd draw $|$ **didn't select** PSU 1 on
+            1st draw$)>0$
 
-. . .
+## PPSWOR: Algorithms {.pause}
 
 -   Many (complex!) algorithms for selecting PPS samples, all require
     that:
 
-    1.  You specify the inclusion probabilities, $\pi_i = n \psi_i$
+1.  You specify the inclusion probabilities, $\pi_i = n \psi_i$
 
-    2.  Which imply the weights:
-        $w_i = \frac{1}{\pi_i} = \frac{1}{n \psi_i}$ (same weights as
-        PPSWR!)
+2.  Which imply the weights:
+    $w_i = \frac{1}{\pi_i} = \frac{1}{n \psi_i}$
 
 . . .
 
--   Note the implied restriction: $n \psi_i < 1$ since inclusion
-    probabilities $(\pi_i)$ cannot be $>$ 1\
-    Therefore no one PSU can be so big its $M_i$ takes up more than
-    $1/n$ of the total of the $M_i$
+-   Note the implied restriction:
+
+    -   Inclusion probabilities $(\pi_i)$ cannot be $>$ 1
+    
+    $$
+    \begin{split}
+    \pi_i = n \psi_i &< 1 \\
+    \psi_i &< 1/n \\
+    \frac{X_i}{\sum_{i=1}^N X_i} &< 1/n
+    \end{split}
+    $$
+
+-   No one PSU can be so big its $X_i$ takes up more than $1/n$ of the
+    total of the $X_i$
+
+-   If such a PSU exists, it should be **selected with certainty** (certainty unit)
 
 ## PPSWOR: Estimating the Population Total
 
@@ -572,9 +612,9 @@ PPS Sampling (Part 2)
 | 24 | 335 | 166 | $\frac{335}{14989} = 0.022350$ | $2*0.022350 = 0.044699$ | $\frac{1}{0.044699} = 22.37$ |
 
 -   My estimate of the total number of females:
-    $$\hat{t}_{HT} = \sum_{i \in \mathcal{S}} w_i t_i = 267 \times 14.11 + 166 \times 22.37 = 7482  $$
+    $$\hat{t}_{HT} = \sum_{i \in \mathcal{S}} w_i t_i = 14.11 \times 267  + 22.37 \times 166 = 7482$$
 
-## PPSWOR: Estimating the Variance of the Population Total
+## PPSWOR: Estimating the Variance of the Population Total {.pause}
 
 -   The variance of the **PPSWOR** estimator depends on two sets of
     probabilities:
@@ -586,6 +626,8 @@ PPS Sampling (Part 2)
         $\pi_{ij}=P($PSU $i$ **and** PSU $j$ in sample$)$
 
 -   The $\pi_{ij}$ are **not** just products of the $\pi_i$!
+
+. . . 
 
 -   For $n=2$:
 
@@ -627,8 +669,8 @@ $$V(\hat{t}_{HT}) = \sum_{i=1}^N \frac{1- \pi_i}{\pi_i} t_i^2 + \sum_{i=1}^N \su
     $\widehat{V}_{HT}(\hat{t}_{HT})$ and
     $\widehat{V}_{SYG}(\hat{t}_{HT})$
 
-    1.  Publicly available datasets *usually don’t have the joint
-        inclusion probabilities included*
+    1.  Publicly available datasets [*usually don’t have the joint
+        inclusion probabilities included*]{.alert}
 
         -   Not practical! For a sample of size $n$ there are $n(n-1)$
             pairwise inclusion probabilities!
@@ -645,7 +687,7 @@ $$V(\hat{t}_{HT}) = \sum_{i=1}^N \frac{1- \pi_i}{\pi_i} t_i^2 + \sum_{i=1}^N \su
     estimate** (the one on [this slide](#slide-ppswr-var))
     $$\widehat{V}_{WR}(\hat{t}_{HT}) = \frac{1}{n} \frac{1}{n-1} \sum_{i \in \mathcal{S}} \left( \frac{t_i}{\psi_i} - \hat{t}_{HT} \right)^2 = \frac{n}{n-1}\sum_{i \in \mathcal{S}} \left( \frac{t_i}{\pi_i} - \frac{\hat{t}_{HT}}{n} \right)^2$$
 
-    -   **Consequence:** result is (usually slightly) conservative --
+    -   **Consequence:** result is (usually slightly) [conservative]{.alert2} --
         i.e., variance too big
 
     -   **Benefit:** don't need pairwise inclusion probabilities, and
@@ -671,7 +713,7 @@ samp <- pop %>%
 -   For my PPSWOR sample that contains schools 14 and 24:
 
     -   Using **with-replacement** variance estimation
-    -   Notice there is no FPC for PPS sampling
+    -   Notice there is [**no FPC for PPS sampling**]{.alert2}
 
 ```{r}
 #| echo: true
@@ -693,16 +735,21 @@ svytotal(~totfemale, des.ppswor)
     -   $\widehat{SE}_{SYG}(\hat{t}_{HT}) = 53.1$ (slightly smaller than
         with-replacement estimate)
 
-## Activity 14.1 (Part 3)
+## Activity 14.1 (Parts 1 & 2)
 
-PPS Sampling (Part 3)
+PPS Sampling (Parts 1 & 2)
 
 ## Comparing the Designs
 
--   Three designs compared (for sampling schools): (A) SRS, (B)
-    PPSWR, (C) PPSWOR
+<!-- -   Three designs compared (for sampling schools): (A) SRS, (B) -->
 
--   All provide **unbiased estimates** of the true total
+<!--     PPSWR, (C) PPSWOR -->
+
+<!-- -   All provide **unbiased estimates** of the true total -->
+
+-   Two designs compared for sampling schools: (A) SRS, (B) PPSWOR
+
+-   Both provide **unbiased estimates** of the true total
 
 -   In terms of theoretical variances, **if size variable is related
     to** $t$, $V_{SRS} > V_{PPSWR} > V_{PPSWOR}$
@@ -741,10 +788,6 @@ pop %>%
 ```
 :::
 :::::
-
-<!-- ![image](./figures/PPS_totfemale_Mi){width="30%"} -->
-
-<!-- ![image](./figures/PPS_totsmoke_Mi){width="30%"} -->
 
 -   Let's look at our estimates for total number of females and total
     number of smokers. What do we see?

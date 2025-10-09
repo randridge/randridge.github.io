@@ -248,17 +248,17 @@ Probability Proportional to Size (PPS)</p>
 <ul>
 <li><p>Sample <span class="math inline">\(n\)</span> of <span class="math inline">\(N\)</span> PSUs (sample = <span class="math inline">\(\mathcal{S}\)</span>)</p></li>
 <li><p><span class="math inline">\(\pi_i = \frac{n}{N}\)</span> for PSU <span class="math inline">\(i\)</span> &nbsp; &nbsp; → &nbsp; &nbsp; <span class="math inline">\(w_i = \frac{N}{n}\)</span></p></li>
-<li><p>Unbiased estimate of total <span class="math inline">\(t\)</span>: <span class="math inline">\(\hat{t}= \sum_{i \in \mathcal{S}} \frac{t_i}{\pi_i} = \sum_{i \in \mathcal{S}} w_i t_i = \frac{N}{n} \sum_{i \in \mathcal{S}} t_i\)</span></p></li>
+<li><p>Unbiased estimate of total <span class="math inline">\(t\)</span>: &nbsp; <span class="math inline">\(\hat{t} = \sum_{i \in \mathcal{S}} w_i t_i\)</span></p></li>
 </ul></li>
 <li><p><strong>Two-stage designs</strong></p>
 <ul>
 <li><p>Stage 1: Sample <span class="math inline">\(n\)</span> of <span class="math inline">\(N\)</span> PSUs (sample = <span class="math inline">\(\mathcal{S}\)</span>)</p></li>
 <li><p>Stage 2: Sample <span class="math inline">\(m_i\)</span> of <span class="math inline">\(M_i\)</span> SSUs for sampled PSU <span class="math inline">\(i\)</span> (sample = <span class="math inline">\(\mathcal{S}_i\)</span>)</p></li>
 <li><p><span class="math inline">\(\pi_{ij} = \frac{n}{N}\frac{m_i}{M_i}\)</span> for SSU <span class="math inline">\(j\)</span> in PSU <span class="math inline">\(i\)</span> &nbsp; &nbsp; → &nbsp; &nbsp; <span class="math inline">\(w_{ij} =  \frac{N}{n}\frac{M_i}{m_i}\)</span></p></li>
-<li><p>Unbiased estimate of total <span class="math inline">\(t\)</span>: <span class="math inline">\(\hat{t}=  \sum_{i \in \mathcal{S}} \sum_{j \in \mathcal{S}_i} \frac{y_{ij}}{\pi_{ij}}= \sum_{i \in \mathcal{S}} \sum_{j \in \mathcal{S}_i} w_{ij} y_{ij}= \frac{N}{n} \sum_{i \in \mathcal{S}} M_i \bar{y}_i\)</span></p></li>
+<li><p>Unbiased estimate of total <span class="math inline">\(t\)</span>: &nbsp; <span class="math inline">\(\hat{t}=  \sum_{i \in \mathcal{S}} \sum_{j \in \mathcal{S}_i} w_{ij} y_{ij}\)</span></p></li>
 </ul></li>
 </ul>
-<p>These designs do not take into account the fact that totals <span class="math inline">\((t_i)\)</span> are often correlated with the size of PSUs <span class="math inline">\((M_i)\)</span></p>
+<p>These designs do not take into account that totals <span class="math inline">\((t_i)\)</span> are often correlated with the size of PSUs <span class="math inline">\((M_i)\)</span></p>
 <p>We saw that <span class="alert2">ratio estimation</span> can improve estimation of <span class="math inline">\(\bar{y}_U\)</span> – but <span class="alert">can we improve on estimation of <span class="math inline">\(t\)</span>?</span></p>
 </section>
 <section id="time-machine-back-to-lecture-3-sampling-clinics" class="slide level2">
@@ -274,33 +274,35 @@ Probability Proportional to Size (PPS)</p>
 <col style="width: 27%">
 <col style="width: 57%">
 </colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Clinic ID</th>
+<th style="text-align: center;">Number of Doctors</th>
+<th style="text-align: center;">Number of Patients Seen in a Day (<span class="math inline">\(y\)</span>)</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;">Clinic ID</td>
-<td style="text-align: center;">Number of Doctors</td>
-<td style="text-align: center;">Number of Patients Seen in a Day (<span class="math inline">\(y\)</span>)</td>
-</tr>
-<tr class="even">
 <td style="text-align: center;">1</td>
 <td style="text-align: center;">2</td>
 <td style="text-align: center;">10</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: center;">2</td>
 <td style="text-align: center;">3</td>
 <td style="text-align: center;">20</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;">3</td>
 <td style="text-align: center;">4</td>
 <td style="text-align: center;">50</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: center;">4</td>
 <td style="text-align: center;">5</td>
 <td style="text-align: center;">60</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;">5</td>
 <td style="text-align: center;">10</td>
 <td style="text-align: center;">150</td>
@@ -318,60 +320,67 @@ Probability Proportional to Size (PPS)</p>
 <section id="sampling-clinics-cont" class="slide level2">
 <h2>Sampling Clinics (con’t)</h2>
 <div class="smaller-text">
+<div class="columns">
+<div class="column" style="width:50%;">
 <p><strong>Design 1:</strong> SRS of <span class="math inline">\(n=2\)</span> clinics (for each sampled clinic: <span class="math inline">\(\pi_i = n/N = 2/5\)</span>)</p>
 <table class="caption-top">
-<colgroup>
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-</colgroup>
+<thead>
+<tr class="header">
+<th>Clinics Sampled</th>
+<th>Selection Probability</th>
+<th>Weighted Mean</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">Clinics Sampled:</td>
-<td style="text-align: center;">1, 2</td>
-<td style="text-align: center;">1, 3</td>
-<td style="text-align: center;">1, 4</td>
-<td style="text-align: center;">1, 5</td>
-<td style="text-align: center;">2, 3</td>
-<td style="text-align: center;">2, 4</td>
-<td style="text-align: center;">2, 5</td>
-<td style="text-align: center;">3, 4</td>
-<td style="text-align: center;">3, 5</td>
-<td style="text-align: center;">4, 5</td>
+<td>1,2</td>
+<td>1/10</td>
+<td>15</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">Selection Probability:</td>
-<td style="text-align: center;">1/10</td>
-<td style="text-align: center;">1/10</td>
-<td style="text-align: center;">1/10</td>
-<td style="text-align: center;">1/10</td>
-<td style="text-align: center;">1/10</td>
-<td style="text-align: center;">1/10</td>
-<td style="text-align: center;">1/10</td>
-<td style="text-align: center;">1/10</td>
-<td style="text-align: center;">1/10</td>
-<td style="text-align: center;">1/10</td>
+<td>1,3</td>
+<td>1/10</td>
+<td>30</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">Weighted Mean:</td>
-<td style="text-align: center;">15</td>
-<td style="text-align: center;">30</td>
-<td style="text-align: center;">35</td>
-<td style="text-align: center;">80</td>
-<td style="text-align: center;">35</td>
-<td style="text-align: center;">40</td>
-<td style="text-align: center;">85</td>
-<td style="text-align: center;">55</td>
-<td style="text-align: center;">100</td>
-<td style="text-align: center;">105</td>
+<td>1,4</td>
+<td>1/10</td>
+<td>35</td>
+</tr>
+<tr class="even">
+<td>1,5</td>
+<td>1/10</td>
+<td>80</td>
+</tr>
+<tr class="odd">
+<td>2,3</td>
+<td>1/10</td>
+<td>35</td>
+</tr>
+<tr class="even">
+<td>2,4</td>
+<td>1/10</td>
+<td>40</td>
+</tr>
+<tr class="odd">
+<td>2,5</td>
+<td>1/10</td>
+<td>85</td>
+</tr>
+<tr class="even">
+<td>3,4</td>
+<td>1/10</td>
+<td>55</td>
+</tr>
+<tr class="odd">
+<td>3,5</td>
+<td>1/10</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>4,5</td>
+<td>1/10</td>
+<td>105</td>
 </tr>
 </tbody>
 </table>
@@ -379,38 +388,44 @@ Probability Proportional to Size (PPS)</p>
 <li><p><span class="math inline">\(E(\bar{y})=58\)</span> (unbiased)</p></li>
 <li><p><span class="math inline">\(V(\bar{y})=921\)</span></p></li>
 </ul>
+</div><div class="column" style="width:50%;">
 <p><strong>Design 2:</strong> Select largest clinic with <strong>certainty</strong> <span class="math inline">\((\pi_i = 1)\)</span>, one of the others with equal probability <span class="math inline">\((\pi_i = 1/4)\)</span></p>
-<div class="center">
 <table class="caption-top">
+<thead>
+<tr class="header">
+<th>Clinics Sampled</th>
+<th>Selection Probability</th>
+<th>Weighted Mean</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">Clinics Sampled:</td>
-<td style="text-align: center;">1, 5</td>
-<td style="text-align: center;">2, 5</td>
-<td style="text-align: center;">3, 5</td>
-<td style="text-align: center;">4, 5</td>
+<td>1,5</td>
+<td>1/4</td>
+<td>38</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">Selection Probability:</td>
-<td style="text-align: center;">1/4</td>
-<td style="text-align: center;">1/4</td>
-<td style="text-align: center;">1/4</td>
-<td style="text-align: center;">1/4</td>
+<td>2,5</td>
+<td>1/4</td>
+<td>46</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">Weighted Mean:</td>
-<td style="text-align: center;">38</td>
-<td style="text-align: center;">46</td>
-<td style="text-align: center;">70</td>
-<td style="text-align: center;">78</td>
+<td>3,4</td>
+<td>1/4</td>
+<td>70</td>
+</tr>
+<tr class="even">
+<td>4,5</td>
+<td>1/4</td>
+<td>78</td>
 </tr>
 </tbody>
 </table>
-</div>
 <ul>
 <li><p><span class="math inline">\(E(\hat{\theta})=58\)</span> (unbiased)</p></li>
-<li><p><span class="math inline">\(V(\hat{\theta})=272\)</span> <span class="math inline">\(\rightarrow\)</span> a whole lot smaller than SRS! (less than 1/3 of SRS variance!)</p></li>
+<li><p><span class="math inline">\(V(\hat{\theta})=272\)</span> <span class="math inline">\(\rightarrow\)</span> a whole lot smaller than SRS!</p></li>
 </ul>
+</div></div>
 </div>
 </section>
 <section id="example-sampling-schools" class="slide level2">
@@ -430,17 +445,14 @@ Probability Proportional to Size (PPS)</p>
 </ul>
 </div><div class="column" style="width:40%;">
 <table class="caption-top">
+<thead>
+<tr class="header">
+<th>School</th>
+<th style="text-align: center;"># Students <span class="math inline">\((M_i)\)</span></th>
+<th style="text-align: center;"># Females <span class="math inline">\((t_i)\)</span></th>
+</tr>
+</thead>
 <tbody>
-<tr class="odd">
-<td></td>
-<td style="text-align: center;">Number of</td>
-<td style="text-align: center;">Number of</td>
-</tr>
-<tr class="even">
-<td>School</td>
-<td style="text-align: center;">Students <span class="math inline">\((M_i)\)</span></td>
-<td style="text-align: center;">Females <span class="math inline">\((t_i)\)</span></td>
-</tr>
 <tr class="odd">
 <td>1</td>
 <td style="text-align: center;">643</td>
@@ -473,8 +485,8 @@ Probability Proportional to Size (PPS)</p>
 <li>Let’s consider different ways we can sample <span class="math inline">\(n=2\)</span> schools from this population to estimate <span class="math inline">\(t\)</span>, the <span class="alert">total number of females in the population</span></li>
 </ul>
 </section>
-<section id="tangent-why-sample-only-n2" class="slide level2 pause">
-<h2>Tangent: Why Sample Only <span class="math inline">\(n=2\)</span>?</h2>
+<section id="tangent-pseudo-psus" class="slide level2">
+<h2>Tangent: “Pseudo-PSUs”</h2>
 <ul>
 <li><p>Many large-scale surveys have complex designs, with stratification and multi-stage clustering</p>
 <ul>
@@ -484,11 +496,7 @@ Probability Proportional to Size (PPS)</p>
 </ul>
 <div class="fragment">
 <ul>
-<li><p>But, we need to have at least 2 PSUs per stratum to estimate variances</p>
-<ul>
-<li><p>Suppose you took an SRS in each stratum (as we have done before)</p></li>
-<li><p>If you only sample <span class="math inline">\(n_h=1\)</span> you can’t estimate variance!</p></li>
-</ul></li>
+<li>But, we need to have at least 2 PSUs per stratum to estimate variances</li>
 </ul>
 </div>
 <div class="fragment">
@@ -497,12 +505,16 @@ Probability Proportional to Size (PPS)</p>
 <ul>
 <li><p>In these cases, the sampled PSUs are divided up into <strong>pseudo-PSUs</strong> for the purposes of variance estimation</p></li>
 <li><p>You use these pseudo-PSUs just like “real” PSUs</p></li>
-<li><p>You often see this when using publicly available survey data (“masked variance PSUs” or “masked variance units”)</p></li>
+<li><p>You often see this when using publicly available survey data</p>
+<ul>
+<li>“masked variance PSUs”</li>
+<li>“masked variance units”</li>
+</ul></li>
 </ul></li>
 </ul>
 </div>
 <div class="fragment">
-<p><strong>Main point:</strong> Sampling only 2 PSUs is actually pretty common!</p>
+<p><strong>Note:</strong> Sampling only 2 PSUs is actually pretty common!</p>
 </div>
 </section>
 <section id="sampling-design-a-srs" class="slide level2">
@@ -512,18 +524,20 @@ Probability Proportional to Size (PPS)</p>
 <li>I took an SRS and obtained this sample:</li>
 </ul>
 <table class="caption-top">
+<thead>
+<tr class="header">
+<th>School</th>
+<th style="text-align: center;">Number of Students <span class="math inline">\((M_i)\)</span></th>
+<th style="text-align: center;">Number of Females <span class="math inline">\((t_i)\)</span></th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td>School</td>
-<td style="text-align: center;">Number of Students <span class="math inline">\((M_i)\)</span></td>
-<td style="text-align: center;">Number of Females <span class="math inline">\((t_i)\)</span></td>
-</tr>
-<tr class="even">
 <td>9</td>
 <td style="text-align: center;">473</td>
 <td style="text-align: center;">237</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>22</td>
 <td style="text-align: center;">415</td>
 <td style="text-align: center;">204</td>
@@ -531,7 +545,7 @@ Probability Proportional to Size (PPS)</p>
 </tbody>
 </table>
 <ul>
-<li><p>To estimate the total number of females I have:</p>
+<li><p>To estimate the total number of females:</p>
 <ul>
 <li><p><span class="math inline">\(\pi_i = n/N = 2/30 = 1/15\)</span></p></li>
 <li><p><span class="math inline">\(w_i = 1/\pi_i = N/n = 15\)</span></p></li>
@@ -540,43 +554,31 @@ Probability Proportional to Size (PPS)</p>
 </ul>
 <p>
 </p><ul>
-<li><em>Note:</em> SRS sample is EPSEM, so could alternatively calculate as: <span class="math inline">\(\hat{t}= N \bar{t}= 30 \times (237 + 204)/2 = 30 \times 220.5 = 6615\)</span></li>
+<li><em>Note:</em> Could also calculate as: &nbsp; <span class="math inline">\(\hat{t}= N \bar{t}= 30 \times (237 + 204)/2 = 30 \times 220.5 = 6615\)</span></li>
 </ul>
 </section>
 <section id="srs-cont" class="slide level2">
 <h2>SRS (con’t)</h2>
 <ul>
-<li>By properties of SRS estimators (think way back!):</li>
-</ul>
-<table class="caption-top">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">True (theoretical) variance:</td>
-<td style="text-align: left;"><span class="math inline">\(\displaystyle V(\hat{t})=N^2 \left(1-\frac{n}{N}\right)\frac{S^2}{n}\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Estimate from a sample:</td>
-<td style="text-align: left;"><span class="math inline">\(\displaystyle \widehat{V}(\hat{t})=N^2 \left(1-\frac{n}{N}\right)\frac{s^2}{n}\)</span></td>
-</tr>
-</tbody>
-</table>
+<li><p>By properties of SRS estimators (think way back!):</p>
 <ul>
-<li>In my sample,</li>
-</ul>
-<p><span class="math inline">\(s^2 = \frac{1}{n-1} \sum_{i \in \mathcal{S}} (t_i - \bar{t})^2 = \frac{1}{2-1} \left[(237 - 220.5)^2 + (204 - 220.5)^2 \right] = 544.5\)</span></p>
+<li><span class="math inline">\(\displaystyle \widehat{V}(\hat{t})=N^2 \left(1-\frac{n}{N}\right)\frac{s^2}{n}\)</span> <!-- | True (theoretical) variance | Estimate from a sample | --> <!-- |------------------------------------|:-----------------------------------| --> <!-- | $\displaystyle V(\hat{t})=N^2 \left(1-\frac{n}{N}\right)\frac{S^2}{n}$ | $\displaystyle \widehat{V}(\hat{t})=N^2 \left(1-\frac{n}{N}\right)\frac{s^2}{n}$ | --></li>
+</ul></li>
+<li><p>In my sample:</p>
 <ul>
-<li>Thus my estimated variance is</li>
+<li><p><span class="math inline">\(s^2 = \frac{1}{n-1} \sum_{i \in \mathcal{S}} (t_i - \bar{t})^2 = \frac{1}{2-1} \left[(237 - 220.5)^2 + (204 - 220.5)^2 \right] = 544.5\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle \widehat{V}(\hat{t})=N^2 \left(1-\frac{n}{N}\right)\frac{s^2}{n} = 30^2 \left(1 - \frac{2}{30} \right) \frac{544.5}{22} = 228690\)</span></p></li>
+<li><p><span class="math inline">\(\displaystyle \widehat{SE}(\hat{t}) = \sqrt{228690} = 478.2\)</span></p></li>
+</ul></li>
 </ul>
-<p><span class="math inline">\(\displaystyle \widehat{V}(\hat{t})=N^2 \left(1-\frac{n}{N}\right)\frac{s^2}{n} = 30^2 \left(1 - \frac{2}{30} \right) \frac{544.5}{22} = 228690\)</span></p>
-<p><span class="math inline">\(\displaystyle \widehat{SE}(\hat{t}) = \sqrt{228690} = 478.2\)</span></p>
-</section>
-<section id="activity-14.1-part-1" class="slide level2">
-<h2>Activity 14.1 (Part 1)</h2>
-<p>PPS Sampling (Part 1)</p>
+<div class="cell cell-output">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>des.srs <span class="ot">&lt;-</span> <span class="fu">svydesign</span>(<span class="at">id =</span> <span class="sc">~</span><span class="dv">1</span>, <span class="at">weight =</span> <span class="sc">~</span>wt, <span class="at">fpc =</span> <span class="sc">~</span>N, <span class="at">data=</span>samp_srs)</span>
+<span id="cb1-2"><a></a><span class="fu">svytotal</span>(<span class="sc">~</span>totfemale, <span class="at">design =</span> des.srs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          total     SE
+totfemale  6615 478.22</code></pre>
+</div>
+</div>
 </section>
 <section id="probability-proportional-to-size-pps-sampling" class="slide level2">
 <h2>Probability Proportional to Size (PPS) Sampling</h2>
@@ -584,7 +586,7 @@ Probability Proportional to Size (PPS)</p>
 <li>Think about the efficiency gain in the clinics example – <em>always sampling the much larger clinic resulted in a much smaller variance</em> – generalizing this idea produces PPS sampling</li>
 </ul>
 <blockquote>
-<p><span class="alert2"><strong>Probability Proportional to Size (PPS) sampling</strong></span> = sample selection methods in which the probability of selection for a sampling unit is directly proportional to a size measure, <span class="math inline">\(X_i\)</span>, which is known for all units before sampling</p>
+<p><span class="alert2"><strong>Probability Proportional to Size (PPS) sampling</strong></span> = sample selection methods in which the probability of selection for a sampling unit is directly proportional to a size measure, <span class="math inline">\(X_i\)</span>, which is known for all units before sampling (with “larger” units more likely to be selected)</p>
 </blockquote>
 <ul>
 <li><p>We will use throughout this lecture <span class="math inline">\(X_i = M_i =\)</span> number of SSUs in the PSU</p>
@@ -616,7 +618,7 @@ Probability Proportional to Size (PPS)</p>
 <p><strong>Note the difference:</strong></p>
 <ul>
 <li><p><span class="math inline">\(\psi_i\)</span> = probability PSU <span class="math inline">\(i\)</span> is <span class="alert2">selected on a single draw</span></p></li>
-<li><p><span class="math inline">\(\pi_i\)</span> = probability PSU <span class="math inline">\(i\)</span> is <span class="alert">in the sample</span> = <span class="math inline">\(2 \psi_i - \psi_i^2\)</span> &nbsp; <em>(via addition rule for probabilities)</em></p></li>
+<li><p><span class="math inline">\(\pi_i\)</span> = probability PSU <span class="math inline">\(i\)</span> is <span class="alert">in the sample (inclusion probability)</span> = <span class="math inline">\(2 \psi_i - \psi_i^2\)</span> &nbsp; <em>(via addition rule for probabilities)</em></p></li>
 <li><p><span class="math inline">\(\psi_i \ne \pi_i\)</span></p></li>
 </ul>
 </section>
@@ -673,7 +675,7 @@ Probability Proportional to Size (PPS)</p>
 </table>
 <p><br></p>
 <ul>
-<li>The probability of selection (on a single draw), <span class="math inline">\(\psi_i\)</span>, is larger for the larger schools</li>
+<li>The probability of selection on a single draw, <span class="math inline">\(\psi_i\)</span>, is <span class="alert2">larger for the larger schools</span></li>
 </ul>
 </section>
 <section id="ppswr-algorithms" class="slide level2">
@@ -775,7 +777,7 @@ Probability Proportional to Size (PPS)</p>
 </tbody>
 </table>
 <ul>
-<li><p>Randomly select <span class="math inline">\(n=2\)</span> integers from 1 to 14989 (One easy way in Excel: <code>RANDBETWEEN()</code> function)</p>
+<li><p>Randomly select <span class="math inline">\(n=2\)</span> integers from 1 to 14989</p>
 <ul>
 <li><p>My integers: 3572, 11002</p></li>
 <li><p>These correspond to:</p>
@@ -841,55 +843,22 @@ Probability Proportional to Size (PPS)</p>
 <li>Estimated total = <span class="math inline">\(\hat{t}_{wr} = \frac{1}{n}\sum_{i \in \mathcal{S}} \frac{t_i}{\psi_i} = (7524.5 + 7451.1)/2 = 7487.8\)</span></li>
 </ul>
 <p><em>Note: If a PSU is selected into the sample more than once, you’ll include its estimate multiple times</em></p>
-</section>
-<section id="ppswr-sampling-weights" class="slide level2">
-<h2>PPSWR: Sampling Weights</h2>
-<ul>
-<li>Can rewrite the formula for the estimated total to see the sampling weights:</li>
-</ul>
-<p><span class="math display">\[\hat{t}_{wr} = \frac{1}{n}\sum_{i \in \mathcal{S}} \frac{t_i}{\psi_i} = \sum_{i \in \mathcal{S}} \frac{t_i}{n \psi_i} = \sum_{i \in \mathcal{S}} \textcolor{red}{\frac{1}{n \psi_i}} t_i = \sum_{i \in \mathcal{S}} \textcolor{red}{w_i} t_i\]</span></p>
-<ul>
-<li><p>Weight for PSU <span class="math inline">\(i\)</span>: <span class="math inline">\(w_i= \frac{1}{n \psi_i} = \frac{1}{\text{expected \# times PSU $i$ appears in sample}}\)</span></p></li>
-<li><p><em>Note: sampling weights are <strong>not</strong> the inverse of inclusion probabilities for this design</em></p></li>
-</ul>
-<p>For my sample,</p>
-<table class="caption-top">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">School</th>
-<th style="text-align: center;"><span class="math inline">\(M_i\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(t_i\)</span></th>
-<th style="text-align: left;"><span class="math inline">\(\psi_i\)</span></th>
-<th style="text-align: left;"><span class="math inline">\(w_i = \frac{1}{n\psi_i}\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">8</td>
-<td style="text-align: center;">500</td>
-<td style="text-align: center;">251</td>
-<td style="text-align: left;">0.0333578</td>
-<td style="text-align: left;"><span class="math inline">\(\frac{1}{2*0.0333578} = \frac{1}{0.0667156} = 14.988998\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">23</td>
-<td style="text-align: center;">690</td>
-<td style="text-align: center;">343</td>
-<td style="text-align: left;">0.04603376</td>
-<td style="text-align: left;"><span class="math inline">\(\frac{1}{2*0.04603376} =\frac{1}{0.09206752} = 10.861594\)</span></td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>So I can also calculate the estimated total as: <span class="math inline">\(\hat{t}_{wr} = \sum_{i \in \mathcal{S}} w_i t_i = (14.988998\times 251) + (10.861594 \times 343) = 7487.8\)</span> <em>(Same estimate, of course!)</em></li>
-</ul>
+<!-- ## PPSWR: Sampling Weights -->
+<!-- -   Can rewrite the formula for the estimated total to see the sampling -->
+<!--     weights: -->
+<!-- $$\hat{t}_{wr} = \frac{1}{n}\sum_{i \in \mathcal{S}} \frac{t_i}{\psi_i} = \sum_{i \in \mathcal{S}} \frac{t_i}{n \psi_i} = \sum_{i \in \mathcal{S}} \textcolor{red}{\frac{1}{n \psi_i}} t_i = \sum_{i \in \mathcal{S}} \textcolor{red}{w_i} t_i$$ -->
+<!-- -   Weight for PSU $i$: -->
+<!--     $w_i= \frac{1}{n \psi_i} = \frac{1}{\text{expected \# times PSU $i$ appears in sample}}$ -->
+<!-- -   *Note: sampling weights are **not** the inverse of inclusion -->
+<!--     probabilities for this design* -->
+<!-- For my sample, -->
+<!-- | School | $M_i$ | $t_i$ | $\psi_i$ | $w_i = \frac{1}{n\psi_i}$ | -->
+<!-- |:-------------:|:-------------:|:-------------:|:--------------|:--------------| -->
+<!-- | 8 | 500 | 251 | 0.0333578 | $\frac{1}{2*0.0333578} = \frac{1}{0.0667156} = 14.988998$ | -->
+<!-- | 23 | 690 | 343 | 0.04603376 | $\frac{1}{2*0.04603376} =\frac{1}{0.09206752} = 10.861594$ | -->
+<!-- -   So I can also calculate the estimated total as: -->
+<!--     $\hat{t}_{wr} = \sum_{i \in \mathcal{S}} w_i t_i = (14.988998\times 251) + (10.861594 \times 343) = 7487.8$ -->
+<!--     *(Same estimate, of course!)* -->
 </section>
 <section id="slide-ppswr-var" class="slide level2">
 <h2>PPSWR: Estimating the Variance of the Population Total</h2>
@@ -934,37 +903,52 @@ Probability Proportional to Size (PPS)</p>
 = \frac{1}{2} \frac{1}{(2-1)} \left[(7524.477-7487.8)^2 + (7451.0533-7487.8)^2 \right] = \frac{2695.5}{2} = 1347.6\)</span></p>
 <p><span class="math inline">\(\widehat{SE}(\hat{t}_{wr}) = \sqrt{1347.6} = 36.7\)</span></p>
 </div>
-</section>
-<section id="activity-14.1-part-2" class="slide level2">
-<h2>Activity 14.1 (Part 2)</h2>
-<p>PPS Sampling (Part 2)</p>
+<!-- ## Activity 14.1 (Part 2) -->
+<!-- PPS Sampling (Part 2) -->
 </section>
 <section id="sampling-design-c-pps-without-replacement" class="slide level2 pause">
 <h2>Sampling Design C: PPS Without Replacement</h2>
 <ul>
 <li><p>We know that for SRS, variance is reduced when sampling <strong>without</strong> replacement (compared to with replacement) – same holds for PPS!</p></li>
 <li><p>But, now it is trickier to take a sample because the probability of selecting PSU <span class="math inline">\(i\)</span> on the second draw <strong>is not the same</strong> as the probability of selecting PSU <span class="math inline">\(i\)</span> on the first draw</p></li>
+</ul>
+<div class="fragment">
+<ul>
 <li><p>Simple example illustrates this:</p>
 <ul>
-<li><p><span class="math inline">\(P(\)</span>select PSU 1 on 1st draw<span class="math inline">\() =\psi_1\)</span><br>
-but</p></li>
+<li><p><span class="math inline">\(P(\)</span>select PSU 1 on 1st draw<span class="math inline">\() =\psi_1\)</span>, but:</p>
+<ul>
 <li><p><span class="math inline">\(P(\)</span>select PSU 1 on 2nd draw <span class="math inline">\(|\)</span> <strong>selected</strong> PSU 1 on 1st draw<span class="math inline">\()=0\)</span></p></li>
 <li><p><span class="math inline">\(P(\)</span>select PSU 1 on 2nd draw <span class="math inline">\(|\)</span> <strong>didn’t select</strong> PSU 1 on 1st draw<span class="math inline">\()&gt;0\)</span></p></li>
 </ul></li>
-</ul>
-<div class="fragment">
-<ul>
-<li><p>Many (complex!) algorithms for selecting PPS samples, all require that:</p>
-<ol type="1">
-<li><p>You specify the inclusion probabilities, <span class="math inline">\(\pi_i = n \psi_i\)</span></p></li>
-<li><p>Which imply the weights: <span class="math inline">\(w_i = \frac{1}{\pi_i} = \frac{1}{n \psi_i}\)</span> (same weights as PPSWR!)</p></li>
-</ol></li>
+</ul></li>
 </ul>
 </div>
+</section>
+<section id="ppswor-algorithms" class="slide level2 pause">
+<h2>PPSWOR: Algorithms</h2>
+<ul>
+<li>Many (complex!) algorithms for selecting PPS samples, all require that:</li>
+</ul>
+<ol type="1">
+<li><p>You specify the inclusion probabilities, <span class="math inline">\(\pi_i = n \psi_i\)</span></p></li>
+<li><p>Which imply the weights: <span class="math inline">\(w_i = \frac{1}{\pi_i} = \frac{1}{n \psi_i}\)</span></p></li>
+</ol>
 <div class="fragment">
 <ul>
-<li>Note the implied restriction: <span class="math inline">\(n \psi_i &lt; 1\)</span> since inclusion probabilities <span class="math inline">\((\pi_i)\)</span> cannot be <span class="math inline">\(&gt;\)</span> 1<br>
-Therefore no one PSU can be so big its <span class="math inline">\(M_i\)</span> takes up more than <span class="math inline">\(1/n\)</span> of the total of the <span class="math inline">\(M_i\)</span></li>
+<li><p>Note the implied restriction:</p>
+<ul>
+<li>Inclusion probabilities <span class="math inline">\((\pi_i)\)</span> cannot be <span class="math inline">\(&gt;\)</span> 1</li>
+</ul>
+<p><span class="math display">\[
+\begin{split}
+\pi_i = n \psi_i &amp;&lt; 1 \\
+\psi_i &amp;&lt; 1/n \\
+\frac{X_i}{\sum_{i=1}^N X_i} &amp;&lt; 1/n
+\end{split}
+\]</span></p></li>
+<li><p>No one PSU can be so big its <span class="math inline">\(X_i\)</span> takes up more than <span class="math inline">\(1/n\)</span> of the total of the <span class="math inline">\(X_i\)</span></p></li>
+<li><p>If such a PSU exists, it should be <strong>selected with certainty</strong> (certainty unit)</p></li>
 </ul>
 </div>
 </section>
@@ -1015,10 +999,10 @@ Therefore no one PSU can be so big its <span class="math inline">\(M_i\)</span> 
 </tbody>
 </table>
 <ul>
-<li>My estimate of the total number of females: <span class="math display">\[\hat{t}_{HT} = \sum_{i \in \mathcal{S}} w_i t_i = 267 \times 14.11 + 166 \times 22.37 = 7482  \]</span></li>
+<li>My estimate of the total number of females: <span class="math display">\[\hat{t}_{HT} = \sum_{i \in \mathcal{S}} w_i t_i = 14.11 \times 267  + 22.37 \times 166 = 7482\]</span></li>
 </ul>
 </section>
-<section id="ppswor-estimating-the-variance-of-the-population-total" class="slide level2">
+<section id="ppswor-estimating-the-variance-of-the-population-total" class="slide level2 pause">
 <h2>PPSWOR: Estimating the Variance of the Population Total</h2>
 <ul>
 <li><p>The variance of the <strong>PPSWOR</strong> estimator depends on two sets of probabilities:</p>
@@ -1027,6 +1011,9 @@ Therefore no one PSU can be so big its <span class="math inline">\(M_i\)</span> 
 <li><p><strong>Pairwise</strong> Selection (Inclusion) probabilities: <span class="math inline">\(\pi_{ij}=P(\)</span>PSU <span class="math inline">\(i\)</span> <strong>and</strong> PSU <span class="math inline">\(j\)</span> in sample<span class="math inline">\()\)</span></p></li>
 </ol></li>
 <li><p>The <span class="math inline">\(\pi_{ij}\)</span> are <strong>not</strong> just products of the <span class="math inline">\(\pi_i\)</span>!</p></li>
+</ul>
+<div class="fragment">
+<ul>
 <li><p>For <span class="math inline">\(n=2\)</span>:</p>
 <ul>
 <li><p><span class="math inline">\(P(i\)</span> first, <span class="math inline">\(j\)</span> second<span class="math inline">\() = P(i\)</span> first<span class="math inline">\()\times P(j\)</span> second <span class="math inline">\(| i\)</span> first<span class="math inline">\() = \psi_i \times \frac{\psi_j}{1-\psi_i}\)</span><br>
@@ -1039,6 +1026,7 @@ Therefore no one PSU can be so big its <span class="math inline">\(M_i\)</span> 
 <li><p>Must have the <span class="math inline">\(\pi_{ij}\)</span> to get an unbiased estimate of <span class="math inline">\(V(\hat{t}_{HT})\)</span></p></li>
 </ul>
 <p>Complex!</p>
+</div>
 </section>
 <section id="ppswor-estimating-the-variance-cont" class="slide level2">
 <h2>PPSWOR: Estimating the Variance (con’t)</h2>
@@ -1063,7 +1051,7 @@ Therefore no one PSU can be so big its <span class="math inline">\(M_i\)</span> 
 <ul>
 <li><p>Several problems with these variance estimators, <span class="math inline">\(\widehat{V}_{HT}(\hat{t}_{HT})\)</span> and <span class="math inline">\(\widehat{V}_{SYG}(\hat{t}_{HT})\)</span></p>
 <ol type="1">
-<li><p>Publicly available datasets <em>usually don’t have the joint inclusion probabilities included</em></p>
+<li><p>Publicly available datasets <span class="alert"><em>usually don’t have the joint inclusion probabilities included</em></span></p>
 <ul>
 <li>Not practical! For a sample of size <span class="math inline">\(n\)</span> there are <span class="math inline">\(n(n-1)\)</span> pairwise inclusion probabilities!</li>
 </ul></li>
@@ -1075,7 +1063,7 @@ Therefore no one PSU can be so big its <span class="math inline">\(M_i\)</span> 
 <ul>
 <li><p>For these reasons, we often use the <strong>with replacement variance estimate</strong> (the one on <a href="#/slide-ppswr-var">this slide</a>) <span class="math display">\[\widehat{V}_{WR}(\hat{t}_{HT}) = \frac{1}{n} \frac{1}{n-1} \sum_{i \in \mathcal{S}} \left( \frac{t_i}{\psi_i} - \hat{t}_{HT} \right)^2 = \frac{n}{n-1}\sum_{i \in \mathcal{S}} \left( \frac{t_i}{\pi_i} - \frac{\hat{t}_{HT}}{n} \right)^2\]</span></p>
 <ul>
-<li><p><strong>Consequence:</strong> result is (usually slightly) conservative – i.e., variance too big</p></li>
+<li><p><strong>Consequence:</strong> result is (usually slightly) <span class="alert2">conservative</span> – i.e., variance too big</p></li>
 <li><p><strong>Benefit:</strong> don’t need pairwise inclusion probabilities, and never get a negative variance!</p></li>
 <li><p><strong>Convenience:</strong> <span class="math inline">\(\widehat{V}_{WR}(\hat{t}_{HT})\)</span> is what is calculated in most software (including Stata and R)</p></li>
 </ul></li>
@@ -1088,12 +1076,12 @@ Therefore no one PSU can be so big its <span class="math inline">\(M_i\)</span> 
 <li><p>For my PPSWOR sample that contains schools 14 and 24:</p>
 <ul>
 <li>Using <strong>with-replacement</strong> variance estimation</li>
-<li>Notice there is no FPC for PPS sampling</li>
+<li>Notice there is <span class="alert2"><strong>no FPC for PPS sampling</strong></span></li>
 </ul></li>
 </ul>
 <div class="cell cell-output">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>des.ppswor <span class="ot">&lt;-</span> <span class="fu">svydesign</span>(<span class="at">id =</span> <span class="sc">~</span><span class="dv">1</span>, <span class="at">weight =</span> <span class="sc">~</span>wt, <span class="at">data=</span>samp)</span>
-<span id="cb1-2"><a></a><span class="fu">svytotal</span>(<span class="sc">~</span>totfemale, des.ppswor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>des.ppswor <span class="ot">&lt;-</span> <span class="fu">svydesign</span>(<span class="at">id =</span> <span class="sc">~</span><span class="dv">1</span>, <span class="at">weight =</span> <span class="sc">~</span>wt, <span class="at">data=</span>samp)</span>
+<span id="cb3-2"><a></a><span class="fu">svytotal</span>(<span class="sc">~</span>totfemale, des.ppswor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           total     SE
 totfemale 7482.1 54.728</code></pre>
@@ -1109,15 +1097,18 @@ totfemale 7482.1 54.728</code></pre>
 </ul></li>
 </ul>
 </section>
-<section id="activity-14.1-part-3" class="slide level2">
-<h2>Activity 14.1 (Part 3)</h2>
-<p>PPS Sampling (Part 3)</p>
+<section id="activity-14.1-parts-1-2" class="slide level2">
+<h2>Activity 14.1 (Parts 1 &amp; 2)</h2>
+<p>PPS Sampling (Parts 1 &amp; 2)</p>
 </section>
 <section id="comparing-the-designs" class="slide level2">
 <h2>Comparing the Designs</h2>
+<!-- -   Three designs compared (for sampling schools): (A) SRS, (B) -->
+<!--     PPSWR, (C) PPSWOR -->
+<!-- -   All provide **unbiased estimates** of the true total -->
 <ul>
-<li><p>Three designs compared (for sampling schools): (A) SRS, (B) PPSWR, (C) PPSWOR</p></li>
-<li><p>All provide <strong>unbiased estimates</strong> of the true total</p></li>
+<li><p>Two designs compared for sampling schools: (A) SRS, (B) PPSWOR</p></li>
+<li><p>Both provide <strong>unbiased estimates</strong> of the true total</p></li>
 <li><p>In terms of theoretical variances, <strong>if size variable is related to</strong> <span class="math inline">\(t\)</span>, <span class="math inline">\(V_{SRS} &gt; V_{PPSWR} &gt; V_{PPSWOR}\)</span></p>
 <ul>
 <li>In a single set of samples you might not see the gain (remember: variance is over repeated samples)</li>
@@ -1130,7 +1121,7 @@ totfemale 7482.1 54.728</code></pre>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="PUBHBIO7225_L14_ppsSampling_files/figure-revealjs/unnamed-chunk-4-1.png" alt="Scatterplot with number of students on x-axis and number of females on y-axis, showing a very linear relationship along an approximately 45 degree line." width="960"></p>
+<p><img data-src="PUBHBIO7225_L14_ppsSampling_files/figure-revealjs/unnamed-chunk-6-1.png" alt="Scatterplot with number of students on x-axis and number of females on y-axis, showing a very linear relationship along an approximately 45 degree line." width="960"></p>
 </figure>
 </div>
 </div>
@@ -1140,14 +1131,12 @@ totfemale 7482.1 54.728</code></pre>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="PUBHBIO7225_L14_ppsSampling_files/figure-revealjs/unnamed-chunk-5-1.png" alt="Scatterplot with number of students on x-axis and number of smokers on y-axis, showing no clear pattern, a random scattering of points." width="960"></p>
+<p><img data-src="PUBHBIO7225_L14_ppsSampling_files/figure-revealjs/unnamed-chunk-7-1.png" alt="Scatterplot with number of students on x-axis and number of smokers on y-axis, showing no clear pattern, a random scattering of points." width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div></div>
-<!-- ![image](./figures/PPS_totfemale_Mi){width="30%"} -->
-<!-- ![image](./figures/PPS_totsmoke_Mi){width="30%"} -->
 <ul>
 <li>Let’s look at our estimates for total number of females and total number of smokers. What do we see?</li>
 </ul>
