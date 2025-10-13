@@ -28,7 +28,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-211bee566ce86fcb83c8148f581dc60e.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-37dd58ee8260662a2db356013c91c3b1.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -154,7 +154,7 @@
 (this is after fall break)</li>
 </ul>
 </section>
-<section id="complex-surveys" class="slide level2">
+<section id="complex-surveys" class="slide level2 pause">
 <h2>Complex Surveys</h2>
 <ul>
 <li><p>Generally speaking, most surveys combine multiple of the features we have covered:</p>
@@ -164,21 +164,28 @@
 <li><p>Cluster sampling</p></li>
 <li><p>Probability Proportional to Size sampling</p></li>
 </ul></li>
+</ul>
+<div class="fragment">
+<ul>
 <li><p>Many large-scale surveys are <strong>stratified multistage designs</strong> where:</p>
 <ol type="1">
 <li><p>PSUs are grouped into strata</p></li>
 <li><p>PSUs are sampled (often via PPS) independently within each stratum</p></li>
 <li><p>SSUs are sampled (often via SRS) from within each selected PSU</p></li>
-<li><p>Tertiary sampling units (TSUs) are sampled from within each selected SSU</p></li>
-<li><p>…</p></li>
+<li><p>Tertiary sampling units (TSUs) are sampled from within each selected SSU… etc.</p></li>
 </ol></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
 <li><p>Technically, you could assemble the various formulae we have used for each of these different sampling techniques to (hand-)calculate point estimates and variance estimates for population-level quantities.</p>
 <ul>
 <li>But obviously nobody does this anymore! Thank you, computers.</li>
 </ul></li>
 </ul>
+</div>
 </section>
-<section id="example-estimating-use-of-bed-nets-in-rural-gambia" class="slide level2">
+<section id="example-estimating-use-of-bed-nets-in-rural-gambia" class="slide level2 pause">
 <h2>Example: Estimating Use of Bed Nets in Rural Gambia</h2>
 <p><strong>Goal:</strong> Estimate percent of beds using netting (Malaria prevention) in rural Gambia<br>
 <span class="smaller-text">(D’Alessandro et al., (1994). Nationwide survey of bednet use in rural Gambia. <em>Bulletin of the World Health Organization</em>, 72, 391-394.)</span></p>
@@ -189,39 +196,48 @@
 <li><p><span class="alert">Stratify</span> districts by region: Western, Central, Eastern</p></li>
 <li><p>Take a <span class="alert2">PPS sample</span> of 5 districts within each stratum, with population size in each district as the size variable (from national census data)</p></li>
 </ul></li>
+</ul>
+<div class="fragment">
+<ul>
 <li><p><strong>Stage 2:</strong></p>
 <ul>
 <li><p><span class="alert">Stratify</span> villages by whether or not they had a primary health care (PHC) facility</p></li>
 <li><p>Take a <span class="alert2">PPS sample</span> of 2 villages within each stratum, with population size in each village as the size variable (from national census data)</p></li>
 </ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
 <li><p><strong>Stage 3:</strong></p>
 <ul>
 <li><p>Select 6 compounds per village via <span class="alert3">SRS</span></p></li>
 <li><p>Record the number of beds and how many had nets within each compound</p></li>
 </ul></li>
 </ul>
+</div>
+<div class="fragment">
 <p>PSU = ? SSU = ? TSU = ?</p>
+</div>
 </section>
-<section id="example-cont" class="slide level2">
-<h2>Example (con’t)</h2>
+<section id="example-a-picture" class="slide level2">
+<h2>Example: A Picture</h2>
 <p>Let’s draw this design:</p>
 </section>
-<section id="example-cont-1" class="slide level2">
-<h2>Example (con’t)</h2>
+<section id="example-estimation" class="slide level2">
+<h2>Example: Estimation</h2>
 <div class="smaller-text">
 <p>To estimate the total number of beds in rural Gambia that use netting, <strong>start from the last stage and work backwards:</strong></p>
-<!-- ::: {.incremental} -->
 <ol type="1">
 <li><p>Record total number of beds with nets for each compound (TSU)</p></li>
-<li><p>Estimate total number of beds with nets for each village (SSU) by: (# compounds in village) <span class="math inline">\(\times\)</span> (average # beds w/nets per compound)</p></li>
-<li><p>Estimate the total number of beds with nets for <span class="alert">PHC villages</span> by: <span class="math display">\[\sum_{\text{selected villages in PHC stratum}} \frac{\text{estimated total number of beds for the village}}{\text{probability of selection from PPS}}\]</span> Repeat for <span class="alert2">non-PHC villages</span></p></li>
-<li><p>Estimate the total number of beds with nets in each district (PSU) by: <span class="math display">\[\text{Estimated total in PHC villages} + \text{Estimated total in non-PHC villages}\]</span></p></li>
-<li><p>Estimate the total number of beds with nets in <span class="alert">Eastern region</span> by: <span class="math display">\[\sum_{\text{selected districts in Eastern stratum}} \frac{\text{estimated total number of beds for the district}}{\text{probability of selection from PPS}}\]</span> Repeat for <span class="alert2">Central and Western regions</span></p></li>
-<li><p>Estimate overall total by: <span class="math inline">\(\text{Estimated total in Eastern} + \text{Estimated total in Central} + \text{Estimated total in Western}\)</span> <!-- ::: --></p></li>
+<li><p>Estimated total number of beds with nets for each village (SSU): (# compounds in village) <span class="math inline">\(\times\)</span> (average # beds w/nets per compound)</p></li>
+<li><p>Estimated total number of beds with nets for <span class="alert">PHC villages</span>: <span class="math display">\[\sum_{\text{selected villages in PHC stratum}} \frac{\text{estimated total number of beds for the village (step 2)}}{\text{probability of selection from PPS}}\]</span> Repeat for <span class="alert2">non-PHC villages</span></p></li>
+<li><p>Estimated total number of beds with nets in each district (PSU): <span class="math display">\[\text{estimated total in PHC villages (step 3)} + \text{estimated total in non-PHC villages (step 3)}\]</span></p></li>
+<li><p>Estimated total number of beds with nets in <span class="alert">Eastern region</span>: <span class="math display">\[\sum_{\text{selected districts in Eastern stratum}} \frac{\text{estimated total number of beds for the district (step 4)}}{\text{probability of selection from PPS}}\]</span> Repeat for <span class="alert2">Central and Western regions</span></p></li>
+<li><p>Estimated overall total: <span class="math inline">\(\text{Estimated total in Eastern} + \text{Estimated total in Central} + \text{Estimated total in Western}\)</span> (step 5)</p></li>
 </ol>
 </div>
 </section>
-<section id="weights-the-easier-way" class="slide level2">
+<section id="weights-the-easier-way" class="slide level2 pause">
 <h2>Weights: The Easier Way</h2>
 <ul>
 <li><p>We can calculate sampling weights to avoid the (ugly) process of working backwards through the stages to get to the ultimate total</p></li>
@@ -231,13 +247,21 @@ P(\text{TSU }k&amp;\text{ in SSU }j\text{ in PSU }i\text{ selected}) = \\
 &amp;= P(\text{PSU }i\text{ selected}) \times P(\text{SSU }j\text{ selected }|\text{ PSU }i\text{ selected}) \times P(\text{TSU }k\text{ selected }|\text{ PSU }i\text{ and SSU }j\text{ selected})\\
 \pi_{ijk} &amp;= \pi_{i} \times \pi_{j|i} \times \pi_{k|ij}
 \end{aligned}\]</span></span></p></li>
-<li><p>From here obtain the weights: <span class="math display">\[w_{ijk} = \frac{1}{P(\text{TSU }k\text{ in SSU }j\text{ in PSU }i\text{ selected})} = \frac{1}{\pi_{ijk}}\]</span></p></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>From here obtain the weights: <span class="smaller-text"><span class="math display">\[w_{ijk} = \frac{1}{P(\text{TSU }k\text{ in SSU }j\text{ in PSU }i\text{ selected})} = \frac{1}{\pi_{ijk}}\]</span></span></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
 <li><p>These weights (inverse of selection probabilities) are often called the <span class="alert2"><strong>base weights</strong></span></p></li>
 <li><p>Often, post-survey adjustments to the weights are done to provide the <span class="alert2"><strong>final weights</strong></span> used for analysis</p>
 <ul>
 <li>Poststratification, adjustments for nonresponse, other adjustments (e.g., for under- or over-coverage)</li>
 </ul></li>
 </ul>
+</div>
 </section>
 <section id="weights-cont" class="slide level2 pause">
 <h2>Weights (con’t)</h2>
@@ -267,69 +291,72 @@ P(\text{TSU }k&amp;\text{ in SSU }j\text{ in PSU }i\text{ selected}) = \\
 </ul>
 </div>
 </section>
-<section id="example-calculating-sampling-weights" class="slide level2">
+<section id="example-calculating-sampling-weights" class="slide level2 pause">
 <h2>Example: Calculating Sampling Weights</h2>
 <ul>
 <li><p>Sampling weights <strong>only need to be calculated for the units that end up in the sample</strong></p></li>
 <li><p>Sampling weights for units <strong>not</strong> in the sample are 0</p></li>
 </ul>
 <p>
-</p><ul>
+</p><div class="fragment">
+<ul>
 <li><p>Suppose I have the following two-stage design:</p>
 <ul>
 <li><p><strong>Stage 1:</strong> select 3 geographic regions via PPS (based on population size)</p>
 <ul>
 <li>The total population size across all PSUs is 10,000</li>
 </ul></li>
-<li><p><strong>Stage 2:</strong> stratify people in the regions into two strata: younger (19-64) and older (65+) and select 10 people in each stratum via SRS</p></li>
+<li><p><strong>Stage 2:</strong> stratify people in the regions into two strata: younger (19-64) and older (65+)</p>
+<ul>
+<li>Select 10 people in each stratum via SRS</li>
 </ul></li>
+</ul></li>
+</ul>
+<p>
+</p></div>
+<div class="fragment">
+<ul>
 <li><p>In this design, PSU = geographic region and SSU = person</p></li>
 <li><p>Total sample size = 3 regions <span class="math inline">\(\times\)</span> 2 strata <span class="math inline">\(\times\)</span> 10 people per stratum = 60</p></li>
 <li><p>Let’s calculate the sampling weights for the 60 sampled people</p></li>
 </ul>
+</div>
 </section>
-<section id="example-cont-2" class="slide level2">
+<section id="example-cont" class="slide level2">
 <h2>Example (con’t)</h2>
 <div class="columns">
 <div class="column" style="width:35%;">
+<div class="smaller-text">
 <ul>
 <li><p>My 3 sampled regions (PSUs) are →</p></li>
 <li><p>Total population size = 10,000</p></li>
 </ul>
+</div>
 </div><div class="column" style="width:65%;">
 <div class="smaller-text">
-<table class="caption-top">
+<table class="caption-top" style="width:100%;">
 <colgroup>
-<col style="width: 11%">
-<col style="width: 24%">
-<col style="width: 12%">
-<col style="width: 10%">
-<col style="width: 18%">
-<col style="width: 12%">
-<col style="width: 10%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
 </colgroup>
 <thead>
 <tr class="header">
-<th></th>
-<th style="text-align: center;">Population Size</th>
-<th style="text-align: center;"></th>
-<th style="text-align: center;"></th>
-<th style="text-align: center;">Sample Size</th>
-<th style="text-align: center;"></th>
-<th style="text-align: center;"></th>
+<th>Region</th>
+<th style="text-align: center;">Population</th>
+<th style="text-align: center;"># Young</th>
+<th style="text-align: center;"># Older</th>
+<th style="text-align: center;">Sample</th>
+<th style="text-align: center;"># Young</th>
+<th style="text-align: center;"># Older</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Region</td>
-<td style="text-align: center;">Total</td>
-<td style="text-align: center;">Younger</td>
-<td style="text-align: center;">Older</td>
-<td style="text-align: center;">Total</td>
-<td style="text-align: center;">Younger</td>
-<td style="text-align: center;">Older</td>
-</tr>
-<tr class="even">
 <td>1</td>
 <td style="text-align: center;">1000</td>
 <td style="text-align: center;">800</td>
@@ -338,7 +365,7 @@ P(\text{TSU }k&amp;\text{ in SSU }j\text{ in PSU }i\text{ selected}) = \\
 <td style="text-align: center;">10</td>
 <td style="text-align: center;">10</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>2</td>
 <td style="text-align: center;">850</td>
 <td style="text-align: center;">400</td>
@@ -347,7 +374,7 @@ P(\text{TSU }k&amp;\text{ in SSU }j\text{ in PSU }i\text{ selected}) = \\
 <td style="text-align: center;">10</td>
 <td style="text-align: center;">10</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>3</td>
 <td style="text-align: center;">150</td>
 <td style="text-align: center;">110</td>
@@ -372,48 +399,41 @@ P(\text{TSU }k&amp;\text{ in SSU }j\text{ in PSU }i\text{ selected}) = \\
 </ul>
 </div>
 </section>
-<section id="example-cont-3" class="slide level2">
+<section id="example-cont-1" class="slide level2">
 <h2>Example (con’t)</h2>
 <div class="columns">
 <div class="column" style="width:35%;">
+<div class="smaller-text">
 <ul>
 <li><p>My 3 sampled regions (PSUs) are →</p></li>
 <li><p>Total population size = 10,000</p></li>
 </ul>
+</div>
 </div><div class="column" style="width:65%;">
 <div class="smaller-text">
-<table class="caption-top">
+<table class="caption-top" style="width:100%;">
 <colgroup>
-<col style="width: 11%">
-<col style="width: 24%">
-<col style="width: 12%">
-<col style="width: 10%">
-<col style="width: 18%">
-<col style="width: 12%">
-<col style="width: 10%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
 </colgroup>
 <thead>
 <tr class="header">
-<th></th>
-<th style="text-align: center;">Population Size</th>
-<th style="text-align: center;"></th>
-<th style="text-align: center;"></th>
-<th style="text-align: center;">Sample Size</th>
-<th style="text-align: center;"></th>
-<th style="text-align: center;"></th>
+<th>Region</th>
+<th style="text-align: center;">Population</th>
+<th style="text-align: center;"># Young</th>
+<th style="text-align: center;"># Older</th>
+<th style="text-align: center;">Sample</th>
+<th style="text-align: center;"># Young</th>
+<th style="text-align: center;"># Older</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Region</td>
-<td style="text-align: center;">Total</td>
-<td style="text-align: center;">Younger</td>
-<td style="text-align: center;">Older</td>
-<td style="text-align: center;">Total</td>
-<td style="text-align: center;">Younger</td>
-<td style="text-align: center;">Older</td>
-</tr>
-<tr class="even">
 <td>1</td>
 <td style="text-align: center;">1000</td>
 <td style="text-align: center;">800</td>
@@ -422,7 +442,7 @@ P(\text{TSU }k&amp;\text{ in SSU }j\text{ in PSU }i\text{ selected}) = \\
 <td style="text-align: center;">10</td>
 <td style="text-align: center;">10</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>2</td>
 <td style="text-align: center;">850</td>
 <td style="text-align: center;">400</td>
@@ -431,7 +451,7 @@ P(\text{TSU }k&amp;\text{ in SSU }j\text{ in PSU }i\text{ selected}) = \\
 <td style="text-align: center;">10</td>
 <td style="text-align: center;">10</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>3</td>
 <td style="text-align: center;">150</td>
 <td style="text-align: center;">110</td>
@@ -444,11 +464,13 @@ P(\text{TSU }k&amp;\text{ in SSU }j\text{ in PSU }i\text{ selected}) = \\
 </table>
 </div>
 </div></div>
+<div class="smaller-text">
 <ul>
 <li>Let’s work through another one:</li>
 </ul>
+</div>
 </section>
-<section id="example-cont-4" class="slide level2">
+<section id="example-cont-2" class="slide level2">
 <h2>Example (con’t)</h2>
 <ul>
 <li><p>You can alternatively calculate the <strong>weights</strong> for each stage and <strong>multiply them</strong>, because (for a general case): <span class="math display">\[\pi_{ijk} = \pi_{i} \times \pi_{j|i} \times \pi_{k|ij}\]</span> and thus <span class="math display">\[w_{ijk} = \frac{1}{\pi_{ijk} }= \frac{1}{\pi_{i} \times \pi_{j|i} \times \pi_{k|ij}} = \frac{1}{\pi_{i}} \times \frac{1}{\pi_{j|i}} \times \frac{1}{\pi_{k|ij}} = w_i \times w_{j|i} \times w_{k|ij}\]</span></p></li>
@@ -464,18 +486,15 @@ P(\text{TSU }k&amp;\text{ in SSU }j\text{ in PSU }i\text{ selected}) = \\
 <h2>Estimating a Total (or Mean) in a Complex Design</h2>
 <ul>
 <li><p>Suppose we have a complex design involving:</p>
-<ul>
+<ol type="1">
 <li><p>Dividing the population into <span class="math inline">\(H\)</span> strata: <span class="math inline">\(h=1,\dots,H\)</span></p></li>
 <li><p>Sampling <span class="math inline">\(n_h\)</span> PSUs within stratum <span class="math inline">\(h\)</span>: <span class="math inline">\(i=1,\dots,n_h\)</span></p></li>
 <li><p>Sampling <span class="math inline">\(m_{hi}\)</span> SSUs within PSU <span class="math inline">\(i\)</span> within stratum <span class="math inline">\(h\)</span>: <span class="math inline">\(j=1,\dots, m_{hi}\)</span></p></li>
+</ol></li>
 <li><p><span class="math inline">\(w_{hij}\)</span> = weight for SSU <span class="math inline">\(j\)</span> in PSU <span class="math inline">\(i\)</span> in stratum <span class="math inline">\(h\)</span></p></li>
 <li><p><span class="math inline">\(y_{hij}\)</span> = outcome for SSU <span class="math inline">\(j\)</span> in PSU <span class="math inline">\(i\)</span> in stratum <span class="math inline">\(h\)</span></p></li>
-</ul></li>
-<li><p><strong>Estimated total</strong> = sum up the product of the sampling weights <span class="math inline">\((w_{hij})\)</span> and the outcome <span class="math inline">\((y_{hij})\)</span> over all the sampled SSUs within each sampled PSU within each stratum: <span class="math display">\[\hat{t}_{HT} = \underbrace{\sum_{h=1}^H}_{\text{strata }} \underbrace{\sum_{i=1}^{n_h}}_{\text{ PSUs }} \underbrace{\sum_{i=1}^{m_{hi}}}_{\text{ SSUs }} w_{hij} y_{hij}\]</span></p></li>
-<li><p><strong>Estimated mean</strong> would use the ratio estimator or the unbiased estimator</p>
-<ul>
-<li>What would the denominator for each estimator be?</li>
-</ul></li>
+<li><p><span class="alert"><strong>Estimated total</strong></span> = sum up the product of the sampling weights <span class="math inline">\((w_{hij})\)</span> and the outcome <span class="math inline">\((y_{hij})\)</span> over all the sampled SSUs within each sampled PSU within each stratum: <span class="math display">\[\hat{t}_{HT} = \underbrace{\sum_{h=1}^H}_{\text{strata }} \underbrace{\sum_{i=1}^{n_h}}_{\text{ PSUs }} \underbrace{\sum_{i=1}^{m_{hi}}}_{\text{ SSUs }} w_{hij} y_{hij}\]</span></p></li>
+<li><p><span class="alert2"><strong>Estimated mean</strong></span> would use the <strong>ratio</strong> estimator or the <strong>unbiased</strong> estimator – what are the denominators?</p></li>
 </ul>
 </section>
 <section id="activity-15.1" class="slide level2">
