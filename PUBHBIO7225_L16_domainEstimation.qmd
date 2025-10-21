@@ -26,7 +26,7 @@ editor:
 
 -   Chi-Square Tests
 
--   Discussion of Individual Project
+-   Discussion of Individual Project (time-permitting)
 :::
 
 ::: {.column width="40%"}
@@ -46,7 +46,7 @@ editor:
 
 -   Problem Set 4 due Thursday 10/23/2025 11:59pm via Carmen
 
-## Estimation in Domains
+## Estimation in Domains {.pause}
 
 > [**Domain**]{.alert3} = a subgroup in the population that is not part
 > of the sampling design.\
@@ -60,12 +60,16 @@ editor:
     -   Domains can include units from many clusters (but maybe not all
         clusters)
 
+. . .
+
 -   *Like* strata and clusters, each unit $i$ either belongs to a
     certain domain or does not belong to the domain
 
 -   *Unlike* strata and clusters, we don't know what domain unit $i$
     belongs to until it is sampled (i.e., record domain membership on
     the survey)
+
+. . .
 
 -   Examples:
 
@@ -78,29 +82,27 @@ editor:
     -   Two-stage cluster sample of students within schools, domain =
         students with a disclosed disability
 
-## Domain Sizes are Random Variables {.pause}
+## Domain Sample Sizes are Random Variables {.pause}
 
--   **Key Point:** We don't know which domain a unit belongs to until it
-    is sampled
-
-    -   Thus, the number of units in the domain is a [random
-        variable]{.alert2}
+-   **Key Point:** The number of units in the domain in a sample is a
+    [**random variable**]{.alert2}
 
     -   Take another sample, get a different number of units in the
         domain
 
-        -   Contrast with stratum -- take another sample, get same
+        -   Contrast with a stratum -- take another sample, get the same
             number of units in the stratum!
-
-    -   This extra variability **must be accounted for in analysis
-        stage** to get correct variance estimates
 
 . . .
 
--   Variance estimates must properly account for the survey design
+-   Formula for the variance of a domain total incorporates this
+    sample-to-sample variability
 
--   You should **never subset your data for analysis**, even if there
-    are no units in a particular domain
+    -   Statistical software must recognize (be told about / have info
+        about) all the original design strata and PSUs -- even if some
+        don't include any domain members
+
+    -   Thus, you must **never subset your data for analysis**
 
 . . .
 
@@ -138,13 +140,12 @@ editor:
 
 <p>
 
--   Since $x_i=0$ for units not in the domain, you'd get the **same
-    point estimate** if you simply dropped the non-domain units
+-   **Same point estimate** as if you dropped the non-domain units
+    ($x_i=0$ for units not in the domain)
 
--   But -- variance estimation would be incorrect
+-   But variance estimation would be **incorrect**
 
--   **You must use the whole sample, even to obtain estimates for a
-    subpopulation**
+-   **You must use the whole sample for estimation**
 
 ## Example: Domain Estimation in NHAMCS {.pause}
 
@@ -282,32 +283,9 @@ Domain Estimation and Comparison (Part 1)
     Netflix**]{.alert} and [**People who do not have Netflix**]{.alert2}
 
 -   [Question: Are people who have Netflix less likely to subscribe to
-    cable TV?]{.alert3} (We recognize that no causal link can be made
-    with a cross-sectional survey!)
-
-::::: columns
-::: {.column width="50%"}
--   Data from our SRS of 500 co-habiting couples:
-:::
-
-::: {.column width="50%"}
-|         Has | Cable TV | No Cable TV | Total |
-|------------:|:--------:|:-----------:|:-----:|
-| Has Netflix |   119    |     88      |  207  |
-|  No Netflix |   188    |     105     |  293  |
-|       Total |          |             |  500  |
-:::
-:::::
-
--   Resulting estimates:
-
-    -   119/207 = 57.5% of couples with Netflix have cable TV
-
-    -   188/293 = 64.2% of couples without Netflix have cable TV
-
-## Example (con't)
-
--   A chi-square test gives us:
+    cable TV?]{.alert3}\
+    (We recognize that no causal link can be made with a cross-sectional
+    survey!)
 
 ```{r}
 library(tidyverse)
@@ -316,8 +294,31 @@ dat <- tibble(id = 1:500) %>%
          cable = case_when(id > 119 & id <= 207 ~ "No Cable TV",
                            id > 395 ~ "No Cable TV",
                            .default = "Cable TV"))
-dat_larger <- bind_rows(dat, dat)
+dat_both <- bind_rows(dat, dat)
 ```
+
+-   Data from our SRS of 500 co-habiting couples:
+
+```{r}
+dat %>%
+  janitor::tabyl(netflix, cable) %>%
+  janitor::adorn_totals("col") %>%
+  janitor::adorn_percentages("row") %>%
+  janitor::adorn_pct_formatting(digits = 2) %>%
+  janitor::adorn_ns()
+```
+
+-   Resulting estimates:
+
+    -   119/207 = 57.5% of couples with Netflix have cable TV
+
+    -   188/293 = 64.2% of couples without Netflix have cable TV
+
+-   Notice that the number of people with (and without) Netflix would be different if we took another sample -- random domain sample size!
+
+## Example (con't)
+
+-   A chi-square test gives us:
 
 ```{r}
 #| echo: true
@@ -325,8 +326,10 @@ chisq.test(dat$netflix, dat$cable, correct = FALSE)
 ```
 
 -   Conclusion: There is **no evidence of an association** between
-    having Netflix and having cable (i.e., not true that the proportion
-    of people with cable differs for people with/without Netflix)
+    having Netflix and having cable \
+    (i.e., no evidence that the
+    proportion of people with cable differs for people with/without
+    Netflix)
 
 -   Summarize observed association with an **odds ratio (OR)** or
     **prevalence ratio (PR)**:
@@ -346,8 +349,9 @@ chisq.test(dat$netflix, dat$cable, correct = FALSE)
         the same), but a different test result:
 
 ```{r}
-dat_larger %>%
+dat_both %>%
   janitor::tabyl(netflix, cable) %>%
+  janitor::adorn_totals("col") %>%
   janitor::adorn_percentages("row") %>%
   janitor::adorn_pct_formatting(digits = 2) %>%
   janitor::adorn_ns()
@@ -355,7 +359,7 @@ dat_larger %>%
 
 ```{r}
 #| echo: true
-chisq.test(dat_larger$netflix, dat_larger$cable, correct = FALSE)
+chisq.test(dat_both$netflix, dat_both$cable, correct = FALSE)
 ```
 
 -   Ignoring the clustering has **inflated the test statistic** value
@@ -365,15 +369,9 @@ chisq.test(dat_larger$netflix, dat_larger$cable, correct = FALSE)
 
 -   What is the DEFF for this design?
 
-## Chi-Square Tests for Complex Survey Data
+## Chi-Square Tests for Complex Survey Data {.pause}
 
-<!-- -   This is an extreme example (and in fact you could make it more -->
-
-<!--     extreme by interviewing any children in the house too!), but it -->
-
-<!--     illustrates the problem -->
-
--   [**Ignoring clustering can inflate test statistics and deflate
+-   [**Ignoring clustering can *inflate* test statistics and *deflate*
     p-values**]{.alert}
 
     -   Remember, DEFF \> 1 for many outcomes in a cluster sample
@@ -386,11 +384,9 @@ chisq.test(dat_larger$netflix, dat_larger$cable, correct = FALSE)
     -   Thus you are **overstating your signficance** (p-value too
         small)
 
-    -   Note that the $X^2$ test statistic does not have a
-        $\chi^2_{(r-1)(c-1)}$ distribution under the null hypothesis
-        when a cluster sample is taken and ICC \> 0
+. . . 
 
--   [**Ignoring stratification can deflate test statistics and inflate
+-   [**Ignoring stratification can *deflate* test statistics and *inflate*
     p-values**]{.alert2}
 
     -   Remember, DEFF \< 1 for many outcomes in a stratified sample
@@ -402,7 +398,9 @@ chisq.test(dat_larger$netflix, dat_larger$cable, correct = FALSE)
 
     -   Thus you are **being too conservative** (p-value too high)
 
--   The worse crime (usually) is ignoring clustering and "overstating"
+. . . 
+
+-   The "worse crime" (usually) is ignoring clustering and "overstating"
     results (inflate Type 1 error)
 
 ## Corrections to Chi-Square Tests for Complex Survey Data {.pause}

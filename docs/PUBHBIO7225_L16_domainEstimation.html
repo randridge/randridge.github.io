@@ -207,7 +207,7 @@
 <ul>
 <li><p>Domain Estimation</p></li>
 <li><p>Chi-Square Tests</p></li>
-<li><p>Discussion of Individual Project</p></li>
+<li><p>Discussion of Individual Project (time-permitting)</p></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <p><strong>Activities</strong></p>
@@ -224,7 +224,7 @@
 <li>Problem Set 4 due Thursday 10/23/2025 11:59pm via Carmen</li>
 </ul>
 </section>
-<section id="estimation-in-domains" class="slide level2">
+<section id="estimation-in-domains" class="slide level2 pause">
 <h2>Estimation in Domains</h2>
 <blockquote>
 <p><span class="alert3"><strong>Domain</strong></span> = a subgroup in the population that is not part of the sampling design.<br>
@@ -236,8 +236,15 @@ Also called <span class="alert3">subpopulations</span> or <span class="alert3">s
 <li><p>Domains can cross strata (and often/usually do)</p></li>
 <li><p>Domains can include units from many clusters (but maybe not all clusters)</p></li>
 </ul></li>
+</ul>
+<div class="fragment">
+<ul>
 <li><p><em>Like</em> strata and clusters, each unit <span class="math inline">\(i\)</span> either belongs to a certain domain or does not belong to the domain</p></li>
 <li><p><em>Unlike</em> strata and clusters, we don’t know what domain unit <span class="math inline">\(i\)</span> belongs to until it is sampled (i.e., record domain membership on the survey)</p></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
 <li><p>Examples:</p>
 <ul>
 <li><p>SRS of OSU students on Columbus campus, domain = students who live off-campus</p></li>
@@ -245,24 +252,26 @@ Also called <span class="alert3">subpopulations</span> or <span class="alert3">s
 <li><p>Two-stage cluster sample of students within schools, domain = students with a disclosed disability</p></li>
 </ul></li>
 </ul>
+</div>
 </section>
-<section id="domain-sizes-are-random-variables" class="slide level2 pause">
-<h2>Domain Sizes are Random Variables</h2>
+<section id="domain-sample-sizes-are-random-variables" class="slide level2 pause">
+<h2>Domain Sample Sizes are Random Variables</h2>
 <ul>
-<li><p><strong>Key Point:</strong> We don’t know which domain a unit belongs to until it is sampled</p>
+<li><p><strong>Key Point:</strong> The number of units in the domain in a sample is a <span class="alert2"><strong>random variable</strong></span></p>
 <ul>
-<li><p>Thus, the number of units in the domain is a <span class="alert2">random variable</span></p></li>
 <li><p>Take another sample, get a different number of units in the domain</p>
 <ul>
-<li>Contrast with stratum – take another sample, get same number of units in the stratum!</li>
+<li>Contrast with a stratum – take another sample, get the same number of units in the stratum!</li>
 </ul></li>
-<li><p>This extra variability <strong>must be accounted for in analysis stage</strong> to get correct variance estimates</p></li>
 </ul></li>
 </ul>
 <div class="fragment">
 <ul>
-<li><p>Variance estimates must properly account for the survey design</p></li>
-<li><p>You should <strong>never subset your data for analysis</strong>, even if there are no units in a particular domain</p></li>
+<li><p>Formula for the variance of a domain total incorporates this sample-to-sample variability</p>
+<ul>
+<li><p>Statistical software must recognize (be told about / have info about) all the original design strata and PSUs – even if some don’t include any domain members</p></li>
+<li><p>Thus, you must <strong>never subset your data for analysis</strong></p></li>
+</ul></li>
 </ul>
 </div>
 <div class="fragment">
@@ -300,9 +309,9 @@ Also called <span class="alert3">subpopulations</span> or <span class="alert3">s
 </ul>
 <p>
 </p><ul>
-<li><p>Since <span class="math inline">\(x_i=0\)</span> for units not in the domain, you’d get the <strong>same point estimate</strong> if you simply dropped the non-domain units</p></li>
-<li><p>But – variance estimation would be incorrect</p></li>
-<li><p><strong>You must use the whole sample, even to obtain estimates for a subpopulation</strong></p></li>
+<li><p><strong>Same point estimate</strong> as if you dropped the non-domain units (<span class="math inline">\(x_i=0\)</span> for units not in the domain)</p></li>
+<li><p>But variance estimation would be <strong>incorrect</strong></p></li>
+<li><p><strong>You must use the whole sample for estimation</strong></p></li>
 </ul>
 </section>
 <section id="example-domain-estimation-in-nhamcs" class="slide level2 pause">
@@ -459,51 +468,26 @@ Also called <span class="alert3">subpopulations</span> or <span class="alert3">s
 <ul>
 <li><p>Suppose we have an SRS of <span class="math inline">\(n\)</span> = 500 co-habiting couples from a very large population (i.e., <span class="math inline">\(N\)</span> large enough to be able to ignore the FPC)</p></li>
 <li><p>We want to compare two domains: <span class="alert"><strong>People who have Netflix</strong></span> and <span class="alert2"><strong>People who do not have Netflix</strong></span></p></li>
-<li><p><span class="alert3">Question: Are people who have Netflix less likely to subscribe to cable TV?</span> (We recognize that no causal link can be made with a cross-sectional survey!)</p></li>
+<li><p><span class="alert3">Question: Are people who have Netflix less likely to subscribe to cable TV?</span><br>
+(We recognize that no causal link can be made with a cross-sectional survey!)</p></li>
 </ul>
-<div class="columns">
-<div class="column" style="width:50%;">
 <ul>
 <li>Data from our SRS of 500 co-habiting couples:</li>
 </ul>
-</div><div class="column" style="width:50%;">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: right;">Has</th>
-<th style="text-align: center;">Cable TV</th>
-<th style="text-align: center;">No Cable TV</th>
-<th style="text-align: center;">Total</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">Has Netflix</td>
-<td style="text-align: center;">119</td>
-<td style="text-align: center;">88</td>
-<td style="text-align: center;">207</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">No Netflix</td>
-<td style="text-align: center;">188</td>
-<td style="text-align: center;">105</td>
-<td style="text-align: center;">293</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">Total</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">500</td>
-</tr>
-</tbody>
-</table>
-</div></div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>     netflix     Cable TV  No Cable TV         Total
+ Has Netflix 57.49% (119) 42.51%  (88) 100.00% (207)
+  No Netflix 64.16% (188) 35.84% (105) 100.00% (293)</code></pre>
+</div>
+</div>
 <ul>
 <li><p>Resulting estimates:</p>
 <ul>
 <li><p>119/207 = 57.5% of couples with Netflix have cable TV</p></li>
 <li><p>188/293 = 64.2% of couples without Netflix have cable TV</p></li>
 </ul></li>
+<li><p>Notice that the number of people with (and without) Netflix would be different if we took another sample – random domain sample size!</p></li>
 </ul>
 </section>
 <section id="example-cont-1" class="slide level2">
@@ -512,7 +496,7 @@ Also called <span class="alert3">subpopulations</span> or <span class="alert3">s
 <li>A chi-square test gives us:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">chisq.test</span>(dat<span class="sc">$</span>netflix, dat<span class="sc">$</span>cable, <span class="at">correct =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">chisq.test</span>(dat<span class="sc">$</span>netflix, dat<span class="sc">$</span>cable, <span class="at">correct =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's Chi-squared test
@@ -522,7 +506,8 @@ X-squared = 2.281, df = 1, p-value = 0.131</code></pre>
 </div>
 </div>
 <ul>
-<li><p>Conclusion: There is <strong>no evidence of an association</strong> between having Netflix and having cable (i.e., not true that the proportion of people with cable differs for people with/without Netflix)</p></li>
+<li><p>Conclusion: There is <strong>no evidence of an association</strong> between having Netflix and having cable<br>
+(i.e., no evidence that the proportion of people with cable differs for people with/without Netflix)</p></li>
 <li><p>Summarize observed association with an <strong>odds ratio (OR)</strong> or <strong>prevalence ratio (PR)</strong>:</p></li>
 </ul>
 <p><br></p>
@@ -539,18 +524,18 @@ X-squared = 2.281, df = 1, p-value = 0.131</code></pre>
 </ul>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>     netflix     Cable TV  No Cable TV
- Has Netflix 57.49% (238) 42.51% (176)
-  No Netflix 64.16% (376) 35.84% (210)</code></pre>
+<pre><code>     netflix     Cable TV  No Cable TV         Total
+ Has Netflix 57.49% (238) 42.51% (176) 100.00% (414)
+  No Netflix 64.16% (376) 35.84% (210) 100.00% (586)</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">chisq.test</span>(dat_larger<span class="sc">$</span>netflix, dat_larger<span class="sc">$</span>cable, <span class="at">correct =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">chisq.test</span>(dat_both<span class="sc">$</span>netflix, dat_both<span class="sc">$</span>cable, <span class="at">correct =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's Chi-squared test
 
-data:  dat_larger$netflix and dat_larger$cable
+data:  dat_both$netflix and dat_both$cable
 X-squared = 4.5621, df = 1, p-value = 0.03269</code></pre>
 </div>
 </div>
@@ -560,13 +545,10 @@ X-squared = 4.5621, df = 1, p-value = 0.03269</code></pre>
 <li><p>What is the DEFF for this design?</p></li>
 </ul>
 </section>
-<section id="chi-square-tests-for-complex-survey-data" class="slide level2">
+<section id="chi-square-tests-for-complex-survey-data" class="slide level2 pause">
 <h2>Chi-Square Tests for Complex Survey Data</h2>
-<!-- -   This is an extreme example (and in fact you could make it more -->
-<!--     extreme by interviewing any children in the house too!), but it -->
-<!--     illustrates the problem -->
 <ul>
-<li><p><span class="alert"><strong>Ignoring clustering can inflate test statistics and deflate p-values</strong></span></p>
+<li><p><span class="alert"><strong>Ignoring clustering can <em>inflate</em> test statistics and <em>deflate</em> p-values</strong></span></p>
 <ul>
 <li><p>Remember, DEFF &gt; 1 for many outcomes in a cluster sample</p></li>
 <li><p>A cluster sample of size <span class="math inline">\(n\)</span> provides the same precision as an SRS of size <span class="math inline">\(n\)</span>/DEFF</p>
@@ -574,9 +556,11 @@ X-squared = 4.5621, df = 1, p-value = 0.03269</code></pre>
 <li>Effective sample size is <em>smaller</em> than <span class="math inline">\(n\)</span></li>
 </ul></li>
 <li><p>Thus you are <strong>overstating your signficance</strong> (p-value too small)</p></li>
-<li><p>Note that the <span class="math inline">\(X^2\)</span> test statistic does not have a <span class="math inline">\(\chi^2_{(r-1)(c-1)}\)</span> distribution under the null hypothesis when a cluster sample is taken and ICC &gt; 0</p></li>
 </ul></li>
-<li><p><span class="alert2"><strong>Ignoring stratification can deflate test statistics and inflate p-values</strong></span></p>
+</ul>
+<div class="fragment">
+<ul>
+<li><p><span class="alert2"><strong>Ignoring stratification can <em>deflate</em> test statistics and <em>inflate</em> p-values</strong></span></p>
 <ul>
 <li><p>Remember, DEFF &lt; 1 for many outcomes in a stratified sample</p></li>
 <li><p>A stratified sample of size <span class="math inline">\(n\)</span> provides the same precision as an SRS of size <span class="math inline">\(n\)</span>/DEFF</p>
@@ -585,8 +569,13 @@ X-squared = 4.5621, df = 1, p-value = 0.03269</code></pre>
 </ul></li>
 <li><p>Thus you are <strong>being too conservative</strong> (p-value too high)</p></li>
 </ul></li>
-<li><p>The worse crime (usually) is ignoring clustering and “overstating” results (inflate Type 1 error)</p></li>
 </ul>
+</div>
+<div class="fragment">
+<ul>
+<li>The “worse crime” (usually) is ignoring clustering and “overstating” results (inflate Type 1 error)</li>
+</ul>
+</div>
 </section>
 <section id="corrections-to-chi-square-tests-for-complex-survey-data" class="slide level2 pause">
 <h2>Corrections to Chi-Square Tests for Complex Survey Data</h2>
