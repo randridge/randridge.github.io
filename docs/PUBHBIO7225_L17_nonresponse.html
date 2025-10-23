@@ -200,18 +200,24 @@ Generative AI acknowledgment: Google Gemini was used to generate alt text for so
 
 <img data-src="figures/TSEdiagram.png" alt="A flowchart diagram of the Total Survey Error (TSE) framework. The diagram is split into two main vertical columns, &quot;Measurement&quot; on the left and &quot;Representation&quot; on the right. In the Measurement column, the flow goes from &quot;Construct&quot; to &quot;Measurement&quot; to &quot;Response&quot; to &quot;Edited Data.&quot; Red arrows pointing to the right of each step label the sources of error: &quot;Specification Error (Validity)&quot; for the first step, &quot;Measurement Error&quot; for the second, and &quot;Processing Error&quot; for the third. The Representation column flows from &quot;Target Population&quot; to &quot;Sampling Frame&quot; to &quot;Sample&quot; to &quot;Respondents&quot; to &quot;Postsurvey Adjustments.&quot; Similarly, red arrows label the errors at each step: &quot;Coverage Error,&quot; &quot;Sampling Error,&quot; &quot;Nonresponse Error,&quot; and &quot;Adjustment Error.&quot; Both columns converge at the bottom, with arrows from &quot;Edited Data&quot; and &quot;Postsurvey Adjustments&quot; pointing to a final box labeled &quot;Survey Statistic.&quot;" class="r-stretch quarto-figure-center"><p class="caption">Adapted from Groves et al.&nbsp;(2009), Survey Methodology, 2nd Edition</p><p>…but it is arguably the biggest source of error, or at least one of the biggest</p>
 </section>
-<section id="how-nonresponse-causes-bias" class="slide level2">
+<section id="how-nonresponse-causes-bias" class="slide level2 pause">
 <h2>How Nonresponse Causes Bias</h2>
 <ul>
-<li>Imagine that the target population can be partitioned into two strata: <strong>respondents</strong> and <strong>nonrespondents</strong></li>
+<li>Imagine that the target population can be partitioned into two groups: <strong>respondents</strong> and <strong>nonrespondents</strong></li>
 </ul>
 <table class="caption-top">
+<colgroup>
+<col style="width: 29%">
+<col style="width: 17%">
+<col style="width: 29%">
+<col style="width: 24%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;"><strong>Stratum</strong></th>
-<th style="text-align: left;"><strong>Size</strong></th>
-<th style="text-align: left;"><strong>Mean</strong></th>
-<th style="text-align: left;"><strong>Variance</strong></th>
+<th style="text-align: left;"><strong>Group</strong></th>
+<th style="text-align: left;"><strong>Population Size</strong></th>
+<th style="text-align: left;"><strong>Population Mean</strong></th>
+<th style="text-align: left;"><strong>Population Variance</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -236,16 +242,84 @@ Generative AI acknowledgment: Google Gemini was used to generate alt text for so
 </tbody>
 </table>
 <ul>
-<li><p>The overall population mean is a weighted average of the two stratum means: <span class="math display">\[\bar{y}_U = \frac{N_R}{N} \bar{y}_{RU} + \frac{N_{NR}}{N} \bar{y}_{NRU}\]</span></p></li>
-<li><p>Now suppose we take an SRS of size <span class="math inline">\(n\)</span>, and <span class="math inline">\(n_R\)</span> units respond.</p>
+<li>The overall population mean is a weighted average of the two group means: <span class="math display">\[\bar{y}_U = \frac{N_R}{N} \bar{y}_{RU} + \frac{N_{NR}}{N} \bar{y}_{NRU}\]</span></li>
+</ul>
+<div class="fragment">
 <ul>
-<li><p>Respondent mean is an unbiased estimate of the <strong>respondent mean</strong>: <span class="math inline">\(E[\bar{y}_R] = \bar{y}_{RU}\)</span></p></li>
-<li><p>It’s not an unbiased estimate of the <strong>overall mean</strong>: <span class="math inline">\(E[\bar{y}_R] \ne \bar{y}_U\)</span></p></li>
-<li><p>…unless the mean is the same for respondents and nonrespondents (i.e., unless <span class="math inline">\(\bar{y}_{RU} = \bar{y}_{NRU} = \bar{y}_U\)</span>)</p></li>
+<li><p>Now suppose we take an SRS of size <span class="math inline">\(n\)</span> (from the full population of <span class="math inline">\(N\)</span> units), and <span class="math inline">\(n_R\)</span> units respond</p>
+<ul>
+<li><p>Respondents are (by definition) all from the “Respondents” group</p></li>
+<li><p>Nonrespondents are from the “Nonrespondents” group</p></li>
 </ul></li>
 </ul>
+</div>
 </section>
-<section id="how-nonresponse-causes-bias-cont" class="slide level2">
+<section id="how-nonresponse-causes-bias-cont" class="slide level2 pause">
+<h2>How Nonresponse Causes Bias (con’t)</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 29%">
+<col style="width: 17%">
+<col style="width: 29%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Group</strong></th>
+<th style="text-align: left;"><strong>Population Size</strong></th>
+<th style="text-align: left;"><strong>Population Mean</strong></th>
+<th style="text-align: left;"><strong>Population Variance</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Respondents</td>
+<td style="text-align: left;"><span class="math inline">\(N_R\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\bar{y}_{RU}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(S^2_R\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Non-Respondents</td>
+<td style="text-align: left;"><span class="math inline">\(N_{NR}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\bar{y}_{NRU}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(S^2_{NR}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td style="text-align: left;"><span class="math inline">\(N\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\bar{y}_U\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(S^2\)</span></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>Sample size: <span class="math inline">\(n\)</span></p></li>
+<li><p>Number of respondents: <span class="math inline">\(n_R\)</span></p></li>
+<li><p>Sample mean based on respondents only: <span class="math inline">\(\bar{y}_R\)</span></p></li>
+</ul>
+<div class="fragment">
+<ul>
+<li><p><span class="math inline">\(E[\bar{y}_R] = \bar{y}_{RU}\)</span></p>
+<ul>
+<li>Respondent sample mean is an unbiased estimate of the <strong>respondent</strong> mean</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><p><span class="math inline">\(E[\bar{y}_R] \ne \bar{y}_U\)</span></p>
+<ul>
+<li>Respondent sample mean is <strong>not</strong> an unbiased estimate of the <strong>overall</strong> mean</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>…unless the mean is the same for respondents and nonrespondents (i.e., unless <span class="math inline">\(\bar{y}_{RU} = \bar{y}_{NRU} = \bar{y}_U\)</span>)</li>
+</ul>
+</div>
+</section>
+<section id="how-nonresponse-causes-bias-cont-1" class="slide level2 pause">
 <h2>How Nonresponse Causes Bias (con’t)</h2>
 <ul>
 <li><p>The bias of the respondent mean is: <span class="math display">\[\begin{aligned}
@@ -254,16 +328,20 @@ Generative AI acknowledgment: Google Gemini was used to generate alt text for so
 \end{aligned}\]</span></p></li>
 <li><p>Bias in the respondent mean depends on <span class="alert">nonresponse rate</span> and diﬀerence between <span class="alert2">respondents and nonrespondents</span></p></li>
 <li><p>We cannot ever actually know this bias – we don’t observe the nonrespondents (can’t estimate <span class="math inline">\(\bar{y}_{NRU}\)</span>)</p></li>
+</ul>
+<div class="fragment">
+<ul>
 <li><p>But this expression tells us that <strong>nonresponse bias is small if</strong>:</p>
 <ol type="1">
-<li><p><span class="alert">Nonresponse rate is small</span> <span class="math inline">\(\left( \frac{N_{NR}}{N}\text{ close to 0}\right)\)</span><br>
+<li><p><span class="alert">Nonresponse rate is small</span> (<span class="math inline">\(\frac{N_{NR}}{N}\)</span> close to 0)<br>
 or</p></li>
 <li><p><span class="alert2">Mean for nonrespondents is close to the mean for the respondents</span> <span class="math inline">\((\bar{y}_{NRU} \approx \bar{y}_{RU})\)</span></p></li>
 </ol></li>
 <li><p>We can’t ever know if <span class="alert2">(2)</span> is true, so our best bet is to try to achieve <span class="alert">(1)</span></p></li>
 </ul>
+</div>
 </section>
-<section id="how-nonresponse-causes-bias-cont-1" class="slide level2">
+<section id="how-nonresponse-causes-bias-cont-2" class="slide level2 pause">
 <h2>How Nonresponse Causes Bias (con’t)</h2>
 <ul>
 <li><p>Some additional comments:</p>
@@ -277,10 +355,14 @@ or</p></li>
 <li><p>Best strategy is to try to avoid nonresponse altogether!</p></li>
 </ul>
 <p><br></p>
+<div class="fragment">
+<blockquote>
+<p><strong>Key idea:</strong> If an outcome, <span class="math inline">\(y\)</span>, is “related” to nonresponse – i.e., it differs between respondents and nonrespondents – then an estimate based on respondents only will be biased (without additional adjustment)</p>
+</blockquote>
 <ul>
-<li><p><strong>Key idea:</strong> If an outcome, <span class="math inline">\(y\)</span>, is “related” to nonresponse – i.e., it differs between respondents and nonrespondents – then an estimate based on respondents only will be biased (without additional adjustment)</p></li>
-<li><p>Essentially, if there is nonresponse, the best-case scenario is that the respondents are a <strong>random sample</strong> of the full sample.</p></li>
+<li>Essentially, if there is nonresponse, the best-case scenario is that the respondents are a <strong>random sample</strong> of the full sample.</li>
 </ul>
+</div>
 </section>
 <section id="activity-17.1-part-1" class="slide level2">
 <h2>Activity 17.1 (Part 1)</h2>
@@ -331,8 +413,16 @@ or</p></li>
 <p><br></p>
 <p><strong>And What Can Be Done To Mitigate/Prevent It?</strong></p>
 </section>
+<section id="a-particular-growing-problem" class="slide level2">
+<h2>A Particular Growing Problem</h2>
+<ul>
+<li>Looking at the ACS reasons for nonresponse shows that <strong>refusal</strong> is a growing problem</li>
+</ul>
+
+<img data-src="PUBHBIO7225_L17_nonresponse_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" alt="A line graph depicting the American Community Survey Housing Unit percentage of refusals and percentage of no one at home from 2000 to 2023. The y-axis ranges from 0% to 10%. The graph shows a striking increase in percent of refusals around 2017, jumping up from around 2.5% to around 9% in 2023. The percentage of no one home is steady around 1% until around 2020 when there is a modest increase to around 2% in 2023." width="960"></section>
 <section id="designing-surveys-to-minimize-nonresponse" class="slide level2">
 <h2>Designing Surveys to Minimize Nonresponse</h2>
+<p>Many “design” considerations to maximize response rates:</p>
 <div class="smaller-text">
 <ul>
 <li class="fragment"><p><strong>Survey mode selection</strong> – some modes generally provide higher response rates; sensitive topics may provide better response with self-administered modes</p></li>
@@ -369,7 +459,7 @@ or</p></li>
 <section id="taxonomy-of-missing-data" class="slide level2">
 <h2>Taxonomy of Missing Data</h2>
 <ul>
-<li><p>We classify missing data based on the <span class="alert2">underlying reason the data are missing</span></p></li>
+<li><p>We classify missing data based on the <span class="alert2"><strong>underlying reason the data are missing</strong></span></p></li>
 <li><p>In general, not testable – just an assumption</p></li>
 <li><p>Three types of missing data:</p>
 <ul>
@@ -377,14 +467,14 @@ or</p></li>
 <li><p><strong>MAR:</strong> Missing At Random 😐</p></li>
 <li><p><strong>MNAR:</strong> Missing Not At Random 😱</p></li>
 </ul></li>
-<li><p>Defined by what is associated with the probability of missingness (or conversely, with the probability of response)</p></li>
+<li><p>Defined by what factors are associated with the probability of missingness (or conversely, with the probability of response)</p></li>
 </ul>
 </section>
 <section id="notation" class="slide level2">
 <h2>Notation</h2>
 <ul>
-<li><p><span class="math inline">\(y_i\)</span> = survey outcome of interest for unit <span class="math inline">\(i\)</span>, <span class="alert">only observed for respondents</span></p></li>
-<li><p><span class="math inline">\(\mathbf{x}_i\)</span> = vector of information known about unit <span class="math inline">\(i\)</span>, <span class="alert2">observed for ALL sampled units</span></p>
+<li><p><span class="math inline">\(y_i\)</span> = survey outcome of interest for unit <span class="math inline">\(i\)</span>, <span class="alert">only observed for <strong>respondents</strong></span></p></li>
+<li><p><span class="math inline">\(\mathbf{x}_i\)</span> = vector of information known about unit <span class="math inline">\(i\)</span>, <span class="alert2">observed for <strong>ALL sampled units</strong></span></p>
 <ul>
 <li>E.g., design information (stratum, cluster membership), or data available on the sampling frame</li>
 </ul></li>
@@ -397,7 +487,7 @@ or</p></li>
 <li><p><span class="math inline">\(\pi_i = P(Z_i=1)\)</span> = selection probability (known!)</p></li>
 </ul>
 </section>
-<section id="mcar-missing-completely-at-random" class="slide level2">
+<section id="mcar-missing-completely-at-random" class="slide level2 pause">
 <h2>MCAR: Missing Completely At Random</h2>
 <blockquote>
 <p><span class="alert2"><strong>MCAR</strong></span> = Best-case scenario: &nbsp; <span class="math inline">\(P(R_i=1 | y_i, \mathbf{x}_i) = P(R_i=1)\)</span><br>
@@ -415,12 +505,16 @@ Probability a variable has missing values does not depend on any factors/variabl
 <li><p><span class="math inline">\(\bar{y}_{RU} = \bar{y}_{NRU}\)</span> &nbsp; → &nbsp; <span class="math inline">\(\text{Bias}(\bar{y}_R) =  \frac{N_{NR}}{N} (\bar{y}_{RU} - \bar{y}_{NRU}) = \frac{N_{NR}}{N} \times 0 = 0\)</span></p></li>
 </ul></li>
 <li><p>A complete case analysis implicitly makes this assumption!</p></li>
+</ul>
+<div class="fragment">
+<ul>
 <li><p>Estimates of <strong>survey totals</strong> will be <strong>biased</strong> (literally not counting up enough people!)</p></li>
 <li><p>Estimates of quantities like <strong>means</strong> or <strong>proportions</strong> will be <strong>unbiased</strong></p></li>
 <li><p><strong>Standard errors</strong> will be <strong>larger than if no nonresponse</strong></p></li>
 </ul>
+</div>
 </section>
-<section id="mar-missing-at-random" class="slide level2">
+<section id="mar-missing-at-random" class="slide level2 pause">
 <h2>MAR: Missing At Random</h2>
 <blockquote>
 <p><span class="alert2"><strong>MAR</strong></span> = Next-best-case scenario: &nbsp; <span class="math inline">\(P(R_i=1 | y_i, \mathbf{x}_i) = P(R_i=1|\mathbf{x}_i)\)</span><br>
@@ -437,9 +531,13 @@ Probability a variable has missing values depends on observed data</p>
 <ul>
 <li>Since we observe how the respondents and nonrespondents diﬀer, we can adjust for it</li>
 </ul></li>
+</ul>
+<div class="fragment">
+<ul>
 <li><p>Estimates for a <span class="math inline">\(y\)</span> that is related to the variable(s) that diﬀer between respondents and nonrespondents will be <strong>biased</strong></p></li>
 <li><p>But, we can adjust survey weights to “make-up” the diﬀerence and remove bias (coming next lecture!)</p></li>
 </ul>
+</div>
 </section>
 <section id="example-mar" class="slide level2">
 <h2>Example: MAR</h2>
@@ -566,7 +664,7 @@ Probability a variable has missing values depends on observed data</p>
 <p><br></p>
 <p><em>Note: this assumes that marital status is on the sampling frame – so that we know it for all sampled women – so we know whose weights to double!</em></p>
 </section>
-<section id="mnar-missing-not-at-random-sometimes-nmar" class="slide level2">
+<section id="mnar-missing-not-at-random-sometimes-nmar" class="slide level2 pause">
 <h2>MNAR: Missing Not At Random (sometimes NMAR)</h2>
 <blockquote>
 <p><span class="alert2"><strong>MNAR</strong></span> = Worst-case scenario: &nbsp; <span class="math inline">\(P(R_i=1 | y_i, \mathbf{x}_i) = P(R_i=1|y_i, \mathbf{x}_i)\)</span><br>
@@ -579,10 +677,14 @@ Probability a variable has missing values depends on values of unobserved data</
 <li><p>Higher income earners less likely to report their income than low wage earners, but this information isn’t on the sampling frame</p></li>
 </ul></li>
 <li><p><span class="alert">Nonrespondents are diﬀerent from respondents</span>, and we <span class="alert">do not observe the characteristic(s) that make them diﬀerent</span></p></li>
+</ul>
+<div class="fragment">
+<ul>
 <li><p>Can never know if we have MNAR (not possible to test for it)</p></li>
 <li><p>Inference under MNAR generally requires us to posit a model for the response mechanism where response depends on unobserved variables (like a survey outcome, <span class="math inline">\(y\)</span>), which we can never confirm is correct</p></li>
 <li><p>Usually we assume MAR, and (sometimes) assess how wrong our conclusions would be if the truth were MNAR – called a <strong>sensitivity analysis</strong></p></li>
 </ul>
+</div>
 </section>
 <section id="activity-17.1-part-2" class="slide level2">
 <h2>Activity 17.1 (Part 2)</h2>

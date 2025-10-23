@@ -95,34 +95,60 @@ Edition](figures/TSEdiagram.png){fig-alt="A flowchart diagram of the Total Surve
 ...but it is arguably the biggest source of error, or at least one of
 the biggest
 
-## How Nonresponse Causes Bias
+## How Nonresponse Causes Bias {.pause}
 
 -   Imagine that the target population can be partitioned into two
-    strata: **respondents** and **nonrespondents**
+    groups: **respondents** and **nonrespondents**
 
-| **Stratum**     | **Size** | **Mean**        | **Variance** |
+| **Group**     | **Population Size** | **Population Mean**        | **Population Variance** |
 |:----------------|:---------|:----------------|:-------------|
 | Respondents     | $N_R$    | $\bar{y}_{RU}$  | $S^2_R$      |
 | Non-Respondents | $N_{NR}$ | $\bar{y}_{NRU}$ | $S^2_{NR}$   |
 | Total           | $N$      | $\bar{y}_U$     | $S^2$        |
 
--   The overall population mean is a weighted average of the two stratum
+-   The overall population mean is a weighted average of the two group
     means:
     $$\bar{y}_U = \frac{N_R}{N} \bar{y}_{RU} + \frac{N_{NR}}{N} \bar{y}_{NRU}$$
 
--   Now suppose we take an SRS of size $n$, and $n_R$ units respond.
+. . .
 
-    -   Respondent mean is an unbiased estimate of the **respondent
-        mean**: $E[\bar{y}_R] = \bar{y}_{RU}$
+-   Now suppose we take an SRS of size $n$ (from the full population of $N$ units), and $n_R$ units respond
 
-    -   It's not an unbiased estimate of the **overall mean**:
-        $E[\bar{y}_R] \ne \bar{y}_U$
+      -   Respondents are (by definition) all from the "Respondents" group
+      
+      -   Nonrespondents are from the "Nonrespondents" group
+    
+## How Nonresponse Causes Bias (con't) {.pause}
 
-    -   ...unless the mean is the same for respondents and
-        nonrespondents (i.e., unless
-        $\bar{y}_{RU} = \bar{y}_{NRU} = \bar{y}_U$)
+| **Group**     | **Population Size** | **Population Mean**        | **Population Variance** |
+|:----------------|:---------|:----------------|:-------------|
+| Respondents     | $N_R$    | $\bar{y}_{RU}$  | $S^2_R$      |
+| Non-Respondents | $N_{NR}$ | $\bar{y}_{NRU}$ | $S^2_{NR}$   |
+| Total           | $N$      | $\bar{y}_U$     | $S^2$        |
 
-## How Nonresponse Causes Bias (con't)
+-   Sample size: $n$
+
+-   Number of respondents: $n_R$
+
+-   Sample mean based on respondents only: $\bar{y}_R$
+
+. . . 
+
+-   $E[\bar{y}_R] = \bar{y}_{RU}$
+
+    -   Respondent sample mean is an unbiased estimate of the **respondent** mean
+   
+. . . 
+ 
+-   $E[\bar{y}_R] \ne \bar{y}_U$
+
+    -   Respondent sample mean is **not** an unbiased estimate of the **overall** mean
+
+. . . 
+
+-   ...unless the mean is the same for respondents and nonrespondents (i.e., unless $\bar{y}_{RU} = \bar{y}_{NRU} = \bar{y}_U$)
+
+## How Nonresponse Causes Bias (con't) {.pause}
 
 -   The bias of the respondent mean is: $$\begin{aligned}
     \text{Bias}(\bar{y}_R) &= E(\bar{y}_R) - \bar{y}_U\\
@@ -135,10 +161,11 @@ the biggest
 -   We cannot ever actually know this bias -- we don't observe the
     nonrespondents (can't estimate $\bar{y}_{NRU}$)
 
+. . . 
+
 -   But this expression tells us that **nonresponse bias is small if**:
 
-    1.  [Nonresponse rate is small]{.alert}
-        $\left( \frac{N_{NR}}{N}\text{ close to 0}\right)$\
+    1.  [Nonresponse rate is small]{.alert} ($\frac{N_{NR}}{N}$ close to 0)\
         or
 
     2.  [Mean for nonrespondents is close to the mean for the
@@ -147,7 +174,7 @@ the biggest
 -   We can't ever know if [(2)]{.alert2} is true, so our best bet is to
     try to achieve [(1)]{.alert}
 
-## How Nonresponse Causes Bias (con't)
+## How Nonresponse Causes Bias (con't) {.pause}
 
 -   Some additional comments:
 
@@ -161,7 +188,9 @@ the biggest
 
 <br>
 
--   **Key idea:** If an outcome, $y$, is "related" to nonresponse --
+. . .
+
+> **Key idea:** If an outcome, $y$, is "related" to nonresponse --
     i.e., it differs between respondents and nonrespondents -- then an
     estimate based on respondents only will be biased (without
     additional adjustment)
@@ -176,9 +205,13 @@ The Impact of Missing Data (Part 1)
 ## Nonresponse a Growing Problem
 
 -   Response rates steadily declining for large Federally-sponsored
-    surveys^[Czajka JL and Beyler A (2016) Declining Response Rates in Federal Surveys: Trends and Implications. *Washington, DC: Mathematica Policy Research*]
+    surveys[^1]
 
 -   For seven major surveys, 1995 to 2015 (Y-axis is 65% to 95%):
+
+[^1]: Czajka JL and Beyler A (2016) Declining Response Rates in Federal
+    Surveys: Trends and Implications. *Washington, DC: Mathematica
+    Policy Research*
 
 ![](./figures/Czajka_RRs){fig-alt="A line graph depicting the response rates for seven major surveys from 1995 to 2015. The y-axis shows response rates from 65% to 95%. While the CPS survey started with the highest response rate around 94% and remained high, all surveys show a general downward trend over time."
 fig-align="center" width="60%"}
@@ -216,9 +249,11 @@ acs %>%
   geom_line() +
   labs(x = "", y = "Response Rate (%)") + 
   scale_x_continuous(breaks = seq(2000, 2023, 1)) +
-  theme(axis.text.x = element_text(size = 12, angle = 90, vjust = 0.5),
-        axis.text.y = element_text(size = 12),
-        axis.title = element_text(size = 14))
+  lims(y = c(70,100)) + 
+  # scale_y_continuous(breaks = seq(70, 100, 10)) + 
+  theme(axis.text.x = element_text(size = 14, angle = 90, vjust = 0.5),
+        axis.text.y = element_text(size = 16),
+        axis.title = element_text(size = 20))
 ```
 
 -   RR declined
@@ -246,7 +281,39 @@ acs %>%
 
 **And What Can Be Done To Mitigate/Prevent It?**
 
+## A Particular Growing Problem
+
+-   Looking at the ACS reasons for nonresponse shows that **refusal** is a growing problem
+
+```{r}
+#| fig-alt: "A line graph depicting the American Community Survey Housing Unit percentage of refusals and percentage of no one at home from 2000 to 2023. The y-axis ranges from 0% to 10%. The graph shows a striking increase in percent of refusals around 2017, jumping up from around 2.5% to around 9% in 2023. The percentage of no one home is steady around 1% until around 2020 when there is a modest increase to around 2% in 2023."
+#| fig-align: center
+
+# make long to plot 
+long <- acs %>%
+  pivot_longer(c(refusal, no_one_home), names_to = "reason", values_to = "pct") %>%
+  mutate(reason_text = case_when(reason == "refusal" ~ "Refusal",
+                                 reason == "no_one_home" ~ "No One Home"))
+last <- long %>%
+  filter(year == 2023)
+long %>%
+  ggplot(aes(x = year, y = pct, color = reason, linetype = reason)) +
+  geom_point(size = 2) +
+  geom_line() +
+  labs(x = "", y = "Percentage (%)") + 
+  scale_x_continuous(breaks = seq(2000, 2023, 1)) +
+  lims(y = c(0,10)) + 
+  theme(axis.text.x = element_text(size = 14, angle = 90, vjust = 0.5),
+        axis.text.y = element_text(size = 16),
+        axis.title = element_text(size = 20),
+        legend.position = "none") + 
+  coord_cartesian(x = c(2000,2030)) +
+  geom_text(data = last, aes(x = year+0.5, y = pct, label = reason_text), hjust = 0, size = 6)
+```
+
 ## Designing Surveys to Minimize Nonresponse
+
+Many "design" considerations to maximize response rates:
 
 :::: incremental
 ::: smaller-text
@@ -308,8 +375,8 @@ acs %>%
 
 ## Taxonomy of Missing Data
 
--   We classify missing data based on the [underlying reason the data
-    are missing]{.alert2}
+-   We classify missing data based on the [**underlying reason the data
+    are missing**]{.alert2}
 
 -   In general, not testable -- just an assumption
 
@@ -321,16 +388,16 @@ acs %>%
 
     -   **MNAR:** Missing Not At Random 😱
 
--   Defined by what is associated with the probability of missingness
+-   Defined by what factors are associated with the probability of missingness
     (or conversely, with the probability of response)
 
 ## Notation
 
 -   $y_i$ = survey outcome of interest for unit $i$, [only observed for
-    respondents]{.alert}
+    **respondents**]{.alert}
 
 -   $\mathbf{x}_i$ = vector of information known about unit $i$,
-    [observed for ALL sampled units]{.alert2}
+    [observed for **ALL sampled units**]{.alert2}
 
     -   E.g., design information (stratum, cluster membership), or data
         available on the sampling frame
@@ -348,7 +415,7 @@ And we also have:
 
 -   $\pi_i = P(Z_i=1)$ = selection probability (known!)
 
-## MCAR: Missing Completely At Random
+## MCAR: Missing Completely At Random {.pause}
 
 > [**MCAR**]{.alert2} = Best-case scenario:  
 > $P(R_i=1 | y_i, \mathbf{x}_i) = P(R_i=1)$\
@@ -370,6 +437,8 @@ And we also have:
 
 -   A complete case analysis implicitly makes this assumption!
 
+. . . 
+
 -   Estimates of **survey totals** will be **biased** (literally not
     counting up enough people!)
 
@@ -378,7 +447,7 @@ And we also have:
 
 -   **Standard errors** will be **larger than if no nonresponse**
 
-## MAR: Missing At Random
+## MAR: Missing At Random {.pause}
 
 > [**MAR**]{.alert2} = Next-best-case scenario:  
 > $P(R_i=1 | y_i, \mathbf{x}_i) = P(R_i=1|\mathbf{x}_i)$\
@@ -401,6 +470,8 @@ And we also have:
 
     -   Since we observe how the respondents and nonrespondents diﬀer,
         we can adjust for it
+
+. . . 
 
 -   Estimates for a $y$ that is related to the variable(s) that diﬀer
     between respondents and nonrespondents will be **biased**
@@ -493,7 +564,7 @@ to isolation status):
 that we know it for all sampled women – so we know whose weights to
 double!*
 
-## MNAR: Missing Not At Random (sometimes NMAR)
+## MNAR: Missing Not At Random (sometimes NMAR) {.pause}
 
 > [**MNAR**]{.alert2} = Worst-case scenario:  
 > $P(R_i=1 | y_i, \mathbf{x}_i) = P(R_i=1|y_i, \mathbf{x}_i)$\
@@ -511,6 +582,8 @@ double!*
 
 -   [Nonrespondents are diﬀerent from respondents]{.alert}, and we [do
     not observe the characteristic(s) that make them diﬀerent]{.alert}
+
+. . . 
 
 -   Can never know if we have MNAR (not possible to test for it)
 
