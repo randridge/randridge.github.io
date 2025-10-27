@@ -28,7 +28,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-65bdef740f5ccd0e8165dd2a54ffa6c3.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-37dd58ee8260662a2db356013c91c3b1.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -161,9 +161,9 @@ for Nonresponse in Surveys</p></h1>
 <li>Group Progress Report 3 due Thursday 11/6/2025 11:59pm via Carmen</li>
 </ul>
 </section>
-<section id="reminder-of-the-missing-data-problem" class="slide level2">
+<section id="reminder-of-the-missing-data-problem" class="slide level2 pause">
 <h2>Reminder of the Missing Data Problem</h2>
-<div class="smaller-text">
+<!-- ::: smaller-text -->
 <ul>
 <li><p><span class="alert"><strong>Not random variables:</strong></span></p>
 <ul>
@@ -182,15 +182,20 @@ for Nonresponse in Surveys</p></h1>
 <li><span class="math inline">\(\phi_i = P(R_i=1)\)</span> = probability unit <span class="math inline">\(i\)</span> responds = response propensity <span class="alert2">(unknown)</span></li>
 </ul></li>
 </ul></li>
+</ul>
+<div class="fragment">
+<ul>
 <li><p>Three types of missing data mechanisms:</p>
 <ul>
 <li><p><strong>MCAR</strong>: <span class="math inline">\(P(R_i=1 | y_i, \mathbf{x}_i) = P(R_i=1)\)</span> &nbsp; ← &nbsp; missingness doesn’t depend on <span class="math inline">\(y\)</span> or <span class="math inline">\(x\)</span></p></li>
 <li><p><strong>MAR</strong>: <span class="math inline">\(P(R_i=1 | y_i, \mathbf{x}_i) = P(R_i=1|\mathbf{x}_i)\)</span> &nbsp; ← &nbsp; missingness doesn’t depend on <span class="math inline">\(y\)</span></p></li>
 <li><p><strong>MNAR</strong>: <span class="math inline">\(P(R_i=1 | y_i, \mathbf{x}_i)\)</span> &nbsp; ← &nbsp;missingness depends on <span class="math inline">\(y\)</span>, possibly also <span class="math inline">\(x\)</span></p></li>
 </ul></li>
-<li><p>Usually MCAR does not hold (often we have visible differences between respondents and nonrespondents), and we <span class="alert">assume MAR</span></p></li>
-<li><p>MNAR not testable given observed data</p></li>
 </ul>
+<!-- -   Usually MCAR does not hold (often we have visible differences -->
+<!--     between respondents and nonrespondents), and we [assume MAR]{.alert} -->
+<!-- -   MNAR not testable given observed data -->
+<!-- ::: -->
 </div>
 </section>
 <section id="adjusting-sample-weights-for-unit-nonresponse" class="slide level2">
@@ -208,53 +213,71 @@ P(\text{unit }i &amp; \text{ selected in sample and responds}) \\
 <ul>
 <li><span class="math inline">\(P(R_i=1 | y_i, \mathbf{x}_i) = P(R_i=1|\mathbf{x}_i)\)</span> &nbsp; → &nbsp; assumes <span class="alert3">MAR</span></li>
 </ul></li>
-<li><p>Info for estimating <span class="math inline">\(\hat{\phi}_i\)</span> may be limited for some surveys</p></li>
+<li><p>Info for estimating <span class="math inline">\(\phi_i\)</span> may be limited for some surveys</p></li>
 </ul>
+</section>
+<section id="estimating-phi_i-weighting-class-adjustments" class="slide level2">
+<h2>Estimating <span class="math inline">\(\phi_i\)</span>: Weighting Class Adjustments</h2>
+<blockquote>
+<p><span class="alert"><strong>Weighting Class Adjustments</strong></span> = create groups (“classes”) of respondents that have similar <span class="math inline">\(\mathbf{x}_i\)</span> and estimate response propensity (<span class="math inline">\(\hat{\phi}\)</span>) within each group (“class”)</p>
+</blockquote>
+<p><strong>Steps</strong>:</p>
+<ol type="1">
+<li><p>Group respondents and nonrespondents based on <span class="math inline">\(\mathbf{x}_i\)</span> to create <strong>weighting adjustment classes</strong></p></li>
+<li><p>Estimate response probability within each class with either the unweighted or weighted response rate:</p></li>
+</ol>
+<p><span class="math display">\[\hat{\phi}_c = \frac{\text{number of respondents in class } c}{\text{number of selected units in class }c} \quad \text{ or } \quad \hat{\phi}_c = \frac{\text{sum of weights for respondents in class } c}{\text{sum of weights for selected units in class }c}\]</span></p>
+<ol start="3" type="1">
+<li>Use these estimated response propensities for each class, <span class="math inline">\(\hat{\phi}_c\)</span>, to adjust the weights for the respondents as: <span class="math display">\[\tilde{w}_i = w_i \frac{1}{\hat{\phi}_i} = \frac{1}{\pi_i} \times \frac{1}{\hat{\phi}_i} = \frac{1}{\pi_i \hat{\phi}_i}\]</span></li>
+</ol>
 </section>
 <section id="weighting-class-adjustments" class="slide level2">
 <h2>Weighting Class Adjustments</h2>
-<div class="smaller-text">
-<ol type="1">
-<li><p>Create <strong>weighting adjustment classes</strong> = groups of respondents and nonrespondents based on variables observed for both</p></li>
-<li><p>Estimate response probability within each class with either the unweighted or weighted response rate:</p></li>
-</ol>
-<p><span class="math display">\[\hat{\phi}_c = \frac{\text{number of respondents in class } c}{\text{number of selected units in class }c} \quad \text{ or } \quad \hat{\phi}_c = \frac{\text{sum of weights for respondents in class } c}{\text{sum of weights for selected sample in class }c}\]</span></p>
-<ol start="3" type="1">
-<li>Use these estimated response propensities for each class, <span class="math inline">\(\hat{\phi}_c\)</span>, to adjust the weights for the respondents as: <span class="math display">\[\tilde{w}_i = w_i \frac{1}{\hat{\phi}_i} = \frac{1}{\pi_i \hat{\phi}_i}\]</span></li>
-</ol>
 <ul>
-<li><p>Notes:</p>
-<ul>
-<li><p>Simple, but very commonly used</p></li>
+<li><p>Simple method, but very commonly used</p></li>
 <li><p>Implicitly assumes probability of response is the <strong>same for all units within each class</strong></p></li>
 <li><p>All weights are <strong>up-weighted</strong> since response propensities are between 0 and 1</p>
 <ul>
 <li>Contrast this with poststratification (with complete response) where some units get up-weighted and some down-weighted</li>
 </ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li><p>Alternatives to weighting classes are possible, using alternative methods to estimate <span class="math inline">\(\hat{\phi}_i\)</span></p>
+<ul>
+<li><p>Ex: Logistic regression with <span class="math inline">\(R_i\)</span> as the outcome and <span class="math inline">\(\mathbf{x}_i\)</span> as predictors</p>
+<ul>
+<li><p>Each respondent has predicted propensity from the model, <span class="math inline">\(\hat{\phi}_i\)</span>, and adjusted weight <span class="math inline">\(\tilde{w}_i = w_i/\hat{\phi}_i\)</span></p></li>
+<li><p>Or, create classes based on grouping units with similar <span class="math inline">\(\hat{\phi}_i\)</span></p></li>
+</ul></li>
 </ul></li>
 </ul>
 </div>
 </section>
-<section id="example-weight-adjustments" class="slide level2 pause">
-<h2>Example: Weight Adjustments</h2>
+<section id="example-jobs-after-graduation" class="slide level2 pause">
+<h2>Example: Jobs After Graduation</h2>
 <div class="{columns}">
-<div class="column" style="width:60%;">
+<div class="column" style="width:55%;">
 <ul>
 <li><p>Population of <span class="math inline">\(N=1{,}000\)</span> graduates with PhDs in statistics/biostatistics in past year</p></li>
 <li><p>SRS of <span class="math inline">\(n=10\)</span> with response rate of 6/10 = 60%</p></li>
-<li><p>Type of degree (stat vs biostat) is <span class="alert2">on the sampling frame</span></p></li>
-<li><p>Type of job (academic vs not) is <span class="alert">on the survey</span></p></li>
-<li><p>Without adjustment, estimated proportion of graduates in Academic jobs is __________</p></li>
+<li><p>Type of degree (biostat vs stat) is <span class="alert2"><strong>on the sampling frame</strong></span></p></li>
+<li><p>Type of job (academic vs not) is <span class="alert"><strong>on the survey</strong></span></p></li>
+<li><p>Based on respondents:</p>
+<ul>
+<li><p>Estimated <span class="alert"><strong>proportion</strong></span> in Academic jobs = __________</p></li>
+<li><p>Estimated <span class="alert"><strong>total</strong></span> number in Academic jobs = _________</p></li>
+</ul></li>
 </ul>
-</div><div class="column" style="width:40%;">
+</div><div class="column" style="width:45%;">
 <div class="smaller-text">
 <table class="caption-top">
 <thead>
 <tr class="header">
 <th style="text-align: center;">ID</th>
-<th style="text-align: center;">Biostat</th>
-<th style="text-align: center;">Academic Job</th>
-<th style="text-align: center;">Base Weight <span class="math inline">\((w_i)\)</span></th>
+<th style="text-align: center;">Biostat (<span class="math inline">\(x_i\)</span>)</th>
+<th style="text-align: center;">Academic (<span class="math inline">\(y_i\)</span>)</th>
+<th style="text-align: center;">Weight (<span class="math inline">\(w_i\)</span>)</th>
 </tr>
 </thead>
 <tbody>
@@ -324,10 +347,10 @@ P(\text{unit }i &amp; \text{ selected in sample and responds}) \\
 </div></div>
 <div class="fragment">
 <ul>
-<li><p>Don’t like this estimate? We have two choices:</p>
+<li><p>Don’t like these estimates? We have two choices:</p>
 <ol type="1">
 <li><p>Treat the entire sample as one adjustment class, and upweight all 6 respondents the same (<strong>MCAR</strong>)</p></li>
-<li><p>Group the sample by degree type, and apply a different adjustment factor to biostat and stat (<strong>MAR</strong>)</p>
+<li><p>Group the sample by degree type, and apply a different adjustment factor by degree (<strong>MAR</strong>)</p>
 <ul>
 <li>Specifically, assume missingness depends on degree type</li>
 </ul></li>
@@ -356,8 +379,8 @@ P(\text{unit }i &amp; \text{ selected in sample and responds}) \\
 <thead>
 <tr class="header">
 <th><strong>ID</strong></th>
-<th><strong>Biostat</strong></th>
-<th><strong>Academic</strong></th>
+<th><strong>Biostat</strong> (<span class="math inline">\(x_i\)</span>)</th>
+<th><strong>Academic</strong> (<span class="math inline">\(y_i\)</span>)</th>
 <th style="text-align: center;"><strong>Base Weight</strong> (<span class="math inline">\(w_i\)</span>)</th>
 <th style="text-align: center;"><strong>Response Propensity</strong> (<span class="math inline">\(\hat{\phi}_i\)</span>)</th>
 <th style="text-align: center;"><strong>Adj. Weight</strong>: <span class="math inline">\(\tilde{w}_i = w_i / \hat{\phi}_i\)</span></th>
@@ -458,18 +481,16 @@ P(\text{unit }i &amp; \text{ selected in sample and responds}) \\
 <p>
 </p><div class="smaller-text">
 <ul>
-<li><p>Estimated <span class="alert">total</span> number of grads in Academic jobs: &nbsp; <span class="math inline">\(\hat{t} = \sum_{i \in \mathcal{S}} \tilde{w}_i y_i = 166.67(1) + 166.67(1) + 166.67(0) + \cdots = 500\)</span></p></li>
-<li><p>Estimated <span class="alert">proportion</span> of grads in Academic jobs: &nbsp; <span class="math inline">\(\hat{p} = \frac{\sum_{i \in \mathcal{S}} \tilde{w}_i y_i}{\sum_{i \in \mathcal{S}} \tilde{w}_i} = \frac{500}{1000} = 0.5\)</span></p>
-<ul>
-<li>Estimate is the <strong>same as without adjustment (“complete case”)</strong> – MCAR!</li>
-</ul></li>
+<li><p>Estimated <span class="alert"><strong>total</strong></span> number of grads in Academic jobs: &nbsp; <span class="math inline">\(\hat{t} = \sum_{i \in \mathcal{S}} \tilde{w}_i y_i = 166.67(1) + 166.67(1) + 166.67(0) + \cdots = 500\)</span></p></li>
+<li><p>Estimated <span class="alert"><strong>proportion</strong></span> of grads in Academic jobs: &nbsp; <span class="math inline">\(\hat{p} = \frac{\sum_{i \in \mathcal{S}} \tilde{w}_i y_i}{\sum_{i \in \mathcal{S}} \tilde{w}_i} = \frac{500}{1000} = 0.5\)</span></p></li>
+<li><p><span class="alert2"><strong>Compared to using only respondents (“complete case”)</strong></span>: <strong>proportion is the same</strong> (MCAR!) and <strong>total is different</strong> (better)</p></li>
 </ul>
 </div>
 </section>
 <section id="example-assume-mcar-cont" class="slide level2 pause">
 <h2>Example: Assume MCAR (con’t)</h2>
 <div class="{columns}">
-<div class="column" style="width:60%;">
+<div class="column" style="width:55%;">
 <ul>
 <li>Do you like this adjustment?</li>
 </ul>
@@ -481,8 +502,8 @@ P(\text{unit }i &amp; \text{ selected in sample and responds}) \\
 <table class="caption-top">
 <thead>
 <tr class="header">
-<th style="text-align: left;">Type of Degree</th>
-<th style="text-align: center;">Number in Sample</th>
+<th style="text-align: left;">Degree Type</th>
+<th style="text-align: center;">Sample Size</th>
 <th style="text-align: center;">Number Responded</th>
 <th style="text-align: center;">Response Rate</th>
 </tr>
@@ -511,14 +532,14 @@ P(\text{unit }i &amp; \text{ selected in sample and responds}) \\
 <li><p><strong>Not MCAR!</strong></p></li>
 </ul>
 </div>
-</div><div class="column" style="width:40%;">
+</div><div class="column" style="width:45%;">
 <div class="smaller-text">
 <table class="caption-top">
 <thead>
 <tr class="header">
 <th style="text-align: center;">ID</th>
-<th style="text-align: center;">Biostat</th>
-<th style="text-align: center;">Academic Job</th>
+<th style="text-align: center;">Biostat (<span class="math inline">\(x_i\)</span>)</th>
+<th style="text-align: center;">Academic Job <span class="math inline">\((y_i)\)</span></th>
 <th style="text-align: center;">Base Weight <span class="math inline">\((w_i)\)</span></th>
 </tr>
 </thead>
@@ -626,8 +647,8 @@ P(\text{unit }i &amp; \text{ selected in sample and responds}) \\
 <thead>
 <tr class="header">
 <th><strong>ID</strong></th>
-<th><strong>Biostat</strong></th>
-<th><strong>Academic</strong></th>
+<th><strong>Biostat</strong> (<span class="math inline">\(x_i\)</span>)</th>
+<th><strong>Academic</strong> (<span class="math inline">\(y_i\)</span>)</th>
 <th style="text-align: center;"><strong>Base Weight</strong> (<span class="math inline">\(w_i\)</span>)</th>
 <th style="text-align: center;"><strong>Response Propensity</strong> (<span class="math inline">\(\hat{\phi}_i\)</span>)</th>
 <th style="text-align: center;"><strong>Adj. Weight</strong>: <span class="math inline">\(\tilde{w}_i = w_i / \hat{\phi}_i\)</span></th>
@@ -726,7 +747,7 @@ P(\text{unit }i &amp; \text{ selected in sample and responds}) \\
 </table>
 </div>
 <ul>
-<li>Note the up-weighting of statistics grads (lower response rate) and down-weighting of biostatistics grads (higher response rate)</li>
+<li>Note the larger up-weighting of statistics grads (lower response rate) compared to biostatistics grads (higher response rate)</li>
 </ul>
 </section>
 <section id="example-assume-mar-cont" class="slide level2">
@@ -744,8 +765,8 @@ P(\text{unit }i &amp; \text{ selected in sample and responds}) \\
 <thead>
 <tr class="header">
 <th><strong>ID</strong></th>
-<th><strong>Biostat</strong></th>
-<th><strong>Academic</strong></th>
+<th><strong>Biostat</strong> (<span class="math inline">\(x_i\)</span>)</th>
+<th><strong>Academic <span class="math inline">\((y_i)\)</span></strong></th>
 <th style="text-align: center;"><strong>Base Weight</strong> (<span class="math inline">\(w_i\)</span>)</th>
 <th style="text-align: center;"><strong>Response Propensity</strong> (<span class="math inline">\(\hat{\phi}_i\)</span>)</th>
 <th style="text-align: center;"><strong>Adj. Weight</strong>: <span class="math inline">\(\tilde{w}_i = w_i / \hat{\phi}_i\)</span></th>
@@ -846,25 +867,23 @@ P(\text{unit }i &amp; \text{ selected in sample and responds}) \\
 <p>
 </p><div class="smaller-text">
 <ul>
-<li><p>Estimated <span class="alert">total</span> number of graduates who are in Academic jobs: &nbsp; <span class="math inline">\(\hat{t} = \sum_{i \in \mathcal{S}} \tilde{w}_i y_i = 200(1) + 200(0) + \cdots + 133.33(1) = 466.67\)</span></p></li>
-<li><p>Estimated <span class="alert">proportion</span> of graduates who are in Academic jobs: &nbsp; <span class="math inline">\(\hat{p} = \frac{\sum_{i \in \mathcal{S}} \tilde{w}_i y_i}{\sum_{i \in \mathcal{S}} \tilde{w}_i} = \frac{466.67}{1000} = 0.47\)</span></p>
-<ul>
-<li>Estimate is <strong>different</strong> than under MCAR!</li>
-</ul></li>
+<li><p>Estimated <span class="alert"><strong>total</strong></span> number of graduates who are in Academic jobs:</p>
+<p><span class="math inline">\(\hat{t} = \sum_{i \in \mathcal{S}} \tilde{w}_i y_i = 200(1) + 200(0) + 200(0) + 133.33(1) + 133.33(0) + 133.33(1) = 466.67\)</span></p></li>
+<li><p>Estimated <span class="alert"><strong>proportion</strong></span> of graduates who are in Academic jobs: &nbsp;</p>
+<p><span class="math inline">\(\hat{p} = \frac{\sum_{i \in \mathcal{S}} \tilde{w}_i y_i}{\sum_{i \in \mathcal{S}} \tilde{w}_i} = \frac{466.67}{1000} = 0.47\)</span></p></li>
+<li><p><span class="alert2"><strong>Compared to using only respondents (“complete case”)</strong></span>: <strong>proportion and total are different</strong></p></li>
 </ul>
 </div>
 </section>
 <section id="choosing-variables-for-adjustments" class="slide level2 pause">
 <h2>Choosing Variables for Adjustments</h2>
-<div class="smaller-text">
 <ul>
-<li><p>Can only use variables that are <span class="alert2">observed for both respondents and nonrespondents</span></p>
+<li><p>Can only use variables <span class="math inline">\(x_i\)</span> that are <span class="alert2">observed for both respondents and nonrespondents</span></p>
 <ul>
 <li><p>Limited to <span class="alert2">information on the sampling frame and design variables</span></p></li>
 <li><p>Ex: 2021 Ohio Medicaid Assessment Survey (OMAS) (<a href="https://grc.osu.edu/OMAS/2021Survey">link</a>)</p>
 <ul>
-<li><p>Only info about nonrespondents is the stratum they are from</p></li>
-<li><p>Thus adjustment classes are the strata (only choice!)</p></li>
+<li>Only info about nonrespondents is the stratum they are from → adjustment classes = strata</li>
 </ul></li>
 </ul></li>
 </ul>
@@ -874,24 +893,25 @@ P(\text{unit }i &amp; \text{ selected in sample and responds}) \\
 <ul>
 <li><p>Ex: 2017-2020 National Health and Nutrition Examination Survey (NHANES) (<a href="https://www.cdc.gov/nchs/data/series/sr_02/sr02-190.pdf">link to methods report</a>)</p>
 <ul>
-<li><p>First dwelling units are screened (to enumerate people in them), then sampled people are interviewed, then interviewed people are given a medical exam</p></li>
-<li><p>Nonresponse can happen at any stage – refuse to participate in the screening, or the interview, or the medical exam</p></li>
-<li><p>Screener adjustment classes: census tract/segment (only info!)</p></li>
-<li><p>Interview adjustment classes: can include screener info</p></li>
-<li><p>Medical exam adjustment classes: can include interview info</p></li>
+<li><p><strong>Stages:</strong> First dwelling units are screened (to enumerate people in them), then sampled people are interviewed, then interviewed people are given a medical exam</p></li>
+<li><p>Nonresponse can happen at any stage – refuse to participate in the screening, or the interview, or the medical exam</p>
+<ul>
+<li><p><strong>Screener adjustment classes:</strong> census tract/segment (only info on sampling frame!)</p></li>
+<li><p><strong>Interview adjustment classes:</strong> can use screener info</p></li>
+<li><p><strong>Medical exam adjustment classes:</strong> can use interview info</p></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>
 </div>
-</div>
 </section>
-<section id="choosing-variables-for-adjustments-cont" class="slide level2">
+<section id="choosing-variables-for-adjustments-cont" class="slide level2 pause">
 <h2>Choosing Variables for Adjustments (con’t)</h2>
 <ul>
 <li><p><strong>Overall goal: choose variables that are associated with</strong> <span class="math inline">\(\mathbf{R_i}\)</span> <strong>and with</strong> <span class="math inline">\(\mathbf{y_i}\)</span></p>
 <ul>
 <li><p>Units within each class are as similar as possible with respect to <span class="math inline">\(y_i\)</span>, and</p></li>
-<li><p>Response propensities similar within class but (may) vary from class to class</p></li>
+<li><p>Response propensities <span class="math inline">\(\hat{\phi}_i\)</span> similar within class but (may) vary from class to class</p></li>
 </ul></li>
 <li><p>Impact on bias and variance when constructing classes using variables that have: <sup>1</sup></p></li>
 </ul>
@@ -939,6 +959,7 @@ P(\text{unit }i &amp; \text{ selected in sample and responds}) \\
 </tbody>
 </table>
 </div>
+<div class="fragment">
 <ul>
 <li><p>Only get bias reduction if classes are constructed with variables related to <span class="math inline">\(y_i\)</span> and <span class="math inline">\(R_i\)</span></p></li>
 <li><p>“Punishment” for using variables not associated with <span class="math inline">\(y_i\)</span> can be an increase in variance</p></li>
@@ -947,6 +968,7 @@ P(\text{unit }i &amp; \text{ selected in sample and responds}) \\
 <li>But – only one set of adjusted weights!</li>
 </ul></li>
 </ul>
+</div>
 <aside><ol class="aside-footnotes"><li id="fn1"><p>Adapted from Table 1 in: Little RJA &amp; Vartivarian S (2005), Does Weighting for Nonresponse Increase the Variance of Survey Means? <em>Survey Methodology</em>, 31, 161-168.</p></li></ol></aside></section>
 <section id="activity-18.1" class="slide level2">
 <h2>Activity 18.1</h2>
@@ -962,26 +984,13 @@ P(\text{unit }i &amp; \text{ selected in sample and responds}) \\
 <li><p>If &gt;50% nonresponse in a class, weights would be multiplied by a factor greater than 2 – and this is generally avoided</p>
 <ul>
 <li><p>Option 1: Collapse classes together until have enough respondents</p></li>
-<li><p>Option 2: Weight trimming, by choosing a max value for the weights and truncating any adjusted weights above this value</p></li>
+<li><p>Option 2: Weight trimming, by choosing a max value for the weights and truncating any adjusted weights above this value (and redistributing “excess” weight across all units)</p></li>
 </ul></li>
 </ul>
 </div>
 <div class="fragment">
 <ul>
 <li>Categorical variables can be easily used to form classes, but continuous variables need to be categorized (no strict rule about how)</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li><p>More complex weighting adjustments are possible, using “fancier” methods to estimate <span class="math inline">\(\hat{\phi}_i\)</span></p>
-<ul>
-<li><p>Ex: Logistic regression with <span class="math inline">\(R_i\)</span> as the outcome</p>
-<ul>
-<li><p>Predictors are variables available for both respondents and nonrespondents</p></li>
-<li><p>Each respondent has predicted propensity from the model, <span class="math inline">\(\hat{\phi}_i\)</span>, and adjusted weight <span class="math inline">\(\tilde{w}_i = w_i/\hat{\phi}_i\)</span></p></li>
-<li><p>Or, create classes based on grouping units with similar <span class="math inline">\(\hat{\phi}_i\)</span></p></li>
-</ul></li>
-</ul></li>
 </ul>
 </div>
 </section>
@@ -1011,15 +1020,23 @@ where unit <span class="math inline">\(i\)</span> belongs to poststratum <span c
 <li><p>For <span class="alert2"><strong>nonresponse weight adjustments</strong></span>, you must use variables observed for <span class="alert2"><strong>respondents and nonrespondents</strong></span></p></li>
 <li><p>For <span class="alert3"><strong>poststratification/raking</strong></span>, you need population totals for variables that are <span class="alert3"><strong>observed for respondents</strong></span> (individual nonrespondent data not needed)</p></li>
 </ul></li>
-<li><p>Most often, both are done – nonresponse first, then poststratification/raking (also commonly called calibration)</p></li>
 </ul>
+<div class="fragment">
+<ul>
+<li>Most often, both are done
+<ul>
+<li>Nonresponse first</li>
+<li>Poststratification/raking second (also commonly called calibration)</li>
+</ul></li>
+</ul>
+</div>
 <div class="fragment">
 <p>
 </p><ul>
 <li><p>Think of it this way:</p>
 <ul>
-<li><p><strong>Nonresponse weight adjustments</strong> are made to align the respondent sample with the originally selected sample (i.e., make the respondent sample look like the full sample)</p></li>
-<li><p><strong>Poststratification/Raking/Calibration</strong> are then made to align the resulting sample with the target population</p></li>
+<li><p><span class="alert2"><strong>Nonresponse weight adjustments</strong></span> are made to align the respondent sample with the originally selected sample (i.e., make the respondent sample look like the full sample)</p></li>
+<li><p><span class="alert3"><strong>Poststratification/Raking/Calibration</strong></span> are then made to align the resulting sample with the target population</p></li>
 </ul></li>
 </ul>
 </div>
