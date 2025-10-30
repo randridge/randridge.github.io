@@ -113,7 +113,7 @@ editor:
     -   The goal of imputation **is not** to perfectly replicate the
         data value that would have been observed
 
-    -   The goal of imputation to replace missing values by "plausible"
+    -   The goal of imputation **is** to replace missing values by "plausible"
         values in order to make use of all available information (i.e.,
         other info we have about a survey respondent) so that
         **population inference** is improved (relative to discarding
@@ -141,16 +141,18 @@ editor:
 -   For **complex sample surveys**, the two most common reasons for
     imputing are:
 
-    1.  There is missing data on variables (collected on the survey)
+    1.  There is missing data on variables collected on the survey
         that will be used for weight adjustments (post-stratification,
         raking, etc.)
 
     2.  Key survey outcomes have missingness and we don't want different
         analysts to get different answers
 
+. . .
+
 -   Generally speaking, imputation for both of these reasons will be
     **done by the survey producers** (e.g., CDC) and the imputed data
-    provided to secondary data analysts (often with imputation "flags"
+    is provided to secondary data analysts (often with imputation "flags"
     so you know which values have been imputed)
 
 ## Examples of Imputation in Large Scale U.S. Surveys
@@ -215,8 +217,7 @@ fig-align="center"}
 -   Very low rates of missingness for all demographics except poverty
     level
 
--   Poverty level based on income -- usually high nonresponse for this
-    item on all surveys!
+-   Poverty level based on income -- usually high nonresponse for income on all surveys!
 :::
 ::::
 ::::::
@@ -430,7 +431,7 @@ Exploring Imputation
 <p>
 
 -   No "penalty" for the fact that we imputed instead of observed some
-    values --- but there should have been, right?
+    values --- but shouldn't there be?
 
 ## Single vs Multiple Imputation
 
@@ -448,6 +449,8 @@ Exploring Imputation
 [^2]: It's not the only option -- there are methods for obtaining
     correct variance estimates from singly imputed data, outside the
     scope of this class
+
+<!-- -->
 
 -   Multiple imputation more often used with non-probability/convenience
     samples (e.g., observational studies, clinical trials)

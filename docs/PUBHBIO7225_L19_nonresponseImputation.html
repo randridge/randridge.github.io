@@ -294,7 +294,7 @@ Generative AI acknowledgment: Google Gemini was used to generate alt text for so
 <li><p>Important point:</p>
 <ul>
 <li><p>The goal of imputation <strong>is not</strong> to perfectly replicate the data value that would have been observed</p></li>
-<li><p>The goal of imputation to replace missing values by “plausible” values in order to make use of all available information (i.e., other info we have about a survey respondent) so that <strong>population inference</strong> is improved (relative to discarding missing data)</p></li>
+<li><p>The goal of imputation <strong>is</strong> to replace missing values by “plausible” values in order to make use of all available information (i.e., other info we have about a survey respondent) so that <strong>population inference</strong> is improved (relative to discarding missing data)</p></li>
 </ul></li>
 </ul>
 </section>
@@ -321,10 +321,14 @@ Generative AI acknowledgment: Google Gemini was used to generate alt text for so
 <ul>
 <li><p>For <strong>complex sample surveys</strong>, the two most common reasons for imputing are:</p>
 <ol type="1">
-<li><p>There is missing data on variables (collected on the survey) that will be used for weight adjustments (post-stratification, raking, etc.)</p></li>
+<li><p>There is missing data on variables collected on the survey that will be used for weight adjustments (post-stratification, raking, etc.)</p></li>
 <li><p>Key survey outcomes have missingness and we don’t want different analysts to get different answers</p></li>
 </ol></li>
-<li><p>Generally speaking, imputation for both of these reasons will be <strong>done by the survey producers</strong> (e.g., CDC) and the imputed data provided to secondary data analysts (often with imputation “flags” so you know which values have been imputed)</p></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Generally speaking, imputation for both of these reasons will be <strong>done by the survey producers</strong> (e.g., CDC) and the imputed data is provided to secondary data analysts (often with imputation “flags” so you know which values have been imputed)</li>
 </ul>
 </div>
 </section>
@@ -375,7 +379,7 @@ Generative AI acknowledgment: Google Gemini was used to generate alt text for so
 <li><p>Next most missingness: Adult education – 1,860 missing (3.44%)</p></li>
 </ul></li>
 <li><p>Very low rates of missingness for all demographics except poverty level</p></li>
-<li><p>Poverty level based on income – usually high nonresponse for this item on all surveys!</p></li>
+<li><p>Poverty level based on income – usually high nonresponse for income on all surveys!</p></li>
 </ul>
 </div>
 </div></div>
@@ -539,7 +543,7 @@ Generative AI acknowledgment: Google Gemini was used to generate alt text for so
 </ul>
 <p>
 </p><ul>
-<li>No “penalty” for the fact that we imputed instead of observed some values — but there should have been, right?</li>
+<li>No “penalty” for the fact that we imputed instead of observed some values — but shouldn’t there be?</li>
 </ul>
 </section>
 <section id="single-vs-multiple-imputation" class="slide level2">
@@ -552,6 +556,7 @@ Generative AI acknowledgment: Google Gemini was used to generate alt text for so
 <li><p>Analyze each data set separatedly and combine the resulting estimates using special combining rules (“Rubin’s Rules”)</p></li>
 <li><p>Resulting inference properly treats the imputed data <strong>not</strong> as if it were known<sup>1</sup></p></li>
 </ul>
+<!-- -->
 <ul>
 <li><p>Multiple imputation more often used with non-probability/convenience samples (e.g., observational studies, clinical trials)</p></li>
 <li><p>Applying multiple imputation in survey context is (more) complicated — have to properly account for the sample design</p></li>
