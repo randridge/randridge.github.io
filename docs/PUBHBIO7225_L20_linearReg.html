@@ -345,14 +345,14 @@ Generative AI acknowledgment: Google Gemini was used to assist in generating alt
 <p><strong>Unweighted</strong></p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="./figures/NMIHS_unweighted.png" class="quarto-figure quarto-figure-center" alt="A scatter plot showing the relationship between mean birthweight in grams (on the x-axis) and mean gestational age in weeks (on the y-axis). There are 19 data points plotted as circles. A straight line is drawn through the data, showing a positive linear correlation between the two variables. This line indicates that as mean birthweight increases, so does mean gestational age. The data points appear to follow this trend but are not perfectly aligned on the line."></p>
+<p><img data-src="./figures/NMIHS_unweighted.png" class="quarto-figure quarto-figure-center" alt="A scatter plot showing the relationship between mean birthweight in grams (on the x-axis) and mean gestational age in weeks (on the y-axis). There are 19 data points plotted as circles, and they form an increasing quadratic relationship. A straight line is drawn through the data, showing a positive linear correlation between the two variables. This line indicates that as mean birthweight increases, so does mean gestational age. The data points appear to follow this trend but are not perfectly aligned on the line since the true relationship is quadratic."></p>
 </figure>
 </div>
 </div><div class="column" style="width:25%;">
 <p><strong>Weighted</strong></p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="./figures/NMIHS_weighted.png" class="quarto-figure quarto-figure-center" alt="A scatter plot also showing the relationship between weighted mean birthweight in grams (on the x-axis) and weighted mean gestational age in weeks (on the y-axis). The plot contains 19 data points, represented as circles of varying sizes. The size of each circle is proportional to its weight, with larger circles appearing at higher birthweights and gestational ages. A straight line is drawn through the data, showing a positive linear correlation. Compared to the unweighted plot, this graph's data points are less scattered and more tightly clustered around the trend line, especially at the higher end of the scale, suggesting that weighting has produced a better approximation of the linear trend."></p>
+<p><img data-src="./figures/NMIHS_weighted.png" class="quarto-figure quarto-figure-center" alt="A scatter plot also showing the relationship between weighted mean birthweight in grams (on the x-axis) and weighted mean gestational age in weeks (on the y-axis). The plot contains 19 data points, represented as circles of varying sizes. The size of each circle is proportional to its weight, with larger circles appearing at higher birthweights and gestational ages. The points form an increasing quadratic relationship. A straight line is drawn through the data, showing a positive linear correlation. Compared to the unweighted plot, this graph's data points are less scattered and more tightly clustered around the trend line, especially at the higher end of the scale, suggesting that weighting has produced a better approximation of the linear trend."></p>
 </figure>
 </div>
 </div><div class="column" style="width:50%;">
@@ -549,22 +549,24 @@ Generative AI acknowledgment: Google Gemini was used to assist in generating alt
 </ul>
 </div>
 </section>
-<section id="details-cont-2" class="slide level2">
+<section id="details-cont-2" class="slide level2 pause">
 <h2>Details (con’t)</h2>
 <ul>
-<li><p><strong>Note: Subtle difference in CI interpretation from infinite population inference</strong></p>
+<li><p><strong>Note #1: Subtle difference in CI interpretation from infinite population inference</strong></p>
 <ul>
 <li>With a design-based CI, the confidence level (e.g., 95%) for a coefficient (say, <span class="math inline">\(B_1\)</span>) is the <span class="alert">sum of the probabilities of all possible samples <span class="math inline">\(\mathcal{S}\)</span></span> that could be taken with the specified design <span class="alert">for which the CI constructed from that sample will contain the true <span class="math inline">\(B_1\)</span></span></li>
 </ul></li>
 </ul>
 <p><br></p>
+<div class="fragment">
 <ul>
-<li><p><strong>Note: Survey-Weighted Regression is not Weighted Least Squares (WLS)</strong></p>
+<li><p><strong>Note #2: Survey-Weighted Regression is not Weighted Least Squares (WLS)</strong></p>
 <ul>
 <li>The point estimates you get from survey weighted linear regression will be the <strong>same as</strong> point estimates from WLS – but the standard errors <strong>will not be the same</strong>.</li>
 <li>We need the linearization estimator to properly account for the sample design</li>
 </ul></li>
 </ul>
+</div>
 </section>
 <section id="degrees-of-freedom" class="slide level2">
 <h2>Degrees of Freedom</h2>
@@ -602,7 +604,7 @@ Generative AI acknowledgment: Google Gemini was used to assist in generating alt
 <li><p>Sampled 1-2 SSUs (schools) per PSU (district)</p></li>
 <li><p>Total of 65 SSUs (schools) sampled</p></li>
 </ul></li>
-<li><p>Regression of interest is predicting API (performance index) from percent English language learners and school type (E/M/H)</p>
+<li><p>Regression of interest is predicting API (performance index) from percent English language learners and school type (Elementary/Middle/High School)</p>
 <ul>
 <li><p><strong>Option 1:</strong> DF = # PSUs <span class="math inline">\(-\)</span> # Strata = <span class="math inline">\(38 - 1 = 37\)</span></p></li>
 <li><p><strong>Option 2:</strong> DF = # PSUs <span class="math inline">\(-\)</span> # Strata <span class="math inline">\(-\)</span> # predictors excluding intercept = <span class="math inline">\(38 - 1 - 3 = 34\)</span></p></li>
