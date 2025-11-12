@@ -262,48 +262,58 @@ with Survey Data</p></h1>
 <li><p>Interpretation of unknown parameters <span class="math inline">\((\beta_0, \beta_1)\)</span> comes via exponentiation (to get rid of the log)</p></li>
 </ul>
 </section>
-<section id="logistic-regression-review-cont" class="slide level2">
+<section id="logistic-regression-review-cont" class="slide level2 pause">
 <h2>Logistic Regression: Review (con’t)</h2>
 <ul>
 <li><p>Model: <span class="math inline">\(\mathrm{logit}\left(P(Y=1|X)\right) = \beta_0 + \beta_1 X\)</span></p></li>
-<li><p>Interpreting <span class="math inline">\(\beta_1\)</span>:</p>
+<li><p>Interpreting the <strong>“slope”</strong>: <span class="math inline">\(\beta_1\)</span></p>
 <ul>
 <li><p><span class="math inline">\(\beta_1\)</span> = log-odds ratio for a 1 unit increase in <span class="math inline">\(X\)</span></p></li>
 <li><p><span class="math inline">\(e^\beta_1\)</span> = odds ratio for a 1 unit increase in <span class="math inline">\(X\)</span></p></li>
 <li><p><span class="math inline">\(X\)</span> binary:</p>
 <ul>
-<li><p>The <em>odds</em> of <span class="math inline">\(Y=1\)</span> for the group with <span class="math inline">\(X=1\)</span> are <span class="math inline">\(e^\beta_1\)</span> times the odds for the group with <span class="math inline">\(X=0\)</span></p></li>
+<li><p>The <em>odds</em> of <span class="math inline">\(Y=1\)</span> for the group with <span class="math inline">\(X=1\)</span> are <span class="math inline">\(e^{\beta_1}\)</span> times the odds for the group with <span class="math inline">\(X=0\)</span></p></li>
 <li><p>Similar interpretation if <span class="math inline">\(X\)</span> is an indicator variable for one category of a multi-category categorical variable – compares odds for that category to the reference category</p></li>
 </ul></li>
 <li><p><span class="math inline">\(X\)</span> continuous/discrete:</p>
 <ul>
-<li>The <em>odds</em> of <span class="math inline">\(Y=1\)</span> multiply by <span class="math inline">\(e^\beta_1\)</span> per one-unit increase in <span class="math inline">\(X\)</span></li>
+<li>The <em>odds</em> of <span class="math inline">\(Y=1\)</span> multiply by <span class="math inline">\(e^{\beta_1}\)</span> per one-unit increase in <span class="math inline">\(X\)</span></li>
 </ul></li>
 </ul></li>
+</ul>
+<div class="fragment">
+<ul>
 <li><p>Can sound awkward to talk about “odds”</p></li>
 <li><p>But …<strong>do not</strong> substitute “risk” or “more likely”!</p>
 <ul>
 <li>Odds and risk are different things!</li>
 </ul></li>
 </ul>
+</div>
 </section>
-<section id="logistic-regression-review-cont-1" class="slide level2">
+<section id="logistic-regression-review-cont-1" class="slide level2 pause">
 <h2>Logistic Regression: Review (con’t)</h2>
 <ul>
 <li><p>Model: <span class="math inline">\(\mathrm{logit}\left(P(Y=1|X)\right) = \beta_0 + \beta_1 X\)</span></p></li>
-<li><p>Interpreting <span class="math inline">\(\beta_0\)</span>:</p>
+<li><p>Interpreting the <strong>intercept</strong>: <span class="math inline">\(\beta_0\)</span></p>
 <ul>
 <li><p><span class="math inline">\(\beta_0\)</span> = intercept = log-odds that <span class="math inline">\(Y=1\)</span> when <span class="math inline">\(X=0\)</span></p></li>
-<li><p><span class="math inline">\(e^\beta_0\)</span> = odds that <span class="math inline">\(Y=1\)</span> when <span class="math inline">\(X=0\)</span></p></li>
+<li><p><span class="math inline">\(e^{\beta_0}\)</span> = odds that <span class="math inline">\(Y=1\)</span> when <span class="math inline">\(X=0\)</span></p></li>
 <li><p>Not super-useful interpretations!</p></li>
-<li><p>Easier to re-write as: <span class="math inline">\(\displaystyle P(Y=1|X=0) = \frac{e^{\beta_0}}{1+e^{\beta_0}}\)</span></p></li>
-<li><p>The <em>probability</em> of <span class="math inline">\(Y=1\)</span> when <span class="math inline">\(X=0\)</span> is <span class="math inline">\(\frac{e^{\beta_0}}{1+e^{\beta_0}}\)</span></p></li>
 </ul></li>
 </ul>
+<div class="fragment">
+<ul>
+<li><p>Easier to re-write as: <span class="math inline">\(\displaystyle P(Y=1|X=0) = \frac{e^{\beta_0}}{1+e^{\beta_0}}\)</span></p></li>
+<li><p>The <em>probability</em> of <span class="math inline">\(Y=1\)</span> when <span class="math inline">\(X=0\)</span> is <span class="math inline">\(\frac{e^{\beta_0}}{1+e^{\beta_0}}\)</span></p></li>
+</ul>
 <p>
-</p><ul>
+</p></div>
+<div class="fragment">
+<ul>
 <li>These interpretations extend to models with more than one predictor… interpret as usual, “controlling for” or “adjusting for” or “holding constant” the other predictors</li>
 </ul>
+</div>
 </section>
 <section id="logistic-regression-with-survey-data" class="slide level2">
 <h2>Logistic Regression with Survey Data</h2>
@@ -363,17 +373,19 @@ with Survey Data</p></h1>
 <li><p>Specifically, solving this system of equations for <span class="math inline">\(B\)</span>: <span class="math display">\[\sum_{i=1}^N x_{ij} \left[y_i - \frac{\exp(\mathbf x_i^T \mathbf B)}{1+\exp(\mathbf x_i^T \mathbf B)} \right] = 0 \quad \text{for } j=1,\dots,p\]</span> produces the true population quantities (<span class="math inline">\(\mathbf B\)</span>)</p></li>
 </ul>
 </section>
-<section id="details-cont" class="slide level2">
+<section id="details-cont" class="slide level2 pause">
 <h2>Details (con’t)</h2>
 <ul>
 <li><p>To obtain estimates we solve the system of equations using the sample and the <strong>sampling weights</strong>: <span class="math display">\[\sum_{i \in \mathcal{S}} w_i x_{ij} \left[y_i - \frac{\exp(\mathbf{x_i}^T \mathbf{\hat{B}})}{1+\exp(\mathbf{x_i}^T \mathbf{\hat{B}})} \right] = 0 \quad \text{for } j=1,\dots,p\]</span></p></li>
 <li><p>Variance estimation can be done via <strong>linearization</strong></p></li>
 </ul>
 <p><br></p>
+<div class="fragment">
 <ul>
 <li><p>Logistic regression gives us <strong>odds ratios</strong></p></li>
 <li><p>Most surveys are cross-sectional, and we can alternatively calculate <strong>prevalence ratios</strong></p></li>
 </ul>
+</div>
 </section>
 <section id="example-sampling-schools" class="slide level2">
 <h2>Example: Sampling Schools</h2>
@@ -518,12 +530,12 @@ Residual Deviance: 71.37    AIC: 66.96</code></pre>
 <h2>Log-Binomial Regression</h2>
 <ul>
 <li><p>In the <strong>logistic</strong> regression model, we have: <span class="math display">\[\log \underbrace{\left(\frac{P(Y=1|X)}{1-P(Y=1|X)}\right)}_{\text{odds}} = \mathrm{logit}\left(P(Y=1|X)\right) = \beta_0 + \beta_1 X\]</span></p></li>
-<li><p>By using a different transformation of <span class="math inline">\(P(Y=1|X)\)</span>, we have <strong>log-binomial</strong> regression: <span class="math display">\[\log \underbrace{\left(P(Y=1|X)\right)}_{\text{"risk"}} = \beta_0 + \beta_1 X\]</span></p></li>
+<li><p>By using a different transformation of <span class="math inline">\(P(Y=1|X)\)</span>, we have <strong>log-binomial</strong> regression: <span class="math display">\[\log \underbrace{\left(P(Y=1|X)\right)}_{\text{prevalence or risk}} = \beta_0 + \beta_1 X\]</span></p></li>
 <li><p>Note that this different transformation (different link function) does not have as nice theoretical properties, in the sense that <span class="math inline">\(E(Y|X)\)</span> is not bounded between 0 and 1 (what are the bounds?)</p></li>
 <li><p>However, unless <span class="math inline">\(P(Y=1|X)\)</span> is close to 0 or 1 it is generally well-behaved</p></li>
 <li><p>Interpretation:</p>
 <ul>
-<li><span class="math inline">\(e^\beta_1\)</span> = prevalence ratio (of <span class="math inline">\(Y=1\)</span>) for a 1 unit increase in X</li>
+<li><span class="math inline">\(e^{\beta_1}\)</span> = <strong>prevalence (of <span class="math inline">\(Y=1\)</span>) ratio</strong> for a 1 unit increase in X</li>
 </ul></li>
 </ul>
 </section>
@@ -533,8 +545,8 @@ Residual Deviance: 71.37    AIC: 66.96</code></pre>
 <li><p>Same ideas apply for log-binomial regression as for logistic when you have survey data</p></li>
 <li><p>Trick for estimation is that you can use <strong>Poisson</strong> regression to obtain estimates (even though it is a log-<strong>binomial</strong> model)</p>
 <ul>
-<li><p>Note that in the <span class="alert">infinite population</span> world, you must use <span class="alert">robust standard errors</span> (also called “sandwich estimators”) for proper variance estimation if you use Poisson regression to fit a log-binomial model (otherwise too small)</p></li>
-<li><p>But in the <span class="alert2">finite population</span> world (survey data), we are not relying on a distributional assumption, and <span class="alert2">variances derived from linearization are fine</span> (using Poisson)</p></li>
+<li><p>Note that in the <span class="alert"><strong>infinite population</strong></span> world, you must use <span class="alert"><strong>robust standard errors</strong></span> (also called “sandwich estimators”) for proper variance estimation if you use Poisson regression to fit a log-binomial model (otherwise too small)</p></li>
+<li><p>But in the <span class="alert2"><strong>finite population</strong></span> world (survey data), we are not relying on a distributional assumption, and <span class="alert2"><strong>variances derived from linearization are fine</strong></span> (using Poisson)</p></li>
 </ul></li>
 </ul>
 <p>

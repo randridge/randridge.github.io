@@ -88,11 +88,11 @@ editor:
 -   Interpretation of unknown parameters $(\beta_0, \beta_1)$ comes via
     exponentiation (to get rid of the log)
 
-## Logistic Regression: Review (con't)
+## Logistic Regression: Review (con't) {.pause}
 
 -   Model: $\mathrm{logit}\left(P(Y=1|X)\right) = \beta_0 + \beta_1 X$
 
--   Interpreting $\beta_1$:
+-   Interpreting the **"slope"**: $\beta_1$
 
     -   $\beta_1$ = log-odds ratio for a 1 unit increase in $X$
 
@@ -100,7 +100,7 @@ editor:
 
     -   $X$ binary:
 
-        -   The *odds* of $Y=1$ for the group with $X=1$ are $e^\beta_1$
+        -   The *odds* of $Y=1$ for the group with $X=1$ are $e^{\beta_1}$
             times the odds for the group with $X=0$
 
         -   Similar interpretation if $X$ is an indicator variable for
@@ -109,8 +109,10 @@ editor:
 
     -   $X$ continuous/discrete:
 
-        -   The *odds* of $Y=1$ multiply by $e^\beta_1$ per one-unit
+        -   The *odds* of $Y=1$ multiply by $e^{\beta_1}$ per one-unit
             increase in $X$
+
+. . . 
 
 -   Can sound awkward to talk about "odds"
 
@@ -118,25 +120,29 @@ editor:
 
     -   Odds and risk are different things!
 
-## Logistic Regression: Review (con't)
+## Logistic Regression: Review (con't) {.pause}
 
 -   Model: $\mathrm{logit}\left(P(Y=1|X)\right) = \beta_0 + \beta_1 X$
 
--   Interpreting $\beta_0$:
+-   Interpreting the **intercept**: $\beta_0$
 
     -   $\beta_0$ = intercept = log-odds that $Y=1$ when $X=0$
 
-    -   $e^\beta_0$ = odds that $Y=1$ when $X=0$
+    -   $e^{\beta_0}$ = odds that $Y=1$ when $X=0$
 
     -   Not super-useful interpretations!
 
-    -   Easier to re-write as:
+. . .
+
+-   Easier to re-write as:
         $\displaystyle P(Y=1|X=0) = \frac{e^{\beta_0}}{1+e^{\beta_0}}$
 
-    -   The *probability* of $Y=1$ when $X=0$ is
-        $\frac{e^{\beta_0}}{1+e^{\beta_0}}$
+-   The *probability* of $Y=1$ when $X=0$ is $\frac{e^{\beta_0}}{1+e^{\beta_0}}$
 
 <p>
+
+. . . 
+
 
 -   These interpretations extend to models with more than one
     predictor... interpret as usual, "controlling for" or "adjusting
@@ -200,36 +206,43 @@ editor:
 
 ## Details: Logistic Regression with Survey Data
 
--   How do we actually get the survey-weighted ("design-based") estimates?
+-   How do we actually get the survey-weighted ("design-based")
+    estimates?
 
--   Unlike linear regression, no "closed form" equation for $\hat{\beta}$s
+-   Unlike linear regression, no "closed form" equation for
+    $\hat{\beta}$s
 
--   In the [**infinite population**]{.alert} (model-based) world, use maximum likelihood (ML) estimation
+-   In the [**infinite population**]{.alert} (model-based) world, use
+    maximum likelihood (ML) estimation
 
     -   Find the estimates ($\hat{\beta}$s) that maximize the
         probability ("likelihood") that the observed data $(y_i,x_i)$
         came from the model
 
--   In the [**finite population**]{.alert2} world, the true $\beta$s -- denoted with Roman letters, $B$ -- are what you'd get
-    *if you calculated ML estimates using the full population*
+-   In the [**finite population**]{.alert2} world, the true $\beta$s --
+    denoted with Roman letters, $B$ -- are what you'd get *if you
+    calculated ML estimates using the full population*
 
 -   Specifically, solving this system of equations for $B$:
-    $$\sum_{i=1}^N x_{ij} \left[y_i - \frac{\exp(\mathbf x_i^T \mathbf B)}{1+\exp(\mathbf x_i^T \mathbf B)} \right] = 0 \quad \text{for } j=1,\dots,p$$ produces the true population quantities ($\mathbf B$)
+    $$\sum_{i=1}^N x_{ij} \left[y_i - \frac{\exp(\mathbf x_i^T \mathbf B)}{1+\exp(\mathbf x_i^T \mathbf B)} \right] = 0 \quad \text{for } j=1,\dots,p$$
+    produces the true population quantities ($\mathbf B$)
 
-## Details (con't)
+## Details (con't) {.pause}
 
--   To obtain estimates we solve the system of equations using the sample and the **sampling weights**:
+-   To obtain estimates we solve the system of equations using the
+    sample and the **sampling weights**:
     $$\sum_{i \in \mathcal{S}} w_i x_{ij} \left[y_i - \frac{\exp(\mathbf{x_i}^T \mathbf{\hat{B}})}{1+\exp(\mathbf{x_i}^T \mathbf{\hat{B}})} \right] = 0 \quad \text{for } j=1,\dots,p$$
 
 -   Variance estimation can be done via **linearization**
 
 <br>
 
+. . . 
+
 -   Logistic regression gives us **odds ratios**
 
 -   Most surveys are cross-sectional, and we can alternatively calculate
-**prevalence ratios**
-
+    **prevalence ratios**
 
 ## Example: Sampling Schools
 
@@ -245,24 +258,27 @@ samp <- read_dta("./datasets/apipop_clustersample_2stage.dta") %>%
 des <- svydesign(id = ~dnum, weight = ~wt, fpc = ~N, data=samp)
 ```
 
--   Example: 2-stage cluster sample of schools (SSUs) within school districts (PSUs)
-from Lecture 13
+-   Example: 2-stage cluster sample of schools (SSUs) within school
+    districts (PSUs) from Lecture 13
 
-      -   Stage 1: $n=38$ PSUs out of $N=757$ (districts) -- roughly 5% of total
+    -   Stage 1: $n=38$ PSUs out of $N=757$ (districts) -- roughly 5% of
+        total
 
-          -   Total of 246 SSUs (schools) across these 38 sampled PSUs (range: 1 to 36 per PSU)
+        -   Total of 246 SSUs (schools) across these 38 sampled PSUs
+            (range: 1 to 36 per PSU)
 
-      -   Stage 2: $m_i=2$ SSUs (schools) per PSU (district)
-      
-           -   For districts with only 1 school, select the 1 school (i.e., $m_i=M_i=1$)
+    -   Stage 2: $m_i=2$ SSUs (schools) per PSU (district)
 
-      -   Result is a total of 65 SSUs
+        -   For districts with only 1 school, select the 1 school (i.e.,
+            $m_i=M_i=1$)
+
+    -   Result is a total of 65 SSUs
 
 -   Interested in two binary measures:
 
-      -   High percent of English language learners (>25% ELL)
-      -   High API (performance) score (>700)
-      
+    -   High percent of English language learners (\>25% ELL)
+    -   High API (performance) score (\>700)
+
 ## Example (con't)
 
 ```{css, echo=FALSE}
@@ -293,11 +309,15 @@ svymean(~highell, design=des)
 
 -   Based on the sample, we estimate that:
 
-      -   `r scales::percent(as.numeric(svymean(~ highapi, des)), accuracy=0.1)` of schools have a high API score (API score >700)
+    -   `r scales::percent(as.numeric(svymean(~ highapi, des)), accuracy=0.1)`
+        of schools have a high API score (API score \>700)
 
-      -   `r scales::percent(as.numeric(svymean(~ highell, des)), accuracy=0.1)` of schools have a high percent of English language learners (>25% ELL)
-      
--   Let's see if having high API is associated with the percentage of ELL
+    -   `r scales::percent(as.numeric(svymean(~ highell, des)), accuracy=0.1)`
+        of schools have a high percent of English language learners
+        (\>25% ELL)
+
+-   Let's see if having high API is associated with the percentage of
+    ELL
 
 ## Example (con't)
 
@@ -313,8 +333,10 @@ crosstab_p <- svychisq(~ highapi + highell, des)$p.value
 svyby(~highapi, ~highell, design=des, svymean)
 ```
 
--   `r scales::percent(crosstab[1,2], accuracy=0.1)` of schools **without** a high percentage of ELL have high API
--   `r scales::percent(crosstab[2,2], accuracy=0.1)` of schools **with** a high percentage of ELL have high API
+-   `r scales::percent(crosstab[1,2], accuracy=0.1)` of schools
+    **without** a high percentage of ELL have high API
+-   `r scales::percent(crosstab[2,2], accuracy=0.1)` of schools **with**
+    a high percentage of ELL have high API
 
 **Chi-square test**
 
@@ -334,18 +356,22 @@ or <- round(p1/(1-p1) / (p2/(1-p2)),1)
 pr <- round(p1/p2,1)
 ```
 
--   Comparing schools **without** high percent ELL to schools **with** high
-percent ELL: 
+-   Comparing schools **without** high percent ELL to schools **with**
+    high percent ELL:
 
-      -   Odds ratio = OR = $\displaystyle \frac{.6615/(1-.6615)}{.1660/(1-.1660)} = \frac{1.954}{.1990} = 9.82$
-      -   Prevalence ratio = PR = $\displaystyle \frac{.6615}{.1660} = 3.98$
+    -   Odds ratio = OR =
+        $\displaystyle \frac{.6615/(1-.6615)}{.1660/(1-.1660)} = \frac{1.954}{.1990} = 9.82$
+    -   Prevalence ratio = PR =
+        $\displaystyle \frac{.6615}{.1660} = 3.98$
+
 -   Interpretations:
 
-    -   The odds of having high API for schools with a low percent of ELL
-        are `r or` times the odds for schools with a high percent of ELL.
-    
-    -   Schools with a low percent of ELL are `r pr` times as likely to have high
-        API as schools with a high percent of ELL.
+    -   The odds of having high API for schools with a low percent of
+        ELL are `r or` times the odds for schools with a high percent of
+        ELL.
+
+    -   Schools with a low percent of ELL are `r pr` times as likely to
+        have high API as schools with a high percent of ELL.
 
 -   Odds ratio feels "exaggerated" -- hard to interpret "odds"
 
@@ -353,8 +379,8 @@ percent ELL:
 
 ## Example (con't)
 
--   A survey-weighted logistic regression with high ELL
-as the only predictor produces same odds ratio:
+-   A survey-weighted logistic regression with high ELL as the only
+    predictor produces same odds ratio:
 
 ```{r}
 #| echo: TRUE
@@ -367,45 +393,53 @@ beta <- round(as.numeric(coef(svyglm(highapi ~ I(1-highell), family = binomial, 
 
 -   OR = $e^\text{`r beta`}$ = `r round(exp(beta),2)`
 
--   We can also perform a regression analysis that gives us **prevalence ratios (PRs)** instead of odds ratios
+-   We can also perform a regression analysis that gives us **prevalence
+    ratios (PRs)** instead of odds ratios
 
 ## Log-Binomial Regression
 
 -   In the **logistic** regression model, we have:
-$$\log \underbrace{\left(\frac{P(Y=1|X)}{1-P(Y=1|X)}\right)}_{\text{odds}} = \mathrm{logit}\left(P(Y=1|X)\right) = \beta_0 + \beta_1 X$$
+    $$\log \underbrace{\left(\frac{P(Y=1|X)}{1-P(Y=1|X)}\right)}_{\text{odds}} = \mathrm{logit}\left(P(Y=1|X)\right) = \beta_0 + \beta_1 X$$
 
 -   By using a different transformation of $P(Y=1|X)$, we have
-**log-binomial** regression:
-$$\log \underbrace{\left(P(Y=1|X)\right)}_{\text{"risk"}} = \beta_0 + \beta_1 X$$
+    **log-binomial** regression:
+    $$\log \underbrace{\left(P(Y=1|X)\right)}_{\text{prevalence or risk}} = \beta_0 + \beta_1 X$$
 
--   Note that this different transformation (different link function) does
-not have as nice theoretical properties, in the sense that $E(Y|X)$ is
-not bounded between 0 and 1 (what are the bounds?)
+-   Note that this different transformation (different link function)
+    does not have as nice theoretical properties, in the sense that
+    $E(Y|X)$ is not bounded between 0 and 1 (what are the bounds?)
 
--   However, unless $P(Y=1|X)$ is close to 0 or 1 it is generally well-behaved
+-   However, unless $P(Y=1|X)$ is close to 0 or 1 it is generally
+    well-behaved
 
 -   Interpretation:
 
-      -   $e^\beta_1$ = prevalence ratio (of $Y=1$) for a 1 unit increase in X
+    -   $e^{\beta_1}$ = **prevalence (of $Y=1$) ratio** for a 1 unit increase
+        in X
 
 ## Log-Binomial Regression with Survey Data
 
--   Same ideas apply for log-binomial regression as for logistic when you
-have survey data
+-   Same ideas apply for log-binomial regression as for logistic when
+    you have survey data
 
--   Trick for estimation is that you can use **Poisson** regression to obtain estimates (even though it is a log-**binomial** model)
+-   Trick for estimation is that you can use **Poisson** regression to
+    obtain estimates (even though it is a log-**binomial** model)
 
-      -   Note that in the [infinite population]{.alert} world, you must use [robust
-          standard errors]{.alert} (also called "sandwich estimators") for proper
-          variance estimation if you use Poisson regression to fit a
-          log-binomial model (otherwise too small)
+    -   Note that in the [**infinite population**]{.alert} world, you must
+        use [**robust standard errors**]{.alert} (also called "sandwich
+        estimators") for proper variance estimation if you use Poisson
+        regression to fit a log-binomial model (otherwise too small)
 
-      -   But in the [finite population]{.alert2} world (survey data), we are not relying on a distributional assumption, and [variances derived from linearization are fine]{.alert2} (using Poisson)
+    -   But in the [**finite population**]{.alert2} world (survey data), we
+        are not relying on a distributional assumption, and [**variances
+        derived from linearization are fine**]{.alert2} (using Poisson)
 
 <p>
 
--   Note: You may have used log-binomial regression before to estimate risk ratios -- this is the same method
-    -   Since survey data most often cross-sectional, we prefer to not use "risk" and instead use "prevalence"
+-   Note: You may have used log-binomial regression before to estimate
+    risk ratios -- this is the same method
+    -   Since survey data most often cross-sectional, we prefer to not
+        use "risk" and instead use "prevalence"
 
 ## Example (con't)
 
@@ -421,7 +455,6 @@ beta <- round(as.numeric(coef(svyglm(highapi ~ I(1-highell), family = poisson, d
 ```
 
 -   PR = $e^\text{`r beta`}$ = `r round(exp(beta),2)`
-
 
 ## Activity 21.1
 
