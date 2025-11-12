@@ -405,7 +405,7 @@ $$\begin{aligned}
 
 <br>
 
-. . . 
+. . .
 
 -   **Note #2: Survey-Weighted Regression is not Weighted Least Squares
     (WLS)**
@@ -488,7 +488,8 @@ fit_samp <- svyglm(api00 ~ ell + stype, design = des)
     -   Total of 65 SSUs (schools) sampled
 
 -   Regression of interest is predicting API (performance index) from
-    percent English language learners and school type (Elementary/Middle/High School)
+    percent English language learners and school type
+    (Elementary/Middle/High School)
 
     -   **Option 1:** DF = \# PSUs $-$ \# Strata = $38 - 1 = 37$
 
