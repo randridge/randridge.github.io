@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.7.33">
 
   <meta name="author" content="Generative AI acknowledgment: Google Gemini was used to assist in generating alt text for images">
-  <title>randridge.github.io – Miscellaneous Topics in Survey Sampling</title>
+  <title>randridge.github.io – Miscellaneous Topics in Survey Sampling (Part 2)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -128,7 +128,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title"><p>Miscellaneous Topics<br>
-in Survey Sampling</p></h1>
+in Survey Sampling (Part 2)</p></h1>
   <p class="subtitle">PUBHBIO 7225 Lecture 23</p>
 
 <div class="quarto-title-authors">
@@ -149,19 +149,14 @@ Generative AI acknowledgment: Google Gemini was used to assist in generating alt
 <div class="column" style="width:60%;">
 <p><strong>Topics</strong></p>
 <ul>
-<li><p>Data Suppression</p></li>
-<li><p>Combining Survey Waves</p></li>
+<li>Replicate Weights</li>
 </ul>
 </div><div class="column" style="width:40%;">
 <p><strong>Activities</strong></p>
 <ul>
-<li>23.1 Combining NSCH Waves (Years)</li>
+<li>None!</li>
 </ul>
 </div></div>
-<p><strong>Assignments</strong></p>
-<ul>
-<li>Quiz 5 (last one!) due Thursday 11/20/2025 11:59pm via Carmen</li>
-</ul>
 <p><strong>Additional Remaining Due Dates</strong></p>
 <ul>
 <li><p>Group Project <strong>slides</strong> due <u>Tuesday</u> 12/2 (week after Thanksgiving)</p></li>
@@ -169,202 +164,76 @@ Generative AI acknowledgment: Google Gemini was used to assist in generating alt
 <li><p>Group Project <strong>paper</strong> due Thursday 12/18 (last day of finals)</p></li>
 </ul>
 </section>
-<section id="data-suppression" class="slide level2 pause">
-<h2>Data Suppression</h2>
+<section id="variance-estimation-what-weve-done-so-far" class="slide level2">
+<h2>Variance Estimation: What We’ve Done So Far</h2>
+<p>In this class we have considered two possible methods for getting a variance estimate for point estimates:</p>
 <ul>
-<li><p>Surveys (based on probability samples) often have large sample sizes (relative to other study designs)</p></li>
-<li><p>However, some point estimates may still be quite variable (imprecise/large variance)</p>
-<ul>
-<li>For example, for a subpopulation that is small and was not purposely oversampled</li>
-</ul></li>
-<li><p>Additionally, some estimates based on small numbers of people, or estimates for population groups that are small, might be <strong>dangerous in terms of privacy</strong></p></li>
+<li><p>Exact variance formula (specific to survey design and what you’re estimating)</p></li>
+<li><p>Linearization (uses the exact variance formulas)</p></li>
 </ul>
-<blockquote>
-<p><span class="alert"><strong>Suppression</strong></span> = Purposefully withholding / not releasing a specific estimate (to the public)</p>
-</blockquote>
-<div class="fragment">
+<p>Potential difficulties with these approaches:</p>
 <ul>
-<li><p>Different statistical agencies use different rules about when to <em>suppress</em> results</p>
-<ul>
-<li><p>Possible Reason 1: limit risk of disclosure – i.e., that you could figure out who answered the survey</p></li>
-<li><p>Possible Reason 2: estimate is deemed “too variable” or “too unreliable”</p></li>
-</ul></li>
-</ul>
-</div>
-</section>
-<section id="slide-table" class="slide level2">
-<h2>Example – Published Analysis using BRFSS</h2>
-<p><em>Article: Racial and Ethnic Diﬀerences in Subjective Cognitive Decline — U.S., 2015–2020.</em><sup>1</sup> (<a href="http://dx.doi.org/10.15585/mmwr.mm7210a1">link</a>)</p>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="./figures/suppression_example_mmwr.png" class="quarto-figure quarto-figure-center" style="width:50.0%" alt="A detailed table titled ‘Prevalence of subjective cognitive decline among adults aged >= 45 years, by race and ethnicity and selected characteristics - Behavioral Risk Factor Surveillance System, United States, 2015-2020.’ The table presents data for the total population and breakdowns by race and ethnicity: American Indian or Alaska Native, Asian or Pacific Islander, Black or African American, White, and Hispanic or Latino. For each characteristic listed on the left—Overall, Unadjusted, Age-adjusted, Sex, Age group, Education level, Marital status, Health insurance status, and Has personal doctor—the table provides the percentage of adults reporting subjective cognitive decline and the corresponding 95% confidence interval for each racial/ethnic group."></p>
-</figure>
-</div>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>MMWR Morb Mortal Wkly Rep 2023;72:249–255.</p></li></ol></aside></section>
-<section id="data-suppression-rules-examples" class="slide level2 pause">
-<h2>Data Suppression Rules: Examples</h2>
-<ul>
-<li><p><span class="alert"><strong>Population Thresholds</strong></span></p>
-<ul>
-<li><p>Only release estimates for areas/population groups that exceed a certain size</p>
-<ul>
-<li>Example: <em>Areas or groups of 65,000 or more are eligible for estimates to be released</em><br>
-(American Community Survey, ACS)</li>
-</ul></li>
-</ul></li>
-</ul>
-<p>
-</p><div class="fragment">
-<ul>
-<li><p><span class="alert"><strong>Restrictions on Numerators and/or Denominators of Proportions</strong></span></p>
-<ul>
-<li><p>Based on the <strong>unweighted</strong> sample, suppress estimates with too few cases in the numerator or denominator of a proportion</p>
-<ul>
-<li><p>Example: <em>Suppress estimates based on proportions with numerator &lt;10</em><br>
-(National Crime Victimization Survey, NCVS)</p></li>
-<li><p>Example: <em>Suppress estimates based on proportions with denominator &lt;30</em><br>
-(National Survey of Family Growth, NSFG)</p></li>
-</ul></li>
-</ul></li>
-</ul>
-</div>
-</section>
-<section id="data-suppression-rules-examples-cont" class="slide level2">
-<h2>Data Suppression Rules: Examples (con’t)</h2>
-<ul>
-<li><p><span class="alert"><strong>Relative Standard Error (RSE)</strong></span> = SE of estimate, divided by estimate, times 100</p>
-<ul>
-<li><p><span class="math inline">\(\displaystyle{RSE = 100 \times \frac{\widehat{SE}(\bar{y})}{|\bar{y}|}}\)</span></p></li>
-<li><p>Usually a cutoff (threshold) is chosen and estimates with <strong>RSE above the threshold are suppressed</strong></p>
-<ul>
-<li><p>Example: <em>Suppress estimates with RSE &gt;30%</em><br>
-(National Health Interview Survey, NHIS)</p></li>
-<li><p>Example: <em>BRFSS results in the <a href="#/slide-table">MMWR Table</a>: Suppress estimates with RSE &gt; 30%</em></p></li>
-</ul></li>
-<li><p>Sometimes RSE is modified for proportions: <span class="math display">\[\frac{\widehat{SE}(\hat{p})/\hat{p}}{-\mathrm{ln}(\hat{p})}&gt;.175\]</span> when <span class="math inline">\(\hat{p} \le\)</span> 0.5</p></li>
-</ul></li>
+<li><p>Linearization can only be used for smooth statistics – means, but not medians</p></li>
+<li><p>Linearization requires large sample size (not usually a problem for surveys)</p></li>
+<li><p>Linearization requires you to have a formula for means/totals under the specific design, which often leads to approximations such as ultimate PSU analysis – ignoring second stage sampling</p></li>
+<li><p>Linearization requires you to derive a unique formula for each statistic (maybe not so problematic in the world of computing)</p></li>
 </ul>
 </section>
-<section id="rse-why-modify-for-p-0.5" class="slide level2">
-<h2>RSE: Why Modify for p &lt; 0.5?</h2>
-<p>A visualization of RSE (for an SRS) as a function of p is helpful:</p>
-
-<img data-src="PUBHBIO7225_L23_misc_files/figure-revealjs/unnamed-chunk-1-1.png" alt="A plot showing two curves, RSE and RSE divided by the negative natural log of the proportion, against a Proportion value from 0 to 1. The RSE curve spikes steeply near 0, whereas the RSE/-ln(p) does not have as steep an increase near 0." width="960" class="r-stretch"><p>(n is set to 1,000 for the purposes of this visualization)</p>
+<section id="resampling-methods" class="slide level2">
+<h2>Resampling Methods</h2>
+<p>Alternative variance estimation method: <strong>resampling</strong> – mimic taking lots of samples, using your one sample</p>
+<p>Three main approaches used:</p>
+<ul>
+<li><p>Balanced Repeated Replication (BRR)</p></li>
+<li><p>Jackknife (lots of variations)</p></li>
+<li><p>Bootstrap (also quite a few variations)</p></li>
+</ul>
+<p>Formally, resampling methods re-create the sample for each replicate</p>
+<ul>
+<li>Simplest case: treat your sample of size <span class="math inline">\(n\)</span> like a population, and take an SRSWR of size <span class="math inline">\(n\)</span> from it (that “with replacement” part being very important!)</li>
+</ul>
 </section>
-<section id="combining-survey-waves" class="slide level2 pause">
-<h2>Combining Survey Waves</h2>
+<section id="resampling-methods-cont" class="slide level2">
+<h2>Resampling Methods (con’t)</h2>
+<p>A teeny bit of math to illustrate how resampling methods work:</p>
 <ul>
-<li><p>Many surveys are repeated (e.g., yearly, every 2 years) to monitor trends</p></li>
-<li><p>Combining <strong>across survey waves</strong> can also be used to estimate characteristics from small subpopulations</p></li>
-<li><p>Generally speaking, these are two different possible goals of combining survey waves:</p></li>
+<li><p>Population quantity we want to estimate: <span class="math inline">\(\theta\)</span> (e.g., a mean of <span class="math inline">\(y\)</span> for a finite population)</p></li>
+<li><p>Point estimate: <span class="math inline">\(\hat{\theta}\)</span></p></li>
+<li><p>Via one of the resampling methods, we create <span class="math inline">\(R\)</span> resampled datasets</p></li>
+<li><p>Variance estimate from resampling method: <span class="math inline">\(\displaystyle \widehat{V}(\hat{\theta}) = \frac{A}{R}\sum_{r=1}^R \left(\hat{\theta}^{(r)} - \hat\theta \right)^2\)</span><br>
+where <span class="math inline">\(A\)</span> is a scaling constant, depends on the resampling method</p></li>
 </ul>
-<div class="fragment">
-<ol type="1">
-<li><p>Estimate a <em>change</em> in a mean/proportion and test the significance of the change</p>
-<ul>
-<li>Example: Has the proportion of children aged 3-17 diagnosed with anxiety changed from 2017 to 2020? What is the estimate of the change?</li>
-</ul></li>
-</ol>
-</div>
-<div class="fragment">
-<ol start="2" type="1">
-<li><p>Estimate a mean/proportion using data from multiple years <em>assuming that the mean/proportion has not changed over time</em></p>
-<ul>
-<li>Example: What is the (average) proportion of children aged 3-17 with an Autism Spectrum Disorder in the years 2017-2020?</li>
-</ul></li>
-</ol>
-</div>
-<div class="fragment">
-<ul>
-<li><p>Assuming that <strong>a new (cross-sectional) sample is taken each wave</strong> (i.e., not a panel/longitudinal survey), samples from wave to wave are <strong>independent</strong></p></li>
-<li><p>Thus combining across waves is straightfoward (it is what was done to produce <a href="#/slide-table">the BFRSS table</a>)</p></li>
-</ul>
-</div>
 </section>
-<section id="estimating-changes" class="slide level2 pause">
-<h2>Estimating Changes</h2>
+<section id="replicate-weights-cont" class="slide level2">
+<h2>Replicate Weights (con’t)</h2>
 <ul>
-<li>As long as the samples each year/wave are drawn independently:</li>
+<li><p>We don’t actually have to create lots of datasets though…</p></li>
+<li><p>We can accomplish this via manipulation of the sampling weights!</p></li>
+<li><p>For all of these methods, <strong>replicate weights</strong> are created that capture the variability and allow end users to calculate standard errors without knowing design information, thus reducing disclosure risk</p></li>
 </ul>
-<table class="caption-top">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Year</th>
-<th style="text-align: left;">True Population Value</th>
-<th style="text-align: left;">Estimate</th>
-<th style="text-align: left;">Variance of Estimate</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">1</td>
-<td style="text-align: left;"><span class="math inline">\(\theta_1\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(\hat{\theta}_1\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(V(\hat{\theta}_1)\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">2</td>
-<td style="text-align: left;"><span class="math inline">\(\theta_2\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(\hat{\theta}_2\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(V(\hat{\theta}_2)\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Change</td>
-<td style="text-align: left;"><span class="math inline">\(\Delta = \theta_2-\theta_1\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(\hat{\Delta}=\hat{\theta}_2-\hat{\theta}_1\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(V(\hat{\Delta}) = V(\hat{\theta}_1) + V(\hat{\theta}_2)\)</span></td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><p>Since <span class="math inline">\(\hat{\theta}_1\)</span> and <span class="math inline">\(\hat{\theta}_2\)</span> are <strong>independent</strong>, there is no covariance term!</p></li>
-<li><p>Calculate estimates in each year/wave, subtract to estimate the change, add the (estimated) variances to obtain the variance of the change, and test for change…</p></li>
-</ul>
-<div class="fragment">
-<p>…or you can <strong>pool the data from the waves</strong> and let software do the analysis for you!</p>
-<ul>
-<li>Benefit to using software: can conduct more sophisticated analyses (e.g., test for linear change trend, adjust for covariates, etc.)</li>
-</ul>
-</div>
 </section>
-<section id="combining-waves-of-the-same-survey" class="slide level2 pause">
-<h2>Combining Waves of the Same Survey</h2>
+<section id="replicate-weights-cont-1" class="slide level2">
+<h2>Replicate Weights (con’t)</h2>
+<p>Pros:</p>
 <ul>
-<li>Two things to be careful about when pooling survey years:</li>
+<li><p>Can suppress design information (e.g., strata, PSUs)</p></li>
+<li><p>BRR and Bootstrap work for any estimate (including non-smooth statistics)</p></li>
 </ul>
-<ol type="1">
-<li><p>Is the design the same in each year? E.g., strata, clustering, etc.</p>
+<p>Cons:</p>
 <ul>
-<li><p>For many large surveys the answer will be yes – precisely because they want to facilitate trend analyses</p></li>
-<li><p>If differences in strata definitions, may have to redefine to align correctly (e.g., “stratum 1”, “stratum 2” for all waves)</p></li>
-</ul></li>
-</ol>
-<div class="fragment">
-<ol start="2" type="1">
-<li><p>The sample weights – rescale or not rescaled?</p>
+<li><p>Computationally intensive</p></li>
+<li><p>Post-survey adjustments (e.g., nonresponse weighting adjustments, poststratification) must be done for all sets of weights</p></li>
+<li><p>BRR requires a very specific design: 2 PSUs per stratum</p></li>
+</ul>
+<p>For publicly available datasets, agencies decide to either:</p>
 <ul>
-<li><p>Estimating changes in means/proportions – does not matter whether you rescale weights or not, estimates identical</p></li>
-<li><p>Pooled estimates (e.g., prevalence in 2017-2020) – rescale weights so sum is the average population size by dividing by number of waves being combined</p>
-<ul>
-<li>Technically, prevalence estimates will be identical with/without rescaling – but population counts will only be correct if you rescale</li>
-</ul></li>
-</ul></li>
-</ol>
-</div>
-</section>
-<section id="activity-23.1" class="slide level2">
-<h2>Activity 23.1</h2>
-<p>Combining NSCH Waves (Years)</p>
+<li><p>Release design information (so you can use linearization)</p></li>
+<li><p>Release masked (“pseudo”) design information (so you can use linearization)</p></li>
+<li><p>Release no design information and give you replicate weights</p></li>
+</ul>
 
 
 </section>
-
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
@@ -580,44 +449,6 @@ Generative AI acknowledgment: Google Gemini was used to assist in generating alt
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

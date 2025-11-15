@@ -123,14 +123,14 @@
     "href": "7225notes.html",
     "title": "PUBHBIO 7225 Lecture Slides",
     "section": "",
-    "text": "Lecture 1: Course Intro: Vocabulary of Sampling\nLecture 2: Survey Modes and the Total Survey Error Framework\nLecture 3: Sampling Distributions"
+    "text": "Lecture 1: Course Intro: Vocabulary of Sampling\nLecture 2: Survey Modes and the Total Survey Error Framework\nLecture 3: Sampling Distributions\nLecture 4: Simple Random Sampling\nLecture 5: Simple Random Sampling: Software (Stata, R)\nLecture 6: Stratified Sampling\nLecture 7: Stratified Sampling: Allocation Methods\nLecture 8: Stratified Sampling: Software (Stata, R)\nLecture 9: Stratified Sampling: Sample Size and DEFF\nLecture 10: Poststratification\nLecture 11: Cluster Sampling: Intro and One-Stage\nLecture 12: Cluster Sampling: One-stage with Unequal Size Clusters\nLecture 13: Two-stage Cluster Sampling\nLecture 14: Probability Proportional to Size Sampling\nLecture 15: Complex Designs\nLecture 16: Domain Estimation\nLecture 17: Nonresponse: Intro to Missing Data\nLecture 18: Weighting Adjustments for Nonresponse in Surveys\nLecture 19: Imputation for Nonresponse in Surveys\nLecture 20: Linear Regression with Survey Data\nLecture 21: Logistic/Log-Binomial Regression with Survey Data"
   },
   {
     "objectID": "7225notes.html#lecture-slides-for-pubhbio-7225-autumn-2025",
     "href": "7225notes.html#lecture-slides-for-pubhbio-7225-autumn-2025",
     "title": "PUBHBIO 7225 Lecture Slides",
     "section": "",
-    "text": "Lecture 1: Course Intro: Vocabulary of Sampling\nLecture 2: Survey Modes and the Total Survey Error Framework\nLecture 3: Sampling Distributions"
+    "text": "Lecture 1: Course Intro: Vocabulary of Sampling\nLecture 2: Survey Modes and the Total Survey Error Framework\nLecture 3: Sampling Distributions\nLecture 4: Simple Random Sampling\nLecture 5: Simple Random Sampling: Software (Stata, R)\nLecture 6: Stratified Sampling\nLecture 7: Stratified Sampling: Allocation Methods\nLecture 8: Stratified Sampling: Software (Stata, R)\nLecture 9: Stratified Sampling: Sample Size and DEFF\nLecture 10: Poststratification\nLecture 11: Cluster Sampling: Intro and One-Stage\nLecture 12: Cluster Sampling: One-stage with Unequal Size Clusters\nLecture 13: Two-stage Cluster Sampling\nLecture 14: Probability Proportional to Size Sampling\nLecture 15: Complex Designs\nLecture 16: Domain Estimation\nLecture 17: Nonresponse: Intro to Missing Data\nLecture 18: Weighting Adjustments for Nonresponse in Surveys\nLecture 19: Imputation for Nonresponse in Surveys\nLecture 20: Linear Regression with Survey Data\nLecture 21: Logistic/Log-Binomial Regression with Survey Data"
   },
   {
     "objectID": "about.html",
@@ -2958,7 +2958,7 @@
     "href": "PUBHBIO7225_L14_ppsSampling.html#problems-with-these-variance-estimators-cont",
     "title": "Probability Proportional\nto Size Sampling",
     "section": "Problems With These Variance Estimators (con’t)",
-    "text": "Problems With These Variance Estimators (con’t)\n\nFor my PPSWOR sample that contains schools 14 and 24:\n\nUsing with-replacement variance estimation\nNotice there is no FPC for PPS sampling\n\n\n\ndes.ppswor &lt;- svydesign(id = ~1, weight = ~wt, data=samp)\nsvytotal(~totfemale, des.ppswor)\n\n           total     SE\ntotfemale 7482.1 54.728\n\n\n\n\\(\\hat{t}_{HT} = 7482\\) (same as the hand-calculation)\n\\(\\widehat{SE}_{WR}(\\hat{t}_{HT}) = 54.7\\)\nCompare to without-replacement variance estimation:\n\n\\(\\widehat{SE}_{HT}(\\hat{t}_{HT}) = \\text{N/A}\\) (variance estimate is negative!)\n\\(\\widehat{SE}_{SYG}(\\hat{t}_{HT}) = 53.1\\) (slightly smaller than with-replacement estimate)"
+    "text": "Problems With These Variance Estimators (con’t)\n\nFor my PPSWOR sample that contains schools 14 and 24:\n\nUsing with-replacement variance estimation\nNotice there is no FPC for PPS sampling\n\n\n\ndes.ppswor &lt;- svydesign(id = ~1, weight = ~wt, data=samp_pps)\nsvytotal(~totfemale, des.ppswor)\n\n           total     SE\ntotfemale 7482.1 54.728\n\n\n\n\\(\\hat{t}_{HT} = 7482\\) (same as the hand-calculation)\n\\(\\widehat{SE}_{WR}(\\hat{t}_{HT}) = 54.7\\)\nCompare to without-replacement variance estimation:\n\n\\(\\widehat{SE}_{HT}(\\hat{t}_{HT}) = \\text{N/A}\\) (variance estimate is negative!)\n\\(\\widehat{SE}_{SYG}(\\hat{t}_{HT}) = 53.1\\) (slightly smaller than with-replacement estimate)"
   },
   {
     "objectID": "PUBHBIO7225_L14_ppsSampling.html#activity-14.1-part-3",
@@ -3063,35 +3063,35 @@
     "href": "PUBHBIO7225_L15_complexDesigns.html#complex-surveys",
     "title": "Complex Designs",
     "section": "Complex Surveys",
-    "text": "Complex Surveys\n\nGenerally speaking, most surveys combine multiple of the features we have covered:\n\nSimple random sampling (without replacement)\nStratification\nCluster sampling\nProbability Proportional to Size sampling\n\nMany large-scale surveys are stratified multistage designs where:\n\nPSUs are grouped into strata\nPSUs are sampled (often via PPS) independently within each stratum\nSSUs are sampled (often via SRS) from within each selected PSU\nTertiary sampling units (TSUs) are sampled from within each selected SSU\n…\n\nTechnically, you could assemble the various formulae we have used for each of these different sampling techniques to (hand-)calculate point estimates and variance estimates for population-level quantities.\n\nBut obviously nobody does this anymore! Thank you, computers."
+    "text": "Complex Surveys\n\nGenerally speaking, most surveys combine multiple of the features we have covered:\n\nSimple random sampling (without replacement)\nStratification\nCluster sampling\nProbability Proportional to Size sampling\n\n\n\n\nMany large-scale surveys are stratified multistage designs where:\n\nPSUs are grouped into strata\nPSUs are sampled (often via PPS) independently within each stratum\nSSUs are sampled (often via SRS) from within each selected PSU\nTertiary sampling units (TSUs) are sampled from within each selected SSU… etc.\n\n\n\n\n\nTechnically, you could assemble the various formulae we have used for each of these different sampling techniques to (hand-)calculate point estimates and variance estimates for population-level quantities.\n\nBut obviously nobody does this anymore! Thank you, computers."
   },
   {
     "objectID": "PUBHBIO7225_L15_complexDesigns.html#example-estimating-use-of-bed-nets-in-rural-gambia",
     "href": "PUBHBIO7225_L15_complexDesigns.html#example-estimating-use-of-bed-nets-in-rural-gambia",
     "title": "Complex Designs",
     "section": "Example: Estimating Use of Bed Nets in Rural Gambia",
-    "text": "Example: Estimating Use of Bed Nets in Rural Gambia\nGoal: Estimate percent of beds using netting (Malaria prevention) in rural Gambia\n(D’Alessandro et al., (1994). Nationwide survey of bednet use in rural Gambia. Bulletin of the World Health Organization, 72, 391-394.)\n\n\nStage 1:\n\nStratify districts by region: Western, Central, Eastern\nTake a PPS sample of 5 districts within each stratum, with population size in each district as the size variable (from national census data)\n\nStage 2:\n\nStratify villages by whether or not they had a primary health care (PHC) facility\nTake a PPS sample of 2 villages within each stratum, with population size in each village as the size variable (from national census data)\n\nStage 3:\n\nSelect 6 compounds per village via SRS\nRecord the number of beds and how many had nets within each compound\n\n\nPSU = ? SSU = ? TSU = ?"
+    "text": "Example: Estimating Use of Bed Nets in Rural Gambia\nGoal: Estimate percent of beds using netting (Malaria prevention) in rural Gambia\n(D’Alessandro et al., (1994). Nationwide survey of bednet use in rural Gambia. Bulletin of the World Health Organization, 72, 391-394.)\n\n\nStage 1:\n\nStratify districts by region: Western, Central, Eastern\nTake a PPS sample of 5 districts within each stratum, with population size in each district as the size variable (from national census data)\n\n\n\n\nStage 2:\n\nStratify villages by whether or not they had a primary health care (PHC) facility\nTake a PPS sample of 2 villages within each stratum, with population size in each village as the size variable (from national census data)\n\n\n\n\n\nStage 3:\n\nSelect 6 compounds per village via SRS\nRecord the number of beds and how many had nets within each compound\n\n\n\n\nPSU = ? SSU = ? TSU = ?"
   },
   {
     "objectID": "PUBHBIO7225_L15_complexDesigns.html#example-cont",
     "href": "PUBHBIO7225_L15_complexDesigns.html#example-cont",
     "title": "Complex Designs",
     "section": "Example (con’t)",
-    "text": "Example (con’t)\nLet’s draw this design:"
+    "text": "Example (con’t)\n\n\n\n\nMy 3 sampled regions (PSUs) are →\nTotal population size = 10,000\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRegion\nPopulation\n# Young\n# Older\nSample\n# Young\n# Older\n\n\n\n\n1\n1000\n800\n200\n20\n10\n10\n\n\n2\n850\n400\n450\n20\n10\n10\n\n\n3\n150\n110\n40\n20\n10\n10\n\n\n\n\n\n\n\nFor a Young person in Region (PSU) 1\n\nFirst stage (PPS):   \\(P(\\text{PSU }1\\text{ selected}) = \\pi_i = n \\psi_i = n \\frac{M_i}{\\sum_{i=1}^N M_i} = 3 \\times \\frac{1000}{10000} = 0.3\\)\nSecond stage (SRS within stratum): \\[P(\\text{Young person }j\\text{ selected }| \\text{ PSU }1\\text{ selected})  =  \\pi_{j|1}^{Y} = \\frac{\\text{\\# of Younger people selected in PSU } 1}{\\text{\\# of Younger people in PSU }1} = \\frac{10}{800} = 0.0125\\]\nOverall selection probability = product of first and second stage probabilities \\[P(\\text{Young person }j\\text{ in PSU }1\\text{ selected}) = \\pi_{1j}^{Y} = \\pi_1 \\times \\pi_{j|1}^{Y} = 0.3 \\times 0.0125 = 0.00375\\]\nSampling Weight:   \\(\\displaystyle w_{1j}^{Y} = \\frac{1}{\\pi_{1j}^{Y}} = \\frac{1}{0.00375} = 266.67\\)"
   },
   {
     "objectID": "PUBHBIO7225_L15_complexDesigns.html#example-cont-1",
     "href": "PUBHBIO7225_L15_complexDesigns.html#example-cont-1",
     "title": "Complex Designs",
     "section": "Example (con’t)",
-    "text": "Example (con’t)\n\nTo estimate the total number of beds in rural Gambia that use netting, start from the last stage and work backwards:\n\n\nRecord total number of beds with nets for each compound (TSU)\nEstimate total number of beds with nets for each village (SSU) by: (# compounds in village) \\(\\times\\) (average # beds w/nets per compound)\nEstimate the total number of beds with nets for PHC villages by: \\[\\sum_{\\text{selected villages in PHC stratum}} \\frac{\\text{estimated total number of beds for the village}}{\\text{probability of selection from PPS}}\\] Repeat for non-PHC villages\nEstimate the total number of beds with nets in each district (PSU) by: \\[\\text{Estimated total in PHC villages} + \\text{Estimated total in non-PHC villages}\\]\nEstimate the total number of beds with nets in Eastern region by: \\[\\sum_{\\text{selected districts in Eastern stratum}} \\frac{\\text{estimated total number of beds for the district}}{\\text{probability of selection from PPS}}\\] Repeat for Central and Western regions\nEstimate overall total by: \\(\\text{Estimated total in Eastern} + \\text{Estimated total in Central} + \\text{Estimated total in Western}\\)"
+    "text": "Example (con’t)\n\n\n\n\nMy 3 sampled regions (PSUs) are →\nTotal population size = 10,000\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRegion\nPopulation\n# Young\n# Older\nSample\n# Young\n# Older\n\n\n\n\n1\n1000\n800\n200\n20\n10\n10\n\n\n2\n850\n400\n450\n20\n10\n10\n\n\n3\n150\n110\n40\n20\n10\n10\n\n\n\n\n\n\n\nLet’s work through another one:"
   },
   {
     "objectID": "PUBHBIO7225_L15_complexDesigns.html#weights-the-easier-way",
     "href": "PUBHBIO7225_L15_complexDesigns.html#weights-the-easier-way",
     "title": "Complex Designs",
     "section": "Weights: The Easier Way",
-    "text": "Weights: The Easier Way\n\nWe can calculate sampling weights to avoid the (ugly) process of working backwards through the stages to get to the ultimate total\nFortunately, the principles of conditional probability make this straightforward\nStart with the probability of selection: \\[\\begin{aligned}\nP(\\text{TSU }k&\\text{ in SSU }j\\text{ in PSU }i\\text{ selected}) = \\\\\n&= P(\\text{PSU }i\\text{ selected}) \\times P(\\text{SSU }j\\text{ selected }|\\text{ PSU }i\\text{ selected}) \\times P(\\text{TSU }k\\text{ selected }|\\text{ PSU }i\\text{ and SSU }j\\text{ selected})\\\\\n\\pi_{ijk} &= \\pi_{i} \\times \\pi_{j|i} \\times \\pi_{k|ij}\n\\end{aligned}\\]\nFrom here obtain the weights: \\[w_{ijk} = \\frac{1}{P(\\text{TSU }k\\text{ in SSU }j\\text{ in PSU }i\\text{ selected})} = \\frac{1}{\\pi_{ijk}}\\]\nThese weights (inverse of selection probabilities) are often called the base weights\nOften, post-survey adjustments to the weights are done to provide the final weights used for analysis\n\nPoststratification, adjustments for nonresponse, other adjustments (e.g., for under- or over-coverage)"
+    "text": "Weights: The Easier Way\n\nWe can calculate sampling weights to avoid the (ugly) process of working backwards through the stages to get to the ultimate total\nFortunately, the principles of conditional probability make this straightforward\nStart with the probability of selection: \\[\\begin{aligned}\nP(\\text{TSU }k&\\text{ in SSU }j\\text{ in PSU }i\\text{ selected}) = \\\\\n&= P(\\text{PSU }i\\text{ selected}) \\times P(\\text{SSU }j\\text{ selected }|\\text{ PSU }i\\text{ selected}) \\times P(\\text{TSU }k\\text{ selected }|\\text{ PSU }i\\text{ and SSU }j\\text{ selected})\\\\\n\\pi_{ijk} &= \\pi_{i} \\times \\pi_{j|i} \\times \\pi_{k|ij}\n\\end{aligned}\\]\n\n\n\nFrom here obtain the weights: \\[w_{ijk} = \\frac{1}{P(\\text{TSU }k\\text{ in SSU }j\\text{ in PSU }i\\text{ selected})} = \\frac{1}{\\pi_{ijk}}\\]\n\n\n\n\nThese weights (inverse of selection probabilities) are often called the base weights\nOften, post-survey adjustments to the weights are done to provide the final weights used for analysis\n\nPoststratification, adjustments for nonresponse, other adjustments (e.g., for under- or over-coverage)"
   },
   {
     "objectID": "PUBHBIO7225_L15_complexDesigns.html#weights-cont",
@@ -3119,7 +3119,7 @@
     "href": "PUBHBIO7225_L15_complexDesigns.html#example-cont-2",
     "title": "Complex Designs",
     "section": "Example (con’t)",
-    "text": "Example (con’t)\n\n\n\nMy 3 sampled regions (PSUs) are →\nTotal population size = 10,000\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPopulation Size\n\n\nSample Size\n\n\n\n\n\n\nRegion\nTotal\nYounger\nOlder\nTotal\nYounger\nOlder\n\n\n1\n1000\n800\n200\n20\n10\n10\n\n\n2\n850\n400\n450\n20\n10\n10\n\n\n3\n150\n110\n40\n20\n10\n10\n\n\n\n\n\n\n\nFor a Young person in Region (PSU) 1\n\nFirst stage (PPS):   \\(P(\\text{PSU }1\\text{ selected}) = \\pi_i = n \\psi_i = n \\frac{M_i}{\\sum_{i=1}^N M_i} = 3 \\times \\frac{1000}{10000} = 0.3\\)\nSecond stage (SRS within stratum): \\[P(\\text{Young person }j\\text{ selected }| \\text{ PSU }1\\text{ selected})  =  \\pi_{j|1}^{Y} = \\frac{\\text{\\# of Younger people selected in PSU } 1}{\\text{\\# of Younger people in PSU }1} = \\frac{10}{800} = 0.0125\\]\nOverall selection probability = product of first and second stage probabilities \\[P(\\text{Young person }j\\text{ in PSU }1\\text{ selected}) = \\pi_{1j}^{Y} = \\pi_1 \\times \\pi_{j|1}^{Y} = 0.3 \\times 0.0125 = 0.00375\\]\nSampling Weight:   \\(\\displaystyle w_{1j}^{Y} = \\frac{1}{\\pi_{1j}^{Y}} = \\frac{1}{0.00375} = 266.67\\)"
+    "text": "Example (con’t)\n\nYou can alternatively calculate the weights for each stage and multiply them, because (for a general case): \\[\\pi_{ijk} = \\pi_{i} \\times \\pi_{j|i} \\times \\pi_{k|ij}\\] and thus \\[w_{ijk} = \\frac{1}{\\pi_{ijk} }= \\frac{1}{\\pi_{i} \\times \\pi_{j|i} \\times \\pi_{k|ij}} = \\frac{1}{\\pi_{i}} \\times \\frac{1}{\\pi_{j|i}} \\times \\frac{1}{\\pi_{k|ij}} = w_i \\times w_{j|i} \\times w_{k|ij}\\]\nFor the example, Young person in Region (PSU) 1:\n\nPSU 1:   \\(w_1 = \\frac{1}{\\pi_1} = \\frac{1}{0.3} = 3.3333\\)\nYoung person \\(j\\) within PSU 1: \\(w_{j|1}^{Y} = \\frac{1}{\\pi_{j|1}^{Y}} = \\frac{1}{0.0125} = 80\\)\nOverall weight: \\(w_{1j}^{Y}=w_1\\times w_{j|1}^{Y} = 3.3333 \\times 80 = 266.67\\) (same answer)"
   },
   {
     "objectID": "PUBHBIO7225_L15_complexDesigns.html#example-cont-3",
@@ -3133,7 +3133,7 @@
     "href": "PUBHBIO7225_L15_complexDesigns.html#estimating-a-total-or-mean-in-a-complex-design",
     "title": "Complex Designs",
     "section": "Estimating a Total (or Mean) in a Complex Design",
-    "text": "Estimating a Total (or Mean) in a Complex Design\n\nSuppose we have a complex design involving:\n\nDividing the population into \\(H\\) strata: \\(h=1,\\dots,H\\)\nSampling \\(n_h\\) PSUs within stratum \\(h\\): \\(i=1,\\dots,n_h\\)\nSampling \\(m_{hi}\\) SSUs within PSU \\(i\\) within stratum \\(h\\): \\(j=1,\\dots, m_{hi}\\)\n\\(w_{hij}\\) = weight for SSU \\(j\\) in PSU \\(i\\) in stratum \\(h\\)\n\\(y_{hij}\\) = outcome for SSU \\(j\\) in PSU \\(i\\) in stratum \\(h\\)\n\nEstimated total = sum up the product of the sampling weights \\((w_{hij})\\) and the outcome \\((y_{hij})\\) over all the sampled SSUs within each sampled PSU within each stratum: \\[\\hat{t}_{HT} = \\underbrace{\\sum_{h=1}^H}_{\\text{strata }} \\underbrace{\\sum_{i=1}^{n_h}}_{\\text{ PSUs }} \\underbrace{\\sum_{i=1}^{m_{hi}}}_{\\text{ SSUs }} w_{hij} y_{hij}\\]\nEstimated mean would use the ratio estimator or the unbiased estimator\n\nWhat would the denominator for each estimator be?"
+    "text": "Estimating a Total (or Mean) in a Complex Design\n\nSuppose we have a complex design involving:\n\nDividing the population into \\(H\\) strata: \\(h=1,\\dots,H\\)\nSampling \\(n_h\\) PSUs within stratum \\(h\\): \\(i=1,\\dots,n_h\\)\nSampling \\(m_{hi}\\) SSUs within PSU \\(i\\) within stratum \\(h\\): \\(j=1,\\dots, m_{hi}\\)\n\n\\(w_{hij}\\) = weight for SSU \\(j\\) in PSU \\(i\\) in stratum \\(h\\)\n\\(y_{hij}\\) = outcome for SSU \\(j\\) in PSU \\(i\\) in stratum \\(h\\)\nEstimated total = sum up the product of the sampling weights \\((w_{hij})\\) and the outcome \\((y_{hij})\\) over all the sampled SSUs within each sampled PSU within each stratum: \\[\\hat{t}_{HT} = \\underbrace{\\sum_{h=1}^H}_{\\text{strata }} \\underbrace{\\sum_{i=1}^{n_h}}_{\\text{ PSUs }} \\underbrace{\\sum_{i=1}^{m_{hi}}}_{\\text{ SSUs }} w_{hij} y_{hij}\\]\nEstimated mean would use the ratio estimator or the unbiased estimator – what are the denominators?"
   },
   {
     "objectID": "PUBHBIO7225_L15_complexDesigns.html#activity-15.1",
@@ -3147,7 +3147,7 @@
     "href": "PUBHBIO7225_L15_complexDesigns.html#example-calculating-sampling-weights",
     "title": "Complex Designs",
     "section": "Example: Calculating Sampling Weights",
-    "text": "Example: Calculating Sampling Weights\n\nSampling weights only need to be calculated for the units that end up in the sample\nSampling weights for units not in the sample are 0\n\n\n\nSuppose I have the following two-stage design:\n\nStage 1: select 3 geographic regions via PPS (based on population size)\n\nThe total population size across all PSUs is 10,000\n\nStage 2: stratify people in the regions into two strata: younger (19-64) and older (65+) and select 10 people in each stratum via SRS\n\nIn this design, PSU = geographic region and SSU = person\nTotal sample size = 3 regions \\(\\times\\) 2 strata \\(\\times\\) 10 people per stratum = 60\nLet’s calculate the sampling weights for the 60 sampled people"
+    "text": "Example: Calculating Sampling Weights\n\nSampling weights only need to be calculated for the units that end up in the sample\nSampling weights for units not in the sample are 0\n\n\n\n\nSuppose I have the following two-stage design:\n\nStage 1: select 3 geographic regions via PPS (based on population size)\n\nThe total population size across all PSUs is 10,000\n\nStage 2: stratify people in the regions into two strata: younger (19-64) and older (65+)\n\nSelect 10 people in each stratum via SRS\n\n\n\n\n\n\n\nIn this design, PSU = geographic region and SSU = person\nTotal sample size = 3 regions \\(\\times\\) 2 strata \\(\\times\\) 10 people per stratum = 60\nLet’s calculate the sampling weights for the 60 sampled people"
   },
   {
     "objectID": "PUBHBIO7225_L15_complexDesigns.html#example-cont-4",
@@ -3161,28 +3161,28 @@
     "href": "PUBHBIO7225_L16_domainEstimation.html#outline",
     "title": "Domain Estimation",
     "section": "Outline",
-    "text": "Outline\n\n\nTopics\n\nDomain Estimation\nChi-Square Tests\nDiscussion of Individual Project\n\n\nActivities\n\n16.1 Domain Estimation/Comparison\n\n\nReadings\n\nWest BT, Berglund P, Heeringa SG (2008). A closer examination of subpopulation analysis of complex-sample survey data. The Stata Journal, 8(4); 520-531. (PDF on Carmen)\n\nAssignments\n\nProblem Set 4 due Thursday 10/23/2025 11:59pm via Carmen"
+    "text": "Outline\n\n\nTopics\n\nDomain Estimation\nChi-Square Tests\nDiscussion of Individual Project (time-permitting)\n\n\nActivities\n\n16.1 Domain Estimation/Comparison\n\n\nReadings\n\nWest BT, Berglund P, Heeringa SG (2008). A closer examination of subpopulation analysis of complex-sample survey data. The Stata Journal, 8(4); 520-531. (PDF on Carmen)\n\nAssignments\n\nProblem Set 4 due Thursday 10/23/2025 11:59pm via Carmen"
   },
   {
     "objectID": "PUBHBIO7225_L16_domainEstimation.html#estimation-in-domains",
     "href": "PUBHBIO7225_L16_domainEstimation.html#estimation-in-domains",
     "title": "Domain Estimation",
     "section": "Estimation in Domains",
-    "text": "Estimation in Domains\n\nDomain = a subgroup in the population that is not part of the sampling design.\nAlso called subpopulations or subgroups or subclasses.\n\n\nNot a stratum, not a cluster/group of clusters\n\nDomains can cross strata (and often/usually do)\nDomains can include units from many clusters (but maybe not all clusters)\n\nLike strata and clusters, each unit \\(i\\) either belongs to a certain domain or does not belong to the domain\nUnlike strata and clusters, we don’t know what domain unit \\(i\\) belongs to until it is sampled (i.e., record domain membership on the survey)\nExamples:\n\nSRS of OSU students on Columbus campus, domain = students who live off-campus\nStratified (by county) random sample of women who recently gave birth in Ohio, domain = women who did not have a prenatal visit\nTwo-stage cluster sample of students within schools, domain = students with a disclosed disability"
+    "text": "Estimation in Domains\n\nDomain = a subgroup in the population that is not part of the sampling design.\nAlso called subpopulations or subgroups or subclasses.\n\n\nNot a stratum, not a cluster/group of clusters\n\nDomains can cross strata (and often/usually do)\nDomains can include units from many clusters (but maybe not all clusters)\n\n\n\n\nLike strata and clusters, each unit \\(i\\) either belongs to a certain domain or does not belong to the domain\nUnlike strata and clusters, we don’t know what domain unit \\(i\\) belongs to until it is sampled (i.e., record domain membership on the survey)\n\n\n\n\nExamples:\n\nSRS of OSU students on Columbus campus, domain = students who live off-campus\nStratified (by county) random sample of women who recently gave birth in Ohio, domain = women who did not have a prenatal visit\nTwo-stage cluster sample of students within schools, domain = students with a disclosed disability"
   },
   {
     "objectID": "PUBHBIO7225_L16_domainEstimation.html#domain-sizes-are-random-variables",
     "href": "PUBHBIO7225_L16_domainEstimation.html#domain-sizes-are-random-variables",
     "title": "Domain Estimation",
     "section": "Domain Sizes are Random Variables",
-    "text": "Domain Sizes are Random Variables\n\nKey Point: We don’t know which domain a unit belongs to until it is sampled\n\nThus, the number of units in the domain is a random variable\nTake another sample, get a different number of units in the domain\n\nContrast with stratum – take another sample, get same number of units in the stratum!\n\nThis extra variability must be accounted for in analysis stage to get correct variance estimates\n\n\n\n\nVariance estimates must properly account for the survey design\nYou should never subset your data for analysis, even if there are no units in a particular domain\n\n\n\n\nSubsetting will definitely cause problems when:\n\nA stratum does not contain any members of the domain\n\nUsually unlikely to occur – but possible in highly stratified designs\n\nA PSU does not contain any members of a domain\n\nQuite possible – imagine sampling households, and the domain is males aged 50+\n\n\n\n\n\n\nOne exception: It’s okay to subset an SRS – an SRS of a population contains SRS of a subpopulation"
+    "text": "Domain Sizes are Random Variables\n\nKey Point: We don’t know which domain a unit belongs to until it is sampled\n\nThus, the number of units in the domain is a random variable\nTake another sample, get a different number of units in the domain\n\nContrast with a stratum – take another sample, get the same number of units in the stratum!\n\n\n\n\n\nFormula for the variance of a domain total incorporates this sample-to-sample variability\nStatistical software must recognize (be told about / have info about) all the original design strata and PSUs – even if some don’t include any domain members\nThus, you must never subset your data for analysis\n\n\n\n\nSubsetting will definitely cause problems when:\n\nA stratum does not contain any members of the domain\n\nUsually unlikely to occur – but possible in highly stratified designs\n\nA PSU does not contain any members of a domain\n\nQuite possible – imagine sampling households, and the domain is males aged 50+\n\n\n\n\n\n\nOne exception: It’s okay to subset an SRS – an SRS of a population contains SRS of a subpopulation"
   },
   {
     "objectID": "PUBHBIO7225_L16_domainEstimation.html#domain-indicators",
     "href": "PUBHBIO7225_L16_domainEstimation.html#domain-indicators",
     "title": "Domain Estimation",
     "section": "Domain Indicators",
-    "text": "Domain Indicators\n\nIndicator variable, \\(x_i\\), for domain membership: \\[x_i = \\begin{cases} 1 & \\text{unit $i$ is in domain $d$}\\\\\n0 & \\text{unit $i$ not in domain $d$}\n\\end{cases}\\]\nEstimates:\n\nDomain total:   \\(\\displaystyle \\hat{t}^{(d)} = \\sum_{i \\in \\mathcal{S}} w_i x_i y_i\\)\nDomain mean:   \\(\\displaystyle \\bar{y}^{(d)} = \\frac{\\sum_{i \\in \\mathcal{S}} w_i x_i y_i}{\\sum_{i \\in \\mathcal{S}} w_i x_i}\\)\n\n\n\n\nSince \\(x_i=0\\) for units not in the domain, you’d get the same point estimate if you simply dropped the non-domain units\nBut – variance estimation would be incorrect\nYou must use the whole sample, even to obtain estimates for a subpopulation"
+    "text": "Domain Indicators\n\nIndicator variable, \\(x_i\\), for domain membership: \\[x_i = \\begin{cases} 1 & \\text{unit $i$ is in domain $d$}\\\\\n0 & \\text{unit $i$ not in domain $d$}\n\\end{cases}\\]\nEstimates:\n\nDomain total:   \\(\\displaystyle \\hat{t}^{(d)} = \\sum_{i \\in \\mathcal{S}} w_i x_i y_i\\)\nDomain mean:   \\(\\displaystyle \\bar{y}^{(d)} = \\frac{\\sum_{i \\in \\mathcal{S}} w_i x_i y_i}{\\sum_{i \\in \\mathcal{S}} w_i x_i}\\)\n\n\n\n\nSame point estimate as if you dropped the non-domain units (\\(x_i=0\\) for units not in the domain)\nBut variance estimation would be incorrect\nYou must use the whole sample for estimation"
   },
   {
     "objectID": "PUBHBIO7225_L16_domainEstimation.html#example-domain-estimation-in-nhamcs",
@@ -3224,28 +3224,28 @@
     "href": "PUBHBIO7225_L16_domainEstimation.html#example-households-with-and-without-netflix",
     "title": "Domain Estimation",
     "section": "Example: Households With and Without Netflix",
-    "text": "Example: Households With and Without Netflix\n\nSuppose we have an SRS of \\(n\\) = 500 co-habiting couples from a very large population (i.e., \\(N\\) large enough to be able to ignore the FPC)\nWe want to compare two domains: People who have Netflix and People who do not have Netflix\nQuestion: Are people who have Netflix less likely to subscribe to cable TV? (We recognize that no causal link can be made with a cross-sectional survey!)\n\n\n\n\nData from our SRS of 500 co-habiting couples:\n\n\n\n\n\nHas\nCable TV\nNo Cable TV\nTotal\n\n\n\n\nHas Netflix\n119\n88\n207\n\n\nNo Netflix\n188\n105\n293\n\n\nTotal\n\n\n500\n\n\n\n\n\nResulting estimates:\n\n119/207 = 57.5% of couples with Netflix have cable TV\n188/293 = 64.2% of couples without Netflix have cable TV"
+    "text": "Example: Households With and Without Netflix\n\nSuppose we have an SRS of \\(n\\) = 500 co-habiting couples from a very large population (i.e., \\(N\\) large enough to be able to ignore the FPC)\nWe want to compare two domains: People who have Netflix and People who do not have Netflix\nQuestion: Are people who have Netflix less likely to subscribe to cable TV?\n(We recognize that no causal link can be made with a cross-sectional survey!)\n\n\nData from our SRS of 500 co-habiting couples:\n\n\n\n     netflix     Cable TV  No Cable TV         Total\n Has Netflix 57.49% (119) 42.51%  (88) 100.00% (207)\n  No Netflix 64.16% (188) 35.84% (105) 100.00% (293)\n\n\n\nResulting estimates:\n\n119/207 = 57.5% of couples with Netflix have cable TV\n188/293 = 64.2% of couples without Netflix have cable TV\n\nNotice that the number of people with (and without) Netflix would be different if we took another sample – random domain sample size!"
   },
   {
     "objectID": "PUBHBIO7225_L16_domainEstimation.html#example-cont-1",
     "href": "PUBHBIO7225_L16_domainEstimation.html#example-cont-1",
     "title": "Domain Estimation",
     "section": "Example (con’t)",
-    "text": "Example (con’t)\n\nA chi-square test gives us:\n\n\nchisq.test(dat$netflix, dat$cable, correct = FALSE)\n\n\n    Pearson's Chi-squared test\n\ndata:  dat$netflix and dat$cable\nX-squared = 2.281, df = 1, p-value = 0.131\n\n\n\nConclusion: There is no evidence of an association between having Netflix and having cable (i.e., not true that the proportion of people with cable differs for people with/without Netflix)\nSummarize observed association with an odds ratio (OR) or prevalence ratio (PR):\n\n\n\nSurveys are (usually) cross-sectional → prefer PR to RR (risk ratio)"
+    "text": "Example (con’t)\n\nA chi-square test gives us:\n\n\nchisq.test(dat$netflix, dat$cable, correct = FALSE)\n\n\n    Pearson's Chi-squared test\n\ndata:  dat$netflix and dat$cable\nX-squared = 2.281, df = 1, p-value = 0.131\n\n\n\nConclusion: There is no evidence of an association between having Netflix and having cable\n(i.e., no evidence that the proportion of people with cable differs for people with/without Netflix)\nSummarize observed association with an odds ratio (OR) or prevalence ratio (PR):\n\n\n\nSurveys are (usually) cross-sectional → prefer PR to RR (risk ratio)"
   },
   {
     "objectID": "PUBHBIO7225_L16_domainEstimation.html#example-cont-2",
     "href": "PUBHBIO7225_L16_domainEstimation.html#example-cont-2",
     "title": "Domain Estimation",
     "section": "Example (con’t)",
-    "text": "Example (con’t)\n\nNow, suppose we asked both partners about Netflix and cable\n\nWe’ll have twice as many people (1000 responses, instead of 500), with the same proportions (assuming both partners answered the same), but a different test result:\n\n\n\n\n     netflix     Cable TV  No Cable TV\n Has Netflix 57.49% (238) 42.51% (176)\n  No Netflix 64.16% (376) 35.84% (210)\n\n\n\nchisq.test(dat_larger$netflix, dat_larger$cable, correct = FALSE)\n\n\n    Pearson's Chi-squared test\n\ndata:  dat_larger$netflix and dat_larger$cable\nX-squared = 4.5621, df = 1, p-value = 0.03269\n\n\n\nIgnoring the clustering has inflated the test statistic value and lowered the p-value\nICC for this design is very high, in fact it is:\nWhat is the DEFF for this design?"
+    "text": "Example (con’t)\n\nNow, suppose we asked both partners about Netflix and cable\n\nWe’ll have twice as many people (1000 responses, instead of 500), with the same proportions (assuming both partners answered the same), but a different test result:\n\n\n\n\n     netflix     Cable TV  No Cable TV         Total\n Has Netflix 57.49% (238) 42.51% (176) 100.00% (414)\n  No Netflix 64.16% (376) 35.84% (210) 100.00% (586)\n\n\n\nchisq.test(dat_both$netflix, dat_both$cable, correct = FALSE)\n\n\n    Pearson's Chi-squared test\n\ndata:  dat_both$netflix and dat_both$cable\nX-squared = 4.5621, df = 1, p-value = 0.03269\n\n\n\nIgnoring the clustering has inflated the test statistic value and lowered the p-value\nICC for this design is very high, in fact it is:\nWhat is the DEFF for this design?"
   },
   {
     "objectID": "PUBHBIO7225_L16_domainEstimation.html#chi-square-tests-for-complex-survey-data",
     "href": "PUBHBIO7225_L16_domainEstimation.html#chi-square-tests-for-complex-survey-data",
     "title": "Domain Estimation",
     "section": "Chi-Square Tests for Complex Survey Data",
-    "text": "Chi-Square Tests for Complex Survey Data\n\n\n\n\nIgnoring clustering can inflate test statistics and deflate p-values\n\nRemember, DEFF &gt; 1 for many outcomes in a cluster sample\nA cluster sample of size \\(n\\) provides the same precision as an SRS of size \\(n\\)/DEFF\n\nEffective sample size is smaller than \\(n\\)\n\nThus you are overstating your signficance (p-value too small)\nNote that the \\(X^2\\) test statistic does not have a \\(\\chi^2_{(r-1)(c-1)}\\) distribution under the null hypothesis when a cluster sample is taken and ICC &gt; 0\n\nIgnoring stratification can deflate test statistics and inflate p-values\n\nRemember, DEFF &lt; 1 for many outcomes in a stratified sample\nA stratified sample of size \\(n\\) provides the same precision as an SRS of size \\(n\\)/DEFF\n\nEffective sample size is larger than \\(n\\)\n\nThus you are being too conservative (p-value too high)\n\nThe worse crime (usually) is ignoring clustering and “overstating” results (inflate Type 1 error)"
+    "text": "Chi-Square Tests for Complex Survey Data\n\nIgnoring clustering can inflate test statistics and deflate p-values\n\nRemember, DEFF &gt; 1 for many outcomes in a cluster sample\nA cluster sample of size \\(n\\) provides the same precision as an SRS of size \\(n\\)/DEFF\n\nEffective sample size is smaller than \\(n\\)\n\nThus you are overstating your signficance (p-value too small)\n\n\n\n\nIgnoring stratification can deflate test statistics and inflate p-values\n\nRemember, DEFF &lt; 1 for many outcomes in a stratified sample\nA stratified sample of size \\(n\\) provides the same precision as an SRS of size \\(n\\)/DEFF\n\nEffective sample size is larger than \\(n\\)\n\nThus you are being too conservative (p-value too high)\n\n\n\n\n\nThe “worse crime” (usually) is ignoring clustering and “overstating” results (inflate Type 1 error)"
   },
   {
     "objectID": "PUBHBIO7225_L16_domainEstimation.html#corrections-to-chi-square-tests-for-complex-survey-data",
@@ -3301,21 +3301,21 @@
     "href": "PUBHBIO7225_L17_nonresponse.html#how-nonresponse-causes-bias",
     "title": "Nonresponse: Intro to Missing Data",
     "section": "How Nonresponse Causes Bias",
-    "text": "How Nonresponse Causes Bias\n\nImagine that the target population can be partitioned into two strata: respondents and nonrespondents\n\n\n\n\nStratum\nSize\nMean\nVariance\n\n\n\n\nRespondents\n\\(N_R\\)\n\\(\\bar{y}_{RU}\\)\n\\(S^2_R\\)\n\n\nNon-Respondents\n\\(N_{NR}\\)\n\\(\\bar{y}_{NRU}\\)\n\\(S^2_{NR}\\)\n\n\nTotal\n\\(N\\)\n\\(\\bar{y}_U\\)\n\\(S^2\\)\n\n\n\n\nThe overall population mean is a weighted average of the two stratum means: \\[\\bar{y}_U = \\frac{N_R}{N} \\bar{y}_{RU} + \\frac{N_{NR}}{N} \\bar{y}_{NRU}\\]\nNow suppose we take an SRS of size \\(n\\), and \\(n_R\\) units respond.\n\nRespondent mean is an unbiased estimate of the respondent mean: \\(E[\\bar{y}_R] = \\bar{y}_{RU}\\)\nIt’s not an unbiased estimate of the overall mean: \\(E[\\bar{y}_R] \\ne \\bar{y}_U\\)\n…unless the mean is the same for respondents and nonrespondents (i.e., unless \\(\\bar{y}_{RU} = \\bar{y}_{NRU} = \\bar{y}_U\\))"
+    "text": "How Nonresponse Causes Bias\n\nImagine that the target population can be partitioned into two groups: respondents and nonrespondents\n\n\n\n\n\n\n\n\n\n\nGroup\nPopulation Size\nPopulation Mean\nPopulation Variance\n\n\n\n\nRespondents\n\\(N_R\\)\n\\(\\bar{y}_{RU}\\)\n\\(S^2_R\\)\n\n\nNon-Respondents\n\\(N_{NR}\\)\n\\(\\bar{y}_{NRU}\\)\n\\(S^2_{NR}\\)\n\n\nTotal\n\\(N\\)\n\\(\\bar{y}_U\\)\n\\(S^2\\)\n\n\n\n\nThe overall population mean is a weighted average of the two group means: \\[\\bar{y}_U = \\frac{N_R}{N} \\bar{y}_{RU} + \\frac{N_{NR}}{N} \\bar{y}_{NRU}\\]\n\n\n\nNow suppose we take an SRS of size \\(n\\) (from the full population of \\(N\\) units), and \\(n_R\\) units respond\n\nRespondents are (by definition) all from the “Respondents” group\nNonrespondents are from the “Nonrespondents” group"
   },
   {
     "objectID": "PUBHBIO7225_L17_nonresponse.html#how-nonresponse-causes-bias-cont",
     "href": "PUBHBIO7225_L17_nonresponse.html#how-nonresponse-causes-bias-cont",
     "title": "Nonresponse: Intro to Missing Data",
     "section": "How Nonresponse Causes Bias (con’t)",
-    "text": "How Nonresponse Causes Bias (con’t)\n\nThe bias of the respondent mean is: \\[\\begin{aligned}\n\\text{Bias}(\\bar{y}_R) &= E(\\bar{y}_R) - \\bar{y}_U\\\\\n&= \\bar{y}_{RU} - \\left[ \\frac{N_R}{N} \\bar{y}_{RU} + \\frac{N_{NR}}{N} \\bar{y}_{NRU} \\right] = \\textcolor{red}{\\frac{N_{NR}}{N}} \\textcolor{blue}{(\\bar{y}_{RU} - \\bar{y}_{NRU})}\n\\end{aligned}\\]\nBias in the respondent mean depends on nonresponse rate and diﬀerence between respondents and nonrespondents\nWe cannot ever actually know this bias – we don’t observe the nonrespondents (can’t estimate \\(\\bar{y}_{NRU}\\))\nBut this expression tells us that nonresponse bias is small if:\n\nNonresponse rate is small \\(\\left( \\frac{N_{NR}}{N}\\text{ close to 0}\\right)\\)\nor\nMean for nonrespondents is close to the mean for the respondents \\((\\bar{y}_{NRU} \\approx \\bar{y}_{RU})\\)\n\nWe can’t ever know if (2) is true, so our best bet is to try to achieve (1)"
+    "text": "How Nonresponse Causes Bias (con’t)\n\n\n\n\n\n\n\n\n\nGroup\nPopulation Size\nPopulation Mean\nPopulation Variance\n\n\n\n\nRespondents\n\\(N_R\\)\n\\(\\bar{y}_{RU}\\)\n\\(S^2_R\\)\n\n\nNon-Respondents\n\\(N_{NR}\\)\n\\(\\bar{y}_{NRU}\\)\n\\(S^2_{NR}\\)\n\n\nTotal\n\\(N\\)\n\\(\\bar{y}_U\\)\n\\(S^2\\)\n\n\n\n\nSample size: \\(n\\)\nNumber of respondents: \\(n_R\\)\nSample mean based on respondents only: \\(\\bar{y}_R\\)\n\n\n\n\\(E[\\bar{y}_R] = \\bar{y}_{RU}\\)\n\nRespondent sample mean is an unbiased estimate of the respondent mean\n\n\n\n\n\n\\(E[\\bar{y}_R] \\ne \\bar{y}_U\\)\n\nRespondent sample mean is not an unbiased estimate of the overall mean\n\n\n\n\n\n…unless the mean is the same for respondents and nonrespondents (i.e., unless \\(\\bar{y}_{RU} = \\bar{y}_{NRU} = \\bar{y}_U\\))"
   },
   {
     "objectID": "PUBHBIO7225_L17_nonresponse.html#how-nonresponse-causes-bias-cont-1",
     "href": "PUBHBIO7225_L17_nonresponse.html#how-nonresponse-causes-bias-cont-1",
     "title": "Nonresponse: Intro to Missing Data",
     "section": "How Nonresponse Causes Bias (con’t)",
-    "text": "How Nonresponse Causes Bias (con’t)\n\nSome additional comments:\n\nIncreasing sample size does not help – doesn’t guarantee \\(\\bar{y}_{NRU} \\approx \\bar{y}_{RU}\\)\n\nMight just get “more of the same”\n\nBias can (and will) differ for different survey items (i.e., for different \\(y\\))\n\nBest strategy is to try to avoid nonresponse altogether!\n\n\n\nKey idea: If an outcome, \\(y\\), is “related” to nonresponse – i.e., it differs between respondents and nonrespondents – then an estimate based on respondents only will be biased (without additional adjustment)\nEssentially, if there is nonresponse, the best-case scenario is that the respondents are a random sample of the full sample."
+    "text": "How Nonresponse Causes Bias (con’t)\n\nThe bias of the respondent mean is: \\[\\begin{aligned}\n\\text{Bias}(\\bar{y}_R) &= E(\\bar{y}_R) - \\bar{y}_U\\\\\n&= \\bar{y}_{RU} - \\left[ \\frac{N_R}{N} \\bar{y}_{RU} + \\frac{N_{NR}}{N} \\bar{y}_{NRU} \\right] = \\textcolor{red}{\\frac{N_{NR}}{N}} \\textcolor{blue}{(\\bar{y}_{RU} - \\bar{y}_{NRU})}\n\\end{aligned}\\]\nBias in the respondent mean depends on nonresponse rate and diﬀerence between respondents and nonrespondents\nWe cannot ever actually know this bias – we don’t observe the nonrespondents (can’t estimate \\(\\bar{y}_{NRU}\\))\n\n\n\nBut this expression tells us that nonresponse bias is small if:\n\nNonresponse rate is small (\\(\\frac{N_{NR}}{N}\\) close to 0)\nor\nMean for nonrespondents is close to the mean for the respondents \\((\\bar{y}_{NRU} \\approx \\bar{y}_{RU})\\)\n\nWe can’t ever know if (2) is true, so our best bet is to try to achieve (1)"
   },
   {
     "objectID": "PUBHBIO7225_L17_nonresponse.html#activity-17.1-part-1",
@@ -3357,7 +3357,7 @@
     "href": "PUBHBIO7225_L17_nonresponse.html#designing-surveys-to-minimize-nonresponse",
     "title": "Nonresponse: Intro to Missing Data",
     "section": "Designing Surveys to Minimize Nonresponse",
-    "text": "Designing Surveys to Minimize Nonresponse\n\n\nSurvey mode selection – some modes generally provide higher response rates; sensitive topics may provide better response with self-administered modes\nTime survey is administered – some calling periods or seasons of the year may yield higher response rates (e.g., avoid holidays)\nGood interviewer training – persistence, gentle conversion of reluctant persons to respondents, etc.\nCareful “physical” design of mail and web surveys – “official” logos, ensure mail doesn’t look like junk mail/SPAM\nCarefully designed questionnaire – poorly worded questions can lead to skipped questions, easy-to-navigate paper survey if mailed\nLow respondent burden – try to make the survey short and “easy” to take, possibly using split-questionnaire design (not all sampled units get all questions)\nUse of incentives – given either before completion (“pre-incentive”) or upon completion (“post-incentive” or “reward”)\nExtensive follow-up – Might not get response on the first try, might consider alternate modes for follow-up (e.g., telephone follow-up to mailed survey)\nResponsive Design – Adjust data collection process while it is ongoing, e.g., by reallocating effort to subgroups with higher non-contact or non-response"
+    "text": "Designing Surveys to Minimize Nonresponse\nMany “design” considerations to maximize response rates:\n\n\nSurvey mode selection – some modes generally provide higher response rates; sensitive topics may provide better response with self-administered modes\nTime survey is administered – some calling periods or seasons of the year may yield higher response rates (e.g., avoid holidays)\nGood interviewer training – persistence, gentle conversion of reluctant persons to respondents, etc.\nCareful “physical” design of mail and web surveys – “official” logos, ensure mail doesn’t look like junk mail/SPAM\nCarefully designed questionnaire – poorly worded questions can lead to skipped questions, easy-to-navigate paper survey if mailed\nLow respondent burden – try to make the survey short and “easy” to take, possibly using split-questionnaire design (not all sampled units get all questions)\nUse of incentives – given either before completion (“pre-incentive”) or upon completion (“post-incentive” or “reward”)\nExtensive follow-up – Might not get response on the first try, might consider alternate modes for follow-up (e.g., telephone follow-up to mailed survey)\nResponsive Design – Adjust data collection process while it is ongoing, e.g., by reallocating effort to subgroups with higher non-contact or non-response"
   },
   {
     "objectID": "PUBHBIO7225_L17_nonresponse.html#two-types-of-nonresponse-in-surveys",
@@ -3371,21 +3371,21 @@
     "href": "PUBHBIO7225_L17_nonresponse.html#taxonomy-of-missing-data",
     "title": "Nonresponse: Intro to Missing Data",
     "section": "Taxonomy of Missing Data",
-    "text": "Taxonomy of Missing Data\n\nWe classify missing data based on the underlying reason the data are missing\nIn general, not testable – just an assumption\nThree types of missing data:\n\nMCAR: Missing Completely At Random 😀\nMAR: Missing At Random 😐\nMNAR: Missing Not At Random 😱\n\nDefined by what is associated with the probability of missingness (or conversely, with the probability of response)"
+    "text": "Taxonomy of Missing Data\n\nWe classify missing data based on the underlying reason the data are missing\nIn general, not testable – just an assumption\nThree types of missing data:\n\nMCAR: Missing Completely At Random 😀\nMAR: Missing At Random 😐\nMNAR: Missing Not At Random 😱\n\nDefined by what factors are associated with the probability of missingness (or conversely, with the probability of response)"
   },
   {
     "objectID": "PUBHBIO7225_L17_nonresponse.html#mcar-missing-completely-at-random",
     "href": "PUBHBIO7225_L17_nonresponse.html#mcar-missing-completely-at-random",
     "title": "Nonresponse: Intro to Missing Data",
     "section": "MCAR: Missing Completely At Random",
-    "text": "MCAR: Missing Completely At Random\n\nMCAR = Best-case scenario:   \\(P(R_i=1 | y_i, \\mathbf{x}_i) = P(R_i=1)\\)\nProbability a variable has missing values does not depend on any factors/variables (including itself)\n\n\nExamples:\n\nCoin flip to determine if respond\nComputer glitch that wipes out 10% of records\n\nNo systematic difference between respondents and nonrespondents\n\nRespondents are indistinguishable from nonrespondents]\n\\(\\bar{y}_{RU} = \\bar{y}_{NRU}\\)   →   \\(\\text{Bias}(\\bar{y}_R) =  \\frac{N_{NR}}{N} (\\bar{y}_{RU} - \\bar{y}_{NRU}) = \\frac{N_{NR}}{N} \\times 0 = 0\\)\n\nA complete case analysis implicitly makes this assumption!\nEstimates of survey totals will be biased (literally not counting up enough people!)\nEstimates of quantities like means or proportions will be unbiased\nStandard errors will be larger than if no nonresponse"
+    "text": "MCAR: Missing Completely At Random\n\nMCAR = Best-case scenario:   \\(P(R_i=1 | y_i, \\mathbf{x}_i) = P(R_i=1)\\)\nProbability a variable has missing values does not depend on any factors/variables (including itself)\n\n\nExamples:\n\nCoin flip to determine if respond\nComputer glitch that wipes out 10% of records\n\nNo systematic difference between respondents and nonrespondents\n\nRespondents are indistinguishable from nonrespondents]\n\\(\\bar{y}_{RU} = \\bar{y}_{NRU}\\)   →   \\(\\text{Bias}(\\bar{y}_R) =  \\frac{N_{NR}}{N} (\\bar{y}_{RU} - \\bar{y}_{NRU}) = \\frac{N_{NR}}{N} \\times 0 = 0\\)\n\nA complete case analysis implicitly makes this assumption!\n\n\n\nEstimates of survey totals will be biased (literally not counting up enough people!)\nEstimates of quantities like means or proportions will be unbiased\nStandard errors will be larger than if no nonresponse"
   },
   {
     "objectID": "PUBHBIO7225_L17_nonresponse.html#mar-missing-at-random",
     "href": "PUBHBIO7225_L17_nonresponse.html#mar-missing-at-random",
     "title": "Nonresponse: Intro to Missing Data",
     "section": "MAR: Missing At Random",
-    "text": "MAR: Missing At Random\n\nMAR = Next-best-case scenario:   \\(P(R_i=1 | y_i, \\mathbf{x}_i) = P(R_i=1|\\mathbf{x}_i)\\)\nProbability a variable has missing values depends on observed data\n\n\nExamples:\n\nOlder adults more likely to respond than younger adults – and we observe all sampled units’ ages (i.e., it’s on the sampling frame)\nUnmarried moms less likely to respond than married moms – and we have marital status on the sampling frame\nPeople in one stratum are less likely to respond than in another stratum\n\nNonrespondents are diﬀerent from respondents, but we can see how they are diﬀerent\n\nSince we observe how the respondents and nonrespondents diﬀer, we can adjust for it\n\nEstimates for a \\(y\\) that is related to the variable(s) that diﬀer between respondents and nonrespondents will be biased\nBut, we can adjust survey weights to “make-up” the diﬀerence and remove bias (coming next lecture!)"
+    "text": "MAR: Missing At Random\n\nMAR = Next-best-case scenario:   \\(P(R_i=1 | y_i, \\mathbf{x}_i) = P(R_i=1|\\mathbf{x}_i)\\)\nProbability a variable has missing values depends on observed data\n\n\nExamples:\n\nOlder adults more likely to respond than younger adults – and we observe all sampled units’ ages (i.e., it’s on the sampling frame)\nUnmarried moms less likely to respond than married moms – and we have marital status on the sampling frame\nPeople in one stratum are less likely to respond than in another stratum\n\nNonrespondents are diﬀerent from respondents, but we can see how they are diﬀerent\n\nSince we observe how the respondents and nonrespondents diﬀer, we can adjust for it\n\n\n\n\nEstimates for a \\(y\\) that is related to the variable(s) that diﬀer between respondents and nonrespondents will be biased\nBut, we can adjust survey weights to “make-up” the diﬀerence and remove bias (coming next lecture!)"
   },
   {
     "objectID": "PUBHBIO7225_L17_nonresponse.html#example-mar",
@@ -3406,7 +3406,7 @@
     "href": "PUBHBIO7225_L17_nonresponse.html#mnar-missing-not-at-random-sometimes-nmar",
     "title": "Nonresponse: Intro to Missing Data",
     "section": "MNAR: Missing Not At Random (sometimes NMAR)",
-    "text": "MNAR: Missing Not At Random (sometimes NMAR)\n\nMNAR = Worst-case scenario:   \\(P(R_i=1 | y_i, \\mathbf{x}_i) = P(R_i=1|y_i, \\mathbf{x}_i)\\)\nProbability a variable has missing values depends on values of unobserved data\n\n\nExamples:\n\nDepressed moms less likely to respond than non-depressed moms, but we don’t know depression status unless they respond\nHigher income earners less likely to report their income than low wage earners, but this information isn’t on the sampling frame\n\nNonrespondents are diﬀerent from respondents, and we do not observe the characteristic(s) that make them diﬀerent\nCan never know if we have MNAR (not possible to test for it)\nInference under MNAR generally requires us to posit a model for the response mechanism where response depends on unobserved variables (like a survey outcome, \\(y\\)), which we can never confirm is correct\nUsually we assume MAR, and (sometimes) assess how wrong our conclusions would be if the truth were MNAR – called a sensitivity analysis"
+    "text": "MNAR: Missing Not At Random (sometimes NMAR)\n\nMNAR = Worst-case scenario:   \\(P(R_i=1 | y_i, \\mathbf{x}_i) = P(R_i=1|y_i, \\mathbf{x}_i)\\)\nProbability a variable has missing values depends on values of unobserved data\n\n\nExamples:\n\nDepressed moms less likely to respond than non-depressed moms, but we don’t know depression status unless they respond\nHigher income earners less likely to report their income than low wage earners, but this information isn’t on the sampling frame\n\nNonrespondents are diﬀerent from respondents, and we do not observe the characteristic(s) that make them diﬀerent\n\n\n\nCan never know if we have MNAR (not possible to test for it)\nInference under MNAR generally requires us to posit a model for the response mechanism where response depends on unobserved variables (like a survey outcome, \\(y\\)), which we can never confirm is correct\nUsually we assume MAR, and (sometimes) assess how wrong our conclusions would be if the truth were MNAR – called a sensitivity analysis"
   },
   {
     "objectID": "PUBHBIO7225_L17_nonresponse.html#activity-17.1-part-2",
@@ -3469,7 +3469,7 @@
     "href": "PUBHBIO7225_L18_nonresponseWtAdjust.html#reminder-of-the-missing-data-problem",
     "title": "Weighting Adjustments\nfor Nonresponse in Surveys",
     "section": "Reminder of the Missing Data Problem",
-    "text": "Reminder of the Missing Data Problem\n\n\nNot random variables:\n\n\\(y_i\\) = survey outcome of interest for unit \\(i\\), only observed for respondents\n\\(\\mathbf{x}_i\\) = vector of information known about unit \\(i\\), observed for ALL sampled units\n(design information, information on the sampling frame, or information about the interview process)\n\nRandom variables:\n\n\\(Z_i\\) = selection indicator for unit \\(i\\)\n\n\\(\\pi_i = P(Z_i=1)\\) = selection probability (known!)\n\n\\(R_i\\) = response indicator for unit \\(i\\)\n\n\\(\\phi_i = P(R_i=1)\\) = probability unit \\(i\\) responds = response propensity (unknown)\n\n\nThree types of missing data mechanisms:\n\nMCAR: \\(P(R_i=1 | y_i, \\mathbf{x}_i) = P(R_i=1)\\)   ←   missingness doesn’t depend on \\(y\\) or \\(x\\)\nMAR: \\(P(R_i=1 | y_i, \\mathbf{x}_i) = P(R_i=1|\\mathbf{x}_i)\\)   ←   missingness doesn’t depend on \\(y\\)\nMNAR: \\(P(R_i=1 | y_i, \\mathbf{x}_i)\\)   ←  missingness depends on \\(y\\), possibly also \\(x\\)\n\nUsually MCAR does not hold (often we have visible differences between respondents and nonrespondents), and we assume MAR\nMNAR not testable given observed data"
+    "text": "Reminder of the Missing Data Problem\n\n\nNot random variables:\n\n\\(y_i\\) = survey outcome of interest for unit \\(i\\), only observed for respondents\n\\(\\mathbf{x}_i\\) = vector of information known about unit \\(i\\), observed for ALL sampled units\n(design information, information on the sampling frame, or information about the interview process)\n\nRandom variables:\n\n\\(Z_i\\) = selection indicator for unit \\(i\\)\n\n\\(\\pi_i = P(Z_i=1)\\) = selection probability (known!)\n\n\\(R_i\\) = response indicator for unit \\(i\\)\n\n\\(\\phi_i = P(R_i=1)\\) = probability unit \\(i\\) responds = response propensity (unknown)\n\n\n\n\n\nThree types of missing data mechanisms:\n\nMCAR: \\(P(R_i=1 | y_i, \\mathbf{x}_i) = P(R_i=1)\\)   ←   missingness doesn’t depend on \\(y\\) or \\(x\\)\nMAR: \\(P(R_i=1 | y_i, \\mathbf{x}_i) = P(R_i=1|\\mathbf{x}_i)\\)   ←   missingness doesn’t depend on \\(y\\)\nMNAR: \\(P(R_i=1 | y_i, \\mathbf{x}_i)\\)   ←  missingness depends on \\(y\\), possibly also \\(x\\)"
   },
   {
     "objectID": "PUBHBIO7225_L18_nonresponseWtAdjust.html#adjusting-sample-weights-to-account-for-unit-nonresponse",
@@ -3483,14 +3483,14 @@
     "href": "PUBHBIO7225_L18_nonresponseWtAdjust.html#weighting-class-adjustments",
     "title": "Weighting Adjustments\nfor Nonresponse in Surveys",
     "section": "Weighting Class Adjustments",
-    "text": "Weighting Class Adjustments\n\n\nCreate weighting adjustment classes = groups of respondents and nonrespondents based on variables observed for both\nEstimate response probability within each class with either the unweighted or weighted response rate:\n\n\\[\\hat{\\phi}_c = \\frac{\\text{number of respondents in class } c}{\\text{number of selected units in class }c} \\quad \\text{ or } \\quad \\hat{\\phi}_c = \\frac{\\text{sum of weights for respondents in class } c}{\\text{sum of weights for selected sample in class }c}\\]\n\nUse these estimated response propensities for each class, \\(\\hat{\\phi}_c\\), to adjust the weights for the respondents as: \\[\\tilde{w}_i = w_i \\frac{1}{\\hat{\\phi}_i} = \\frac{1}{\\pi_i \\hat{\\phi}_i}\\]\n\n\nNotes:\n\nSimple, but very commonly used\nImplicitly assumes probability of response is the same for all units within each class\nAll weights are up-weighted since response propensities are between 0 and 1\n\nContrast this with poststratification (with complete response) where some units get up-weighted and some down-weighted"
+    "text": "Weighting Class Adjustments\n\nSimple method, but very commonly used\nImplicitly assumes probability of response is the same for all units within each class\nAll weights are up-weighted since response propensities are between 0 and 1\n\nContrast this with poststratification (with complete response) where some units get up-weighted and some down-weighted\n\n\n\n\nAlternatives to weighting classes are possible, using alternative methods to estimate \\(\\hat{\\phi}_i\\)\n\nEx: Logistic regression with \\(R_i\\) as the outcome and \\(\\mathbf{x}_i\\) as predictors\n\nEach respondent has predicted propensity from the model, \\(\\hat{\\phi}_i\\), and adjusted weight \\(\\tilde{w}_i = w_i/\\hat{\\phi}_i\\)\nOr, create classes based on grouping units with similar \\(\\hat{\\phi}_i\\)"
   },
   {
     "objectID": "PUBHBIO7225_L18_nonresponseWtAdjust.html#example-weight-adjustments",
     "href": "PUBHBIO7225_L18_nonresponseWtAdjust.html#example-weight-adjustments",
     "title": "Weighting Adjustments\nfor Nonresponse in Surveys",
     "section": "Example: Weight Adjustments",
-    "text": "Example: Weight Adjustments\n\n\n\nPopulation of \\(N=1{,}000\\) graduates with PhDs in statistics/biostatistics in past year\nSRS of \\(n=10\\) with response rate of 6/10 = 60%\nType of degree (stat vs biostat) is on the sampling frame\nType of job (academic vs not) is on the survey\nWithout adjustment, estimated proportion of graduates in Academic jobs is __________\n\n\n\n\n\n\nID\nBiostat\nAcademic Job\nBase Weight \\((w_i)\\)\n\n\n\n\n1\n0\n1\nN/n = 1000/10 = 100\n\n\n2\n1\n\n100\n\n\n3\n0\n\n100\n\n\n4\n1\n1\n100\n\n\n5\n0\n0\n100\n\n\n6\n1\n0\n100\n\n\n7\n0\n0\n100\n\n\n8\n0\n\n100\n\n\n9\n1\n1\n100\n\n\n10\n0\n\n100\n\n\n\n\n\n\n\nDon’t like this estimate? We have two choices:\n\nTreat the entire sample as one adjustment class, and upweight all 6 respondents the same (MCAR)\nGroup the sample by degree type, and apply a different adjustment factor to biostat and stat (MAR)\n\nSpecifically, assume missingness depends on degree type"
+    "text": "Example: Weight Adjustments\n\n\n\nPopulation of \\(N=1{,}000\\) graduates with PhDs in statistics/biostatistics in past year\nSRS of \\(n=10\\) with response rate of 6/10 = 60%\nType of degree (biostat vs stat) is on the sampling frame\nType of job (academic vs not) is on the survey\nBased on respondents, estimated proportion of graduates in Academic jobs = __________\n\n\n\n\n\n\nID\nBiostat (\\(x_i\\))\nAcademic (\\(y_i\\))\nWeight (\\(w_i\\))\n\n\n\n\n1\n0\n1\nN/n = 1000/10 = 100\n\n\n2\n1\n\n100\n\n\n3\n0\n\n100\n\n\n4\n1\n1\n100\n\n\n5\n0\n0\n100\n\n\n6\n1\n0\n100\n\n\n7\n0\n0\n100\n\n\n8\n0\n\n100\n\n\n9\n1\n1\n100\n\n\n10\n0\n\n100\n\n\n\n\n\n\n\nDon’t like this estimate? We have two choices:\n\nTreat the entire sample as one adjustment class, and upweight all 6 respondents the same (MCAR)\nGroup the sample by degree type, and apply a different adjustment factor by degree (MAR)\n\nSpecifically, assume missingness depends on degree type"
   },
   {
     "objectID": "PUBHBIO7225_L18_nonresponseWtAdjust.html#example-cont",
@@ -3518,14 +3518,14 @@
     "href": "PUBHBIO7225_L18_nonresponseWtAdjust.html#choosing-variables-for-adjustments",
     "title": "Weighting Adjustments\nfor Nonresponse in Surveys",
     "section": "Choosing Variables for Adjustments",
-    "text": "Choosing Variables for Adjustments\n\n\nCan only use variables that are observed for both respondents and nonrespondents\n\nLimited to information on the sampling frame and design variables\nEx: 2021 Ohio Medicaid Assessment Survey (OMAS) (link)\n\nOnly info about nonrespondents is the stratum they are from\nThus adjustment classes are the strata (only choice!)\n\n\n\n\n\nIn multi-stage surveys, nonresponse can happen at different stages, thus can make different adjustment classes for each level\n\nEx: 2017-2020 National Health and Nutrition Examination Survey (NHANES) (link to methods report)\n\nFirst dwelling units are screened (to enumerate people in them), then sampled people are interviewed, then interviewed people are given a medical exam\nNonresponse can happen at any stage – refuse to participate in the screening, or the interview, or the medical exam\nScreener adjustment classes: census tract/segment (only info!)\nInterview adjustment classes: can include screener info\nMedical exam adjustment classes: can include interview info"
+    "text": "Choosing Variables for Adjustments\n\nCan only use variables \\(x_i\\) that are observed for both respondents and nonrespondents\n\nLimited to information on the sampling frame and design variables\nEx: 2021 Ohio Medicaid Assessment Survey (OMAS) (link)\n\nOnly info about nonrespondents is the stratum they are from → adjustment classes = strata\n\n\n\n\n\nIn multi-stage surveys, nonresponse can happen at different stages, thus can make different adjustment classes for each level\n\nEx: 2017-2020 National Health and Nutrition Examination Survey (NHANES) (link to methods report)\n\nStages: First dwelling units are screened (to enumerate people in them), then sampled people are interviewed, then interviewed people are given a medical exam\nNonresponse can happen at any stage – refuse to participate in the screening, or the interview, or the medical exam\n\nScreener adjustment classes: census tract/segment (only info on sampling frame!)\nInterview adjustment classes: can use screener info\nMedical exam adjustment classes: can use interview info"
   },
   {
     "objectID": "PUBHBIO7225_L18_nonresponseWtAdjust.html#choosing-variables-for-adjustments-cont",
     "href": "PUBHBIO7225_L18_nonresponseWtAdjust.html#choosing-variables-for-adjustments-cont",
     "title": "Weighting Adjustments\nfor Nonresponse in Surveys",
     "section": "Choosing Variables for Adjustments (con’t)",
-    "text": "Choosing Variables for Adjustments (con’t)\n\nOverall goal: choose variables that are associated with \\(\\mathbf{R_i}\\) and with \\(\\mathbf{y_i}\\)\n\nUnits within each class are as similar as possible with respect to \\(y_i\\), and\nResponse propensities similar within class but (may) vary from class to class\n\nImpact on bias and variance when constructing classes using variables that have: 1\n\n\n\n\n\n\n\n\n\n\n\nAssociation with \\(R_i\\)\nAssociation with \\(y_i\\)\nImpact on Bias\nImpact on Variance\n\n\n\n\nLow\nLow\n–\n–\n\n\nLow\nHigh\n–\n↓\n\n\nHigh\nLow\n–\n↑\n\n\nHigh\nHigh\n↓\n↓\n\n\n\n\n\nOnly get bias reduction if classes are constructed with variables related to \\(y_i\\) and \\(R_i\\)\n“Punishment” for using variables not associated with \\(y_i\\) can be an increase in variance\nObvious problem: All surveys have more than one \\(y\\) that they care about!\n\nBut – only one set of adjusted weights!\n\n\nAdapted from Table 1 in: Little RJA & Vartivarian S (2005), Does Weighting for Nonresponse Increase the Variance of Survey Means? Survey Methodology, 31, 161-168."
+    "text": "Choosing Variables for Adjustments (con’t)\n\nOverall goal: choose variables that are associated with \\(\\mathbf{R_i}\\) and with \\(\\mathbf{y_i}\\)\n\nUnits within each class are as similar as possible with respect to \\(y_i\\), and\nResponse propensities \\(\\hat{\\phi}_i\\) similar within class but (may) vary from class to class\n\nImpact on bias and variance when constructing classes using variables that have: 1\n\n\n\n\n\n\n\n\n\n\n\nAssociation with \\(R_i\\)\nAssociation with \\(y_i\\)\nImpact on Bias\nImpact on Variance\n\n\n\n\nLow\nLow\n–\n–\n\n\nLow\nHigh\n–\n↓\n\n\nHigh\nLow\n–\n↑\n\n\nHigh\nHigh\n↓\n↓\n\n\n\n\n\n\nOnly get bias reduction if classes are constructed with variables related to \\(y_i\\) and \\(R_i\\)\n“Punishment” for using variables not associated with \\(y_i\\) can be an increase in variance\nObvious problem: All surveys have more than one \\(y\\) that they care about!\n\nBut – only one set of adjusted weights!\n\n\n\nAdapted from Table 1 in: Little RJA & Vartivarian S (2005), Does Weighting for Nonresponse Increase the Variance of Survey Means? Survey Methodology, 31, 161-168."
   },
   {
     "objectID": "PUBHBIO7225_L18_nonresponseWtAdjust.html#activity-18.1",
@@ -3539,7 +3539,7 @@
     "href": "PUBHBIO7225_L18_nonresponseWtAdjust.html#more-practical-details-on-weighting-adjustments",
     "title": "Weighting Adjustments\nfor Nonresponse in Surveys",
     "section": "More Practical Details on Weighting Adjustments",
-    "text": "More Practical Details on Weighting Adjustments\n\nData are analyzed as if the adjusted weights were the base weights (no special analysis method needed)\n\n\n\nIf &gt;50% nonresponse in a class, weights would be multiplied by a factor greater than 2 – and this is generally avoided\n\nOption 1: Collapse classes together until have enough respondents\nOption 2: Weight trimming, by choosing a max value for the weights and truncating any adjusted weights above this value\n\n\n\n\n\nCategorical variables can be easily used to form classes, but continuous variables need to be categorized (no strict rule about how)\n\n\n\n\nMore complex weighting adjustments are possible, using “fancier” methods to estimate \\(\\hat{\\phi}_i\\)\n\nEx: Logistic regression with \\(R_i\\) as the outcome\n\nPredictors are variables available for both respondents and nonrespondents\nEach respondent has predicted propensity from the model, \\(\\hat{\\phi}_i\\), and adjusted weight \\(\\tilde{w}_i = w_i/\\hat{\\phi}_i\\)\nOr, create classes based on grouping units with similar \\(\\hat{\\phi}_i\\)"
+    "text": "More Practical Details on Weighting Adjustments\n\nData are analyzed as if the adjusted weights were the base weights (no special analysis method needed)\n\n\n\nIf &gt;50% nonresponse in a class, weights would be multiplied by a factor greater than 2 – and this is generally avoided\n\nOption 1: Collapse classes together until have enough respondents\nOption 2: Weight trimming, by choosing a max value for the weights and truncating any adjusted weights above this value (and redistributing “excess” weight across all units)\n\n\n\n\n\nCategorical variables can be easily used to form classes, but continuous variables need to be categorized (no strict rule about how)"
   },
   {
     "objectID": "PUBHBIO7225_L18_nonresponseWtAdjust.html#combining-nonresponse-adjustments-with-other-weight-adjustments",
@@ -3567,7 +3567,7 @@
     "href": "PUBHBIO7225_L18_nonresponseWtAdjust.html#adjusting-sample-weights-for-unit-nonresponse",
     "title": "Weighting Adjustments\nfor Nonresponse in Surveys",
     "section": "Adjusting Sample Weights for Unit Nonresponse",
-    "text": "Adjusting Sample Weights for Unit Nonresponse\n\nIf \\(R_i \\perp \\!\\!\\! \\perp Z_i\\) (response is independent of selection into the sample), then: \\[\\begin{aligned}\nP(\\text{unit }i & \\text{ selected in sample and responds}) \\\\\n& = P(\\text{unit }i\\text{ selected in sample})\\times P(\\text{unit }i\\text{ responds}|\\text{unit }i\\text{ selected in sample}) \\\\\n& = P(\\text{unit }i\\text{ selected in sample})\\times P(\\text{unit }i\\text{ responds}) \\\\\n& = \\pi_i \\phi_i\n\\end{aligned}\\]\nWe adjust the weights by estimating the \\(\\phi_i\\) and then assigning the weights: \\[w_i = \\begin{cases} \\frac{1}{\\pi_i \\hat{\\phi}_i} & \\text{for respondents }(R_i=1) \\\\ 0 & \\text{for nonrespondents }(R_i=0)\n\\end{cases}\\]\nWeighting methods assume that response probabilities can be estimated from variables known for all units\n\n\\(P(R_i=1 | y_i, \\mathbf{x}_i) = P(R_i=1|\\mathbf{x}_i)\\)   →   assumes MAR\n\nInfo for estimating \\(\\hat{\\phi}_i\\) may be limited for some surveys"
+    "text": "Adjusting Sample Weights for Unit Nonresponse\n\nIf \\(R_i \\perp \\!\\!\\! \\perp Z_i\\) (response is independent of selection into the sample), then: \\[\\begin{aligned}\nP(\\text{unit }i & \\text{ selected in sample and responds}) \\\\\n& = P(\\text{unit }i\\text{ selected in sample})\\times P(\\text{unit }i\\text{ responds}|\\text{unit }i\\text{ selected in sample}) \\\\\n& = P(\\text{unit }i\\text{ selected in sample})\\times P(\\text{unit }i\\text{ responds}) \\\\\n& = \\pi_i \\phi_i\n\\end{aligned}\\]\nWe adjust the weights by estimating the \\(\\phi_i\\) and then assigning the weights: \\[w_i = \\begin{cases} \\frac{1}{\\pi_i \\hat{\\phi}_i} & \\text{for respondents }(R_i=1) \\\\ 0 & \\text{for nonrespondents }(R_i=0)\n\\end{cases}\\]\nWeighting methods assume that response probabilities can be estimated from variables known for all units\n\n\\(P(R_i=1 | y_i, \\mathbf{x}_i) = P(R_i=1|\\mathbf{x}_i)\\)   →   assumes MAR\n\nInfo for estimating \\(\\phi_i\\) may be limited for some surveys"
   },
   {
     "objectID": "PUBHBIO7225_L18_nonresponseWtAdjust.html#example-weight-adjustments-1",
@@ -3609,14 +3609,14 @@
     "href": "PUBHBIO7225_L18_nonresponseWtAdjust.html#example-assume-mcar",
     "title": "Weighting Adjustments\nfor Nonresponse in Surveys",
     "section": "Example: Assume MCAR",
-    "text": "Example: Assume MCAR\n\n\nOption 1: Assume MCAR and use one big weighting adjustment class\nEstimated probability of response = \\(\\hat{\\phi}_i\\) = 6/10 = 0.6 = same for all units\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nID\nBiostat\nAcademic\nBase Weight (\\(w_i\\))\nResponse Propensity (\\(\\hat{\\phi}_i\\))\nAdj. Weight: \\(\\tilde{w}_i = w_i / \\hat{\\phi}_i\\)\n\n\n\n\n1\n0\n1\n100\n6/10 = 0.6\n100/0.6 = 166.67\n\n\n2\n1\n\n100\n\n0\n\n\n3\n0\n\n100\n\n0\n\n\n4\n1\n1\n100\n0.6\n166.67\n\n\n5\n0\n0\n100\n0.6\n166.67\n\n\n6\n1\n0\n100\n0.6\n166.67\n\n\n7\n0\n0\n100\n0.6\n166.67\n\n\n8\n0\n\n100\n\n0\n\n\n9\n1\n1\n100\n0.6\n166.67\n\n\n10\n0\n\n100\n\n0\n\n\n\n\n\nSum: 1000\n\nSum: 1000\n\n\n\n\n\n\n\nEstimated total number of grads in Academic jobs:   \\(\\hat{t} = \\sum_{i \\in \\mathcal{S}} \\tilde{w}_i y_i = 166.67(1) + 166.67(1) + 166.67(0) + \\cdots = 500\\)\nEstimated proportion of grads in Academic jobs:   \\(\\hat{p} = \\frac{\\sum_{i \\in \\mathcal{S}} \\tilde{w}_i y_i}{\\sum_{i \\in \\mathcal{S}} \\tilde{w}_i} = \\frac{500}{1000} = 0.5\\)\n\nEstimate is the same as without adjustment (“complete case”) – MCAR!"
+    "text": "Example: Assume MCAR\n\n\nOption 1: Assume MCAR and use one big weighting adjustment class\nEstimated probability of response = \\(\\hat{\\phi}_i\\) = 6/10 = 0.6 = same for all units\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nID\nBiostat (\\(x_i\\))\nAcademic (\\(y_i\\))\nBase Weight (\\(w_i\\))\nResponse Propensity (\\(\\hat{\\phi}_i\\))\nAdj. Weight: \\(\\tilde{w}_i = w_i / \\hat{\\phi}_i\\)\n\n\n\n\n1\n0\n1\n100\n6/10 = 0.6\n100/0.6 = 166.67\n\n\n2\n1\n\n100\n\n0\n\n\n3\n0\n\n100\n\n0\n\n\n4\n1\n1\n100\n0.6\n166.67\n\n\n5\n0\n0\n100\n0.6\n166.67\n\n\n6\n1\n0\n100\n0.6\n166.67\n\n\n7\n0\n0\n100\n0.6\n166.67\n\n\n8\n0\n\n100\n\n0\n\n\n9\n1\n1\n100\n0.6\n166.67\n\n\n10\n0\n\n100\n\n0\n\n\n\n\n\nSum: 1000\n\nSum: 1000\n\n\n\n\n\n\n\nEstimated total number of grads in Academic jobs:   \\(\\hat{t} = \\sum_{i \\in \\mathcal{S}} \\tilde{w}_i y_i = 166.67(1) + 166.67(1) + 166.67(0) + \\cdots = 500\\)\nEstimated proportion of grads in Academic jobs:   \\(\\hat{p} = \\frac{\\sum_{i \\in \\mathcal{S}} \\tilde{w}_i y_i}{\\sum_{i \\in \\mathcal{S}} \\tilde{w}_i} = \\frac{500}{1000} = 0.5\\)\nCompared to using only respondents (“complete case”): proportion is the same (MCAR!) and total is different (better)"
   },
   {
     "objectID": "PUBHBIO7225_L18_nonresponseWtAdjust.html#example-assume-mcar-cont",
     "href": "PUBHBIO7225_L18_nonresponseWtAdjust.html#example-assume-mcar-cont",
     "title": "Weighting Adjustments\nfor Nonresponse in Surveys",
     "section": "Example: Assume MCAR (con’t)",
-    "text": "Example: Assume MCAR (con’t)\n\n\n\nDo you like this adjustment?\n\n\n\nLook at the breakdown of who responded:\n\n\n\n\n\nType of Degree\nNumber in Sample\nNumber Responded\nResponse Rate\n\n\n\n\nBiostatistics\n4\n3\n3/4 = 75%\n\n\nStatistics\n6\n3\n3/6 = 50%\n\n\n\n\n\n\n\nResponse rate is different for by degree type!\n(different for biostat and stat graduates)\nNot MCAR!\n\n\n\n\n\n\n\nID\nBiostat\nAcademic Job\nBase Weight \\((w_i)\\)\n\n\n\n\n1\n0\n1\n100\n\n\n2\n1\n\n100\n\n\n3\n0\n\n100\n\n\n4\n1\n1\n100\n\n\n5\n0\n0\n100\n\n\n6\n1\n0\n100\n\n\n7\n0\n0\n100\n\n\n8\n0\n\n100\n\n\n9\n1\n1\n100\n\n\n10\n0\n\n100\n\n\n\n\n\n\n\nSuppose in reality biostat grads were more likely than stat grads to be in academic jobs\n\nWould our estimate based on this weight adjustment be too high? Too small? Just right?\n\n\n\n\n\nWhat if there was no relationship between degree type and having an academic job?\n\n\n\n\nA better approach is to form weighting adjustment classes based on degree type"
+    "text": "Example: Assume MCAR (con’t)\n\n\n\nDo you like this adjustment?\n\n\n\nLook at the breakdown of who responded:\n\n\n\n\n\nDegree Type\nSample Size\nNumber Responded\nResponse Rate\n\n\n\n\nBiostatistics\n4\n3\n3/4 = 75%\n\n\nStatistics\n6\n3\n3/6 = 50%\n\n\n\n\n\n\n\nResponse rate is different for by degree type!\n(different for biostat and stat graduates)\nNot MCAR!\n\n\n\n\n\n\n\nID\nBiostat (\\(x_i\\))\nAcademic Job \\((y_i)\\)\nBase Weight \\((w_i)\\)\n\n\n\n\n1\n0\n1\n100\n\n\n2\n1\n\n100\n\n\n3\n0\n\n100\n\n\n4\n1\n1\n100\n\n\n5\n0\n0\n100\n\n\n6\n1\n0\n100\n\n\n7\n0\n0\n100\n\n\n8\n0\n\n100\n\n\n9\n1\n1\n100\n\n\n10\n0\n\n100\n\n\n\n\n\n\n\nSuppose in reality biostat grads were more likely than stat grads to be in academic jobs\n\nWould our estimate based on this weight adjustment be too high? Too small? Just right?\n\n\n\n\n\nWhat if there was no relationship between degree type and having an academic job?\n\n\n\n\nA better approach is to form weighting adjustment classes based on degree type"
   },
   {
     "objectID": "PUBHBIO7225_L18_nonresponseWtAdjust.html#example-assume-mcar-cont-1",
@@ -3637,14 +3637,14 @@
     "href": "PUBHBIO7225_L18_nonresponseWtAdjust.html#example-assume-mar",
     "title": "Weighting Adjustments\nfor Nonresponse in Surveys",
     "section": "Example: Assume MAR",
-    "text": "Example: Assume MAR\n\nOption 2: Assume MAR and create weighting adjustment classes based on degree\nEstimated probability of response = \\(\\hat{\\phi}_i\\) = separately estimated for biostat, stat\nSorting the data by biostat/stat:\n\n\n\n\n\n\n\n\n\n\n\n\n\nID\nBiostat\nAcademic\nBase Weight (\\(w_i\\))\nResponse Propensity (\\(\\hat{\\phi}_i\\))\nAdj. Weight: \\(\\tilde{w}_i = w_i / \\hat{\\phi}_i\\)\n\n\n\n\n1\n0\n1\n100\n3/6 = 0.5\n100/0.5 = 200\n\n\n3\n0\n\n100\n\n0\n\n\n5\n0\n0\n100\n0.5\n200\n\n\n7\n0\n0\n100\n0.5\n200\n\n\n8\n0\n\n100\n\n0\n\n\n10\n0\n\n100\n\n0\n\n\n2\n1\n\n100\n\n0\n\n\n4\n1\n1\n100\n3/4 = 0.75\n100/0.75 = 133.33\n\n\n6\n1\n0\n100\n0.75\n133.33\n\n\n9\n1\n1\n100\n0.75\n133.33\n\n\n\n\n\nSum: 1000\n\nSum: 1000\n\n\n\n\n\nNote the up-weighting of statistics grads (lower response rate) and down-weighting of biostatistics grads (higher response rate)"
+    "text": "Example: Assume MAR\n\nOption 2: Assume MAR and create weighting adjustment classes based on degree\nEstimated probability of response = \\(\\hat{\\phi}_i\\) = separately estimated for biostat, stat\nSorting the data by biostat/stat:\n\n\n\n\n\n\n\n\n\n\n\n\n\nID\nBiostat (\\(x_i\\))\nAcademic (\\(y_i\\))\nBase Weight (\\(w_i\\))\nResponse Propensity (\\(\\hat{\\phi}_i\\))\nAdj. Weight: \\(\\tilde{w}_i = w_i / \\hat{\\phi}_i\\)\n\n\n\n\n1\n0\n1\n100\n3/6 = 0.5\n100/0.5 = 200\n\n\n3\n0\n\n100\n\n0\n\n\n5\n0\n0\n100\n0.5\n200\n\n\n7\n0\n0\n100\n0.5\n200\n\n\n8\n0\n\n100\n\n0\n\n\n10\n0\n\n100\n\n0\n\n\n2\n1\n\n100\n\n0\n\n\n4\n1\n1\n100\n3/4 = 0.75\n100/0.75 = 133.33\n\n\n6\n1\n0\n100\n0.75\n133.33\n\n\n9\n1\n1\n100\n0.75\n133.33\n\n\n\n\n\nSum: 1000\n\nSum: 1000\n\n\n\n\n\nNote the larger up-weighting of statistics grads (lower response rate) compared to biostatistics grads (higher response rate)"
   },
   {
     "objectID": "PUBHBIO7225_L18_nonresponseWtAdjust.html#example-assume-mar-cont",
     "href": "PUBHBIO7225_L18_nonresponseWtAdjust.html#example-assume-mar-cont",
     "title": "Weighting Adjustments\nfor Nonresponse in Surveys",
     "section": "Example: Assume MAR (con’t)",
-    "text": "Example: Assume MAR (con’t)\n\n\n\n\n\n\n\n\n\n\n\n\nID\nBiostat\nAcademic\nBase Weight (\\(w_i\\))\nResponse Propensity (\\(\\hat{\\phi}_i\\))\nAdj. Weight: \\(\\tilde{w}_i = w_i / \\hat{\\phi}_i\\)\n\n\n\n\n1\n0\n1\n100\n3/6 = 0.5\n100/0.5 = 200\n\n\n3\n0\n\n100\n\n0\n\n\n5\n0\n0\n100\n0.5\n200\n\n\n7\n0\n0\n100\n0.5\n200\n\n\n8\n0\n\n100\n\n0\n\n\n10\n0\n\n100\n\n0\n\n\n2\n1\n\n100\n\n0\n\n\n4\n1\n1\n100\n3/4 = 0.75\n100/0.75 = 133.33\n\n\n6\n1\n0\n100\n0.75\n133.33\n\n\n9\n1\n1\n100\n0.75\n133.33\n\n\n\n\n\nSum: 1000\n\nSum: 1000\n\n\n\n\n\n\n\nEstimated total number of graduates who are in Academic jobs:   \\(\\hat{t} = \\sum_{i \\in \\mathcal{S}} \\tilde{w}_i y_i = 200(1) + 200(0) + \\cdots + 133.33(1) = 466.67\\)\nEstimated proportion of graduates who are in Academic jobs:   \\(\\hat{p} = \\frac{\\sum_{i \\in \\mathcal{S}} \\tilde{w}_i y_i}{\\sum_{i \\in \\mathcal{S}} \\tilde{w}_i} = \\frac{466.67}{1000} = 0.47\\)\n\nEstimate is different than under MCAR!"
+    "text": "Example: Assume MAR (con’t)\n\n\n\n\n\n\n\n\n\n\n\n\nID\nBiostat (\\(x_i\\))\nAcademic \\((y_i)\\)\nBase Weight (\\(w_i\\))\nResponse Propensity (\\(\\hat{\\phi}_i\\))\nAdj. Weight: \\(\\tilde{w}_i = w_i / \\hat{\\phi}_i\\)\n\n\n\n\n1\n0\n1\n100\n3/6 = 0.5\n100/0.5 = 200\n\n\n3\n0\n\n100\n\n0\n\n\n5\n0\n0\n100\n0.5\n200\n\n\n7\n0\n0\n100\n0.5\n200\n\n\n8\n0\n\n100\n\n0\n\n\n10\n0\n\n100\n\n0\n\n\n2\n1\n\n100\n\n0\n\n\n4\n1\n1\n100\n3/4 = 0.75\n100/0.75 = 133.33\n\n\n6\n1\n0\n100\n0.75\n133.33\n\n\n9\n1\n1\n100\n0.75\n133.33\n\n\n\n\n\nSum: 1000\n\nSum: 1000\n\n\n\n\n\n\n\nEstimated total number of graduates who are in Academic jobs:\n\\(\\hat{t} = \\sum_{i \\in \\mathcal{S}} \\tilde{w}_i y_i = 200(1) + 200(0) + 200(0) + 133.33(1) + 133.33(0) + 133.33(1) = 466.67\\)\nEstimated proportion of graduates who are in Academic jobs:  \n\\(\\hat{p} = \\frac{\\sum_{i \\in \\mathcal{S}} \\tilde{w}_i y_i}{\\sum_{i \\in \\mathcal{S}} \\tilde{w}_i} = \\frac{466.67}{1000} = 0.47\\)\nCompared to using only respondents (“complete case”): proportion and total are different"
   },
   {
     "objectID": "PUBHBIO7225_L18_nonresponseWtAdjust.html#combining-nr-adjustments-with-other-weight-adjustments",
@@ -3665,7 +3665,7 @@
     "href": "PUBHBIO7225_L18_nonresponseWtAdjust.html#combining-weight-adjustments-cont",
     "title": "Weighting Adjustments\nfor Nonresponse in Surveys",
     "section": "Combining Weight Adjustments (con’t)",
-    "text": "Combining Weight Adjustments (con’t)\n\nKey difference between nonresponse weight adjustments and poststratification/raking:\n\nFor nonresponse weight adjustments, you must use variables observed for respondents and nonrespondents\nFor poststratification/raking, you need population totals for variables that are observed for respondents (individual nonrespondent data not needed)\n\nMost often, both are done – nonresponse first, then poststratification/raking (also commonly called calibration)\n\n\n\n\nThink of it this way:\n\nNonresponse weight adjustments are made to align the respondent sample with the originally selected sample (i.e., make the respondent sample look like the full sample)\nPoststratification/Raking/Calibration are then made to align the resulting sample with the target population"
+    "text": "Combining Weight Adjustments (con’t)\n\nKey difference between nonresponse weight adjustments and poststratification/raking:\n\nFor nonresponse weight adjustments, you must use variables observed for respondents and nonrespondents\nFor poststratification/raking, you need population totals for variables that are observed for respondents (individual nonrespondent data not needed)\n\n\n\n\nMost often, both are done\n\nNonresponse first\nPoststratification/raking second (also commonly called calibration)\n\n\n\n\n\n\nThink of it this way:\n\nNonresponse weight adjustments are made to align the respondent sample with the originally selected sample (i.e., make the respondent sample look like the full sample)\nPoststratification/Raking/Calibration are then made to align the resulting sample with the target population"
   },
   {
     "objectID": "PUBHBIO7225_L18_nonresponseWtAdjust.html#combining-weight-adjustments-cont-1",
@@ -3686,7 +3686,7 @@
     "href": "PUBHBIO7225_L19_nonresponseImputation.html#what-is-imputation",
     "title": "Imputation\nfor Nonresponse in Surveys",
     "section": "What is Imputation?",
-    "text": "What is Imputation?\n\nImputation = filling in missing data values (in a principled way) to create a “complete” data set\n\n\n\n\n\n\n\n\n\nY\nZ\n\n\n\n\n15\n11\n\n\n25\n13\n\n\n\n10\n\n\n13\n8\n\n\n13\n7\n\n\n\n9\n\n\n16\n10\n\n\n20\n13\n\n\n21\n10\n\n\n\n8\n\n\n\n\n\n→\n\n\n\n\n\nY\nZ\n\n\n\n\n15\n11\n\n\n25\n13\n\n\n20\n10\n\n\n13\n8\n\n\n13\n7\n\n\n13\n9\n\n\n16\n10\n\n\n20\n13\n\n\n21\n10\n\n\n15\n8\n\n\n\n\n\n\nImportant point:\n\nThe goal of imputation is not to perfectly replicate the data value that would have been observed\nThe goal of imputation to replace missing values by “plausible” values in order to make use of all available information (i.e., other info we have about a survey respondent) so that population inference is improved (relative to discarding missing data)"
+    "text": "What is Imputation?\n\nImputation = filling in missing data values (in a principled way) to create a “complete” data set\n\n\n\n\n\n\n\n\n\nY\nZ\n\n\n\n\n15\n11\n\n\n25\n13\n\n\n\n10\n\n\n13\n8\n\n\n13\n7\n\n\n\n9\n\n\n16\n10\n\n\n20\n13\n\n\n21\n10\n\n\n\n8\n\n\n\n\n\n→\n\n\n\n\n\nY\nZ\n\n\n\n\n15\n11\n\n\n25\n13\n\n\n20\n10\n\n\n13\n8\n\n\n13\n7\n\n\n13\n9\n\n\n16\n10\n\n\n20\n13\n\n\n21\n10\n\n\n15\n8\n\n\n\n\n\n\nImportant point:\n\nThe goal of imputation is not to perfectly replicate the data value that would have been observed\nThe goal of imputation is to replace missing values by “plausible” values in order to make use of all available information (i.e., other info we have about a survey respondent) so that population inference is improved (relative to discarding missing data)"
   },
   {
     "objectID": "PUBHBIO7225_L19_nonresponseImputation.html#examples-of-imputation-in-large-scale-u.s.-surveys",
@@ -3700,7 +3700,7 @@
     "href": "PUBHBIO7225_L19_nonresponseImputation.html#imputed-items-tend-to-have-low-nonresponse-rates",
     "title": "Imputation\nfor Nonresponse in Surveys",
     "section": "Imputed Items Tend to Have Low Nonresponse Rates",
-    "text": "Imputed Items Tend to Have Low Nonresponse Rates\n\nDemographic variables are the most commonly imputed (for use in weight adjustments)\nItem nonresponse for these items tends to be low\nExample: National Survey of Children’s Health (NSCH) – 2022\n\n\n\n\n\n\n\n\n\n\n\nScreener sample size = 127,726\n\nMost missingness: Child’s race – 2,568 missing (2.01%)\n\nTopical survey sample size = 54,103\n\nMost missingness: Poverty ratio – 10,567 missing (19.53%)\nNext most missingness: Adult education – 1,860 missing (3.44%)\n\nVery low rates of missingness for all demographics except poverty level\nPoverty level based on income – usually high nonresponse for this item on all surveys!\n\n\n\nSource: 2022 NSCH Methodology Report, p.40"
+    "text": "Imputed Items Tend to Have Low Nonresponse Rates\n\nDemographic variables are the most commonly imputed (for use in weight adjustments)\nItem nonresponse for these items tends to be low\nExample: National Survey of Children’s Health (NSCH) – 2022\n\n\n\n\n\n\n\n\n\n\n\nScreener sample size = 127,726\n\nMost missingness: Child’s race – 2,568 missing (2.01%)\n\nTopical survey sample size = 54,103\n\nMost missingness: Poverty ratio – 10,567 missing (19.53%)\nNext most missingness: Adult education – 1,860 missing (3.44%)\n\nVery low rates of missingness for all demographics except poverty level\nPoverty level based on income – usually high nonresponse for income on all surveys!\n\n\n\nSource: 2022 NSCH Methodology Report, p.40"
   },
   {
     "objectID": "PUBHBIO7225_L19_nonresponseImputation.html#some-commonly-used-imputation-methods-for-sample-surveys",
@@ -3756,21 +3756,21 @@
     "href": "PUBHBIO7225_L19_nonresponseImputation.html#what-you-just-did-single-imputation",
     "title": "Imputation\nfor Nonresponse in Surveys",
     "section": "What You Just Did: Single Imputation",
-    "text": "What You Just Did: Single Imputation\n\nSingle Imputation: Replace each missing value with one value\n\n\nCreate one completed data set\nAnalyze that one data set as usual\n\n\n\nEach missing income value was replaced with one value\nBut, when you analyzed the imputed data, you were effectively treating the imputed data as if it had been actually observed!\nLook at the class results… what do we see about the estimated precision (SEs) for the data sets with imputed data compared to the “oracle” data?\n\n\n\nNo “penalty” for the fact that we imputed instead of observed some values — but there should have been, right?"
+    "text": "What You Just Did: Single Imputation\n\nSingle Imputation: Replace each missing value with one value\n\n\nCreate one completed data set\nAnalyze that one data set as usual\n\n\n\nEach missing income value was replaced with one value\nBut, when you analyzed the imputed data, you were effectively treating the imputed data as if it had been actually observed!\nLook at the class results… what do we see about the estimated precision (SEs) for the data sets with imputed data compared to the “oracle” data?\n\n\n\nNo “penalty” for the fact that we imputed instead of observed some values — but shouldn’t there be?"
   },
   {
     "objectID": "PUBHBIO7225_L19_nonresponseImputation.html#single-vs-multiple-imputation",
     "href": "PUBHBIO7225_L19_nonresponseImputation.html#single-vs-multiple-imputation",
     "title": "Imputation\nfor Nonresponse in Surveys",
     "section": "Single vs Multiple Imputation",
-    "text": "Single vs Multiple Imputation\n\nMultiple Imputation: Replace each missing value with multiple values\n\n\nCreate multiple completed data sets\nAnalyze each data set separatedly and combine the resulting estimates using special combining rules (“Rubin’s Rules”)\nResulting inference properly treats the imputed data not as if it were known1\n\n\nMultiple imputation more often used with non-probability/convenience samples (e.g., observational studies, clinical trials)\nApplying multiple imputation in survey context is (more) complicated — have to properly account for the sample design\nSome publicly available surveys do release multiply imputed data — most often income data (e.g., NSCH, NHIS) — why might this be?\n\n\n\nIt’s not the only option – there are methods for obtaining correct variance estimates from singly imputed data, outside the scope of this class"
+    "text": "Single vs Multiple Imputation\n\nMultiple Imputation: Replace each missing value with multiple values\n\n\nCreate multiple completed data sets\nAnalyze each data set separatedly and combine the resulting estimates using special combining rules (“Rubin’s Rules”)\nResulting inference properly treats the imputed data not as if it were known1\n\n\n\nMultiple imputation more often used with non-probability/convenience samples (e.g., observational studies, clinical trials)\nApplying multiple imputation in survey context is (more) complicated — have to properly account for the sample design\nSome publicly available surveys do release multiply imputed data — most often income data (e.g., NSCH, NHIS) — why might this be?\n\n\n\nIt’s not the only option – there are methods for obtaining correct variance estimates from singly imputed data, outside the scope of this class"
   },
   {
     "objectID": "PUBHBIO7225_L19_nonresponseImputation.html#when-and-why-we-impute-in-sample-surveys",
     "href": "PUBHBIO7225_L19_nonresponseImputation.html#when-and-why-we-impute-in-sample-surveys",
     "title": "Imputation\nfor Nonresponse in Surveys",
     "section": "When and Why We Impute (in sample surveys)",
-    "text": "When and Why We Impute (in sample surveys)\n\nImputation is used across many application areas\nGeneral benefits of imputation:\n\nPotential for gain in efficiency relative to complete case\nPotential for reduction in nonresponse bias relative to complete case\n\n\n\n\nIn general:\n\nImputation is for item nonresponse\nWeighting adjustments are for unit nonresponse\n\n\n\n\n\nFor complex sample surveys, the two most common reasons for imputing are:\n\nThere is missing data on variables (collected on the survey) that will be used for weight adjustments (post-stratification, raking, etc.)\nKey survey outcomes have missingness and we don’t want different analysts to get different answers\n\nGenerally speaking, imputation for both of these reasons will be done by the survey producers (e.g., CDC) and the imputed data provided to secondary data analysts (often with imputation “flags” so you know which values have been imputed)"
+    "text": "When and Why We Impute (in sample surveys)\n\nImputation is used across many application areas\nGeneral benefits of imputation:\n\nPotential for gain in efficiency relative to complete case\nPotential for reduction in nonresponse bias relative to complete case\n\n\n\n\nIn general:\n\nImputation is for item nonresponse\nWeighting adjustments are for unit nonresponse\n\n\n\n\n\nFor complex sample surveys, the two most common reasons for imputing are:\n\nThere is missing data on variables collected on the survey that will be used for weight adjustments (post-stratification, raking, etc.)\nKey survey outcomes have missingness and we don’t want different analysts to get different answers\n\n\n\n\n\nGenerally speaking, imputation for both of these reasons will be done by the survey producers (e.g., CDC) and the imputed data is provided to secondary data analysts (often with imputation “flags” so you know which values have been imputed)"
   },
   {
     "objectID": "PUBHBIO7225_L19_nonresponseImputation.html#some-common-imputation-methods-for-sample-surveys",
@@ -3868,7 +3868,7 @@
     "href": "PUBHBIO7225_L20_linearReg.html#example-sampling-schools",
     "title": "Linear Regression\nwith Survey Data",
     "section": "Example: Sampling Schools",
-    "text": "Example: Sampling Schools\n\nData from Lecture 13\nTwo-stage cluster sample (no stratification)\n\nSampled 38 PSUs (districts)\nSampled 1-2 SSUs (schools) per PSU (district)\nTotal of 65 SSUs (schools) sampled\n\nRegression of interest is predicting API (performance index) from percent English language learners and school type (E/M/H)\n\nOption 1: DF = # PSUs \\(-\\) # Strata = \\(38 - 1 = 37\\)\nOption 2: DF = # PSUs \\(-\\) # Strata \\(-\\) # predictors excluding intercept = \\(38 - 1 - 3 = 34\\)"
+    "text": "Example: Sampling Schools\n\nData from Lecture 13\nTwo-stage cluster sample (no stratification)\n\nSampled 38 PSUs (districts)\nSampled 1-2 SSUs (schools) per PSU (district)\nTotal of 65 SSUs (schools) sampled\n\nRegression of interest is predicting API (performance index) from percent English language learners and school type (Elementary/Middle/High School)\n\nOption 1: DF = # PSUs \\(-\\) # Strata = \\(38 - 1 = 37\\)\nOption 2: DF = # PSUs \\(-\\) # Strata \\(-\\) # predictors excluding intercept = \\(38 - 1 - 3 = 34\\)"
   },
   {
     "objectID": "PUBHBIO7225_L20_linearReg.html#references-for-futher-reading",
@@ -3910,7 +3910,7 @@
     "href": "PUBHBIO7225_L20_linearReg.html#details-cont-2",
     "title": "Linear Regression\nwith Survey Data",
     "section": "Details (con’t)",
-    "text": "Details (con’t)\n\nNote: Subtle difference in CI interpretation from infinite population inference\n\nWith a design-based CI, the confidence level (e.g., 95%) for a coefficient (say, \\(B_1\\)) is the sum of the probabilities of all possible samples \\(\\mathcal{S}\\) that could be taken with the specified design for which the CI constructed from that sample will contain the true \\(B_1\\)\n\n\n\n\nNote: Survey-Weighted Regression is not Weighted Least Squares (WLS)\n\nThe point estimates you get from survey weighted linear regression will be the same as point estimates from WLS – but the standard errors will not be the same.\nWe need the linearization estimator to properly account for the sample design"
+    "text": "Details (con’t)\n\nNote #1: Subtle difference in CI interpretation from infinite population inference\n\nWith a design-based CI, the confidence level (e.g., 95%) for a coefficient (say, \\(B_1\\)) is the sum of the probabilities of all possible samples \\(\\mathcal{S}\\) that could be taken with the specified design for which the CI constructed from that sample will contain the true \\(B_1\\)\n\n\n\n\n\nNote #2: Survey-Weighted Regression is not Weighted Least Squares (WLS)\n\nThe point estimates you get from survey weighted linear regression will be the same as point estimates from WLS – but the standard errors will not be the same.\nWe need the linearization estimator to properly account for the sample design"
   },
   {
     "objectID": "PUBHBIO7225_L20_linearReg.html#test",
@@ -4015,7 +4015,7 @@
     "href": "PUBHBIO7225_L21_binaryReg.html#log-binomial-regression",
     "title": "Logistic/Log-Binomial Regression\nwith Survey Data",
     "section": "Log-Binomial Regression",
-    "text": "Log-Binomial Regression\n\nIn the logistic regression model, we have: \\[\\log \\underbrace{\\left(\\frac{P(Y=1|X)}{1-P(Y=1|X)}\\right)}_{\\text{odds}} = \\mathrm{logit}\\left(P(Y=1|X)\\right) = \\beta_0 + \\beta_1 X\\]\nBy using a different transformation of \\(P(Y=1|X)\\), we have log-binomial regression: \\[\\log \\underbrace{\\left(P(Y=1|X)\\right)}_{\\text{\"risk\"}} = \\beta_0 + \\beta_1 X\\]\nNote that this different transformation (different link function) does not have as nice theoretical properties, in the sense that \\(E(Y|X)\\) is not bounded between 0 and 1 (what are the bounds?)\nHowever, unless \\(P(Y=1|X)\\) is close to 0 or 1 it is generally well-behaved\nInterpretation:\n\n\\(e^\\beta_1\\) = prevalence ratio (of \\(Y=1\\)) for a 1 unit increase in X"
+    "text": "Log-Binomial Regression\n\nIn the logistic regression model, we have: \\[\\log \\underbrace{\\left(\\frac{P(Y=1|X)}{1-P(Y=1|X)}\\right)}_{\\text{odds}} = \\mathrm{logit}\\left(P(Y=1|X)\\right) = \\beta_0 + \\beta_1 X\\]\nBy using a different transformation of \\(P(Y=1|X)\\), we have log-binomial regression: \\[\\log \\underbrace{\\left(P(Y=1|X)\\right)}_{\\text{prevalence or risk}} = \\beta_0 + \\beta_1 X\\]\nNote that this different transformation (different link function) does not have as nice theoretical properties, in the sense that \\(E(Y|X)\\) is not bounded between 0 and 1 (what are the bounds?)\nHowever, unless \\(P(Y=1|X)\\) is close to 0 or 1 it is generally well-behaved\nInterpretation:\n\n\\(e^{\\beta_1}\\) = prevalence (of \\(Y=1\\)) ratio for a 1 unit increase in X"
   },
   {
     "objectID": "PUBHBIO7225_L21_binaryReg.html#log-binomial-regression-with-survey-data",
@@ -4043,21 +4043,21 @@
     "href": "PUBHBIO7225_L21_binaryReg.html#logistic-regression-review-cont",
     "title": "Logistic/Log-Binomial Regression\nwith Survey Data",
     "section": "Logistic Regression: Review (con’t)",
-    "text": "Logistic Regression: Review (con’t)\n\nModel: \\(\\mathrm{logit}\\left(P(Y=1|X)\\right) = \\beta_0 + \\beta_1 X\\)\nInterpreting \\(\\beta_1\\):\n\n\\(\\beta_1\\) = log-odds ratio for a 1 unit increase in \\(X\\)\n\\(e^\\beta_1\\) = odds ratio for a 1 unit increase in \\(X\\)\n\\(X\\) binary:\n\nThe odds of \\(Y=1\\) for the group with \\(X=1\\) are \\(e^\\beta_1\\) times the odds for the group with \\(X=0\\)\nSimilar interpretation if \\(X\\) is an indicator variable for one category of a multi-category categorical variable – compares odds for that category to the reference category\n\n\\(X\\) continuous/discrete:\n\nThe odds of \\(Y=1\\) multiply by \\(e^\\beta_1\\) per one-unit increase in \\(X\\)\n\n\nCan sound awkward to talk about “odds”\nBut …do not substitute “risk” or “more likely”!\n\nOdds and risk are different things!"
+    "text": "Logistic Regression: Review (con’t)\n\nModel: \\(\\mathrm{logit}\\left(P(Y=1|X)\\right) = \\beta_0 + \\beta_1 X\\)\nInterpreting the “slope”: \\(\\beta_1\\)\n\n\\(\\beta_1\\) = log-odds ratio for a 1 unit increase in \\(X\\)\n\\(e^{\\beta_1}\\) = odds ratio for a 1 unit increase in \\(X\\)\n\\(X\\) binary:\n\nThe odds of \\(Y=1\\) for the group with \\(X=1\\) are \\(e^{\\beta_1}\\) times the odds for the group with \\(X=0\\)\nSimilar interpretation if \\(X\\) is an indicator variable for one category of a multi-category categorical variable – compares odds for that category to the reference category\n\n\\(X\\) continuous/discrete:\n\nThe odds of \\(Y=1\\) multiply by \\(e^{\\beta_1}\\) per one-unit increase in \\(X\\)\n\n\n\n\n\nCan sound awkward to talk about “odds”\nBut …do not substitute “risk” or “more likely”!\n\nOdds and risk are different things!"
   },
   {
     "objectID": "PUBHBIO7225_L21_binaryReg.html#logistic-regression-review-cont-1",
     "href": "PUBHBIO7225_L21_binaryReg.html#logistic-regression-review-cont-1",
     "title": "Logistic/Log-Binomial Regression\nwith Survey Data",
     "section": "Logistic Regression: Review (con’t)",
-    "text": "Logistic Regression: Review (con’t)\n\nModel: \\(\\mathrm{logit}\\left(P(Y=1|X)\\right) = \\beta_0 + \\beta_1 X\\)\nInterpreting \\(\\beta_0\\):\n\n\\(\\beta_0\\) = intercept = log-odds that \\(Y=1\\) when \\(X=0\\)\n\\(e^\\beta_0\\) = odds that \\(Y=1\\) when \\(X=0\\)\nNot super-useful interpretations!\nEasier to re-write as: \\(\\displaystyle P(Y=1|X=0) = \\frac{e^{\\beta_0}}{1+e^{\\beta_0}}\\)\nThe probability of \\(Y=1\\) when \\(X=0\\) is \\(\\frac{e^{\\beta_0}}{1+e^{\\beta_0}}\\)\n\n\n\n\nThese interpretations extend to models with more than one predictor… interpret as usual, “controlling for” or “adjusting for” or “holding constant” the other predictors"
+    "text": "Logistic Regression: Review (con’t)\n\nModel: \\(\\mathrm{logit}\\left(P(Y=1|X)\\right) = \\beta_0 + \\beta_1 X\\)\nInterpreting the intercept: \\(\\beta_0\\)\n\n\\(\\beta_0\\) = intercept = log-odds that \\(Y=1\\) when \\(X=0\\)\n\\(e^{\\beta_0}\\) = odds that \\(Y=1\\) when \\(X=0\\)\nNot super-useful interpretations!\n\n\n\n\nEasier to re-write as: \\(\\displaystyle P(Y=1|X=0) = \\frac{e^{\\beta_0}}{1+e^{\\beta_0}}\\)\nThe probability of \\(Y=1\\) when \\(X=0\\) is \\(\\frac{e^{\\beta_0}}{1+e^{\\beta_0}}\\)\n\n\n\n\n\nThese interpretations extend to models with more than one predictor… interpret as usual, “controlling for” or “adjusting for” or “holding constant” the other predictors"
   },
   {
     "objectID": "PUBHBIO7225_L21_binaryReg.html#details-cont",
     "href": "PUBHBIO7225_L21_binaryReg.html#details-cont",
     "title": "Logistic/Log-Binomial Regression\nwith Survey Data",
     "section": "Details (con’t)",
-    "text": "Details (con’t)\n\nTo obtain estimates we solve the system of equations using the sample and the sampling weights: \\[\\sum_{i \\in \\mathcal{S}} w_i x_{ij} \\left[y_i - \\frac{\\exp(\\mathbf{x_i}^T \\mathbf{\\hat{B}})}{1+\\exp(\\mathbf{x_i}^T \\mathbf{\\hat{B}})} \\right] = 0 \\quad \\text{for } j=1,\\dots,p\\]\nVariance estimation can be done via linearization\n\n\n\nLogistic regression gives us odds ratios\nMost surveys are cross-sectional, and we can alternatively calculate prevalence ratios"
+    "text": "Details (con’t)\n\nTo obtain estimates we solve the system of equations using the sample and the sampling weights: \\[\\sum_{i \\in \\mathcal{S}} w_i x_{ij} \\left[y_i - \\frac{\\exp(\\mathbf{x_i}^T \\mathbf{\\hat{B}})}{1+\\exp(\\mathbf{x_i}^T \\mathbf{\\hat{B}})} \\right] = 0 \\quad \\text{for } j=1,\\dots,p\\]\nVariance estimation can be done via linearization\n\n\n\n\nLogistic regression gives us odds ratios\nMost surveys are cross-sectional, and we can alternatively calculate prevalence ratios"
   },
   {
     "objectID": "PUBHBIO7225_L21_binaryReg.html#example-sampling-schools-1",
@@ -4295,14 +4295,14 @@
     "href": "PUBHBIO7225_L23_misc.html#outline",
     "title": "Miscellaneous Topics\nin Survey Sampling",
     "section": "Outline",
-    "text": "Outline\n\n\n\n\n\nTopics\n\nData Suppression\nCombining Survey Waves\nReplicate Weights\n\n\nActivities\n\n23.1 Combining NSCH Waves (Years)\n\n\nAssignments\n\nQuiz 5 (last one!) due Thursday 11/20/2025 11:59pm via Carmen\n\nAdditional Remaining Due Dates\n\nGroup Project slides due Tuesday 12/2 (week after Thanksgiving)\nIndividual Project due Tuesday 12/9 (last week of classes)\nGroup Project paper due Thursday 12/18 (last day of finals)"
+    "text": "Outline\n\n\n\n\n\nTopics\n\nData Suppression\nCombining Survey Waves\n\n\nActivities\n\n23.1 Combining NSCH Waves (Years)\n\n\nAssignments\n\nQuiz 5 (last one!) due Thursday 11/20/2025 11:59pm via Carmen\n\nAdditional Remaining Due Dates\n\nGroup Project slides due Tuesday 12/2 (week after Thanksgiving)\nIndividual Project due Tuesday 12/9 (last week of classes)\nGroup Project paper due Thursday 12/18 (last day of finals)"
   },
   {
     "objectID": "PUBHBIO7225_L23_misc.html#data-suppression",
     "href": "PUBHBIO7225_L23_misc.html#data-suppression",
     "title": "Miscellaneous Topics\nin Survey Sampling",
     "section": "Data Suppression",
-    "text": "Data Suppression\n\nSurveys (based on probability samples) often have large sample sizes (relative to other study designs)\nHowever, some point estimates may still be quite variable (imprecise/large variance)\n\nFor example, for a subpopulation that is small and was not purposely oversampled\n\nAdditionally, some estimates based on small numbers of people, or estimates for population groups that are small, might be dangerous in terms of privacy\n\n\nSuppression = Purposefully withholding / not releasing a specific estimate (to the public)\n\n\nDifferent statistical agencies use different rules about when to suppress results\n\nPossible Reason 1: limit risk of disclosure – i.e., that you could figure out who answered the survey\nPossible Reason 2: estimate is deemed “too variable” or “too unreliable”"
+    "text": "Data Suppression\n\nSurveys (based on probability samples) often have large sample sizes (relative to other study designs)\nHowever, some point estimates may still be quite variable (imprecise/large variance)\n\nFor example, for a subpopulation that is small and was not purposely oversampled\n\nAdditionally, some estimates based on small numbers of people, or estimates for population groups that are small, might be dangerous in terms of privacy\n\n\nSuppression = Purposefully withholding / not releasing a specific estimate (to the public)\n\n\n\nDifferent statistical agencies use different rules about when to suppress results\n\nPossible Reason 1: limit risk of disclosure – i.e., that you could figure out who answered the survey\nPossible Reason 2: estimate is deemed “too variable” or “too unreliable”"
   },
   {
     "objectID": "PUBHBIO7225_L23_misc.html#slide-table",
@@ -4316,28 +4316,28 @@
     "href": "PUBHBIO7225_L23_misc.html#data-suppression-rules-examples",
     "title": "Miscellaneous Topics\nin Survey Sampling",
     "section": "Data Suppression Rules: Examples",
-    "text": "Data Suppression Rules: Examples\n\nPopulation Thresholds\n\nOnly release estimates for areas/population groups that exceed a certain size\n\nExample: Areas or groups of 65,000 or more are eligible for estimates to be released\n(American Community Survey, ACS)\n\n\n\n\n\nRestrictions on Numerators and/or Denominators of Proportions\n\nBased on the unweighted sample, suppress estimates with too few cases in the numerator or denominator of a proportion\n\nExample: Suppress estimates based on proportions with numerator &lt;10\n(National Crime Victimization Survey, NCVS)\nExample: Suppress estimates based on proportions with denominator &lt;30\n(National Survey of Family Growth, NSFG)"
+    "text": "Data Suppression Rules: Examples\n\nPopulation Thresholds\n\nOnly release estimates for areas/population groups that exceed a certain size\n\nExample: Areas or groups of 65,000 or more are eligible for estimates to be released\n(American Community Survey, ACS)\n\n\n\n\n\n\nRestrictions on Numerators and/or Denominators of Proportions\n\nBased on the unweighted sample, suppress estimates with too few cases in the numerator or denominator of a proportion\n\nExample: Suppress estimates based on proportions with numerator &lt;10\n(National Crime Victimization Survey, NCVS)\nExample: Suppress estimates based on proportions with denominator &lt;30\n(National Survey of Family Growth, NSFG)"
   },
   {
     "objectID": "PUBHBIO7225_L23_misc.html#combining-survey-waves",
     "href": "PUBHBIO7225_L23_misc.html#combining-survey-waves",
     "title": "Miscellaneous Topics\nin Survey Sampling",
     "section": "Combining Survey Waves",
-    "text": "Combining Survey Waves\n\nMany surveys are repeated (e.g., yearly, every 2 years) to monitor trends\nCombining across survey waves can also be used to estimate characteristics from small subpopulations\nGenerally speaking, these are two different possible goals of combining survey waves:\n\n\n\nEstimate a change in a mean/proportion and test the significance of the change\n\nExample: Has the proportion of children aged 3-17 diagnosed with anxiety changed from 2017 to 2020? What is the estimate of the change?\n\n\n\n\n\nEstimate a mean/proportion using data from multiple years assuming that the mean/proportion has not changed over time\n\nExample: What is the average proportion of children aged 3-17 with an Autism Spectrum Disorder in the years 2017-2020?\n\n\n\n\n\nAssuming that a new (cross-sectional) sample is taken each wave (i.e., not a panel/longitudinal survey), samples from wave to wave are independent\nThus combining across waves is straightfoward (it is what was done to produce this table)"
+    "text": "Combining Survey Waves\n\nMany surveys are repeated (e.g., yearly, every 2 years) to monitor trends\nCombining across survey waves can also be used to estimate characteristics from small subpopulations\nGenerally speaking, these are two different possible goals of combining survey waves:\n\n\n\nEstimate a change in a mean/proportion and test the significance of the change\n\nExample: Has the proportion of children aged 3-17 diagnosed with anxiety changed from 2017 to 2020? What is the estimate of the change?\n\n\n\n\n\nEstimate a mean/proportion using data from multiple years assuming that the mean/proportion has not changed over time\n\nExample: What is the (average) proportion of children aged 3-17 with an Autism Spectrum Disorder in the years 2017-2020?\n\n\n\n\n\nAssuming that a new (cross-sectional) sample is taken each wave (i.e., not a panel/longitudinal survey), samples from wave to wave are independent\nThus combining across waves is straightfoward (it is what was done to produce the BFRSS table)"
   },
   {
     "objectID": "PUBHBIO7225_L23_misc.html#estimating-changes",
     "href": "PUBHBIO7225_L23_misc.html#estimating-changes",
     "title": "Miscellaneous Topics\nin Survey Sampling",
     "section": "Estimating Changes",
-    "text": "Estimating Changes\n\nAs long as the samples each year/wave are drawn independently:\n\n\n\n\n\n\n\n\n\n\nYear\nTrue Population Value\nEstimate\nVariance of Estimate\n\n\n\n\n1\n\\(\\theta_1\\)\n\\(\\hat{\\theta}_1\\)\n\\(V(\\hat{\\theta}_1)\\)\n\n\n2\n\\(\\theta_2\\)\n\\(\\hat{\\theta}_2\\)\n\\(V(\\hat{\\theta}_2)\\)\n\n\nChange\n\\(\\Delta = \\theta_2-\\theta_1\\)\n\\(\\hat{\\Delta}=\\hat{\\theta}_2-\\hat{\\theta}_1\\)\n\\(V(\\hat{\\Delta}) = V(\\hat{\\theta}_1) + V(\\hat{\\theta}_2)\\)\n\n\n\n\nSince \\(\\hat{\\theta}_1\\) and \\(\\hat{\\theta}_2\\) are independent!\nCalculate estimates in each year/wave, subtract to estimate the change, add the (estimated) variances to obtain the variance of the change, and test for change…\n\n\n…or you can pool the data from the waves and let software do the analysis for you!\n\nBenefit to using software: can conduct more sophisticated analyses (e.g., test for linear change trend, adjust for covariates, etc.)"
+    "text": "Estimating Changes\n\nAs long as the samples each year/wave are drawn independently:\n\n\n\n\n\n\n\n\n\n\nYear\nTrue Population Value\nEstimate\nVariance of Estimate\n\n\n\n\n1\n\\(\\theta_1\\)\n\\(\\hat{\\theta}_1\\)\n\\(V(\\hat{\\theta}_1)\\)\n\n\n2\n\\(\\theta_2\\)\n\\(\\hat{\\theta}_2\\)\n\\(V(\\hat{\\theta}_2)\\)\n\n\nChange\n\\(\\Delta = \\theta_2-\\theta_1\\)\n\\(\\hat{\\Delta}=\\hat{\\theta}_2-\\hat{\\theta}_1\\)\n\\(V(\\hat{\\Delta}) = V(\\hat{\\theta}_1) + V(\\hat{\\theta}_2)\\)\n\n\n\n\nSince \\(\\hat{\\theta}_1\\) and \\(\\hat{\\theta}_2\\) are independent, there is no covariance term!\nCalculate estimates in each year/wave, subtract to estimate the change, add the (estimated) variances to obtain the variance of the change, and test for change…\n\n\n…or you can pool the data from the waves and let software do the analysis for you!\n\nBenefit to using software: can conduct more sophisticated analyses (e.g., test for linear change trend, adjust for covariates, etc.)"
   },
   {
     "objectID": "PUBHBIO7225_L23_misc.html#combining-waves-of-the-same-survey",
     "href": "PUBHBIO7225_L23_misc.html#combining-waves-of-the-same-survey",
     "title": "Miscellaneous Topics\nin Survey Sampling",
     "section": "Combining Waves of the Same Survey",
-    "text": "Combining Waves of the Same Survey\n\nTwo things to be careful about when pooling survey years:\n\n\nIs the design the same in each year? E.g., strata, clustering, etc.\n\nFor many large surveys the answer will be yes – precisely because they want to facilitate trend analyses\nIf differences in strata definitions, may have to redefine to align correctly (e.g., “stratum 1”, “stratum 2” for all waves)\n\n\n\n\nThe sample weights – rescale or not rescaled?\n\nEstimating changes in means/proportions – does not matter whether you rescale weights or not, estimates identical\nPooled estimates (e.g., average prevalence in 2017-2020) – rescale weights so sum is the average population size by dividing by number of waves being combined\n\nTechnically, prevalence estimates will be identical with/without rescaling – but population counts will only be correct if you rescale"
+    "text": "Combining Waves of the Same Survey\n\nTwo things to be careful about when pooling survey years:\n\n\nIs the design the same in each year? E.g., strata, clustering, etc.\n\nFor many large surveys the answer will be yes – precisely because they want to facilitate trend analyses\nIf differences in strata definitions, may have to redefine to align correctly (e.g., “stratum 1”, “stratum 2” for all waves)\n\n\n\n\nThe sample weights – rescale or not rescaled?\n\nEstimating changes in means/proportions – does not matter whether you rescale weights or not, estimates identical\nPooled estimates (e.g., prevalence in 2017-2020) – rescale weights so sum is the average population size by dividing by number of waves being combined\n\nTechnically, prevalence estimates will be identical with/without rescaling – but population counts will only be correct if you rescale"
   },
   {
     "objectID": "PUBHBIO7225_L23_misc.html#activity-23.1",
@@ -4358,7 +4358,7 @@
     "href": "PUBHBIO7225_L23_misc.html#resampling-methods",
     "title": "Miscellaneous Topics\nin Survey Sampling",
     "section": "Resampling Methods",
-    "text": "Resampling Methods\nAlternative variance estimation methods use resampling – mimic taking lots of samples, using your one sample\nThree main approaches used:\n\nBalanced Repeated Replication (BRR)\nJackknife (lots of variations)\nBootstrap (also quite a few variations)\n\nFormally, resampling methods re-create the sample for each replicate\n\nSimplest case: treat your sample of size \\(n\\) like a population, and take an SRSWR of size \\(n\\) from it (that “with replacement” part being very important!)\n\nA teeny bit of math to illustrate how resampling methods work:\n\nPopulation quantity we want to estimate: \\(\\theta\\) (e.g., a mean of \\(y\\) for a finite population)\nPoint estimate: \\(\\hat{\\theta}\\)\nVia one of the resampling methods, we create \\(R\\) resampled datasets\nVariance estimate from resampling method: \\(\\displaystyle \\widehat{V}(\\hat{\\theta}) = \\frac{A}{R}\\sum_{r=1}^R \\left(\\hat{\\theta}^{(r)} - \\hat\\theta \\right)^2\\)\nwhere \\(A\\) is a scaling constant, depends on the resampling method"
+    "text": "Resampling Methods\nAlternative variance estimation method: resampling – mimic taking lots of samples, using your one sample\nThree main approaches used:\n\nBalanced Repeated Replication (BRR)\nJackknife (lots of variations)\nBootstrap (also quite a few variations)\n\nFormally, resampling methods re-create the sample for each replicate\n\nSimplest case: treat your sample of size \\(n\\) like a population, and take an SRSWR of size \\(n\\) from it (that “with replacement” part being very important!)"
   },
   {
     "objectID": "PUBHBIO7225_L23_misc.html#replicate-weights",
@@ -4372,7 +4372,7 @@
     "href": "PUBHBIO7225_L23_misc.html#data-suppression-rules-examples-cont",
     "title": "Miscellaneous Topics\nin Survey Sampling",
     "section": "Data Suppression Rules: Examples (con’t)",
-    "text": "Data Suppression Rules: Examples (con’t)\n\nRelative Standard Error (RSE)\n\n\\[RSE = 100 \\times \\frac{\\widehat{SE}(\\bar{y})}{|\\bar{y}|}\\]\n\nUsually a cutoff is chosen and estimates with RSE above this threshold are suppressed\n\nExample: Suppress estimates with RSE &gt;30%\n(National Health Interview Survey, NHIS)\n\nSometimes RSE is modified for proportions: \\[\\frac{\\widehat{SE}(\\hat{p})/\\hat{p}}{-\\mathrm{ln}(\\hat{p})}&gt;.175\\] when \\(\\hat{p} \\le\\) 0.5"
+    "text": "Data Suppression Rules: Examples (con’t)\n\nRelative Standard Error (RSE) = SE of estimate, divided by estimate, times 100\n\n\\(\\displaystyle{RSE = 100 \\times \\frac{\\widehat{SE}(\\bar{y})}{|\\bar{y}|}}\\)\nUsually a cutoff (threshold) is chosen and estimates with RSE above the threshold are suppressed\n\nExample: Suppress estimates with RSE &gt;30%\n(National Health Interview Survey, NHIS)\nExample: BRFSS results in the MMWR Table: Suppress estimates with RSE &gt; 30%\n\nSometimes RSE is modified for proportions: \\[\\frac{\\widehat{SE}(\\hat{p})/\\hat{p}}{-\\mathrm{ln}(\\hat{p})}&gt;.175\\] when \\(\\hat{p} \\le\\) 0.5"
   },
   {
     "objectID": "PUBHBIO7225_L09_stratSampDEFF.html#activity-9.1-part-1",
@@ -4429,5 +4429,348 @@
     "title": "Probability Proportional\nto Size Sampling",
     "section": "PPSWOR: Algorithms",
     "text": "PPSWOR: Algorithms\n\nMany (complex!) algorithms for selecting PPS samples, all require that:\n\n\nYou specify the inclusion probabilities, \\(\\pi_i = n \\psi_i\\)\nWhich imply the weights: \\(w_i = \\frac{1}{\\pi_i} = \\frac{1}{n \\psi_i}\\)\n\n\n\nNote the implied restriction:\n\nInclusion probabilities \\((\\pi_i)\\) cannot be \\(&gt;\\) 1\n\n\\[\n\\begin{split}\n\\pi_i = n \\psi_i &&lt; 1 \\\\\n\\psi_i &&lt; 1/n \\\\\n\\frac{X_i}{\\sum_{i=1}^N X_i} &&lt; 1/n\n\\end{split}\n\\]\nNo one PSU can be so big its \\(X_i\\) takes up more than \\(1/n\\) of the total of the \\(X_i\\)\nIf such a PSU exists, it should be selected with certainty (certainty unit)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L15_complexDesigns.html#example-a-picture",
+    "href": "PUBHBIO7225_L15_complexDesigns.html#example-a-picture",
+    "title": "Complex Designs",
+    "section": "Example: A Picture",
+    "text": "Example: A Picture\nLet’s draw this design:"
+  },
+  {
+    "objectID": "PUBHBIO7225_L15_complexDesigns.html#example-estimation",
+    "href": "PUBHBIO7225_L15_complexDesigns.html#example-estimation",
+    "title": "Complex Designs",
+    "section": "Example: Estimation",
+    "text": "Example: Estimation\n\nTo estimate the total number of beds in rural Gambia that use netting, start from the last stage and work backwards:\n\nRecord total number of beds with nets for each compound (TSU)\nEstimated total number of beds with nets for each village (SSU): (# compounds in village) \\(\\times\\) (average # beds w/nets per compound)\nEstimated total number of beds with nets for PHC villages: \\[\\sum_{\\text{selected villages in PHC stratum}} \\frac{\\text{estimated total number of beds for the village (step 2)}}{\\text{probability of selection from PPS}}\\] Repeat for non-PHC villages\nEstimated total number of beds with nets in each district (PSU): \\[\\text{estimated total in PHC villages (step 3)} + \\text{estimated total in non-PHC villages (step 3)}\\]\nEstimated total number of beds with nets in Eastern region: \\[\\sum_{\\text{selected districts in Eastern stratum}} \\frac{\\text{estimated total number of beds for the district (step 4)}}{\\text{probability of selection from PPS}}\\] Repeat for Central and Western regions\nEstimated overall total: \\(\\text{Estimated total in Eastern} + \\text{Estimated total in Central} + \\text{Estimated total in Western}\\) (step 5)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L16_domainEstimation.html#domain-sample-sizes-are-random-variables",
+    "href": "PUBHBIO7225_L16_domainEstimation.html#domain-sample-sizes-are-random-variables",
+    "title": "Domain Estimation",
+    "section": "Domain Sample Sizes are Random Variables",
+    "text": "Domain Sample Sizes are Random Variables\n\nKey Point: The number of units in the domain in a sample is a random variable\n\nTake another sample, get a different number of units in the domain\n\nContrast with a stratum – take another sample, get the same number of units in the stratum!\n\n\n\n\n\nFormula for the variance of a domain total incorporates this sample-to-sample variability\n\nStatistical software must recognize (be told about / have info about) all the original design strata and PSUs – even if some don’t include any domain members\nThus, you must never subset your data for analysis\n\n\n\n\n\nSubsetting will definitely cause problems when:\n\nA stratum does not contain any members of the domain\n\nUsually unlikely to occur – but possible in highly stratified designs\n\nA PSU does not contain any members of a domain\n\nQuite possible – imagine sampling households, and the domain is males aged 50+\n\n\n\n\n\n\nOne exception: It’s okay to subset an SRS – an SRS of a population contains SRS of a subpopulation"
+  },
+  {
+    "objectID": "PUBHBIO7225_L16_domainEstimation.html#testing",
+    "href": "PUBHBIO7225_L16_domainEstimation.html#testing",
+    "title": "Domain Estimation",
+    "section": "testing",
+    "text": "testing\n\nSuppose we have an SRS of \\(n\\) = 500 co-habiting couples from a very large population (i.e., \\(N\\) large enough to be able to ignore the FPC)\nWe want to compare two domains: People who have Netflix and People who do not have Netflix\nQuestion: Are people who have Netflix less likely to subscribe to cable TV? (We recognize that no causal link can be made with a cross-sectional survey!)\n\n\nData from our SRS of 500 co-habiting couples:\n\n\n\n     netflix     Cable TV  No Cable TV         Total\n Has Netflix 57.49% (119) 42.51%  (88) 100.00% (207)\n  No Netflix 64.16% (188) 35.84% (105) 100.00% (293)\n\n\n\nResulting estimates:\n\n119/207 = 57.5% of couples with Netflix have cable TV\n188/293 = 64.2% of couples without Netflix have cable TV"
+  },
+  {
+    "objectID": "PUBHBIO7225_L17_nonresponse.html#how-nonresponse-causes-bias-cont-2",
+    "href": "PUBHBIO7225_L17_nonresponse.html#how-nonresponse-causes-bias-cont-2",
+    "title": "Nonresponse: Intro to Missing Data",
+    "section": "How Nonresponse Causes Bias (con’t)",
+    "text": "How Nonresponse Causes Bias (con’t)\n\nSome additional comments:\n\nIncreasing sample size does not help – doesn’t guarantee \\(\\bar{y}_{NRU} \\approx \\bar{y}_{RU}\\)\n\nMight just get “more of the same”\n\nBias can (and will) differ for different survey items (i.e., for different \\(y\\))\n\nBest strategy is to try to avoid nonresponse altogether!\n\n\n\n\nKey idea: If an outcome, \\(y\\), is “related” to nonresponse – i.e., it differs between respondents and nonrespondents – then an estimate based on respondents only will be biased (without additional adjustment)\n\n\nEssentially, if there is nonresponse, the best-case scenario is that the respondents are a random sample of the full sample."
+  },
+  {
+    "objectID": "PUBHBIO7225_L17_nonresponse.html#refusal-a-growing-problem",
+    "href": "PUBHBIO7225_L17_nonresponse.html#refusal-a-growing-problem",
+    "title": "Nonresponse: Intro to Missing Data",
+    "section": "Refusal a Growing Problem",
+    "text": "Refusal a Growing Problem\n\nLooking at the ACS reasons for nonresponse shows that refusal is a growing problem"
+  },
+  {
+    "objectID": "PUBHBIO7225_L17_nonresponse.html#a-particular-growing-problem",
+    "href": "PUBHBIO7225_L17_nonresponse.html#a-particular-growing-problem",
+    "title": "Nonresponse: Intro to Missing Data",
+    "section": "A Particular Growing Problem",
+    "text": "A Particular Growing Problem\n\nLooking at the ACS reasons for nonresponse shows that refusal is a growing problem"
+  },
+  {
+    "objectID": "PUBHBIO7225_L18_nonresponseWtAdjust.html#weighting-class-adjustments-cont",
+    "href": "PUBHBIO7225_L18_nonresponseWtAdjust.html#weighting-class-adjustments-cont",
+    "title": "Weighting Adjustments\nfor Nonresponse in Surveys",
+    "section": "Weighting Class Adjustments (con’t)",
+    "text": "Weighting Class Adjustments (con’t)\n\nNotes:\n\nSimple, but very commonly used\nImplicitly assumes probability of response is the same for all units within each class\nAll weights are up-weighted since response propensities are between 0 and 1\n\nContrast this with poststratification (with complete response) where some units get up-weighted and some down-weighted"
+  },
+  {
+    "objectID": "PUBHBIO7225_L18_nonresponseWtAdjust.html#estimating-hatphi_i-weighting-class-adjustments",
+    "href": "PUBHBIO7225_L18_nonresponseWtAdjust.html#estimating-hatphi_i-weighting-class-adjustments",
+    "title": "Weighting Adjustments\nfor Nonresponse in Surveys",
+    "section": "Estimating \\(\\hat{\\phi}_i\\): Weighting Class Adjustments",
+    "text": "Estimating \\(\\hat{\\phi}_i\\): Weighting Class Adjustments\n\nWeighting Class Adjustments = create groups (“classes”) of respondents that have similar \\(\\mathbf{x}_i\\) and estimate response propensity (\\(\\hat{\\phi}_i\\)) within each group (“class”)\n\n\nCreate weighting adjustment classes = groups of respondents and nonrespondents based on variables observed for both\nEstimate response probability within each class with either the unweighted or weighted response rate:\n\n\\[\\hat{\\phi}_c = \\frac{\\text{number of respondents in class } c}{\\text{number of selected units in class }c} \\quad \\text{ or } \\quad \\hat{\\phi}_c = \\frac{\\text{sum of weights for respondents in class } c}{\\text{sum of weights for selected sample in class }c}\\]\n\nUse these estimated response propensities for each class, \\(\\hat{\\phi}_c\\), to adjust the weights for the respondents as: \\[\\tilde{w}_i = w_i \\frac{1}{\\hat{\\phi}_i} = \\frac{1}{\\pi_i \\hat{\\phi}_i}\\]"
+  },
+  {
+    "objectID": "PUBHBIO7225_L18_nonresponseWtAdjust.html#estimating-phi_i-weighting-class-adjustments",
+    "href": "PUBHBIO7225_L18_nonresponseWtAdjust.html#estimating-phi_i-weighting-class-adjustments",
+    "title": "Weighting Adjustments\nfor Nonresponse in Surveys",
+    "section": "Estimating \\(\\phi_i\\): Weighting Class Adjustments",
+    "text": "Estimating \\(\\phi_i\\): Weighting Class Adjustments\n\nWeighting Class Adjustments = create groups (“classes”) of respondents that have similar \\(\\mathbf{x}_i\\) and estimate response propensity (\\(\\hat{\\phi}\\)) within each group (“class”)\n\nSteps:\n\nGroup respondents and nonrespondents based on \\(\\mathbf{x}_i\\) to create weighting adjustment classes\nEstimate response probability within each class with either the unweighted or weighted response rate:\n\n\\[\\hat{\\phi}_c = \\frac{\\text{number of respondents in class } c}{\\text{number of selected units in class }c} \\quad \\text{ or } \\quad \\hat{\\phi}_c = \\frac{\\text{sum of weights for respondents in class } c}{\\text{sum of weights for selected units in class }c}\\]\n\nUse these estimated response propensities for each class, \\(\\hat{\\phi}_c\\), to adjust the weights for the respondents as: \\[\\tilde{w}_i = w_i \\frac{1}{\\hat{\\phi}_i} = \\frac{1}{\\pi_i} \\times \\frac{1}{\\hat{\\phi}_i} = \\frac{1}{\\pi_i \\hat{\\phi}_i}\\]"
+  },
+  {
+    "objectID": "PUBHBIO7225_L18_nonresponseWtAdjust.html#example-jobs-after-graduation",
+    "href": "PUBHBIO7225_L18_nonresponseWtAdjust.html#example-jobs-after-graduation",
+    "title": "Weighting Adjustments\nfor Nonresponse in Surveys",
+    "section": "Example: Jobs After Graduation",
+    "text": "Example: Jobs After Graduation\n\n\n\nPopulation of \\(N=1{,}000\\) graduates with PhDs in statistics/biostatistics in past year\nSRS of \\(n=10\\) with response rate of 6/10 = 60%\nType of degree (biostat vs stat) is on the sampling frame\nType of job (academic vs not) is on the survey\nBased on respondents:\n\nEstimated proportion in Academic jobs = __________\nEstimated total number in Academic jobs = _________\n\n\n\n\n\n\n\nID\nBiostat (\\(x_i\\))\nAcademic (\\(y_i\\))\nWeight (\\(w_i\\))\n\n\n\n\n1\n0\n1\nN/n = 1000/10 = 100\n\n\n2\n1\n\n100\n\n\n3\n0\n\n100\n\n\n4\n1\n1\n100\n\n\n5\n0\n0\n100\n\n\n6\n1\n0\n100\n\n\n7\n0\n0\n100\n\n\n8\n0\n\n100\n\n\n9\n1\n1\n100\n\n\n10\n0\n\n100\n\n\n\n\n\n\n\nDon’t like these estimates? We have two choices:\n\nTreat the entire sample as one adjustment class, and upweight all 6 respondents the same (MCAR)\nGroup the sample by degree type, and apply a different adjustment factor by degree (MAR)\n\nSpecifically, assume missingness depends on degree type"
+  },
+  {
+    "objectID": "PUBHBIO7225_L14_ppsSampling_3PARTS.html",
+    "href": "PUBHBIO7225_L14_ppsSampling_3PARTS.html",
+    "title": "Probability Proportional\nto Size Sampling",
+    "section": "",
+    "text": "Topics\n\nSampling with unequal probabilities:\nProbability Proportional to Size (PPS)\n\nPPS with replacement\nPPS without replacement\n\n\n\nActivities\n\n14.1 PPS Sampling\n\n\n\nReadings\n\nProbability Proportional to Size (PPS) Sampling, Encyclopedia of Survey Research Methods, 2008 (editor: P Lavrakas) (PDF on Carmen)\n\nAssignments\n\nProblem Set 4 due Thursday 10/23/2025 11:59pm via Carmen\n(this is after fall break)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#outline",
+    "href": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#outline",
+    "title": "Probability Proportional\nto Size Sampling",
+    "section": "",
+    "text": "Topics\n\nSampling with unequal probabilities:\nProbability Proportional to Size (PPS)\n\nPPS with replacement\nPPS without replacement\n\n\n\nActivities\n\n14.1 PPS Sampling\n\n\n\nReadings\n\nProbability Proportional to Size (PPS) Sampling, Encyclopedia of Survey Research Methods, 2008 (editor: P Lavrakas) (PDF on Carmen)\n\nAssignments\n\nProblem Set 4 due Thursday 10/23/2025 11:59pm via Carmen\n(this is after fall break)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#so-far-srs-at-each-stage",
+    "href": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#so-far-srs-at-each-stage",
+    "title": "Probability Proportional\nto Size Sampling",
+    "section": "So Far: SRS at Each Stage",
+    "text": "So Far: SRS at Each Stage\n\nOne-stage designs\n\nSample \\(n\\) of \\(N\\) PSUs (sample = \\(\\mathcal{S}\\))\n\\(\\pi_i = \\frac{n}{N}\\) for PSU \\(i\\)     →     \\(w_i = \\frac{N}{n}\\)\nUnbiased estimate of total \\(t\\): \\(\\hat{t}= \\sum_{i \\in \\mathcal{S}} \\frac{t_i}{\\pi_i} = \\sum_{i \\in \\mathcal{S}} w_i t_i = \\frac{N}{n} \\sum_{i \\in \\mathcal{S}} t_i\\)\n\nTwo-stage designs\n\nStage 1: Sample \\(n\\) of \\(N\\) PSUs (sample = \\(\\mathcal{S}\\))\nStage 2: Sample \\(m_i\\) of \\(M_i\\) SSUs for sampled PSU \\(i\\) (sample = \\(\\mathcal{S}_i\\))\n\\(\\pi_{ij} = \\frac{n}{N}\\frac{m_i}{M_i}\\) for SSU \\(j\\) in PSU \\(i\\)     →     \\(w_{ij} =  \\frac{N}{n}\\frac{M_i}{m_i}\\)\nUnbiased estimate of total \\(t\\): \\(\\hat{t}=  \\sum_{i \\in \\mathcal{S}} \\sum_{j \\in \\mathcal{S}_i} \\frac{y_{ij}}{\\pi_{ij}}= \\sum_{i \\in \\mathcal{S}} \\sum_{j \\in \\mathcal{S}_i} w_{ij} y_{ij}= \\frac{N}{n} \\sum_{i \\in \\mathcal{S}} M_i \\bar{y}_i\\)\n\n\nThese designs do not take into account the fact that totals \\((t_i)\\) are often correlated with the size of PSUs \\((M_i)\\)\nWe saw that ratio estimation can improve estimation of \\(\\bar{y}_U\\) – but can we improve on estimation of \\(t\\)?"
+  },
+  {
+    "objectID": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#time-machine-back-to-lecture-3-sampling-clinics",
+    "href": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#time-machine-back-to-lecture-3-sampling-clinics",
+    "title": "Probability Proportional\nto Size Sampling",
+    "section": "Time Machine: Back to Lecture 3 (Sampling Clinics)",
+    "text": "Time Machine: Back to Lecture 3 (Sampling Clinics)\n\nid &lt;- 1:5\ndocs &lt;- c(2,3,4,5,10)\npatients &lt;- c(10,20,50,60,150)\n# SRS\na &lt;- c(1,1,1,1,2,2,2,3,3,4)\nb &lt;- c(2,3,4,5,3,4,5,4,5,5)\n# (patients[a] + patients[b])/2\n# Clinic 5 with certainty\na &lt;- c(1,2,3,4)\nb &lt;- c(5,5,5,5)\n# (4*patients[a] + 1*patients[b])/5\n\n\nThere are \\(N=5\\) clinics in a town and you want to estimate the average number of patients seen in a day (in the town)\nThe population of clinics is:\n\n\n\n\n\n\n\n\n\n\nClinic ID\nNumber of Doctors\nNumber of Patients Seen in a Day (\\(y\\))\n\n\n1\n2\n10\n\n\n2\n3\n20\n\n\n3\n4\n50\n\n\n4\n5\n60\n\n\n5\n10\n150\n\n\n\n\n\nTrue mean number of patients: \\(\\bar{y}_U = 58\\)\nThe number of patients seen is correlated with the number of doctors (makes sense!).\nWe used this auxiliary data to create a more efficient sampling scheme than an SRS\nThat is the idea behind PPS sampling!"
+  },
+  {
+    "objectID": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#sampling-clinics-cont",
+    "href": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#sampling-clinics-cont",
+    "title": "Probability Proportional\nto Size Sampling",
+    "section": "Sampling Clinics (con’t)",
+    "text": "Sampling Clinics (con’t)\n\nDesign 1: SRS of \\(n=2\\) clinics (for each sampled clinic: \\(\\pi_i = n/N = 2/5\\))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nClinics Sampled:\n1, 2\n1, 3\n1, 4\n1, 5\n2, 3\n2, 4\n2, 5\n3, 4\n3, 5\n4, 5\n\n\nSelection Probability:\n1/10\n1/10\n1/10\n1/10\n1/10\n1/10\n1/10\n1/10\n1/10\n1/10\n\n\nWeighted Mean:\n15\n30\n35\n80\n35\n40\n85\n55\n100\n105\n\n\n\n\n\\(E(\\bar{y})=58\\) (unbiased)\n\\(V(\\bar{y})=921\\)\n\nDesign 2: Select largest clinic with certainty \\((\\pi_i = 1)\\), one of the others with equal probability \\((\\pi_i = 1/4)\\)\n\n\n\n\nClinics Sampled:\n1, 5\n2, 5\n3, 5\n4, 5\n\n\nSelection Probability:\n1/4\n1/4\n1/4\n1/4\n\n\nWeighted Mean:\n38\n46\n70\n78\n\n\n\n\n\n\\(E(\\hat{\\theta})=58\\) (unbiased)\n\\(V(\\hat{\\theta})=272\\) \\(\\rightarrow\\) a whole lot smaller than SRS! (less than 1/3 of SRS variance!)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#example-sampling-schools",
+    "href": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#example-sampling-schools",
+    "title": "Probability Proportional\nto Size Sampling",
+    "section": "Example: Sampling Schools",
+    "text": "Example: Sampling Schools\n\nConsider Activity 13.1, where you sampled students within schools using a 2-stage cluster sampling scheme\nPopulation: \\(N=30\\) schools with a total of \\(M_0 = \\sum_{i = 1}^N M_i = 14{,}989\\) students\nAssume it is inexpensive to measure all students in a school, so use 1-stage cluster sampling\n\n\n\n\n\\(N=30\\) schools\n\\(M_i\\) = number of students per school = size variable\n\\(y_{ij}=\\) indicator for if \\(j\\)th student in \\(i\\)th school is female\n\\(t_i= \\sum_{j=1}^{M_i} y_{ij}\\) = total number of females in school \\(i\\)\n\n\n\n\n\n\nNumber of\nNumber of\n\n\nSchool\nStudents \\((M_i)\\)\nFemales \\((t_i)\\)\n\n\n1\n643\n324\n\n\n2\n492\n249\n\n\n3\n574\n284\n\n\n4\n324\n163\n\n\n⋮\n⋮\n⋮\n\n\n\n\n\n\nLet’s consider different ways we can sample \\(n=2\\) schools from this population to estimate \\(t\\), the total number of females in the population"
+  },
+  {
+    "objectID": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#tangent-why-sample-only-n2",
+    "href": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#tangent-why-sample-only-n2",
+    "title": "Probability Proportional\nto Size Sampling",
+    "section": "Tangent: Why Sample Only \\(n=2\\)?",
+    "text": "Tangent: Why Sample Only \\(n=2\\)?\n\nMany large-scale surveys have complex designs, with stratification and multi-stage clustering\n\nUse lots of strata to increase precision\nOften, so highly stratified that each stratum contains a small number of PSUs\n\n\n. . .\n\nBut, we need to have at least 2 PSUs per stratum to estimate variances\n\nSuppose you took an SRS in each stratum (as we have done before)\nIf you only sample \\(n_h=1\\) you can’t estimate variance!\n\n\n. . .\n\nNote that despite this, sometimes only 1 PSU is sampled in highly stratified designs\n\nIn these cases, the sampled PSUs are divided up into pseudo-PSUs for the purposes of variance estimation\nYou use these pseudo-PSUs just like “real” PSUs\nYou often see this when using publicly available survey data (“masked variance PSUs” or “masked variance units”)\n\n\n. . .\nMain point: Sampling only 2 PSUs is actually pretty common!"
+  },
+  {
+    "objectID": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#sampling-design-a-srs",
+    "href": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#sampling-design-a-srs",
+    "title": "Probability Proportional\nto Size Sampling",
+    "section": "Sampling Design A: SRS",
+    "text": "Sampling Design A: SRS\nDesign A: SRS (without replacement) of \\(n=2\\) from the \\(N=30\\) schools\n\nI took an SRS and obtained this sample:\n\n\n\n\nSchool\nNumber of Students \\((M_i)\\)\nNumber of Females \\((t_i)\\)\n\n\n9\n473\n237\n\n\n22\n415\n204\n\n\n\n\nTo estimate the total number of females I have:\n\n\\(\\pi_i = n/N = 2/30 = 1/15\\)\n\\(w_i = 1/\\pi_i = N/n = 15\\)\n\\(\\hat{t}= \\sum_{i \\in \\mathcal{S}} w_i t_i = (15 \\times 237) + (15 \\times 204) = 6615\\)\n\n\n\n\nNote: SRS sample is EPSEM, so could alternatively calculate as: \\(\\hat{t}= N \\bar{t}= 30 \\times (237 + 204)/2 = 30 \\times 220.5 = 6615\\)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#srs-cont",
+    "href": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#srs-cont",
+    "title": "Probability Proportional\nto Size Sampling",
+    "section": "SRS (con’t)",
+    "text": "SRS (con’t)\n\nBy properties of SRS estimators (think way back!):\n\n\n\n\n\n\n\n\nTrue (theoretical) variance:\n\\(\\displaystyle V(\\hat{t})=N^2 \\left(1-\\frac{n}{N}\\right)\\frac{S^2}{n}\\)\n\n\nEstimate from a sample:\n\\(\\displaystyle \\widehat{V}(\\hat{t})=N^2 \\left(1-\\frac{n}{N}\\right)\\frac{s^2}{n}\\)\n\n\n\n\nIn my sample,\n\n\\(s^2 = \\frac{1}{n-1} \\sum_{i \\in \\mathcal{S}} (t_i - \\bar{t})^2 = \\frac{1}{2-1} \\left[(237 - 220.5)^2 + (204 - 220.5)^2 \\right] = 544.5\\)\n\nThus my estimated variance is\n\n\\(\\displaystyle \\widehat{V}(\\hat{t})=N^2 \\left(1-\\frac{n}{N}\\right)\\frac{s^2}{n} = 30^2 \\left(1 - \\frac{2}{30} \\right) \\frac{544.5}{22} = 228690\\)\n\\(\\displaystyle \\widehat{SE}(\\hat{t}) = \\sqrt{228690} = 478.2\\)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#activity-14.1-part-1",
+    "href": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#activity-14.1-part-1",
+    "title": "Probability Proportional\nto Size Sampling",
+    "section": "Activity 14.1 (Part 1)",
+    "text": "Activity 14.1 (Part 1)\nPPS Sampling (Part 1)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#probability-proportional-to-size-pps-sampling",
+    "href": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#probability-proportional-to-size-pps-sampling",
+    "title": "Probability Proportional\nto Size Sampling",
+    "section": "Probability Proportional to Size (PPS) Sampling",
+    "text": "Probability Proportional to Size (PPS) Sampling\n\nThink about the efficiency gain in the clinics example – always sampling the much larger clinic resulted in a much smaller variance – generalizing this idea produces PPS sampling\n\n\nProbability Proportional to Size (PPS) sampling = sample selection methods in which the probability of selection for a sampling unit is directly proportional to a size measure, \\(X_i\\), which is known for all units before sampling\n\n\nWe will use throughout this lecture \\(X_i = M_i =\\) number of SSUs in the PSU\n\nI.e., \\(X_i\\) = the “size” of the PSU = \\(M_i\\)\n\nBut, other \\(X_i\\) are possible\n\nExample: Sampling businesses using \\(X_i\\) = last year’s revenue as reported to IRS\n\nNote that we want to choose an \\(X_i\\) that is:\n\nProportional to the \\(y_i\\) that we are trying to estimate\nStrictly positive \\((&gt;0)\\)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#sampling-design-b-pps-with-replacement",
+    "href": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#sampling-design-b-pps-with-replacement",
+    "title": "Probability Proportional\nto Size Sampling",
+    "section": "Sampling Design B: PPS With Replacement",
+    "text": "Sampling Design B: PPS With Replacement\n\nPPSWR = Simplest PPS scheme, where inclusion probabilities are proportional to \\(X_i\\) and a PSU can be sampled more than once (with replacement)\n\n\nConduct \\(n\\) independent draws of a single PSU from the population\nThe probability of selecting PSU \\(i\\) on each draw is proportional to \\(X_i\\)\nA PSU can be sampled more than once (with replacement)\nProbability PSU \\(i\\) selected on any one draw = (“psi”) = \\(\\displaystyle \\psi_i  = \\frac{X_i}{\\sum_{i=1}^N X_i}\\)\n\nNote the difference:\n\n\\(\\psi_i\\) = probability PSU \\(i\\) is selected on a single draw\n\\(\\pi_i\\) = probability PSU \\(i\\) is in the sample = \\(2 \\psi_i - \\psi_i^2\\)   (via addition rule for probabilities)\n\\(\\psi_i \\ne \\pi_i\\)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#ppswr-cont",
+    "href": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#ppswr-cont",
+    "title": "Probability Proportional\nto Size Sampling",
+    "section": "PPSWR (con’t)",
+    "text": "PPSWR (con’t)\n\nFor the population of schools:\n\n\n\n\nSchool\n\\(M_i\\)\n\\(\\psi_i = M_i/(\\sum_{i=1}^N M_i)\\)\n\n\n\n\n1\n643\n643/14989 = 0.042898125\n\n\n2\n492\n492/14989 = 0.032824071\n\n\n3\n574\n574/14989 = 0.038294749\n\n\n4\n324\n324/14989 = 0.021615852\n\n\n5\n493\n493/14989 = 0.032890787\n\n\n⋮\n⋮\n⋮\n\n\nSum:\n14989\n1\n\n\n\n\n\nThe probability of selection (on a single draw), \\(\\psi_i\\), is larger for the larger schools"
+  },
+  {
+    "objectID": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#ppswr-algorithms",
+    "href": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#ppswr-algorithms",
+    "title": "Probability Proportional\nto Size Sampling",
+    "section": "PPSWR Algorithms",
+    "text": "PPSWR Algorithms\n\n\nTo obtain a PPS With Replacement, many possible sampling algorithms:\n\nCumulative Size Method, Cumulative \\(\\psi_i\\) Method, Lahiri’s Rejective Method, others…\n\nEasiest, conceptually, is the Cumulative Size Method:\n\nCreate a list of the PSUs with their sizes, \\(M_i\\)\nCalculate the cumulative sums of \\(M_i\\) for each PSU\n\nPSU 1: cumulative sum = \\(M_1\\)\nPSU 2: cumulative sum = \\(M_1+M_2\\)\nPSU 3: cumulative sum = \\(M_1+M_2+M_3\\)\netc.\n\nRandomly select \\(n\\) integers between 1 and \\(M_0 = \\sum_{i=1}^N M_i\\)\nSample the PSUs whose cumulative sum contains these \\(n\\) integers\n\nSelect PSU 1 if integer between \\(1\\) and \\(M_1\\)\nSelect PSU 2 if integer between \\(M_1+1\\) and \\(M_1+M_2\\)\nSelect PSU 3 if integer between \\(M_1+M_2+1\\) and \\(M_1+M_2+M_3\\)\netc."
+  },
+  {
+    "objectID": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#example-of-cumulative-size-method",
+    "href": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#example-of-cumulative-size-method",
+    "title": "Probability Proportional\nto Size Sampling",
+    "section": "Example of Cumulative Size Method",
+    "text": "Example of Cumulative Size Method\n\n\nFor the population of schools:\n\n\n\n\n\n\n\n\n\n\n\nSchool\n\\(M_i\\)\nCumulative Size\nCumulative Size (Values)\nRange\n\n\n\n\n1\n643\n\\(M_1\\)\n643\n1 to 643\n\n\n2\n492\n\\(M_1+M_2\\)\n643 + 492 = 1153\n644 to 1153\n\n\n3\n574\n\\(M_1+M_2+M_3\\)\n643 + 492 + 574 = 1709\n1154 to 1709\n\n\n4\n324\n\\(M_1+M_2+M_3+M_4\\)\n643 + 492 + 574 + 324 = 2033\n1710 to 2033\n\n\n⋮\n⋮\n⋮\n⋮\n⋮\n\n\nSum:\n14989\n\n\n\n\n\n\n\nRandomly select \\(n=2\\) integers from 1 to 14989 (One easy way in Excel: RANDBETWEEN() function)\n\nMy integers: 3572, 11002\nThese correspond to:\n\nPSU 8: range 3376 to 3875\nPSU 23: range 10935 to 11624\n\nSo my sample is PSUs 8 & 23\n\nNote: a PSU could be selected twice!"
+  },
+  {
+    "objectID": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#ppswr-estimating-the-population-total",
+    "href": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#ppswr-estimating-the-population-total",
+    "title": "Probability Proportional\nto Size Sampling",
+    "section": "PPSWR: Estimating the Population Total",
+    "text": "PPSWR: Estimating the Population Total\nSteps\n\nEstimate the total based on each draw – i.e., from each sample of size 1\n\nEstimated total based on one PSU = \\(\\frac{\\text{total for that PSU}}{\\text{probability of selection on 1 draw}} = \\frac{t_i}{\\psi_i}\\)\n\nAverage these \\(n\\) estimated totals to produce unbiased estimator of the total = \\(\\hat{t}_{wr} = \\frac{1}{n}\\sum_{i \\in \\mathcal{S}} \\frac{t_i}{\\psi_i}\\)\n\nExample\n\nMy PPSWR sample of \\(n=2\\) schools:\n\n\n\n\n\n\n\n\n\n\n\nSchool\n\\(M_i\\)\n\\(\\psi_i = M_i/(\\sum_{i=1}^N M_i)\\)\n\\(t_i\\)\n\\(\\frac{t_i}{\\psi_i}\\)\n\n\n\n\n8\n500\n\\(\\frac{500}{14989} = 0.0333578\\)\n251\n\\(\\frac{251}{0.0333578} = 7524.477\\)\n\n\n23\n690\n\\(\\frac{690}{14989} = 0.04603376\\)\n343\n\\(\\frac{343}{0.04603376} = 7451.0533\\)\n\n\n\n\nEstimated total = \\(\\hat{t}_{wr} = \\frac{1}{n}\\sum_{i \\in \\mathcal{S}} \\frac{t_i}{\\psi_i} = (7524.5 + 7451.1)/2 = 7487.8\\)\n\nNote: If a PSU is selected into the sample more than once, you’ll include its estimate multiple times"
+  },
+  {
+    "objectID": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#ppswr-sampling-weights",
+    "href": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#ppswr-sampling-weights",
+    "title": "Probability Proportional\nto Size Sampling",
+    "section": "PPSWR: Sampling Weights",
+    "text": "PPSWR: Sampling Weights\n\nCan rewrite the formula for the estimated total to see the sampling weights:\n\n\\[\\hat{t}_{wr} = \\frac{1}{n}\\sum_{i \\in \\mathcal{S}} \\frac{t_i}{\\psi_i} = \\sum_{i \\in \\mathcal{S}} \\frac{t_i}{n \\psi_i} = \\sum_{i \\in \\mathcal{S}} \\textcolor{red}{\\frac{1}{n \\psi_i}} t_i = \\sum_{i \\in \\mathcal{S}} \\textcolor{red}{w_i} t_i\\]\n\nWeight for PSU \\(i\\): \\(w_i= \\frac{1}{n \\psi_i} = \\frac{1}{\\text{expected \\# times PSU $i$ appears in sample}}\\)\nNote: sampling weights are not the inverse of inclusion probabilities for this design\n\nFor my sample,\n\n\n\n\n\n\n\n\n\n\nSchool\n\\(M_i\\)\n\\(t_i\\)\n\\(\\psi_i\\)\n\\(w_i = \\frac{1}{n\\psi_i}\\)\n\n\n\n\n8\n500\n251\n0.0333578\n\\(\\frac{1}{2*0.0333578} = \\frac{1}{0.0667156} = 14.988998\\)\n\n\n23\n690\n343\n0.04603376\n\\(\\frac{1}{2*0.04603376} =\\frac{1}{0.09206752} = 10.861594\\)\n\n\n\n\nSo I can also calculate the estimated total as: \\(\\hat{t}_{wr} = \\sum_{i \\in \\mathcal{S}} w_i t_i = (14.988998\\times 251) + (10.861594 \\times 343) = 7487.8\\) (Same estimate, of course!)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#slide-ppswr-var",
+    "href": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#slide-ppswr-var",
+    "title": "Probability Proportional\nto Size Sampling",
+    "section": "PPSWR: Estimating the Variance of the Population Total",
+    "text": "PPSWR: Estimating the Variance of the Population Total\n\n\nEstimated variance of \\(\\hat{t}_{wr}\\): \\[\\widehat{V}(\\hat{t}_{wr}) = \\frac{1}{n} \\frac{1}{n-1} \\sum_{i \\in \\mathcal{S}} \\left( \\frac{t_i}{\\psi_i} - \\hat{t}_{wr} \\right)^2 = \\frac{s^2}{n}\\] where \\(s^2\\) = variance of the \\(n\\) individual estimates of the total (the \\(\\frac{t_i}{\\psi_i}\\))\n\n\nMy PPSWR sample of \\(n=2\\) schools:\n\n\n\n\nSchool\n\\(\\psi_i\\)\n\\(t_i\\)\n\\(\\frac{t_i}{\\psi_i}\\)\n\n\n\n\n8\n0.0333578\n251\n7524.477\n\n\n23\n0.04603376\n343\n7451.0533\n\n\naverage:\n\n\n7487.8\n\n\n\n\\(\\widehat{V}(\\hat{t}_{wr}) = \\frac{1}{n} \\frac{1}{n-1} \\sum_{i \\in \\mathcal{S}} \\left( \\frac{t_i}{\\psi_i} - \\hat{t}_{wr} \\right)^2\n= \\frac{1}{2} \\frac{1}{(2-1)} \\left[(7524.477-7487.8)^2 + (7451.0533-7487.8)^2 \\right] = \\frac{2695.5}{2} = 1347.6\\)\n\\(\\widehat{SE}(\\hat{t}_{wr}) = \\sqrt{1347.6} = 36.7\\)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#activity-14.1-part-2",
+    "href": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#activity-14.1-part-2",
+    "title": "Probability Proportional\nto Size Sampling",
+    "section": "Activity 14.1 (Part 2)",
+    "text": "Activity 14.1 (Part 2)\nPPS Sampling (Part 2)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#sampling-design-c-pps-without-replacement",
+    "href": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#sampling-design-c-pps-without-replacement",
+    "title": "Probability Proportional\nto Size Sampling",
+    "section": "Sampling Design C: PPS Without Replacement",
+    "text": "Sampling Design C: PPS Without Replacement\n\nWe know that for SRS, variance is reduced when sampling without replacement (compared to with replacement) – same holds for PPS!\nBut, now it is trickier to take a sample because the probability of selecting PSU \\(i\\) on the second draw is not the same as the probability of selecting PSU \\(i\\) on the first draw\nSimple example illustrates this:\n\n\\(P(\\)select PSU 1 on 1st draw\\() =\\psi_1\\)\nbut\n\\(P(\\)select PSU 1 on 2nd draw \\(|\\) selected PSU 1 on 1st draw\\()=0\\)\n\\(P(\\)select PSU 1 on 2nd draw \\(|\\) didn’t select PSU 1 on 1st draw\\()&gt;0\\)\n\n\n. . .\n\nMany (complex!) algorithms for selecting PPS samples, all require that:\n\nYou specify the inclusion probabilities, \\(\\pi_i = n \\psi_i\\)\nWhich imply the weights: \\(w_i = \\frac{1}{\\pi_i} = \\frac{1}{n \\psi_i}\\) (same weights as PPSWR!)\n\n\n. . .\n\nNote the implied restriction: \\(n \\psi_i &lt; 1\\) since inclusion probabilities \\((\\pi_i)\\) cannot be \\(&gt;\\) 1\nTherefore no one PSU can be so big its \\(M_i\\) takes up more than \\(1/n\\) of the total of the \\(M_i\\)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#ppswor-estimating-the-population-total",
+    "href": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#ppswor-estimating-the-population-total",
+    "title": "Probability Proportional\nto Size Sampling",
+    "section": "PPSWOR: Estimating the Population Total",
+    "text": "PPSWOR: Estimating the Population Total\n\nHorvitz-Thompson Estimator for the total under PPSWOR: \\[\\hat{t}_{HT} = \\sum_{i \\in \\mathcal{S}} \\frac{t_i}{\\pi_i} = \\sum_{i \\in \\mathcal{S}} \\frac{t_i}{n \\psi_i} = \\sum_{i \\in \\mathcal{S}} w_i t_i\\]\n\n\nFor the population of schools, I used Stata to take a PPSWOR sample of \\(n=2\\):\n\n\n\n\n\n\n\n\n\n\n\n\nSchool\n\\(M_i\\)\n\\(t_i\\)\n\\(\\psi_i\\)\n\\(\\pi_i = n \\psi_i\\)\n\\(w_i = \\frac{1}{\\pi_i}\\)\n\n\n\n\n14\n531\n267\n\\(\\frac{531}{14989} = 0.035426\\)\n\\(2*0.035426 = 0.070852\\)\n\\(\\frac{1}{0.070852} = 14.11\\)\n\n\n24\n335\n166\n\\(\\frac{335}{14989} = 0.022350\\)\n\\(2*0.022350 = 0.044699\\)\n\\(\\frac{1}{0.044699} = 22.37\\)\n\n\n\n\nMy estimate of the total number of females: \\[\\hat{t}_{HT} = \\sum_{i \\in \\mathcal{S}} w_i t_i = 267 \\times 14.11 + 166 \\times 22.37 = 7482  \\]"
+  },
+  {
+    "objectID": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#ppswor-estimating-the-variance-of-the-population-total",
+    "href": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#ppswor-estimating-the-variance-of-the-population-total",
+    "title": "Probability Proportional\nto Size Sampling",
+    "section": "PPSWOR: Estimating the Variance of the Population Total",
+    "text": "PPSWOR: Estimating the Variance of the Population Total\n\nThe variance of the PPSWOR estimator depends on two sets of probabilities:\n\nSelection (Inclusion) probabilities: \\(\\pi_i = P(\\)PSU \\(i\\) in sample\\()\\)\nPairwise Selection (Inclusion) probabilities: \\(\\pi_{ij}=P(\\)PSU \\(i\\) and PSU \\(j\\) in sample\\()\\)\n\nThe \\(\\pi_{ij}\\) are not just products of the \\(\\pi_i\\)!\nFor \\(n=2\\):\n\n\\(P(i\\) first, \\(j\\) second\\() = P(i\\) first\\()\\times P(j\\) second \\(| i\\) first\\() = \\psi_i \\times \\frac{\\psi_j}{1-\\psi_i}\\)\n\n\\(P(j\\) first, \\(i\\) second\\() = P(j\\) first\\()\\times P(i\\) second \\(| j\\) first\\() = \\psi_j \\times \\frac{\\psi_i}{1-\\psi_j}\\)\n\n\\(\\pi_{ij} = P(i\\) and \\(j\\) in sample\\() = P(i\\) first, \\(j\\) second\\() + P(j\\) first, \\(i\\) second\\()\\)\n\\(\\pi_{ij} = \\psi_i \\times \\frac{\\psi_j}{1-\\psi_i}+ \\psi_j \\times \\frac{\\psi_i}{1-\\psi_j}\\)\n\nMust have the \\(\\pi_{ij}\\) to get an unbiased estimate of \\(V(\\hat{t}_{HT})\\)\n\nComplex!"
+  },
+  {
+    "objectID": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#ppswor-estimating-the-variance-cont",
+    "href": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#ppswor-estimating-the-variance-cont",
+    "title": "Probability Proportional\nto Size Sampling",
+    "section": "PPSWOR: Estimating the Variance (con’t)",
+    "text": "PPSWOR: Estimating the Variance (con’t)\n\n\nTheoretical variance of \\(\\hat{t}_{HT}\\) is:\n\n\\[V(\\hat{t}_{HT}) = \\sum_{i=1}^N \\frac{1- \\pi_i}{\\pi_i} t_i^2 + \\sum_{i=1}^N \\sum_{k=1, k\\ne i}^N \\frac{\\pi_{ik}-\\pi_i \\pi_k}{\\pi_i \\pi_k}t_i t_k = \\frac{1}{2} \\sum_{i=1}^N \\sum_{k=1, k\\ne i}^N (\\pi_i \\pi_k - \\pi_{ik}) \\left(\\frac{t_i}{\\pi_i}-\\frac{t_k}{\\pi_k}\\right)^2 \\]\n\nHorvitz-Thompson variance estimator (based on 1st expression) \\[\\widehat{V}_{HT}(\\hat{t}_{HT}) = \\sum_{i \\in \\mathcal{S}} (1-\\pi_i)\\frac{t_i^2}{\\pi_i^2} + \\sum_{i \\in \\mathcal{S}} \\sum_{k \\in \\mathcal{S}, k \\ne i} \\frac{\\pi_{ik}-\\pi_i \\pi_k}{\\pi_{ik}} \\frac{t_i}{\\pi_i} \\frac{t_k}{\\pi_k}\\]\n\n\nSen-Yates-Grundy variance estimator (based on 2nd expression) \\[\\widehat{V}_{SYG}(\\hat{t}_{HT}) = \\frac{1}{2}\\sum_{i \\in \\mathcal{S}} \\sum_{k \\in \\mathcal{S}, k \\ne i} \\frac{\\pi_{ik}-\\pi_i \\pi_k}{\\pi_{ik}} \\left( \\frac{t_i}{\\pi_i} - \\frac{t_k}{\\pi_k} \\right)^2\\]\n\n\nThough it’s the same theoretical variance, \\(\\widehat{V}_{HT}\\) and \\(\\widehat{V}_{SYG}\\) will not be the same"
+  },
+  {
+    "objectID": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#problems-with-these-variance-estimators",
+    "href": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#problems-with-these-variance-estimators",
+    "title": "Probability Proportional\nto Size Sampling",
+    "section": "Problems With These Variance Estimators",
+    "text": "Problems With These Variance Estimators\n\nSeveral problems with these variance estimators, \\(\\widehat{V}_{HT}(\\hat{t}_{HT})\\) and \\(\\widehat{V}_{SYG}(\\hat{t}_{HT})\\)\n\nPublicly available datasets usually don’t have the joint inclusion probabilities included\n\nNot practical! For a sample of size \\(n\\) there are \\(n(n-1)\\) pairwise inclusion probabilities!\n\nFor some designs the \\(\\pi_{ij}\\) may be hard to calculate\n\\(\\widehat{V}_{HT}(\\hat{t}_{HT})\\) and \\(\\widehat{V}_{SYG}(\\hat{t}_{HT})\\) can actually produce negative variance estimates for some designs!\n\n\n. . .\n\nFor these reasons, we often use the with replacement variance estimate (the one on this slide) \\[\\widehat{V}_{WR}(\\hat{t}_{HT}) = \\frac{1}{n} \\frac{1}{n-1} \\sum_{i \\in \\mathcal{S}} \\left( \\frac{t_i}{\\psi_i} - \\hat{t}_{HT} \\right)^2 = \\frac{n}{n-1}\\sum_{i \\in \\mathcal{S}} \\left( \\frac{t_i}{\\pi_i} - \\frac{\\hat{t}_{HT}}{n} \\right)^2\\]\n\nConsequence: result is (usually slightly) conservative – i.e., variance too big\nBenefit: don’t need pairwise inclusion probabilities, and never get a negative variance!\nConvenience: \\(\\widehat{V}_{WR}(\\hat{t}_{HT})\\) is what is calculated in most software (including Stata and R)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#problems-with-these-variance-estimators-cont",
+    "href": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#problems-with-these-variance-estimators-cont",
+    "title": "Probability Proportional\nto Size Sampling",
+    "section": "Problems With These Variance Estimators (con’t)",
+    "text": "Problems With These Variance Estimators (con’t)\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   4.0.0     ✔ tibble    3.2.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.0.4     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(haven)\nlibrary(survey)\n\nLoading required package: grid\nLoading required package: Matrix\n\nAttaching package: 'Matrix'\n\nThe following objects are masked from 'package:tidyr':\n\n    expand, pack, unpack\n\nLoading required package: survival\n\nAttaching package: 'survey'\n\nThe following object is masked from 'package:graphics':\n\n    dotchart\n\ntheme_set(theme_bw())\n\npop &lt;- read_dta(\"./datasets/smoke_schools.dta\")\nsamp &lt;- pop %&gt;%\n  filter(school %in% c(14,24)) %&gt;%\n  mutate(wt = 1/(2*Mi/14989))\n\n\nFor my PPSWOR sample that contains schools 14 and 24:\n\nUsing with-replacement variance estimation\nNotice there is no FPC for PPS sampling\n\n\n\ndes.ppswor &lt;- svydesign(id = ~1, weight = ~wt, data=samp)\nsvytotal(~totfemale, des.ppswor)\n\n           total     SE\ntotfemale 7482.1 54.728\n\n\n\n\\(\\hat{t}_{HT} = 7482\\) (same as the hand-calculation)\n\\(\\widehat{SE}_{WR}(\\hat{t}_{HT}) = 54.7\\)\nCompare to without-replacement variance estimation:\n\n\\(\\widehat{SE}_{HT}(\\hat{t}_{HT}) = \\text{N/A}\\) (variance estimate is negative!)\n\\(\\widehat{SE}_{SYG}(\\hat{t}_{HT}) = 53.1\\) (slightly smaller than with-replacement estimate)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#activity-14.1-part-3",
+    "href": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#activity-14.1-part-3",
+    "title": "Probability Proportional\nto Size Sampling",
+    "section": "Activity 14.1 (Part 3)",
+    "text": "Activity 14.1 (Part 3)\nPPS Sampling (Part 3)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#comparing-the-designs",
+    "href": "PUBHBIO7225_L14_ppsSampling_3PARTS.html#comparing-the-designs",
+    "title": "Probability Proportional\nto Size Sampling",
+    "section": "Comparing the Designs",
+    "text": "Comparing the Designs\n\nThree designs compared (for sampling schools): (A) SRS, (B) PPSWR, (C) PPSWOR\nAll provide unbiased estimates of the true total\nIn terms of theoretical variances, if size variable is related to \\(t\\), \\(V_{SRS} &gt; V_{PPSWR} &gt; V_{PPSWOR}\\)\n\nIn a single set of samples you might not see the gain (remember: variance is over repeated samples)\n\nFor the schools data, relationship between size and totals:\n\n\n\n\npop %&gt;%\n  ggplot(aes(x = Mi, y = totfemale)) + \n  geom_point(size = 3) +\n  labs(x = \"Number of Students (in the school) - Size Variable\",\n       y = \"Number of Females (in the school)\") +\n  theme(axis.text = element_text(size = 14),\n        axis.title = element_text(size = 16))\n\n\n\n\n\n\n\n\n\n\npop %&gt;%\n  ggplot(aes(x = Mi, y = totsmoke)) + \n  geom_point(size = 3) +\n  labs(x = \"Number of Students (in the school) - Size Variable\",\n       y = \"Number of Smokers (in the school)\") +\n  theme(axis.text = element_text(size = 14),\n        axis.title = element_text(size = 16))\n\n\n\n\n\n\n\n\n\n\n\n\n\nLet’s look at our estimates for total number of females and total number of smokers. What do we see?"
+  },
+  {
+    "objectID": "PUBHBIO7225_L23_misc.html#rse---why-modify-for-p-0.5",
+    "href": "PUBHBIO7225_L23_misc.html#rse---why-modify-for-p-0.5",
+    "title": "Miscellaneous Topics\nin Survey Sampling",
+    "section": "RSE - Why Modify for p < 0.5?",
+    "text": "RSE - Why Modify for p &lt; 0.5?\nA visualization of RSE as a function of p is helpful:"
+  },
+  {
+    "objectID": "PUBHBIO7225_L23_misc.html#rse-why-modify-for-p-0.5",
+    "href": "PUBHBIO7225_L23_misc.html#rse-why-modify-for-p-0.5",
+    "title": "Miscellaneous Topics\nin Survey Sampling",
+    "section": "RSE: Why Modify for p < 0.5?",
+    "text": "RSE: Why Modify for p &lt; 0.5?\nA visualization of RSE (for an SRS) as a function of p is helpful:\n\n(n is set to 1,000 for the purposes of this visualization)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L23_misc.html#resampling-methods-cont",
+    "href": "PUBHBIO7225_L23_misc.html#resampling-methods-cont",
+    "title": "Miscellaneous Topics\nin Survey Sampling",
+    "section": "Resampling Methods (con’t)",
+    "text": "Resampling Methods (con’t)\nA teeny bit of math to illustrate how resampling methods work:\n\nPopulation quantity we want to estimate: \\(\\theta\\) (e.g., a mean of \\(y\\) for a finite population)\nPoint estimate: \\(\\hat{\\theta}\\)\nVia one of the resampling methods, we create \\(R\\) resampled datasets\nVariance estimate from resampling method: \\(\\displaystyle \\widehat{V}(\\hat{\\theta}) = \\frac{A}{R}\\sum_{r=1}^R \\left(\\hat{\\theta}^{(r)} - \\hat\\theta \\right)^2\\)\nwhere \\(A\\) is a scaling constant, depends on the resampling method"
+  },
+  {
+    "objectID": "PUBHBIO7225_L23_misc.html#replicate-weights-cont",
+    "href": "PUBHBIO7225_L23_misc.html#replicate-weights-cont",
+    "title": "Miscellaneous Topics\nin Survey Sampling",
+    "section": "Replicate Weights (con’t)",
+    "text": "Replicate Weights (con’t)\n\nWe don’t actually have to create lots of datasets though…\nWe can accomplish this via manipulation of the sampling weights!\nFor all of these methods, replicate weights are created that capture the variability and allow end users to calculate standard errors without knowing design information, thus reducing disclosure risk"
+  },
+  {
+    "objectID": "PUBHBIO7225_L23_misc.html#replicate-weights-cont-1",
+    "href": "PUBHBIO7225_L23_misc.html#replicate-weights-cont-1",
+    "title": "Miscellaneous Topics\nin Survey Sampling",
+    "section": "Replicate Weights (con’t)",
+    "text": "Replicate Weights (con’t)\nPros:\n\nCan suppress design information (e.g., strata, PSUs)\nBRR and Bootstrap work for any estimate (including non-smooth statistics)\n\nCons:\n\nComputationally intensive\nPost-survey adjustments (e.g., nonresponse weighting adjustments, poststratification) must be done for all sets of weights\nBRR requires a very specific design: 2 PSUs per stratum\n\nFor publicly available datasets, agencies decide to either:\n\nRelease design information (so you can use linearization)\nRelease masked (“pseudo”) design information (so you can use linearization)\nRelease no design information and give you replicate weights"
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_misc2.html#outline",
+    "href": "PUBHBIO7225_L24_misc2.html#outline",
+    "title": "Miscellaneous Topics\nin Survey Sampling (Part 2)",
+    "section": "Outline",
+    "text": "Outline\n\n\n\n\n\nTopics\n\nReplicate Weights\n\n\nActivities\n\nNone!\n\n\nAdditional Remaining Due Dates\n\nGroup Project slides due Tuesday 12/2 (week after Thanksgiving)\nIndividual Project due Tuesday 12/9 (last week of classes)\nGroup Project paper due Thursday 12/18 (last day of finals)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_misc2.html#variance-estimation-what-weve-done-so-far",
+    "href": "PUBHBIO7225_L24_misc2.html#variance-estimation-what-weve-done-so-far",
+    "title": "Miscellaneous Topics\nin Survey Sampling (Part 2)",
+    "section": "Variance Estimation: What We’ve Done So Far",
+    "text": "Variance Estimation: What We’ve Done So Far\nIn this class we have considered two possible methods for getting a variance estimate for point estimates:\n\nExact variance formula (specific to survey design and what you’re estimating)\nLinearization (uses the exact variance formulas)\n\nPotential difficulties with these approaches:\n\nLinearization can only be used for smooth statistics – means, but not medians\nLinearization requires large sample size (not usually a problem for surveys)\nLinearization requires you to have a formula for means/totals under the specific design, which often leads to approximations such as ultimate PSU analysis – ignoring second stage sampling\nLinearization requires you to derive a unique formula for each statistic (maybe not so problematic in the world of computing)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_misc2.html#resampling-methods",
+    "href": "PUBHBIO7225_L24_misc2.html#resampling-methods",
+    "title": "Miscellaneous Topics\nin Survey Sampling (Part 2)",
+    "section": "Resampling Methods",
+    "text": "Resampling Methods\nAlternative variance estimation method: resampling – mimic taking lots of samples, using your one sample\nThree main approaches used:\n\nBalanced Repeated Replication (BRR)\nJackknife (lots of variations)\nBootstrap (also quite a few variations)\n\nFormally, resampling methods re-create the sample for each replicate\n\nSimplest case: treat your sample of size \\(n\\) like a population, and take an SRSWR of size \\(n\\) from it (that “with replacement” part being very important!)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_misc2.html#resampling-methods-cont",
+    "href": "PUBHBIO7225_L24_misc2.html#resampling-methods-cont",
+    "title": "Miscellaneous Topics\nin Survey Sampling (Part 2)",
+    "section": "Resampling Methods (con’t)",
+    "text": "Resampling Methods (con’t)\nA teeny bit of math to illustrate how resampling methods work:\n\nPopulation quantity we want to estimate: \\(\\theta\\) (e.g., a mean of \\(y\\) for a finite population)\nPoint estimate: \\(\\hat{\\theta}\\)\nVia one of the resampling methods, we create \\(R\\) resampled datasets\nVariance estimate from resampling method: \\(\\displaystyle \\widehat{V}(\\hat{\\theta}) = \\frac{A}{R}\\sum_{r=1}^R \\left(\\hat{\\theta}^{(r)} - \\hat\\theta \\right)^2\\)\nwhere \\(A\\) is a scaling constant, depends on the resampling method"
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_misc2.html#replicate-weights-cont",
+    "href": "PUBHBIO7225_L24_misc2.html#replicate-weights-cont",
+    "title": "Miscellaneous Topics\nin Survey Sampling (Part 2)",
+    "section": "Replicate Weights (con’t)",
+    "text": "Replicate Weights (con’t)\n\nWe don’t actually have to create lots of datasets though…\nWe can accomplish this via manipulation of the sampling weights!\nFor all of these methods, replicate weights are created that capture the variability and allow end users to calculate standard errors without knowing design information, thus reducing disclosure risk"
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_misc2.html#replicate-weights-cont-1",
+    "href": "PUBHBIO7225_L24_misc2.html#replicate-weights-cont-1",
+    "title": "Miscellaneous Topics\nin Survey Sampling (Part 2)",
+    "section": "Replicate Weights (con’t)",
+    "text": "Replicate Weights (con’t)\nPros:\n\nCan suppress design information (e.g., strata, PSUs)\nBRR and Bootstrap work for any estimate (including non-smooth statistics)\n\nCons:\n\nComputationally intensive\nPost-survey adjustments (e.g., nonresponse weighting adjustments, poststratification) must be done for all sets of weights\nBRR requires a very specific design: 2 PSUs per stratum\n\nFor publicly available datasets, agencies decide to either:\n\nRelease design information (so you can use linearization)\nRelease masked (“pseudo”) design information (so you can use linearization)\nRelease no design information and give you replicate weights"
   }
 ]

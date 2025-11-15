@@ -1,0 +1,148 @@
+---
+title:  |
+   Miscellaneous Topics  \ 
+   in Survey Sampling (Part 2)
+subtitle: "PUBHBIO 7225 Lecture 23"
+author: "Generative AI acknowledgment: Google Gemini was used to assist in generating alt text for images"
+format:
+  revealjs: 
+    slide-number: true
+    smaller: true
+    footer: "PUBHBIO 7225"
+    width: 1280
+    height: 720
+    theme: custom.scss
+    html-math-method: mathjax
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+## Outline
+
+<!-- ::: hidden -->
+
+<!-- \newcommand{\logit}{\mathrm{logit}} -->
+
+<!-- ::: -->
+
+::::: columns
+::: {.column width="60%"}
+**Topics**
+
+-   Replicate Weights
+:::
+
+::: {.column width="40%"}
+**Activities**
+
+-   None!
+:::
+:::::
+
+**Additional Remaining Due Dates**
+
+-   Group Project **slides** due [Tuesday]{.underline} 12/2 (week after
+    Thanksgiving)
+
+-   Individual Project due [Tuesday]{.underline} 12/9 (last week of
+    classes)
+
+-   Group Project **paper** due Thursday 12/18 (last day of finals)
+
+## Variance Estimation: What We've Done So Far
+
+In this class we have considered two possible methods for getting a
+variance estimate for point estimates:
+
+-   Exact variance formula (specific to survey design and what you're
+    estimating)
+
+-   Linearization (uses the exact variance formulas)
+
+Potential difficulties with these approaches:
+
+-   Linearization can only be used for smooth statistics -- means, but
+    not medians
+
+-   Linearization requires large sample size (not usually a problem for
+    surveys)
+
+-   Linearization requires you to have a formula for means/totals under
+    the specific design, which often leads to approximations such as
+    ultimate PSU analysis -- ignoring second stage sampling
+
+-   Linearization requires you to derive a unique formula for each
+    statistic (maybe not so problematic in the world of computing)
+
+## Resampling Methods
+
+Alternative variance estimation method: **resampling** -- mimic taking
+lots of samples, using your one sample
+
+Three main approaches used:
+
+-   Balanced Repeated Replication (BRR)
+
+-   Jackknife (lots of variations)
+
+-   Bootstrap (also quite a few variations)
+
+Formally, resampling methods re-create the sample for each replicate
+
+-   Simplest case: treat your sample of size $n$ like a population, and
+    take an SRSWR of size $n$ from it (that "with replacement" part
+    being very important!)
+
+## Resampling Methods (con't)
+
+A teeny bit of math to illustrate how resampling methods work:
+
+-   Population quantity we want to estimate: $\theta$ (e.g., a mean of
+    $y$ for a finite population)
+
+-   Point estimate: $\hat{\theta}$
+
+-   Via one of the resampling methods, we create $R$ resampled datasets
+
+-   Variance estimate from resampling method:
+    $\displaystyle \widehat{V}(\hat{\theta}) = \frac{A}{R}\sum_{r=1}^R \left(\hat{\theta}^{(r)} - \hat\theta \right)^2$\
+    where $A$ is a scaling constant, depends on the resampling method
+
+## Replicate Weights (con't)
+
+-   We don't actually have to create lots of datasets though...
+
+-   We can accomplish this via manipulation of the sampling weights!
+
+-   For all of these methods, **replicate weights** are created that
+    capture the variability and allow end users to calculate standard
+    errors without knowing design information, thus reducing disclosure
+    risk
+
+## Replicate Weights (con't)
+
+Pros:
+
+-   Can suppress design information (e.g., strata, PSUs)
+
+-   BRR and Bootstrap work for any estimate (including non-smooth
+    statistics)
+
+Cons:
+
+-   Computationally intensive
+
+-   Post-survey adjustments (e.g., nonresponse weighting adjustments,
+    poststratification) must be done for all sets of weights
+
+-   BRR requires a very specific design: 2 PSUs per stratum
+
+For publicly available datasets, agencies decide to either:
+
+-   Release design information (so you can use linearization)
+
+-   Release masked ("pseudo") design information (so you can use
+    linearization)
+
+-   Release no design information and give you replicate weights

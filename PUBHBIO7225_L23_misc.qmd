@@ -34,7 +34,6 @@ editor:
 
 -   Combining Survey Waves
 
--   Replicate Weights
 :::
 
 ::: {.column width="40%"}
@@ -58,7 +57,7 @@ editor:
 
 -   Group Project **paper** due Thursday 12/18 (last day of finals)
 
-## Data Suppression
+## Data Suppression {.pause}
 
 -   Surveys (based on probability samples) often have large sample sizes
     (relative to other study designs)
@@ -75,6 +74,8 @@ editor:
 
 > [**Suppression**]{.alert} = Purposefully withholding / not releasing a
 > specific estimate (to the public)
+
+. . .
 
 -   Different statistical agencies use different rules about when to
     *suppress* results
@@ -95,7 +96,7 @@ U.S., 2015–2020.*[^1] ([link](http://dx.doi.org/10.15585/mmwr.mm7210a1))
 ![](./figures/suppression_example_mmwr){width="50%" fig-align="center"
 fig-alt="A detailed table titled ‘Prevalence of subjective cognitive decline among adults aged >= 45 years, by race and ethnicity and selected characteristics - Behavioral Risk Factor Surveillance System, United States, 2015-2020.’ The table presents data for the total population and breakdowns by race and ethnicity: American Indian or Alaska Native, Asian or Pacific Islander, Black or African American, White, and Hispanic or Latino. For each characteristic listed on the left—Overall, Unadjusted, Age-adjusted, Sex, Age group, Education level, Marital status, Health insurance status, and Has personal doctor—the table provides the percentage of adults reporting subjective cognitive decline and the corresponding 95% confidence interval for each racial/ethnic group."}
 
-## Data Suppression Rules: Examples
+## Data Suppression Rules: Examples {.pause}
 
 -   [**Population Thresholds**]{.alert}
 
@@ -107,6 +108,8 @@ fig-alt="A detailed table titled ‘Prevalence of subjective cognitive decline a
             (American Community Survey, ACS)
 
 <p>
+
+. . .
 
 -   [**Restrictions on Numerators and/or Denominators of
     Proportions**]{.alert}
@@ -124,19 +127,54 @@ fig-alt="A detailed table titled ‘Prevalence of subjective cognitive decline a
 
 ## Data Suppression Rules: Examples (con't)
 
--   [**Relative Standard Error (RSE)**]{.alert}
+-   [**Relative Standard Error (RSE)**]{.alert} = SE of estimate, divided by estimate, times 100
 
-$$RSE = 100 \times \frac{\widehat{SE}(\bar{y})}{|\bar{y}|}$$
+    -   $\displaystyle{RSE = 100 \times \frac{\widehat{SE}(\bar{y})}{|\bar{y}|}}$
 
--   Usually a cutoff is chosen and estimates with **RSE above this
+    -   Usually a cutoff (threshold) is chosen and estimates with **RSE above the
     threshold are suppressed**
 
-    -   Example: *Suppress estimates with RSE \>30%*\
+        -   Example: *Suppress estimates with RSE \>30%*\
         (National Health Interview Survey, NHIS)
+        
+        -   Example: *BRFSS results in the [MMWR Table](#slide-table): Suppress estimates with RSE \> 30%*
 
--   Sometimes RSE is modified for proportions:
+    -   Sometimes RSE is modified for proportions:
     $$\frac{\widehat{SE}(\hat{p})/\hat{p}}{-\mathrm{ln}(\hat{p})}>.175$$
     when $\hat{p} \le$ 0.5
+
+## RSE: Why Modify for p < 0.5?
+
+A visualization of RSE (for an SRS) as a function of p is helpful:
+
+```{r}
+#| fig-alt: "A plot showing two curves, RSE and RSE divided by the negative natural log of the proportion, against a Proportion value from 0 to 1. The RSE curve spikes steeply near 0, whereas the RSE/-ln(p) does not have as steep an increase near 0."
+library(tidyverse)
+dat <- tibble(n = 1000, 
+              p = seq(0.001,1,.001),
+              se_p = sqrt(p*(1-p)/n),
+              rse_orig = 100*se_p / p,
+              rse_alt = case_when(p <= 0.5 ~ rse_orig/(-log(p)),
+                                  .default = NA)) %>%
+  pivot_longer(cols = c(rse_orig,rse_alt), 
+               values_to = "rse", names_to = "estimator") %>%
+  drop_na() %>%
+  mutate(est = case_when(estimator == "rse_orig" ~ "RSE",
+                         estimator == "rse_alt" ~ "RSE/-ln(p)"))
+theme_set(theme_bw())
+dat %>%
+  ggplot(aes(x = p, y = rse, group = est, color = est)) +
+  geom_line(linewidth = 1) +
+  ggrepel::geom_label_repel(data = filter(dat, p == 0.001),
+                           aes(label = est), size = 5) +
+  theme(legend.position = "none",
+        axis.title = element_text(size = 14),
+        axis.text = element_text(size = 14)) +
+  labs(x = "Proportion", y = "RSE") + 
+  scale_color_brewer(palette = "Dark2")
+```
+
+(n is set to 1,000 for the purposes of this visualization)
 
 ## Combining Survey Waves {.pause}
 
@@ -163,7 +201,7 @@ $$RSE = 100 \times \frac{\widehat{SE}(\bar{y})}{|\bar{y}|}$$
 2.  Estimate a mean/proportion using data from multiple years *assuming
     that the mean/proportion has not changed over time*
 
-    -   Example: What is the average proportion of children aged 3-17
+    -   Example: What is the (average) proportion of children aged 3-17
         with an Autism Spectrum Disorder in the years 2017-2020?
 
 . . .
@@ -173,7 +211,7 @@ $$RSE = 100 \times \frac{\widehat{SE}(\bar{y})}{|\bar{y}|}$$
     are **independent**
 
 -   Thus combining across waves is straightfoward (it is what was done
-    to produce [this table](#slide-table))
+    to produce [the BFRSS table](#slide-table))
 
 ## Estimating Changes {.pause}
 
@@ -185,7 +223,7 @@ $$RSE = 100 \times \frac{\widehat{SE}(\bar{y})}{|\bar{y}|}$$
 | 2 | $\theta_2$ | $\hat{\theta}_2$ | $V(\hat{\theta}_2)$ |
 | Change | $\Delta = \theta_2-\theta_1$ | $\hat{\Delta}=\hat{\theta}_2-\hat{\theta}_1$ | $V(\hat{\Delta}) = V(\hat{\theta}_1) + V(\hat{\theta}_2)$ |
 
--   Since $\hat{\theta}_1$ and $\hat{\theta}_2$ are **independent**!
+-   Since $\hat{\theta}_1$ and $\hat{\theta}_2$ are **independent**, there is no covariance term!
 
 -   Calculate estimates in each year/wave, subtract to estimate the
     change, add the (estimated) variances to obtain the variance of the
@@ -218,7 +256,7 @@ analysis for you!
     -   Estimating changes in means/proportions -- does not matter
         whether you rescale weights or not, estimates identical
 
-    -   Pooled estimates (e.g., average prevalence in 2017-2020) --
+    -   Pooled estimates (e.g., prevalence in 2017-2020) --
         rescale weights so sum is the average population size by
         dividing by number of waves being combined
 
@@ -230,94 +268,3 @@ analysis for you!
 
 Combining NSCH Waves (Years)
 
-## Bonus Topic: Alternative Variance Estimation Methods
-
-In this class we have considered two possible methods for getting a
-variance estimate for point estimates:
-
--   Exact variance formula (specific to survey design and what you're
-    estimating)
-
--   Linearization (uses the exact variance formulas)
-
-Potential difficulties with these approaches:
-
--   Linearization can only be used for smooth statistics -- means, but
-    not medians
-
--   Linearization requires large sample size (not usually a problem for
-    surveys)
-
--   Linearization requires you to have a formula for means/totals under
-    the specific design, which often leads to approximations such as
-    ultimate PSU analysis -- ignoring second stage sampling
-
--   Linearization requires you to derive a unique formula for each
-    statistic (maybe not so problematic in the world of computing)
-
-## Resampling Methods
-
-Alternative variance estimation methods use **resampling** -- mimic
-taking lots of samples, using your one sample
-
-Three main approaches used:
-
--   Balanced Repeated Replication (BRR)
-
--   Jackknife (lots of variations)
-
--   Bootstrap (also quite a few variations)
-
-Formally, resampling methods re-create the sample for each replicate
-
--   Simplest case: treat your sample of size $n$ like a population, and
-    take an SRSWR of size $n$ from it (that "with replacement" part
-    being very important!)
-
-A teeny bit of math to illustrate how resampling methods work:
-
--   Population quantity we want to estimate: $\theta$ (e.g., a mean of
-    $y$ for a finite population)
-
--   Point estimate: $\hat{\theta}$
-
--   Via one of the resampling methods, we create $R$ resampled datasets
-
--   Variance estimate from resampling method:
-    $\displaystyle \widehat{V}(\hat{\theta}) = \frac{A}{R}\sum_{r=1}^R \left(\hat{\theta}^{(r)} - \hat\theta \right)^2$\
-    where $A$ is a scaling constant, depends on the resampling method
-
-## Replicate Weights
-
-We don't actually have to create lots of datasets though...
-
-We can accomplish this via manipulation of the sampling weights!
-
-For all of these methods, **replicate weights** are created that capture
-the variability and allow end users to calculate standard errors without
-knowing design information, thus reducing disclosure risk
-
-Pros:
-
--   Can suppress design information (e.g., strata, PSUs)
-
--   BRR and Bootstrap work for any estimate (including non-smooth
-    statistics)
-
-Cons:
-
--   Computationally intensive
-
--   Post-survey adjustments (e.g., nonresponse weighting adjustments,
-    poststratification) must be done for all sets of weights
-
--   BRR requires a very specific design: 2 PSUs per stratum
-
-For publicly available datasets, agencies decide to either:
-
--   Release design information (so you can use linearization)
-
--   Release masked ("pseudo") design information (so you can use
-    linearization)
-
--   Release no design information and give you replicate weights
