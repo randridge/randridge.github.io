@@ -45,3 +45,5 @@ title: "PUBHBIO 7225 Lecture Slides"
 [Lecture 20: Linear Regression with Survey Data](PUBHBIO7225_L20_linearReg.qmd)
 
 [Lecture 21: Logistic/Log-Binomial Regression with Survey Data](PUBHBIO7225_L21_binaryReg.qmd)
+
+[Lecture 22: Graphing Survey Data](PUBHBIO7225_L22_graphs.qmd)
