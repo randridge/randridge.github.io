@@ -51,28 +51,32 @@ Let's see how well Gemini did...
 ## Question 1 {.pause }
 In the vocabulary of survey sampling, what is the key distinction between the 'Target Population' and the 'Sampled Population'?
 
+<br>
+
 :::{.fragment .highlight-red}
-* A. The Target Population is the complete collection of units we want to study, while the Sampled Population is the collection of units from which the sample was actually taken.
+A. The Target Population is the complete collection of units we want to study, while the Sampled Population is the collection of units from which the sample was actually taken.
 :::
 
-* B. The Target Population consists of all units in the sampling frame, while the Sampled Population is the subset of units that respond to the survey.
+B. The Target Population consists of all units in the sampling frame, while the Sampled Population is the subset of units that respond to the survey.
 
-* C. The Target Population includes all observation units, while the Sampled Population only includes the sampling units.
+C. The Target Population includes all observation units, while the Sampled Population only includes the sampling units.
 
-* D. There is no real difference; the terms are used interchangeably to refer to the group of individuals being studied.
+D. There is no real difference; the terms are used interchangeably to refer to the group of individuals being studied.
 
 ## Question 2 {.pause}
 According to the Total Survey Error (TSE) framework, which category of errors could still occur even if a census of the entire population was conducted?
 
-* A. Representation Errors
+<br>
 
-* B. Sampling Errors
+A. Representation Errors
+
+B. Sampling Errors
 
 :::{.fragment .highlight-red}
-* C. Measurement Errors
+C. Measurement Errors
 :::
 
-* D. Nonresponse Errors
+D. Nonresponse Errors
 
 ---
 
@@ -80,53 +84,64 @@ According to the Total Survey Error (TSE) framework, which category of errors co
 
 In a Simple Random Sample Without Replacement (SRSWOR), what is the purpose of the finite population correction (fpc), $(1 - \frac{n}{N})$?
 
-* A. It increases the estimated variance to account for the bias introduced by sampling from a small population.
+<br>
+
+A. It increases the estimated variance to account for the bias introduced by sampling from a small population.
 
 :::{.fragment .highlight-red}
-* B. It reduces the estimated variance because sampling a large fraction of the population provides more information and certainty.
+B. It reduces the estimated variance because sampling a large fraction of the population provides more information and certainty.
 :::
 
-* C. It adjusts the sample mean to be an unbiased estimator of the population mean when the population is small.
-* D. It is used to calculate the sampling weight, $w_i$, for each unit in the sample.
+C. It adjusts the sample mean to be an unbiased estimator of the population mean when the population is small.
+
+D. It is used to calculate the sampling weight, $w_i$, for each unit in the sample.
 
 ## Question 4 {.pause}
 
 Which of the following best describes the primary goal for forming strata in stratified random sampling versus forming clusters in cluster sampling?
 
-* A. Strata should be as internally heterogeneous as possible, while clusters should be as internally homogeneous as possible.
+<br>
+
+A. Strata should be as internally heterogeneous as possible, while clusters should be as internally homogeneous as possible.
 
 :::{.fragment .highlight-red}
-* B. Strata should be as internally homogeneous as possible, while clusters should be internally heterogeneous (like mini-populations).
+B. Strata should be as internally homogeneous as possible, while clusters should be internally heterogeneous (like mini-populations).
 :::
 
-* C. Both strata and clusters should be designed to be as internally homogeneous as possible to minimize overall variance.
-* D. Both strata and clusters are formed to ensure every unit has an equal probability of selection (EPSEM).
+C. Both strata and clusters should be designed to be as internally homogeneous as possible to minimize overall variance.
+D. Both strata and clusters are formed to ensure every unit has an equal probability of selection (EPSEM).
 
 ## Question 5 {.pause}
 
 What is the key advantage of Neyman allocation over proportional allocation in stratified sampling?
 
-* A. Neyman allocation results in an EPSEM (self-weighting) sample, simplifying calculations.
-* B. Neyman allocation is always less expensive to implement than proportional allocation.
+<br>
+
+A. Neyman allocation results in an EPSEM (self-weighting) sample, simplifying calculations.
+
+B. Neyman allocation is always less expensive to implement than proportional allocation.
 
 :::{.fragment .highlight-red}
-* C. Neyman allocation minimizes the variance of the overall mean estimate for a fixed total sample size by considering both stratum size and variability.
+C. Neyman allocation minimizes the variance of the overall mean estimate for a fixed total sample size by considering both stratum size and variability.
 :::
 
-* D. Neyman allocation guarantees that the sample size in each stratum is equal, which is best for comparing strata.
+D. Neyman allocation guarantees that the sample size in each stratum is equal, which is best for comparing strata.
 
 ## Question 6 {.pause}
 
 A researcher calculates a design effect (deff) of 0.75 for a mean estimate from a survey. What does this value imply about the sampling design used?
 
-* A. The design is 25% less efficient than a simple random sample (SRS) of the same size.
+<br>
+
+A. The design is 25% less efficient than a simple random sample (SRS) of the same size.
 
 :::{.fragment .highlight-red}
-* B. The design provides the same precision as an SRS that is 25% smaller.
+B. The design provides the same precision as an SRS that is 25% smaller.
 :::
 
-* C. The design likely involved cluster sampling, where units within clusters were very similar.
-* D. The variance of the estimate is 75% larger than the variance that would be obtained from an SRS of the same size.
+C. The design likely involved cluster sampling, where units within clusters were very similar.
+
+D. The variance of the estimate is 75% larger than the variance that would be obtained from an SRS of the same size.
 
 <br>
 
@@ -140,14 +155,17 @@ What is the correct answer?
 
 What is the primary motivation for using poststratification to adjust survey weights after data collection?
 
-* A. To reduce the variance of estimates by applying the principles of stratified sampling after the sample has been drawn.
+<br>
+
+A. To reduce the variance of estimates by applying the principles of stratified sampling after the sample has been drawn.
 
 :::{.fragment .highlight-red}
-* B. To adjust the sample weights so that the weighted sample totals for certain variables match known population totals, correcting for potential coverage and nonresponse errors.
+B. To adjust the sample weights so that the weighted sample totals for certain variables match known population totals, correcting for potential coverage and nonresponse errors.
 :::
 
-* C. To create an EPSEM (Equal Probability of Selection Method) sample from an initial non-EPSEM design.
-* D. To impute missing values for key demographic variables that are needed for analysis.
+C. To create an EPSEM (Equal Probability of Selection Method) sample from an initial non-EPSEM design.
+
+D. To impute missing values for key demographic variables that are needed for analysis.
 
 <br>
 
@@ -161,210 +179,257 @@ What is issue with Gemini's answer?
 
 In one-stage cluster sampling with unequal cluster sizes, why is the ratio estimator ($\bar{y}_{\text{r}}$) often preferred over the unbiased estimator ($\bar{y}_{\text{clus}}$) for the population mean?
 
-* A. The ratio estimator is always unbiased and has a simpler variance formula.
-* B. The unbiased estimator requires knowing the size of every cluster in the population, which is often unknown.
+<br>
+
+A. The ratio estimator is always unbiased and has a simpler variance formula.
+
+B. The unbiased estimator requires knowing the size of every cluster in the population, which is often unknown.
 
 :::{.fragment .highlight-red}
-* C. The ratio estimator typically has a much smaller variance because it accounts for the correlation between cluster totals and cluster sizes.
+C. The ratio estimator typically has a much smaller variance because it accounts for the correlation between cluster totals and cluster sizes.
 :::
 
-* D. The ratio estimator gives equal weight to each cluster, making it more robust to outlier clusters.
+D. The ratio estimator gives equal weight to each cluster, making it more robust to outlier clusters.
 
 ## Question 9 {.pause}
 
 What is the key principle behind Probability Proportional to Size (PPS) sampling?
 
-* A. Every sampling unit has an equal probability of being selected, regardless of its size.
+<br>
+
+A. Every sampling unit has an equal probability of being selected, regardless of its size.
 
 :::{.fragment .highlight-red}
-* B. The probability of selecting a sampling unit is directly proportional to a measure of its size, making larger units more likely to be selected.
+B. The probability of selecting a sampling unit is directly proportional to a measure of its size, making larger units more likely to be selected.
 :::
 
-* C. The probability of selecting a unit is inversely proportional to its size, giving smaller units a higher chance of selection.
-* D. Units are first stratified by size, and then a simple random sample is taken within each size-based stratum.
+C. The probability of selecting a unit is inversely proportional to its size, giving smaller units a higher chance of selection.
+
+D. Units are first stratified by size, and then a simple random sample is taken within each size-based stratum.
 
 ## Question 10 {.pause}
 
 When analyzing a subpopulation (or 'domain') that was not part of the survey's design strata, why is it incorrect to simply subset the data to that domain before analysis?
 
-* A. It is always correct to subset the data, as this properly isolates the group of interest for analysis.
-* B. Subsetting the data will lead to biased point estimates for the domain mean and total.
+<br>
+
+A. It is always correct to subset the data, as this properly isolates the group of interest for analysis.
+
+B. Subsetting the data will lead to biased point estimates for the domain mean and total.
 
 :::{.fragment .highlight-red}
-* C. It can lead to incorrect variance estimates because the software will not account for the original design structure, such as strata or PSUs that contained no domain members.
+C. It can lead to incorrect variance estimates because the software will not account for the original design structure, such as strata or PSUs that contained no domain members.
 :::
 
-* D. This practice is only incorrect for simple random samples but acceptable for complex designs like stratified or cluster samples.
+D. This practice is only incorrect for simple random samples but acceptable for complex designs like stratified or cluster samples.
 
 ## Question 11 {.pause}
 
 A survey researcher finds that older adults are more likely to respond to their survey than younger adults. Information on age is available on the sampling frame for all sampled units. Under which missing data mechanism does this scenario fall?
 
-* A. Missing Completely At Random (MCAR)
+<br>
+
+A. Missing Completely At Random (MCAR)
 
 :::{.fragment .highlight-red}
-* B. Missing At Random (MAR)
+B. Missing At Random (MAR)
 :::
 
-* C. Missing Not At Random (MNAR)
-* D. Unit Nonresponse
+C. Missing Not At Random (MNAR)
+
+D. Unit Nonresponse
 
 ## Question 12 {.pause}
 
 What is the primary difference between using weighting adjustments and imputation to handle nonresponse in surveys?
 
-* A. Weighting is used for item nonresponse, while imputation is used for unit nonresponse.
+<br>
+
+A. Weighting is used for item nonresponse, while imputation is used for unit nonresponse.
 
 :::{.fragment .highlight-red}
-* B. Weighting is generally used for unit nonresponse by increasing the weights of similar respondents, while imputation is used for item nonresponse by filling in missing values.
+B. Weighting is generally used for unit nonresponse by increasing the weights of similar respondents, while imputation is used for item nonresponse by filling in missing values.
 :::
 
-* C. Weighting adjustments assume data are Missing Completely At Random (MCAR), while imputation assumes data are Missing At Random (MAR).
-* D. Imputation always produces more precise estimates than weighting adjustments.
+C. Weighting adjustments assume data are Missing Completely At Random (MCAR), while imputation assumes data are Missing At Random (MAR).
+
+D. Imputation always produces more precise estimates than weighting adjustments.
 
 ## Question 13 {.pause}
 
 When fitting a regression model with complex survey data, what is a primary reason to use survey-weighted regression even if the unweighted model appears to fit well?
 
-* A. Weighted regression always produces smaller standard errors, increasing statistical power.
+<br>
+
+A. Weighted regression always produces smaller standard errors, increasing statistical power.
 
 :::{.fragment .highlight-red}
-* B. Weighted regression protects against bias if the sampling design is non-ignorable (i.e., related to the outcome variable) or if the model form is misspecified.
+B. Weighted regression protects against bias if the sampling design is non-ignorable (i.e., related to the outcome variable) or if the model form is misspecified.
 :::
 
-* C. Unweighted regression cannot be used with categorical predictors from survey data.
-* D. The degrees of freedom for hypothesis tests are only calculated correctly in weighted regression.
+C. Unweighted regression cannot be used with categorical predictors from survey data.
+
+D. The degrees of freedom for hypothesis tests are only calculated correctly in weighted regression.
 
 ## Question 14 {.pause}
 
 What is the primary difference in the interpretation of the coefficient $\beta_1$ in a logistic regression model versus a log-binomial regression model?
 
-* A. In logistic regression $e^{\beta_1}$ is a prevalence ratio, while in log-binomial regression it is an odds ratio.
+<br>
+
+A. In logistic regression $e^{\beta_1}$ is a prevalence ratio, while in log-binomial regression it is an odds ratio.
 
 :::{.fragment .highlight-red}
-* B. In logistic regression $e^{\beta_1}$ is an odds ratio, while in log-binomial regression it is a prevalence ratio.
+B. In logistic regression $e^{\beta_1}$ is an odds ratio, while in log-binomial regression it is a prevalence ratio.
 :::
 
-* C. The coefficient $\beta_1$ has the same interpretation in both models, but the standard errors are calculated differently.
-* D. Logistic regression can only be used for prospective studies, while log-binomial regression is for cross-sectional studies.
+C. The coefficient $\beta_1$ has the same interpretation in both models, but the standard errors are calculated differently.
+
+D. Logistic regression can only be used for prospective studies, while log-binomial regression is for cross-sectional studies.
 
 ## Question 15 {.pause}
 
 Why might a national statistical agency choose to suppress an estimate from a large survey, such as a prevalence estimate for a rare disease in a small county?
 
-* A. Because the estimate was not statistically significant at the p < 0.05 level.
-* B. To increase the overall response rate of the survey for future waves.
+<br>
+
+A. Because the estimate was not statistically significant at the p < 0.05 level.
+
+B. To increase the overall response rate of the survey for future waves.
 
 :::{.fragment .highlight-red}
-* C. Because the estimate is considered unreliable (too imprecise) or it poses a risk of disclosing the identity of a respondent.
+C. Because the estimate is considered unreliable (too imprecise) or it poses a risk of disclosing the identity of a respondent.
 :::
 
-* D. To encourage data users to perform their own calculations from the public use microdata.
+D. To encourage data users to perform their own calculations from the public use microdata.
 
 ## Question 16 {.pause}
 
 In which sampling design are elements within groups ideally as heterogeneous as possible, while the group means are as similar to each other as possible?
 
-* A. Stratified Random Sampling
+<br>
+
+A. Stratified Random Sampling
 
 :::{.fragment .highlight-red}
-* B. Cluster Sampling
+B. Cluster Sampling
 :::
 
-* C. Simple Random Sampling
-* D. Systematic Sampling
+C. Simple Random Sampling
+
+D. Systematic Sampling
 
 ## Question 17 {.pause}
 
 A research team wants to survey university students. They set up a table in the campus student center and ask students who walk by to fill out a questionnaire. What type of non-probability sampling is this?
 
-* A. Voluntary/Self-selection sampling
-* B. Quota sampling
+<br>
+
+A. Voluntary/Self-selection sampling
+
+B. Quota sampling
 
 :::{.fragment .highlight-red}
-* C. Convenience sampling
+C. Convenience sampling
 :::
 
-* D. Purposive/Judgement sampling
+D. Purposive/Judgement sampling
 
 ## Question 18 {.pause}
 
 Within the Total Survey Error (TSE) framework, which source of error specifically results from the fact that the sampling frame does not perfectly match the target population?
 
+<br>
 
 :::{.fragment .highlight-red}
-* A. Coverage Error
+A. Coverage Error
 :::
 
-* B. Nonresponse Error
-* C. Measurement Error
-* D. Sampling Error
+B. Nonresponse Error
+
+C. Measurement Error
+
+D. Sampling Error
 
 ## Question 19 {.pause}
 
 The finite population correction (fpc) factor, $(1 - \frac{n}{N})$, has the largest variance-reducing effect under which condition?
 
-* A. The population size $N$ is considered infinite.
-* B. The sample is drawn with replacement (SRSWR).
+<br>
+
+A. The population size $N$ is considered infinite.
+
+B. The sample is drawn with replacement (SRSWR).
 
 :::{.fragment .highlight-red}
-* C. The sample size $n$ is a large proportion of the population size $N$.
+C. The sample size $n$ is a large proportion of the population size $N$.
 :::
 
-* D. The sample size $n$ is very small compared to the population size $N$.
+D. The sample size $n$ is very small compared to the population size $N$.
 
 ## Question 20 {.pause}
 
 What is a primary distinction between stratification performed at the design stage and poststratification performed after data collection?
 
-* A. Poststratification can only be applied to a simple random sample.
+<br>
+
+A. Poststratification can only be applied to a simple random sample.
 
 :::{.fragment .highlight-red}
-* B. Design-stage stratification uses variables on the sampling frame, while poststratification uses variables measured in the survey.
+B. Design-stage stratification uses variables on the sampling frame, while poststratification uses variables measured in the survey.
 :::
 
-* C. Poststratification always leads to a greater reduction in variance than design-stage stratification.
-* D. Design-stage stratification adjusts weights to correct for nonresponse, while poststratification does not.
+C. Poststratification always leads to a greater reduction in variance than design-stage stratification.
+
+D. Design-stage stratification adjusts weights to correct for nonresponse, while poststratification does not.
 
 ## Question 21 {.pause}
 
 A one-stage cluster sample yields a design effect (DEFF) of 3.0 for the estimate of a population mean. What is the correct interpretation of this value?
 
-* A. The variance of the mean from the cluster sample is three times smaller than what would be obtained from an SRS of the same size.
-* B. The cluster sample is three times more cost-effective than a simple random sample.
+<br>
+
+A. The variance of the mean from the cluster sample is three times smaller than what would be obtained from an SRS of the same size.
+
+B. The cluster sample is three times more cost-effective than a simple random sample.
 
 :::{.fragment .highlight-red}
-* C. The variance of the mean from the cluster sample is three times larger than the variance that would be obtained from an SRS with the same number of elements.
+C. The variance of the mean from the cluster sample is three times larger than the variance that would be obtained from an SRS with the same number of elements.
 :::
 
-* D. To achieve the same precision as the cluster sample, an SRS would require three times more elements.
+D. To achieve the same precision as the cluster sample, an SRS would require three times more elements.
 
 ## Question 22 {.pause}
 
 What is the primary motivation for using Probability Proportional to Size (PPS) sampling instead of Simple Random Sampling of clusters?
 
-* A. To ensure every cluster has an equal probability of being selected, which simplifies analysis.
+<br>
+
+A. To ensure every cluster has an equal probability of being selected, which simplifies analysis.
 
 :::{.fragment .highlight-red}
-* B. To improve sampling efficiency when cluster totals are correlated with cluster size.
+B. To improve sampling efficiency when cluster totals are correlated with cluster size.
 :::
 
-* C. To reduce the cost of data collection by selecting only the smallest clusters.
-* D. To guarantee that a fixed number of elements are sampled from each selected cluster.
+C. To reduce the cost of data collection by selecting only the smallest clusters.
+
+D. To guarantee that a fixed number of elements are sampled from each selected cluster.
 
 ## Question 23 {.pause}
 
 The bias of an estimate due to nonresponse is a function of two main factors. Nonresponse bias will be negligible if one of these factors is close to zero. What are they?
 
-* A. The overall sample size and the survey's budget.
+<br>
+
+A. The overall sample size and the survey's budget.
 
 :::{.fragment .highlight-red}
-* B. The nonresponse rate and the difference in the outcome of interest between respondents and nonrespondents.
+B. The nonresponse rate and the difference in the outcome of interest between respondents and nonrespondents.
 :::
 
-* C. The complexity of the survey design and the number of questions on the survey.
+C. The complexity of the survey design and the number of questions on the survey.
 
-* D. The use of incentives and the number of follow-up attempts.
+D. The use of incentives and the number of follow-up attempts.
 
 <br>
 
@@ -378,50 +443,64 @@ What is not quite right (not precise enough) about the given answer?
 
 In a health survey, it is found that individuals with very high incomes are less likely to answer the income question. Because income itself is the missing variable, this is difficult to adjust for. This scenario is best described by which missing data mechanism?
 
-* A. Missing Completely At Random (MCAR)
-* B. Missing At Random (MAR)
+<br>
+
+A. Missing Completely At Random (MCAR)
+
+B. Missing At Random (MAR)
 
 :::{.fragment .highlight-red}
-* C. Missing Not At Random (MNAR)
+C. Missing Not At Random (MNAR)
 :::
 
-* D. Item nonresponse adjustment
+D. Item nonresponse adjustment
 
 ## Question 25 {.pause}
 
 When is it most critical to use survey-weighted regression rather than an unweighted regression?
 
-* A. When the sample size is very large, to ensure computational stability.
+<br>
+
+A. When the sample size is very large, to ensure computational stability.
 
 :::{.fragment .highlight-red}
-* B.When the outcome variable in the regression was used to determine the probabilities of selection in the sampling design.
+B.When the outcome variable in the regression was used to determine the probabilities of selection in the sampling design.
 :::
-* C. When the regression model is perfectly specified and sampling is ignorable.
-* D. When all predictor variables are continuous.
+
+C. When the regression model is perfectly specified and sampling is ignorable.
+
+D. When all predictor variables are continuous.
 
 ## Question 26 {.pause}
 
 A researcher is analyzing a large, complex survey dataset to estimate the prevalence of asthma among teenagers. Why should they avoid subsetting the dataset to only include teenagers before conducting the analysis?
 
-* A. Subsetting the data will produce biased point estimates for the prevalence.
-* B. It prevents the use of sampling weights for the teenage respondents.
+<br>
+
+A. Subsetting the data will produce biased point estimates for the prevalence.
+
+B. It prevents the use of sampling weights for the teenage respondents.
 
 :::{.fragment .highlight-red}
-* C. It can cause the software to use incorrect design information (e.g., fewer PSUs and strata), leading to underestimated variance.
+C. It can cause the software to use incorrect design information (e.g., fewer PSUs and strata), leading to underestimated variance.
 :::
 
-* D. It makes it impossible to compare teenagers to other age groups in the survey.
+D. It makes it impossible to compare teenagers to other age groups in the survey.
 
 ## Question 27 {.pause}
 
 Which allocation method in stratified sampling is designed to minimize the variance of the overall mean estimate for a fixed total sample size?
 
-* A. Proportional Allocation
-* B. Equal Allocation
-* C. Systematic Allocation
+<br>
+
+A. Proportional Allocation
+
+B. Equal Allocation
+
+C. Systematic Allocation
 
 :::{.fragment .highlight-red}
-* D. Neyman Allocation
+D. Neyman Allocation
 :::
 
 <br>
@@ -436,37 +515,46 @@ What is wrong with the given answer?
 
 A researcher analyzing data from a stratified sample ignores the stratification and treats it as a simple random sample when performing a chi-square test. What is the likely consequence?
 
-* A. The test statistic will be inflated, and the p-value will be too small.
+<br>
+
+A. The test statistic will be inflated, and the p-value will be too small.
 
 :::{.fragment .highlight-red}
-* B. The test statistic will be deflated, and the p-value will be too large.
+B. The test statistic will be deflated, and the p-value will be too large.
 :::
 
-* C. The degrees of freedom for the test will be incorrect, but the p-value will be unbiased.
-* D. There will be no consequence, as the chi-square test is unaffected by stratification.
+C. The degrees of freedom for the test will be incorrect, but the p-value will be unbiased.
+
+D. There will be no consequence, as the chi-square test is unaffected by stratification.
 
 ## Question 29 {.pause}
 
 In a complex, three-stage survey design (e.g., districts -> villages -> compounds), how is the base sampling weight for a selected compound generally calculated?
 
-* A. By taking the inverse of the selection probability of the compound within its village.
-* B. By summing the inverse selection probabilities from each of the three stages.
+<br>
+
+A. By taking the inverse of the selection probability of the compound within its village.
+
+B. By summing the inverse selection probabilities from each of the three stages.
 
 :::{.fragment .highlight-red}
-* C. By multiplying the weights from each stage of sampling.
+C. By multiplying the weights from each stage of sampling.
 :::
 
-* D. By dividing the total population size by the total number of sampled compounds.
+D. By dividing the total population size by the total number of sampled compounds.
 
 ## Question 30 {.pause}
 
 When is it appropriate to combine data from multiple waves of a cross-sectional survey (e.g., multiple years of the NSCH) to estimate a characteristic for a small subpopulation?
 
-* A. When the goal is to measure the change in the characteristic over time.
-* B. Only if the exact same individuals were interviewed in each wave.
+<br>
+
+A. When the goal is to measure the change in the characteristic over time.
+
+B. Only if the exact same individuals were interviewed in each wave.
 
 :::{.fragment .highlight-red}
-* C. When it can be assumed that the characteristic has not changed over the time period being combined.
+C. When it can be assumed that the characteristic has not changed over the time period being combined.
 :::
 
-* D. When the response rate was identical in every wave.
+D. When the response rate was identical in every wave.
