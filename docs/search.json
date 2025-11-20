@@ -123,14 +123,14 @@
     "href": "7225notes.html",
     "title": "PUBHBIO 7225 Lecture Slides",
     "section": "",
-    "text": "Lecture 1: Course Intro: Vocabulary of Sampling\nLecture 2: Survey Modes and the Total Survey Error Framework\nLecture 3: Sampling Distributions\nLecture 4: Simple Random Sampling\nLecture 5: Simple Random Sampling: Software (Stata, R)\nLecture 6: Stratified Sampling\nLecture 7: Stratified Sampling: Allocation Methods\nLecture 8: Stratified Sampling: Software (Stata, R)\nLecture 9: Stratified Sampling: Sample Size and DEFF\nLecture 10: Poststratification\nLecture 11: Cluster Sampling: Intro and One-Stage\nLecture 12: Cluster Sampling: One-stage with Unequal Size Clusters\nLecture 13: Two-stage Cluster Sampling\nLecture 14: Probability Proportional to Size Sampling\nLecture 15: Complex Designs\nLecture 16: Domain Estimation\nLecture 17: Nonresponse: Intro to Missing Data\nLecture 18: Weighting Adjustments for Nonresponse in Surveys\nLecture 19: Imputation for Nonresponse in Surveys\nLecture 20: Linear Regression with Survey Data\nLecture 21: Logistic/Log-Binomial Regression with Survey Data"
+    "text": "Lecture 1: Course Intro: Vocabulary of Sampling\nLecture 2: Survey Modes and the Total Survey Error Framework\nLecture 3: Sampling Distributions\nLecture 4: Simple Random Sampling\nLecture 5: Simple Random Sampling: Software (Stata, R)\nLecture 6: Stratified Sampling\nLecture 7: Stratified Sampling: Allocation Methods\nLecture 8: Stratified Sampling: Software (Stata, R)\nLecture 9: Stratified Sampling: Sample Size and DEFF\nLecture 10: Poststratification\nLecture 11: Cluster Sampling: Intro and One-Stage\nLecture 12: Cluster Sampling: One-stage with Unequal Size Clusters\nLecture 13: Two-stage Cluster Sampling\nLecture 14: Probability Proportional to Size Sampling\nLecture 15: Complex Designs\nLecture 16: Domain Estimation\nLecture 17: Nonresponse: Intro to Missing Data\nLecture 18: Weighting Adjustments for Nonresponse in Surveys\nLecture 19: Imputation for Nonresponse in Surveys\nLecture 20: Linear Regression with Survey Data\nLecture 21: Logistic/Log-Binomial Regression with Survey Data\nLecture 22: Graphing Survey Data"
   },
   {
     "objectID": "7225notes.html#lecture-slides-for-pubhbio-7225-autumn-2025",
     "href": "7225notes.html#lecture-slides-for-pubhbio-7225-autumn-2025",
     "title": "PUBHBIO 7225 Lecture Slides",
     "section": "",
-    "text": "Lecture 1: Course Intro: Vocabulary of Sampling\nLecture 2: Survey Modes and the Total Survey Error Framework\nLecture 3: Sampling Distributions\nLecture 4: Simple Random Sampling\nLecture 5: Simple Random Sampling: Software (Stata, R)\nLecture 6: Stratified Sampling\nLecture 7: Stratified Sampling: Allocation Methods\nLecture 8: Stratified Sampling: Software (Stata, R)\nLecture 9: Stratified Sampling: Sample Size and DEFF\nLecture 10: Poststratification\nLecture 11: Cluster Sampling: Intro and One-Stage\nLecture 12: Cluster Sampling: One-stage with Unequal Size Clusters\nLecture 13: Two-stage Cluster Sampling\nLecture 14: Probability Proportional to Size Sampling\nLecture 15: Complex Designs\nLecture 16: Domain Estimation\nLecture 17: Nonresponse: Intro to Missing Data\nLecture 18: Weighting Adjustments for Nonresponse in Surveys\nLecture 19: Imputation for Nonresponse in Surveys\nLecture 20: Linear Regression with Survey Data\nLecture 21: Logistic/Log-Binomial Regression with Survey Data"
+    "text": "Lecture 1: Course Intro: Vocabulary of Sampling\nLecture 2: Survey Modes and the Total Survey Error Framework\nLecture 3: Sampling Distributions\nLecture 4: Simple Random Sampling\nLecture 5: Simple Random Sampling: Software (Stata, R)\nLecture 6: Stratified Sampling\nLecture 7: Stratified Sampling: Allocation Methods\nLecture 8: Stratified Sampling: Software (Stata, R)\nLecture 9: Stratified Sampling: Sample Size and DEFF\nLecture 10: Poststratification\nLecture 11: Cluster Sampling: Intro and One-Stage\nLecture 12: Cluster Sampling: One-stage with Unequal Size Clusters\nLecture 13: Two-stage Cluster Sampling\nLecture 14: Probability Proportional to Size Sampling\nLecture 15: Complex Designs\nLecture 16: Domain Estimation\nLecture 17: Nonresponse: Intro to Missing Data\nLecture 18: Weighting Adjustments for Nonresponse in Surveys\nLecture 19: Imputation for Nonresponse in Surveys\nLecture 20: Linear Regression with Survey Data\nLecture 21: Logistic/Log-Binomial Regression with Survey Data\nLecture 22: Graphing Survey Data"
   },
   {
     "objectID": "about.html",
@@ -4772,5 +4772,236 @@
     "title": "Miscellaneous Topics\nin Survey Sampling (Part 2)",
     "section": "Replicate Weights (con’t)",
     "text": "Replicate Weights (con’t)\nPros:\n\nCan suppress design information (e.g., strata, PSUs)\nBRR and Bootstrap work for any estimate (including non-smooth statistics)\n\nCons:\n\nComputationally intensive\nPost-survey adjustments (e.g., nonresponse weighting adjustments, poststratification) must be done for all sets of weights\nBRR requires a very specific design: 2 PSUs per stratum\n\nFor publicly available datasets, agencies decide to either:\n\nRelease design information (so you can use linearization)\nRelease masked (“pseudo”) design information (so you can use linearization)\nRelease no design information and give you replicate weights"
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_quiz.html#outline",
+    "href": "PUBHBIO7225_L24_quiz.html#outline",
+    "title": "Course Summary:\nAn AI-Generated Quiz",
+    "section": "Outline",
+    "text": "Outline\n\n\nTopics\n\nCourse Summary Quiz\nGroup Work Time\n\n\nActivities\n\n(nothing to turn in)\n\n\n\nAssignments\n\nGroup Project slides due Tuesday 12/2 (week after Thanksgiving)\nIndividual Project due Tuesday 12/9 (last week of classes)\nGroup Project paper due Thursday 12/18 (last day of finals)"
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_quiz.html#survey-sampling-quiz",
+    "href": "PUBHBIO7225_L24_quiz.html#survey-sampling-quiz",
+    "title": "Course Summary:\nAn AI-Generated Quiz",
+    "section": "Survey Sampling Quiz",
+    "text": "Survey Sampling Quiz\nI uploaded all 24 sets of lecture notes to Google NotebookLM and then asked it to create two quizzes for me.\nLet’s see how well Gemini did…"
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_quiz.html#question-1",
+    "href": "PUBHBIO7225_L24_quiz.html#question-1",
+    "title": "Course Summary:\nAn AI-Generated Quiz",
+    "section": "Question 1",
+    "text": "Question 1\nIn the vocabulary of survey sampling, what is the key distinction between the ‘Target Population’ and the ‘Sampled Population’?\n\n\nA. The Target Population is the complete collection of units we want to study, while the Sampled Population is the collection of units from which the sample was actually taken.\n\n\n\nB. The Target Population consists of all units in the sampling frame, while the Sampled Population is the subset of units that respond to the survey.\nC. The Target Population includes all observation units, while the Sampled Population only includes the sampling units.\nD. There is no real difference; the terms are used interchangeably to refer to the group of individuals being studied."
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_quiz.html#question-2",
+    "href": "PUBHBIO7225_L24_quiz.html#question-2",
+    "title": "Course Summary:\nAn AI-Generated Quiz",
+    "section": "Question 2",
+    "text": "Question 2\nAccording to the Total Survey Error (TSE) framework, which category of errors could still occur even if a census of the entire population was conducted?\n\nA. Representation Errors\nB. Sampling Errors\n\n\n\nC. Measurement Errors\n\n\n\nD. Nonresponse Errors"
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_quiz.html#question-3",
+    "href": "PUBHBIO7225_L24_quiz.html#question-3",
+    "title": "Course Summary:\nAn AI-Generated Quiz",
+    "section": "Question 3",
+    "text": "Question 3\nIn a Simple Random Sample Without Replacement (SRSWOR), what is the purpose of the finite population correction (fpc), \\((1 - \\frac{n}{N})\\)?\n\nA. It increases the estimated variance to account for the bias introduced by sampling from a small population.\n\n\n\nB. It reduces the estimated variance because sampling a large fraction of the population provides more information and certainty.\n\n\n\nC. It adjusts the sample mean to be an unbiased estimator of the population mean when the population is small.\nD. It is used to calculate the sampling weight, \\(w_i\\), for each unit in the sample."
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_quiz.html#question-4",
+    "href": "PUBHBIO7225_L24_quiz.html#question-4",
+    "title": "Course Summary:\nAn AI-Generated Quiz",
+    "section": "Question 4",
+    "text": "Question 4\nWhich of the following best describes the primary goal for forming strata in stratified random sampling versus forming clusters in cluster sampling?\n\nA. Strata should be as internally heterogeneous as possible, while clusters should be as internally homogeneous as possible.\n\n\n\nB. Strata should be as internally homogeneous as possible, while clusters should be internally heterogeneous (like mini-populations).\n\n\n\nC. Both strata and clusters should be designed to be as internally homogeneous as possible to minimize overall variance.\nD. Both strata and clusters are formed to ensure every unit has an equal probability of selection (EPSEM)."
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_quiz.html#question-5",
+    "href": "PUBHBIO7225_L24_quiz.html#question-5",
+    "title": "Course Summary:\nAn AI-Generated Quiz",
+    "section": "Question 5",
+    "text": "Question 5\nWhat is the key advantage of Neyman allocation over proportional allocation in stratified sampling?\n\nA. Neyman allocation results in an EPSEM (self-weighting) sample, simplifying calculations.\nB. Neyman allocation is always less expensive to implement than proportional allocation.\n\n\n\nC. Neyman allocation minimizes the variance of the overall mean estimate for a fixed total sample size by considering both stratum size and variability.\n\n\n\nD. Neyman allocation guarantees that the sample size in each stratum is equal, which is best for comparing strata."
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_quiz.html#question-6",
+    "href": "PUBHBIO7225_L24_quiz.html#question-6",
+    "title": "Course Summary:\nAn AI-Generated Quiz",
+    "section": "Question 6",
+    "text": "Question 6\nA researcher calculates a design effect (deff) of 0.75 for a mean estimate from a survey. What does this value imply about the sampling design used?\n\nA. The design is 25% less efficient than a simple random sample (SRS) of the same size.\n\n\n\nB. The design provides the same precision as an SRS that is 25% smaller.\n\n\n\nC. The design likely involved cluster sampling, where units within clusters were very similar.\nD. The variance of the estimate is 75% larger than the variance that would be obtained from an SRS of the same size.\n\n\n\nGoogle Gemini is wrong!\nWhat is the correct answer?"
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_quiz.html#question-7",
+    "href": "PUBHBIO7225_L24_quiz.html#question-7",
+    "title": "Course Summary:\nAn AI-Generated Quiz",
+    "section": "Question 7",
+    "text": "Question 7\nWhat is the primary motivation for using poststratification to adjust survey weights after data collection?\n\nA. To reduce the variance of estimates by applying the principles of stratified sampling after the sample has been drawn.\n\n\n\nB. To adjust the sample weights so that the weighted sample totals for certain variables match known population totals, correcting for potential coverage and nonresponse errors.\n\n\n\nC. To create an EPSEM (Equal Probability of Selection Method) sample from an initial non-EPSEM design.\nD. To impute missing values for key demographic variables that are needed for analysis.\n\n\n\nGoogle Gemini is only partially correct here.\nWhat is issue with Gemini’s answer?"
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_quiz.html#question-8",
+    "href": "PUBHBIO7225_L24_quiz.html#question-8",
+    "title": "Course Summary:\nAn AI-Generated Quiz",
+    "section": "Question 8",
+    "text": "Question 8\nIn one-stage cluster sampling with unequal cluster sizes, why is the ratio estimator (\\(\\bar{y}_{\\text{r}}\\)) often preferred over the unbiased estimator (\\(\\bar{y}_{\\text{clus}}\\)) for the population mean?\n\nA. The ratio estimator is always unbiased and has a simpler variance formula.\nB. The unbiased estimator requires knowing the size of every cluster in the population, which is often unknown.\n\n\n\nC. The ratio estimator typically has a much smaller variance because it accounts for the correlation between cluster totals and cluster sizes.\n\n\n\nD. The ratio estimator gives equal weight to each cluster, making it more robust to outlier clusters."
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_quiz.html#question-9",
+    "href": "PUBHBIO7225_L24_quiz.html#question-9",
+    "title": "Course Summary:\nAn AI-Generated Quiz",
+    "section": "Question 9",
+    "text": "Question 9\nWhat is the key principle behind Probability Proportional to Size (PPS) sampling?\n\nA. Every sampling unit has an equal probability of being selected, regardless of its size.\n\n\n\nB. The probability of selecting a sampling unit is directly proportional to a measure of its size, making larger units more likely to be selected.\n\n\n\nC. The probability of selecting a unit is inversely proportional to its size, giving smaller units a higher chance of selection.\nD. Units are first stratified by size, and then a simple random sample is taken within each size-based stratum."
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_quiz.html#question-10",
+    "href": "PUBHBIO7225_L24_quiz.html#question-10",
+    "title": "Course Summary:\nAn AI-Generated Quiz",
+    "section": "Question 10",
+    "text": "Question 10\nWhen analyzing a subpopulation (or ‘domain’) that was not part of the survey’s design strata, why is it incorrect to simply subset the data to that domain before analysis?\n\nA. It is always correct to subset the data, as this properly isolates the group of interest for analysis.\nB. Subsetting the data will lead to biased point estimates for the domain mean and total.\n\n\n\nC. It can lead to incorrect variance estimates because the software will not account for the original design structure, such as strata or PSUs that contained no domain members.\n\n\n\nD. This practice is only incorrect for simple random samples but acceptable for complex designs like stratified or cluster samples."
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_quiz.html#question-11",
+    "href": "PUBHBIO7225_L24_quiz.html#question-11",
+    "title": "Course Summary:\nAn AI-Generated Quiz",
+    "section": "Question 11",
+    "text": "Question 11\nA survey researcher finds that older adults are more likely to respond to their survey than younger adults. Information on age is available on the sampling frame for all sampled units. Under which missing data mechanism does this scenario fall?\n\nA. Missing Completely At Random (MCAR)\n\n\n\nB. Missing At Random (MAR)\n\n\n\nC. Missing Not At Random (MNAR)\nD. Unit Nonresponse"
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_quiz.html#question-12",
+    "href": "PUBHBIO7225_L24_quiz.html#question-12",
+    "title": "Course Summary:\nAn AI-Generated Quiz",
+    "section": "Question 12",
+    "text": "Question 12\nWhat is the primary difference between using weighting adjustments and imputation to handle nonresponse in surveys?\n\nA. Weighting is used for item nonresponse, while imputation is used for unit nonresponse.\n\n\n\nB. Weighting is generally used for unit nonresponse by increasing the weights of similar respondents, while imputation is used for item nonresponse by filling in missing values.\n\n\n\nC. Weighting adjustments assume data are Missing Completely At Random (MCAR), while imputation assumes data are Missing At Random (MAR).\nD. Imputation always produces more precise estimates than weighting adjustments."
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_quiz.html#question-13",
+    "href": "PUBHBIO7225_L24_quiz.html#question-13",
+    "title": "Course Summary:\nAn AI-Generated Quiz",
+    "section": "Question 13",
+    "text": "Question 13\nWhen fitting a regression model with complex survey data, what is a primary reason to use survey-weighted regression even if the unweighted model appears to fit well?\n\nA. Weighted regression always produces smaller standard errors, increasing statistical power.\n\n\n\nB. Weighted regression protects against bias if the sampling design is non-ignorable (i.e., related to the outcome variable) or if the model form is misspecified.\n\n\n\nC. Unweighted regression cannot be used with categorical predictors from survey data.\nD. The degrees of freedom for hypothesis tests are only calculated correctly in weighted regression."
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_quiz.html#question-14",
+    "href": "PUBHBIO7225_L24_quiz.html#question-14",
+    "title": "Course Summary:\nAn AI-Generated Quiz",
+    "section": "Question 14",
+    "text": "Question 14\nWhat is the primary difference in the interpretation of the coefficient \\(\\beta_1\\) in a logistic regression model versus a log-binomial regression model?\n\nA. In logistic regression \\(e^{\\beta_1}\\) is a prevalence ratio, while in log-binomial regression it is an odds ratio.\n\n\n\nB. In logistic regression \\(e^{\\beta_1}\\) is an odds ratio, while in log-binomial regression it is a prevalence ratio.\n\n\n\nC. The coefficient \\(\\beta_1\\) has the same interpretation in both models, but the standard errors are calculated differently.\nD. Logistic regression can only be used for prospective studies, while log-binomial regression is for cross-sectional studies."
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_quiz.html#question-15",
+    "href": "PUBHBIO7225_L24_quiz.html#question-15",
+    "title": "Course Summary:\nAn AI-Generated Quiz",
+    "section": "Question 15",
+    "text": "Question 15\nWhy might a national statistical agency choose to suppress an estimate from a large survey, such as a prevalence estimate for a rare disease in a small county?\n\nA. Because the estimate was not statistically significant at the p &lt; 0.05 level.\nB. To increase the overall response rate of the survey for future waves.\n\n\n\nC. Because the estimate is considered unreliable (too imprecise) or it poses a risk of disclosing the identity of a respondent.\n\n\n\nD. To encourage data users to perform their own calculations from the public use microdata."
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_quiz.html#question-16",
+    "href": "PUBHBIO7225_L24_quiz.html#question-16",
+    "title": "Course Summary:\nAn AI-Generated Quiz",
+    "section": "Question 16",
+    "text": "Question 16\nIn which sampling design are elements within groups ideally as heterogeneous as possible, while the group means are as similar to each other as possible?\n\nA. Stratified Random Sampling\n\n\n\nB. Cluster Sampling\n\n\n\nC. Simple Random Sampling\nD. Systematic Sampling"
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_quiz.html#question-17",
+    "href": "PUBHBIO7225_L24_quiz.html#question-17",
+    "title": "Course Summary:\nAn AI-Generated Quiz",
+    "section": "Question 17",
+    "text": "Question 17\nA research team wants to survey university students. They set up a table in the campus student center and ask students who walk by to fill out a questionnaire. What type of non-probability sampling is this?\n\nA. Voluntary/Self-selection sampling\nB. Quota sampling\n\n\n\nC. Convenience sampling\n\n\n\nD. Purposive/Judgement sampling"
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_quiz.html#question-18",
+    "href": "PUBHBIO7225_L24_quiz.html#question-18",
+    "title": "Course Summary:\nAn AI-Generated Quiz",
+    "section": "Question 18",
+    "text": "Question 18\nWithin the Total Survey Error (TSE) framework, which source of error specifically results from the fact that the sampling frame does not perfectly match the target population?\n\n\nA. Coverage Error\n\n\n\nB. Nonresponse Error\nC. Measurement Error\nD. Sampling Error"
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_quiz.html#question-19",
+    "href": "PUBHBIO7225_L24_quiz.html#question-19",
+    "title": "Course Summary:\nAn AI-Generated Quiz",
+    "section": "Question 19",
+    "text": "Question 19\nThe finite population correction (fpc) factor, \\((1 - \\frac{n}{N})\\), has the largest variance-reducing effect under which condition?\n\nA. The population size \\(N\\) is considered infinite.\nB. The sample is drawn with replacement (SRSWR).\n\n\n\nC. The sample size \\(n\\) is a large proportion of the population size \\(N\\).\n\n\n\nD. The sample size \\(n\\) is very small compared to the population size \\(N\\)."
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_quiz.html#question-20",
+    "href": "PUBHBIO7225_L24_quiz.html#question-20",
+    "title": "Course Summary:\nAn AI-Generated Quiz",
+    "section": "Question 20",
+    "text": "Question 20\nWhat is a primary distinction between stratification performed at the design stage and poststratification performed after data collection?\n\nA. Poststratification can only be applied to a simple random sample.\n\n\n\nB. Design-stage stratification uses variables on the sampling frame, while poststratification uses variables measured in the survey.\n\n\n\nC. Poststratification always leads to a greater reduction in variance than design-stage stratification.\nD. Design-stage stratification adjusts weights to correct for nonresponse, while poststratification does not."
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_quiz.html#question-21",
+    "href": "PUBHBIO7225_L24_quiz.html#question-21",
+    "title": "Course Summary:\nAn AI-Generated Quiz",
+    "section": "Question 21",
+    "text": "Question 21\nA one-stage cluster sample yields a design effect (DEFF) of 3.0 for the estimate of a population mean. What is the correct interpretation of this value?\n\nA. The variance of the mean from the cluster sample is three times smaller than what would be obtained from an SRS of the same size.\nB. The cluster sample is three times more cost-effective than a simple random sample.\n\n\n\nC. The variance of the mean from the cluster sample is three times larger than the variance that would be obtained from an SRS with the same number of elements.\n\n\n\nD. To achieve the same precision as the cluster sample, an SRS would require three times more elements."
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_quiz.html#question-22",
+    "href": "PUBHBIO7225_L24_quiz.html#question-22",
+    "title": "Course Summary:\nAn AI-Generated Quiz",
+    "section": "Question 22",
+    "text": "Question 22\nWhat is the primary motivation for using Probability Proportional to Size (PPS) sampling instead of Simple Random Sampling of clusters?\n\nA. To ensure every cluster has an equal probability of being selected, which simplifies analysis.\n\n\n\nB. To improve sampling efficiency when cluster totals are correlated with cluster size.\n\n\n\nC. To reduce the cost of data collection by selecting only the smallest clusters.\nD. To guarantee that a fixed number of elements are sampled from each selected cluster."
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_quiz.html#question-23",
+    "href": "PUBHBIO7225_L24_quiz.html#question-23",
+    "title": "Course Summary:\nAn AI-Generated Quiz",
+    "section": "Question 23",
+    "text": "Question 23\nThe bias of an estimate due to nonresponse is a function of two main factors. Nonresponse bias will be negligible if one of these factors is close to zero. What are they?\n\nA. The overall sample size and the survey’s budget.\n\n\n\nB. The nonresponse rate and the difference in the outcome of interest between respondents and nonrespondents.\n\n\n\nC. The complexity of the survey design and the number of questions on the survey.\nD. The use of incentives and the number of follow-up attempts.\n\n\n\nThis isn’t a great answer by Gemini.\nWhat is not quite right (not precise enough) about the given answer?"
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_quiz.html#question-24",
+    "href": "PUBHBIO7225_L24_quiz.html#question-24",
+    "title": "Course Summary:\nAn AI-Generated Quiz",
+    "section": "Question 24",
+    "text": "Question 24\nIn a health survey, it is found that individuals with very high incomes are less likely to answer the income question. Because income itself is the missing variable, this is difficult to adjust for. This scenario is best described by which missing data mechanism?\n\nA. Missing Completely At Random (MCAR)\nB. Missing At Random (MAR)\n\n\n\nC. Missing Not At Random (MNAR)\n\n\n\nD. Item nonresponse adjustment"
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_quiz.html#question-25",
+    "href": "PUBHBIO7225_L24_quiz.html#question-25",
+    "title": "Course Summary:\nAn AI-Generated Quiz",
+    "section": "Question 25",
+    "text": "Question 25\nWhen is it most critical to use survey-weighted regression rather than an unweighted regression?\n\nA. When the sample size is very large, to ensure computational stability.\n\n\n\nB.When the outcome variable in the regression was used to determine the probabilities of selection in the sampling design.\n\n\n\nC. When the regression model is perfectly specified and sampling is ignorable.\nD. When all predictor variables are continuous."
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_quiz.html#question-26",
+    "href": "PUBHBIO7225_L24_quiz.html#question-26",
+    "title": "Course Summary:\nAn AI-Generated Quiz",
+    "section": "Question 26",
+    "text": "Question 26\nA researcher is analyzing a large, complex survey dataset to estimate the prevalence of asthma among teenagers. Why should they avoid subsetting the dataset to only include teenagers before conducting the analysis?\n\nA. Subsetting the data will produce biased point estimates for the prevalence.\nB. It prevents the use of sampling weights for the teenage respondents.\n\n\n\nC. It can cause the software to use incorrect design information (e.g., fewer PSUs and strata), leading to underestimated variance.\n\n\n\nD. It makes it impossible to compare teenagers to other age groups in the survey."
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_quiz.html#question-27",
+    "href": "PUBHBIO7225_L24_quiz.html#question-27",
+    "title": "Course Summary:\nAn AI-Generated Quiz",
+    "section": "Question 27",
+    "text": "Question 27\nWhich allocation method in stratified sampling is designed to minimize the variance of the overall mean estimate for a fixed total sample size?\n\nA. Proportional Allocation\nB. Equal Allocation\nC. Systematic Allocation\n\n\n\nD. Neyman Allocation\n\n\n\n\nThis isn’t a great answer by Gemini.\nWhat is wrong with the given answer?"
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_quiz.html#question-28",
+    "href": "PUBHBIO7225_L24_quiz.html#question-28",
+    "title": "Course Summary:\nAn AI-Generated Quiz",
+    "section": "Question 28",
+    "text": "Question 28\nA researcher analyzing data from a stratified sample ignores the stratification and treats it as a simple random sample when performing a chi-square test. What is the likely consequence?\n\nA. The test statistic will be inflated, and the p-value will be too small.\n\n\n\nB. The test statistic will be deflated, and the p-value will be too large.\n\n\n\nC. The degrees of freedom for the test will be incorrect, but the p-value will be unbiased.\nD. There will be no consequence, as the chi-square test is unaffected by stratification."
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_quiz.html#question-29",
+    "href": "PUBHBIO7225_L24_quiz.html#question-29",
+    "title": "Course Summary:\nAn AI-Generated Quiz",
+    "section": "Question 29",
+    "text": "Question 29\nIn a complex, three-stage survey design (e.g., districts -&gt; villages -&gt; compounds), how is the base sampling weight for a selected compound generally calculated?\n\nA. By taking the inverse of the selection probability of the compound within its village.\nB. By summing the inverse selection probabilities from each of the three stages.\n\n\n\nC. By multiplying the weights from each stage of sampling.\n\n\n\nD. By dividing the total population size by the total number of sampled compounds."
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_quiz.html#question-30",
+    "href": "PUBHBIO7225_L24_quiz.html#question-30",
+    "title": "Course Summary:\nAn AI-Generated Quiz",
+    "section": "Question 30",
+    "text": "Question 30\nWhen is it appropriate to combine data from multiple waves of a cross-sectional survey (e.g., multiple years of the NSCH) to estimate a characteristic for a small subpopulation?\n\nA. When the goal is to measure the change in the characteristic over time.\nB. Only if the exact same individuals were interviewed in each wave.\n\n\n\nC. When it can be assumed that the characteristic has not changed over the time period being combined.\n\n\n\nD. When the response rate was identical in every wave."
+  },
+  {
+    "objectID": "PUBHBIO7225_L24_quiz.html#interactive-survey-sampling-quiz",
+    "href": "PUBHBIO7225_L24_quiz.html#interactive-survey-sampling-quiz",
+    "title": "Course Summary:\nAn AI-Generated Quiz",
+    "section": "📝 Interactive Survey Sampling Quiz",
+    "text": "📝 Interactive Survey Sampling Quiz"
   }
 ]
