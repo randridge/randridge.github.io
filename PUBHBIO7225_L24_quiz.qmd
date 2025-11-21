@@ -43,17 +43,17 @@ format:
 
 ## Survey Sampling Quiz
 
-I uploaded all 24 sets of lecture notes to Google NotebookLM and then asked it to create two quizzes for me.
+I uploaded all 23 sets of lecture notes to Google NotebookLM and then asked it to create two quizzes for me.
 
 Let's see how well Gemini did...
 
+## Question 1 {.pause}
 
-## Question 1 {.pause }
 In the vocabulary of survey sampling, what is the key distinction between the 'Target Population' and the 'Sampled Population'?
 
 <br>
 
-:::{.fragment .highlight-red}
+::: {.fragment .highlight-red}
 A. The Target Population is the complete collection of units we want to study, while the Sampled Population is the collection of units from which the sample was actually taken.
 :::
 
@@ -64,6 +64,7 @@ C. The Target Population includes all observation units, while the Sampled Popul
 D. There is no real difference; the terms are used interchangeably to refer to the group of individuals being studied.
 
 ## Question 2 {.pause}
+
 According to the Total Survey Error (TSE) framework, which category of errors could still occur even if a census of the entire population was conducted?
 
 <br>
@@ -72,13 +73,13 @@ A. Representation Errors
 
 B. Sampling Errors
 
-:::{.fragment .highlight-red}
+::: {.fragment .highlight-red}
 C. Measurement Errors
 :::
 
 D. Nonresponse Errors
 
----
+------------------------------------------------------------------------
 
 ## Question 3 {.pause}
 
@@ -88,7 +89,7 @@ In a Simple Random Sample Without Replacement (SRSWOR), what is the purpose of t
 
 A. It increases the estimated variance to account for the bias introduced by sampling from a small population.
 
-:::{.fragment .highlight-red}
+::: {.fragment .highlight-red}
 B. It reduces the estimated variance because sampling a large fraction of the population provides more information and certainty.
 :::
 
@@ -104,11 +105,12 @@ Which of the following best describes the primary goal for forming strata in str
 
 A. Strata should be as internally heterogeneous as possible, while clusters should be as internally homogeneous as possible.
 
-:::{.fragment .highlight-red}
+::: {.fragment .highlight-red}
 B. Strata should be as internally homogeneous as possible, while clusters should be internally heterogeneous (like mini-populations).
 :::
 
 C. Both strata and clusters should be designed to be as internally homogeneous as possible to minimize overall variance.
+
 D. Both strata and clusters are formed to ensure every unit has an equal probability of selection (EPSEM).
 
 ## Question 5 {.pause}
@@ -121,7 +123,7 @@ A. Neyman allocation results in an EPSEM (self-weighting) sample, simplifying ca
 
 B. Neyman allocation is always less expensive to implement than proportional allocation.
 
-:::{.fragment .highlight-red}
+::: {.fragment .highlight-red}
 C. Neyman allocation minimizes the variance of the overall mean estimate for a fixed total sample size by considering both stratum size and variability.
 :::
 
@@ -135,7 +137,7 @@ A researcher calculates a design effect (deff) of 0.75 for a mean estimate from 
 
 A. The design is 25% less efficient than a simple random sample (SRS) of the same size.
 
-:::{.fragment .highlight-red}
+::: {.fragment .highlight-red}
 B. The design provides the same precision as an SRS that is 25% smaller.
 :::
 
@@ -145,10 +147,18 @@ D. The variance of the estimate is 75% larger than the variance that would be ob
 
 <br>
 
-:::{.fragment}
+::: fragment
 Google Gemini is **wrong**!
 
-What is the correct answer?
+What is the correct answer to this question?
+:::
+
+::: fragment
+
+Interestingly, the Gemini explanation is correct, just not the answer option:
+
+*A deff of 0.75 means the variance from the complex design is 75% of the variance from an SRS of the same size, indicating a gain in precision. This is equivalent to the precision of an SRS with a larger sample size.*
+
 :::
 
 ## Question 7 {.pause}
@@ -159,7 +169,7 @@ What is the primary motivation for using poststratification to adjust survey wei
 
 A. To reduce the variance of estimates by applying the principles of stratified sampling after the sample has been drawn.
 
-:::{.fragment .highlight-red}
+::: {.fragment .highlight-red}
 B. To adjust the sample weights so that the weighted sample totals for certain variables match known population totals, correcting for potential coverage and nonresponse errors.
 :::
 
@@ -167,13 +177,6 @@ C. To create an EPSEM (Equal Probability of Selection Method) sample from an ini
 
 D. To impute missing values for key demographic variables that are needed for analysis.
 
-<br>
-
-:::{.fragment}
-Google Gemini is only partially correct here.
-
-What is issue with Gemini's answer?
-:::
 
 ## Question 8 {.pause}
 
@@ -185,7 +188,7 @@ A. The ratio estimator is always unbiased and has a simpler variance formula.
 
 B. The unbiased estimator requires knowing the size of every cluster in the population, which is often unknown.
 
-:::{.fragment .highlight-red}
+::: {.fragment .highlight-red}
 C. The ratio estimator typically has a much smaller variance because it accounts for the correlation between cluster totals and cluster sizes.
 :::
 
@@ -199,7 +202,7 @@ What is the key principle behind Probability Proportional to Size (PPS) sampling
 
 A. Every sampling unit has an equal probability of being selected, regardless of its size.
 
-:::{.fragment .highlight-red}
+::: {.fragment .highlight-red}
 B. The probability of selecting a sampling unit is directly proportional to a measure of its size, making larger units more likely to be selected.
 :::
 
@@ -217,7 +220,7 @@ A. It is always correct to subset the data, as this properly isolates the group 
 
 B. Subsetting the data will lead to biased point estimates for the domain mean and total.
 
-:::{.fragment .highlight-red}
+::: {.fragment .highlight-red}
 C. It can lead to incorrect variance estimates because the software will not account for the original design structure, such as strata or PSUs that contained no domain members.
 :::
 
@@ -231,7 +234,7 @@ A survey researcher finds that older adults are more likely to respond to their 
 
 A. Missing Completely At Random (MCAR)
 
-:::{.fragment .highlight-red}
+::: {.fragment .highlight-red}
 B. Missing At Random (MAR)
 :::
 
@@ -247,7 +250,7 @@ What is the primary difference between using weighting adjustments and imputatio
 
 A. Weighting is used for item nonresponse, while imputation is used for unit nonresponse.
 
-:::{.fragment .highlight-red}
+::: {.fragment .highlight-red}
 B. Weighting is generally used for unit nonresponse by increasing the weights of similar respondents, while imputation is used for item nonresponse by filling in missing values.
 :::
 
@@ -263,7 +266,7 @@ When fitting a regression model with complex survey data, what is a primary reas
 
 A. Weighted regression always produces smaller standard errors, increasing statistical power.
 
-:::{.fragment .highlight-red}
+::: {.fragment .highlight-red}
 B. Weighted regression protects against bias if the sampling design is non-ignorable (i.e., related to the outcome variable) or if the model form is misspecified.
 :::
 
@@ -279,7 +282,7 @@ What is the primary difference in the interpretation of the coefficient $\beta_1
 
 A. In logistic regression $e^{\beta_1}$ is a prevalence ratio, while in log-binomial regression it is an odds ratio.
 
-:::{.fragment .highlight-red}
+::: {.fragment .highlight-red}
 B. In logistic regression $e^{\beta_1}$ is an odds ratio, while in log-binomial regression it is a prevalence ratio.
 :::
 
@@ -293,11 +296,11 @@ Why might a national statistical agency choose to suppress an estimate from a la
 
 <br>
 
-A. Because the estimate was not statistically significant at the p < 0.05 level.
+A. Because the estimate was not statistically significant at the p \< 0.05 level.
 
 B. To increase the overall response rate of the survey for future waves.
 
-:::{.fragment .highlight-red}
+::: {.fragment .highlight-red}
 C. Because the estimate is considered unreliable (too imprecise) or it poses a risk of disclosing the identity of a respondent.
 :::
 
@@ -311,7 +314,7 @@ In which sampling design are elements within groups ideally as heterogeneous as 
 
 A. Stratified Random Sampling
 
-:::{.fragment .highlight-red}
+::: {.fragment .highlight-red}
 B. Cluster Sampling
 :::
 
@@ -329,7 +332,7 @@ A. Voluntary/Self-selection sampling
 
 B. Quota sampling
 
-:::{.fragment .highlight-red}
+::: {.fragment .highlight-red}
 C. Convenience sampling
 :::
 
@@ -341,7 +344,7 @@ Within the Total Survey Error (TSE) framework, which source of error specificall
 
 <br>
 
-:::{.fragment .highlight-red}
+::: {.fragment .highlight-red}
 A. Coverage Error
 :::
 
@@ -361,7 +364,7 @@ A. The population size $N$ is considered infinite.
 
 B. The sample is drawn with replacement (SRSWR).
 
-:::{.fragment .highlight-red}
+::: {.fragment .highlight-red}
 C. The sample size $n$ is a large proportion of the population size $N$.
 :::
 
@@ -375,7 +378,7 @@ What is a primary distinction between stratification performed at the design sta
 
 A. Poststratification can only be applied to a simple random sample.
 
-:::{.fragment .highlight-red}
+::: {.fragment .highlight-red}
 B. Design-stage stratification uses variables on the sampling frame, while poststratification uses variables measured in the survey.
 :::
 
@@ -393,7 +396,7 @@ A. The variance of the mean from the cluster sample is three times smaller than 
 
 B. The cluster sample is three times more cost-effective than a simple random sample.
 
-:::{.fragment .highlight-red}
+::: {.fragment .highlight-red}
 C. The variance of the mean from the cluster sample is three times larger than the variance that would be obtained from an SRS with the same number of elements.
 :::
 
@@ -407,7 +410,7 @@ What is the primary motivation for using Probability Proportional to Size (PPS) 
 
 A. To ensure every cluster has an equal probability of being selected, which simplifies analysis.
 
-:::{.fragment .highlight-red}
+::: {.fragment .highlight-red}
 B. To improve sampling efficiency when cluster totals are correlated with cluster size.
 :::
 
@@ -423,7 +426,7 @@ The bias of an estimate due to nonresponse is a function of two main factors. No
 
 A. The overall sample size and the survey's budget.
 
-:::{.fragment .highlight-red}
+::: {.fragment .highlight-red}
 B. The nonresponse rate and the difference in the outcome of interest between respondents and nonrespondents.
 :::
 
@@ -433,10 +436,16 @@ D. The use of incentives and the number of follow-up attempts.
 
 <br>
 
-:::{.fragment}
+::: fragment
 This isn't a great answer by Gemini.
 
-What is not quite right (not precise enough) about the given answer?
+What is not quite right (not specific enough) about the given answer?
+:::
+
+::: fragment
+Again, the explanation of the answer is actually just fine:
+
+*The bias is expressed as the product of the nonresponse rate and the difference between the means of respondents and nonrespondents. If either of these terms is zero, the bias is zero.*
 :::
 
 ## Question 24 {.pause}
@@ -449,7 +458,7 @@ A. Missing Completely At Random (MCAR)
 
 B. Missing At Random (MAR)
 
-:::{.fragment .highlight-red}
+::: {.fragment .highlight-red}
 C. Missing Not At Random (MNAR)
 :::
 
@@ -463,7 +472,7 @@ When is it most critical to use survey-weighted regression rather than an unweig
 
 A. When the sample size is very large, to ensure computational stability.
 
-:::{.fragment .highlight-red}
+::: {.fragment .highlight-red}
 B.When the outcome variable in the regression was used to determine the probabilities of selection in the sampling design.
 :::
 
@@ -481,7 +490,7 @@ A. Subsetting the data will produce biased point estimates for the prevalence.
 
 B. It prevents the use of sampling weights for the teenage respondents.
 
-:::{.fragment .highlight-red}
+::: {.fragment .highlight-red}
 C. It can cause the software to use incorrect design information (e.g., fewer PSUs and strata), leading to underestimated variance.
 :::
 
@@ -499,16 +508,22 @@ B. Equal Allocation
 
 C. Systematic Allocation
 
-:::{.fragment .highlight-red}
+::: {.fragment .highlight-red}
 D. Neyman Allocation
 :::
 
 <br>
 
-:::{.fragment}
-This isn't a great answer by Gemini.
+::: fragment
+This isn't a great answer by Gemini. (Actually, I'd argue the question is the problem.)
 
-What is wrong with the given answer?
+What is wrong with the given question/answer?
+:::
+
+::: fragment
+Again the explanation is fine:
+
+*This method specifically allocates more sample to strata that are larger and have greater internal variability $(N_h S_h)$, which is the mathematically optimal way to minimize the overall variance for a fixed sample size.*
 :::
 
 ## Question 28 {.pause}
@@ -519,7 +534,7 @@ A researcher analyzing data from a stratified sample ignores the stratification 
 
 A. The test statistic will be inflated, and the p-value will be too small.
 
-:::{.fragment .highlight-red}
+::: {.fragment .highlight-red}
 B. The test statistic will be deflated, and the p-value will be too large.
 :::
 
@@ -529,7 +544,7 @@ D. There will be no consequence, as the chi-square test is unaffected by stratif
 
 ## Question 29 {.pause}
 
-In a complex, three-stage survey design (e.g., districts -> villages -> compounds), how is the base sampling weight for a selected compound generally calculated?
+In a complex, three-stage survey design (e.g., districts -\> villages -\> compounds), how is the base sampling weight for a selected compound generally calculated?
 
 <br>
 
@@ -537,7 +552,7 @@ A. By taking the inverse of the selection probability of the compound within its
 
 B. By summing the inverse selection probabilities from each of the three stages.
 
-:::{.fragment .highlight-red}
+::: {.fragment .highlight-red}
 C. By multiplying the weights from each stage of sampling.
 :::
 
@@ -553,7 +568,7 @@ A. When the goal is to measure the change in the characteristic over time.
 
 B. Only if the exact same individuals were interviewed in each wave.
 
-:::{.fragment .highlight-red}
+::: {.fragment .highlight-red}
 C. When it can be assumed that the characteristic has not changed over the time period being combined.
 :::
 
