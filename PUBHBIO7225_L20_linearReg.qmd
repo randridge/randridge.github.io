@@ -16,6 +16,7 @@ format:
 editor: 
   markdown: 
     wrap: 72
+self-contained: true
 ---
 
 ## Outline
