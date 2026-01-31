@@ -829,8 +829,8 @@
     "objectID": "PUBHBIO7225_L06_introStratSamp.html#outline",
     "href": "PUBHBIO7225_L06_introStratSamp.html#outline",
     "title": "Stratified Sampling",
-    "section": "Outline",
-    "text": "Outline\n\n\nTopics\n\nStratified Sampling\nDesign-based Theory for Stratified Samples\nSampling Weights\n\n\nActivities\n\n6.1 Construct a Stratified Sample Estimator\n\n\n\nAssignments\n\nProblem Set 2 due Thursday 9/18/2025 11:59pm via Carmen"
+    "section": "",
+    "text": "Topics\n\nStratified Sampling\nDesign-based Theory for Stratified Samples\nSampling Weights\n\n\nActivities\n\n6.1 Construct a Stratified Sample Estimator\n\n\n\n\nAssignments\n\nProblem Set 2 due Thursday 9/18/2025 11:59pm via Carmen"
   },
   {
     "objectID": "PUBHBIO7225_L06_introStratSamp.html#s",
@@ -900,14 +900,14 @@
     "href": "PUBHBIO7225_L06_introStratSamp.html#example-from-activity-1",
     "title": "Stratified Sampling",
     "section": "Example (from Activity)",
-    "text": "Example (from Activity)\n\n\nSuppose my activity sample was:\n\n\nWe can then calculate/estimate:\nStratum A \\((h=1)\\): \\(N_1 = 15, n_1=5\\)\nStratum A population mean: \\[\\begin{aligned}\n%\\bar{y}_{hU} & =\\frac{1}{N_h} \\sum_{j=1}^{N_h} y_{hj}\\\\\n\\bar{y}_{1U} &=\\frac{1}{N_1} \\sum_{j=1}^{N_1} y_{1j} = \\frac{1}{15} \\left(6+9+3+9+\\cdots+5\\right) = \\textcolor{red}{\\bf 4.4}\n\\end{aligned}\\]\nStratum A sample mean: \\[\\begin{aligned}\n%\\bar{y}_h &= \\frac{1}{n_h} \\sum_{j\\in \\mathcal{S}_h} y_{hj}\\\\\n\\bar{y}_1 &= \\frac{1}{n_1} \\sum_{j\\in \\mathcal{S}_1} y_{1j} = \\frac{1}{5} \\left(9+10+1+3+5\\right) = \\textcolor{blue}{\\bf 5.6}\n\\end{aligned}\\]\n\nMy estimate of the mean from my sample is 5.6; close to the true mean of 4.4\nNot new formula – just the SRS formulae"
+    "text": "Example (from Activity)\n\n\nSuppose my activity sample was:\n\n\nWe can then calculate/estimate:\nStratum A \\((h=1)\\): \\(N_1 = 15, n_1=5\\)\nStratum A population mean: \\[\\begin{aligned}\n%\\bar{y}_{hU} & =\\frac{1}{N_h} \\sum_{j=1}^{N_h} y_{hj}\\\\\n\\bar{y}_{1U} &=\\frac{1}{N_1} \\sum_{j=1}^{N_1} y_{1j} = \\frac{1}{15} \\left(6+9+3+9+\\cdots+5\\right) = \\textcolor{red}{\\bf 4.4}\n\\end{aligned}\\]\nStratum A sample mean: \\[\\begin{aligned}\n%\\bar{y}_h &= \\frac{1}{n_h} \\sum_{j\\in \\mathcal{S}_h} y_{hj}\\\\\n\\bar{y}_1 &= \\frac{1}{n_1} \\sum_{j\\in \\mathcal{S}_1} y_{1j} = \\frac{1}{5} \\left(9+10+1+3+5\\right) = \\textcolor{blue}{\\bf 5.6}\n\\end{aligned}\\]\n\n\nMy estimate of the mean from my sample is 5.6; close to the true mean of 4.4\nNot new formula – just the SRS formulae"
   },
   {
     "objectID": "PUBHBIO7225_L06_introStratSamp.html#example-from-activity-2",
     "href": "PUBHBIO7225_L06_introStratSamp.html#example-from-activity-2",
     "title": "Stratified Sampling",
     "section": "Example (from Activity)",
-    "text": "Example (from Activity)\n\n\nStratum A population variance of \\(y\\):\n\\[\\begin{aligned}\nS_h^2&=\\frac{1}{N_h-1} \\sum_{j=1}^{N_h} (y_{hj}- \\bar{y}_{hU})^2 \\\\\nS_1^2&=\\frac{1}{N_1-1} \\sum_{j=1}^{N_1} (y_{1j} - \\bar{y}_{1U})^2 \\\\\n&= \\frac{1}{15-1} \\sum_{j=1}^{15} (y_{1j} - 4.4)^2 \\\\\n& = \\frac{1}{15-1} \\left[ (6-4.4)^2 + \\cdots + (5-4.4)^2 \\right] \\\\\n&= \\textcolor{red}{\\bf 10.83}\n\\end{aligned}\\]\n\nStratum A sample variance of \\(y\\):\n\\[\\begin{aligned}\ns_h^2&=\\frac{1}{n_h-1} \\sum_{j\\in \\mathcal{S}_h} (y_{hj}- \\bar{y}_h)^2 \\\\\ns_1^2&=\\frac{1}{n_1-1} \\sum_{j\\in \\mathcal{S}_h} (y_{1j} - \\bar{y}_1)^2 \\\\\n&= \\frac{1}{5-1} \\sum_{j\\in \\mathcal{S}_h} (y_{1j} - 5.6)^2 \\\\\n&=  \\frac{1}{5-1}\\left[ (9-5.6)^2 + \\cdots + (5-5.6)^2 \\right] \\\\\n&= \\textcolor{blue}{\\bf 14.8}\n\\end{aligned}\\]\nMy estimate of \\(V(y)\\) from my sample is 14.8; close-ish to the true variance of 10.8\nAgain, not new formula – just the SRS formulae"
+    "text": "Example (from Activity)\n\n\nStratum A population variance of \\(y\\):\n\\[\\begin{aligned}\nS_h^2&=\\frac{1}{N_h-1} \\sum_{j=1}^{N_h} (y_{hj}- \\bar{y}_{hU})^2 \\\\\nS_1^2&=\\frac{1}{N_1-1} \\sum_{j=1}^{N_1} (y_{1j} - \\bar{y}_{1U})^2 \\\\\n&= \\frac{1}{15-1} \\sum_{j=1}^{15} (y_{1j} - 4.4)^2 \\\\\n& = \\frac{1}{15-1} \\left[ (6-4.4)^2 + \\cdots + (5-4.4)^2 \\right] \\\\\n&= \\textcolor{red}{\\bf 10.83}\n\\end{aligned}\\]\n\n\nStratum A sample variance of \\(y\\):\n\\[\\begin{aligned}\ns_h^2&=\\frac{1}{n_h-1} \\sum_{j\\in \\mathcal{S}_h} (y_{hj}- \\bar{y}_h)^2 \\\\\ns_1^2&=\\frac{1}{n_1-1} \\sum_{j\\in \\mathcal{S}_h} (y_{1j} - \\bar{y}_1)^2 \\\\\n&= \\frac{1}{5-1} \\sum_{j\\in \\mathcal{S}_h} (y_{1j} - 5.6)^2 \\\\\n&=  \\frac{1}{5-1}\\left[ (9-5.6)^2 + \\cdots + (5-5.6)^2 \\right] \\\\\n&= \\textcolor{blue}{\\bf 14.8}\n\\end{aligned}\\]\n\nMy estimate of \\(V(y)\\) from my sample is 14.8; close-ish to the true variance of 10.8\nAgain, not new formula – just the SRS formulae"
   },
   {
     "objectID": "PUBHBIO7225_L06_introStratSamp.html#example-from-activity-3",
@@ -1012,7 +1012,7 @@
     "href": "PUBHBIO7225_L06_introStratSamp.html#an-epsem-stratified-sample",
     "title": "Stratified Sampling",
     "section": "An EPSEM Stratified Sample",
-    "text": "An EPSEM Stratified Sample\n\nStratified sample is EPSEM if sampling fraction is the same in all strata\n\nI.e., if \\(\\frac{n_h}{N_h}\\) is the same for all \\(h\\) (for all strata)\n\nIn an EPSEM stratified sample, sample weights are identical but this is not an SRS!\nVariance calculations must take into account the design (stratification)\nWhat if the population and your sample look like this:\n\n\n\nYour variance estimator for the sample mean would be way too large if you treated this like an SRS!"
+    "text": "An EPSEM Stratified Sample\n\nStratified sample is EPSEM if sampling fraction is the same in all strata\n\nI.e., if \\(\\frac{n_h}{N_h}\\) is the same for all \\(h\\) (for all strata)\n\nIn an EPSEM stratified sample, sample weights are identical but this is not an SRS!\nVariance calculations must take into account the design (stratification)\nWhat if the population and your sample look like this:\n\n\n\n\n\n\n\n\n\n\n\nYour variance estimator for the sample mean would be way too large if you treated this like an SRS!"
   },
   {
     "objectID": "PUBHBIO7225_L06_introStratSamp.html#things-we-want-to-estimate-and-their-estimators-1",
@@ -5093,7 +5093,7 @@
     "href": "CV_testing.html#affiliations",
     "title": "Rebecca R. Andridge",
     "section": "AFFILIATIONS",
-    "text": "AFFILIATIONS\nThe Ohio State University Decision Sciences Collaborative 2015 – present The Ohio State University Food Innovation Center 2013 – present The Ohio State University Institute for Population Research 2012 – present"
+    "text": "AFFILIATIONS\n\nThe Ohio State University Decision Sciences Collaborative 2015 – present\nThe Ohio State University Food Innovation Center 2013 – present\nThe Ohio State University Institute for Population Research 2012 – present"
   },
   {
     "objectID": "CV_testing.html#honors-and-awards",
@@ -5108,5 +5108,12 @@
     "title": "Rebecca R. Andridge",
     "section": "COURSES TAUGHT",
     "text": "COURSES TAUGHT\nThe Ohio State University\nUndergraduate\n\nBiostatistics for Public Health Research (PUBHBIO 2210)\n\nSpring 2013, Autumn 2013, Spring 2015\nStudent Evaluation of Instruction (SEI) overall scores (out of 5): 5, 4.9, 5\n\nPublic Health Capstone (Internship/Research) (PUBHLTH 3191/3999)\n\nAutumn 2024\nSEI overall scores (out of 5): 4.7\n\n\nGraduate\n\nDesign and Analysis of Studies in the Health Sciences I (PUBHBIO 701/6210)\n\nAutumn 2010, Autumn 2011, Autumn 2012, Autumn 2014, Spring 2015, Autumn 2015, Spring 2016, Spring 2021\nSEI overall scores (out of 5): 4.9, 5.0, 4.9, 4.8, 4.9, 5.0, 5.0, 4.9\n\nDesign and Analysis of Studies in the Health Sciences II (PUBHBIO 702/6211)\n\nWinter 2010, Spring 2010, Winter 2011, Winter 2012, Spring 2017, Spring 2018\nSEI overall scores (out of 5): 4.9, 5.0, 4.9, 5.0, 4.9, 4.9\n\nRegression Methods for the Health Sciences (PUBHBIO 6250)\n\nAutumn 2024\nSEI overall score (out of 5): 4.8\n\nMethods in Quantitative Data Analysis (PUBHLTH 6001)\n\nAutumn 2021, Autumn 2022\nSEI overall score (out of 5): 4.9, 4.8\n\nEthics in Biostatistics (PUBHBIO 6260)\n\nAutumn 2021, Autumn 2022\nSEI overall scores (out of 5): N/A (below response count threshold), 5.0\n\nSurvey Sampling Methods (PUBHBIO 7225)\n\nAutumn 2019, Autumn 2023, Autumn 2025\nSEI overall score (out of 5): 5.0, 5.0\nSurvey of the Student Learning Experience (SSLE) mean score range (out of 5): 4.9-4.9 (AU25)\n\nDoctoral Seminar (PUBHBIO 8899)\n\nAutumn 2013\nSEI overall score (out of 5): N/A (below response count threshold)\n\nBasic Biostatistics (PUBHLTH 670.03/7350.03) (CPH Summer Program, 1 week)\n\nSummer 2011, Summer 2013\n\n\nUniversity of Michigan\nGraduate\n\nComputer Packages (BIOSTAT 511)\n\nFall 2007–Summer 2008"
+  },
+  {
+    "objectID": "PUBHBIO7225_L06_introStratSamp.html",
+    "href": "PUBHBIO7225_L06_introStratSamp.html",
+    "title": "Stratified Sampling",
+    "section": "",
+    "text": "Topics\n\nStratified Sampling\nDesign-based Theory for Stratified Samples\nSampling Weights\n\n\nActivities\n\n6.1 Construct a Stratified Sample Estimator\n\n\n\n\nAssignments\n\nProblem Set 2 due Thursday 9/18/2025 11:59pm via Carmen"
   }
 ]
