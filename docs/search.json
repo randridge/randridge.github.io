@@ -4267,7 +4267,7 @@
     "href": "PUBHBIO7225_L03_samplingDistributions.html#expectation",
     "title": "Sampling Distributions",
     "section": "Expectation",
-    "text": "Expectation\n\nExpectation = \\(\\displaystyle E(\\bar{y}) = \\sum_k k P(\\bar{y}=k)\\)\nmultiply each possible value (\\(k\\)) of the variable by its probability and sum\n\n\n\n\nFor the clinics SRS:\n\n\\[\\begin{align}\nE(\\bar{y}) &= \\sum_k k P(\\bar{y}=k) \\\\\n&= 15 \\times 0.1 + 30 \\times 0.1 + 35 \\times 0.2 + \\cdots + 105 \\times 0.1\\\\\n&= \\mathbf{58}= \\text{true population mean}\n\\end{align}\\]\n\nUnder the SRS sampling scheme, \\(\\bar{y}\\) is an unbiased estimate of mean of \\(y\\)\n\nThough, notice that no sample actually produces the true mean (\\(\\theta=58\\))!\n\n:::: {.column width = “30%”} ::: {.smaller-text}\n\n\n\n\\(\\hat{\\theta}=\\bar{y}\\)\nProbability\n\n\n\n\n15\n0.1\n\n\n30\n0.1\n\n\n35\n0.2\n\n\n40\n0.1\n\n\n55\n0.1\n\n\n80\n0.1\n\n\n85\n0.1\n\n\n100\n0.1\n\n\n105\n0.1\n\n\n\n\n\nVariance\n\nVariance = \\(\\displaystyle V(\\bar{y}) = \\sum_k (k-E(\\bar{y}))^2 P(\\bar{y}=k)\\)\ntake each possible value (\\(k\\)), subtract the expected value and square the difference, multiply each by its probability, and sum\n\n\nFor the clinics SRS:\n\n\\[\\begin{align}\nV(\\bar{y}) &= \\sum_k (k-E(\\bar{y}))^2 P(\\bar{y}=k) \\\\\n& = (15-58)^2 \\times 0.1 + (30-58)^2 \\times 0.1 + \\cdots + (105-58)^2 \\times 0.1 = \\mathbf{921}\n\\end{align}\\]\n\n\nDesign-Based Inference\n\nNote that we did not make any assumption about the distribution of the \\(y\\) values\nThe “randomness” is from the sampling\n\nA different sample will produce a different value of \\(\\bar{y}\\).\n\nThis is called design-based inference.\nSimulated 10,000 draws of \\(n=2\\) clinics from the population (without replacement)\n\n\n\n\nAn Alternative Sampling Distribution\n\n\n\nConsider the following alternative sampling scheme:\n\n\n\n\n\nClinics\nProbability\n\n\n\n\n1, 5\n0.25\n\n\n2, 5\n0.25\n\n\n3, 5\n0.25\n\n\n4, 5\n0.25\n\n\n\n\n\nIn this scheme, clinic 5 is always sampled.\n\nClinic 5 is called a certainty unit → \\(P(\\text{clinic 5 is sampled}) = 1\\)\n\nBecause of this, not all units are selected with equal probability\nThus the simple unweighted mean \\((\\bar{y})\\) in each sample is not a good estimate of the population mean! (Why?)\n\n\n\nCan you come up with a way to estimate the mean?\n(hint: each clinic 1-4 “represents” 4 clinics, and the 5th is itself…)\n\n\n\nAn Alternative Sampling Distribution (con’t)\n\nA reasonable estimator for the population mean under this sampling scheme is:\n\n\\(\\hat{\\theta}_i = (4 y_i + y_5)/5\\) for \\(i = 1, 2, 3, 4\\)\n\nWhichever clinic is sampled (in addition to clinic 5) “represents” all 4 other units\n\n\n\n\n\n\nClinics Sampled\nProbability\n\\(y\\) values\n\\(\\hat{\\theta}\\)\n\n\n\n\n1, 5\n0.25\n10, 150\n(4*10 + 150)/5 = 38\n\n\n2, 5\n0.25\n20, 150\n(4*20 + 150)/5 = 46\n\n\n3, 5\n0.25\n50, 150\n(4*50 + 150)/5 = 70\n\n\n4, 5\n0.25\n60, 150\n(4*60 + 150)/5 = 78\n\n\n\n\n\n\n\\(E(\\hat{\\theta}) = \\sum_k k P(\\hat{\\theta}=k) = 38 \\times 0.25 + 46 \\times 0.25 + 70 \\times 0.25 + 78 \\times 0.25 = \\mathbf{58}\\)\n\nTrue population mean → unbiased estimator\n\n\\(V(\\hat{\\theta}) = \\sum_k (k-E(\\hat{\\theta}))^2 P(\\hat{\\theta}=k) = (38-58)^2 \\times 0.25 + \\cdots + (78-58)^2 \\times 0.25 = \\mathbf{272}\\)\n\nA whole lot smaller than under SRS (variance for SRS was 921)!\n\n\n\n\nWhy is Variance Reduced?\n\nThe number of patients seen is positively correlated with the number of doctors. (Makes sense!)\n\n\n\nUsing auxiliary data (the number of doctors at each clinic) can create a more efficient sampling scheme\n\nThis idea will come up repeatedly in this course\n\n\n\n\nMSE: Combining Bias and Variance\n\nSometimes, we might prefer to allow a little bias in trade-off for much reduced variance, and use another measure of the “accuracy” of an estimator:\n\n\nMean Squared Error (MSE): \\(MSE(\\hat{\\theta}) = E[(\\hat{\\theta}-\\theta)^2] = V(\\hat{\\theta}) + [\\text{Bias}(\\hat{\\theta})]^2\\)\nVariance plus bias-squared\n\n\nWe describe estimators as:\n\nUnbiased if \\(E[\\hat{\\theta}] = \\theta\\)\nPrecise if \\(V(\\hat{\\theta})\\) is small\nAccurate if \\(MSE\\) is small\n\nAn estimator can be biased and precise – but then its not accurate\nMSE vs Variance\n\nMSE measures how close an estimate is to the truth\nVariance measures how close estimates are across different samples\n\n\n\n\nActivity 1.1 (Part 2)\nSampling Cats (Part 2)"
+    "text": "Expectation\n\nExpectation = \\(\\displaystyle E(\\bar{y}) = \\sum_k k P(\\bar{y}=k)\\)\nmultiply each possible value (\\(k\\)) of the variable by its probability and sum\n\n\n\n\nFor the clinics SRS:\n\n\\[\\begin{align}\nE(\\bar{y}) &= \\sum_k k P(\\bar{y}=k) \\\\\n&= 15 \\times 0.1 + 30 \\times 0.1 + 35 \\times 0.2 + \\cdots + 105 \\times 0.1\\\\\n&= \\mathbf{58}= \\text{true population mean}\n\\end{align}\\]\n\nUnder the SRS sampling scheme, \\(\\bar{y}\\) is an unbiased estimate of mean of \\(y\\)\n\nThough, notice that no sample actually produces the true mean (\\(\\theta=58\\))!\n\n\n\n\n\n\n\\(\\hat{\\theta}=\\bar{y}\\)\nProbability\n\n\n\n\n15\n0.1\n\n\n30\n0.1\n\n\n35\n0.2\n\n\n40\n0.1\n\n\n55\n0.1\n\n\n80\n0.1\n\n\n85\n0.1\n\n\n100\n0.1\n\n\n105\n0.1"
   },
   {
     "objectID": "PUBHBIO7225_L03_samplingDistributions.html#variance",
@@ -5031,5 +5031,82 @@
     "title": "Nonresponse: Intro to Missing Data",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nCzajka JL and Beyler A (2016) Declining Response Rates in Federal Surveys: Trends and Implications. Washington, DC: Mathematica Policy Research↩︎"
+  },
+  {
+    "objectID": "CV_testing.html",
+    "href": "CV_testing.html",
+    "title": "Rebecca R. Andridge",
+    "section": "",
+    "text": "College of Public Health, Division of Biostatistics The Ohio State University Phone: (614) 247-7912 E-mail: andridge.1@osu.edu 242 Cunz Hall, 1841 Neil Avenue Columbus, OH 43210 USA"
+  },
+  {
+    "objectID": "CV_testing.html#education",
+    "href": "CV_testing.html#education",
+    "title": "Rebecca R. Andridge",
+    "section": "EDUCATION",
+    "text": "EDUCATION\nUniversity of Michigan\n\nPh.D., Biostatistics, August 2009\n\nDissertation: Statistical Methods for Missing Data in Complex Sample Surveys\nAdvisor: Dr. Roderick J. A. Little\n\nM.S., Biostatistics, April 2005\n\nStanford University\n\nB.A., Economics (Minor: Psychology), April 1999"
+  },
+  {
+    "objectID": "CV_testing.html#work-experience",
+    "href": "CV_testing.html#work-experience",
+    "title": "Rebecca R. Andridge",
+    "section": "WORK EXPERIENCE",
+    "text": "WORK EXPERIENCE\n\nData Scientist\nFreelance, Multiple Clients Jan 2020 – June 2021\nProviding data collection, pre-processing, exploratory analysis and modelling services to clients in the early R&D stages of developing data driven products. Projects include:\n\nData description and preliminary product feasibility insights for a start-up real estate bond platform; including assessing suitability of various property transaction databases for use in initial product prototype.\nDevelopment of statistical anomaly detection regimes and key historical insights from internet quality time-series data for use in parametric insurance products, including documenting analysis tools in an R package."
+  },
+  {
+    "objectID": "CV_testing.html#presentations-and-workshops",
+    "href": "CV_testing.html#presentations-and-workshops",
+    "title": "Rebecca R. Andridge",
+    "section": "PRESENTATIONS AND WORKSHOPS",
+    "text": "PRESENTATIONS AND WORKSHOPS\n\nTalk: Misadventures with Reproducibility in R (30 Nov 2022, R Ladies Melbourne Meetup)\nTalk: Designing R Packages (4 Oct 2022, Monash EBS Data Science Research Software Study Group)\nTalk: Quarto Websites as Research Compendiums (16 Aug 2022, Monash EBS Data Science Research Software Study Group)\nWorkshop: Writing academic papers with Rmarkdown and friends (9 Aug 2022, Monash University)"
+  },
+  {
+    "objectID": "CV_testing.html#references",
+    "href": "CV_testing.html#references",
+    "title": "Rebecca R. Andridge",
+    "section": "References",
+    "text": "References\nAvailable upon request"
+  },
+  {
+    "objectID": "CV_testing.html#contact-information",
+    "href": "CV_testing.html#contact-information",
+    "title": "Rebecca R. Andridge",
+    "section": "",
+    "text": "College of Public Health, Division of Biostatistics The Ohio State University Phone: (614) 247-7912 E-mail: andridge.1@osu.edu 242 Cunz Hall, 1841 Neil Avenue Columbus, OH 43210 USA"
+  },
+  {
+    "objectID": "CV_testing.html#research-interests",
+    "href": "CV_testing.html#research-interests",
+    "title": "Rebecca R. Andridge",
+    "section": "RESEARCH INTERESTS",
+    "text": "RESEARCH INTERESTS\nMissing data: multiple imputation, nonignorable nonresponse, hot deck imputation; Survey sampling; Nonprobability sampling; Statistical issues surrounding group randomized trials; Collaborative research in behavioral medicine, psychology, and cancer"
+  },
+  {
+    "objectID": "CV_testing.html#positions",
+    "href": "CV_testing.html#positions",
+    "title": "Rebecca R. Andridge",
+    "section": "POSITIONS",
+    "text": "POSITIONS\nAssociate Dean for Undergraduate Studies 8/2024 – present College of Public Health The Ohio State University\nProfessor 5/2024 – present Associate Professor 6/2016 – 5/2024 Assistant Professor 9/2009 – 6/2016 Division of Biostatistics, College of Public Health The Ohio State University\nFaculty Fellow for External Engagement (0.2 FTE) 8/2023 – 5/2024 Office of Academic Affairs The Ohio State University Key activities: Assist OAA External Engagement with reviewing current regional campus policies and recommending and/or developing standardized faculty policies, procedures, and expectations.\nFaculty Fellow for Distance Education (0.25 FTE) 8/2019 – 8/2021 Office of Academic Affairs The Ohio State University Key activities: Led University-wide central review of courses seeking “emergency” approval for online delivery in Summer 2020 (COVID); Developed rubric for peer evaluation of online teaching; Assisted with development of data dashboards for University-wide data on course delivery mode; Provided faculty input for various initiatives in the Office for Distance Education and E-Learning.\nInstructor 9/2007 – 8/2008 Biostatistics Department University of Michigan&gt;\nGraduate Student Research Assistant 9/2005 – 8/2008 Biostatistics Department University of Michigan\nGraduate Student Research Assistant 9/2003 – 8/2008 Health Behavior and Health Education Department University of Michigan"
+  },
+  {
+    "objectID": "CV_testing.html#affiliations",
+    "href": "CV_testing.html#affiliations",
+    "title": "Rebecca R. Andridge",
+    "section": "AFFILIATIONS",
+    "text": "AFFILIATIONS\nThe Ohio State University Decision Sciences Collaborative 2015 – present The Ohio State University Food Innovation Center 2013 – present The Ohio State University Institute for Population Research 2012 – present"
+  },
+  {
+    "objectID": "CV_testing.html#honors-and-awards",
+    "href": "CV_testing.html#honors-and-awards",
+    "title": "Rebecca R. Andridge",
+    "section": "HONORS AND AWARDS",
+    "text": "HONORS AND AWARDS\n\nElected Fellow, American Statistical Association, 2020 For influential research on missing data, outstanding collaborative research, superb and innovative classroom and distance teaching of statistics, and editorial service to the profession.\nOhio State University Institute for Teaching and Learning Endorsement: Mentoring Faculty, 2018.\nPoster Award winner, American Statistical Association Survey Research Methods Section, Joint Statistical Meetings, 2011.\nOhio State University College of Public Health Excellence in Teaching Award, 2011\nUniversity of Michigan Rackham Predoctoral Fellowship, 2008 – 2009.\nUniversity of Michigan Graduate School Travel Grant, 2008.\nTravel Award, American Statistical Association Survey Research Methods Section, 2008.\nNIH Predoctoral Cancer Research Training Grant, 2005 – 2008"
+  },
+  {
+    "objectID": "CV_testing.html#courses-taught",
+    "href": "CV_testing.html#courses-taught",
+    "title": "Rebecca R. Andridge",
+    "section": "COURSES TAUGHT",
+    "text": "COURSES TAUGHT\nThe Ohio State University\nUndergraduate\n\nBiostatistics for Public Health Research (PUBHBIO 2210)\n\nSpring 2013, Autumn 2013, Spring 2015\nStudent Evaluation of Instruction (SEI) overall scores (out of 5): 5, 4.9, 5\n\nPublic Health Capstone (Internship/Research) (PUBHLTH 3191/3999)\n\nAutumn 2024\nSEI overall scores (out of 5): 4.7\n\n\nGraduate\n\nDesign and Analysis of Studies in the Health Sciences I (PUBHBIO 701/6210)\n\nAutumn 2010, Autumn 2011, Autumn 2012, Autumn 2014, Spring 2015, Autumn 2015, Spring 2016, Spring 2021\nSEI overall scores (out of 5): 4.9, 5.0, 4.9, 4.8, 4.9, 5.0, 5.0, 4.9\n\nDesign and Analysis of Studies in the Health Sciences II (PUBHBIO 702/6211)\n\nWinter 2010, Spring 2010, Winter 2011, Winter 2012, Spring 2017, Spring 2018\nSEI overall scores (out of 5): 4.9, 5.0, 4.9, 5.0, 4.9, 4.9\n\nRegression Methods for the Health Sciences (PUBHBIO 6250)\n\nAutumn 2024\nSEI overall score (out of 5): 4.8\n\nMethods in Quantitative Data Analysis (PUBHLTH 6001)\n\nAutumn 2021, Autumn 2022\nSEI overall score (out of 5): 4.9, 4.8\n\nEthics in Biostatistics (PUBHBIO 6260)\n\nAutumn 2021, Autumn 2022\nSEI overall scores (out of 5): N/A (below response count threshold), 5.0\n\nSurvey Sampling Methods (PUBHBIO 7225)\n\nAutumn 2019, Autumn 2023, Autumn 2025\nSEI overall score (out of 5): 5.0, 5.0\nSurvey of the Student Learning Experience (SSLE) mean score range (out of 5): 4.9-4.9 (AU25)\n\nDoctoral Seminar (PUBHBIO 8899)\n\nAutumn 2013\nSEI overall score (out of 5): N/A (below response count threshold)\n\nBasic Biostatistics (PUBHLTH 670.03/7350.03) (CPH Summer Program, 1 week)\n\nSummer 2011, Summer 2013\n\n\nUniversity of Michigan\nGraduate\n\nComputer Packages (BIOSTAT 511)\n\nFall 2007–Summer 2008"
   }
 ]

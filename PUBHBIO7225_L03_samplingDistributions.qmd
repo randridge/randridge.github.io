@@ -11,6 +11,10 @@ format:
     height: 720
     theme: custom.scss
     html-math-method: mathjax
+editor: 
+  markdown: 
+    wrap: 72
+self-contained: true
 ---
 
 ## Outline
@@ -340,7 +344,7 @@ tibble(ybar = c(15,30,35,40,55,80,85,100,105),
 > **Expectation** = $\displaystyle E(\bar{y}) = \sum_k k P(\bar{y}=k)$\
 > *multiply each possible value (*$k$) of the variable by its probability and sum
 
-::: {columns}
+::::: {columns}
 :::: {.column width = "70%"}
 
 -   For the clinics SRS:
@@ -354,9 +358,10 @@ E(\bar{y}) &= \sum_k k P(\bar{y}=k) \\
 -   Under the SRS sampling scheme, $\bar{y}$ is an [unbiased estimate]{.alert} of mean of $y$\
 
 -   Though, notice that [no sample actually produces the true mean ($\theta=58$)!]{.alert}
-:::
+::::
 
-:::: {.column width = "30%"} ::: {.smaller-text}
+:::: {.column width = "30%"}
+::: {.smaller-text}
 
 | $\hat{\theta}=\bar{y}$ | Probability |
 |:----------------------:|:-----------:|
@@ -370,7 +375,9 @@ E(\bar{y}) &= \sum_k k P(\bar{y}=k) \\
 |          100           |     0.1     |
 |          105           |     0.1     |
 
-::: :::: ::::::
+:::
+::::
+:::::
 
 ## Variance
 
