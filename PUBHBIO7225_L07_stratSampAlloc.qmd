@@ -13,6 +13,10 @@ format:
     height: 720
     theme: custom.scss
     html-math-method: mathjax
+editor: 
+  markdown: 
+    wrap: 72
+self-contained: true
 ---
 
 ## Outline
