@@ -11,8 +11,8 @@ This site serves as a repository for some teaching materials and my CV. For my f
 ### Teaching
 Access my collection of lecture notes, data sets, and tutorial series for biostatistics courses.
 
--   [View Lecture Notes for PUBHBIO 7225: Survey Sampling](./PUBHBIO7225.html)
+-   [View Lecture Notes for PUBHBIO 7225: Survey Sampling](./PUBHBIO7225.qmd)
 
 ### Curriculum Vitae
 
-My [CV](./docs/RebeccaAndridge_CV.html) is updated regularly to reflect recent publications, administrative roles, and service.
+My [CV](./RebeccaAndridge_CV.qmd) is updated regularly to reflect recent publications, administrative roles, and service.
