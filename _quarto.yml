@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "randridge.github.io"
+  title: "Rebecca R. Andridge, PhD"
   navbar:
     left:
       - href: index.qmd
