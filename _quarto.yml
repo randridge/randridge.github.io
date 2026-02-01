@@ -6,11 +6,13 @@ website:
   title: "randridge.github.io"
   navbar:
     left:
-      - href: index.qmd
-        text: Home
+      - text: Home
+        href: index.qmd
       - about.qmd
-      - text: 7225 Lecture Slides
+      - text: PUBHBIO 7225
         href: 7225notes.qmd
+      - text: CV
+        href: RebeccaAndridge_CV.qmd
 
 format:
   html:
