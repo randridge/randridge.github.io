@@ -1,5 +1,18 @@
 ---
-title: "randridge.github.io"
+title: "Rebecca Andridge, PhD"
 ---
 
-This is a work in progress.
+## Welcome
+
+I am a Professor of Biostatistics and Associate Dean for Undergraduate Studies at **The Ohio State University**. 
+
+This site serves as a repository for some teaching materials and my CV. For my full research profile and contact information, please visit my [official OSU Faculty Page](https://cph.osu.edu/people/randridge).
+
+### Teaching
+Access my collection of lecture notes, data sets, and tutorial series for biostatistics courses.
+
+-   [View Lecture Notes for PUBHBIO 7225: Survey Sampling](./PUBHBIO7225.html)
+
+### Curriculum Vitae
+
+My [CV](./docs/RebeccaAndridge_CV.html) is updated regularly to reflect recent publications, administrative roles, and service.
