@@ -6,6 +6,7 @@ format:
     theme: custom.scss
     html-math-method: mathjax
     toc: true
+self-contained: true
 ---
 
 *For some of you, this material may be less familiar (depending on which prerequisite courses you took). I will demonstrate what is necessary for this class (and please ask Qs!).*

@@ -1,0 +1,3277 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  english,
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\ifLuaTeX
+  \usepackage[english]{selnolig} % disable illegal ligatures
+\fi
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Rebecca R. Andridge},
+  pdflang={en},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Rebecca R. Andridge}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+
+
+\subsection*{CONTACT INFORMATION}\label{contact-information}
+
+\href{https://cph.osu.edu/people/randridge}{College of Public Health,
+Division of Biostatistics}\\
+\href{http://www.osu.edu/}{The Ohio State University}\\
+\emph{Phone:} (614) 247-7912\\
+\emph{E-mail:}
+\href{mailto:andridge.1@osu.edu}{\nolinkurl{andridge.1@osu.edu}}\\
+242 Cunz Hall, 1841 Neil Avenue, Columbus, OH 43210 USA\\
+GitHub: \href{https://github.com/randridge}{randridge}
+
+\subsection{RESEARCH INTERESTS}\label{research-interests}
+
+Missing data: multiple imputation, nonignorable nonresponse, hot deck
+imputation; Survey sampling; Nonprobability sampling; Statistical issues
+surrounding group randomized trials; Collaborative research in
+behavioral medicine, psychology, and cancer
+
+\subsection{EDUCATION}\label{education}
+
+\textbf{University of Michigan}
+
+\begin{itemize}
+\tightlist
+\item
+  Ph.D., Biostatistics, August 2009
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Dissertation: \emph{Statistical Methods for Missing Data in Complex
+    Sample Surveys}
+  \item
+    Advisor: Dr.~Roderick J. A. Little
+  \end{itemize}
+\item
+  M.S., Biostatistics, April 2005
+\end{itemize}
+
+\textbf{Stanford University}
+
+\begin{itemize}
+\tightlist
+\item
+  B.A., Economics (Minor: Psychology), April 1999
+\end{itemize}
+
+\subsection{CURRENT EMPLOYMENT AND
+POSITIONS}\label{current-employment-and-positions}
+
+\textbf{Associate Dean for Undergraduate Studies} {8/2024 -- present}\\
+College of Public Health\\
+The Ohio State University
+
+\textbf{Professor} {5/2024 -- present}\\
+\textbf{Associate Professor} {6/2016 -- 5/2024}\\
+\textbf{Assistant Professor} {9/2009 -- 6/2016}\\
+Division of Biostatistics, College of Public Health\\
+The Ohio State University
+
+\textbf{Faculty Fellow for External Engagement (0.2 FTE)} {8/2023 --
+5/2024}\\
+Office of Academic Affairs\\
+The Ohio State University\\
+\emph{Key activities: Assist OAA External Engagement with reviewing
+current regional campus policies and recommending and/or developing
+standardized faculty policies, procedures, and expectations.}
+
+\textbf{Faculty Fellow for Distance Education (0.25 FTE)} {8/2019 --
+8/2021}\\
+Office of Academic Affairs\\
+The Ohio State University\\
+\emph{Key activities: Led University-wide central review of courses
+seeking ``emergency'' approval for online delivery in Summer 2020
+(COVID); Developed rubric for peer evaluation of online teaching;
+Assisted with development of data dashboards for University-wide data on
+course delivery mode; Provided faculty input for various initiatives in
+the Office for Distance Education and E-Learning.}
+
+\textbf{Instructor} {9/2007 -- 8/2008}\\
+Biostatistics Department\\
+University of Michigan
+
+\textbf{Graduate Student Research Assistant} {9/2005 -- 8/2008}\\
+Biostatistics Department\\
+University of Michigan
+
+\textbf{Graduate Student Research Assistant} {9/2003 -- 8/2008}\\
+Health Behavior and Health Education Department\\
+University of Michigan
+
+\subsection{AFFILIATIONS}\label{affiliations}
+
+\begin{itemize}
+\tightlist
+\item
+  The Ohio State University Decision Sciences Collaborative {2015 --
+  present}
+\item
+  The Ohio State University Food Innovation Center {2013 -- present}
+\item
+  The Ohio State University Institute for Population Research {2012 --
+  present}
+\end{itemize}
+
+\subsection{HONORS AND AWARDS}\label{honors-and-awards}
+
+\begin{itemize}
+\tightlist
+\item
+  Elected Fellow, American Statistical Association, 2020\\
+  \emph{For influential research on missing data, outstanding
+  collaborative research, superb and innovative classroom and distance
+  teaching of statistics, and editorial service to the profession.}
+\item
+  Ohio State University Institute for Teaching and Learning Endorsement:
+  Mentoring Faculty, 2018.
+\item
+  Poster Award winner, American Statistical Association Survey Research
+  Methods Section, Joint Statistical Meetings, 2011.
+\item
+  Ohio State University College of Public Health Excellence in Teaching
+  Award, 2011
+\item
+  University of Michigan Rackham Predoctoral Fellowship, 2008 -- 2009.
+\item
+  University of Michigan Graduate School Travel Grant, 2008.
+\item
+  Travel Award, American Statistical Association Survey Research Methods
+  Section, 2008.
+\item
+  NIH Predoctoral Cancer Research Training Grant, 2005 -- 2008
+\end{itemize}
+
+\subsection{COURSES TAUGHT}\label{courses-taught}
+
+\subsubsection{The Ohio State
+University}\label{the-ohio-state-university}
+
+\paragraph{Undergraduate}\label{undergraduate}
+
+\begin{itemize}
+\tightlist
+\item
+  Biostatistics for Public Health Research (PUBHBIO 2210)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Spring 2013, Autumn 2013, Spring 2015
+  \item
+    Student Evaluation of Instruction (SEI) overall scores (out of 5):
+    5, 4.9, 5
+  \end{itemize}
+\item
+  Public Health Capstone (Internship/Research) (PUBHLTH 3191/3999)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Autumn 2024
+  \item
+    SEI overall scores (out of 5): 4.7
+  \end{itemize}
+\end{itemize}
+
+\paragraph{Graduate}\label{graduate}
+
+\begin{itemize}
+\tightlist
+\item
+  Design and Analysis of Studies in the Health Sciences I (PUBHBIO
+  701/6210)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Autumn 2010, Autumn 2011, Autumn 2012, Autumn 2014, Spring 2015,
+    Autumn 2015, Spring 2016, Spring 2021
+  \item
+    SEI overall scores (out of 5): 4.9, 5.0, 4.9, 4.8, 4.9, 5.0, 5.0,
+    4.9
+  \end{itemize}
+\item
+  Design and Analysis of Studies in the Health Sciences II (PUBHBIO
+  702/6211)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Winter 2010, Spring 2010, Winter 2011, Winter 2012, Spring 2017,
+    Spring 2018
+  \item
+    SEI overall scores (out of 5): 4.9, 5.0, 4.9, 5.0, 4.9, 4.9
+  \end{itemize}
+\item
+  Regression Methods for the Health Sciences (PUBHBIO 6250)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Autumn 2024
+  \item
+    SEI overall score (out of 5): 4.8
+  \end{itemize}
+\item
+  Methods in Quantitative Data Analysis (PUBHLTH 6001)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Autumn 2021, Autumn 2022
+  \item
+    SEI overall score (out of 5): 4.9, 4.8
+  \end{itemize}
+\item
+  Ethics in Biostatistics (PUBHBIO 6260)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Autumn 2021, Autumn 2022
+  \item
+    SEI overall scores (out of 5): N/A (below response count threshold),
+    5.0
+  \end{itemize}
+\item
+  Survey Sampling Methods (PUBHBIO 7225)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Autumn 2019, Autumn 2023, Autumn 2025
+  \item
+    SEI overall score (out of 5): 5.0, 5.0
+  \item
+    Survey of the Student Learning Experience (SSLE) mean score range
+    (out of 5): 4.9-4.9 (AU25)
+  \end{itemize}
+\item
+  Doctoral Seminar (PUBHBIO 8899)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Autumn 2013
+  \item
+    SEI overall score (out of 5): N/A (below response count threshold)
+  \end{itemize}
+\item
+  Basic Biostatistics (PUBHLTH 670.03/7350.03) (CPH Summer Program, 1
+  week)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Summer 2011, Summer 2013
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{University of Michigan}\label{university-of-michigan}
+
+\paragraph{Graduate}\label{graduate-1}
+
+\begin{itemize}
+\tightlist
+\item
+  Computer Packages (BIOSTAT 511)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Fall 2007--Summer 2008
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Short Courses/Continuing Education
+Courses}\label{short-coursescontinuing-education-courses}
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{Adjusting For Non-Ignorable Selection Bias in Surveys (with B
+  West)}, University of Michigan Population Dyanmics and Health Program
+  (PDHP) Workshop Series, January 29, 2026
+\item
+  \emph{A Practical Introduction to Sensitivity Analyses for
+  Non-ignorable Selection Bias in Surveys (with B West)}, American
+  Association for Public Opinion Research (AAPOR) Annual Conference, May
+  14, 2024
+\item
+  \emph{Applications of Hot Deck Imputation Methods to Survey Data (with
+  KJ Thompson)}, Washington Statistical Society, April 25, 2019
+\item
+  \emph{Applications of Hot Deck Imputation Methods to Survey Data (with
+  KJ Thompson)}, Joint Statistical Meetings, July 31, 2018
+\end{itemize}
+
+\subsection{COURSE DEVELOPMENT}\label{course-development}
+
+All are at The Ohio State University
+
+\begin{itemize}
+\tightlist
+\item
+  (2024) PUBHBIO 6250: Regression Methods for the Health Sciences (3cr)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{Redesigned a traditional lecture-based course into a 100\%
+    online, asynchronous course with an emphasis on data analysis using
+    software and critical reading of scientific literature}
+  \end{itemize}
+\item
+  (2020-21) PUBHBIO 6260: Ethics in Biostatistics (1cr)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{Co-created (with A Shoben) a new discussion-based course for
+    biostatistics graduate students introducing them to ethical
+    challenges in biostatistics}
+  \end{itemize}
+\item
+  (2020-21) PUBHLTH 6001: Methods in Quantitative Data Analysis (4cr)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{Co-created (with an Epidemiology faculty member) a new
+    integrated MPH core course on biostatistical and epidemiological
+    methods for 100\% online delivery}
+  \end{itemize}
+\item
+  (2019) PUBHBIO 7225: Survey Sampling Methods (3cr)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{Redesigned a traditional lecture/exam-based course into an
+    active-learning focused in-person class with hand-on activities in
+    every class meeting and both individual and group projects}
+  \end{itemize}
+\item
+  (2017) PUBHBIO 6211: Design and Analysis of Studies in the Health
+  Sciences II (3cr)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{Redesigned the traditional in-person course and converted to
+    100\% online delivery mode}
+  \end{itemize}
+\item
+  (2014) PUBHBIO 6210: Design and Analysis of Studies in the Health
+  Sciences I (3cr)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{Redesigned the traditional in-person course and converted to
+    100\% online delivery mode}
+  \end{itemize}
+\item
+  (2013) PUBHBIO 2210: Biostatistics for Public Health Research (3cr)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{Created an innovative undergraduate course for the new Public
+    Health major that uses a flipped classroom design and incorporates a
+    primary data collection project culminating in a final poster
+    presentation and written paper}
+  \end{itemize}
+\end{itemize}
+
+\subsection{PUBLICATIONS}\label{publications}
+
+\subsubsection{Statistical Methodology}\label{statistical-methodology}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Martinez SD, West BT, \textbf{Andridge RR}. (2026)
+  \href{https://isi-iass.org/home/wp-content/uploads/Survey_Statistician_2026_January_N93_05.pdf}{Measures
+  of non-ignorable selection bias for non-probability samples}.
+  \emph{The Survey Statistician}, 93, 26-41. \emph{(Editor Reviewed)}
+\item
+  \textbf{Andridge RR}, Song R\(^*\), West BT. (2025)
+  \href{https://doi.org/10.1002/sim.70313}{A sensitivity analysis
+  framework using the proxy pattern-mixture model for generalization of
+  experimental results}. \emph{Statistics in Medicine}, 44:25-27,
+  e70313.
+\item
+  \textbf{Andridge RR} (2024).
+  \href{https://doi.org/10.1093/jrsssa/qnae005}{Using proxy
+  pattern-mixture models to explain bias in estimates of COVID-19
+  vaccine uptake from two large surveys}. \emph{Journal of the Royal
+  Statistical Society -- Series A}, 187(3); 831-843.
+\item
+  West B, \textbf{Andridge RR} (2023).
+  \href{https://doi.org/10.1093/poq/nfad018}{Evaluating pre-election
+  polling estimates using a new measure of non-ignorable selection
+  bias}. \emph{Public Opinion Quarterly}, 87; 575-601.
+\item
+  \textbf{Andridge RR}, Thompson KJ (2023).
+  \href{https://doi.org/10.1093/jssam/smab058}{Adapting nearest neighbor
+  for multiple imputation: Advantages, challenges, and drawbacks}.
+  \emph{Journal of Survey Statistics and Methodology}, 11; 213-233.
+\item
+  West BT, Little RJ, \textbf{Andridge RR}, Boonstra P, Ware EB, Pandit
+  A, Alvarado-Leiton F (2021).
+  \href{https://doi.org/10.1214/21-AOAS1453}{Assessing selection bias in
+  regression coefficients estimated from nonprobability samples with
+  applications to genetics and demographic surveys}. \emph{Annals of
+  Applied Statistics}, 15; 1556-1581.
+\item
+  Boonstra PS, Little RJA, West BT, \textbf{Andridge RR},
+  Alvarado-Leiton F. (2021)
+  \href{https://doi.org/10.2478/jos-2021-0033}{A simulation study of
+  diagnostics for bias}. \emph{Journal of Official Statistics}, 37;
+  751-769.
+\item
+  \textbf{Andridge RR}, Bechtel L, Thompson KJ (2021)
+  \href{https://doi.org/10.1093/jssam/smaa005}{Finding a flexible hot
+  deck imputation method for multinomial data}. \emph{Journal of Survey
+  Statistics and Methodology}, 9; 789-809.
+\item
+  Bailey B\(^*\), \textbf{Andridge R}, Shoben A. (2020)
+  \href{https://doi.org/10.1186/s12874-020-00948-6}{Multiple imputation
+  by predictive mean matching in cluster-randomized trials}. \emph{BMC
+  Medical Research Methodology}, 20; 72.
+\item
+  \textbf{Andridge RR}, Little RJA. (2020)
+  \href{https://doi.org/10.2478/jos-2020-0035}{Proxy pattern-mixture
+  analysis for a binary variable subject to nonresponse}. \emph{Journal
+  of Official Statistics}, 36; 703-728.
+\item
+  \textbf{Andridge RR}, West B, Little RJA, Boonstra P, Alvarado-Leiton,
+  F. (2019) \href{https://doi.org/10.1111/rssc.12371}{Indices of
+  non-ignorable selection bias for proportions estimated from
+  non-probability samples}. \emph{Journal of the Royal Statistical
+  Society -- Series C (Applied Statistics)}, 68; 1465-1483.
+\item
+  Xi W, Pennell M, \textbf{Andridge R}, Paskett E. (2018)
+  \href{https://doi.org/10.1016/j.conctc.2018.05.008}{Comparison of
+  intent-to-treat analysis strategies for pre-post studies with loss to
+  follow-up}. \emph{Contemporary Clinical Trials Communications}, 11;
+  20-29.
+\item
+  \textbf{Andridge RR}, Noone AM, Howlader N (2017).
+  \href{https://doi.org/10.1002/sim.7193}{Imputing estrogen receptor
+  (ER) status in a population-based cancer registry: A sensitivity
+  analysis}. \emph{Statistics in Medicine}, 36; 1014-1028.
+\item
+  Kline D\(^*\), \textbf{Andridge RR}, Kaizar E (2017).
+  \href{https://doi.org/10.1002/jrsm.1192}{Comparing multiple imputation
+  methods for systematically missing subject-level data}. \emph{Research
+  Synthesis Methods}, 8; 136-148.
+\item
+  \textbf{Andridge RR} and Thompson KJ (2015).
+  \href{https://doi.org/10.1214/15-AOAS878}{Assessing nonresponse bias
+  in a business survey: Proxy pattern-mixture analysis for skewed data}.
+  \emph{Annals of Applied Statistics}, 9; 2237-2265.
+\item
+  \textbf{Andridge RR} and Thompson KJ (2015).
+  \href{https://doi.org/10.1111/insr.12091}{Using the fraction of
+  missing information to identify auxiliary variables for imputation
+  procedures via proxy pattern-mixture models}. \emph{International
+  Statistical Review}, 83; 472-492.
+\item
+  Sullivan D\(^*\) and \textbf{Andridge RR} (2015).
+  \href{https://doi.org/10.1016/j.csda.2014.09.008}{A hot deck
+  imputation procedure for multiply imputing nonignorable missing data:
+  The proxy pattern-mixture hot deck}. \emph{Computational Statistics
+  and Data Analysis}, 82; 173-185.
+\item
+  \textbf{Andridge RR}, Shoben AB, Muller KE, Murray DM (2014).
+  \href{https://doi.org/10.1002/sim.6083}{Analytic methods for
+  individually randomized group treatment trials and group-randomized
+  trials when subjects belong to multiple groups}. \emph{Statistics in
+  Medicine}, 33; 2178-2190.
+\item
+  \textbf{Andridge RR}, Little RJA (2012).
+  \href{https://isi-iass.org/home/wp-content/uploads/N64.pdf}{New and
+  Emerging Methods: Proxy Pattern-Mixture Analysis for Survey
+  Nonresponse}. \emph{The Survey Statistician}, 64, July 2011, 21-26.
+\item
+  Rhoda DA, Murray DM, \textbf{Andridge RR}, Pennell ML, Hade EM (2011).
+  \href{https://doi.org/10.2105/AJPH.2011.300264}{Studies with staggered
+  starts: Multiple baseline designs and group-randomized trials}.
+  \emph{American Journal of Public Health}, 101; 2164-2169.
+\item
+  \textbf{Andridge RR}, Little RJA (2011).
+  \href{https://www.scb.se/contentassets/ca21efb41fee47d293bbee5bf7be7fb3/proxy-pattern-mixture-analysis-for-survey-nonresponse.pdf}{Proxy
+  pattern-mixture analysis for survey nonresponse}. \emph{Journal of
+  Official Statistics}, 27; 153-180.
+\item
+  \textbf{Andridge RR} (2011).
+  \href{https://doi.org/10.1002/bimj.201000140}{Quantifying the impact
+  of fixed effects modeling of clusters in multiple imputation for
+  cluster randomized trials}. \emph{Biometrical Journal}, 53; 57-74.
+\item
+  \textbf{Andridge RR}, Little RJA (2010).
+  \href{https://doi.org/10.1111/j.1751-5823.2010.00103.x}{A review of
+  hot deck imputation for survey nonresponse}. \emph{International
+  Statistical Review}, 78; 40-64.
+\item
+  \textbf{Andridge RR}, Little RJA (2009).
+  \href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3117228/}{The use
+  of sample weights in hot deck imputation}. \emph{Journal of Official
+  Statistics}, 25; 21-36.
+\end{enumerate}
+
+\textbf{Under Review}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Adarkwah yiadom\(^*\) S, \textbf{Andridge RR}. Formulating the proxy
+  pattern-mixture model as a selection model to assist with sensitivity
+  analysis. \emph{Journal of Official Statistics}, revision requested
+  (12/2025).
+\item
+  West BT, \textbf{Andridge RR}. Improved mass imputation in probability
+  samples via adjustment of imputation models based on non-probability
+  samples for selection bias. \emph{Journal of the Royal Statistical
+  Society -- Series A}, revision requested (12/2025).
+\end{enumerate}
+
+\subsubsection{Statistical Education}\label{statistical-education}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Schwartz TA, \textbf{Andridge RR}, Sainani KL, Stangle DK, Neely ML.
+  (2016) \href{https://doi.org/10.1080/10691898.2016.1192362}{Diverse
+  perspectives on a flipped biostatistics classroom}. \emph{Journal of
+  Statistics Education}, 24; 74-84.
+\end{enumerate}
+
+\textbf{Under Review}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Kalish A, Todd A, Daly M, Martin A, Montalto C, Krissek L,
+  \textbf{Andridge R}, Kwiek N, Bowles W, Weaver L, Smith WR. Developing
+  a new general education program. \emph{Journal of General Education: A
+  Curricular Commons of the Humanities and Sciences}, submitted.
+\end{enumerate}
+
+\subsubsection{Biomedical Applications}\label{biomedical-applications}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Fisher M, Phansikar M, Teng J, McPherson N, Duraney E, McKenna M,
+  Shankar A, Blau C, Canter R, Roberts C, Aghamoosa S, Wright K,
+  \textbf{Andridge R}, Prakash R. (2026)
+  \href{https://doi.org/10.1093/geronb/gbaf235}{Effects of mindfulness
+  training on sustained attention and mind-wandering in older adults: A
+  randomized controlled trial.} \emph{The Journals of Gerontology,
+  Series B: Psychological Sciences and Social Sciences}, 81(2):gbaf235.
+\item
+  del Aguila A, Strehle LD, Adarkwah Yiadom S, Sardesai SD, Williams NO,
+  Gatti-Mays ME, Stover DG, Sudheendra PK, Wesolowski R, Gorka SM;
+  \textbf{Andridge RR}, Pyter LM. (2026)
+  \href{https://doi.org/10.1016/j.psyneuen.2026.107749}{Chemotherapy-induced
+  estradiol reduction is associated with less relief of pre-chemotherapy
+  anxiety in breast cancer patients}. \emph{Psychoneuroendocrinology},
+  186, 107749.
+\item
+  Hollway J, Sanford C, \textbf{Andridge R}, Arnold LE, Sinclair J,
+  Cobranchi C, Cameto R, Benson B, Seeley J, Havercamp S. (FORMALLY
+  ACCEPTED, 2025) Preliminary psychometric findings and feasibility of
+  the Diagnostic Interview for Adolescents and Adults with Intellectual
+  Disability (DIAAID): An interview schedule of mental disorders.
+  \emph{Journal of Applied Research in Intellectual Disabilities}.
+\item
+  Prakash R, Phansikar M, Fisher ME, Dove S, \textbf{Andridge R},
+  Scharre D, Wright KD, Head E, O'Callaghan C, Meyerson QK, Duraney EJ,
+  Schroeder M, Chakrapani N, Grant E, Jones T, Teng J, Esterman M, Smyth
+  JM, Gregoire T, Malhas R (IN PRESS, 2025).
+  \href{https://doi.org/10.2196/86276}{Feasibility of Internet-based
+  Mind-Body Training (iMBT) for adults with subjective cognitive
+  decline: Protocol for a randomized controlled trial}. \emph{JMIR
+  Research Protocols}, preprint online.
+\item
+  Christian LM, \textbf{Andridge RR}, Peng J, Kasibhatla NP, McDade TW,
+  Blevins T, Cole SW, Manning WD. Kamp Dush CM. (IN PRESS, 2025)
+  \href{https://doi.org/10.1016/j.bbi.2025.106202}{Sexual minority
+  adults exhibit greater inflammation than heterosexual adults in the
+  context of depressive symptoms and anxiety: Pathways to health
+  disparities}. \emph{Brain, Behavior, and Immunity}.
+\item
+  Christian LM, \textbf{Andridge RR}, Peng J, McDade TW, Manning WD,
+  Kamp Dush CM. (IN PRESS, 2025) Self-rated health and inflammation:
+  Associations among sexual minority and heterosexual adults.
+  \emph{Health Psychology}.
+\item
+  Zvara BJ, Altenburger L, Keim SA, \textbf{Andridge R}, Anderson SE.
+  (IN PRESS, 2025) \href{https://doi.org/10.1037/fam0001430}{Family
+  meals and behavioral development: The role of feeding strategies and
+  mealtime emotional climate.} \emph{Journal of Family Psychology}.
+\item
+  Ingol T, Anderson SE, Rausch J, \textbf{Andridge R}, Zvara B, Keim S.
+  Maternal weight trajectories from pre-pregnancy through postpartum and
+  childhood obesity risk at 24 months of age: A group-based trajectory
+  modeling analysis. (IN PRESS, 2025) \emph{Journal of Child Science}.
+\item
+  Luff A, Nguyen N, Luong T, Hayford S, Norris A, Casterline J,
+  \textbf{Andridge R}, Gallo M. (2025)
+  \href{https://doi.org/10.1080/00224499.2025.2530230}{Association
+  between negative pregnancy desires and recent condomless sex among
+  couples in Vietnam}. \emph{The Journal of Sex Research}, Jul 22:1-8.
+\item
+  Seng M, Adarkwah Yiadom S, Otto-Dobos LD, Sardesai SD, Williams N,
+  Gatti-Mays ME, Stover DG, Wesolowski R, Way BM, Glasper ER,
+  \textbf{Andridge RR}, Pyter LM (2025).
+  \href{https://doi.org/10.1016/j.psyneuen.2025.107428}{The role of
+  oxytocin in mediating the relationships between social factors and
+  chemotherapy-associated cognitive decline in female patients with
+  breast cancer}. \emph{Psychoneuroendocrinology}, 176, 107428.
+\item
+  Morgan E, Kamp Dush CM, McDade TW, Peng J, \textbf{Andridge RR}, Cole
+  SW, Manning W, Christian LM (2025).
+  \href{https://doi.org/10.1016/j.bbi.2025.02.032}{LGBTQ+ identity and
+  its association with inflammation and cellular immune function}.
+  \emph{Brain, Behavior and Immunity}, 126; 333-341.
+\item
+  Sucaldito AD, \textbf{Andridge R}, Reiter PL, Strunk DR, Katz ML
+  (2025). \href{https://doi.org/10.1080/07448481.2025.2472210}{Influence
+  of racial identification and gender on the mental health outcomes of
+  ``Asian American Pacific Islander'' college students}. \emph{Journal
+  of American College Health}, 73(5); 1983-1993.
+\item
+  Christian L, Wilson S, Madison A, Kamp Dush C, McDade T, Peng J,
+  \textbf{Andridge R}, Morgan E, Manning W, Cole S (2025).
+  \href{https://doi.org/10.1016/j.bbi.2025.01.022}{Sexual minority
+  stress and epigenetic aging}. \emph{Brain, Behavior, and Immunity},
+  126, 24-29.
+\item
+  Madison AA, Shrout MR, Wilson SJ, Renna ME, Peng J, \textbf{Andridge
+  R}, Jaremka LM, Fagundes CP, Malarkey WB, Kiecolt-Glaser JK (2025).
+  \href{https://doi.org/10.1093/abm/kaaf009}{``I'm ready this time'':
+  Investigating physiological and emotional habituation to repetitive
+  social stress}. \emph{Annals of Behavioral Medicine}, 59(1), kaaf009.
+\item
+  Otto-Dobos LD, Strehle LD, Loman BR, Seng M, Sardesai SD, Williams NO,
+  Gatti-Mays ME, Stover DG, Sudheendra PK, Wesolowski R,
+  \textbf{Andridge RR}, Bailey MT, Pyter LM (2024).
+  \href{https://doi.org/10.1038/s41523-024-00707-6}{Baseline gut
+  microbiome alpha diversity predicts chemotherapy-induced
+  gastrointestinal symptoms in patients with breast cancer}. \emph{npj
+  Breast Cancer}, 10(1); 99.
+\item
+  McKenna MR, Gbadeyan O, \textbf{Andridge R}, Schroeder MW, Pugh EA,
+  Scharre DW, Prakash RS (2025).
+  \href{https://doi.org/10.1037/neu0000987}{p-tau/\(A \beta 42\) ratio
+  associates with cognitive decline in Alzheimer's disease, mild
+  cognitive impairment, and cognitively unimpaired older adults}.
+  \emph{Neuropsychology}, 39(2), 137-151
+\item
+  Prakash RS, McKenna MR, Gbadeyan O, Shankar AR, Pugh A, Teng J,
+  \textbf{Andridge R}, Berry A, Scharre DW (2025).
+  \href{https://doi.org/10.1002/alz.14349}{A whole-brain functional
+  connectivity model of Alzheimer's disease pathology}.
+  \emph{Alzheimer's \& Dementia}, 21(1):e14349.
+\item
+  Ormiston K, Melink Z, \textbf{Andridge R}, Lustberg M, DeVries AC,
+  Murphy K, Emmers K, Ziouzenkova O, Belury MA, Orchard TS (2025).
+  \href{https://doi.org/10.1016/j.bbi.2024.09.021}{Dietary EPA and DHA
+  enrichment of a high fat diet during doxorubicin-based chemotherapy
+  attenuated neuroinflammatory gene expression in the brain of C57bl/6
+  ovariectomized mice}. \emph{Brain, Behavior, and Immunity}, 123;
+  370-382.
+\item
+  Ormiston K, Fitzgerald J, \textbf{Andridge R}, Lustberg MB, DeVries
+  AC, Orchard TS. (2024)
+  \href{https://doi.org/10.1016/j.nutres.2024.09.004}{Low sucrose diets
+  protect long-term memory and EPA \& DHA enriched diets alter insulin
+  resistance in a mouse model of chemotherapy}. \emph{Nutrition
+  Research}, 131; 39-53.
+\item
+  Khalsa AS, \textbf{Andridge R}, Keim SA, Zvara BJ, Anderson SE (2024).
+  \href{https://doi.org/10.1016/j.pedhc.2024.07.003}{Screen time,
+  outdoor play, and sleep routines in early childhood: Longitudinal
+  associations with parenting stress during toddler years}.
+  \emph{Journal of Pediatric Health Care}, 38(6); 794-803.
+\item
+  Phansikar M, Duraney EJ, Manglani HR, Shankar A, Roberts C,
+  \textbf{Andridge R}, Nicholas JS, Petosa R, Prakash RS (2025).
+  \href{https://doi.org/10.1037/rep0000578}{TRACking health behavior in
+  people with multiple sclerosis: Effects of a randomized trial on
+  physical activity and working memory}. \emph{Rehabilitation
+  Psychology}, 70(3), 227-239.
+\item
+  Otto-Dobos L, Grant CV, Lahoud AA, Wilcox OR, Strehle LD, Loman BR,
+  Adarkwah Yiadom S, Seng MM, Halloy N, Russart KLG, Carpenter KM,
+  Dawson E, Sardesai SD, Williams NO, Gatti-Mays ME, Stover DG,
+  Sudheendra PK, Wesolowski R, Kiecolt-Glaser JK, Bailey MT,
+  \textbf{Andridge RR}, Pyter LM (2024). Chemotherapy-induced gut
+  microbiome disruption, inflammation, and cognitive decline in female
+  patients with breast cancer. \emph{Brain, Behavior, and Immunity},
+  120; 208--220.
+\item
+  Barnhardt E, Walton J, Martens M, \textbf{Andridge R} (2024).
+  Caregiver-reported barriers to care for children and adults with
+  Williams Syndrome. \emph{Journal of Community Genetics}, 15(4),
+  375-386.
+\item
+  Madison AA, Burd CE, \textbf{Andridge R}, Wilson SJ, Bailey MT, Belury
+  M, Spakowicz DJ, Malarkey W, Kiecolt-Glaser JK (2024).
+  \href{https://doi.org/10.1093/gerona/glad276}{Gut microbiota richness
+  and diversity track with T cell aging in healthy adults}.
+  \emph{Journal of Gerontology: Series A}, 79(3), glad276.
+\item
+  Krupsky KL, Zvara BJ, Khalsa AS, \textbf{Andridge R}, Keim SA,
+  Anderson SE (2024). Household chaos, child temperament, and
+  structure-related feeding practices in toddlerhood: A moderation
+  analysis. \emph{Eating Behaviors}, 52; 101838.
+\item
+  Luff A, Nguyen NC, \textbf{Andridge R}, Hayford S, Norris A,
+  Casterline J, Gallo MF (2024). Validity of partner reports of recent
+  condomless sex. \emph{Sexually Transmitted Diseases}, 51(4), 254-259.
+\item
+  Whitmoyer P, Fisher ME, Duraney EJ, Manzler C, Isaacowitz I,
+  \textbf{Andridge R}, Prakash RS (2024). Age differences in emotion
+  regulation strategy use and flexibility in daily life. \emph{Aging \&
+  Mental Health}, 28(2), 330-343.
+\item
+  Zaborski NL, \textbf{Andridge RR}, Paskett ED, Katz ML (2023).
+  \href{https://doi.org/10.1007/s11764-023-01481-3}{Food insecurity
+  among adult females with a history of breast cancer compared to adult
+  females without cancer in the United States}. \emph{Journal of Cancer
+  Survivorship}, 19; 479--486.
+\item
+  Dunn S, Orchard T, \textbf{Andridge R}, Rymut S, Slesnick N, Hatsu I
+  (2023). \href{https://doi.org/10.1017/S000711452300212X}{Mental health
+  in society's margins: Poor omega-3 PUFA intake and psychological
+  well-being of homeless youth}. \emph{British Journal of Nutrition},
+  131(4); 698-706.
+\item
+  Madison AA, \textbf{Andridge R}, Renna M, Sheridan J, Lustberg M,
+  Ramaswamy B, Wesolowski R, Williams NO, Sardesai SD, Noonan AM,
+  Reinbolt RE, Cherian MA, Malarkey WB, Kiecolt-Glaser JK (2023).
+  Inflamed but not impulsive: Acute inflammatory cytokine response does
+  not impact prepotent response inhibition. \emph{Journal of Affective
+  Disorders}, 342; 1-9.
+\item
+  Madison AA, \textbf{Andridge R}, Kantaras AH, Renna ME, Bennett JM,
+  Alfano CM, Povoski SP, Agnese DM, Lustberg M, Wesolowski R, Carson WE,
+  Williams NO, Reinbolt RE, Sardesai SD, Noonan AM, Stover DG, Cherian
+  MA, Malarkey WB, Kiecolt-Glaser JK (2023).
+  \href{https://doi.org/10.3390/cancers15174414}{Depression,
+  inflammation, and intestinal permeability: Associations with
+  subjective and objective cognitive functioning throughout breast
+  cancer survivorship}. \emph{Cancers}, 15; 4414.
+\item
+  Manglani HR, Phansikar M, Duraney EJ, McKenna MR, Canter R, Nicholas
+  JA, \textbf{Andridge R}, Prakash RS (2023). Accelerometry measures of
+  physical activity and sedentary behavior: Associations with cognitive
+  functioning in MS. \emph{Multiple Sclerosis and Related Disorders},
+  79; 104963.
+\item
+  Zvara BJ, Keim SA, \textbf{Andridge R}, Anderson SE. (2023)
+  \href{https://doi.org/10.3390/children10081284}{Self-compassion and
+  depressive symptoms as determinants of sensitive parenting:
+  Associations with sociodemographic characteristics in a sample of
+  mothers and toddlers}. \emph{Children}, 10; 1284.
+\item
+  Zvara BJ, Keim SA, \textbf{Andridge R}, Anderson SE (2023).
+  \href{https://doi.org/10.1002/icd.2447}{Variability in parenting
+  behaviors during play and during mealtimes with toddlers}.
+  \emph{Infant and Child Development}, 32(5); e2447.
+\item
+  Renna M, Madison AA, Peng J, Shrout MR, Lustberg M, Ramaswamy B,
+  Wesolowski R, VanDeusen JB, Williams N, Sardesai S, Noonan A, Reinbolt
+  R, Stover D, Cherian M, Malarkey WB, \textbf{Andridge R},
+  Kiecolt-Glaser J (2023).
+  \href{https://pubmed.ncbi.nlm.nih.gov/37335884/}{Worry and mindfulness
+  differentially impact symptom burden following treatment among breast
+  cancer survivors: Findings from a randomized crossover trial}.
+  \emph{Annals of Behavioral Medicine}, 57(10); 888-898.
+\item
+  Wilson SJ, Cole SW, Shrout MR, Malarkey WB, \textbf{Andridge R},
+  Kiecolt-Glaser JK (2023). Your suffering is my stressor:
+  Proinflammatory gene expression rises with spousal distress in
+  middle-aged and older couples. \emph{Psychoneuroendocrinology}, 153;
+  106116.
+\item
+  Madison AA, Filatov M, \textbf{Andridge R}, Haas G, Povoski SP, Agnese
+  DM, Lustberg M, Reinbolt RE, Wesolowski R, Williams NO, Malarkey WB,
+  Kiecolt-Glaser JK (2023). A troubled heart: Mood disorder history
+  longitudinally predicts faster cardiopulmonary aging in breast cancer
+  survivorship. \emph{PLOS One}, 18(3); e0283849.
+\item
+  Madison AA, Renna M, \textbf{Andridge R}, Peng J, Shrout MR, Sheridan
+  J, Lustberg M, Ramaswamy B, Wesolowski R, Williams NO, Noonan AM,
+  Reinbolt RE, Stover DG, Cherian MA, Malarkey WB, Kiecolt-Glaser JK
+  (2023). Conflicts hurt: Social stress predicts elevated pain and
+  sadness after mild inflammatory increases. \emph{PAIN}, 164(9);
+  1985-1994.
+\item
+  Madison A, Way B, Ratner K, Renna M, \textbf{Andridge R}, Peng J,
+  Shrout MR, Sheridan J, Lustberg M, Ramaswamy B, Wesolowski R,
+  VanDeusen JB, Williams NO, Sardesai SD, Noonan AM, Reinbolt RE, Stover
+  DG, Cherian MA, Malarkey WB, Kiecolt-Glaser JK (2023). Typhoid vaccine
+  does not impact feelings of social connection or social behavior in a
+  randomized crossover trial among middle-aged female breast cancer
+  survivors. \emph{Brain, Behavior, and Immunity}, 107; 124-131.
+\item
+  Prakash R, Manglani HR, Duraney EJ, Shankar A, Fisher ME, Janssen A,
+  Cea L, Petosa R, \textbf{Andridge R}, Nicholas J (2022). TRACking
+  health behaviors in people with Multiple Sclerosis (TRAC-MS): Study
+  protocol and description of the study sample. \emph{Contemporary
+  Clinical Trials Communications}, 30; 101006.
+\item
+  Fisher ME, Duraney EJ, Friess K, Whitmoyer P, \textbf{Andridge R},
+  Prakash P (2022). Trait mindfulness and emotion regulation
+  responsiveness to negative affect in daily life. \emph{Mindfulness},
+  13; 2796-2811.
+\item
+  Prakash RS, Fountain-Zaragoza S, Fisher M, Gbadeyan O,
+  \textbf{Andridge R}, Kiecolt-Glaser JK, Manglani HR, Duraney EJ,
+  Shankar A, McKenna MR, Teng J, Phansikar M, Canter R (2022). Protocol
+  for a randomized controlled trial of mindfulness-based stress
+  reduction to improve attentional control in older adults (HealthyAgers
+  trial). \emph{BMC Geriatrics}, 22; 666.
+\item
+  Walton KM, Krahn GL, Buck A, \textbf{Andridge R}, Lecavalier L,
+  Hollway JA, Davies DK, Arnold LE, Havercamp SM, and The Nisonger RRTC
+  on Health and Function (2022). Putting ``ME'' into measurement:
+  Adapting self-report measures for use with individuals with
+  intellectual disability. \emph{Research in Developmental
+  Disabilities}, 128; 104298.
+\item
+  Hood RB, \textbf{Andridge R}, Sealy-Jefferson S, Felix A (2022).
+  Health disparities in liver cancer: An analysis of the Ohio Cancer
+  Incidence Surveillance System. \emph{Ohio Journal of Public Health},
+  5(1); 64-72.
+\item
+  Duraney EJ, Fisher ME, Manglani HR, \textbf{Andridge R}, Nicholas JA,
+  Prakash RS. (2022) Impact of mindfulness training on emotion
+  regulation in multiple sclerosis: Secondary analysis of a pilot
+  randomized controlled trial. \emph{Rehabilitation Psychology}, 67(4);
+  449-460.
+\item
+  Weinhold K, \textbf{Andridge RR}, Bomser JA, Sasaki GY, Bruno RS,
+  Orchard TS. (2022)
+  \href{https://doi.org/10.1177/02601060221106819}{Sugars measured
+  enzymatically in a fasting overnight urine sample are not sensitive
+  biomarkers of dietary added sugar intake in postmenopausal women}.
+  \emph{Nutrition and Health}, Online ahead of print.
+\item
+  Carey H, Tanner K, Ratliff-Schaub K, Baldino M, Kelly N,
+  \textbf{Andridge R} (2023). Early developmental trends in high-risk
+  neonates later diagnosed with autism spectrum disorder.
+  \emph{Pediatric Physical Therapy}, 35(1):28-34.
+\item
+  Kiecolt-Glaser JK, Renna M, Peng J, Sheridan J, Lustberg M, Ramaswamy
+  B, Wesolowski R, VanDeusen JB, Williams NO, Sardesai SD, Noonan AM,
+  Reinbolt RE, Stover DG, Cherian MA, Malarkey WB, \textbf{Andridge R}
+  (2022). Breast cancer survivors' typhoid vaccine responses:
+  Chemotherapy, obesity, and fitness make a difference. \emph{Brain,
+  Behavior, and Immunity}, 103; 1-9.
+\item
+  Kravets M, Sullivan JA, Parrott A, Zvara BJ, \textbf{Andridge R},
+  Anderson SE, Keim SA. (2022) Eating competence among caregivers of
+  toddlers: Associations with caregiver and child overweight/obesity.
+  \emph{Journal of Nutrition Education and Behavior}, 54(8); 745-752.
+\item
+  Nguyen NC, Luong TN, Le VT, Hobbs M, \textbf{Andridge R}, Casterline
+  J, Gallo MF (2022). Effectiveness of erectogenic condom against semen
+  exposure among women in Vietnam: Randomized controlled trial.
+  \emph{PLOS One}, 17(2): e0263503.
+  https://doi.org/10.1371/journal.pone.0263503
+\item
+  Menegay MC, \textbf{Andridge R}, Rivlin K, Gallo MF (2022). Delivery
+  at Catholic hospitals and postpartum contraception use, five US
+  states, 2015-2018. \emph{Perspectives on Sexual and Reproductive
+  Health}, 54; 5-11.
+\item
+  Gallo MF, Nguyen NC, Luff A, Luong TN, Le VT, Casterline J,
+  \textbf{Andridge R} (2022). Effects of a novel erectogenic condom on
+  men and women's sexual pleasure: Randomized controlled trial.
+  \emph{The Journal of Sex Research}, 59(9); 1133-1139.
+\item
+  Khalsa AS, Weber ZA, Zvara BJ, Keim SA, \textbf{Andridge R}, Anderson
+  SE (2022). Factors associated with parenting stress in parents of
+  18-month-old children. \emph{Child: Care, Health and Development}, 48;
+  521-530.
+\item
+  Parrott A, Zvara B, Keim S, \textbf{Andridge R}, Anderson SE (2022).
+  Play \& Grow: Prospective observational cohort of toddlers to inform
+  obesity prevention, Columbus, Ohio, USA. \emph{BMJ Open}, 12; e055490.
+  http://dx.doi.org/10.1136/bmjopen-2021-055490
+\item
+  Samimy A, Manglani HR, Fountain-Zaragoza S, \textbf{Andridge R},
+  Prakash RS. (2022) Impact of mindfulness training on in-the-moment
+  attentional control and emotion dysregulation in older adults:
+  Secondary analysis of a pilot, placebo-controlled randomized
+  controlled trial. \emph{Aging and Mental Health}, 26(12); 2372-2380.
+\item
+  Ormiston K, Gaudier-Diaz MM, TinKai T, Fitzgerald J, Cole RM,
+  \textbf{Andridge R}, Lustberg M, DeVries AC, Orchard T. (2022) Effects
+  of plant-based versus marine-based omega-3 fatty acids and sucrose on
+  brain and liver fatty acids in a mouse model of chemotherapy.
+  \emph{Nutritional Neuroscience}, 25(12); 2650-2658.
+\item
+  Wilson SJ, Jaremka LM, Fagundes CP, \textbf{Andridge R},
+  Kiecolt-Glaser JK (2022). Does it matter whether we or I talk about
+  \emph{us}? Distinguishing we-talk in couples' conflict discussions and
+  partners' private thoughts before and after conflict. \emph{Journal of
+  Social and Personal Relationships}, 39; 1066-1086.
+\item
+  Madison AA, \textbf{Andridge R}, Shrout MR, Renna ME, Bennett JM,
+  Jaremka LM, Fagundes CP, Belury MA, Malarkey WB, Kiecolt-Glaser JK
+  (2022). Frequent interpersonal stress and inflammatory reactivity
+  predict depressive-symptom increases: Two tests of the social
+  signal-transduction-theory of depression. \emph{Psychological
+  Science}, 33(1); 152-164.
+\item
+  Krupsky KL, Parrott A, \textbf{Andridge R}, Zvara BJ, Keim SA,
+  Anderson SE (2021). A mixed methods analysis of environmental and
+  household chaos: Considerations for early-childhood obesity research.
+  \emph{BMC Public Health}, 12; 1867.
+  https://doi.org/10.1186/s12889-021-11936-w
+\item
+  Belury MA, Cole RM, \textbf{Andridge R}, Keiter A, Raman SV, Lustberg
+  MB, Kiecolt-Glaser JK. (2021) Erythrocyte long chain omega-3 fatty
+  acids are positively associated with lean mass and grip strength in
+  women with recent diagnoses of breast cancer. \emph{The Journal of
+  Nutrition}, 151(8); 2125-2133.
+\item
+  Madison AA, Belury M, \textbf{Andridge R}, Renna ME, Shrout MR,
+  Malarkey WB, Lin J, Epel ES, Kiecolt-Glaser JK. (2021) Omega-3
+  supplementation and stress reactivity of cellular aging biomarkers: An
+  ancillary substudy of a randomized, controlled trial in midlife
+  adults. \emph{Molecular Psychiatry}, 26; 3034-3042.
+\item
+  Kiecolt-Glaser JK, Wilson SJ, Shrout MR, Madison AA, \textbf{Andridge
+  R}, Peng J, Malarkey WB, Bailey ML (2021). The gut reaction to
+  couples' relationship troubles: A route to gut dysbiosis through
+  changes in depressive symptoms. \emph{Psychoneuroendocrinology}, 123;
+  105132.
+\item
+  Sullivan JA, Zvara BJ, Keim SA, \textbf{Andridge R}, Anderson SE
+  (2021). Knowledge of infant development and parent well-being:
+  Cross-sectional analysis of toddlers. \emph{Journal of Developmental
+  \& Behavioral Pediatrics}, 42(6); 442-449.
+\item
+  Renna ME, Peng J, Shrout MR, Madison AA, \textbf{Andridge R}, Alfano
+  CM, Povoski S, Lipari A, Malarkey WB, Kiecolt-Glaser JK (2021).
+  Childhood abuse histories predict steeper inflammatory trajectories
+  across time. \emph{Brain Behavior and Immunity}, 91; 541--545.
+\item
+  Li L, Pope CN, \textbf{Andridge RR}, Bower JK, Hu G, Zhu M (2020).
+  Cellphone laws and teens' calling while driving: Analysis of repeated
+  cross-sectional surveys in 2013, 2015, 2017, and 2019. \emph{Injury
+  Epidemiology}, 7:65.
+\item
+  Madison AA, \textbf{Andridge R}, Padin AC, Wilson SJ, Bailey MT,
+  Alfano CM, Povoski SP, Lipari AM, Agnese DM, Carson WE, Malarkey WB,
+  Kiecolt-Glaser JK (2020). Endotoxemia coupled with heightened
+  inflammation predicts future depressive symptoms.
+  \emph{Psychoneuroendocrinology}, 122; 104864.
+\item
+  Mitchell L, Amaya M, Battista L, Melnyk B, \textbf{Andridge R}, Kaye G
+  (2021). Manager support for wellness champions: A case study for
+  consideration and practice implications. \emph{Workplace Health \&
+  Safety}, 69(3); 100-108.
+\item
+  Cole RM, Puchala S, Ke J-Y, Abdel-Rasoul M, Harlow K, O'Donnell B,
+  Bradley D, \textbf{Andridge R}, Borkowski K, Newman JW, Belury MA
+  (2020). Linoleic acid-rich oil supplementation increases total and
+  high-molecular-weight adiponectin and alters plasma oxylipins in
+  postmenopausal women with metabolic syndrome. \emph{Current
+  Developments in Nutrition}, 4(9); nzaa136.
+  https://doi.org/10.1093/cdn/nzaa136
+\item
+  Wilson SJ, Peng J, \textbf{Andridge R}, Jaremka LM, Fagundes CP,
+  Malarkey WB, Belury MA, Kiecolt-Glaser JK (2020). For better and
+  worse? The roles of closeness, marital behavior, and age in spouses'
+  cardiometabolic similarity. \emph{Psychneuroendocrinology}, 120;
+  104777.
+\item
+  Wanamaker AB, \textbf{Andridge RR}, Chaudhari AMW. (2020) Costs
+  associated with lower- and upper-limb amputation over the first 4
+  years with a prosthesis. \emph{Journal of Prosthetics and Orthotics},
+  32(2); 81-92.
+\item
+  Wilson SJ, Padin AC, Bailey BE, Laskowski B, \textbf{Andridge R},
+  Malarkey WB, Kiecolt-Glaser JK (2020). Spousal bereavement after
+  dementia caregiving: A turning point for immune health.
+  \emph{Psychoneuroendocrinology}, 118; 104717.
+\item
+  Burd CE, Peng J, Laskowski BF, Hollyfield JL, Zhang S, Fadda P, Yu L,
+  \textbf{Andridge RR}, Kiecolt-Glaser JK (2020). Association of
+  epigenetic age and p16INK4a with markers of T-cell composition in a
+  healthy cohort. \emph{The Journals of Gerontology: Series A}, 75(12);
+  2299-2303.
+\item
+  Madison AA. Belury MA, \textbf{Andridge R}, Shrout MR, Renna ME,
+  Malarkey WB, Bailey MT, Kiecolt-Glaser JK (2020). Afternoon
+  distraction: A high-saturated-fat meal and endotoxemia impact postmeal
+  attention in a randomized crossover trial. \emph{American Journal of
+  Clinical Nutrition}, 111; 1150-1158.
+\item
+  Schirda B, Duraney E, Lee HK, Manglani H, \textbf{Andridge RR}, Plate
+  A, Nicholas JA, Prakash RS (2020). Mindfulness training for emotion
+  dysregulation in multiple sclerosis: A pilot randomized controlled
+  trial. \emph{Rehabilitation Psychology}, 65(3); 206-218.
+\item
+  Crowe RP, Fernandez AR, Pepe PE, Cash RE, Rivard MK, Wronski RA,
+  Anderson SE, Hogan TH, \textbf{Andridge RR}, Panchal AR, Ferketich AK
+  (2020). The association of job demands and resources with burnout
+  among emergency medical services professionals. \emph{JACEP Open},
+  1:6-16.
+\item
+  Barnhart WR, Ellsworth D, Robinson AC, Myers J, \textbf{Andridge RR},
+  Havercamp SM (2020). Caregiving in the shadows: National analysis of
+  health outcomes and intensity and duration of care among those who
+  care for people with mental illness and for people with developmental
+  disabilities. \emph{Disability and Health Journal}, 13; 100837.
+\item
+  Krupsky K, \textbf{Andridge RR}, Anderson SE. (2020) Residential
+  mobility in early childhood and obesity at kindergarten age among
+  children from the United States. \emph{Pediatric Obesity}, 15:e12576.
+\item
+  Whitmoyer P, Fountain-Zaragoza S, \textbf{Andridge RR}, Bredemeier K,
+  Londeree A, Kaye L, Prakash R (2020). Mindfulness training and
+  attentional control in older adults: A randomized controlled trial.
+  \emph{Mindfulness}, 11; 203-218.
+\item
+  Johnson KM, Weinhold KR, \textbf{Andridge RR}, Arnold K, Chu P,
+  Orchard TS (2019). Associations of erythrocyte polyunsaturated fatty
+  acids with inflammation and quality of life in post-menopausal women
+  with obesity completing a pilot dietary intervention.
+  \emph{Nutrients}, 11; 1589.
+\item
+  Banh TH, Puchala SE, Cole RM, \textbf{Andridge RR}, Kiecolt-Glaser JK,
+  Belury MA (2019). Blood level of adiponectin is positively associated
+  with lean mass in women without type 2 diabetes. \emph{Menopause},
+  26(11); 1311-1317.
+\item
+  Wanamaker AB, \textbf{Andridge RR}, Chaudhari AMW (2019). Projected
+  healthcare associated costs of workplace-related traumatic amputation
+  after 10, 15, and 20 Years: Part I: Lower Limb. \emph{Journal of
+  Prosthetics and Orthotics}, 31(3); 189-198.
+\item
+  Postorino V, Gillespie S, Lecavalier L, Smith T, Johnson C, Swiezy N,
+  Aman MG, McDougle CJ, Bearss K, \textbf{Andridge RR}, Vitiello B,
+  Scahill L (2019). Clinical correlates of parenting stress in children
+  with Autism Spectrum Disorder and serious behavioral problems.
+  \emph{Journal of Child and Family Studies}, 28; 2069-2077.
+\item
+  Asad S, Hebert C, \textbf{Andridge R}, Nguyen N, Gallo MF (2019).
+  Changes in the use of effective and long-acting reversible
+  contraception in Vietnam. \emph{Contraception}, 99; 165-169.
+\item
+  Dotson JL, Kappelman MD, Bricker J, \textbf{Andridge R}, Chisolm DJ,
+  Crandall WV (2019). Multicenter evaluation of emergency department
+  treatment for children and adolescents with Crohn's Disease according
+  to race/ethnicity and insurance payor status. \emph{Inflammatory Bowel
+  Diseases}, 25(1); 194-203
+\item
+  Prokup J, \textbf{Andridge R}, Havercamp S, Yang E (2019). Healthcare
+  disparities between children with developmental disabilities and
+  typically developing children in Ohio. \emph{Child Indicators
+  Research}, 12; 667-687.
+\item
+  Orchard TS, Gaudier-Diaz MM, Phuwamongkolwiwat-Chu P, \textbf{Andridge
+  R}, Lustberg MB, Bomser J, Cole RM, Belury MB, DeVries AC (2018). Low
+  sucrose, omega-3 enriched diet has region-specific effects on
+  neuroinflammation and synaptic function markers in a mouse model of
+  doxorubicin-based chemotherapy. \emph{Nutrients}, 10; 2004.
+\item
+  Kiecolt-Glaser JK, Wilson S, Bailey M, \textbf{Andridge R}, Peng J,
+  Jaremka L, Fagundes C, Malarkey W, Laskowski B, Belury M (2018).
+  Marital distress, depression, and a leaky gut: Translocation of
+  bacterial endotoxin as a pathway to inflammation.
+  \emph{Psychoneuroendrinology}, 98; 52-60.
+\item
+  Li L, Shults R, \textbf{Andridge RR}, Yellman MA, Xiang H, Zhu M.
+  (2018) Texting/emailing while driving among high school students in 35
+  states, United States, 2015. \emph{Journal of Adolescent Health}, 63;
+  701-708.
+\item
+  Arnold K, Weinhold KR, \textbf{Andridge R}, Johnson K, Orchard TS
+  (2018). Improving diet quality is associated with decreased
+  inflammation: Findings from a pilot intervention in postmenopausal
+  women with obesity. \emph{Journal of the Academy of Nutrition and
+  Dietetics}, 118; 2135-2143.
+\item
+  Wilson S, Bailey BE, Jaremka L, Fagundes C, \textbf{Andridge R},
+  Malarkey WB, Gates K, Kiecolt-Glaser JK (2018). When couples' hearts
+  beat together: Synchrony in heart rate variability during conflict
+  predicts heightened inflammation throughout the day.
+  \emph{Psychoneuroendocrinology}, 93; 107-116.
+\item
+  Howlader N, Cronin KA, Kurian AW, \textbf{Andridge R} (2018).
+  Differences in breast cancer survival by molecular subtypes in the
+  United States. \emph{Cancer Epidemiology, Biomarkers \& Prevention},
+  72; 619-626.
+\item
+  Martens MA, Seyfer DL, \textbf{Andridge RR}, Coury DL (2017). Use and
+  effectiveness of sleep medications by parent report in individuals
+  with Williams Syndrome. \emph{Journal of Developmental and Behavioral
+  Pediatrics}, 38; 765-771.
+\item
+  Lustberg MB, Orchard TS, Reinbolt RE, \textbf{Andridge R}, Pan X,
+  Belury M, Cole R, Logan A, Layman R, Ramaswamy B, Wesolowski R, Berger
+  M, Patterson E, Loprinzi C, Shapiro C, Yee L (2018). Randomized
+  placebo-controlled pilot trial of omega 3 fatty acids for prevention
+  of aromatase inhibitor-induced musculoskeletal pain. \emph{Breast
+  Cancer Research and Treatment}, 167; 709-718.
+\item
+  Orchard T, \textbf{Andridge R}, Yee LD, Lustberg M (2018). Diet
+  quality, inflammation and quality of life in breast cancer survivors:
+  A cross-sectional analysis of pilot study data. \emph{Journal of the
+  Academy of Nutrition and Dietetics}, 118; 578-588.
+\item
+  Hollway JA, Mendoza-Burcham M, \textbf{Andridge R}, Aman MG, Handen B,
+  Arnold LE, Lecavalier L, Williams C, Silverman L, Smith T (2018).
+  Atomoxetine, parent training, and their effects on sleep in youth with
+  Autism Spectrum Disorder and Attention-Deficit/Hyperactivity Disorder.
+  \emph{Journal of Child and Adolescent Psychopharmacology}, 28;
+  130-135.
+\item
+  Mehling MH, Tasse MJ, \textbf{Andridge RR} (2017). Shakespeare and
+  autism: A pilot study examining the treatment effects and predictors
+  of treatment response of the Hunter Heartbeat Method.
+  \emph{AUTISM-Open Access}, 7: 222.
+\item
+  Wilson SJ, \textbf{Andridge RR}, Peng J, Bailey BE, Malarkey WB,
+  Kiecolt-Glaser JK (2017). Thoughts after marital conflict and punch
+  biopsy wounds: Age-graded pathways to healing.
+  \emph{Psychoneuroendocrinology}, 85; 6-13.
+\item
+  Prokup J, \textbf{Andridge R}, Havercamp S, Yang E (2017). Health care
+  disparities of Ohioans with developmental disabilities across the
+  lifespan. \emph{Annals of Family Medicine}, 15; 471-474.
+\item
+  Wilson SJ, Jaremka LM, Fagundes CP, \textbf{Andridge R}, Peng J,
+  Malarkey WB, Habash D, Belury MA, Kiecolt-Glaser JK (2017). Shortened
+  sleep fuels inflammatory responses to marital conflict: Emotion
+  regulation matters. \emph{Psychoneuroendocrinology}, 79; 74-83.
+\item
+  Wanamaker A, \textbf{Andridge RR}, Chaudhari A (2017). When to
+  biomechanically examine a lower-limb amputee: A systematic review of
+  accommodation times. \emph{Prosthetics \& Orthotics International},
+  41(5); 431-445.
+\item
+  Alfano CM, Peng J, \textbf{Andridge RR}, Lindgren ME, Povoski SP,
+  Lipari AM, Agnese DM, Farrar WB, Yee LD, Carson WE, Kiecolt-Glaser JK
+  (2017) Inflammatory cytokines and comorbidity development in breast
+  cancer survivors vs.~noncancer controls: Evidence for accelerated
+  aging? \emph{Journal of Clinical Oncology}, 35; 149-156.
+\item
+  Kiecolt-Glaser JK, Fagundes CP, \textbf{Andridge R}, Peng J, Malarkey
+  WB, Habash D, Belury MA (2017). Depression, daily stressors, and
+  inflammatory responses to high-fat meals: When stress overrides
+  healthier food choices. \emph{Molecular Psychiatry}, 22; 476-482.
+\item
+  Anderson SE, \textbf{Andridge RR}, Whitaker RC (2016). Bedtime in
+  preschool-aged children and risk for adolescent obesity. \emph{The
+  Journal of Pediatrics}, 176; 17-22.
+\item
+  Everhart JS, \textbf{Andridge RR}, Scharschmidt TJ, Mayerson JL,
+  Glassman AH, Lemeshow S (2016). Development and validation of a
+  preoperative surgical site infection risk score for primary or
+  revision knee and hip arthroplasty. \emph{Journal of Bone \& Joint
+  Surgery}, 98; 1522-1532.
+\item
+  Kirchner RM, Martens MA, \textbf{Andridge RR} (2016). Adaptive
+  behavior and development of infants and toddlers with Williams
+  Syndrome. \emph{Frontiers in Psychology}, 7; 598.
+\item
+  Belury MA, Cole R, Bailey BE, Ke J-Y, \textbf{Andridge RR},
+  Kiecolt-Glaser JK (2016). Erythrocyte linoleic acid, but not oleic
+  acid, is associated with improvements in body composition in men and
+  women. \emph{Molecular Nutrition and Food Research}, 60; 1206-1212.
+\item
+  Jain S, \textbf{Andridge R}, Hellings JA (2016). Loxapine for reversal
+  of antipsychotic-induced metabolic syndrome in an adult with autism
+  spectrum disorder. \emph{Journal of Child and Adolescent
+  Psychopharmacology}, 26(5); 481-483.
+\item
+  Collins CL, McKenzie LB, Ferketich AK, \textbf{Andridge R}, Xiang H,
+  Comstock RD (2016). Concussion characteristics in high school football
+  by helmet age/recondition status, manufacturer, and model: 2008-2009
+  through 2012-2013 academic years in the United States. \emph{American
+  Journal of Sports Medicine}, 44; 1382-1390.
+\item
+  Collins CL, McKenzie LB, Ferketich A, \textbf{Andridge R}, Xiang H,
+  Comstock RD (2016). Dental injuries sustained by high school athletes
+  in the United States, from 2008/2009 through 2012/2013 academic years.
+  \emph{Dental Traumatology}, 32; 121-127.
+\item
+  Jaremka LM, Belury MA, \textbf{Andridge RR}, Lindgren ME, Habash D,
+  Malarkey WB, Kiecolt-Glaser JK (2016). Novel links between troubled
+  marriages and appetite regulation: Marital distress, ghrelin, and diet
+  quality. \emph{Clinical Psychological Science}, 4; 363-375.
+\item
+  Newman S, Tumin R, \textbf{Andridge R}, Anderson SE (2015). Family
+  meal frequency and association with household food availability in
+  United States multi-person households: National Health and Nutrition
+  Examination Survey 2007-2010. \emph{PLOS One}, 10(12): e0144330.
+  https://doi.org/10.1371/journal.pone.0144330
+\item
+  Anderson SE, McNamara K, \textbf{Andridge R}, Keim S (2015). Executive
+  function and mealtime behavior among preschool-aged children born very
+  preterm. \emph{Eating Behaviors}, 19; 110-114.
+\item
+  Anderson SE, Kaye G, \textbf{Andridge R}, Smathers C, Peng J, Pirie P
+  (2015). Interrelationships of more healthful and less healthful
+  aspects of diet quality in a low-income community sample of
+  preschool-aged children. \emph{Maternal and Child Health Journal}, 19;
+  2663-2672.
+\item
+  Straka S, Lester JL, Cole RM, \textbf{Andridge RR}, Puchala S, Rose
+  AM, Clinton SK, Belury M, Yee, LD (2015). Incorporation of
+  eicosapentaenioic and docosahexaenoic acids into breast adipose tissue
+  of women at high risk of breast cancer: A randomized clinical trial of
+  dietary fish and n-3 fatty acid capsules. \emph{Molecular Nutrition \&
+  Food Research}, 59; 1780-1790.
+\item
+  Jaremka LM, Fagundes CP, Peng J, Belury MA, \textbf{Andridge RR},
+  Malarkey WB, Kiecolt-Glaser JK (2015). Loneliness predicts
+  postprandial ghrelin and hunger in women. \emph{Hormones and
+  Behavior}, 70; 57-63.
+\item
+  Ke J-Y, Kliewer KL, Hamad EM, Cole RM, Powell KA, \textbf{Andridge
+  RR}, Straka SR, Yee LD, Belury MA. (2015) The flavonoid, naringenin,
+  decreases adipose tissue mass and attenuates ovariectomy-associated
+  metabolic disturbances in mice. \emph{Nutrition \& Metabolism}, 12:1.
+\item
+  Rea C, Bisesi MS, Mitsch W, \textbf{Andridge R}, Lee J (2015). Human
+  health-related ecosystem services of avian-dense coastal wetlands
+  adjacent to a Western Lake Erie swimming beach. \emph{EcoHealth}, 12;
+  77-87.
+\item
+  Kiecolt-Glaser JK, Jaremka L, \textbf{Andridge R}, Peng J, Habash D,
+  Fagundes CP, Glaser R, Malarkey WB, Belury MA (2015). Marital discord,
+  past depression, and metabolic responses to high-fat meals:
+  Interpersonal pathways to obesity. \emph{Psychoneuroendocrinology},
+  52; 239-250.
+\item
+  Hellings JA, Reed G, Cain SE, Zhou X, Barth FX, Aman MG, Palaguachi
+  GI, Mikhnev D, Teng R, \textbf{Andridge R}, Logan M, Butler MG, Han JC
+  (2015). Loxapine add-on for adolescents and adults with Autism
+  Spectrum Disorders and irritability. \emph{Journal of Child and
+  Adolescent Psychopharmacology}, 25; 150-159.
+\item
+  Kiecolt-Glaser JK, Habash DL, Fagundes CL, \textbf{Andridge R}, Peng
+  J, Malarkey WB, Belury MA (2015). Daily stressors, past depression,
+  and metabolic responses to high-fat meals: A novel path to obesity.
+  \emph{Biological Psychiatry}, 77; 653-660.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Kiecolt-Glaser JK, \textbf{Andridge RR}, Belury MA (2015). Stress,
+    Depression, and Metabolism: Replies to Bohan Brown et al.~and Barton
+    and Yancey. \emph{Biological Psychiatry}, 78; e13-14.
+  \end{itemize}
+\item
+  Kliewer KL, Ke J-Y, Tian M, Cole RM, \textbf{Andridge RR}, Belury MA
+  (2015). Adipose tissue lipolysis and energy metabolism in early cancer
+  cachexia in mice. \emph{Cancer Biology and Therapy}, 16; 886-897.
+\item
+  Derry HM, Jaremka LM, Bennett JM, Peng J, \textbf{Andridge R}, Shapiro
+  C, Malarkey WB, Emery CF, Layman R, Mrozek E, Glaser R, Kiecolt-Glaser
+  JK (2015). Yoga and self-reported cognitive problems in breast cancer
+  survivors: A randomized controlled trial. \emph{Psycho-oncology}, 24;
+  958-966.
+\item
+  Jaremka LM, Derry H, Bornstein R, Prakash R, Peng J, Belury MA,
+  \textbf{Andridge RR}, Malarkey WB, Kiecolt-Glaser JK. (2014) Omega-3
+  supplementation and loneliness-related memory problems: Secondary
+  analyses of a randomized controlled trial. \emph{Psychosomatic
+  Medicine}, 76; 650-658.
+\item
+  Jaremka LM, Belury MA, \textbf{Andridge RR}, Malarkey WB, Glaser R,
+  Christian L, Emery CF, Kiecolt-Glaser JK (2014). Interpersonal
+  stressors predict ghrelin and leptin levels in women.
+  \emph{Psychoneuroendocrinology}, 48; 178-88.
+\item
+  Jaremka LM, Peng J, Bornstein R, Alfano CM, \textbf{Andridge RR},
+  Povoski SP, Lipari AM, Agnese DM, Farrar WB, Yee LD, Carson WE,
+  Kiecolt-Glaser JK (2014). Cognitive problems among breast cancer
+  survivors: Loneliness enhances risk. \emph{Psycho-oncology}, 23;
+  1356-1364.
+\item
+  Collins CL, Yeates KO, Pommering TL, \textbf{Andridge R}, Coronado VG,
+  Gilchrist J, Comstock RD (2014). Direct medical charges of pediatric
+  traumatic brain injury in multiple clinical settings. \emph{Injury
+  Epidemiology}, 1:13.
+\item
+  Dungan K, Gavrilina T, \textbf{Andridge R}, Hall C, Schuster D (2014).
+  Long-term safety and efficacy of a universal nursing-run intravenous
+  insulin guideline. \emph{The Joint Commission Journal on Quality and
+  Patient Safety}, 40; 119-125.
+\item
+  Kiecolt-Glaser JK, Bennett JM, \textbf{Andridge R}, Peng J, Shapiro
+  CL, Malarkey WB, Emery CF, Layman R, Mrozek EE, Glaser R (2014).
+  Yoga's impact on inflammation, mood, and fatigue in breast cancer
+  survivors: A randomized controlled trial. \emph{Journal of Clinical
+  Oncology}, 32; 1040-1049.
+\item
+  Jaremka LM, \textbf{Andridge RR}, Fagundes CP, Alfano CM, Povoski SP,
+  Lipari AM, Agnese DM, Arnold MW, Farrar WB, Yee LD, Carson III, WE,
+  Bekaii-Saab T, Martin EW, Schmidt CR, Kiecolt-Glaser JK (2014). Pain,
+  depression, and fatigue: Loneliness as a longitudinal risk factor.
+  \emph{Health Psychology}, 33; 948-957.
+\item
+  Clark BR, Burkett SA, \textbf{Andridge RR}, Buckley TJ (2013).
+  Evidence of high rates of undiagnosed asthma in central Ohio
+  elementary school children. \emph{Journal of School Health}, 83;
+  869-906.
+\item
+  Derry HM, Fagundes CP, \textbf{Andridge R}, Glaser R, Malarkey WB,
+  Kiecolt-Glaser JK (2013). Lower subjective social status exaggerates
+  interleukin-6 responses to a laboratory stressor.
+  \emph{Psychoneuroendocrinology}, 38; 2676-2685.
+\item
+  Martens MA, Seyfer DL, \textbf{Andridge RR}, Foster JE, McClure KE,
+  Coury DL (2013). Caregiver survey of pharmacotherapy to treat
+  attention deficit/hyperactivity disorder in individuals with Williams
+  syndrome. \emph{Research in Developmental Disabilities}, 34;
+  1700-1709.
+\item
+  Hoffmann A, Martens MA, Fox R, Rabidoux P, \textbf{Andridge RR},
+  (2013). Pragmatic language assessment in Williams syndrome: A
+  comparison of the Test of Pragmatic Language-2 and the Children's
+  Communication Checklist-2. \emph{American Journal of Speech-Language
+  Pathology}, 22; 198-204.
+\item
+  Dotson JL, Nwomeh B, \textbf{Andridge R}, Anderson SE, Crandall WV
+  (2013). Variation in management of intra-abdominal abscesses in
+  children with Crohn's Disease. \emph{Inflammatory Bowel Diseases}, 19;
+  818-25.
+\item
+  Kiecolt-Glaser JK, Epel ES, Belury MA, \textbf{Andridge R}, Lin J,
+  Glaser R, Malarkey WB, Hwang B, Blackburn EH (2013). Omega-3 fatty
+  acids, oxidative stress, and leukocyte telomere length: A randomized
+  controlled trial. \emph{Brain, Behavior, and Immunity}, 28; 16-24.
+\item
+  Bennett JM, Glaser R, \textbf{Andridge RR}, Peng J, Malarkey WB,
+  Kiecolt-Glaser JK (2013). Long lasting effects of smoking: Breast
+  cancer survivors' inflammatory responses to acute stress differ by
+  smoking history. \emph{Psychoneuroendocrinology}, 38; 179-187.
+\item
+  Martens MA, Seyfer DL, \textbf{Andridge RR}, Foster JEA, Chowdhury M,
+  McClure KE, Coury DL (2012). Parent report of antidepressant,
+  anxiolytic, and antipsychotic medication use in individuals with
+  Williams syndrome: Effectiveness and adverse effects. \emph{Research
+  in Developmental Disabilities}, 33; 2106-2121.
+\item
+  Rucklidge J, \textbf{Andridge R}, Gorman B, Blampied N, Gordon H,
+  Boggis A (2012). Shaken but unstirred? Effects of micronutrients on
+  stress and trauma after an earthquake: RCT evidence comparing formulas
+  and doses. \emph{Human Psychopharmacology: Clinical and Experimental},
+  27; 440-454.
+\item
+  Kiecolt-Glaser JK, Belury MA, \textbf{Andridge R}, Malarkey WB, Hwang
+  B, Glaser R (2012). Omega-3 supplementation lowers inflammation in
+  healthy middle-aged and older adults: A randomized controlled trial.
+  \emph{Brain, Behavior, and Immunity}, 26; 988-995.
+\item
+  Kiecolt-Glaser JK, Christian L, \textbf{Andridge R}, Hwang B, Malarkey
+  WB, Belury MA, Emery CF, Glaser R (2012). Adiponectin, leptin, and
+  yoga practice. \emph{Physiology and Behavior}, 107; 809-813.
+\item
+  Martens MA, Hasinski AE, \textbf{Andridge RR}, Cunningham WA (2012).
+  Continuous cognitive dynamics of the evaluation of trustworthiness in
+  Williams syndrome. \emph{Frontiers in Psychology}, 3; 160.
+\item
+  Fagundes CP, Glaser R, Johnson SL, \textbf{Andridge RR}, Yang EV, Di
+  Gregorio MP, Chen M, Lambert DR, Jewell SD, Bechtel MA, Hearne DW,
+  Herron JB, Kiecolt-Glaser JK (2012). Basal cell carcinoma: Stressful
+  life events and the tumor environment. \emph{Archives of General
+  Psychiatry}, 69(6); 618-626.
+\item
+  Glaser R, \textbf{Andridge R}, Yang EV, Shana'ah AY, DiGregorio M,
+  Chen M, Johnson SL, DeRenne L, Lambert DR, Jewell SD, Bechtel MA,
+  Hearne DW, Herron JB, Kiecolt-Glaser JK (2011). Tumor site immune
+  markers associated with risk for subsequent basal cell carcinomas.
+  \emph{PLoS ONE}, 6(9): e25160.
+\item
+  Kiecolt-Glaser JK, Belury MA, \textbf{Andridge R}, Malarkey WB, Glaser
+  R (2011). Omega-3 supplementation lowers inflammation and anxiety in
+  medical students: A randomized controlled trial. \emph{Brain,
+  Behavior, and Immunity}, 25; 1725-1734.
+\item
+  Clark NM, Dodge JA, Thomas LJ, \textbf{Andridge RR}, Awad D, Paton JY
+  (2010). Asthma in 10- to 13-year olds: Challenges at a time of
+  transition. \emph{Clinical Pediatrics}, 49; 931-937.
+\item
+  Clark NM, Dodge JA, Shah S, Thomas LJ, \textbf{Andridge RR}, Awad D
+  (2010). A current picture of asthma diagnosis, severity, and control
+  in a low income minority preteen population. \emph{Journal of Asthma},
+  47; 150-155.
+\item
+  Clark NM, Shah S, Dodge JA, Thomas LJ, \textbf{Andridge RR}, Little
+  RJA (2010). An evaluation of asthma interventions for preteen
+  students. \emph{Journal of School Health}, 80; 80-87.
+\item
+  Taylor JMG, Ankerst DP, \textbf{Andridge RR} (2008). Validation of
+  biomarker-based risk prediction models. \emph{Clinical Cancer
+  Research}, 14; 5977-5983.
+\item
+  Soto DE, \textbf{Andridge RR}, Pan CC, Williams SG, Taylor JMG,
+  Sandler HM (2009). Determining if pretreatment PSA doubling time
+  predicts PSA trajectories after radiation therapy for localized
+  prostate cancer. \emph{Radiotherapy and Oncology}, 90; 389-394.
+\item
+  Soto DE, \textbf{Andridge RR}, Taylor JMG, McLaughlin PW, Sandler HM,
+  Pan CC (2008). Predicting biochemical failure and overall survival
+  through intra-therapy PSA changes during definitive external beam
+  radiotherapy. \emph{International Journal of Radiation Oncology,
+  Biology, Physics}, 72; 1408-1415.
+\item
+  Soto DE, \textbf{Andridge RR}, Pan CC, Williams SG, Taylor JMG,
+  Sandler HM (2008). In patients experiencing biochemical failure after
+  radiation therapy, pretreatment risk group and PSA velocity predict
+  differences in overall survival and biochemical failure-free interval.
+  \emph{International Journal of Radiation Oncology, Biology, Physics},
+  71; 1295-1301.
+\item
+  Soto DE, Glaser S, \textbf{Roberts RH}, Schipper MJ, McLaughlin PW,
+  Ray ME, Sandler HM, Pan CC (2008). Impact of common iliac nodal
+  treatment on radiation outcomes in localized prostate cancer.
+  \emph{Urology}, 71; 313-317.
+\item
+  Lee IH, \textbf{Roberts R}, Shah RB, Wojno KJ, Wei JT, Sandler HM
+  (2007). Perineural invasion is a marker for pathologically advanced
+  disease in localized prostate cancer. \emph{International Journal of
+  Radiation Oncology, Biology, Physics}, 68; 1059-1064.
+\item
+  Profit J, McCormick MC, Escobar GJ, Richardson DK, Zheng Z,
+  Coleman-Phox K, \textbf{Roberts R}, Zupancic JAF (2007). Neonatal
+  intensive care unit census influences discharge of moderately preterm
+  infants. \emph{Pediatrics}, 119; 314-319.
+\end{enumerate}
+
+\textbf{Under Review}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Christian LM, Blevins T, \textbf{Andridge RR}, Peng J, McDade TW, Cole
+  SW, Manning WD, Kamp Dush CM. Positive and negative coping behaviors:
+  Associations with immune function in a sexually diverse US sample.
+  \emph{PLOS One}, submitted (2026).
+\item
+  Tasse MJ, Schalock RL, Navas P, \textbf{Andridge R}, Balboni G.
+  Confirming the tripartite factor structure of the Diagnostic Adaptive
+  Behavior Scale. \emph{American Journal on Intellectual and
+  Developmental Disabilities}, revision requested (2025).
+\item
+  Stough CO, Khalsa AS, Bradley R, Garr K, Keim SA, Zvara B,
+  \textbf{Andridge R}, Anderson SE. Brief report: Caregiver and family
+  factors related to life's essential 8 in young children.
+  \emph{Academic Pediatrics}, submitted (2025).
+\item
+  Madison AA, Belury MA, \textbf{Andridge R}, Wilson SJ, Shrout MR,
+  Jaremka L, Fagundes CP, Malarkey WB, Kiecolt-Glaser JK. A high
+  saturated fat meal reduces constructive conflict behavior: A
+  randomized-to-sequence crossover trial. \emph{Nature Communications},
+  submitted (2025).
+\item
+  Wilson SJ, Madison AA, Shrout MR, Christian LM, Epel ES, Burd CE, Lin
+  J, Molli S, \textbf{Andridge R}, Reis H, Kiecolt-Glaser JK. A
+  double-edged sword: Marital quality, biological aging, and the role of
+  couples' health behaviors. \emph{Brain, Behavior, and Immunity},
+  revision requested (2025).
+\item
+  Kruse AB, Anderson SE, \textbf{Andridge R}, Keim SA, Zvara B. Family
+  mealtime structure, child behavior at meals, use of food as a reward,
+  and obesity in preschool-aged children: A cross sectional analysis
+  from the Play \& Grow Study, \emph{Journal of Pediatric Health Care},
+  submitted (2025).
+\item
+  Shively KB, Tasse MJ, \textbf{Andridge RR}. Psychometric properties of
+  the Nisonger Child Behavior Rating Form-2: Parent Scale.
+  \emph{American Journal on Intellectual and Developmental
+  Disabilities}, revision requested (2025).
+\end{enumerate}
+
+\subsection{OTHER PUBLICATIONS}\label{other-publications}
+
+\subsubsection{Book Chapters}\label{book-chapters}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Andridge RR}, Kim JK, Thompson KJ (2023).
+  \href{https://doi.org/10.1002/9781119672333.ch31}{Variance estimation
+  under nearest neighbor ratio hot deck imputation for multinomial data:
+  Two approaches applied to the Service Annual Survey (SAS)}. In
+  \emph{Advances in Business Statistics, Methods and Data Collection
+  (Eds: Snijkers G, Bavdaž M, Bender S, Jones J, MacFeely S, Sakshaug
+  JW, Thompson KJ, and van Delden A)}, Wiley.
+\item
+  \textbf{Andridge RR} and Valliant R (2022).
+  \href{https://www.taylorfrancis.com/chapters/edit/10.4324/9781003025245-13/inference-probability-nonprobability-samples-rebecca-andridge-richard-valliant}{Inference
+  from Probability and Nonprobability Samples}. In \emph{Handbook of
+  Computational Social Science Volume 2: Data Science, Statistical
+  Modelling, and Machine Learning Methods (Eds: Engel U, Quan-Haase A,
+  Xun-Liu S, and Lyberg L)}, Taylor \& Francis.
+\item
+  \textbf{Andridge RR} and Lemeshow S (2016).
+  \href{https://doi.org/10.1002/9781118445112.stat03338.pub2}{Nonresponse
+  in Sample Surveys}. In \emph{Encyclopedia of Statistical Sciences},
+  Wiley StatsRef: Statistics Reference Online. 1-4.
+\end{enumerate}
+
+\subsubsection{Technical Reports}\label{technical-reports}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  The Ohio Schools COVID-19 Evaluation Research Team (2021).
+  \href{http://grc.osu.edu/sites/default/files/inline-files/OSCE\%20Final\%20Report\%202021.pdf}{Ohio
+  Schools COVID-19 Evaluation Final Report}. Submitted to The Office of
+  the Governor, The Ohio Department of Health, The Ohio Department of
+  Medicaid, The Ohio Department of Insurance, Ohio Pandemic Leadership
+  Team.
+\end{enumerate}
+
+\subsubsection{Policy Briefs}\label{policy-briefs}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Yang EA, Havercamp SM, \textbf{Andridge R} (2016).
+  \href{http://grc.osu.edu/sites/default/files/inline-files/ChildrenSHCNBriefFINAL.pdf}{Ohio
+  Children with Special Health Care Needs: 2015 OMAS Health and Health
+  Care Findings}.
+\item
+  Yang EA, Havercamp SM, \textbf{Andridge R} (2016).
+  \href{http://grc.osu.edu/sites/default/files/inline-files/ChildrenDDBriefFINAL_1.pdf}{Ohio
+  Children with Developmental Disabilities and Special Health Care
+  Needs: 2015 OMAS Health and Health Care Findings}.
+\item
+  Yang EA, Havercamp SM, \textbf{Andridge R} (2016).
+  \href{http://grc.osu.edu/sites/default/files/inline-files/AdultSHCNBriefFINAL.pdf}{Ohio
+  Adults with Special Health Care Needs: 2015 OMAS Health and Health
+  Care Findings}.
+\item
+  Yang EA, Havercamp SM, \textbf{Andridge R} (2016).
+  \href{http://grc.osu.edu/sites/default/files/inline-files/AdultDDBriefFINAL.pdf}{Ohio
+  Adults with Developmental Disabilities and Special Health Care Needs:
+  2015 OMAS Health and Health Care Findings}.
+\end{enumerate}
+
+\subsubsection{Conference Proceedings}\label{conference-proceedings}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Andridge RR}, Little RJA (2011). Proxy Pattern-Mixture
+  Analysis for Survey Nonresponse. In \emph{Proceedings of Statistics
+  Canada Symposium}, pp.3261-3268.
+\item
+  \textbf{Andridge RR}, Noone AM (2009). Regression Trees for
+  Group-Randomized Trials. In \emph{American Statistical Association
+  Proceedings of the Section on Statistical Learning and Mining},
+  pp.4162-4170.
+\item
+  \textbf{Andridge RR}, Little RJA (2009). Extensions of Proxy
+  Pattern-Mixture Analysis for Survey Nonresponse. In \emph{American
+  Statistical Association Proceedings of the Survey Research Methods
+  Section}, pp.2468-2482.
+\item
+  \textbf{Andridge RR}, Little RJA (2008). Proxy Pattern-Mixture
+  Analysis for Survey Nonresponse. In \emph{American Statistical
+  Association Proceedings of the Survey Research Methods Section},
+  pp.3261-3268.
+\end{enumerate}
+
+\subsection{GRANTS}\label{grants}
+
+\subsubsection{Current}\label{current}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{NIH R01AG096920} (MPI: Christian and Kamp Dush)
+  {10/2025--present}\\
+  Comprehensive biological data in NCHAT BIO: Chronic stress,
+  inflammation, and epigenetic aging\\
+  Co-Investigator (0-10\% support across years 1-5)
+\item
+  \textbf{NIH R61AG081982} (PI: Prakash) {6/2024--present}\\
+  Development of an online mindfulness training program for adults with
+  subjective cognitive decline\\
+  Co-Investigator (5\% support)
+\item
+  \textbf{NIDILRR Grant 90RTHF0006} (PI: Havercamp) {10/2023--present}\\
+  Can You Hear Us Now? Engaging Adults with IDD in Health Research\\
+  Co-Investigator (5\% support)
+\item
+  \textbf{NIH R01 R01AG069138} (PI: Christian) {09/2020--present}\\
+  Spousal dementia caregivers: Risk for accelerated aging\\
+  Co-Investigator (10\%)
+\end{itemize}
+
+\subsubsection{Pending}\label{pending}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{NIH R01} (MPI: Elliott and Andridge) {Submitted 10/2025}\\
+  Generalizing causal inference to populations under potentially biased
+  assignment and selection mechanisms\\
+  (Multi-)Principal Investigator (15\% support)
+\end{itemize}
+
+\subsubsection{Completed}\label{completed}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{NIH/NCI R03CA280007} (PI: Andridge) {12/2023-11/2025}\\
+  A sensitivity analysis framework for generalizing randomized clinical
+  trial results in the presence of unmeasured treatment effect
+  modifiers\\
+  Principal Investigator (12\%)
+\item
+  \textbf{NIDILRR Field Initiated Project Grant 90IFRE0067} (PI: Tasse)
+  {09/2022-08/2025} Using remote support services technologies to
+  enhance independent living\\
+  Co-Investigator (5\% support)
+\item
+  \textbf{2305OH5ADM/2405OH5ADM} (PI: Sahr) {07/2024-06/2025}\\
+  Resumption of Medicaid Operations Evaluation (ROMEO)\\
+  Lead Methodologist (10\% support)
+\item
+  \textbf{ODM202410} (PI: Sahr) {02/2022-07/2024}\\
+  Medicaid Next Generation Evaluation (MNGE)\\
+  Lead Methodologist (20\% support)
+\item
+  \textbf{ODM202249} (PI: Sahr) {07/2016-06/2024}\\
+  Ohio Pregnancy Assessment Survey (OPAS)\\
+  Lead Methodologist (5\% support)
+\item
+  \textbf{ODM202230} (PI: Menegay) {07/2019-06/2024}\\
+  Ohio Study of Associated Risks of Stillbirth (Ohio SOARS)\\
+  Lead Methodologist (5\% support)
+\item
+  \textbf{ODM202249} (PI: Menegay) {07/2021-06/2024}\\
+  Ohio Fatherhood Survey (OFS)\\
+  Lead Methodologist (5\% support)
+\item
+  \textbf{OSU Internal Grant (MOU) -- Nisonger Center}
+  {10/2010-12/2023}\\
+  Investigator (10\% support)
+\item
+  \textbf{NIH R01 HD091274-01A1} (PI: Gallo) {09/2018-5/2022}\\
+  Initiation of injectable contraception immediately postpartum among
+  breastfeeding women\\
+  Co-Investigator (5-10\% support across years 1-4)
+\item
+  \textbf{NIH R01AG057032} (PI: Kiecolt-Glaser) {10/2017-05/2022}\\
+  Marital quality and longevity: Biobehavioral pathways\\
+  Co-Investigator (5-10\% support across years 1-5)
+\item
+  \textbf{NIH R01AG054427} (PI: Prakash) {07/2017-06/2022}\\
+  Mindfulness training for mitigating age-related cognitive decline in
+  the elderly\\
+  Co-Investigator (0-1 summer months across years 1-5)
+\item
+  \textbf{ACL NIDILRR Grant \#90RTHF0002} (PI: Havercamp)
+  {02/2021-09/2021}\\
+  Can you hear me now? Listening to people with developmental and
+  intellectual disabilities in health research\\
+  Biostatistician (12\% support)
+\item
+  \textbf{NIH R01CA186251} (PI: Kiecolt-Glaser) {04/2015-05/2021}\\
+  Aerobic Capacity, Depression, \& Inflammatory Responsivity in Cancer
+  Survivors\\
+  Co-Investigator (5-10\% support across years 1-5)
+\item
+  \textbf{NIH R01HD084637} (PI: Gallo) {06/2016-03/2021}\\
+  Promoting condom use among women in established relationships\\
+  Co-Investigator (5-10\% support across years 1-5)
+\item
+  \textbf{NIH R01DK108969} (PI: Anderson) {02/2017-01/2021}\\
+  Parent-child mealtime interactions: longitudinal observations to
+  inform obesity prevention\\
+  Co-Investigator (5-10\% support across years 1-4)
+\item
+  \textbf{ODM202106} (PI: Sahr/Miller) {11/2020-01/2021}\\
+  Ohio School COVID-19 Evaluation (OSCE)\\
+  Biostatistician (10\% support)
+\item
+  \textbf{NIH/NCI R01CA186720} (PI: Kiecolt-Glaser) {05/2014-04/2020}\\
+  Breast Cancer Survivors' Cardiovascular Risks: Treatment \& Behavioral
+  Influences\\
+  Co-Investigator (9\% support)
+\item
+  \textbf{The Lotte \& John Hecht Memorial Foundation} (PI: Volek)
+  {04/2017-04/2020}\\
+  Ketogenic diet and chemotherapy to affect response to breast cancer
+  treatment\\
+  Co-Investigator (0-6\% support across years 1-3)
+\item
+  \textbf{NIH/NCI P30CA016058} (PI: Pollock) {12/2015-11/2019}\\
+  OSU Comprehensive Cancer Center Biostatistics Shared Resource\\
+  Biostatistician (5\% support)\\
+\item
+  \textbf{NIH R01CA189947} (PI: Orchard/Lustberg/DeVries)
+  {07/2015-06/2019}\\
+  Effect of omega 3 fatty acid supplementation and added sugars in the
+  diet on chemotherapy-induced cognitive deficits\\
+  Co-Investigator (5\% support)\\
+\item
+  \textbf{NIH R01CA216290} (PI: Pyter) {04/2017-03/2019}\\
+  Brain-gut interactions underlying chemotherapy-induced behavioral
+  comorbidities\\
+  Co-Investigator (0-5\% support)\\
+\item
+  \textbf{National Cancer Institute (SEER) Research Contract} (PI:
+  Andridge) {11/2016-04/2018}\\
+  Development of imputation strategies for improving data completeness
+  in population-based cancer registries\\
+  Principal Investigator (21\% support)
+\item
+  \textbf{Gateway for Cancer Research} (PI: Reinbolt)
+  {10/2015-09/2017}\\
+  Project 1: Seed Funds for Prevention of aromatase inhibitor-induced
+  toxicity with Omega-3 supplementation\\
+  Co-Investigator (3\% support)
+\item
+  \textbf{NIH/NCI R21CA185140} (PI: Belury) {05/2014-04/2016}\\
+  PDQ6: Loss of adiponectin as a contributing factor in cancer
+  cachexia\\
+  Co-Investigator (4\% support; 1.5 months GRA support)
+\item
+  \textbf{NIH R21CA185140 S1} (PI: Belury) {01/2015-12/2015}\\
+  Naringenin and sarcopenia\\
+  Co-Investigator (3\% support; 1.8 months GRA support)
+\item
+  \textbf{OSUCCC CAFFRE Grant} (PI: Belury) {11/2014-11/2015}\\
+  27-hydroxy-cholesterol accumulation in breast cancer survivors\\
+  Co-Investigator (supplies only)
+\item
+  \textbf{NIH/NIOSH R21} (PI: Wilkins) {07/2012-06/2015}\\
+  Evaluation of Bisphenol A dermal exposure and toxicokinetics among
+  cashiers\\
+  Co-Investigator (10\% support)
+\item
+  \textbf{NIH/NCI R01 CA131029} (PI: Kiecolt-Glaser) {05/2008-02/2015}\\
+  Fatigue, depression, and inflammation in cancer survivors: A
+  prospective study\\
+  Co-Investigator (10\% support)
+\item
+  \textbf{OSU Food Innovation Center Innovation Initiative} (PI:
+  Vodovotz) {08/2013-09/2014}\\
+  Evaluation of functional snack foods containing soy and safflower oil
+  on endpoints of energy metabolism in adolescents\\
+  Co-Investigator (1 month GRA support)
+\item
+  \textbf{CDC Prevention Research Center} (PI: Pirie)
+  {10/2013-09/2014}\\
+  Healthy Kids, Healthy Futures: Obesity prevention in early childhood\\
+  Co-Investigator (10\%)
+\item
+  \textbf{NIH/NCI R01 CA126857} (PI: Kiecolt-Glaser) {05/2010-04/2014}\\
+  Breast Cancer Survivors: Physical Activity, Inflammation, Fatigue, and
+  Distress\\
+  Co-Investigator (5\% support)
+\item
+  \textbf{NIH/NCI R21 CA158868} (PI: Kiecolt-Glaser) {04/2011-03/2014}\\
+  Marital discord, fast food, obesity, and inflammation\\
+  Co-Investigator (5\% support)
+\item
+  \textbf{NIH/NIA R01 AG038621} (PI: Kiecolt-Glaser) {04/2011-03/2014}\\
+  Stress, mood, omega-3 fatty acids, \& telomeric aging: Randomized
+  controlled trial\\
+  Co-Investigator (10\% support)
+\item
+  \textbf{OARDC Multi-disciplinary Grant Program} (PI: Belury)
+  {04/2011-03/2013}\\
+  Ohio Agriculture Research and Development Center (OARDC)\\
+  Pilot study: Reducing visceral adipose tissue in postmenopausal women
+  w/dietary oils\\
+  Co-Investigator (1 quarter GRA support)
+\item
+  \textbf{NIH/NCI R21 CA154054} (PI: Kiecolt-Glaser) {09/2010-08/2012}\\
+  Fast food, depression, obesity, and inflammation in breast cancer
+  survivors\\
+  Co-Investigator (5\% support)
+\item
+  \textbf{Subcontract from Nationwide Children's Hospital}
+  {01/2012-06/2012}\\
+  TBI sports, evaluation, and surveillance project\\
+  Principal Investigator (5\% support)
+\item
+  \textbf{CDC/NIOSH R01 OH009194} (PI: Wilkins) {09/2007-08/2011}\\
+  Developing and evaluating new approaches to youth agricultural injury
+  prevention\\
+  Co-Investigator (10\% support)
+\item
+  \textbf{NIH/NIA R01 AG029562} (PI: Kiecolt-Glaser) {06/2007-05/2011}\\
+  Aging, stress, fatty acids and inflammation\\
+  Co-Investigator (5\% support) \#\# PRESENTATIONS
+\end{itemize}
+
+\subsubsection{Completed - Student Support/Supplies
+Only}\label{completed---student-supportsupplies-only}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{OSU InFACT 2016-2017 Linkage and Leverage Grant} (PI: Taylor)
+  {08/2017-05/2018}\\
+  The Association of the Food Environment to Dietary Intakes\\
+  Co-Investigator (supports 0.5 FTE Epidemiology Ph.D.~student)
+\item
+  \textbf{National Cattlemen's Beef Association Research Grant} (PI:
+  Belury) {08/2017-07/2018}\\
+  Beef intake and muscle strength, cardiometabolic health and fatigue in
+  women with breast cancer\\
+  Co-Investigator (supports 0.5 FTE Biostatistics Ph.D.~student)
+\item
+  \textbf{NIH R01CA186720 S1} (PI: Kiecolt-Glaser) {05/2015-08/2018}\\
+  Research Supplement to Promote Diversity in Health-Related Research\\
+  Tuition, stipend, and supplies for Brittney Bailey, Biostatistics
+  Ph.D.~student\\
+  Co-mentor (supports 0.5 FTE Biostatistics Ph.D.~student)
+\item
+  \textbf{OARDC Multi-disciplinary Grant Program} (PI: Belury)
+  {05/2017-04/2018}\\
+  Does linoleic acid status prevent muscle loss after chemotherapy in
+  breast cancer survivors?\\
+  Co-Investigator (supplies only)
+\end{itemize}
+
+\subsection{PRESENTATIONS}\label{presentations}
+
+\subsubsection{Invited:
+National/International}\label{invited-nationalinternational}
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{Analyses for Nonignorable Selection Bias When Estimating
+  Subgroup Parameters in Nonprobability Samples: A Weighting Approach},
+  University of Michigan Program in Survey and Data Science/Joint
+  Program in Survey Methodology Seminar, January 2026 (talk given
+  virtually)
+\item
+  \emph{Online (Bio)statistical Courses in the Era of Generative AI:
+  Opportunities and Challenges} (Panelist), Joint Statistical Meetings,
+  Portland, OR, 2024
+\item
+  \emph{When ``representative'' surveys fail: Can a non-ignorable
+  missingness mechanism explain bias in estimates of COVID-19 vaccine
+  uptake?}, University of Michigan/University of Maryland Joint Program
+  in Survey Methodology Seminar, March 2024 (talk given virtually)
+\item
+  \emph{When ``representative'' surveys fail: Can a non-ignorable
+  missingness mechanism explain bias in estimates of COVID-19 vaccine
+  uptake?}, Colorado University, Department of Biostatistics and
+  Informatics, February 2024 (talk given virtually)
+\item
+  \emph{It's who is missing that matters: Can a nonignorable missingness
+  mechanism explain bias in estimates of COVID-19 vaccine uptake?},
+  Joint Statistical Meetings, Toronto, Ontario, August 2023
+\item
+  \emph{When ``representative'' surveys fail: Can a nonignorable
+  missingness mechanism explain bias in estimates of COVID-19 vaccine
+  uptake?}, Drexel University, Department of Biostatistics and
+  Epidemiology, Philadelphia, PA, April 2023
+\item
+  \emph{When ``representative'' surveys fail: The impact of nonresponse
+  bias on estimates of COVID-19 vaccine uptake in two large surveys},
+  University of Massachusetts, Department of Biostatistics and
+  Epidemiology, Amherst, MA, March 2023
+\item
+  \emph{Problematic polls and suspect surveys: Assessing the potential
+  for selection bias and nonresponse bias}, Amherst College, Department
+  of Mathematics and Statistics, Amherst, MA, March 2023
+\item
+  \emph{An introduction to hot deck imputation for survey data}, U.S.
+  Census Bureau's Economic Area Methodology Seminar, Virtual, September
+  2022
+\item
+  \emph{New measures for assessing non-ignorable selection bias in
+  non-probability samples and low response rate probability samples},
+  Federal Committee on Statistical Methodology 2022 Research and Policy
+  Conference, Washington, D.C., October 2022
+\item
+  \emph{Using an ethics course as a gateway to DEI discussions in
+  biostatistics}, Joint Statistical Meetings, Washington, D.C., August
+  2022
+\item
+  \emph{Measures of selection bias for proportions estimated from
+  non-probability samples, with application to polling data}, 5-day
+  Banff International Research Station workshop, Kelowna, British
+  Columbia, May 2022 (talk given virtually)
+\item
+  \emph{An evaluation of 2020 pre-election polling estimates using new
+  measures of non-ignorable selection bias}, University of Michigan
+  Department of Biostatistics 70th Anniversary Conference, Ann Arbor,
+  MI, May 2022
+\item
+  \emph{Applying non-ignorable missing data methods to U.S. election
+  polling data}, Missing Data Workshop, University of Maryland, College
+  Park, MD, March 2022
+\item
+  \emph{Measures of selection bias for proportions estimated from
+  non-probability samples}, Yale School of Public Health, Department of
+  Biostatistics, Virtual, November 2021
+\item
+  \emph{Imputation vis-a-vis research standards in clearinghouses}
+  (Panelist), Joint Statistical Meetings, Virtual, August 2021
+\item
+  \emph{Nearest neighbor multiple imputation: Problems and potential
+  solutions}, Sixth International Conference on Establishment Surveys
+  (ICES VI), Virtual, June 2021 (2020 conference postponed due to
+  COVID-19)
+\item
+  \emph{Teaching biostatistics to non-majors (2-hour workshop)} (with M
+  Zawistowski), University of Michigan Department of Biostatistics, Ann
+  Arbor, MI, October 2019
+\item
+  \emph{Communication in the digital age: Successes and challenges of
+  online communication} (Panelist), 2019 Women in Statistics and Data
+  Science Conference, Bellevue, WA, October 2019
+\item
+  \emph{Finding a flexible hot deck imputation method for multinomial
+  data}, Joint Statistical Meetings, Denver CO, August 2019
+\item
+  \emph{An experiment to determine the optimal combination of pre- and
+  post-incentive amounts to significantly increase response rates in a
+  multi-mode survey}, Survey Research Center PRS Seminar Series,
+  University of Michigan, Ann Arbor, MI, March 2019
+\item
+  \emph{Hot Deck imputation: Proper or improper?}, Joint Statistical
+  Meetings, Baltimore, MD, August 2017
+\item
+  \emph{Introductory Overview Lecture: Multiple imputation (applied to
+  establishment/business data)}, Fifth International Conference on
+  Establishment Surveys (ICES V), Geneva, Switzerland, June 2016
+\item
+  \emph{Imputing data that may be not missing at random in a
+  population-based cancer registry (SEER)}, Applied Statistics Symposium
+  of the International Chinese Statistical Association, Atlanta, GA,
+  June 2016
+\item
+  \emph{Imputing estrogen receptor status in a population-based cancer
+  registry}, Advances in Causal Inference, Survey Statistics, Disclosure
+  Risk, and Missing Data: A Celebration of Roderick Little's 65th
+  Birthday, Ann Arbor, MI, October 2015
+\item
+  \emph{Extensions of the proxy pattern-mixture model for survey
+  nonresponse}, CRM-CANSSI Workshop on Statistical Inference for Complex
+  Surveys with Missing Observations, Montreal, Quebec, October 2015
+\item
+  \emph{Using the fraction of missing information to identify auxiliary
+  variables for imputation procedures via proxy pattern-mixture models},
+  University of Minnesota Biostatistics Seminar, Minneapolis, MN, March
+  2015
+\item
+  \emph{Flipping the biostatistics classroom}, Joint Statistical
+  Meetings, Boston, MA, August 2014
+\item
+  \emph{Multiple imputation for nonignorable missingness: Evaluating
+  alternative nonresponse bias adjustment cells}, Joint Statistical
+  Meetings, Montreal, Quebec, August 2013
+\item
+  \emph{Proxy pattern-mixture analysis for survey nonresponse}, Summer
+  at the Census, U.S. Census Bureau, Suitland, MD, July 2012
+\item
+  \emph{Proxy pattern-mixture analysis for survey nonresponse}, 21st
+  Applied Statistics Symposium of the International Chinese Statistical
+  Association, Boston, MA, June 2012
+\item
+  \emph{Proxy pattern-mixture analysis for survey nonresponse},
+  Institute for Employment Research (IAB), Nürnberg, Germany, September
+  2010
+\item
+  \emph{Proxy pattern-mixture analysis for survey nonresponse}, 21st
+  International Workshop on Survey Household Nonresponse, Nürnberg,
+  Germany, August 2010
+\end{itemize}
+
+\subsubsection{Invited: Local}\label{invited-local}
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{Problematic polls and suspect surveys: Assessing the potential
+  for non-ignorable selection and nonresponse bias}, OSU Institute for
+  Population Research Seminar, Columbus, OH, September 2024
+\item
+  \emph{The human element: Lessons from an ethics in biostatistics
+  course} (with A Shoben), OSU Statistics Seminar, Columbus, OH, April
+  2024
+\item
+  \emph{Assessment plans in the curricular approval process} (with E
+  Bielefeld), OSU Assessment Conference, Columbus, OH, October 2021
+\item
+  \emph{Tools for assessing online instruction: Measuring teacher
+  ``effectiveness''} (with R Denby-Brinson and D Palmer), OSU Assessment
+  Conference (seminar series), Virtual, January 2021
+\item
+  \emph{Measures of selection bias for proportions estimated from
+  non-probability samples}, OSU Quantitative Psychology Colloquium,
+  Columbus, OH, February 2020
+\item
+  \emph{Much ado about nothing: The problem of missing data (and ways to
+  handle it)}, Topics in Developmental Disabilities Seminar Series, OSU
+  Nisonger Center, Columbus, OH, January 2019
+\item
+  \emph{Lessons learned from lecture capture}, OSU Veterinary Clinical
+  Sciences Faculty Development Seminar, Columbus, OH, February 2013
+\item
+  \emph{Proxy pattern-mixture analysis for survey nonresponse},
+  Institute for Population Research, The Ohio State University,
+  Columbus, OH, January 2011
+\item
+  \emph{Proxy pattern-mixture analysis for survey nonresponse}, Ohio
+  State University Department of Statistics Seminar Series, Columbus,
+  OH, October 2009
+\item
+  \emph{Proxy pattern-mixture analysis for survey nonresponse}, Michigan
+  Student Symposium for Interdisciplinary Statistical Sciences, Ann
+  Arbor, MI, April 2009
+\item
+  \emph{An introduction to LaTeX}, UM Department of Biostatistics, Ann
+  Arbor, MI, March 2007, March 2008, October 2008
+\end{itemize}
+
+\subsubsection{Invited: Webinars}\label{invited-webinars}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://prevention.nih.gov/education-training/methods-mind-gap/multiple-imputation-methods-group-based-interventions}{\emph{Multiple
+  imputation methods for group-based interventions}}, NIH Office of
+  Disease Prevention Mind the Gap Webinar Series, June 2022
+\item
+  \emph{Use of imputation techniques for modeling missing data in
+  population-based cancer registries} (with N Howlader and B Das),
+  Cancer Surveillance Webinar Series (NAACCR), May 2016
+\end{itemize}
+
+\subsubsection{Invited: Podcasts}\label{invited-podcasts}
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{Dealing with Selection Bias in Surveys with Rod Little, Rebecca
+  Andridge and Brady West},
+  \href{https://aapor.org/media/public-opinion-pod/}{AAPOR's Public
+  Opinion Podcast (POP)}, December 2025
+\end{itemize}
+
+\subsubsection{Contributed}\label{contributed}
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{Sensitivity analyses for nonignorable selection bias when
+  estimating subgroup parameters in nonprobability samples}, Joint
+  Statistical Meetings, Nashville, TN, August 2025 (Topic Contributed)
+\item
+  \emph{Extending measures of non-ignorable selection bias for
+  non-probability samples to ordinal and nominal outcomes}, American
+  Association for Public Opinion Research (AAPOR) Annual Conference,
+  St.~Louis, MO, May 2025 (Peer-reviewed)
+\item
+  \emph{Using an index of non-ignorable selection bias (MUBP) to
+  evaluate and compare probability-based and opt-in online samples},
+  American Association for Public Opinion Research (AAPOR) Annual
+  Conference, Atlanta, GA, May 2024 (Peer-reviewed)
+\item
+  \emph{A validation of the proxy pattern mixture model using benchmark
+  data: Assessing nonresponse bias in estimates of COVID-19 vaccine
+  uptake in two large surveys}, American Association for Public Opinion
+  Research (AAPOR) Annual Conference, Philadelphia, PA, May 2023
+  (Peer-reviewed)
+\item
+  \emph{An evaluation of 2020 pre-election polling estimates using new
+  measures of non-ignorable selection bias in survey estimates of
+  proportions}, American Association for Public Opinion Research (AAPOR)
+  Annual Conference, Chicago, IL, May 2022 (Peer-reviewed)
+\item
+  \emph{Nearest neighbor multiple imputation: Problems and potential
+  solutions}, Joint Statistical Meetings, Virtual, August 2020 (Topic
+  Contributed)
+\item
+  \emph{Integrating survey sampling and methodology in crowded
+  professional curricula}, American Association for Public Opinion
+  Research (AAPOR) Annual Conference, Virtual, June 2020 (Peer-reviewed)
+\item
+  \emph{Measures of selection bias for proportions estimated from
+  non-probability samples}, American Association for Public Opinion
+  Research (AAPOR) Annual Conference, Toronto, Ontario, May 2019
+  (Peer-reviewed)
+\item
+  \emph{Active learning approaches for a large online biostatistics
+  course}, Joint Statistical Meetings, Vancouver, British Columbia, July
+  2018 (Topic Contributed)
+\item
+  \emph{Online introductory biostatistics for graduate students:
+  Successes and failures teaching a diverse student body}, Joint
+  Statistical Meetings, Chicago, IL, August 2016 (Topic Contributed)
+\item
+  \emph{Active learning in a flipped biostatistics classroom},
+  Undergraduate Education for Public Health Summit, New Orleans, LA,
+  November 2014 (Peer-reviewed)
+\item
+  \emph{Using the fraction of missing information to tailor survey
+  design}, Joint Statistical Meetings, San Diego, CA, August 2012 (Topic
+  Contributed)
+\item
+  \emph{Inference for changes in the kappa statistic in multi-level
+  clustered binary data}, Joint Statistical Meetings, Vancouver, British
+  Columbia, August 2010 (Topic Contributed)
+\item
+  \emph{Extensions of proxy pattern-mixture analysis for survey
+  nonresponse}, Joint Statistical Meetings, Washington D.C., August 2009
+  (Topic Contributed)
+\item
+  \emph{Proxy pattern-mixture analysis for survey nonresponse}, ENAR
+  Spring Meeting, San Antonio, TX, March 2009
+\item
+  \emph{Proxy pattern-mixture analysis for survey nonresponse}, Joint
+  Statistical Meetings, Denver, CO, August 2008
+\end{itemize}
+
+\subsubsection{Contributed Posters}\label{contributed-posters}
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{Imputing estrogen receptor status in a population-based cancer
+  registry: A sensitivity analysis}, (with AM Noone), Joint Statistical
+  Meetings, Seattle, WA, August 2015
+\item
+  \emph{Hosmer-Lemeshow goodness of fit test for multiply imputed data},
+  (with DM Sullivan, Ph.D.~advisee), ENAR Spring Meeting, Washington
+  D.C., March 2012
+\item
+  \emph{Decomposing the fraction of missing information into auxiliary
+  variable contributions for monitoring survey data}, Joint Statistical
+  Meetings, Miami, FL, August 2011, \emph{Poster award winner} *
+  \emph{Multiple imputation in group randomized trials: The impact of
+  misspecifying clustering in the imputation model}, ENAR Spring
+  Meeting, New Orleans, LA, March 2010
+\item
+  \emph{Multiple imputation in group randomized trials: The impact of
+  misspecifying clustering in the imputation model}, University of
+  Michigan Biostatistics 50/60 Anniversary Conference, Ann Arbor, MI,
+  November 2009
+\item
+  \emph{Regression trees for group-randomized trials}, (with AM Noone),
+  Joint Statistical Meetings, Washington D.C., August 2009
+\item
+  \emph{The use of sample weights in hot deck imputation}, ENAR Spring
+  Meeting, Crystal City, VA, March 2008
+\end{itemize}
+
+\subsubsection{Selected Co-Authored
+Presentations}\label{selected-co-authored-presentations}
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{A ``hybrid flipped'' introduction to biostatistics to promote
+  research-like experiences} (Sturdivant and Andridge), Joint
+  Mathematics Meetings, Seattle, WA, January 2016 (oral)
+\item
+  \emph{Comparing multiple imputation methods for systematically missing
+  subject-level data} (Kline, Kaizar, and Andridge), ENAR Spring
+  Meeting, Miami, FL, March 2015 (oral)
+\item
+  \emph{Comparing the statistical power of analysis of covariance after
+  multiple imputation and the mixed model in testing the treatment
+  effect for pre-post studies with loss to follow-up} (Xi et al.), ENAR
+  Spring Meeting, Miami, FL, March 2015 (poster)
+\item
+  \emph{Multiple imputation for missing data in longitudinal research
+  synthesis: Identifying and overcoming assumptions in software}
+  (Andridge, Kaizar, and Kline), Conference on Statistical Practice, New
+  Orleans, LA, February 2015 (poster) \textbf{\emph{Runner-up in poster
+  competition}}
+\item
+  \emph{Using the fraction of missing information (FMI) to identify
+  auxiliary variables for imputation procedures via proxy
+  pattern-mixture models} (Thompson and Andridge), Joint Statistical
+  Meetings, Boston, MA, August 2014 (oral)
+\item
+  \emph{Comparing multiple imputation methods for correlated data}
+  (Kline, Kaizar, and Andridge), Joint Statistical Meetings, Boston, MA,
+  August 2014 (oral)
+\item
+  \emph{Hot deck imputation of nonignorable missing data with
+  sensitivity analysis} (Sullivan and Andridge), Joint Statistical
+  Meetings, Montreal, Quebec, August 2013 (poster)
+\end{itemize}
+
+\subsubsection{Guest Lectures}\label{guest-lectures}
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{Online Panel on Teaching (with K Grinde)}, BIOS 834: Pedagogical
+  Methods for Biostatistics Courses, University of Michigan School of
+  Public Health, 3/2024
+\item
+  \emph{Guest speaker discussing missing data and imputation methods},
+  VETPREV 8725: Quantitative Methods Capstone, The Ohio State
+  University, 1/2023
+\item
+  \emph{Online Panel on Teaching (with N Tintle)}, BIOS 834: Pedagogical
+  Methods for Biostatistics Courses, University of Michigan School of
+  Public Health, 3/2022
+\item
+  \emph{Perspectives from the Field: Ohio Pregnancy/Parenting Surveys
+  (with M Menegay)}, PUBHEPI 6431: Design \& Implementation of Health
+  Surveys, The Ohio State University, 12/2021
+\item
+  \emph{Guest speaker discussing teaching with focus on online
+  teaching}, PUBHEPI 8899.02: Doctoral Seminar in Epidemiology: Teaching
+  Methods, The Ohio State University, 11/2021; 9/2021; 10/2022
+\item
+  \emph{What is Biostatistics?}, PUBHLTH 1100: Survey of Public Health,
+  The Ohio State University, 11/2025; 10/2024; 10/2022; 10/2021; 9/2020;
+  9/2019; 10/2018; 12/2016; 11/2015; 11/2014; 9/2013
+\item
+  \emph{Biostatistics: Describing Data}, Med 1 (First Year Medical
+  School), The Ohio State University, 9/2012
+\item
+  \emph{Design and Analysis of Group Randomized Trials}, PUBHEPI 710:
+  Principles of Epidemiology, The Ohio State University, 6/2010
+\item
+  \emph{Proxy Pattern-Mixture Analysis for Survey Nonresponse}, BIOSTAT
+  682: Applied Bayesian Inference, University of Michigan, 4/2009
+\end{itemize}
+
+\subsection{CONSULTING}\label{consulting}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{USDA NASS Technical Working Group} (convened by Summit
+  Consulting) {08/2021--6/2024}\\
+  \emph{Member of 5-person expert working group providing advice on
+  development and implementation of a next generation edit and
+  imputation system for all USDA NASS surveys.}
+\item
+  \textbf{NIH R15} (PI: Xing, Clemson University) {06/2022--6/2023}\\
+  Exploration of the hypothesis-generation process as guided by
+  secondary data analysis in clinical research: Can the process be more
+  efficient?\\
+  \emph{Consultant providing feedback on hypothesis quality evaluation
+  procedure and serving as expert panel member evaluating generated
+  hypotheses}
+\item
+  \textbf{NIH/NHLBI R01} (PI: Robbins, Michigan State University)
+  {07/2013-06/2015}\\
+  Girls on the Move Intervention\\
+  \emph{Consultant providing specialized advice pertaining to the
+  Robbins R01 school-level group-randomized trial and the appropriate
+  analytic methods.}
+\item
+  \textbf{NIH/NHLBI U01} (PI: Stevens, University of North Carolina)
+  {07/2011-08/2011}\\
+  COPTR: The Childhood Obesity Prevention and Treatment Research
+  Program\\
+  \emph{Consultant providing specialized advice pertaining to imputation
+  methods to be used in the four obesity treatment multi-level
+  randomized trials.}
+\end{itemize}
+
+\subsection{ACADEMIC SERVICE}\label{academic-service}
+
+\subsubsection{University (Ohio State)}\label{university-ohio-state}
+
+\begin{itemize}
+\tightlist
+\item
+  Co-Chair, Higher Learning Commission (HLC) Coordinating Committee,
+  2025 -- present
+\item
+  Member, University Level Advisory Committee for General Education
+  (ULAC), 2024 -- present
+\item
+  Member, OAA Curriculum Handbook Review Committee, 2024 -- 2025
+\item
+  Member, Search Advisory Committee for Dean of the College of Public
+  Health, 2023 -- 2024
+\item
+  Member, Student Evaluation of Instruction (SEI) Subcommittee, Council
+  on Academic Affairs, 2023 -- present
+\item
+  Member (Chair 2022-2023), Council on Academic Affairs, 2017 -- 2023
+\item
+  Member, General Education Themes Review Panel, 2023 -- present
+\item
+  Member, Enrollment Policies and Student Transitions Working Group (OSU
+  Office of Strategic Enrollments Management), 2023 -- 2024
+\item
+  Member, General Education Fiscal Oversight Committee, 2021 -- 2024
+\item
+  Faculty Champion for Interprofessional Practice and Education
+  (representing Public Health), 2021 -- 2022
+\item
+  Member, Search Advisory Committee for Vice Provost for Graduate
+  Studies and Dean of the Graduate School, 2017
+\item
+  Faculty Mentor, Institute for Teaching and Learning, 2016 -- 2018
+\item
+  Member, Learning Management System Advisory Committee, Office of the
+  Chief Information Officer, 2015 -- 2017
+\item
+  Member, Faculty Advisory Council, President and Provost's Teaching and
+  Learning Initiative, 2015 -- 2016
+\item
+  Judge, Denman Undergraduate Research Day, 2016, 2017
+\item
+  Member, Learning Management System Evaluation Committee, Office of the
+  Chief Information Officer, 2015
+\end{itemize}
+
+\subsubsection{College (Ohio State)}\label{college-ohio-state}
+
+\begin{itemize}
+\tightlist
+\item
+  Chair, Undergraduate Academic Programs Committee, 2024 -- present
+\item
+  Chair, MPH Integrated Foundational Curriculum Workgroup, 2024
+\item
+  Member (Chair 2023-2024), Peer Teaching Evaluation Committee, 2022 --
+  2024
+\item
+  Member, CPH Awards and Scholarship Committee, 2021 -- 2022
+\item
+  Member (Chair 2018-2021), Undergraduate Studies Committee, 2012 --
+  2014, 2016 -- 2021
+\item
+  Member, Workgroup for Integrated MPH Core, 2019 -- 2021
+\item
+  Member, CPH Strategic Plan Steering Committee, 2019 -- 2020 (Co-lead,
+  Educational Excellence and Innovation workgroup)
+\item
+  Co-Director, Public Health Honors Program, 2016 -- 2018
+\item
+  Member, BSPH Honors Committee, 2016 -- 2018
+\item
+  Member, Clinical Biostatistics Faculty Search Committee, 2015 -- 2016
+\item
+  Member, Summer Program Planning Committee, 2013 -- 2014
+\item
+  Member, Champions of Public Health Selection Committee, 2012, 2015
+\item
+  Member, Quarter-to-Semester Conversion Committee, 2009 -- 2011
+\end{itemize}
+
+\subsubsection{Division (Ohio State)}\label{division-ohio-state}
+
+\begin{itemize}
+\tightlist
+\item
+  Member, PhD Program in Biostatistics Admissions Committee, 2011 --
+  2014, 2023 -- 2024
+\item
+  Member, PhD Program in Biostatistics Qualifying Exam 2 Committee, 2024
+  -- present
+\item
+  Mentor, Biostatistics PhD Student Mentoring Program, 2020 -- 2022
+\item
+  Chair, MPH/MS Biostatistics Admissions Committee, 2009 -- 2011, 2014
+  -- 2016
+\item
+  Member, PhD Program in Biostatistics Curriculum Committee, 2011 --
+  2015
+\item
+  Vice-Chair, PhD Program in Biostatistics Graduate Studies Committee,
+  2011 -- 2014
+\item
+  Member, Division of Biostatistics Faculty Search Committee, 2011 --
+  2013
+\end{itemize}
+
+\subsubsection{Department (Michigan)}\label{department-michigan}
+
+\begin{itemize}
+\tightlist
+\item
+  Founding Committee Member, Michigan Student Symposium for
+  Interdisciplinary Statistical Sciences, 2006 -- 2008
+\item
+  Tutor, On Job/On Campus Clinical Research Design \& Statistical
+  Analysis Program, 2005 -- 2007
+\item
+  Member, Student Affairs/Alumni Relations Committee, Department of
+  Biostatistics, 2004 -- 2006
+\item
+  Member, Curriculum Committee, Department of Biostatistics, 2004 --
+  2006
+\item
+  Grader, Applied Statistics I (BIOSTAT 650), Department of
+  Biostatistics, 2004
+\end{itemize}
+
+\subsection{PROFESSIONAL SERVICE}\label{professional-service}
+
+\subsubsection{Editorial Positions}\label{editorial-positions}
+
+\begin{itemize}
+\tightlist
+\item
+  Associate Editor, \emph{Journal of Survey Statistics and Methodology},
+  2016 -- 2024
+\item
+  Associate Editor, \emph{Journal of Official Statistics}, 2012 -- 2024
+\end{itemize}
+
+\subsubsection{Committee and Board
+Membership}\label{committee-and-board-membership}
+
+\paragraph{Statistics Organizations}\label{statistics-organizations}
+
+\begin{itemize}
+\tightlist
+\item
+  Member, Statistics Canada's Advisory Committee on Statistical Methods,
+  2024 -- present\\
+\item
+  Co-Chair, Advisory Board, \emph{Journal of Survey Statistics and
+  Methodology}, American Statistical Association, 2020 -- 2025\\
+\item
+  Member, Bureau of Labor Statistics Technical Advisory Committee, 2023
+  -- 2025\\
+\item
+  Treasurer, American Statistical Association, Survey Research Methods
+  Section, 2023 -- 2024 \emph{(elected position)}
+\item
+  Education Officer, American Statistical Association, Survey Research
+  Methods Section, 2017 -- 2018 \emph{(elected position)}
+\item
+  Secretary, American Statistical Association, Survey Research Methods
+  Section, 2012 -- 2013 \emph{(elected position)}
+\end{itemize}
+
+\paragraph{Conference Program
+Committees}\label{conference-program-committees}
+
+\begin{itemize}
+\tightlist
+\item
+  Member, Program Committee, Seventh International Conference on
+  Establishment Surveys (ICES VII), 2022 -- 2024\\
+\item
+  Member, Program Committee, Sixth International Conference on
+  Establishment Surveys (ICES VI), 2017 -- 2021\\
+\item
+  Member, Scientific Program Committee (SRMS Representative), ENAR 2015
+  Spring Meeting, 2013 -- 2015
+\end{itemize}
+
+\paragraph{Other Organizations}\label{other-organizations}
+
+\begin{itemize}
+\tightlist
+\item
+  Member, Behavior Risk Factor Surveillance System (BRFSS) Expert Panel,
+  Centers for Disease Control and Prevention, 2019 -- 2024\\
+\item
+  Member, Cancer Care Delivery Research Steering Committee, National
+  Cancer Institute, 2015 -- 2022\\
+\item
+  Member, External Advisory Board, Leadership Education in
+  Neurodevelopmental and Related Disabilities (LEND) Program, OSU
+  Nisonger Center, 2012 -- 2019
+\end{itemize}
+
+\subsubsection{Data Safety and Monitoring Board (DSMB)
+Membership}\label{data-safety-and-monitoring-board-dsmb-membership}
+
+\begin{itemize}
+\tightlist
+\item
+  DSMB Member, National Institute of Aging IMPACT (Imbedded Pragmatic
+  Alzheimer's Disease (AD) and AD-Related Dementias (AD/ADRD) Clinical
+  Trial) Collaboratory (U54AG063546), 2022 -- present\\
+\item
+  DSMB Member, National Institute of Dental and Craniofacial Research,
+  study: ``Opioid Analgesic Reduction Study (OARS): Managing Acute
+  Post-Operative Surgical Pain'', 2022 -- 2023\\
+\item
+  DSMB Member, National Institute of Dental and Craniofacial Research,
+  study: ``De-Implementing Opioid Use and Implementing Optimal Pain
+  Management Following Dental Extractions'', 2019 -- 2023
+\end{itemize}
+
+\subsubsection{Formal Mentoring
+Activities}\label{formal-mentoring-activities}
+
+\begin{itemize}
+\tightlist
+\item
+  Mentor, ASA Section on Statistics and Data Science Education Mentoring
+  Program, 2021 -- 2022\\
+  \emph{I served as a mentor for an early career statistics faculty
+  member at another institution}
+\end{itemize}
+
+\subsubsection{Grant Reviews}\label{grant-reviews}
+
+\begin{itemize}
+\tightlist
+\item
+  Proposal referee (ad-hoc) for \textbf{US Bureau of Labor Statistics},
+  2018
+\item
+  Proposal referee (ad-hoc) for \textbf{Netherlands Organisation for
+  Scientific Research (NWO)}, 2018
+\item
+  Proposal Final Report referee (ad-hoc) for \textbf{Patient-Centered
+  Outcomes Research Institute}, 2017
+\item
+  Proposal referee (ad-hoc) for \textbf{Netherlands Organisation for
+  Scientific Research (NWO)}, 2015
+\item
+  Proposal referee (ad-hoc) for \textbf{National Science Foundation}
+  (Methodology, Measurement, and Statistics Program), 2012
+\end{itemize}
+
+\subsubsection{Article Reviewer
+(Frequency)}\label{article-reviewer-frequency}
+
+\emph{American Journal of Public Health (1)}, \emph{Annals of Applied
+Statistics (3)}, \emph{Behavioral Research Methods (3)},
+\emph{Biometrical Journal (2)}, \emph{Biometrics (1)}, \emph{BMC Medical
+Research Methodology (5)}, \emph{Breast Cancer: Basic and Clinical
+Research (1)}, \emph{The BMJ (1)}, \emph{Canadian Journal of Statistics
+(4)}, \emph{Clinical Trials (1)}, \emph{Econometrics and Statistics
+(1)}, \emph{Epidemiology (3)}, \emph{Evaluation Review (1)},
+\emph{Forensic Anthropology (2)}, \emph{International Statistical Review
+(2)}, \emph{Journal of Applied Statistics (5)}, \emph{Journal of
+Clinical Epidemiology (3)}, \emph{Journal of Official Statistics (2)},
+\emph{Journal of the American Statistical Association (1)},
+\emph{Journal of the Indian Society of Agricultural Statistics (1)},
+\emph{Journal of the Royal Statistical Society, Series A (3)},
+\emph{Journal of the Royal Statistical Society, Series C (2)},
+\emph{Journal of Statistical Education (1)}, \emph{Journal of Survey
+Statistics and Methodology (2)}, \emph{Multivariate Behavioral Research
+(3)}, \emph{PLOS One (1)}, \emph{Psychological Methods (1)}, \emph{RTI
+Press (1)}, \emph{Sociological Methods and Research (1)},
+\emph{Statistical Methods in Medical Research (11)}, \emph{Statistics in
+Medicine (19)}, \emph{Survey Methodology (4)}, \emph{Technology,
+Knowledge and Learning (1)}
+
+\subsubsection{Conference Activities}\label{conference-activities}
+
+\begin{itemize}
+\tightlist
+\item
+  Discussant, Invited Session, \emph{The Positive Power of Generative
+  AI: Using AI for ``Good'' In Statistics Classrooms}, Joint Statistical
+  Meetings, Portland, OR, 2024
+\item
+  Organizer, Invited Session, \emph{Curricular innovations for formal
+  training in the soft-skills of biostatistical collaboration}, Joint
+  Statistical Meetings, Toronto, Ontario, 2023
+\item
+  Organizer and Chair, Invited Session, \emph{Teaching communication
+  skills to biostatistics students across different contexts}, Joint
+  Statistical Meetings, Toronto, Ontario, 2023
+\item
+  Discussant, Invited Session, \emph{Critical race theory for
+  statisticians: Incorporating CRT into statistical analyses}, Joint
+  Statistical Meetings, Toronto, Ontario, 2023
+\item
+  Chair, Topic-Contributed Session, \emph{Obtaining informative
+  estimates of rare characteristics: Topics in sampling and estimation
+  of rare or difficult to enumerate populations}, Joint Statistical
+  Meetings, Toronto, Ontario, 2023
+\item
+  Chair, Contributed Session, \emph{Survey modes and measurement error},
+  Joint Statistical Meetings, Vancouver, British Columbia, 2018
+\item
+  Organizer and Chair, Topic-Contributed Panel Session, \emph{Teaching
+  biostatistics online: A discussion and debate of problems and
+  solutions}, Joint Statistical Meetings, Baltimore, MD, 2017
+\item
+  Chair, Contributed Session, \emph{Design and analysis issues with
+  modern population telephone surveys}, Joint Statistical Meetings,
+  Chicago, IL, 2016
+\item
+  Chair, Contributed Session, \emph{Variance estimation}, Joint
+  Statistical Meetings, Miami, FL, 2011
+\item
+  Organizer, Invited Session, \emph{Statistics and international health:
+  Methods for surveillance, monitoring and management}, American Public
+  Health Association Annual Meeting, 2010
+\item
+  Chair, Contributed Session, \emph{Survey models for causal estimation,
+  calibration, and Bayesian estimation}, Joint Statistical Meetings,
+  Vancouver, British Columbia, 2010 \#\# STUDENT ADVISING
+\end{itemize}
+
+\subsection{STUDENT ADVISING}\label{student-advising}
+
+All are at The Ohio State University unless otherwise specified
+
+\subsubsection{PhD Dissertation Advisor}\label{phd-dissertation-advisor}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Seth Adarkwah Yiadom}, Biostatistics, 2022 -- present
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Current Status: Post-Candidacy
+  \end{itemize}
+\item
+  \textbf{Brittney Bailey}, Biostatistics, 2016 -- 2018 (Co-advisor with
+  Dr.~Abigail Shoben)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Dissertation: \emph{Data Analysis and Multiple Imputation for
+    Two-Level Nested Designs}
+  \item
+    Current Position: Assistant Professor (tenure-track), Amherst
+    College
+  \end{itemize}
+\item
+  \textbf{David Kline}, Biostatistics, 2013 -- 2015 (Co-advisor with
+  Dr.~Eloise Kaizar)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Dissertation: \emph{Systematically Missing Subject-Level Data in
+    Longitudinal Research Synthesis}
+  \item
+    Current Position: Associate Professor (tenured), Department of
+    Biostatistics and Data Science, Wake Forest School of Medicine
+  \end{itemize}
+\item
+  \textbf{Danielle Sullivan}, Biostatistics, 2011 -- 2013
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Dissertation: \emph{A Hot Deck Imputation Procedure for Multiply
+    Imputing Nonignorable Missing Data: The Proxy Pattern-Mixture Hot
+    Deck.}
+  \item
+    Current Position: Associate Director, Statistics, Neuroscience at
+    Takeda
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{PhD Dissertation Committee
+Member}\label{phd-dissertation-committee-member}
+
+\begin{itemize}
+\tightlist
+\item
+  Maria Pacheco Garrillo, Health Behavior and Health Promotion, 2025 --
+  present
+\item
+  Megan Fisher, Clinical Psychology, 2025 -- present
+\item
+  Georgia Sasser, Health Behavior and Health Promotion, 2025 -- present
+\item
+  Lingpeng (Andrew) Shan, Biostatistics, 2024 -- present
+\item
+  Sean Tomlin, Biostatistics, 2024 -- 2025
+\item
+  Alyssa Farmer, Biostatistics, 2022 -- 2023
+\item
+  Amanda Luff, Epidemiology, 2021 -- 2023
+\item
+  Mahmood Alalwan, Epidemiology, 2021 -- 2023
+\item
+  Nikki Schnitzler, Statistics, 2021 -- 2022
+\item
+  Ana Sucaldito, Health Behavior and Health Promotion, 2020 -- 2022
+\item
+  Joyce Rudy, Epidemiology, 2020 -- 2024
+\item
+  Li Li, Epidemiology, 2019 -- 2021
+\item
+  Kat Krupsky, Epidemiology, 2020 -- 2021
+\item
+  Michelle Menegay, Epidemiology, 2019 -- 2021
+\item
+  Kate Ormiston, Human Nutrition, 2019 -- 2020
+\item
+  Robert Orellana, Epidemiology, 2018
+\item
+  Remle Crowe, Epidemiology, 2018
+\item
+  Ranran Dong, Biostatistics, 2016 -- 2017
+\item
+  Amy Stark, Biostatistics, 2015 -- 2017
+\item
+  Andrea Wanamaker, Biomedical Engineering, 2015 -- 2017
+\item
+  Haleigh Scott, Intellectual and Developmental Disabilities Psychology,
+  2014 -- 2016
+\item
+  Kristin McCarthy Sommerhalter, Epidemiology, 2014 -- 2015
+\item
+  Christy Collins, Epidemiology, 2014 -- 2015
+\item
+  Robert Ashmead, Biostatistics, 2013 -- 2014
+\item
+  Liesel Seryak, Environmental Health Science, 2010 -- 2012
+\item
+  Brenda Clark, Environmental Health Science, 2010 -- 2012
+\item
+  Chih-Lin Li, Biostatistics, 2010 -- 2011
+\end{itemize}
+
+\subsubsection{PhD Candidacy Exam Committee
+Member}\label{phd-candidacy-exam-committee-member}
+
+\begin{itemize}
+\tightlist
+\item
+  Patrick McHugh, Statistics, 2025
+\item
+  Fandi Chang, Biostatistics, 2025 -- present
+\item
+  Maria Pacheco Garrillo, Health Behavior and Health Promotion, 2025
+\item
+  Lingpeng (Andrew) Shan, Biostatistics, 2024
+\item
+  Sean Tomlin, Biostatistics, 2023 -- 2024
+\item
+  Alyssa Farmer, Biostatistics, 2022
+\item
+  Kenya Moyers, Epidemiology, 2021 -- 2023
+\item
+  Amanda Luff, Epidemiology, 2021
+\item
+  Nikki Schnitzler, Statistics, 2021
+\item
+  Mahmood Alalwan, Epidemiology, 2020 -- 2021
+\item
+  Ana Sucaldito, Health Behavior and Health Promotion, 2019 -- 2020
+\item
+  Kat Krupsky, Epidemiology, 2019 -- 2020
+\item
+  Joyce Rudy, Epidemiology, 2018 -- 2020
+\item
+  Li Li, Epidemiology, 2018 -- 2019
+\item
+  Kate Ormiston, Human Nutrition, 2018 -- 2019
+\item
+  Sara Conroy, Epidemiology, 2017
+\item
+  Remle Crowe, Epidemiology, 2017
+\item
+  Robert Orellana, Epidemiology, 2017 -- 2018
+\item
+  Michelle Menegay, Epidemiology, 2016 -- 2019
+\item
+  Ranran Dong, Biostatistics, 2016
+\item
+  Amy Stark, Biostatistics, 2015
+\item
+  Andrea Wanamaker, Biomedical Engineering, 2015
+\item
+  Kristin McCarthy Sommerhalter, Epidemiology, 2013 -- 2014
+\item
+  Katherine Randle, Health Behavior and Health Promotion, 2012 -- 2015
+\item
+  Christy Collins, Epidemiology, 2012 -- 2014
+\item
+  Lindsay Asti, Epidemiology, 2012 -- 2014
+\item
+  Robert Ashmead, Biostatistics, 2013
+\item
+  Alice Hinton, Biostatistics, 2012
+\item
+  Sherry Liu, Health Behavior and Health Promotion, 2010 -- 2011
+\item
+  Chih-Lin Li, Biostatistics, 2010
+\end{itemize}
+
+\subsubsection{MS Thesis/MPH Project
+Advisor}\label{ms-thesismph-project-advisor}
+
+\begin{itemize}
+\tightlist
+\item
+  Blake Madison, Biostatistics MS, 2024 -- 2025
+\item
+  Roy Chang, Biostatistics MS, 2024 -- 2025
+\item
+  Kyle Jagodinski, Biostatistics MPH, 2024 -- 2025
+\item
+  Gladys Gibbs, Program for Experienced Professionals (PEP) MPH, 2024
+\item
+  JC Chen, Biostatistics MPH, 2024
+\item
+  Celia Ligorski, Biostatistics MPH, 2023 -- present
+\item
+  Samantha Hicks, Program for Experienced Professionals (PEP) MPH, 2023
+\item
+  Portia Kyei, Biostatistics MPH, 2022 -- 2023
+\item
+  Ashleigh Keiter, Biostatistics MS, 2019 -- 2020
+\item
+  John Myers, Biostatistics MS, 2017 -- 2019
+\item
+  Ann Nwosu, Biostatistics MS, 2016 -- 2017
+\item
+  Jason Benedict, Biostatistics MS, 2015 -- 2016
+\item
+  Erica Esposito, Program for Experienced Professionals (PEP) MPH, 2012
+  -- 2013
+\item
+  Tara Carmack, Biostatistics MS, 2010 -- 2012
+\item
+  Mahmoud Abdel-Rasoul, Biostatistics MS, 2010 -- 2011
+\item
+  Dale Rhoda, Biostatistics MS, 2009 -- 2011
+\item
+  Tatiana Gavrilina, Biostatistics MPH, 2009 -- 2011
+\end{itemize}
+
+\subsubsection{MS Thesis/MPH Project Committee
+Member}\label{ms-thesismph-project-committee-member}
+
+\begin{itemize}
+\tightlist
+\item
+  Alex Tranovich, Program for Experienced Professionals (PEP) MPH, 2025
+\item
+  Patrick Quinn, Biomedical Informatics MPH, 2024 -- 2025
+\item
+  Monica Stanwick, Health Behavior Health Promotion MPH, 2024 -- 2025
+\item
+  Sofia Negash, Biomedical Informatics MPH, 2024
+\item
+  Peng Peng Kuang, Biostatistics MS, 2024
+\item
+  Dimitra Herbei, Biostatistics MS, 2024
+\item
+  Josh Meligari, Epidemiology MPH, 2023 -- 2024
+\item
+  Sean Puscas, Biomedical Informatics MS, 2023
+\item
+  Jillian Randolph, Health Behavior Health Promotion MPH, 2023
+\item
+  Laura Sullivan, Program for Experienced Professionals (PEP) MPH, 2023
+\item
+  Eliana Burlotos, Epidemiology MPH, 2022 -- 2023
+\item
+  Samuel Gagne, Biomedical Informatics MPH, 2022 -- 2023
+\item
+  Natalie Zaborski, Health Behavior Health Promotion MPH, 2022 -- 2023
+\item
+  Emily Ward, Health Behavior Health Promotion MPH, 2022
+\item
+  Kathryn Poppe, Health Behavior Health Promotion MPH, 2021 -- 2022
+\item
+  Gabrielle Tharp, Epidemiology MPH, 2021 -- 2022
+\item
+  Elizabeth Duraney (Herring), Psychology MS, 2020
+\item
+  Susan Rymut, Human Nutrition MS, 2018 -- 2019
+\item
+  Nicholas Pondel, Biomedical Informatics MPH, 2018 -- 2019
+\item
+  Sophia Fisher, Health Behavior Health Promotion MPH, 2018 -- 2019
+\item
+  W. Thomas Whitlow, Program for Experienced Professionals (PEP) MPH,
+  2017 -- 2018
+\item
+  Jenna Brophy, Health Behavior Health Promotion MPH, 2017 -- 2018
+\item
+  Kayla Orso, Veterinary Public Health MPH, 2017 -- 2018
+\item
+  Sarah Asad, Epidemiology MPH, 2017 -- 2018
+\item
+  Garrett Hunt, Program for Experienced Professionals (PEP) MPH, 2017
+\item
+  Erin Osborne, Veterinary Public Health MPH, 2017
+\item
+  Leah Mitchell, Health Behavior Health Promotion MPH, 2016 -- 2017
+\item
+  Kylie Thompson, Human Nutrition MS, 2016 -- 2017
+\item
+  Kristen Arnold, Human Nutrition MS, 2015 -- 2016
+\item
+  Sara Conroy, Biostatistics MS, 2015
+\item
+  Wenna Xi, Biostatistics MS, 2013 -- 2014
+\item
+  Amelia Kaeding, Veterinary Public Health MPH, 2012
+\item
+  Emily Diener, Veterinary Public Health MPH, 2011 -- 2012
+\item
+  Helen Michelle Byrd, Epidemiology MPH, 2011
+\item
+  Patricia Carr, Epidemiology MPH, 2011
+\item
+  Jennifer Dotson, Clinical Investigations MPH, 2011
+\item
+  Brian Palmer, Biostatistics MPH, 2009 -- 2011
+\item
+  Jonathan Kanam, Epidemiology MPH, 2010
+\item
+  Abby Monnin, Veterinary Public Health MPH, 2010
+\item
+  Mi-Hyun Chang, Biostatistics MPH, 2009 -- 2010
+\end{itemize}
+
+\subsubsection{Undergraduate Honors Thesis
+Advisor}\label{undergraduate-honors-thesis-advisor}
+
+\begin{itemize}
+\tightlist
+\item
+  Maddie Drenkhan, Public Health Sociology, 2017 -- 2018
+\end{itemize}
+
+\subsubsection{Undergraduate Honors Thesis Committee
+Member}\label{undergraduate-honors-thesis-committee-member}
+
+\begin{itemize}
+\tightlist
+\item
+  Lea Ghastine, Environmental Public Health, 2017
+\item
+  Sarah Jossart, Public Health Sociology, 2016 -- 2017
+\item
+  Meghan Shea, Public Health Sociology, 2015 -- 2016
+\item
+  Christopher Gaw, Biology, 2013
+\end{itemize}
+
+\subsubsection{Academic Advisor}\label{academic-advisor}
+
+\begin{itemize}
+\tightlist
+\item
+  Jared Stoneman, Biostatistics MPH, 2017 -- 2018
+\item
+  Joshua Smith, Biostatistics MS, 2016 -- 2018
+\item
+  Yiran Zhang, Biostatistics Ph.D., 2015 -- 2017
+\item
+  Lu Chen, Biostatistics MPH, 2016
+\item
+  Weiwei Jiao, Biostatistics MPH, 2016
+\item
+  Jeremy Tan, Biostatistics MPH, 2016
+\item
+  Sara Conroy, Biostatistics MS, 2013 -- 2015
+\item
+  Brittney Bailey, Biostatistics Ph.D., 2013 -- 2015
+\item
+  Amy Stark, Biostatistics Ph.D., 2012 -- 2014
+\item
+  David Kline, Biostatistics Ph.D., 2012 -- 2013
+\item
+  Mary Prier, Biostatistics Ph.D., 2011 -- 2012
+\item
+  Mi-Hyun Chang, Biostatistics MPH, 2009 -- 2010
+\end{itemize}
+
+\subsubsection{Research Assistant
+Supervisor}\label{research-assistant-supervisor}
+
+\begin{itemize}
+\tightlist
+\item
+  John Myers, Graduate Research Assistant, Division of Biostatistics,
+  2018 (summer)
+\item
+  Joyce Rudy, Graduate Research Assistant, Division of Epidemiology,
+  2017 -- 2018
+\item
+  Qing Xie, Graduate Research Assistant, Division of Biostatistics, 2017
+  -- 2018
+\item
+  Ann Nwosu, Graduate Research Assistant, Division of Biostatistics,
+  2016
+\item
+  Brittney Bailey, Graduate Research Assistant, Institute for Behavioral
+  Medicine Research, 2015 -- 2018
+\item
+  Jason Benedict, Graduate Research Assistant, Division of
+  Biostatistics, 2015
+\item
+  Beom Seuk Hwang, Graduate Research Assistant, Institute for Behavioral
+  Medicine Research, 2009 -- 2012
+\item
+  Tara Carmack, Graduate Research Assistant, Division of Epidemiology,
+  2010 -- 2011
+\end{itemize}
+
+\subsubsection{Ph.D.~Dissertation Graduate Faculty
+Representative}\label{ph.d.-dissertation-graduate-faculty-representative}
+
+\begin{itemize}
+\tightlist
+\item
+  M D'Urso, Economics, 2025
+\item
+  Q Ashraf, Molecular Cellular and Developmental Biology, 2024
+\item
+  M Diabate, Biomedical Sciences Graduate Program, 2023
+\item
+  S Paul, Chemistry, 2022
+\item
+  S Walujkar, Chemical Physics, 2021
+\item
+  D Snoke, Nutrition, 2020
+\item
+  W Little, Greek and Latin, 2019
+\item
+  E Panczyk, Chemistry and Biochemistry, 2018 (Candidacy Exam)
+\item
+  K Snider, Neuroscience, 2016 (Candidacy Exam)
+\item
+  J Carter, Social Work, 2015
+\item
+  R Singh, Biochemistry, 2013
+\item
+  M-F Chiang, Family Resource Management, 2012
+\end{itemize}
+
+\subsubsection{Ph.D.~Dissertation External Examiner (non-U.S.
+institutions)}\label{ph.d.-dissertation-external-examiner-non-u.s.-institutions}
+
+\begin{itemize}
+\tightlist
+\item
+  A Arletti, ``Inference with non-ignorable selection bias: A neural
+  network approach for online electoral polls,'' Università degli Studi
+  di Padova (Supervisors: ML Tanturri and O Paccagnella), 2025
+\item
+  A-D Hazewinkel, ``Identifying and adjusting for bias due to missing
+  outcome values in randomised controlled trials,'' Faculty of Health
+  Sciences, University of Bristol (Supervisor: K Tilling), 2023
+\end{itemize}
+
+\subsection{PROFESSIONAL MEMBERSHIPS}\label{professional-memberships}
+
+\begin{itemize}
+\tightlist
+\item
+  American Association for Public Opinion Research (AAPOR), 2018 --
+  present
+\item
+  American Statistical Association (ASA), 2007 -- present
+\item
+  American Public Health Association (APHA), 2014 -- 2022, 2025 --
+  present
+\item
+  International Biometrics Society, Eastern North American Region
+  (ENAR), 2009 -- 2017
+\end{itemize}
+
+
+
+
+\end{document}
