@@ -7,6 +7,7 @@ website:
   navbar:
     left:
       - href: index.qmd
+        text: "Home"
       # - text: About
       #   href: about.qmd
       - text: "PUBHBIO 7225"
