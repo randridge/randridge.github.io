@@ -1,5 +1,8 @@
 ---
 title: "PUBHBIO 7225 Lecture Slides"
+format:
+  html:
+    toc: false
 ---
 
 ## Lecture Slides for PUBHBIO 7225, Autumn 2025

@@ -1,0 +1,43 @@
+/* import fonts */
+/* @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;700&display=swap'); */
+
+/* all formats */
+
+.cvdate {
+  float: right;
+  font-style: italic
+}
+
+.print-only {
+  display: none;
+  /*color: aquamarine;*/
+}
+
+/* for page-breaks use style spans
+  page-break-before: always;
+  page-break-after: always;
+*/
+
+/* Decrease space between all list items */
+li {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+p {
+    margin: 10px 0;
+}
+
+h1 {
+  font-weight: 700;
+  text-transform: uppercase;
+  /* color: blueviolet; */
+}
+
+h2 {
+  font-weight: 500;
+  text-transform: uppercase;
+  /* color: green; */
+}

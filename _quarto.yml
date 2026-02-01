@@ -18,7 +18,7 @@ format:
       - cosmo
       - brand
     css: styles.css
-    toc: false
+    toc: true
 
 editor: source
 
