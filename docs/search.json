@@ -5115,5 +5115,124 @@
     "title": "Stratified Sampling",
     "section": "",
     "text": "Topics\n\nStratified Sampling\nDesign-based Theory for Stratified Samples\nSampling Weights\n\n\nActivities\n\n6.1 Construct a Stratified Sample Estimator\n\n\n\n\nAssignments\n\nProblem Set 2 due Thursday 9/18/2025 11:59pm via Carmen"
+  },
+  {
+    "objectID": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#outline",
+    "href": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#outline",
+    "title": "Course Intro: Vocabulary of Sampling",
+    "section": "Outline",
+    "text": "Outline\n\n\nTopics\n\nOverview of the class (syllabus)\nWhy sample?\nVocabulary of sampling\nProbability vs Non-probability samples\nTypes of probability samples\n\n\nActivities\n\n1.1 Vocabulary of Surveys\n\n\n\nAssignments\n\n“About Me” questionnaire due Thursday 8/28/2025 11:59pm via Carmen\nProblem Set 1 due Thursday 9/4/245 11:59pm via Carmen"
+  },
+  {
+    "objectID": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#why-do-we-sample",
+    "href": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#why-do-we-sample",
+    "title": "Course Intro: Vocabulary of Sampling",
+    "section": "Why do we sample?",
+    "text": "Why do we sample?\n\nCensus – measurement taken on all units in the population\n\n\nSample – measurements taken on a subset of units in the population\n\n\nReasons we might want to sample:"
+  },
+  {
+    "objectID": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#vocabulary-of-survey-sampling",
+    "href": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#vocabulary-of-survey-sampling",
+    "title": "Course Intro: Vocabulary of Sampling",
+    "section": "Vocabulary of Survey Sampling",
+    "text": "Vocabulary of Survey Sampling\n\nObservation Unit (or Element) - One (non-overlapping) unit on which a measurement is taken\n\n\nTarget Population - Complete collection of observation units that we want to study\n\n\nSample - A subset of a population (that will be/has been measured)\n\n\nSampled Population - All observation units that could possibly be in the sample (the population from which the sample was actually taken)\n\n\nSampling Unit - A unit that can be selected for a sample (Might be an observation unit, or might be a collection of observation units, e.g., a household)\n\n\nSampling Frame - A list of all sampling units (for some sampling designs this might not actually be available)"
+  },
+  {
+    "objectID": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#example",
+    "href": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#example",
+    "title": "Course Intro: Vocabulary of Sampling",
+    "section": "Example",
+    "text": "Example\nImagine a telephone survey of likely voters\n\nObservation unit = one person\nTarget population = all people eligible to vote who are likely to vote\nSampling unit = one household/one phone number (could be one person if cell phone frame)\nSampling frame = list of residential phone numbers (or, list of cell phone numbers)\n\nMismatch between target population and sampled population certainly possible\n\nFigure 1.1 from Lohr (2010), Sampling Design and Analysis, 2nd edition"
+  },
+  {
+    "objectID": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#activity-1.1-part-1",
+    "href": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#activity-1.1-part-1",
+    "title": "Course Intro: Vocabulary of Sampling",
+    "section": "Activity 1.1 (Part 1)",
+    "text": "Activity 1.1 (Part 1)\nVocabulary of Survey Sampling (Part 1)"
+  },
+  {
+    "objectID": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#probability-vs-non-probability-samples",
+    "href": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#probability-vs-non-probability-samples",
+    "title": "Course Intro: Vocabulary of Sampling",
+    "section": "Probability vs Non-Probability Samples",
+    "text": "Probability vs Non-Probability Samples\n\nProbability Sample – each unit in the population has a known, positive probability of selection, and randomness is involved in the selection of which units are actually included in the sample\n\n\nNon-Probability Sample – the probability a unit is included in the sample cannot be calculated\n\n\nTypes of Non-Probability Samples\n\n\nConvenience sampling – units are selected into the sample simply because they are easy to select\nVoluntary/Self-selection sampling – units self-select into the sample\nQuota sampling – pre-specify the number of units you want to end up with in each subgroup, and select them via convenience or other non-probability method\n\nMost famous example: pre-election polls for 1948 election (Dewey vs Truman)\n\nPurposive/Judgement sampling – researcher selects units into the sample based on their own judgement\nSnowball/Respondent-Driven sampling – start by including one or more units in the (usually “hard-to-reach”) population, then use these units to identify further units"
+  },
+  {
+    "objectID": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#example-1",
+    "href": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#example-1",
+    "title": "Course Intro: Vocabulary of Sampling",
+    "section": "Example",
+    "text": "Example\nSampling OSU students with various non-probability schemes\n\nConvenience sampling – Recruit OSU students to take your survey by standing outside the library and asking students if they will participate\nVoluntary/Self-selection sampling – Put up a flyer with a URL for your survey, and interested students can go to the website and take the survey\nQuota sampling – Pre-specify that you’ll get 100 students from Ohio and 100 students from outside Ohio to take your survey, and stand outside the library to find these students\nPurposive/Judgement sampling – You pick students with specific characteristics that you are most interested in having in your sample\nSnowball/Respondent-Driven sampling – You identify a few students who are in your target population (e.g., use illicit drugs), and then have them pass along your survey information to other students they know who are in the population (e.g., other drug users)"
+  },
+  {
+    "objectID": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#big-problem-selection-bias",
+    "href": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#big-problem-selection-bias",
+    "title": "Course Intro: Vocabulary of Sampling",
+    "section": "(Big) Problem: Selection Bias",
+    "text": "(Big) Problem: Selection Bias\n\nSelection bias = bias that arises when part of the target population is not in the sampled population, or, more generally, when some population units are sampled at a different rate than intended by the investigator\n\nPredominant concern with non-probability samples\n\nUnits (people) in the sample might be really different from non-sampled units – but we don’t know how\nEven if, say, the distribution of state of residence (Ohio, Not Ohio) is the same in your non-probability sample as in the target population, there is no guarantee that the students are “representative” of the target population with respect to survey outcomes/measures\n\ne.g., Ohioans who self-select into your sample might be different than Ohioans who do not\n\nSelection bias an also be a problem for probability samples when there is nonresponse\n\nThis course will focus exclusively on probability samples.\nIf you are interested in learning more about how non-probability samples can be combined with probability samples to improve inference, let me know."
+  },
+  {
+    "objectID": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#main-types-of-probability-samples",
+    "href": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#main-types-of-probability-samples",
+    "title": "Course Intro: Vocabulary of Sampling",
+    "section": "Main Types of Probability Samples",
+    "text": "Main Types of Probability Samples\n\nSimple Random Sample (SRS)\n\nSRSWR = Simple random sample with replacement\nSRS(WOR) = Simple random sample without replacement\n\nStratified random sample\nCluster sample\nSystematic sample\nProbability Proportional to Size (PPS)"
+  },
+  {
+    "objectID": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#slide-srs",
+    "href": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#slide-srs",
+    "title": "Course Intro: Vocabulary of Sampling",
+    "section": "Simple Random Sample (SRS)",
+    "text": "Simple Random Sample (SRS)\n\nSRS – every possible subset of \\(n\\) units in the population has the same chance of being in the sample\n\n\nNote: a necessary but not sufficient condition for an SRS is that every unit has equal probability of selection\n\nSubtypes:\n\nSimple random sample with replacement (SRSWR) – a unit could be selected into the sample more than once\n\n\nPick a unit each with equal probability, put it back, pick another unit\nSometimes called unrestricted random sampling (URS)\n\n\nSimple random sample without replacement (SRSWOR or just SRS) – a unit can only be selected into the sample once\n\n\nIn general when survey samplers say “SRS” we mean SRSWOR"
+  },
+  {
+    "objectID": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#slide-strat",
+    "href": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#slide-strat",
+    "title": "Course Intro: Vocabulary of Sampling",
+    "section": "Stratified Random Sample",
+    "text": "Stratified Random Sample\n\nStratified Random Sample – divide population into \\(H\\) distinct subgroups called strata, and take SRS from each stratum, with each SRS taken independently\n\n\nStrata must be mutually exclusive (each unit only belongs to 1 stratum)\nStrata must be exhaustive (all units belong to a stratum)\nStrata are often subgroups of interest\n\nPros/Cons:\n\nEnsures (at least some) elements are selected from each stratum (subgroups)\nCan reduce variance in overall estimates (increase precision) relative to an SRS\n\nIf differences among strata explain a significant proportion of the variability in the attribute of interest, gain in precision can be large\n\n\nAllocation Method - how much of the sample comes from each stratum (we will talk about this in depth later in the course)"
+  },
+  {
+    "objectID": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#slide-clus",
+    "href": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#slide-clus",
+    "title": "Course Intro: Vocabulary of Sampling",
+    "section": "Cluster Sample",
+    "text": "Cluster Sample\n\nCluster Sample – individual units in the population are aggregated into larger sampling units called clusters, and a sample of clusters is selected\n\n\nOften used when you do not have a full list of individual units in the population, but you do have a list of all clusters in the population (e.g., list of all residences but not names of all residents)\n\nSubtypes:\n\nOne-stage cluster sample – select all units from the selected clusters into the sample\n\n\nTwo-stage cluster sample – only select some units from the selected clusters into the sample\n\nPros/Cons:\n\nCan be less expensive to field compared to other designs (e.g., SRS)\nCan cause a decrease in precision relative to SRS, because units within a cluster tend to be similar"
+  },
+  {
+    "objectID": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#slide-sys",
+    "href": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#slide-sys",
+    "title": "Course Intro: Vocabulary of Sampling",
+    "section": "Systematic Sample",
+    "text": "Systematic Sample\n\nSystematic Sample – a starting point is chosen from a list of all population units, and that unit and each \\(k\\)th unit after that one on the list is chosen.\n\nPros/Cons:\n\nEasy to implement\nIf the list is randomly ordered, systematic sample will behave like an SRS and you can use analysis methods appropriate for an SRS\n\nA systematic sample is not an SRS, because all possible subsets of \\(n\\) units do not have the same probability of being sampled\n\nFor example, if the 100th unit is chosen, the 101st unit cannot be chosen – so the probability of a sample that contains both of these units is 0 (but the probability of other samples is &gt;0)\n\n\nSystematic sampling is technically a form of cluster sampling\n\nExample paper: Pinterest Homemade Sunscreens: A Recipe for Sunburn (Merten et al., 2010)"
+  },
+  {
+    "objectID": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#slide-pps",
+    "href": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#slide-pps",
+    "title": "Course Intro: Vocabulary of Sampling",
+    "section": "Probability Proportional to Size (PPS)",
+    "text": "Probability Proportional to Size (PPS)\n\nProbability Proportional to Size - the probability a unit is selected into the sample is directly proportional to a size measure that is known for all units before sampling\n\nPros/Cons:\n\nCan reduce variance when units vary substantially in size\nMust know the “size” of all units before sampling\n\nE.g., sampling counties in the U.S. using number of people who live there as the “size”\n\nOften used as part of a complex design, not as the only design feature"
+  },
+  {
+    "objectID": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#visualization",
+    "href": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#visualization",
+    "title": "Course Intro: Vocabulary of Sampling",
+    "section": "Visualization",
+    "text": "Visualization\n\nPopulation of \\(N = 100\\) individual units, want sample of \\(n = 20\\)\nStrata: 4, each with 25 units\nClusters: 20, each with 5 units"
+  },
+  {
+    "objectID": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#combining-design-features",
+    "href": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#combining-design-features",
+    "title": "Course Intro: Vocabulary of Sampling",
+    "section": "Combining Design Features",
+    "text": "Combining Design Features\n\nComplex Samples - surveys with more than one of these elements, e.g., stratified cluster sample, two-stage cluster sample\n\n\nOne specific feature you may encounter:\nEPSEM sampling - Equal Probability of Selection Method\n\nNot a specific sampling method, instead this refers to using a sampling technique that results in each population unit having the same probability of selection\nAlso called a self-weighting sample\nBy definition SRS and Systematic sampling are EPSEM; other designs can be as well (stratified, cluster, multistage)\nHistorically EPSEM samples were preferred due to computing limitations; now not so important (and often we want to oversample certain subgroups)"
+  },
+  {
+    "objectID": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#activity-1.1-part-2",
+    "href": "PUBHBIO7225/PUBHBIO7225_L01_vocab.html#activity-1.1-part-2",
+    "title": "Course Intro: Vocabulary of Sampling",
+    "section": "Activity 1.1 (Part 2)",
+    "text": "Activity 1.1 (Part 2)\nVocabulary of Survey Sampling (Part 2)"
   }
 ]
