@@ -3463,5 +3463,40 @@
     "title": "About",
     "section": "",
     "text": "This is a work in progress…."
+  },
+  {
+    "objectID": "PUBHBIO7225.html",
+    "href": "PUBHBIO7225.html",
+    "title": "PUBHBIO 7225 Lecture Slides",
+    "section": "",
+    "text": "Lecture 1: Course Intro: Vocabulary of Sampling\nLecture 2: Survey Modes and the Total Survey Error Framework\nLecture 3: Sampling Distributions\nLecture 4: Simple Random Sampling\nLecture 5: Simple Random Sampling: Software (Stata, R)\nLecture 6: Stratified Sampling\nLecture 7: Stratified Sampling: Allocation Methods\nLecture 8: Stratified Sampling: Software (Stata, R)\nLecture 9: Stratified Sampling: Sample Size and DEFF\nLecture 10: Poststratification\nLecture 11: Cluster Sampling: Intro and One-Stage\nLecture 12: Cluster Sampling: One-stage with Unequal Size Clusters\nLecture 13: Two-stage Cluster Sampling\nLecture 14: Probability Proportional to Size Sampling\nLecture 15: Complex Designs\nLecture 16: Domain Estimation\nLecture 17: Nonresponse: Intro to Missing Data\nLecture 18: Weighting Adjustments for Nonresponse in Surveys\nLecture 19: Imputation for Nonresponse in Surveys\nLecture 20: Linear Regression with Survey Data\nLecture 21: Logistic/Log-Binomial Regression with Survey Data\nLecture 22: Graphing Survey Data"
+  },
+  {
+    "objectID": "PUBHBIO7225.html#lecture-slides-for-pubhbio-7225-autumn-2025",
+    "href": "PUBHBIO7225.html#lecture-slides-for-pubhbio-7225-autumn-2025",
+    "title": "PUBHBIO 7225 Lecture Slides",
+    "section": "",
+    "text": "Lecture 1: Course Intro: Vocabulary of Sampling\nLecture 2: Survey Modes and the Total Survey Error Framework\nLecture 3: Sampling Distributions\nLecture 4: Simple Random Sampling\nLecture 5: Simple Random Sampling: Software (./PUBHBIO7225/Stata, R)\nLecture 6: Stratified Sampling\nLecture 7: Stratified Sampling: Allocation Methods\nLecture 8: Stratified Sampling: Software (./PUBHBIO7225/Stata, R)\nLecture 9: Stratified Sampling: Sample Size and DEFF\nLecture 10: Poststratification\nLecture 11: Cluster Sampling: Intro and One-Stage\nLecture 12: Cluster Sampling: One-stage with Unequal Size Clusters\nLecture 13: Two-stage Cluster Sampling\nLecture 14: Probability Proportional to Size Sampling\nLecture 15: Complex Designs\nLecture 16: Domain Estimation\nLecture 17: Nonresponse: Intro to Missing Data\nLecture 18: Weighting Adjustments for Nonresponse in Surveys\nLecture 19: Imputation for Nonresponse in Surveys\nLecture 20: Linear Regression with Survey Data\nLecture 21: Logistic/Log-Binomial Regression with Survey Data\nLecture 22: Graphing Survey Data"
+  },
+  {
+    "objectID": "PUBHBIO7225.html#miscellaneous-handouts",
+    "href": "PUBHBIO7225.html#miscellaneous-handouts",
+    "title": "PUBHBIO 7225 Lecture Slides",
+    "section": "Miscellaneous Handouts",
+    "text": "Miscellaneous Handouts\n\nProbability Review\nDerivation: SRS variance of the mean\nDerivation: Neyman Allocation\nDerivation: One-stage cluster sampling DEFF\nDerivation: Two-stage cluster sampling variance"
+  },
+  {
+    "objectID": "PUBHBIO7225.html#lecture-slides-autumn-2025",
+    "href": "PUBHBIO7225.html#lecture-slides-autumn-2025",
+    "title": "PUBHBIO 7225 Lecture Slides",
+    "section": "",
+    "text": "Lecture 1: Course Intro: Vocabulary of Sampling\nLecture 2: Survey Modes and the Total Survey Error Framework\nLecture 3: Sampling Distributions\nLecture 4: Simple Random Sampling\nLecture 5: Simple Random Sampling: Software (Stata, R)\nLecture 6: Stratified Sampling\nLecture 7: Stratified Sampling: Allocation Methods\nLecture 8: Stratified Sampling: Software (Stata, R)\nLecture 9: Stratified Sampling: Sample Size and DEFF\nLecture 10: Poststratification\nLecture 11: Cluster Sampling: Intro and One-Stage\nLecture 12: Cluster Sampling: One-stage with Unequal Size Clusters\nLecture 13: Two-stage Cluster Sampling\nLecture 14: Probability Proportional to Size Sampling\nLecture 15: Complex Designs\nLecture 16: Domain Estimation\nLecture 17: Nonresponse: Intro to Missing Data\nLecture 18: Weighting Adjustments for Nonresponse in Surveys\nLecture 19: Imputation for Nonresponse in Surveys\nLecture 20: Linear Regression with Survey Data\nLecture 21: Logistic/Log-Binomial Regression with Survey Data\nLecture 22: Graphing Survey Data"
+  },
+  {
+    "objectID": "PUBHBIO7225.html#miscellaneous-handouts-autumn-2025",
+    "href": "PUBHBIO7225.html#miscellaneous-handouts-autumn-2025",
+    "title": "PUBHBIO 7225 Lecture Slides",
+    "section": "Miscellaneous Handouts, Autumn 2025",
+    "text": "Miscellaneous Handouts, Autumn 2025\n\nProbability Review\nDerivation: SRS variance of the mean\nDerivation: Neyman Allocation\nDerivation: One-stage cluster sampling DEFF\nDerivation: Two-stage cluster sampling variance"
   }
 ]

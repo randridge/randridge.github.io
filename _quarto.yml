@@ -10,7 +10,7 @@ website:
         href: index.qmd
       - about.qmd
       - text: PUBHBIO 7225
-        href: 7225notes.qmd
+        href: PUBHBIO7225.qmd
       - text: CV
         href: RebeccaAndridge_CV.qmd
 
