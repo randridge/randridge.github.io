@@ -620,6 +620,7 @@ All are at The Ohio State University
 
 ### Invited: Local
 
+-   *Working with What’s Missing: Ethical Strategies for Incomplete Data*, OSU Center for Ethics and Human Values, CARE Panel (Conversations About Research Ethics), Virtual, February 2026
 -   *Problematic polls and suspect surveys: Assessing the potential for non-ignorable selection and nonresponse bias*, OSU Institute for Population Research Seminar, Columbus, OH, September 2024
 -   *The human element: Lessons from an ethics in biostatistics course* (with A Shoben), OSU Statistics Seminar, Columbus, OH, April 2024
 -   *Assessment plans in the curricular approval process* (with E Bielefeld), OSU Assessment Conference, Columbus, OH, October 2021
