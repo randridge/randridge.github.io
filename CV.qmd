@@ -1,6 +1,6 @@
 ---
 title: "Rebecca R. Andridge"
-
+date: "February 9, 2026"
 format:
   html:
     output-file: "CV.html"
@@ -45,7 +45,7 @@ self-contained: true
 *Phone:* (614) 247-7912\
 *E-mail:* [andridge.1\@osu.edu](mailto:andridge.1@osu.edu)\
 242 Cunz Hall, 1841 Neil Avenue, Columbus, OH 43210 USA\
-GitHub: [randridge](https://github.com/randridge)
+GitHub: [randridge](https://github.com/randridge)\
 
 ## RESEARCH INTERESTS
 
