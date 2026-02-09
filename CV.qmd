@@ -1,6 +1,8 @@
 ---
 title: "Rebecca R. Andridge"
-date: "February 9, 2026"
+date: today
+language:
+  title-block-published: "Last Updated"
 format:
   html:
     output-file: "CV.html"
