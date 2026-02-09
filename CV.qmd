@@ -3,7 +3,7 @@ title: "Rebecca R. Andridge"
 
 format:
   html:
-    output-file: "RebeccaAndridge_CV.html"
+    output-file: "CV.html"
     toc: true
     format-links: false
     other-links:

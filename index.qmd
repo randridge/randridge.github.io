@@ -15,4 +15,4 @@ Access my collection of lecture notes, data sets, and tutorial series for biosta
 
 ### Curriculum Vitae
 
-My [CV](./RebeccaAndridge_CV.qmd) is updated regularly to reflect recent publications, administrative roles, and service.
+My [CV](./CV.qmd) is updated regularly to reflect recent publications, administrative roles, and service.
