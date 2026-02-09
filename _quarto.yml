@@ -13,7 +13,7 @@ website:
       - text: "PUBHBIO 7225"
         href: PUBHBIO7225.qmd
       - text: "CV"
-        href: RebeccaAndridge_CV.qmd
+        href: CV.qmd
 
 format:
   html:
