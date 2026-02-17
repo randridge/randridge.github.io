@@ -195,6 +195,8 @@ All are at The Ohio State University
 
 ### Statistical Methodology
 
+*$^*$ = student advisee*
+
 1.  Martinez SD, West BT, **Andridge RR**. (2026) [Measures of non-ignorable selection bias for non-probability samples](https://isi-iass.org/home/wp-content/uploads/Survey_Statistician_2026_January_N93_05.pdf). *The Survey Statistician*, 93, 26-41. *(Editor Reviewed)*
 2.  **Andridge RR**, Song R$^*$, West BT. (2025) [A sensitivity analysis framework using the proxy pattern-mixture model for generalization of experimental results](https://doi.org/10.1002/sim.70313). *Statistics in Medicine*, 44:25-27, e70313.
 3.  **Andridge RR** (2024). [Using proxy pattern-mixture models to explain bias in estimates of COVID-19 vaccine uptake from two large surveys](https://doi.org/10.1093/jrsssa/qnae005). *Journal of the Royal Statistical Society -- Series A*, 187(3); 831-843.
@@ -222,7 +224,7 @@ All are at The Ohio State University
 
 **Under Review**
 
-1.  Adarkwah yiadom$^*$ S, **Andridge RR**. Formulating the proxy pattern-mixture model as a selection model to assist with sensitivity analysis. *Journal of Official Statistics*, revision requested (12/2025).
+1.  Adarkwah yiadom$^*$ S, **Andridge RR**. Formulating the proxy pattern-mixture model as a selection model to assist with sensitivity analysis. *Journal of Official Statistics*, revision submitted (2/2026).
 2.  West BT, **Andridge RR**. Improved mass imputation in probability samples via adjustment of imputation models based on non-probability samples for selection bias. *Journal of the Royal Statistical Society -- Series A*, revision requested (12/2025).
 
 ### Statistical Education
