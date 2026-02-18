@@ -852,6 +852,7 @@ All are at The Ohio State University unless otherwise specified
 
 ### PhD Dissertation Committee Member
 
+-   Sergio Martinez, Michigan Program in Survey and Data Science (University of Michigan), 2026 -- present
 -   Maria Pacheco Garrillo, Health Behavior and Health Promotion, 2025 -- present
 -   Megan Fisher, Clinical Psychology, 2025 -- present
 -   Georgia Sasser, Health Behavior and Health Promotion, 2025 -- present
