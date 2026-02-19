@@ -224,7 +224,7 @@ All are at The Ohio State University
 
 **Under Review**
 
-1.  Adarkwah yiadom$^*$ S, **Andridge RR**. Formulating the proxy pattern-mixture model as a selection model to assist with sensitivity analysis. *Journal of Official Statistics*, revision submitted (2/2026).
+1.  Adarkwah yiadom$^*$ S, **Andridge RR**. Re-expressing the proxy pattern-mixture model as a selection model to assist with sensitivity analysis. *Journal of Official Statistics*, revision submitted (2/2026).
 2.  West BT, **Andridge RR**. Improved mass imputation in probability samples via adjustment of imputation models based on non-probability samples for selection bias. *Journal of the Royal Statistical Society -- Series A*, revision requested (12/2025).
 
 ### Statistical Education
@@ -244,7 +244,7 @@ All are at The Ohio State University
 5.  Christian LM, **Andridge RR**, Peng J, Kasibhatla NP, McDade TW, Blevins T, Cole SW, Manning WD. Kamp Dush CM. (IN PRESS, 2025) [Sexual minority adults exhibit greater inflammation than heterosexual adults in the context of depressive symptoms and anxiety: Pathways to health disparities](https://doi.org/10.1016/j.bbi.2025.106202). *Brain, Behavior, and Immunity*.
 6.  Christian LM, **Andridge RR**, Peng J, McDade TW, Manning WD, Kamp Dush CM. (IN PRESS, 2025) Self-rated health and inflammation: Associations among sexual minority and heterosexual adults. *Health Psychology*.
 7.  Zvara BJ, Altenburger L, Keim SA, **Andridge R**, Anderson SE. (IN PRESS, 2025) [Family meals and behavioral development: The role of feeding strategies and mealtime emotional climate.](https://doi.org/10.1037/fam0001430) *Journal of Family Psychology*.
-8.  Ingol T, Anderson SE, Rausch J, **Andridge R**, Zvara B, Keim S. Maternal weight trajectories from pre-pregnancy through postpartum and childhood obesity risk at 24 months of age: A group-based trajectory modeling analysis. (IN PRESS, 2025) *Journal of Child Science*.
+8.  Ingol T, Anderson SE, Rausch J, **Andridge R**, Zvara BJ, Keim SA. (2025) Maternal weight trajectories from pre-pregnancy through postpartum and childhood obesity risk at 24 months of age: A group-based trajectory modeling analysis. *Journal of Child Science*, 15(1); 56-69.
 9.  Luff A, Nguyen N, Luong T, Hayford S, Norris A, Casterline J, **Andridge R**, Gallo M. (2025) [Association between negative pregnancy desires and recent condomless sex among couples in Vietnam](https://doi.org/10.1080/00224499.2025.2530230). *The Journal of Sex Research*, Jul 22:1-8.
 10. Seng M, Adarkwah Yiadom S, Otto-Dobos LD, Sardesai SD, Williams N, Gatti-Mays ME, Stover DG, Wesolowski R, Way BM, Glasper ER, **Andridge RR**, Pyter LM (2025). [The role of oxytocin in mediating the relationships between social factors and chemotherapy-associated cognitive decline in female patients with breast cancer](https://doi.org/10.1016/j.psyneuen.2025.107428). *Psychoneuroendocrinology*, 176, 107428.
 11. Morgan E, Kamp Dush CM, McDade TW, Peng J, **Andridge RR**, Cole SW, Manning W, Christian LM (2025). [LGBTQ+ identity and its association with inflammation and cellular immune function](https://doi.org/10.1016/j.bbi.2025.02.032). *Brain, Behavior and Immunity*, 126; 333-341.
