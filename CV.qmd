@@ -241,7 +241,7 @@ All are at The Ohio State University
 2.  del Aguila A, Strehle LD, Adarkwah Yiadom S, Sardesai SD, Williams NO, Gatti-Mays ME, Stover DG, Sudheendra PK, Wesolowski R, Gorka SM; **Andridge RR**, Pyter LM. (2026) [Chemotherapy-induced estradiol reduction is associated with less relief of pre-chemotherapy anxiety in breast cancer patients](https://doi.org/10.1016/j.psyneuen.2026.107749). *Psychoneuroendocrinology*, 186, 107749.
 3.  Hollway J, Sanford C, **Andridge R**, Arnold LE, Sinclair J, Cobranchi C, Cameto R, Benson B, Seeley J, Havercamp S. (2026) [Preliminary psychometric findings and feasibility of the Diagnostic Interview for Adolescents and Adults with Intellectual Disability (DIAAID): An interview schedule of mental disorders](http://dx.doi.org/10.1111/jar.70168). *Journal of Applied Research in Intellectual Disabilities*, 39(1); e70168.
 4.  Prakash R, Phansikar M, Fisher ME, Dove S, **Andridge R**, Scharre D, Wright KD, Head E, O'Callaghan C, Meyerson QK, Duraney EJ, Schroeder M, Chakrapani N, Grant E, Jones T, Teng J, Esterman M, Smyth JM, Gregoire T, Malhas R (IN PRESS, 2025). [Feasibility of Internet-based Mind-Body Training (iMBT) for adults with subjective cognitive decline: Protocol for a randomized controlled trial](https://doi.org/10.2196/86276). *JMIR Research Protocols*, preprint online.
-5.  Christian LM, **Andridge RR**, Peng J, Kasibhatla NP, McDade TW, Blevins T, Cole SW, Manning WD. Kamp Dush CM. (IN PRESS, 2025) [Sexual minority adults exhibit greater inflammation than heterosexual adults in the context of depressive symptoms and anxiety: Pathways to health disparities](https://doi.org/10.1016/j.bbi.2025.106202). *Brain, Behavior, and Immunity*.
+5.  Christian LM, **Andridge RR**, Peng J, Kasibhatla NP, McDade TW, Blevins T, Cole SW, Manning WD. Kamp Dush CM. (IN PRESS, 2025) [Sexual minority adults exhibit greater inflammation than heterosexual adults in the context of depressive symptoms and anxiety: Pathways to health disparities](https://doi.org/10.1016/j.bbi.2025.106202). *Brain, Behavior, and Immunity*, 133; 106202.
 6.  Christian LM, **Andridge RR**, Peng J, McDade TW, Manning WD, Kamp Dush CM. (IN PRESS, 2025) Self-rated health and inflammation: Associations among sexual minority and heterosexual adults. *Health Psychology*.
 7.  Zvara BJ, Altenburger L, Keim SA, **Andridge R**, Anderson SE. (IN PRESS, 2025) [Family meals and behavioral development: The role of feeding strategies and mealtime emotional climate.](https://doi.org/10.1037/fam0001430) *Journal of Family Psychology*.
 8.  Ingol T, Anderson SE, Rausch J, **Andridge R**, Zvara BJ, Keim SA. (2025) Maternal weight trajectories from pre-pregnancy through postpartum and childhood obesity risk at 24 months of age: A group-based trajectory modeling analysis. *Journal of Child Science*, 15(1); 56-69.
@@ -734,6 +734,7 @@ All are at The Ohio State University
 ### College (Ohio State)
 
 -   Chair, Undergraduate Academic Programs Committee, 2024 -- present
+-   Member, Strategic Planning Steering Committee, 2026 (Co-lead, Academics workgroup)
 -   Chair, MPH Integrated Foundational Curriculum Workgroup, 2024
 -   Member (Chair 2023-2024), Peer Teaching Evaluation Committee, 2022 -- 2024
 -   Member, CPH Awards and Scholarship Committee, 2021 -- 2022
