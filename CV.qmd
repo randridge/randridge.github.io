@@ -225,8 +225,8 @@ All are at The Ohio State University
 
 **Under Review**
 
-1.  Adarkwah yiadom$^*$ S, **Andridge RR**. Re-expressing the proxy pattern-mixture model as a selection model to assist with sensitivity analysis. *Journal of Official Statistics*, revision submitted (2/2026).
-2.  West BT, **Andridge RR**. Improved mass imputation in probability samples via adjustment of imputation models based on non-probability samples for selection bias. *Journal of the Royal Statistical Society -- Series A*, revision requested (12/2025).
+1.  Adarkwah yiadom$^*$ S, **Andridge RR**. Re-expressing the proxy pattern-mixture model as a selection model to assist with sensitivity analysis. *Journal of Official Statistics*, second revision requested (3/2026).
+2.  West BT, **Andridge RR**. Improved mass imputation in probability samples via adjustment of imputation models based on non-probability samples for selection bias. *Journal of the Royal Statistical Society -- Series A*, revision submitted (12/2025).
 
 ### Statistical Education
 
@@ -399,9 +399,9 @@ All are at The Ohio State University
 **Under Review**
 
 1.  Christian LM, Blevins T, **Andridge RR**, Peng J, McDade TW, Cole SW, Manning WD, Kamp Dush CM. Positive and negative coping behaviors: Associations with immune function in a sexually diverse US sample. *PLOS One*, submitted (2026).
-3.  Stough CO, Khalsa AS, Bradley R, Garr K, Keim SA, Zvara B, **Andridge R**, Anderson SE. Brief report: Caregiver and family factors related to life’s essential 8 in young children. *Academic Pediatrics*, submitted (2025).
-4.  Madison AA, Belury MA, **Andridge R**, Wilson SJ, Shrout MR, Jaremka L, Fagundes CP, Malarkey WB, Kiecolt-Glaser JK. A high saturated fat meal reduces constructive conflict behavior: A randomized-to-sequence crossover trial. *Nature Communications*, submitted (2025).
-5.  Wilson SJ, Madison AA, Shrout MR, Christian LM, Epel ES, Burd CE, Lin J, Molli S, **Andridge R**, Reis H, Kiecolt-Glaser JK. A double-edged sword: Marital quality, biological aging, and the role of couples' health behaviors. *Brain, Behavior, and Immunity*, revision requested (2025).
+3.  Stough CO, Khalsa AS, Bradley R, Garr K, Keim SA, Zvara B, **Andridge R**, Anderson SE. Caregiver and Family Factors Related to Life’s Essential 8 in Young Children. *Journal of Pediatric Health Care*, submitted (2026).
+4.  Wilson SJ, Madison AA, Shrout MR, Christian LM, Epel ES, Burd CE, Lin J, Molli S, **Andridge R**, Reis H, Kiecolt-Glaser JK. A double-edged sword: Marital quality, biological aging, and the role of couples' health behaviors. *Brain, Behavior, and Immunity*, second revision requested (2026).
+5.  Madison AA, Belury MA, **Andridge R**, Wilson SJ, Shrout MR, Jaremka L, Fagundes CP, Malarkey WB, Kiecolt-Glaser JK. A high saturated fat meal reduces constructive conflict behavior: A randomized-to-sequence crossover trial. *Nature Communications*, submitted (2025).
 6.  Kruse AB, Anderson SE, **Andridge R**, Keim SA, Zvara B. Family mealtime structure, child behavior at meals, use of food as a reward, and obesity in preschool-aged children: A cross sectional analysis from the Play & Grow Study, *Journal of Pediatric Health Care*, submitted (2025).
 7.  Shively KB, Tasse MJ, **Andridge RR**. Psychometric properties of the Nisonger Child Behavior Rating Form-2: Parent Scale. *American Journal on Intellectual and Developmental Disabilities*, revision requested (2025).
 
@@ -688,6 +688,7 @@ All are at The Ohio State University
 
 ### Guest Lectures
 
+-   *Online Panel on Teaching (with K Grinde)*, BIOS 834: Pedagogical Methods for Biostatistics Courses, University of Michigan School of Public Health, 3/2026
 -   *Online Panel on Teaching (with K Grinde)*, BIOS 834: Pedagogical Methods for Biostatistics Courses, University of Michigan School of Public Health, 3/2024
 -   *Guest speaker discussing missing data and imputation methods*, VETPREV 8725: Quantitative Methods Capstone, The Ohio State University, 1/2023
 -   *Online Panel on Teaching (with N Tintle)*, BIOS 834: Pedagogical Methods for Biostatistics Courses, University of Michigan School of Public Health, 3/2022
@@ -886,6 +887,8 @@ All are at The Ohio State University unless otherwise specified
 
 ### PhD Candidacy Exam Committee Member
 
+-   Mary Hazlett, Health and Rehabilitation Sciences, 2025 -- present
+-   Jeongjin Lee, Biostatistics, 2026 -- present
 -   Patrick McHugh, Statistics, 2025
 -   Fandi Chang, Biostatistics, 2025 -- present
 -   Maria Pacheco Garrillo, Health Behavior and Health Promotion, 2025
@@ -919,6 +922,7 @@ All are at The Ohio State University unless otherwise specified
 
 ### MS Thesis/MPH Project Advisor
 
+-   Liz Fry, Biostatistics MPH, 2025 -- present
 -   Blake Madison, Biostatistics MS, 2024 -- 2025
 -   Roy Chang, Biostatistics MS, 2024 -- 2025
 -   Kyle Jagodinski, Biostatistics MPH, 2024 -- 2025
