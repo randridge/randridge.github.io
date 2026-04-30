@@ -857,6 +857,7 @@ All are at The Ohio State University unless otherwise specified
 
 ### PhD Dissertation Committee Member
 
+-   Patrick McHugh, Statistics, 2026 -- present
 -   Sergio Martinez, Michigan Program in Survey and Data Science (University of Michigan), 2026 -- present
 -   Maria Pacheco Garrillo, Health Behavior and Health Promotion, 2025 -- present
 -   Megan Fisher, Clinical Psychology, 2025 -- present
@@ -888,8 +889,10 @@ All are at The Ohio State University unless otherwise specified
 
 ### PhD Candidacy Exam Committee Member
 
+-   Gloria Lee, Health Services Management and Policy, 2026 -- present
 -   Mary Hazlett, Health and Rehabilitation Sciences, 2025 -- present
 -   Jeongjin Lee, Biostatistics, 2026 -- present
+-   Julie Strominger, Epidemiology, 2026 -- present
 -   Patrick McHugh, Statistics, 2025
 -   Fandi Chang, Biostatistics, 2025 -- present
 -   Maria Pacheco Garrillo, Health Behavior and Health Promotion, 2025
