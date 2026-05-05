@@ -225,7 +225,7 @@ All are at The Ohio State University
 
 **Under Review**
 
-1.  Adarkwah yiadom$^*$ S, **Andridge RR**. Re-expressing the proxy pattern-mixture model as a selection model to assist with sensitivity analysis. *Journal of Official Statistics*, second revision requested (3/2026).
+1.  Adarkwah yiadom$^*$ S, **Andridge RR**. Re-expressing the proxy pattern-mixture model as a selection model to assist with sensitivity analysis. *Journal of Official Statistics*, second revision submitted (4/2026).
 2.  West BT, **Andridge RR**. Improved mass imputation in probability samples via adjustment of imputation models based on non-probability samples for selection bias. *Journal of the Royal Statistical Society -- Series A*, revision submitted (12/2025).
 
 ### Statistical Education
@@ -234,18 +234,18 @@ All are at The Ohio State University
 
 **Under Review**
 
-1.  Kalish A, Todd A, Daly M, Martin A, Montalto C, Krissek L, **Andridge R**, Kwiek N, Bowles W, Weaver L, Smith WR. Developing a new general education program. *Journal of General Education: A Curricular Commons of the Humanities and Sciences*, submitted.
+1.  Kalish A, Todd A, Daly M, Martin A, Montalto C, Krissek L, **Andridge R**, Kwiek N, Bowles W, Weaver L, Smith WR. Developing a new general education program. *Journal of General Education: A Curricular Commons of the Humanities and Sciences*, revision requested.
 
 ### Biomedical Applications
 
-1.   Madison AA, Kamp Dush CM, McDade TW, Peng J, **Andridge RR**, Cole SW, Blevins T, Kasibhatla N, Manning W, Christian LM (FORMALLY ACCEPTED) Social support, loneliness and inflammation in LGB+ subgroups: Health disparities in a partnered U.S. cohort. *Biopsychosocial Science and Medicine*.
+1.   Madison AA, Kamp Dush CM, McDade TW, Peng J, **Andridge RR**, Cole SW, Blevins T, Kasibhatla N, Manning W, Christian LM (2026) [Social support, loneliness, and inflammation in LGB+ subgroups: Health disparities in a partnered U.S. cohort.](https://doi.org/10.1097/psy.0000000000001476) *Biopsychosocial Science and Medicine*, 88(4), 369-378.
 1.  Tasse MJ, Schalock RL, Navas P, **Andridge R**, Balboni G (FORMALLY ACCEPTED) Using the Diagnostic Adaptive Behavior Scale to confirm the tripartite factor structure of adaptive behavior. *American Journal on Intellectual and Developmental Disabilities*.
 1.  Fisher M, Phansikar M, Teng J, McPherson N, Duraney E, McKenna M, Shankar A, Blau C, Canter R, Roberts C, Aghamoosa S, Wright K, **Andridge R**, Prakash R (2026) [Effects of mindfulness training on sustained attention and mind-wandering in older adults: A randomized controlled trial.](https://doi.org/10.1093/geronb/gbaf235) *The Journals of Gerontology, Series B: Psychological Sciences and Social Sciences*, 81(2):gbaf235.
 2.  del Aguila A, Strehle LD, Adarkwah Yiadom S, Sardesai SD, Williams NO, Gatti-Mays ME, Stover DG, Sudheendra PK, Wesolowski R, Gorka SM, **Andridge RR**, Pyter LM (2026) [Chemotherapy-induced estradiol reduction is associated with less relief of pre-chemotherapy anxiety in breast cancer patients](https://doi.org/10.1016/j.psyneuen.2026.107749). *Psychoneuroendocrinology*, 186, 107749.
 3.  Hollway J, Sanford C, **Andridge R**, Arnold LE, Sinclair J, Cobranchi C, Cameto R, Benson B, Seeley J, Havercamp S (2026) [Preliminary psychometric findings and feasibility of the Diagnostic Interview for Adolescents and Adults with Intellectual Disability (DIAAID): An interview schedule of mental disorders](http://dx.doi.org/10.1111/jar.70168). *Journal of Applied Research in Intellectual Disabilities*, 39(1); e70168.
 4.  Prakash R, Phansikar M, Fisher ME, Dove S, **Andridge R**, Scharre D, Wright KD, Head E, O'Callaghan C, Meyerson QK, Duraney EJ, Schroeder M, Chakrapani N, Grant E, Jones T, Teng J, Esterman M, Smyth JM, Gregoire T, Malhas R (IN PRESS, 2025). [Feasibility of Internet-based Mind-Body Training (iMBT) for adults with subjective cognitive decline: Protocol for a randomized controlled trial](https://doi.org/10.2196/86276). *JMIR Research Protocols*, preprint online.
 5.  Christian LM, **Andridge RR**, Peng J, Kasibhatla NP, McDade TW, Blevins T, Cole SW, Manning WD, Kamp Dush CM (IN PRESS, 2025) [Sexual minority adults exhibit greater inflammation than heterosexual adults in the context of depressive symptoms and anxiety: Pathways to health disparities](https://doi.org/10.1016/j.bbi.2025.106202). *Brain, Behavior, and Immunity*, 133; 106202.
-6.  Christian LM, **Andridge RR**, Peng J, McDade TW, Manning WD, Kamp Dush CM. (IN PRESS, 2025) Self-rated health and inflammation: Associations among sexual minority and heterosexual adults. *Health Psychology*.
+6.  Christian LM, **Andridge RR**, Peng J, McDade TW, Manning WD, Kamp Dush CM. (IN PRESS, 2025) [Self-rated health and inflammation: Associations among sexual minority and heterosexual adults.](https://doi.org/10.1037/hea0001594) *Health Psychology*.
 7.  Zvara BJ, Altenburger L, Keim SA, **Andridge R**, Anderson SE. (IN PRESS, 2025) [Family meals and behavioral development: The role of feeding strategies and mealtime emotional climate.](https://doi.org/10.1037/fam0001430) *Journal of Family Psychology*.
 8.  Ingol T, Anderson SE, Rausch J, **Andridge R**, Zvara BJ, Keim SA. (2025) Maternal weight trajectories from pre-pregnancy through postpartum and childhood obesity risk at 24 months of age: A group-based trajectory modeling analysis. *Journal of Child Science*, 15(1); 56-69.
 9.  Luff A, Nguyen N, Luong T, Hayford S, Norris A, Casterline J, **Andridge R**, Gallo M. (2025) [Association between negative pregnancy desires and recent condomless sex among couples in Vietnam](https://doi.org/10.1080/00224499.2025.2530230). *The Journal of Sex Research*, Jul 22:1-8.
