@@ -128,9 +128,11 @@ University of Michigan
 -   Biostatistics for Public Health Research (PUBHBIO 2210)
     -   Spring 2013, Autumn 2013, Spring 2015
     -   Student Evaluation of Instruction (SEI) overall scores (out of 5): 5, 4.9, 5
--   Public Health Capstone (Internship/Research) (PUBHLTH 3191/3999)
+-   Public Health Capstone (Internship/Research) (PUBHLTH 4191/4998 [formerly 3191/3999])
     -   Autumn 2024
     -   SEI overall scores (out of 5): 4.7
+-   Undergraduate Internship in Public Health (PUBHLTH 3191)
+    -   Summer 2026
 
 #### Graduate
 
@@ -238,13 +240,14 @@ All are at The Ohio State University
 
 ### Biomedical Applications
 
+1.  Wilson SJ, Madison AA, Shrout MR, Christian LM, Epel ES, Burd CE, Lin J, Molli SH, **Andridge R**, Reis HT, Kiecolt-Glaser JK (IN PRESS). Is a happy marriage a double-edged sword for biological aging? Preliminary evidence for the moderating role of couples’ health behaviors. *Brain, Behavior, and Immunity*.
 1.   Madison AA, Kamp Dush CM, McDade TW, Peng J, **Andridge RR**, Cole SW, Blevins T, Kasibhatla N, Manning W, Christian LM (2026) [Social support, loneliness, and inflammation in LGB+ subgroups: Health disparities in a partnered U.S. cohort.](https://doi.org/10.1097/psy.0000000000001476) *Biopsychosocial Science and Medicine*, 88(4), 369-378.
 1.  Tassé MJ, Schalock RL, Navas P, **Andridge RR**, Balboni G (2026) [Using the Diagnostic Adaptive Behavior Scale to confirm the tripartite factor structure of adaptive behavior.](https://doi.org/10.1080/19447515.2026.2669462) *American Journal on Intellectual and Developmental Disabilities*.
 1.  Fisher M, Phansikar M, Teng J, McPherson N, Duraney E, McKenna M, Shankar A, Blau C, Canter R, Roberts C, Aghamoosa S, Wright K, **Andridge R**, Prakash R (2026) [Effects of mindfulness training on sustained attention and mind-wandering in older adults: A randomized controlled trial.](https://doi.org/10.1093/geronb/gbaf235) *The Journals of Gerontology, Series B: Psychological Sciences and Social Sciences*, 81(2):gbaf235.
 2.  del Aguila A, Strehle LD, Adarkwah Yiadom S, Sardesai SD, Williams NO, Gatti-Mays ME, Stover DG, Sudheendra PK, Wesolowski R, Gorka SM, **Andridge RR**, Pyter LM (2026) [Chemotherapy-induced estradiol reduction is associated with less relief of pre-chemotherapy anxiety in breast cancer patients](https://doi.org/10.1016/j.psyneuen.2026.107749). *Psychoneuroendocrinology*, 186, 107749.
 3.  Hollway J, Sanford C, **Andridge R**, Arnold LE, Sinclair J, Cobranchi C, Cameto R, Benson B, Seeley J, Havercamp S (2026) [Preliminary psychometric findings and feasibility of the Diagnostic Interview for Adolescents and Adults with Intellectual Disability (DIAAID): An interview schedule of mental disorders](http://dx.doi.org/10.1111/jar.70168). *Journal of Applied Research in Intellectual Disabilities*, 39(1); e70168.
-4.  Prakash R, Phansikar M, Fisher ME, Dove S, **Andridge R**, Scharre D, Wright KD, Head E, O'Callaghan C, Meyerson QK, Duraney EJ, Schroeder M, Chakrapani N, Grant E, Jones T, Teng J, Esterman M, Smyth JM, Gregoire T, Malhas R (IN PRESS, 2025). [Feasibility of Internet-based Mind-Body Training (iMBT) for adults with subjective cognitive decline: Protocol for a randomized controlled trial](https://doi.org/10.2196/86276). *JMIR Research Protocols*, preprint online.
-5.  Christian LM, **Andridge RR**, Peng J, Kasibhatla NP, McDade TW, Blevins T, Cole SW, Manning WD, Kamp Dush CM (IN PRESS, 2025) [Sexual minority adults exhibit greater inflammation than heterosexual adults in the context of depressive symptoms and anxiety: Pathways to health disparities](https://doi.org/10.1016/j.bbi.2025.106202). *Brain, Behavior, and Immunity*, 133; 106202.
+4.  Prakash R, Phansikar M, Fisher ME, Dove S, **Andridge R**, Scharre D, Wright KD, Head E, O'Callaghan C, Meyerson QK, Duraney EJ, Schroeder M, Chakrapani N, Grant E, Jones T, Teng J, Esterman M, Smyth JM, Gregoire T, Malhas R (2026). [Feasibility of Internet-based Mind-Body Training (iMBT) for adults with subjective cognitive decline: Protocol for a randomized controlled trial](https://doi.org/10.2196/86276). *JMIR Research Protocols*, 15:e86276.
+5.  Christian LM, **Andridge RR**, Peng J, Kasibhatla NP, McDade TW, Blevins T, Cole SW, Manning WD, Kamp Dush CM (2026) [Sexual minority adults exhibit greater inflammation than heterosexual adults in the context of depressive symptoms and anxiety: Pathways to health disparities](https://doi.org/10.1016/j.bbi.2025.106202). *Brain, Behavior, and Immunity*, 133; 106202.
 6.  Christian LM, **Andridge RR**, Peng J, McDade TW, Manning WD, Kamp Dush CM. (IN PRESS, 2025) [Self-rated health and inflammation: Associations among sexual minority and heterosexual adults.](https://doi.org/10.1037/hea0001594) *Health Psychology*.
 7.  Zvara BJ, Altenburger L, Keim SA, **Andridge R**, Anderson SE. (IN PRESS, 2025) [Family meals and behavioral development: The role of feeding strategies and mealtime emotional climate.](https://doi.org/10.1037/fam0001430) *Journal of Family Psychology*.
 8.  Ingol T, Anderson SE, Rausch J, **Andridge R**, Zvara BJ, Keim SA. (2025) Maternal weight trajectories from pre-pregnancy through postpartum and childhood obesity risk at 24 months of age: A group-based trajectory modeling analysis. *Journal of Child Science*, 15(1); 56-69.
@@ -404,7 +407,6 @@ All are at The Ohio State University
 1. Tapp Z, Beales JT, Adarkwah Yiadom S, Sardesai SD, Williams NO, Gatti-Mays ME, Stover DG, Sudheendra PK, Dawson E, Wesolowski R, **Andridge RR**, Pyter LM. Chemotherapy-induced sleep disturbances mediate circulating IL-1$\beta$ effects on subjective cognitive decline in breast cancer patients. *Brain, Behavior, and Immunity*, submitted (2026).
 2.  Christian LM, Blevins T, **Andridge RR**, Peng J, McDade TW, Cole SW, Manning WD, Kamp Dush CM. Positive and negative coping behaviors: Associations with immune function in a sexually diverse US sample. *PLOS One*, submitted (2026).
 3.  Stough CO, Khalsa AS, Bradley R, Garr K, Keim SA, Zvara B, **Andridge R**, Anderson SE. Caregiver and Family Factors Related to Life’s Essential 8 in Young Children. *Journal of Pediatric Health Care*, submitted (2026).
-4.  Wilson SJ, Madison AA, Shrout MR, Christian LM, Epel ES, Burd CE, Lin J, Molli S, **Andridge R**, Reis H, Kiecolt-Glaser JK. A double-edged sword: Marital quality, biological aging, and the role of couples' health behaviors. *Brain, Behavior, and Immunity*, second revision requested (2026).
 5.  Madison AA, Belury MA, **Andridge R**, Wilson SJ, Shrout MR, Jaremka L, Fagundes CP, Malarkey WB, Kiecolt-Glaser JK. A high saturated fat meal reduces constructive conflict behavior: A randomized-to-sequence crossover trial. *Nature Communications*, submitted (2025).
 6.  Kruse AB, Anderson SE, **Andridge R**, Keim SA, Zvara B. Family mealtime structure, child behavior at meals, use of food as a reward, and obesity in preschool-aged children: A cross sectional analysis from the Play & Grow Study, *Journal of Pediatric Health Care*, submitted (2025).
 
@@ -866,7 +868,6 @@ All are at The Ohio State University unless otherwise specified
 -   Maria Pacheco Garrillo, Health Behavior and Health Promotion, 2025 -- present
 -   Megan Fisher, Clinical Psychology, 2025 -- present
 -   Georgia Sasser, Health Behavior and Health Promotion, 2025 -- present
--   Lingpeng (Andrew) Shan, Biostatistics, 2024 -- present
 -   Sean Tomlin, Biostatistics, 2024 -- 2025
 -   Alyssa Farmer, Biostatistics, 2022 -- 2023
 -   Amanda Luff, Epidemiology, 2021 -- 2023
@@ -930,7 +931,7 @@ All are at The Ohio State University unless otherwise specified
 
 ### MS Thesis/MPH Project Advisor
 
--   Liz Fry, Biostatistics MPH, 2025 -- present
+-   Liz Fry, Biostatistics MPH, 2025 -- 2025
 -   Blake Madison, Biostatistics MS, 2024 -- 2025
 -   Roy Chang, Biostatistics MS, 2024 -- 2025
 -   Kyle Jagodinski, Biostatistics MPH, 2024 -- 2025
