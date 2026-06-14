@@ -228,7 +228,7 @@ All are at The Ohio State University
 
 **Under Review**
 
-1.  West BT, **Andridge RR**. Improved mass imputation in probability samples via adjustment of imputation models based on non-probability samples for selection bias. *Journal of the Royal Statistical Society -- Series A*, revision submitted (12/2025).
+1.  West BT, **Andridge RR**. Improved mass imputation in probability samples via adjustment of imputation models based on non-probability samples for selection bias. *Journal of the Royal Statistical Society -- Series A*, second revision requested (6/2026).
 
 ### Statistical Education
 
