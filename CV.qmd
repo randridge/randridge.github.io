@@ -200,7 +200,7 @@ All are at The Ohio State University
 
 *$^*$ = student advisee*
 
-1.  Adarkwah Yiadom$^*$ S, **Andridge RR**. (IN PRESS) Re-expressing the proxy pattern-mixture model as a selection model to assist with sensitivity analysis. *Journal of Official Statistics*, formally accepted (5/2026).
+1.  Adarkwah Yiadom$^*$ S, **Andridge RR**. (2026) [Re-expressing the proxy pattern-mixture model as a selection model to assist with sensitivity analysis](https://journals.sagepub.com/doi/10.1177/0282423X261457501). *Journal of Official Statistics*, online ahead of print.
 1.  Martinez SD, West BT, **Andridge RR**. (2026) [Measures of non-ignorable selection bias for non-probability samples](https://isi-iass.org/home/wp-content/uploads/Survey_Statistician_2026_January_N93_05.pdf). *The Survey Statistician*, 93, 26-41. *(Editor Reviewed)*
 2.  **Andridge RR**, Song R$^*$, West BT. (2025) [A sensitivity analysis framework using the proxy pattern-mixture model for generalization of experimental results](https://doi.org/10.1002/sim.70313). *Statistics in Medicine*, 44:25-27, e70313.
 3.  **Andridge RR** (2024). [Using proxy pattern-mixture models to explain bias in estimates of COVID-19 vaccine uptake from two large surveys](https://doi.org/10.1093/jrsssa/qnae005). *Journal of the Royal Statistical Society -- Series A*, 187(3); 831-843.
@@ -453,11 +453,11 @@ All are at The Ohio State University
     Spousal dementia caregivers: Risk for accelerated aging\
     Co-Investigator (10%)
 
-### Pending
+<!-- ### Pending -->
 
--   **NIH R01** (MPI: Elliott and Andridge) `#h(1fr)`{=typst} [Submitted 10/2025]{.cvdate}\
-    Generalizing causal inference to populations under potentially biased assignment and selection mechanisms\
-    (Multi-)Principal Investigator (15% support)
+<!-- -   **NIH R01** (MPI: Elliott and Andridge) `#h(1fr)`{=typst} [Submitted 10/2025]{.cvdate}\ -->
+<!--     Generalizing causal inference to populations under potentially biased assignment and selection mechanisms\ -->
+<!--     (Multi-)Principal Investigator (15% support) -->
 
 ### Completed
 
