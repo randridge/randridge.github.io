@@ -228,7 +228,7 @@ All are at The Ohio State University
 
 **Under Review**
 
-1.  West BT, **Andridge RR**. Improved mass imputation in probability samples via adjustment of imputation models based on non-probability samples for selection bias. *Journal of the Royal Statistical Society -- Series A*, second revision requested (6/2026).
+1.  West BT, **Andridge RR**. Improved mass imputation in probability samples via adjustment of imputation models based on non-probability samples for selection bias. *Journal of the Royal Statistical Society -- Series A*, second revision submitted (7/2026).
 
 ### Statistical Education
 
@@ -402,12 +402,12 @@ All are at The Ohio State University
 
 **Under Review**
 
-1. Phansikar M, Fisher ME, Duraney EJ, Shankar A, McPherson N, Canter R, Aghamoosa S, **Andridge R**, Prakash R. Efficacy of mindfulness-based stress reduction for improving fluid and everyday cognitive functioning in older adults: Results from the Healthy Agers randomized controlled trial. *Mindfulness*, revision requested (2026).
+1. Phansikar M, Fisher ME, Duraney EJ, Shankar A, McPherson N, Canter R, Aghamoosa S, **Andridge R**, Prakash R. Efficacy of mindfulness-based stress reduction for improving fluid and everyday cognitive functioning in older adults: Results from the Healthy Agers randomized controlled trial. *Mindfulness*, second revision requested (2026).
 1.  Shively KB, Tassé MJ, Das T, **Andridge RR**. Psychometric properties of the Nisonger Child Behavior Rating Form-2: Parent Scale. *American Journal on Intellectual and Developmental Disabilities*, revision submitted (2026).
 1. Tapp Z, Beales JT, Adarkwah Yiadom S, Sardesai SD, Williams NO, Gatti-Mays ME, Stover DG, Sudheendra PK, Dawson E, Wesolowski R, **Andridge RR**, Pyter LM. Chemotherapy-induced sleep disturbances mediate circulating IL-1$\beta$ effects on subjective cognitive decline in breast cancer patients. *Brain, Behavior, and Immunity*, submitted (2026).
-2.  Christian LM, Blevins T, **Andridge RR**, Peng J, McDade TW, Cole SW, Manning WD, Kamp Dush CM. Positive and negative coping behaviors: Associations with immune function in a sexually diverse US sample. *PLOS One*, submitted (2026).
+2.  Christian LM, Blevins T, **Andridge RR**, Peng J, McDade TW, Cole SW, Manning WD, Kamp Dush CM. Positive and negative coping behaviors: Associations with immune function in a sexually diverse US sample. *PLOS One*, revision submitted (2026).
 3.  Stough CO, Khalsa AS, Bradley R, Garr K, Keim SA, Zvara B, **Andridge R**, Anderson SE. Caregiver and Family Factors Related to Life’s Essential 8 in Young Children. *Journal of Pediatric Health Care*, submitted (2026).
-5.  Madison AA, Belury MA, **Andridge R**, Wilson SJ, Shrout MR, Jaremka L, Fagundes CP, Malarkey WB, Kiecolt-Glaser JK. A high saturated fat meal reduces constructive conflict behavior: A randomized-to-sequence crossover trial. *Nature Communications*, submitted (2025).
+5.  Madison AA, Belury MA, **Andridge R**, Wilson SJ, Shrout MR, Jaremka L, Fagundes CP, Malarkey WB, Kiecolt-Glaser JK. A high saturated fat meal reduces constructive conflict behavior: A randomized-to-sequence crossover trial. *Molecular Psychiatry*, submitted (2025).
 6.  Kruse AB, Anderson SE, **Andridge R**, Keim SA, Zvara B. Family mealtime structure, child behavior at meals, use of food as a reward, and obesity in preschool-aged children: A cross sectional analysis from the Play & Grow Study, *Journal of Pediatric Health Care*, submitted (2025).
 
 ## OTHER PUBLICATIONS
@@ -806,7 +806,7 @@ All are at The Ohio State University
 
 ### Data Safety and Monitoring Board (DSMB) Membership
 
--   DSMB Member, National Institute of Aging IMPACT (Imbedded Pragmatic Alzheimer’s Disease (AD) and AD-Related Dementias (AD/ADRD) Clinical Trial) Collaboratory (U54AG063546), 2022 -- present\
+-   DSMB Member, National Institute of Aging IMPACT (Imbedded Pragmatic Alzheimer’s Disease (AD) and AD-Related Dementias (AD/ADRD) Clinical Trial) Collaboratory (U54AG063546), 2022 -- 2026\
 -   DSMB Member, National Institute of Dental and Craniofacial Research, study: "Opioid Analgesic Reduction Study (OARS): Managing Acute Post-Operative Surgical Pain", 2022 -- 2023\
 -   DSMB Member, National Institute of Dental and Craniofacial Research, study: "De-Implementing Opioid Use and Implementing Optimal Pain Management Following Dental Extractions", 2019 -- 2023
 
@@ -863,7 +863,7 @@ All are at The Ohio State University unless otherwise specified
 
 ### PhD Dissertation Committee Member
 
--   Patrick McHugh, Statistics, 2026 -- present
+-   Patrick McHugh, Statistics, 2026
 -   Sergio Martinez, Michigan Program in Survey and Data Science (University of Michigan), 2026 -- present
 -   Maria Pacheco Garrillo, Health Behavior and Health Promotion, 2025 -- present
 -   Megan Fisher, Clinical Psychology, 2025 -- present
@@ -952,6 +952,7 @@ All are at The Ohio State University unless otherwise specified
 
 ### MS Thesis/MPH Project Committee Member
 
+-   Ben Clark, Biomedical Informatics MS, 2026 -- present
 -   Alex Tranovich, Program for Experienced Professionals (PEP) MPH, 2025
 -   Patrick Quinn, Biomedical Informatics MPH, 2024 -- 2025
 -   Monica Stanwick, Health Behavior Health Promotion MPH, 2024 -- 2025
