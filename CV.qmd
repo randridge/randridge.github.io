@@ -156,9 +156,11 @@ University of Michigan
     -   Autumn 2019, Autumn 2023, Autumn 2025
     -   SEI overall score (out of 5): 5.0, 5.0
     -   Survey of the Student Learning Experience (SSLE) mean score range (out of 5): 4.9-4.9 (AU25)
--   Doctoral Seminar (PUBHBIO 8899)
+-   Doctoral Seminar (Biostatistics) (PUBHBIO 8899)
     -   Autumn 2013
     -   SEI overall score (out of 5): N/A (below response count threshold)
+-   Doctoral Seminar: Teaching Methods (PUBHLTH 8899.03)
+    -   Autumn 2026
 -   Basic Biostatistics (PUBHLTH 670.03/7350.03) (CPH Summer Program, 1 week)
     -   Summer 2011, Summer 2013
 
@@ -241,6 +243,7 @@ All are at The Ohio State University
 
 ### Biomedical Applications
 
+1. Odar Stough C, Singh Khalsa A, Bradley R, Garr K, Keim SA, Zvara B, **Andridge R**, Anderson SE (IN PRESS). Brief report: Caregiver and family factors related to Life's Essential 8 in young children. *Journal of Pediatric Health Care*.
 1. Phansikar M, Fisher ME, Duraney EJ, Shankar A, McPherson N, Canter R, Aghamoosa S, **Andridge R**, Prakash R (FORMALLY ACCEPTED). Efficacy of mindfulness-based stress reduction for improving fluid and everyday cognitive functioning in older adults: Results from the Healthy Agers randomized controlled trial. *Mindfulness*.
 1.  Wilson SJ, Madison AA, Shrout MR, Christian LM, Epel ES, Burd CE, Lin J, Molli SH, **Andridge R**, Reis HT, Kiecolt-Glaser JK (IN PRESS). Is a happy marriage a double-edged sword for biological aging? Preliminary evidence for the moderating role of couples’ health behaviors. *Brain, Behavior, and Immunity*.
 1. Christian LM, Morgan E, **Andridge RR**, Peng J, Marlar J, Manning WD, Cole SW, McDade TW, Camp Dush CM  (FORMALLY ACCEPTED). The National Couples’ Health and Time Stress Biology Study (NCHAT-BIO): Wave 1 Methodology Report and Wave 3 Preview. *Biopsychosocial Science and Medicine*.
@@ -407,7 +410,6 @@ All are at The Ohio State University
 1.  Shively KB, Tassé MJ, Das T, **Andridge RR**. Psychometric properties of the Nisonger Child Behavior Rating Form-2: Parent Scale. *American Journal on Intellectual and Developmental Disabilities*, revision submitted (2026).
 1. Tapp Z, Beales JT, Adarkwah Yiadom S, Sardesai SD, Williams NO, Gatti-Mays ME, Stover DG, Sudheendra PK, Dawson E, Wesolowski R, **Andridge RR**, Pyter LM. Chemotherapy-induced sleep disturbances mediate circulating IL-1$\beta$ effects on subjective cognitive decline in breast cancer patients. *Brain, Behavior, and Immunity*, submitted (2026).
 2.  Christian LM, Blevins T, **Andridge RR**, Peng J, McDade TW, Cole SW, Manning WD, Kamp Dush CM. Positive and negative coping behaviors: Associations with immune function in a sexually diverse US sample. *PLOS One*, revision submitted (2026).
-3.  Stough CO, Khalsa AS, Bradley R, Garr K, Keim SA, Zvara B, **Andridge R**, Anderson SE. Caregiver and Family Factors Related to Life’s Essential 8 in Young Children. *Journal of Pediatric Health Care*, submitted (2026).
 5.  Madison AA, Belury MA, **Andridge R**, Wilson SJ, Shrout MR, Jaremka L, Fagundes CP, Malarkey WB, Kiecolt-Glaser JK. A high saturated fat meal reduces constructive conflict behavior: A randomized-to-sequence crossover trial. *Molecular Psychiatry*, submitted (2025).
 6.  Kruse AB, Anderson SE, **Andridge R**, Keim SA, Zvara B. Family mealtime structure, child behavior at meals, use of food as a reward, and obesity in preschool-aged children: A cross sectional analysis from the Play & Grow Study, *Journal of Pediatric Health Care*, submitted (2025).
 
