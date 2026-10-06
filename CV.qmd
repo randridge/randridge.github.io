@@ -598,8 +598,9 @@ All are at The Ohio State University
 
 ### Invited: National/International
 
+-   *Selection Bias in Experimental Results: A Proxy Pattern-Mixture Model for Randomized Trial Generalizability*, International Day of Women in Statistics and Data Science, Virtual, October 2026
 -   *Analyses for Nonignorable Selection Bias When Estimating Subgroup Parameters in Nonprobability Samples: A Weighting Approach*, University of Michigan Program in Survey and Data Science/Joint Program in Survey Methodology Seminar, January 2026 (talk given virtually)
--   *Online (Bio)statistical Courses in the Era of Generative AI: Opportunities and Challenges* (Panelist), Joint Statistical Meetings, Portland, OR, 2024
+-   *Online (Bio)statistical Courses in the Era of Generative AI: Opportunities and Challenges* (Panelist), Joint Statistical Meetings, Portland, OR, August 2024
 -   *When "representative" surveys fail: Can a non-ignorable missingness mechanism explain bias in estimates of COVID-19 vaccine uptake?*, University of Michigan/University of Maryland Joint Program in Survey Methodology Seminar, March 2024 (talk given virtually)
 -   *When "representative” surveys fail: Can a non-ignorable missingness mechanism explain bias in estimates of COVID-19 vaccine uptake?*, Colorado University, Department of Biostatistics and Informatics, February 2024 (talk given virtually)
 -   *It’s who is missing that matters: Can a nonignorable missingness mechanism explain bias in estimates of COVID-19 vaccine uptake?*, Joint Statistical Meetings, Toronto, Ontario, August 2023
@@ -727,11 +728,11 @@ All are at The Ohio State University
 
 -   Co-Chair, Higher Learning Commission (HLC) Coordinating Committee, 2025 -- present
 -   Member, University Level Advisory Committee for General Education (ULAC), 2024 -- present
+-   Member, Survey of the Student Learning Experience (SSLE) Subcommittee [formerly Student Evaluation of Instruction (SEI) Subcommittee], Council on Academic Affairs, 2023 -- present
+-   Member, General Education Themes Review Panel, 2023 -- present
 -   Member, OAA Curriculum Handbook Review Committee, 2024 -- 2025
 -   Member, Search Advisory Committee for Dean of the College of Public Health, 2023 -- 2024
--   Member, Student Evaluation of Instruction (SEI) Subcommittee, Council on Academic Affairs, 2023 -- present
 -   Member (Chair 2022-2023), Council on Academic Affairs, 2017 -- 2023
--   Member, General Education Themes Review Panel, 2023 -- present
 -   Member, Enrollment Policies and Student Transitions Working Group (OSU Office of Strategic Enrollments Management), 2023 -- 2024
 -   Member, General Education Fiscal Oversight Committee, 2021 -- 2024
 -   Faculty Champion for Interprofessional Practice and Education (representing Public Health), 2021 -- 2022
@@ -761,10 +762,10 @@ All are at The Ohio State University
 ### Division (Ohio State)
 
 -   First Year MS/MPH Student Academic Advisor, 2026 -- present
+-   Chair, MPH/MS Biostatistics Admissions Committee, 2009 -- 2011, 2014 -- 2016, 2026 -- present
 -   Member, PhD Program in Biostatistics Admissions Committee, 2011 -- 2014, 2023 -- 2024
--   Member, PhD Program in Biostatistics Qualifying Exam 2 Committee, 2024 -- present
+-   Member, PhD Program in Biostatistics Qualifying Exam 2 Committee, 2024 -- 2025
 -   Mentor, Biostatistics PhD Student Mentoring Program, 2020 -- 2022
--   Chair, MPH/MS Biostatistics Admissions Committee, 2009 -- 2011, 2014 -- 2016
 -   Member, PhD Program in Biostatistics Curriculum Committee, 2011 -- 2015
 -   Vice-Chair, PhD Program in Biostatistics Graduate Studies Committee, 2011 -- 2014
 -   Member, Division of Biostatistics Faculty Search Committee, 2011 -- 2013
@@ -853,7 +854,7 @@ All are at The Ohio State University unless otherwise specified
 ### PhD Dissertation Advisor
 
 -   **Lingpeng (Andrew) Shan**, Biostatistics, 2025 -- 2026 (Co-advisor with Dr. Michael Pennell)
-    <!-- -   Current status: Post-candidacy -->
+    <!-- -   Current Position: XXX -->
 -   **Seth Adarkwah Yiadom**, Biostatistics, 2022 -- 2026
     -   Current Position: Senior Researcher, Ohio Colleges of Medicine Government Resource Center
 -   **Brittney Bailey**, Biostatistics, 2016 -- 2018 (Co-advisor with Dr. Abigail Shoben)
