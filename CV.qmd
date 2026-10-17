@@ -242,8 +242,8 @@ All are at The Ohio State University
 
 ### Biomedical Applications
 
-1. Odar Stough C, Singh Khalsa A, Bradley R, Garr K, Keim SA, Zvara B, **Andridge R**, Anderson SE (IN PRESS). Brief report: Caregiver and family factors related to Life's Essential 8 in young children. *Journal of Pediatric Health Care*.
-1. Phansikar M, Fisher ME, Duraney EJ, Shankar A, McPherson N, Canter R, Aghamoosa S, **Andridge R**, Prakash R (FORMALLY ACCEPTED). Efficacy of mindfulness-based stress reduction for improving fluid and everyday cognitive functioning in older adults: Results from the Healthy Agers randomized controlled trial. *Mindfulness*.
+1. Odar Stough C, Singh Khalsa A, Bradley R, Garr K, Keim SA, Zvara B, **Andridge R**, Anderson SE (IN PRESS). [Brief report: Caregiver and family factors related to Life's Essential 8 in young children.](https://doi.org/10.1016/j.pedhc.2026.08.004) *Journal of Pediatric Health Care*.
+1. Phansikar M, Fisher ME, Duraney EJ, Shankar A, McPherson N, Canter R, Aghamoosa S, **Andridge R**, Prakash R (IN PRESS). [Efficacy of mindfulness-based stress reduction for improving fluid and everyday cognitive functioning in older adults: Results from the Healthy Agers randomized controlled trial.](https://doi.org/10.1007/s12671-026-02970-z) *Mindfulness*.
 1.  Wilson SJ, Madison AA, Shrout MR, Christian LM, Epel ES, Burd CE, Lin J, Molli SH, **Andridge R**, Reis HT, Kiecolt-Glaser JK (IN PRESS). Is a happy marriage a double-edged sword for biological aging? Preliminary evidence for the moderating role of couples’ health behaviors. *Brain, Behavior, and Immunity*.
 1. Christian LM, Morgan E, **Andridge RR**, Peng J, Marlar J, Manning WD, Cole SW, McDade TW, Camp Dush CM  (FORMALLY ACCEPTED). The National Couples’ Health and Time Stress Biology Study (NCHAT-BIO): Wave 1 Methodology Report and Wave 3 Preview. *Biopsychosocial Science and Medicine*.
 1.   Madison AA, Kamp Dush CM, McDade TW, Peng J, **Andridge RR**, Cole SW, Blevins T, Kasibhatla N, Manning W, Christian LM (2026) [Social support, loneliness, and inflammation in LGB+ subgroups: Health disparities in a partnered U.S. cohort.](https://doi.org/10.1097/psy.0000000000001476) *Biopsychosocial Science and Medicine*, 88(4), 369-378.
@@ -635,6 +635,7 @@ All are at The Ohio State University
 
 ### Invited: Local
 
+-   *AI Fluency Outcomes in Public Health*, OSU AI Fluency Forum, Columbus, OH, October 2026
 -   *Working with What’s Missing: Ethical Strategies for Incomplete Data*, OSU Center for Ethics and Human Values, CARE Panel (Conversations About Research Ethics), Virtual, February 2026
 -   *Problematic polls and suspect surveys: Assessing the potential for non-ignorable selection and nonresponse bias*, OSU Institute for Population Research Seminar, Columbus, OH, September 2024
 -   *The human element: Lessons from an ethics in biostatistics course* (with A Shoben), OSU Statistics Seminar, Columbus, OH, April 2024
@@ -854,8 +855,10 @@ All are at The Ohio State University unless otherwise specified
 ### PhD Dissertation Advisor
 
 -   **Lingpeng (Andrew) Shan**, Biostatistics, 2025 -- 2026 (Co-advisor with Dr. Michael Pennell)
-    <!-- -   Current Position: XXX -->
+    -   Dissertation: *Bayesian Joint Modeling of Longitudinal Data and Binary Endpoint: Variable Selection and Selection Bias Adjustment*
+    -   Current Position: Biostatistician, Regeneron.
 -   **Seth Adarkwah Yiadom**, Biostatistics, 2022 -- 2026
+    -   Dissertation: *Extending the Proxy Pattern-Mixture Model for Nonignorable Selection Bias in Surveys: Model Interpretation and Subgroup Estimation*
     -   Current Position: Senior Researcher, Ohio Colleges of Medicine Government Resource Center
 -   **Brittney Bailey**, Biostatistics, 2016 -- 2018 (Co-advisor with Dr. Abigail Shoben)
     -   Dissertation: *Data Analysis and Multiple Imputation for Two-Level Nested Designs*
