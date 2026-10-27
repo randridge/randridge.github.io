@@ -202,6 +202,7 @@ All are at The Ohio State University
 
 *$^*$ = student advisee*
 
+1.  West BT, **Andridge RR** (FORMALLY ACCEPTED). Improved mass imputation in probability samples via adjustment of imputation models based on non-probability samples for selection bias. *Journal of the Royal Statistical Society -- Series A*.
 1.  Adarkwah Yiadom$^*$ S, **Andridge RR** (2026) [Re-expressing the proxy pattern-mixture model as a selection model to assist with sensitivity analysis](https://journals.sagepub.com/doi/10.1177/0282423X261457501). *Journal of Official Statistics*, 42(3), 507-526.
 1.  Martinez SD, West BT, **Andridge RR**. (2026) [Measures of non-ignorable selection bias for non-probability samples](https://isi-iass.org/home/wp-content/uploads/Survey_Statistician_2026_January_N93_05.pdf). *The Survey Statistician*, 93, 26-41. *(Editor Reviewed)*
 2.  **Andridge RR**, Song R$^*$, West BT. (2025) [A sensitivity analysis framework using the proxy pattern-mixture model for generalization of experimental results](https://doi.org/10.1002/sim.70313). *Statistics in Medicine*, 44:25-27, e70313.
@@ -228,9 +229,8 @@ All are at The Ohio State University
 23. **Andridge RR**, Little RJA (2010). [A review of hot deck imputation for survey nonresponse](https://doi.org/10.1111/j.1751-5823.2010.00103.x). *International Statistical Review*, 78; 40-64.
 24. **Andridge RR**, Little RJA (2009). [The use of sample weights in hot deck imputation](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3117228/). *Journal of Official Statistics*, 25; 21-36.
 
-**Under Review**
+<!-- **Under Review** -->
 
-1.  West BT, **Andridge RR**. Improved mass imputation in probability samples via adjustment of imputation models based on non-probability samples for selection bias. *Journal of the Royal Statistical Society -- Series A*, second revision submitted (7/2026).
 
 ### Statistical Education
 
