@@ -202,7 +202,7 @@ All are at The Ohio State University
 
 *$^*$ = student advisee*
 
-1.  Adarkwah Yiadom$^*$ S, **Andridge RR**. (2026) [Re-expressing the proxy pattern-mixture model as a selection model to assist with sensitivity analysis](https://journals.sagepub.com/doi/10.1177/0282423X261457501). *Journal of Official Statistics*, online ahead of print.
+1.  Adarkwah Yiadom$^*$ S, **Andridge RR** (2026) [Re-expressing the proxy pattern-mixture model as a selection model to assist with sensitivity analysis](https://journals.sagepub.com/doi/10.1177/0282423X261457501). *Journal of Official Statistics*, 42(3), 507-526.
 1.  Martinez SD, West BT, **Andridge RR**. (2026) [Measures of non-ignorable selection bias for non-probability samples](https://isi-iass.org/home/wp-content/uploads/Survey_Statistician_2026_January_N93_05.pdf). *The Survey Statistician*, 93, 26-41. *(Editor Reviewed)*
 2.  **Andridge RR**, Song R$^*$, West BT. (2025) [A sensitivity analysis framework using the proxy pattern-mixture model for generalization of experimental results](https://doi.org/10.1002/sim.70313). *Statistics in Medicine*, 44:25-27, e70313.
 3.  **Andridge RR** (2024). [Using proxy pattern-mixture models to explain bias in estimates of COVID-19 vaccine uptake from two large surveys](https://doi.org/10.1093/jrsssa/qnae005). *Journal of the Royal Statistical Society -- Series A*, 187(3); 831-843.
@@ -242,7 +242,7 @@ All are at The Ohio State University
 
 ### Biomedical Applications
 
-1. Tapp Z, Beales JT, Adarkwah Yiadom S, Sardesai SD, Williams NO, Gatti-Mays ME, Stover DG, Sudheendra PK, Dawson E, Wesolowski R, **Andridge RR**, Pyter LM. [Self-reported sleep disturbances during chemotherapy mediate circulating IL-1$\beta$ effects on subjective cognitive decline in breast cancer patients.](https://doi.org/10.1016/j.bbi.2026.107089) *Brain, Behavior, and Immunity*.
+1. Tapp Z, Beales JT, Adarkwah Yiadom S, Sardesai SD, Williams NO, Gatti-Mays ME, Stover DG, Sudheendra PK, Dawson E, Wesolowski R, **Andridge RR**, Pyter LM (IN PRESS). [Self-reported sleep disturbances during chemotherapy mediate circulating IL-1$\beta$ effects on subjective cognitive decline in breast cancer patients.](https://doi.org/10.1016/j.bbi.2026.107089) *Brain, Behavior, and Immunity*.
 1. Odar Stough C, Singh Khalsa A, Bradley R, Garr K, Keim SA, Zvara B, **Andridge R**, Anderson SE (IN PRESS). [Brief report: Caregiver and family factors related to Life's Essential 8 in young children.](https://doi.org/10.1016/j.pedhc.2026.08.004) *Journal of Pediatric Health Care*.
 1. Phansikar M, Fisher ME, Duraney EJ, Shankar A, McPherson N, Canter R, Aghamoosa S, **Andridge R**, Prakash R (IN PRESS). [Efficacy of mindfulness-based stress reduction for improving fluid and everyday cognitive functioning in older adults: Results from the Healthy Agers randomized controlled trial.](https://doi.org/10.1007/s12671-026-02970-z) *Mindfulness*.
 1.  Wilson SJ, Madison AA, Shrout MR, Christian LM, Epel ES, Burd CE, Lin J, Molli SH, **Andridge R**, Reis HT, Kiecolt-Glaser JK (IN PRESS). Is a happy marriage a double-edged sword for biological aging? Preliminary evidence for the moderating role of couples’ health behaviors. *Brain, Behavior, and Immunity*.
